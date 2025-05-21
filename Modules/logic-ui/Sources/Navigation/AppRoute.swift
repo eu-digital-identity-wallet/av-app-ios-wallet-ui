@@ -179,6 +179,17 @@ public enum FeatureIssuanceRouteModule: AppRouteModule {
   }
 }
 
+public enum FeatureOnboardingRouteModule: AppRouteModule {
+    case home
+
+    public var info: (key: String, arguments: [String: String]) {
+        return switch self {
+        case .home:
+            (key: "Home", arguments: [:])
+        }
+    }
+}
+
 public enum AppRoute: AppRouteModule {
 
   case featureStartupModule(FeatureStartupRouteModule)
@@ -187,6 +198,7 @@ public enum AppRoute: AppRouteModule {
   case featureIssuanceModule(FeatureIssuanceRouteModule)
   case featurePresentationModule(FeaturePresentationRouteModule)
   case featureProximityModule(FeatureProximityRouteModule)
+  case featureOnboardingModule(FeatureOnboardingRouteModule)
 
   public var info: (key: String, arguments: [String: String]) {
     return switch self {
@@ -202,6 +214,8 @@ public enum AppRoute: AppRouteModule {
       module.info
     case .featureProximityModule(let module):
       module.info
+    case .featureOnboardingModule(let module):
+        module.info
     }
   }
 }

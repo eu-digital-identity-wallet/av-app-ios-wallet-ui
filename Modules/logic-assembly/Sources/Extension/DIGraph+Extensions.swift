@@ -34,7 +34,8 @@ public extension DIGraph {
         FeatureDashboardAssembly(),
         FeaturePresentationAssembly(),
         FeatureProximityAssembly(),
-        FeatureIssuanceAssembly()
+        FeatureIssuanceAssembly(),
+        FeatureOnboardingAssembly()
       ]
     )
   }
