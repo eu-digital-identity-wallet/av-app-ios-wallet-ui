@@ -69,9 +69,10 @@ final class StartupInteractorImpl: StartupInteractor {
         )
       )
     } else {
-      return .featureCommonModule(
-        .quickPin(config: QuickPinUiConfig(flow: .set))
-      )
+        return .featureOnboardingModule(.welcome)
+//      return .featureCommonModule(
+//        .quickPin(config: QuickPinUiConfig(flow: .set))
+//      )
     }
   }
 
