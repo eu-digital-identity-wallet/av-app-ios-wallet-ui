@@ -180,12 +180,18 @@ public enum FeatureIssuanceRouteModule: AppRouteModule {
 }
 
 public enum FeatureOnboardingRouteModule: AppRouteModule {
-    case home
+    case welcome
+    case consent
+    case enrollment
 
     public var info: (key: String, arguments: [String: String]) {
         return switch self {
-        case .home:
-            (key: "Home", arguments: [:])
+        case .welcome:
+            (key: "Welcome", arguments: [:])
+        case .consent
+            : (key: "Consent", arguments: [:])
+        case .enrollment:
+            (key: "Enrollment", arguments: [:])
         }
     }
 }

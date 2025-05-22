@@ -1,8 +1,8 @@
 //
-//  OnboardingHomeView.swift
+//  OnboardingTabsView.swift
 //  feature-onboarding
 //
-//  Created by Bharat Jagtap on 21/05/25.
+//  Created by Bharat Jagtap on 22/05/25.
 //
 
 import SwiftUI
@@ -10,40 +10,14 @@ import feature_common
 import logic_resources
 import logic_core
 
-struct OnboardingHomeView<Router: RouterHost>: View {
-    @ObservedObject var viewModel: OnboardingHomeViewModel<Router>
-
-    init(with viewModel: OnboardingHomeViewModel<Router>) {
-        self.viewModel = viewModel
-    }
-
-    var body: some View {
-        ContentScreenView(
-            padding: .zero,
-            canScroll: true,
-            errorConfig: viewModel.viewState.error,
-            background: Theme.shared.color.surface,
-            navigationTitle: .details
-        ) {
-            content(state: viewModel.viewState)
-        }
-    }
-}
-
-@MainActor
-@ViewBuilder
-private func content(state: OnboardingHomeViewState) -> some View {
-    VStack {
-        AVSegment(items: ["Welcome", "Consent", "Security", "Verification"])
-        Spacer()
-    }
-    .frame(maxWidth: .infinity, maxHeight: .infinity)
-    .background(Theme.shared.color.surface)
-}
-
-struct AVSegment: View {
+struct OnboardingTabsView: View {
     var items: [String]
     @State var selectedIndex: Int = 0
+
+    init(items: [String], selectedIndex: Int = 0) {
+        self.items = items
+        self.selectedIndex = selectedIndex
+    }
 
     var body: some View {
         HStack {

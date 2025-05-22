@@ -13,8 +13,14 @@ import logic_core
 public final class OnboardingRouter {
     public static func resolve(module: FeatureOnboardingRouteModule, host: some RouterHost) -> AnyView {
         switch module {
-        case .home:
-            OnboardingHomeView(with: .init(router: host))
+        case .welcome:
+            WelcomeView(with: .init(router: host))
+                .eraseToAnyView()
+        case .consent:
+            ConsentView(with: .init(router: host))
+                .eraseToAnyView()
+        case .enrollment:
+            EnrollmentView(with: .init(router: host))
                 .eraseToAnyView()
         }
     }
