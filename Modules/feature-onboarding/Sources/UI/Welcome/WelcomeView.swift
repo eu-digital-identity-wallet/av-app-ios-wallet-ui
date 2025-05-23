@@ -12,11 +12,10 @@ import logic_core
 
 struct WelcomeView<Router: RouterHost>: View {
     @ObservedObject var viewModel: WelcomeViewModel<Router>
-
     init(with viewModel: WelcomeViewModel<Router>) {
         self.viewModel = viewModel
     }
-
+    
     var body: some View {
         ZStack {
             Theme.shared.color.surface
@@ -39,6 +38,7 @@ struct WelcomeView<Router: RouterHost>: View {
 @ViewBuilder
 private func content(state: WelcomeViewState,
                      onNext: @escaping () -> Void) -> some View {
+    
     VStack {
         OnboardingTabsView(selectedIndex: 0)
         Spacer()
@@ -52,4 +52,5 @@ private func content(state: WelcomeViewState,
         .padding()
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)
+
 }
