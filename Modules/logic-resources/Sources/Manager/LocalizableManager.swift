@@ -522,6 +522,14 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "welcome_screen_skip")
     case .welcomeNextButton:
         bundle.localizedString(forKey: "welcome_screen_next")
+    case .onboardingStepWelcome:
+        bundle.localizedString(forKey: "onboarding_step_1_title")
+    case .onboardingStepConsent:
+        bundle.localizedString(forKey: "onboarding_step_2_title")
+    case .onboardoingStepPin:
+        bundle.localizedString(forKey: "onboarding_step_3_title")
+    case .onboardingStepEnrollment:
+        bundle.localizedString(forKey: "onboarding_step_4_title")
     }
   }
 }

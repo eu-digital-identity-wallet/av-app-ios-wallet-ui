@@ -34,7 +34,7 @@ struct EnrollmentView<Router: RouterHost>: View {
 @ViewBuilder
 private func content(state: EnrollmentViewState) -> some View {
     VStack {
-        OnboardingTabsView(items: ["Welcome", "Consent", "Security", "Verification"], selectedIndex: 3)
+        OnboardingTabsView(selectedIndex: 3)
         Spacer()
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)

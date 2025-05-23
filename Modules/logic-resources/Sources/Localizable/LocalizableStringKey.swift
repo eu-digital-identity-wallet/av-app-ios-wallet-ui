@@ -255,6 +255,12 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case transactionDetailsReportTransactionButton
 
     // feature-onboarding
+    case onboardingStepWelcome
+    case onboardingStepConsent
+    case onboardoingStepPin
+    case onboardingStepEnrollment
+
+    // welcome step
     case welcomeTitle1
     case welcomePage1
     case welcomeTitle2
@@ -263,6 +269,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
     case welcomePage3
     case welcomeSkipButton
     case welcomeNextButton
+
 }
 
 public extension LocalizableStringKey {

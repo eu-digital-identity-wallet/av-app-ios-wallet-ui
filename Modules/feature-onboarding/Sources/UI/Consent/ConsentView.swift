@@ -20,7 +20,7 @@ struct ConsentView<Router: RouterHost>: View {
     var body: some View {
         ContentScreenView(
             padding: .zero,
-            canScroll: true,
+            canScroll: false,
             errorConfig: viewModel.viewState.error,
             background: Theme.shared.color.surface,
             navigationTitle: .details
@@ -34,8 +34,7 @@ struct ConsentView<Router: RouterHost>: View {
 @ViewBuilder
 private func content(state: ConsentViewState) -> some View {
     VStack {
-        OnboardingTabsView(items: ["Welcome", "Consent", "Security", "Verification"],
-                           selectedIndex: 1)
+        OnboardingTabsView(selectedIndex: 1)
         Spacer()
         Text("Consent View")
     }

@@ -18,15 +18,18 @@ struct WelcomeView<Router: RouterHost>: View {
     }
 
     var body: some View {
-        ContentScreenView(
-            padding: .zero,
-            canScroll: true,
-            errorConfig: viewModel.viewState.error,
-            background: Theme.shared.color.surface,
-            navigationTitle: .details
-        ) {
-            content(state: viewModel.viewState) {
-                viewModel.onNext()
+        ZStack {
+            Theme.shared.color.surface
+                .ignoresSafeArea(.all)
+            ContentScreenView(
+                padding: .zero,
+                canScroll: false,
+                errorConfig: viewModel.viewState.error,
+                background: Theme.shared.color.surface
+            ) {
+                content(state: viewModel.viewState) {
+                    viewModel.onNext()
+                }
             }
         }
     }
@@ -37,7 +40,7 @@ struct WelcomeView<Router: RouterHost>: View {
 private func content(state: WelcomeViewState,
                      onNext: @escaping () -> Void) -> some View {
     VStack {
-        OnboardingTabsView(items: ["Welcome", "Consent", "Security", "Verification"])
+        OnboardingTabsView(selectedIndex: 0)
         Spacer()
         WrapButtonView(
             style: .primary,
@@ -46,8 +49,7 @@ private func content(state: WelcomeViewState,
             isEnabled: true,
             onAction: onNext()
         )
-        Spacer(minLength: 30)
+        .padding()
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)
-    .background(Theme.shared.color.surface)
 }
