@@ -28,3 +28,4 @@
 @_exported import feature_presentation
 @_exported import feature_issuance
 @_exported import feature_proximity
+@_exported import feature_onboarding

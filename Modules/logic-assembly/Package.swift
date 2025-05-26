@@ -18,7 +18,8 @@ let package = Package(
     .package(name: "feature-dashboard", path: "./feature-dashboard"),
     .package(name: "feature-presentation", path: "./feature-presentation"),
     .package(name: "feature-issuance", path: "./feature-issuance"),
-    .package(name: "feature-proximity", path: "./feature-proximity")
+    .package(name: "feature-proximity", path: "./feature-proximity"),
+    .package(name: "feature-onboarding", path: "./feature-onboarding")
   ],
   targets: [
     .target(
@@ -29,7 +30,8 @@ let package = Package(
         "feature-dashboard",
         "feature-presentation",
         "feature-issuance",
-        "feature-proximity"
+        "feature-proximity",
+        "feature-onboarding"
       ],
       path: "./Sources"
     )

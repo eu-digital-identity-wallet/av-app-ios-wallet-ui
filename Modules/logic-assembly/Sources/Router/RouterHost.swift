@@ -34,7 +34,7 @@ final class RouterHostImpl: RouterHost {
   ) {
     self.uiConfigLogic = uiConfigLogic
     self.analyticsController = analyticsController
-    self.pilot = UIPilot(initial: .featureStartupModule(.startup), debug: true)
+      self.pilot = UIPilot(initial: .featureStartupModule(.startup), debug: true)
   }
 
   public func push(with route: AppRoute) {
@@ -178,6 +178,8 @@ private extension RouterHostImpl {
       PresentationRouter.resolve(module: module, host: self)
     case .featureProximityModule(let module):
       ProximityRouter.resolve(module: module, host: self)
+    case .featureOnboardingModule(let module):
+        OnboardingRouter.resolve(module: module, host: self)
     }
   }
 }
