@@ -430,6 +430,61 @@
         }
       }
     },
+    "consent_checkbox_label_1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I accept the Terms of Service"
+          }
+        }
+      }
+    },
+    "consent_checkbox_label_2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I accept the Data Protection Information"
+          }
+        }
+      }
+    },
+    "consent_hyperlink_label_1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms of Service"
+          }
+        }
+      }
+    },
+    "consent_hyperlink_label_2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data Protection Information"
+          }
+        }
+      }
+    },
+    "consent_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "First we need your consent"
+          }
+        }
+      }
+    },
     "credential_offer_partial_success_caption" : {
       "extractionState" : "manual",
       "localizations" : {

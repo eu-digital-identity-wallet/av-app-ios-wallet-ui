@@ -68,6 +68,8 @@ public protocol ImageManagerProtocol: Sendable {
   var documentSuccessPending: Image { get }
   var verified: Image { get }
   var ageVerification: Image { get }
+  var checkboxChecked: Image { get }
+  var checkboxUnchecked: Image { get }
 }
 
 final class ImageManager: ImageManagerProtocol {
@@ -125,6 +127,8 @@ final class ImageManager: ImageManagerProtocol {
     case documentSuccessPending = "document-success-pending"
     case verified = "verified"
     case ageVerification = "age-verification"
+    case checkboxChecked = "checkbox-checked"
+    case checkboxUnchecked = "checkbox-unchecked"
   }
 
   // MARK: - Properties
@@ -291,5 +295,11 @@ final class ImageManager: ImageManagerProtocol {
   }
     var ageVerification: Image {
     Image(ImageEnum.ageVerification.rawValue, bundle: bundle)
+  }
+  var checkboxChecked: Image {
+    Image(ImageEnum.checkboxChecked.rawValue, bundle: bundle)
+  }
+  var checkboxUnchecked: Image {
+    Image(ImageEnum.checkboxUnchecked.rawValue, bundle: bundle)
   }
 }
