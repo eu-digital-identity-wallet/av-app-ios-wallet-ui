@@ -28,7 +28,7 @@ struct ConsentView<Router: RouterHost>: View {
             navigationTitle: .details
         ) {
             content(state: viewModel.viewState, checkbox1Checked: $checkbox1Checked, checkbox2Checked: $checkbox2Checked) {
-                viewModel.onNext()
+               // viewModel.onNext()
             }
         }
     }
