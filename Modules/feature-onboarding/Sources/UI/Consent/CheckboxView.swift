@@ -10,7 +10,7 @@ import logic_resources
 import logic_core
 
 struct CheckboxView: View {
-    @Binding var isChecked: Bool
+    @State var isChecked: Bool
     var label: String
     
     var body: some View {

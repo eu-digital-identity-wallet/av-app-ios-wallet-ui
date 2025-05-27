@@ -12,8 +12,6 @@ import logic_core
 
 struct ConsentView<Router: RouterHost>: View {
     @ObservedObject var viewModel: ConsentViewModel<Router>
-    @State private var checkbox1Checked = false
-    @State private var checkbox2Checked = false
     
     init(with viewModel: ConsentViewModel<Router>) {
         self.viewModel = viewModel
@@ -27,8 +25,8 @@ struct ConsentView<Router: RouterHost>: View {
             background: Theme.shared.color.surface,
             navigationTitle: .details
         ) {
-            content(state: viewModel.viewState, checkbox1Checked: $checkbox1Checked, checkbox2Checked: $checkbox2Checked) {
-               // viewModel.onNext()
+            content(state: viewModel.viewState) {
+                viewModel.onNext()
             }
         }
     }
@@ -36,7 +34,7 @@ struct ConsentView<Router: RouterHost>: View {
 
 @MainActor
 @ViewBuilder
-private func content(state: ConsentViewState, checkbox1Checked: Binding<Bool>, checkbox2Checked: Binding<Bool>, onNext: @escaping () -> Void) -> some View {
+private func content(state: ConsentViewState, onNext: @escaping () -> Void) -> some View {
     VStack {
         OnboardingTabsView(selectedIndex: 1)
         VStack(alignment: .leading) {
@@ -45,9 +43,9 @@ private func content(state: ConsentViewState, checkbox1Checked: Binding<Bool>, c
                 .fontWeight(.medium)
                 .padding(.bottom, SPACING_EXTRA_LARGE)
             
-            CheckboxView(isChecked: checkbox1Checked, label: LocalizableStringKey.consentCheckboxLabel1.toString)
+            CheckboxView(isChecked: state.checkbox1Checked, label: LocalizableStringKey.consentCheckboxLabel1.toString)
             
-            CheckboxView(isChecked: checkbox2Checked, label: LocalizableStringKey.consentCheckboxLabel2.toString)
+            CheckboxView(isChecked: state.checkbox1Checked, label: LocalizableStringKey.consentCheckboxLabel2.toString)
 
             HyperLinkView(label: LocalizableStringKey.consentHyperlinkLabel1.toString, onLinkTap: {
                 debugPrint("Terms of Service tapped")
@@ -65,7 +63,7 @@ private func content(state: ConsentViewState, checkbox1Checked: Binding<Bool>, c
             style: .primary,
             title: .welcomeSkipButton,
             isLoading: false,
-            isEnabled: (checkbox1Checked.wrappedValue && checkbox2Checked.wrappedValue) ? true : false,
+            isEnabled: (state.checkbox1Checked && state.checkbox2Checked) ? true : false,
             onAction: onNext()
         )
         .padding()

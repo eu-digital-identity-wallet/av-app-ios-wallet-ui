@@ -8,6 +8,7 @@
 import logic_ui
 import logic_resources
 import feature_common
+import Foundation
 
 @Copyable
 struct ConsentViewState: ViewState {
@@ -15,6 +16,8 @@ struct ConsentViewState: ViewState {
     let uiModel: ConsentViewUiModel?
     let isLoading: Bool
     let error: ContentErrorView.Config?
+    var checkbox1Checked: Bool
+    var checkbox2Checked: Bool
 }
 
 final class ConsentViewModel<Router: RouterHost>: ViewModel<Router, ConsentViewState> {
@@ -23,8 +26,13 @@ final class ConsentViewModel<Router: RouterHost>: ViewModel<Router, ConsentViewS
                    initialState: .init(title: .completed,
                                        uiModel: ConsentViewUiModel.mock(),
                                        isLoading: true,
-                                       error: nil
+                                       error: nil,
+                                       checkbox1Checked: false,
+                                       checkbox2Checked: false,
                                       )
         )
+    }
+    func onNext() {
+        router.push(with: .featureOnboardingModule(.enrollment))
     }
 }
