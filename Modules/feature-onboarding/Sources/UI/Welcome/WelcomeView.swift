@@ -41,7 +41,7 @@ private func content(state: WelcomeViewState,
     
     VStack {
         OnboardingTabsView(selectedIndex: 0)
-        WelcomeInfoCarousal()
+        WelcomeInfoCarousel()
         Spacer()
         WrapButtonView(
             style: .primary,

@@ -16,8 +16,9 @@ struct ConsentViewState: ViewState {
     let uiModel: ConsentViewUiModel?
     let isLoading: Bool
     let error: ContentErrorView.Config?
-    var checkbox1Checked: Bool
-    var checkbox2Checked: Bool
+    let termsOfServiceAccepted: Bool
+    let dataProtectionInfoAccepted: Bool
+    let nextButtonEnabled: Bool
 }
 
 final class ConsentViewModel<Router: RouterHost>: ViewModel<Router, ConsentViewState> {
@@ -27,12 +28,37 @@ final class ConsentViewModel<Router: RouterHost>: ViewModel<Router, ConsentViewS
                                        uiModel: ConsentViewUiModel.mock(),
                                        isLoading: true,
                                        error: nil,
-                                       checkbox1Checked: false,
-                                       checkbox2Checked: false,
+                                       termsOfServiceAccepted: false,
+                                       dataProtectionInfoAccepted: false,
+                                       nextButtonEnabled: false
                                       )
         )
     }
     func onNext() {
         router.push(with: .featureOnboardingModule(.enrollment))
+    }
+    func onTermsOfServiceChanged(ischecked: Bool) {
+        setState {
+            $0.copy(
+                termsOfServiceAccepted: ischecked
+            )
+        }
+        updateNextButtonState()
+    }
+    func onDataProtectionInfoChanged(isChecked: Bool) {
+        setState {
+            $0.copy(
+                dataProtectionInfoAccepted: isChecked
+            )
+        }
+        updateNextButtonState()
+    }
+    private func updateNextButtonState() {
+        let newState = viewState.termsOfServiceAccepted && viewState.dataProtectionInfoAccepted
+        setState {
+            $0.copy(
+                nextButtonEnabled: newState
+            )
+        }
     }
 }

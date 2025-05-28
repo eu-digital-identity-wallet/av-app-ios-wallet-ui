@@ -17,7 +17,7 @@ struct WelcomeInfoItem: Identifiable {
     let body: String
 }
 
-struct WelcomeInfoCarousal: View {
+struct WelcomeInfoCarousel: View {
     @State private var selection = 0
     let pages: [WelcomeInfoItem] = [
         WelcomeInfoItem(image: Theme.shared.image.ageVerification,

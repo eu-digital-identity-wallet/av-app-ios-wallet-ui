@@ -25,16 +25,14 @@ struct ConsentView<Router: RouterHost>: View {
             background: Theme.shared.color.surface,
             navigationTitle: .details
         ) {
-            content(state: viewModel.viewState) {
-                viewModel.onNext()
-            }
+            content(state: viewModel.viewState, onNext: viewModel.onNext, onTermsChanged: viewModel.onTermsOfServiceChanged(ischecked:), onDataProtectionChanged: viewModel.onDataProtectionInfoChanged(isChecked:))
         }
     }
 }
 
 @MainActor
 @ViewBuilder
-private func content(state: ConsentViewState, onNext: @escaping () -> Void) -> some View {
+private func content(state: ConsentViewState, onNext: @escaping () -> Void, onTermsChanged: @escaping (Bool) -> Void, onDataProtectionChanged: @escaping (Bool) -> Void) -> some View {
     VStack {
         OnboardingTabsView(selectedIndex: 1)
         VStack(alignment: .leading) {
@@ -43,9 +41,13 @@ private func content(state: ConsentViewState, onNext: @escaping () -> Void) -> s
                 .fontWeight(.medium)
                 .padding(.bottom, SPACING_EXTRA_LARGE)
             
-            CheckboxView(isChecked: state.checkbox1Checked, label: LocalizableStringKey.consentCheckboxLabel1.toString)
+            CheckboxView(isChecked: state.termsOfServiceAccepted, label: LocalizableStringKey.consentCheckboxLabel1.toString) { ischecked in
+                onTermsChanged(ischecked)
+            }
             
-            CheckboxView(isChecked: state.checkbox1Checked, label: LocalizableStringKey.consentCheckboxLabel2.toString)
+            CheckboxView(isChecked: state.dataProtectionInfoAccepted, label: LocalizableStringKey.consentCheckboxLabel2.toString, action: { isChecked in
+                onDataProtectionChanged(isChecked)
+            })
 
             HyperLinkView(label: LocalizableStringKey.consentHyperlinkLabel1.toString, onLinkTap: {
                 debugPrint("Terms of Service tapped")
@@ -63,7 +65,7 @@ private func content(state: ConsentViewState, onNext: @escaping () -> Void) -> s
             style: .primary,
             title: .welcomeSkipButton,
             isLoading: false,
-            isEnabled: (state.checkbox1Checked && state.checkbox2Checked) ? true : false,
+            isEnabled: state.nextButtonEnabled,
             onAction: onNext()
         )
         .padding()

@@ -12,10 +12,12 @@ import logic_core
 struct CheckboxView: View {
     @State var isChecked: Bool
     var label: String
+    let action: (Bool) -> Void
     
     var body: some View {
         Button(action: {
             isChecked.toggle()
+            action(isChecked)
         }) {
             HStack {
                 isChecked ? Theme.shared.image.checkboxChecked : Theme.shared.image.checkboxUnchecked
