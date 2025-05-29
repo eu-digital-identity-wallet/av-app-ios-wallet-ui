@@ -534,6 +534,16 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "onboarding_step_3_title")
     case .onboardingStepEnrollment:
         bundle.localizedString(forKey: "onboarding_step_4_title")
+    case .consentTitle:
+        bundle.localizedString(forKey: "consent_title")
+    case .consentCheckboxLabel1:
+        bundle.localizedString(forKey: "consent_checkbox_label_1")
+    case .consentCheckboxLabel2:
+        bundle.localizedString(forKey: "consent_checkbox_label_2")
+    case .consentHyperlinkLabel1:
+        bundle.localizedString(forKey: "consent_hyperlink_label_1")
+    case .consentHyperlinkLabel2:
+        bundle.localizedString(forKey: "consent_hyperlink_label_2")
     }
   }
 }

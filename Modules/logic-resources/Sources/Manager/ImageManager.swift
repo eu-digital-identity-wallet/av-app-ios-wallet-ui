@@ -67,6 +67,9 @@ public protocol ImageManagerProtocol: Sendable {
   var digitalIdIssuance: Image { get }
   var documentSuccessPending: Image { get }
   var verified: Image { get }
+  var ageVerification: Image { get }
+  var checkboxChecked: Image { get }
+  var checkboxUnchecked: Image { get }
   var euMap: Image { get }
   var telekomLogo: Image { get }
   var scytalesLogo: Image { get }
@@ -126,6 +129,9 @@ final class ImageManager: ImageManagerProtocol {
     case digitalIdIssuance = "digital-id-issuance"
     case documentSuccessPending = "document-success-pending"
     case verified = "verified"
+    case ageVerification = "age-verification"
+    case checkboxChecked = "checkbox-checked"
+    case checkboxUnchecked = "checkbox-unchecked"
     case euMap = "eu-map"
     case telekomLogo = "telekom-logo"
     case scytalesLogo = "scytales-logo"
@@ -292,6 +298,15 @@ final class ImageManager: ImageManagerProtocol {
   }
   var verified: Image {
     Image(ImageEnum.verified.rawValue, bundle: bundle)
+  }
+  var ageVerification: Image {
+    Image(ImageEnum.ageVerification.rawValue, bundle: bundle)
+  }
+  var checkboxChecked: Image {
+    Image(ImageEnum.checkboxChecked.rawValue, bundle: bundle)
+  }
+  var checkboxUnchecked: Image {
+    Image(ImageEnum.checkboxUnchecked.rawValue, bundle: bundle)
   }
   var euMap: Image {
     Image(ImageEnum.euMap.rawValue, bundle: bundle)

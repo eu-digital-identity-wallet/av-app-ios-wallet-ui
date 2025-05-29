@@ -60,15 +60,6 @@ private func content(
   onButtonClick: @escaping () -> Void
 ) -> some View {
 
-  ContentHeaderView(
-    config: ContentHeaderConfig(
-      appIconAndTextData: AppIconAndTextData(
-        appIcon: ThemeManager.shared.image.logoEuDigitalIndentityWallet,
-        appText: ThemeManager.shared.image.euditext
-      )
-    )
-  )
-
   ContentTitleView(
     title: viewState.title,
     caption: viewState.caption

@@ -12,7 +12,6 @@ import logic_core
 
 struct WelcomeView<Router: RouterHost>: View {
     @ObservedObject var viewModel: WelcomeViewModel<Router>
-
     init(with viewModel: WelcomeViewModel<Router>) {
         self.viewModel = viewModel
     }
@@ -39,8 +38,10 @@ struct WelcomeView<Router: RouterHost>: View {
 @ViewBuilder
 private func content(state: WelcomeViewState,
                      onNext: @escaping () -> Void) -> some View {
+
     VStack {
         OnboardingTabsView(selectedIndex: 0)
+        WelcomeInfoCarousel()
         Spacer()
         WrapButtonView(
             style: .primary,
@@ -52,4 +53,5 @@ private func content(state: WelcomeViewState,
         .padding()
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)
+
 }

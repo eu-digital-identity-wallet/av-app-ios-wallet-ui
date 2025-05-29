@@ -18,11 +18,11 @@ import logic_resources
 
 public struct SplashBackgroundView: View {
     public init() {}
-    
+
     public var body: some View {
         VStack(spacing: 0) {
             Spacer()
-            
+
             // Map and Logo Section
             ZStack {
                 Theme.shared.image.euMap
@@ -30,13 +30,13 @@ public struct SplashBackgroundView: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(maxWidth: .infinity)
                     .padding(.horizontal, SPACING_SMALL)
-                
+
                 VStack(spacing: SPACING_MEDIUM) {
                     Theme.shared.image.logo
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 80)
-                    
+
                     Text(LocalizableStringKey.splashTitle.toString)
                         .typography(Theme.shared.font.displayLarge)
                         .foregroundStyle(Theme.shared.color.primary)
@@ -44,28 +44,28 @@ public struct SplashBackgroundView: View {
                         .frame(maxWidth: .infinity)
                 }
             }
-            
+
             Spacer()
-            
+
             // Footer Section
             HStack(spacing: SPACING_LARGE_MEDIUM) {
                 Spacer()
                     .frame(width: getScreenRect().width * 0.1)
-                
+
                 Text(LocalizableStringKey.splashSponsorsTitle.toString)
                     .typography(Theme.shared.font.bodyLarge)
                     .foregroundColor(Theme.shared.color.onPrimary)
-                
+
                 Theme.shared.image.scytalesLogo
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 24)
-                
+
                 Theme.shared.image.telekomLogo
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 24)
-                
+
                 Spacer()
             }
             .padding(SPACING_MEDIUM)
