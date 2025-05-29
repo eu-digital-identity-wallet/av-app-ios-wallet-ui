@@ -1,12 +1,11 @@
 //
-//  OnboardingTabsView.swift
+//  OboardingSteps.swift
 //  feature-onboarding
 //
-//  Created by Bharat Jagtap on 22/05/25.
+//  Created by Bharat Jagtap on 28/05/25.
 //
 
 import SwiftUI
-import feature_common
 import logic_resources
 import logic_core
 
@@ -30,15 +29,15 @@ enum OboardingSteps: Equatable {
     }
 }
 
-struct OnboardingTabsView: View {
+public struct OnboardingTabsView: View {
     let steps: [OboardingSteps] = [.welcome, .consent, .pin, .enrollment]
     var selectedIndex: Int = 0
 
-    init(selectedIndex: Int = 0) {
+    public init(selectedIndex: Int = 0) {
         self.selectedIndex = selectedIndex
     }
 
-    var body: some View {
+    public var body: some View {
         HStack {
             ForEach(steps.indices, id: \.self) { index in
                 Text(steps[index].localizedKey.toString)

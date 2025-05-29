@@ -27,8 +27,8 @@ struct QuickPinView<Router: RouterHost>: View {
 
   var body: some View {
     ContentScreenView(
-      navigationTitle: viewModel.viewState.navigationTitle,
-      toolbarContent: viewModel.toolbarContent()
+      navigationTitle: nil, //viewModel.viewState.navigationTitle,
+      toolbarContent: nil //viewModel.toolbarContent()
     ) {
       content(
         viewState: viewModel.viewState,
@@ -60,18 +60,28 @@ private func content(
   onButtonClick: @escaping () -> Void
 ) -> some View {
 
-  ContentTitleView(
-    title: viewState.title,
-    caption: viewState.caption
-  )
+//  ContentTitleView(
+//    title: viewState.title,
+//    caption: viewState.caption
+//  )
 
-  VSpacer.large()
+    OnboardingTabsView(selectedIndex: 2)
+
+    Text(viewState.step == QuickPinStep.firstInput ? LocalizableStringKey.quickPinCreateTitle.toString : LocalizableStringKey.quickPinReEnterTitle.toString)
+        .font(Theme.shared.font.titleMedium.font)
+        .fontWeight(.medium)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding()
+
+//    VSpacer.small()
 
   pinView(
+    subtitleText: viewState.step == .firstInput ? LocalizableStringKey.quickPinCreateSubtitle.toString : LocalizableStringKey.quickPinReEnterSubtitle.toString,
     uiPinInputField: uiPinInputField,
     quickPinSize: viewState.quickPinSize,
     pinError: viewState.pinError
   )
+  .padding()
 
   Spacer()
 }
@@ -79,11 +89,17 @@ private func content(
 @MainActor
 @ViewBuilder
 private func pinView(
+  subtitleText: String,
   uiPinInputField: Binding<String>,
   quickPinSize: Int,
   pinError: LocalizableStringKey?
 ) -> some View {
-  VStack(spacing: .zero) {
+    VStack(alignment: .leading, spacing: .zero) {
+
+    Text(subtitleText)
+        .font(Theme.shared.font.bodySmall.font)
+        .foregroundColor(Theme.shared.color.grey)
+        .padding(.bottom, SPACING_EXTRA_SMALL)
 
     PinTextFieldView(
       numericText: uiPinInputField,

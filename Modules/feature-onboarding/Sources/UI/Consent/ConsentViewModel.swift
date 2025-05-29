@@ -35,7 +35,7 @@ final class ConsentViewModel<Router: RouterHost>: ViewModel<Router, ConsentViewS
         )
     }
     func onNext() {
-        router.push(with: .featureOnboardingModule(.enrollment))
+        router.push(with: .featureCommonModule(.quickPin(config: QuickPinUiConfig(flow: .set))))
     }
     func onTermsOfServiceChanged(ischecked: Bool) {
         setState {

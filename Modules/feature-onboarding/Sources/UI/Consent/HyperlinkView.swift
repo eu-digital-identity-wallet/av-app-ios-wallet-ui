@@ -16,7 +16,7 @@ struct HyperLinkView: View {
     var body: some View {
         Button(action: {
             onLinkTap()
-        }) {
+        }, label: {
             HStack {
                 Text(label)
                     .underline()
@@ -26,6 +26,6 @@ struct HyperLinkView: View {
                     .frame(width: 10, height: 10)
             }
             .foregroundStyle(Theme.shared.color.primary)
-        }
+        })
     }
 }

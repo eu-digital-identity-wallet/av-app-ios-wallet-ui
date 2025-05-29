@@ -30,6 +30,7 @@ struct Application: App {
   private let configUiLogic: ConfigUiLogic
   private let deepLinkController: DeepLinkController
   private let walletKitController: WalletKitController
+  private let keychainController: KeyChainController
 
   init() {
 
@@ -40,7 +41,9 @@ struct Application: App {
     self.configUiLogic = DIGraph.resolver.force(ConfigUiLogic.self)
     self.deepLinkController = DIGraph.resolver.force(DeepLinkController.self)
     self.walletKitController = DIGraph.resolver.force(WalletKitController.self)
+    self.keychainController = DIGraph.resolver.force(KeyChainController.self)
     self.toolbarConfig = routerHost.getToolbarConfig()
+
   }
 
   var body: some Scene {
@@ -65,6 +68,9 @@ struct Application: App {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .ignoresSafeArea(.all)
         }
+      }
+      .onAppear {
+          keychainController.clear()
       }
       .onOpenURL { url in
         if let deepLink = deepLinkController.hasDeepLink(url: url) {

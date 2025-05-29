@@ -16,7 +16,7 @@
 import logic_ui
 import logic_resources
 
-enum QuickPinStep {
+enum QuickPinStep: Equatable {
   case validate
   case firstInput
   case retryInput(String)
@@ -161,39 +161,16 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
 
   private func onSuccess() {
     interactor.setPin(newPin: uiPinInputField)
-
-    let buttonTitle: LocalizableStringKey = viewState.config.isSetFlow ?
-      .walletIsSecured :
-      .successTitlePunctuated
-
-    let visualKind: UIConfig.Success.VisualKind = viewState.config.isSetFlow ?
-      .customIcon(
-        Theme.shared.image.successSecuredWallet,
-        Color.clear
-      ) :
-      .customIcon(
-        Theme.shared.image.checkmarkCircleFill,
-        Theme.shared.color.success
-      )
-
-    router.push(
-      with: .featureCommonModule(
-        .genericSuccess(
-          config: UIConfig.Success(
-            title: .init(value: buttonTitle),
-            subtitle: viewState.success,
-            buttons: [
-              .init(
-                title: viewState.successButton,
-                style: .primary,
-                navigationType: viewState.successNavigationType
-              )
-            ],
-            visualKind: visualKind
-          )
-        )
-      )
-    )
+      switch viewState.successNavigationType {
+      case .pop(let screen, let inclusive):
+          router.popTo(with: screen, inclusive: inclusive)
+      case .deepLink(_, let popToScreen):
+          router.popTo(with: popToScreen)
+      case .push(let screen):
+          router.push(with: screen)
+      case .none:
+          break
+      }
   }
 
   private func subscribeToPinInput() {
@@ -212,5 +189,12 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
         .copy(pinError: nil)
         .copy(isButtonActive: value.count == viewState.quickPinSize)
     }
+
+      DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1, execute: DispatchWorkItem(block: { [weak self] in
+          guard let sSelf = self else { return }
+          if value.count == sSelf.viewState.quickPinSize {
+              sSelf.onButtonClick()
+          }
+      }))
   }
 }

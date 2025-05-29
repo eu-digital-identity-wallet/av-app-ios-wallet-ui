@@ -45,7 +45,9 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
           return .init(
             listItem: .init(
               mainText: .custom(doc.name),
-              trailingContent: .icon(Theme.shared.image.plus)
+              supportingText: .custom("Identify online using your eID"),
+              leadingIcon: LeadingIcon(image: Theme.shared.image.pidIcon),
+              trailingContent: nil // .icon(Theme.shared.image.plus)
             ),
             isEnabled: true,
             configId: doc.configId

@@ -73,10 +73,10 @@ public protocol ImageManagerProtocol: Sendable {
   var euMap: Image { get }
   var telekomLogo: Image { get }
   var scytalesLogo: Image { get }
+  var pidIcon: Image { get }
 }
 
 final class ImageManager: ImageManagerProtocol {
-
   enum ImageEnum: String {
     case faceId = "face-id"
     case id = "id"
@@ -135,6 +135,7 @@ final class ImageManager: ImageManagerProtocol {
     case euMap = "eu-map"
     case telekomLogo = "telekom-logo"
     case scytalesLogo = "scytales-logo"
+    case pidIcon = "pid-icon"
   }
 
   // MARK: - Properties
@@ -316,5 +317,8 @@ final class ImageManager: ImageManagerProtocol {
   }
   var scytalesLogo: Image {
     Image(ImageEnum.scytalesLogo.rawValue, bundle: bundle)
+  }
+  var pidIcon: Image {
+    Image(ImageEnum.pidIcon.rawValue, bundle: bundle)
   }
 }
