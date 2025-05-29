@@ -16,6 +16,7 @@
 
 public protocol RouterHost {
   @MainActor func push(with route: AppRoute)
+  @MainActor func push(with route: AppRoute, animated: Bool)
   @MainActor func popTo(with route: AppRoute, inclusive: Bool, animated: Bool)
   @MainActor func pop(animated: Bool)
   @MainActor func pop()
@@ -35,6 +36,8 @@ public final class PreviewRouter: RouterHost {
   public init() {}
 
   public func push(with route: AppRoute) {}
+
+  public func push(with route: AppRoute, animated: Bool) {}
 
   public func popTo(with route: AppRoute, inclusive: Bool, animated: Bool) {}
 

@@ -167,7 +167,7 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
       case .deepLink(_, let popToScreen):
           router.popTo(with: popToScreen)
       case .push(let screen):
-          router.push(with: screen)
+          router.push(with: screen, animated: false)
       case .none:
           break
       }
