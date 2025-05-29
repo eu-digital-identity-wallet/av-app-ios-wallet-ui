@@ -12,7 +12,7 @@ import logic_core
 struct HyperLinkView: View {
     var label: String
     let onLinkTap: () -> Void
-    
+
     var body: some View {
         Button(action: {
             onLinkTap()
@@ -23,7 +23,7 @@ struct HyperLinkView: View {
                     .font(Theme.shared.font.headlineSmall.font)
                 Image(systemName: "arrow.up.right")
                     .resizable()
-                    .frame(width: 10 , height: 10)
+                    .frame(width: 10, height: 10)
             }
             .foregroundStyle(Theme.shared.color.primary)
         }

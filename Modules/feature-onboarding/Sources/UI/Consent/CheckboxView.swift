@@ -13,7 +13,7 @@ struct CheckboxView: View {
     @State var isChecked: Bool
     var label: String
     let action: (Bool) -> Void
-    
+
     var body: some View {
         Button(action: {
             isChecked.toggle()

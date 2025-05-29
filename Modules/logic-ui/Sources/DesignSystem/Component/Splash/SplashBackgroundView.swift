@@ -17,38 +17,85 @@ import SwiftUI
 import logic_resources
 
 public struct SplashBackgroundView: View {
+    public init() {}
 
-  let isAnimating: Bool
+    public var body: some View {
+        VStack(spacing: 0) {
+            Spacer()
 
-  public init(isAnimating: Bool = false) {
-    self.isAnimating = isAnimating
-  }
+            // Map and Logo Section
+            ZStack {
+                Theme.shared.image.euMap
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal, SPACING_SMALL)
 
-  public var body: some View {
-    ZStack {
-      Rectangle()
-        .fill(Theme.shared.color.surface)
+                VStack(spacing: SPACING_MEDIUM) {
+                    Theme.shared.image.logo
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 80)
+
+                    Text(LocalizableStringKey.splashTitle.toString)
+                        .typography(Theme.shared.font.displayLarge)
+                        .foregroundStyle(Theme.shared.color.primary)
+                        .multilineTextAlignment(.center)
+                        .frame(maxWidth: .infinity)
+                }
+            }
+
+            Spacer()
+
+            // Footer Section
+            HStack(spacing: SPACING_LARGE_MEDIUM) {
+                Spacer()
+                    .frame(width: getScreenRect().width * 0.1)
+
+                Text(LocalizableStringKey.splashSponsorsTitle.toString)
+                    .typography(Theme.shared.font.bodyLarge)
+                    .foregroundColor(Theme.shared.color.onPrimary)
+
+                Theme.shared.image.scytalesLogo
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 24)
+
+                Theme.shared.image.telekomLogo
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 24)
+
+                Spacer()
+            }
+            .padding(SPACING_MEDIUM)
+            .background(
+                Rectangle()
+                .fill(Theme.shared.color.primary)
+                .clipShape(
+                    .rect(
+                        topLeadingRadius: 24,
+                        bottomLeadingRadius: 0,
+                        bottomTrailingRadius: 0,
+                        topTrailingRadius: 24
+                    )
+                )
+            )
+        }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Theme.shared.color.surface)
         .ignoresSafeArea()
-
-      Theme.shared.image.logo
-        .resizable()
-        .aspectRatio(contentMode: .fit)
-        .frame(width: getScreenRect().width / 2.5)
-        .opacity(isAnimating ? 1.0 : 0)
     }
-    .ignoresSafeArea(.all)
-  }
 }
 
 #Preview {
-  Group {
-    SplashBackgroundView(isAnimating: true)
-  }
+    Group {
+        SplashBackgroundView()
+    }
 }
 
 #Preview("Dark Mode") {
-  Group {
-    SplashBackgroundView(isAnimating: true)
-  }
+    Group {
+        SplashBackgroundView()
+    }
 }

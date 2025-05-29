@@ -12,11 +12,11 @@ import logic_core
 
 struct ConsentView<Router: RouterHost>: View {
     @ObservedObject var viewModel: ConsentViewModel<Router>
-    
+
     init(with viewModel: ConsentViewModel<Router>) {
         self.viewModel = viewModel
     }
-    
+
     var body: some View {
         ContentScreenView(
             padding: .zero,
@@ -40,11 +40,11 @@ private func content(state: ConsentViewState, onNext: @escaping () -> Void, onTe
                 .font(Theme.shared.font.titleMedium.font)
                 .fontWeight(.medium)
                 .padding(.bottom, SPACING_EXTRA_LARGE)
-            
+
             CheckboxView(isChecked: state.termsOfServiceAccepted, label: LocalizableStringKey.consentCheckboxLabel1.toString) { ischecked in
                 onTermsChanged(ischecked)
             }
-            
+
             CheckboxView(isChecked: state.dataProtectionInfoAccepted, label: LocalizableStringKey.consentCheckboxLabel2.toString, action: { isChecked in
                 onDataProtectionChanged(isChecked)
             })
@@ -58,9 +58,9 @@ private func content(state: ConsentViewState, onNext: @escaping () -> Void, onTe
             Spacer()
         }
         .padding()
-        
+
         Spacer()
-        
+
         WrapButtonView(
             style: .primary,
             title: .welcomeSkipButton,

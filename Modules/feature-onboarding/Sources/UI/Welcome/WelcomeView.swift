@@ -15,7 +15,7 @@ struct WelcomeView<Router: RouterHost>: View {
     init(with viewModel: WelcomeViewModel<Router>) {
         self.viewModel = viewModel
     }
-    
+
     var body: some View {
         ZStack {
             Theme.shared.color.surface
@@ -38,7 +38,7 @@ struct WelcomeView<Router: RouterHost>: View {
 @ViewBuilder
 private func content(state: WelcomeViewState,
                      onNext: @escaping () -> Void) -> some View {
-    
+
     VStack {
         OnboardingTabsView(selectedIndex: 0)
         WelcomeInfoCarousel()

@@ -70,6 +70,9 @@ public protocol ImageManagerProtocol: Sendable {
   var ageVerification: Image { get }
   var checkboxChecked: Image { get }
   var checkboxUnchecked: Image { get }
+  var euMap: Image { get }
+  var telekomLogo: Image { get }
+  var scytalesLogo: Image { get }
 }
 
 final class ImageManager: ImageManagerProtocol {
@@ -129,6 +132,9 @@ final class ImageManager: ImageManagerProtocol {
     case ageVerification = "age-verification"
     case checkboxChecked = "checkbox-checked"
     case checkboxUnchecked = "checkbox-unchecked"
+    case euMap = "eu-map"
+    case telekomLogo = "telekom-logo"
+    case scytalesLogo = "scytales-logo"
   }
 
   // MARK: - Properties
@@ -293,7 +299,7 @@ final class ImageManager: ImageManagerProtocol {
   var verified: Image {
     Image(ImageEnum.verified.rawValue, bundle: bundle)
   }
-    var ageVerification: Image {
+  var ageVerification: Image {
     Image(ImageEnum.ageVerification.rawValue, bundle: bundle)
   }
   var checkboxChecked: Image {
@@ -301,5 +307,14 @@ final class ImageManager: ImageManagerProtocol {
   }
   var checkboxUnchecked: Image {
     Image(ImageEnum.checkboxUnchecked.rawValue, bundle: bundle)
+  }
+  var euMap: Image {
+    Image(ImageEnum.euMap.rawValue, bundle: bundle)
+  }
+  var telekomLogo: Image {
+    Image(ImageEnum.telekomLogo.rawValue, bundle: bundle)
+  }
+  var scytalesLogo: Image {
+    Image(ImageEnum.scytalesLogo.rawValue, bundle: bundle)
   }
 }
