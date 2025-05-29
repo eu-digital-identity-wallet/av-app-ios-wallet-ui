@@ -1170,9 +1170,6 @@
         }
       }
     },
-    "Key" : {
-      "extractionState" : "manual"
-    },
     "learn_more" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2210,7 +2207,7 @@
         }
       }
     },
-    "splash_screen_sponsors" : {
+    "splash_sponsors_title" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -2221,7 +2218,7 @@
         }
       }
     },
-    "splash_screen_title" : {
+    "splash_title" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {

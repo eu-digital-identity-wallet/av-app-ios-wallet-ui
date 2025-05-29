@@ -31,9 +31,7 @@ struct StartupView<Router: RouterHost>: View {
       canScroll: false,
       background: Theme.shared.color.primary
     ) {
-      content(viewState: viewModel.viewState) {
-        viewModel.startAnimatingSplash()
-      }
+      content(viewState: viewModel.viewState)
     }
     .task {
       await viewModel.initialize()
@@ -43,31 +41,23 @@ struct StartupView<Router: RouterHost>: View {
 
 @MainActor
 @ViewBuilder
-private func content(viewState: StartupState, action: @escaping () -> Void) -> some View {
+private func content(viewState: StartupState) -> some View {
   ZStack {
-    SplashBackgroundView(
-      isAnimating: viewState.isAnimating
-    )
-    .onAppear {
-      withAnimation(Animation.easeInOut(duration: viewState.splashDuration)) {
-        action()
-      }
-    }
+    SplashBackgroundView()
   }
 }
 
 #Preview {
   let viewState = StartupState(
     splashDuration: 10,
-    isAnimating: true,
     setupError: nil
   )
 
   ContentScreenView(
     padding: .zero,
     canScroll: false,
-    background: Theme.shared.color.primary
+    background: Theme.shared.color.surface
   ) {
-    content(viewState: viewState) {}
+    content(viewState: viewState)
   }
 }

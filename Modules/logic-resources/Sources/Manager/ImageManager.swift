@@ -67,6 +67,9 @@ public protocol ImageManagerProtocol: Sendable {
   var digitalIdIssuance: Image { get }
   var documentSuccessPending: Image { get }
   var verified: Image { get }
+  var euMap: Image { get }
+  var telekomLogo: Image { get }
+  var scytalesLogo: Image { get }
 }
 
 final class ImageManager: ImageManagerProtocol {
@@ -123,6 +126,9 @@ final class ImageManager: ImageManagerProtocol {
     case digitalIdIssuance = "digital-id-issuance"
     case documentSuccessPending = "document-success-pending"
     case verified = "verified"
+    case euMap = "eu-map"
+    case telekomLogo = "telekom-logo"
+    case scytalesLogo = "scytales-logo"
   }
 
   // MARK: - Properties
@@ -286,5 +292,14 @@ final class ImageManager: ImageManagerProtocol {
   }
   var verified: Image {
     Image(ImageEnum.verified.rawValue, bundle: bundle)
+  }
+  var euMap: Image {
+    Image(ImageEnum.euMap.rawValue, bundle: bundle)
+  }
+  var telekomLogo: Image {
+    Image(ImageEnum.telekomLogo.rawValue, bundle: bundle)
+  }
+  var scytalesLogo: Image {
+    Image(ImageEnum.scytalesLogo.rawValue, bundle: bundle)
   }
 }

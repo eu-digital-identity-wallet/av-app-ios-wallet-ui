@@ -506,6 +506,10 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "transaction_details_report_transaction_message")
     case .transactionDetailsReportTransactionButton:
       bundle.localizedString(forKey: "transaction_detailsReport_transaction_button")
+    case .splashTitle:
+        bundle.localizedString(forKey: "splash_title")
+    case .splashSponsorsTitle:
+        bundle.localizedString(forKey: "splash_sponsors_title")
     case .welcomeTitle1:
         bundle.localizedString(forKey: "welcome_title_1")
     case .welcomePage1:
