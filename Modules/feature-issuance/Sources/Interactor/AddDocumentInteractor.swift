@@ -44,8 +44,8 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
         if flow == .extraDocument || doc.isPid {
           return .init(
             listItem: .init(
-              mainText: .custom(doc.name),
-              supportingText: .custom("Identify online using your eID"),
+              mainText: .verificationNationalId,
+              supportingText: .verificationNationalIdDescription,
               leadingIcon: LeadingIcon(image: Theme.shared.image.pidIcon),
               trailingContent: nil // .icon(Theme.shared.image.plus)
             ),

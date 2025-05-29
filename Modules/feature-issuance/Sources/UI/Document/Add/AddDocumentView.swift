@@ -69,11 +69,11 @@ private func content(
   ScrollView {
       VStack(alignment: .leading, spacing: 16) {
         VSpacer.small()
-        Text("Chose your age verification method")
+          Text(.verificationStepTitle)
             .multilineTextAlignment(.leading)
             .font(Theme.shared.font.titleMedium.font)
             .fontWeight(.medium)
-        Text(.custom("This verification is needed to create a proof of age that you are over 18. The eID details will not be shared with online services you access."))
+          Text(.verificationStepDescription)
             .typography(Theme.shared.font.bodyLarge)
             .foregroundStyle(Theme.shared.color.onSurface)
 

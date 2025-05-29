@@ -27,8 +27,9 @@ struct QuickPinView<Router: RouterHost>: View {
 
   var body: some View {
     ContentScreenView(
-      navigationTitle: nil, //viewModel.viewState.navigationTitle,
-      toolbarContent: nil //viewModel.toolbarContent()
+      padding: .zero,
+      navigationTitle: nil,
+      toolbarContent: nil
     ) {
       content(
         viewState: viewModel.viewState,
@@ -59,31 +60,28 @@ private func content(
   onShowCancellationModal: @escaping () -> Void,
   onButtonClick: @escaping () -> Void
 ) -> some View {
+    VStack {
+        OnboardingTabsView(selectedIndex: 2)
 
-//  ContentTitleView(
-//    title: viewState.title,
-//    caption: viewState.caption
-//  )
+        VStack(alignment: .leading) {
+            Text(viewState.step == QuickPinStep.firstInput ? LocalizableStringKey.quickPinCreateTitle.toString : LocalizableStringKey.quickPinReEnterTitle.toString)
+                .font(Theme.shared.font.titleMedium.font)
+                .fontWeight(.medium)
+                .padding()
 
-    OnboardingTabsView(selectedIndex: 2)
-
-    Text(viewState.step == QuickPinStep.firstInput ? LocalizableStringKey.quickPinCreateTitle.toString : LocalizableStringKey.quickPinReEnterTitle.toString)
-        .font(Theme.shared.font.titleMedium.font)
-        .fontWeight(.medium)
-        .frame(maxWidth: .infinity, alignment: .leading)
+            pinView(
+                subtitleText: viewState.step == .firstInput ? LocalizableStringKey.quickPinCreateSubtitle.toString : LocalizableStringKey.quickPinReEnterSubtitle.toString,
+                uiPinInputField: uiPinInputField,
+                quickPinSize: viewState.quickPinSize,
+                pinError: viewState.pinError
+            )
+        }
         .padding()
 
-//    VSpacer.small()
-
-  pinView(
-    subtitleText: viewState.step == .firstInput ? LocalizableStringKey.quickPinCreateSubtitle.toString : LocalizableStringKey.quickPinReEnterSubtitle.toString,
-    uiPinInputField: uiPinInputField,
-    quickPinSize: viewState.quickPinSize,
-    pinError: viewState.pinError
-  )
-  .padding()
-
-  Spacer()
+        Spacer()
+    }
+    .frame(maxWidth: .infinity, maxHeight: .infinity)
+    .background(Theme.shared.color.surface)
 }
 
 @MainActor
@@ -94,8 +92,7 @@ private func pinView(
   quickPinSize: Int,
   pinError: LocalizableStringKey?
 ) -> some View {
-    VStack(alignment: .leading, spacing: .zero) {
-
+    Group {
     Text(subtitleText)
         .font(Theme.shared.font.bodySmall.font)
         .foregroundColor(Theme.shared.color.grey)

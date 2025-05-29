@@ -552,6 +552,14 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "quick_pin_create_enter_subtitle")
     case .quickPinReEnterSubtitle:
         bundle.localizedString(forKey: "quick_pin_create_reenter_subtitle")
+    case .verificationStepTitle:
+        bundle.localizedString(forKey: "onboarding_verification_title")
+    case .verificationStepDescription:
+        bundle.localizedString(forKey: "onboarding_verification_description")
+    case .verificationNationalId:
+        bundle.localizedString(forKey: "onboarding_verification_national_id")
+    case .verificationNationalIdDescription:
+        bundle.localizedString(forKey: "onboarding_verification_national_id_description")
     }
   }
 }
