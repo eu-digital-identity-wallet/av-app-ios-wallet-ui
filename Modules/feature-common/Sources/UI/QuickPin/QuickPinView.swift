@@ -60,28 +60,23 @@ private func content(
   onShowCancellationModal: @escaping () -> Void,
   onButtonClick: @escaping () -> Void
 ) -> some View {
-    VStack {
+    ScrollView {
         OnboardingTabsView(selectedIndex: 2)
-
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: .zero) {
+            VSpacer.small()
             Text(viewState.step == QuickPinStep.firstInput ? LocalizableStringKey.quickPinCreateTitle.toString : LocalizableStringKey.quickPinReEnterTitle.toString)
-                .font(Theme.shared.font.titleMedium.font)
-                .fontWeight(.medium)
-                .padding()
-
+                .typography(Theme.shared.font.titleMedium)
+            VSpacer.small()
             pinView(
                 subtitleText: viewState.step == .firstInput ? LocalizableStringKey.quickPinCreateSubtitle.toString : LocalizableStringKey.quickPinReEnterSubtitle.toString,
                 uiPinInputField: uiPinInputField,
                 quickPinSize: viewState.quickPinSize,
                 pinError: viewState.pinError
             )
+            Spacer()
         }
-        .padding()
-
-        Spacer()
+        .padding(.horizontal, Theme.shared.dimension.padding)
     }
-    .frame(maxWidth: .infinity, maxHeight: .infinity)
-    .background(Theme.shared.color.surface)
 }
 
 @MainActor
@@ -94,7 +89,7 @@ private func pinView(
 ) -> some View {
     Group {
     Text(subtitleText)
-        .font(Theme.shared.font.bodySmall.font)
+        .typography(Theme.shared.font.bodySmall)
         .foregroundColor(Theme.shared.color.grey)
         .padding(.bottom, SPACING_EXTRA_SMALL)
 
@@ -103,7 +98,7 @@ private func pinView(
       maxDigits: quickPinSize,
       isSecureEntry: true,
       canFocus: .constant(true),
-      shouldUseFullScreen: false,
+      shouldUseFullScreen: true,
       hasError: pinError != nil
     )
 

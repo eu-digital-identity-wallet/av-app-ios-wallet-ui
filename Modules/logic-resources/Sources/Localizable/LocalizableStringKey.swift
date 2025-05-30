@@ -272,7 +272,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
     case welcomeSkipButton
     case welcomeNextButton
 
-    // Consent Stepp
+    // Consent Step
     case consentTitle
     case consentCheckboxLabel1
     case consentCheckboxLabel2

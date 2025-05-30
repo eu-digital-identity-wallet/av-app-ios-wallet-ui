@@ -47,7 +47,7 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
               mainText: .verificationNationalId,
               supportingText: .verificationNationalIdDescription,
               leadingIcon: LeadingIcon(image: Theme.shared.image.pidIcon),
-              trailingContent: nil // .icon(Theme.shared.image.plus)
+              trailingContent: nil
             ),
             isEnabled: true,
             configId: doc.configId

@@ -57,7 +57,6 @@ private func content(state: ConsentViewState, onNext: @escaping () -> Void, onTe
             })
             Spacer()
         }
-        .padding()
 
         Spacer()
 

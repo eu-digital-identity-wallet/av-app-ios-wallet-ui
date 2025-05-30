@@ -34,7 +34,7 @@ struct AddDocumentView<Router: RouterHost>: View {
       padding: .zero,
       canScroll: true,
       errorConfig: viewModel.viewState.error,
-      navigationTitle: nil, // .chooseFromList,
+      navigationTitle: nil,
       isLoading: viewModel.viewState.isLoading,
       toolbarContent: viewModel.toolbarContent()
     ) {
@@ -70,9 +70,9 @@ private func content(
       VStack(alignment: .leading, spacing: 16) {
         VSpacer.small()
           Text(.verificationStepTitle)
+            .typography(Theme.shared.font.titleMedium)
             .multilineTextAlignment(.leading)
-            .font(Theme.shared.font.titleMedium.font)
-            .fontWeight(.medium)
+
           Text(.verificationStepDescription)
             .typography(Theme.shared.font.bodyLarge)
             .foregroundStyle(Theme.shared.color.onSurface)

@@ -46,6 +46,7 @@ public struct OnboardingTabsView: View {
                     .padding(.all, SPACING_SMALL)
             }
         }
+        .frame(maxWidth: .infinity)
         .background(content: {
             RoundedRectangle(cornerRadius: SPACING_MEDIUM_SMALL)
                 .fill(Color.gray.opacity(0.1))
@@ -55,5 +56,6 @@ public struct OnboardingTabsView: View {
                 )
                 .shadow(color: Color.black.opacity(0.5), radius: SPACING_MEDIUM_SMALL, x: 0, y: SPACING_MEDIUM_SMALL)
         })
+        .padding()
     }
 }
