@@ -34,19 +34,19 @@ struct AddDocumentView<Router: RouterHost>: View {
       padding: .zero,
       canScroll: true,
       errorConfig: viewModel.viewState.error,
-      navigationTitle: .chooseFromList,
+      navigationTitle: nil,
       isLoading: viewModel.viewState.isLoading,
       toolbarContent: viewModel.toolbarContent()
     ) {
+
+      OnboardingTabsView(selectedIndex: 3)
 
       content(viewState: viewModel.viewState) { type in
         viewModel.onClick(for: type)
       }
 
       if viewModel.viewState.showFooterScanner {
-
         VSpacer.extraSmall()
-
         scanFooter(
           viewState: viewModel.viewState,
           contentSize: contentSize,
@@ -67,13 +67,16 @@ private func content(
   action: @escaping (String) -> Void
 ) -> some View {
   ScrollView {
-    VStack(spacing: SPACING_LARGE_MEDIUM) {
+      VStack(alignment: .leading, spacing: 16) {
+        VSpacer.small()
+          Text(.verificationStepTitle)
+            .typography(Theme.shared.font.titleMedium)
+            .multilineTextAlignment(.leading)
 
-      Text(.chooseFromListTitle)
-        .typography(Theme.shared.font.bodyLarge)
-        .foregroundStyle(Theme.shared.color.onSurface)
+          Text(.verificationStepDescription)
+            .typography(Theme.shared.font.bodyLarge)
+            .foregroundStyle(Theme.shared.color.onSurface)
 
-      VStack(spacing: SPACING_MEDIUM_SMALL) {
         ForEach(viewState.addDocumentCellModels) { cell in
           WrapCardView {
             WrapListItemView(
@@ -82,7 +85,6 @@ private func content(
               action: { action(cell.configId) }
             )
           }
-        }
       }
     }
     .padding(.horizontal, Theme.shared.dimension.padding)
@@ -98,22 +100,15 @@ private func scanFooter(
   action: @escaping @autoclosure () -> Void
 ) -> some View {
   VStack(spacing: SPACING_MEDIUM) {
-
     Spacer()
-
     HStack {
-
       Spacer()
-
       VStack(alignment: .center, spacing: SPACING_MEDIUM) {
-
         Text(.or)
           .typography(Theme.shared.font.bodyMedium)
           .foregroundColor(Theme.shared.color.onSurfaceVariant)
-
         Theme.shared.image.scanDocumentImage
       }
-
       Spacer()
     }
 

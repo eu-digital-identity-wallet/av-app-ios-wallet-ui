@@ -30,8 +30,8 @@ let package = Package(
       path: "./logic-resources"
     ),
     .package(
-      url: "https://github.com/canopas/UIPilot.git",
-      from: "2.0.0"
+      url: "https://github.com/BharatJagtap/UIPilot.git",
+      from: "2.0.3"
     ),
     .package(
       url: "https://github.com/twostraws/CodeScanner",

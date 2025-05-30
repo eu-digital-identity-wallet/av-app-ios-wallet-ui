@@ -41,6 +41,7 @@ struct Application: App {
     self.deepLinkController = DIGraph.resolver.force(DeepLinkController.self)
     self.walletKitController = DIGraph.resolver.force(WalletKitController.self)
     self.toolbarConfig = routerHost.getToolbarConfig()
+
   }
 
   var body: some Scene {

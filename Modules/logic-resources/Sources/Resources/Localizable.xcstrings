@@ -1448,6 +1448,50 @@
         }
       }
     },
+    "onboarding_verification_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This verification is needed to create a proof of age that you are over 18. The eID details will not be shared with online services you access."
+          }
+        }
+      }
+    },
+    "onboarding_verification_national_id" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "National eID / National idP"
+          }
+        }
+      }
+    },
+    "onboarding_verification_national_id_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identify online using your eID"
+          }
+        }
+      }
+    },
+    "onboarding_verification_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose your age verification method"
+          }
+        }
+      }
+    },
     "online" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1569,13 +1613,46 @@
         }
       }
     },
-    "quick_pin_confirm_pin" : {
+    "quick_pin_create_enter_subtitle" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Confirm PIN"
+            "value" : "Your 6-digit PIN"
+          }
+        }
+      }
+    },
+    "quick_pin_create_reenter_subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repeat your 6-digit PIN"
+          }
+        }
+      }
+    },
+    "quick_pin_create_reenter_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirm your PIN"
+          }
+        }
+      }
+    },
+    "quick_pin_create_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose a PIN to access the app"
           }
         }
       }

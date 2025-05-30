@@ -38,9 +38,13 @@ final class RouterHostImpl: RouterHost {
   }
 
   public func push(with route: AppRoute) {
+      push(with: route, animated: true)
+  }
+
+  public func push(with route: AppRoute, animated: Bool) {
     guard canNavigate(block: self.push(with: route)) else { return }
     lockNavigation()
-    pilot.push(route)
+    pilot.push(route, animated: animated)
     onNavigationFollowUp(with: route)
   }
 

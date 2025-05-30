@@ -1,5 +1,5 @@
 {
-  "originHash" : "080ed89b6e7b43769ab087fb914b20f8673c449a5187d2d043d261479172d981",
+  "originHash" : "ec81c8b1aff0b449b73c87c9bd94fc2860f77538bf21ef84f02f43dec30186c5",
   "pins" : [
     {
       "identity" : "activityindicatorview",
@@ -517,10 +517,10 @@
     {
       "identity" : "uipilot",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/canopas/UIPilot.git",
+      "location" : "https://github.com/BharatJagtap/UIPilot.git",
       "state" : {
-        "revision" : "33b8123dd1e68d861d0cfce27879d5ff1755fd21",
-        "version" : "2.0.2"
+        "revision" : "642fb2aa2668d2fdf614251a044ed66eaaf2be81",
+        "version" : "2.0.3"
       }
     },
     {

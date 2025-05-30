@@ -56,7 +56,7 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
         addDocumentCellModels: AddDocumentUIModel.mocks,
         error: nil,
         config: config,
-        showFooterScanner: config.isNoDocumentFlow
+        showFooterScanner: false
       )
     )
   }

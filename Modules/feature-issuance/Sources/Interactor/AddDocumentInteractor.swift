@@ -44,8 +44,10 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
         if flow == .extraDocument || doc.isPid {
           return .init(
             listItem: .init(
-              mainText: .custom(doc.name),
-              trailingContent: .icon(Theme.shared.image.plus)
+              mainText: .verificationNationalId,
+              supportingText: .verificationNationalIdDescription,
+              leadingIcon: LeadingIcon(image: Theme.shared.image.pidIcon),
+              trailingContent: nil
             ),
             isEnabled: true,
             configId: doc.configId
