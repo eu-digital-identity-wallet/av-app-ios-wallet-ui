@@ -24,14 +24,14 @@ struct AppLandingView<Router: RouterHost>: View {
             background: Theme.shared.color.surface,
             navigationTitle: .details
         ) {
-            content(state: viewModel.viewState)
+            content(state: viewModel.viewState, onScan: viewModel.onScan)
         }
     }
 }
 
 @MainActor
 @ViewBuilder
-private func content(state: AppLandingState) -> some View {
+private func content(state: AppLandingState, onScan: @escaping () -> Void) -> some View {
     ScrollView {
         GeometryReader { geometry in
             VStack() {
@@ -68,6 +68,7 @@ private func content(state: AppLandingState) -> some View {
                 
                 VStack(alignment: .center) {
                     Button(action: {
+                        onScan()
                     }) {
                         Theme.shared.image.scanButton
                             .resizable()

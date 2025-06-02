@@ -25,4 +25,7 @@ final class AppLandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandin
                                       )
         )
     }
+    func onScan() {
+       
+    }
 }
