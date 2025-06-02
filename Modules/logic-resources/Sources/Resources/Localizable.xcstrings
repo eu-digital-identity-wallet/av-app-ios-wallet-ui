@@ -1286,7 +1286,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "With your proof of age, you can verify your age when using online services, such as a media library.\nThe proof of age only contains the information that you are older than 18, but no personal data."
+            "value" : "With your proof of age, you can prove to services restricted to adults that you are old enough to access them.\nThe proof of age shows only that you are older than 18. It contains no other personal information."
           }
         }
       }

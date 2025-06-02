@@ -26,6 +26,6 @@ final class AppLandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandin
         )
     }
     func onScan() {
-       
+        router.push(with: .featureCommonModule(.qrScanner(config: ScannerUiConfig(flow: .presentation))))
     }
 }

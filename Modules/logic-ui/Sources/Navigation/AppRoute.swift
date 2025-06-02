@@ -216,6 +216,7 @@ public enum AppRoute: AppRouteModule {
   case featurePresentationModule(FeaturePresentationRouteModule)
   case featureProximityModule(FeatureProximityRouteModule)
   case featureOnboardingModule(FeatureOnboardingRouteModule)
+  case featureAVDashboardModule(FeatureAVDashboardRouteModule)
 
   public var info: (key: String, arguments: [String: String]) {
     return switch self {
@@ -232,6 +233,8 @@ public enum AppRoute: AppRouteModule {
     case .featureProximityModule(let module):
       module.info
     case .featureOnboardingModule(let module):
+        module.info
+    case .featureAVDashboardModule(let module):
         module.info
     }
   }

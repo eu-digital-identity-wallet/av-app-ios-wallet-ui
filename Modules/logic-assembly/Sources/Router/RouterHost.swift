@@ -15,6 +15,7 @@
  */
 @preconcurrency import UIPilot
 import logic_ui
+import feature_av_dashboard
 
 private typealias QueueItem = () -> Void
 
@@ -184,6 +185,8 @@ private extension RouterHostImpl {
       ProximityRouter.resolve(module: module, host: self)
     case .featureOnboardingModule(let module):
         OnboardingRouter.resolve(module: module, host: self)
+    case .featureAVDashboardModule(let module):
+        AVDashboardRouter.resolve(module: module, host: self)
     }
   }
 }

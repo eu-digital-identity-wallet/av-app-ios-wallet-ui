@@ -34,7 +34,7 @@ struct AppLandingView<Router: RouterHost>: View {
 private func content(state: AppLandingState, onScan: @escaping () -> Void) -> some View {
     ScrollView {
         GeometryReader { geometry in
-            VStack() {
+            VStack(spacing: .zero) {
                 HStack(alignment: .top, spacing: .zero) {
                     Spacer()
                         .frame(width: geometry.size.width / 2 - 44)
@@ -50,7 +50,7 @@ private func content(state: AppLandingState, onScan: @escaping () -> Void) -> so
                 }
                 .padding(.bottom, SPACING_MEDIUM)
                 
-                VStack (alignment: .leading) {
+                VStack (alignment: .leading, spacing: .zero) {
                     Text(LocalizableStringKey.splashTitle.toString)
                         .font(Theme.shared.font.titleLarge.font)
                         .fontWeight(.medium)
@@ -58,7 +58,7 @@ private func content(state: AppLandingState, onScan: @escaping () -> Void) -> so
                     Text(LocalizableStringKey.landingScreenbody.toString)
                         .foregroundStyle(Theme.shared.color.lightText)
                         .font(Theme.shared.font.bodyLarge.font)
-                        .padding(.bottom, SPACING_MEDIUM_LARGE)
+                        .padding(.bottom, SPACING_LARGE)
                         .fixedSize(horizontal: false, vertical: true)
                 }
                 
@@ -71,8 +71,7 @@ private func content(state: AppLandingState, onScan: @escaping () -> Void) -> so
                         onScan()
                     }) {
                         Theme.shared.image.scanButton
-                            .resizable()
-                            .frame(width: 76, height: 76)
+                            .frame(height: 76)
                             .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 4)
                     }
                     Text(LocalizableStringKey.scanTitle.toString)

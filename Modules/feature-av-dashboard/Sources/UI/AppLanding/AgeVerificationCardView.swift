@@ -19,7 +19,6 @@ struct AgeVerificationCardView: View {
             RoundedRectangle(cornerRadius: 8)
                 .fill(Theme.shared.color.surfaceContainer)
                 .frame(height: cardHeight)
-                //.stroke(Color.gray, lineWidth: 0.5)
                 .clipped()
                 .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 4)
             
@@ -71,7 +70,7 @@ struct AgeVerificationCardView: View {
             }
             .clipShape(RoundedRectangle(cornerRadius: 8))
         }
-        .padding(.bottom, SPACING_MEDIUM_LARGE)
+        .padding(.bottom, SPACING_LARGE_MEDIUM)
     }
 }
 

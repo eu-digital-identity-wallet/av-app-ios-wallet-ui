@@ -34,6 +34,6 @@ struct CredentialDetailsView: View {
                 .clipped()
                 .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 4))
         }
-        .padding(.bottom, SPACING_MEDIUM_LARGE)
+        .padding(.bottom, SPACING_LARGE)
     }
 }
