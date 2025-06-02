@@ -196,6 +196,17 @@ public enum FeatureOnboardingRouteModule: AppRouteModule {
     }
 }
 
+public enum FeatureAVDashboardRouteModule: AppRouteModule {
+    case appLanding
+
+    public var info: (key: String, arguments: [String: String]) {
+        return switch self {
+        case .appLanding:
+            (key: "AppLanding", arguments: [:])
+        }
+    }
+}
+
 public enum AppRoute: AppRouteModule {
 
   case featureStartupModule(FeatureStartupRouteModule)

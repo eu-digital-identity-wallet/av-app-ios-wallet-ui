@@ -74,6 +74,11 @@ public protocol ImageManagerProtocol: Sendable {
   var telekomLogo: Image { get }
   var scytalesLogo: Image { get }
   var pidIcon: Image { get }
+  var settingsIcon: Image { get }
+  var europeanUnionLogo: Image { get }
+  var euCredentialLogo: Image { get }
+  var _18PlusLogo: Image { get }
+  var scanButton: Image { get }
 }
 
 final class ImageManager: ImageManagerProtocol {
@@ -136,6 +141,11 @@ final class ImageManager: ImageManagerProtocol {
     case telekomLogo = "telekom-logo"
     case scytalesLogo = "scytales-logo"
     case pidIcon = "pid-icon"
+    case settingsIcon = "settings"
+    case europeanUnionLogo = "european-union"
+    case euCredentialLogo = "eu-credential"
+    case _18PlusLogo = "18plus_Logo"
+    case scanButton = "scanButton"
   }
 
   // MARK: - Properties
@@ -320,5 +330,20 @@ final class ImageManager: ImageManagerProtocol {
   }
   var pidIcon: Image {
     Image(ImageEnum.pidIcon.rawValue, bundle: bundle)
+  }
+  var settingsIcon: Image {
+    Image(ImageEnum.settingsIcon.rawValue, bundle: bundle)
+  }
+  var europeanUnionLogo: Image {
+    Image(ImageEnum.europeanUnionLogo.rawValue, bundle: bundle)
+  }
+  var euCredentialLogo: Image {
+    Image(ImageEnum.euCredentialLogo.rawValue, bundle: bundle)
+  }
+  var _18PlusLogo: Image {
+    Image(ImageEnum._18PlusLogo.rawValue, bundle: bundle)
+  }
+  var scanButton: Image {
+    Image(ImageEnum.scanButton.rawValue, bundle: bundle)
   }
 }

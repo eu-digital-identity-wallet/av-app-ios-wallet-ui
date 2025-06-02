@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "18plus_Logo.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
