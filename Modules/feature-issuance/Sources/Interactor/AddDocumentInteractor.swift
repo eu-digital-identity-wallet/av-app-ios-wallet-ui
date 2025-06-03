@@ -41,7 +41,7 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
   public func fetchScopedDocuments(with flow: IssuanceFlowUiConfig.Flow) async -> ScopedDocumentsPartialState {
     do {
       let documents: [AddDocumentUIModel] = try await walletController.getScopedDocuments().compactMap { doc in
-        if flow == .extraDocument || doc.isPid {
+          if flow == .extraDocument || doc.isAgeVerification {
           return .init(
             listItem: .init(
               mainText: .verificationNationalId,

@@ -279,23 +279,29 @@ final class WalletKitControllerImpl: WalletKitController {
     return metadata.credentialsSupported.compactMap { credential in
       switch credential.value {
       case .msoMdoc(let config):
+        let docIdentifier = DocumentTypeIdentifier(rawValue: config.docType)
+        let isAgeVerification = docIdentifier == .avAgeOver18 || docIdentifier == .mdocEUDIAgeOver18
         return ScopedDocument(
           name: config.display.getName(fallback: credential.key.value),
           issuer: metadata.display.getName(fallback: ""),
           configId: credential.key.value,
-          isPid: DocumentTypeIdentifier(rawValue: config.docType) == .mDocPid
+          isPid: DocumentTypeIdentifier(rawValue: config.docType) == .mDocPid,
+          isAgeVerification: isAgeVerification
         )
         // MARK: - TODO Re-activate isPid Check once SD-JWT PID Rule book is in place in ARF.
       case .sdJwtVc(let config):
         //        guard let vct = config.vct else {
         //          return nil
         //        }
+        let docIdentifier = DocumentTypeIdentifier(rawValue: config.vct ?? "")
+        let isAgeVerification = docIdentifier == .avAgeOver18
         return ScopedDocument(
           name: config.display.getName(fallback: credential.key.value),
           issuer: metadata.display.getName(fallback: ""),
           configId: credential.key.value,
           //isPid: DocumentTypeIdentifier(rawValue: vct) == .sdJwtPid
-          isPid: false
+          isPid: false,
+          isAgeVerification: isAgeVerification
         )
       default: return nil
       }

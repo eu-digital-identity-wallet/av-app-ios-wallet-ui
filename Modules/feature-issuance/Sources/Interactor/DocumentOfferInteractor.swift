@@ -54,7 +54,7 @@ final class DocumentOfferInteractorImpl: DocumentOfferInteractor {
       let codeMaxLength = 6
 
       let offer = try await walletController.resolveOfferUrlDocTypes(uriOffer: uri)
-      let hasPidStored = !walletController.fetchIssuedDocuments(with: [.mDocPid, .sdJwtPid]).isEmpty
+        let hasPidStored = !walletController.fetchIssuedDocuments(with: [.avAgeOver18, .mdocEUDIAgeOver18]).isEmpty
 
       if let spec = offer.txCodeSpec,
          let codeLength = spec.length,
@@ -67,7 +67,7 @@ final class DocumentOfferInteractorImpl: DocumentOfferInteractor {
           let identifier = DocumentTypeIdentifier(rawValue: offer.docType.ifNilOrEmpty { offer.credentialConfigurationIdentifier })
           // MARK: - TODO Re-activate once SD-JWT PID Rule book is in place in ARF.
           // return identifier == .mDocPid || identifier == .sdJwtPid
-          return identifier == .mDocPid
+            return identifier == .avAgeOver18 || identifier == .mdocEUDIAgeOver18
         }
       ) != nil
 

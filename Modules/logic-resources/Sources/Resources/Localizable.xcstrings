@@ -474,6 +474,17 @@
         }
       }
     },
+    "consent_screen_confirm_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirm"
+          }
+        }
+      }
+    },
     "consent_title" : {
       "extractionState" : "manual",
       "localizations" : {

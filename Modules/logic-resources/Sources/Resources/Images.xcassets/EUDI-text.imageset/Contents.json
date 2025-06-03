@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "EUDI-text.svg",
       "idiom" : "universal"
     },
     {
@@ -11,7 +10,6 @@
           "value" : "dark"
         }
       ],
-      "filename" : "image.png",
       "idiom" : "universal"
     }
   ],
