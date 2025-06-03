@@ -24,14 +24,14 @@ struct AppLandingView<Router: RouterHost>: View {
             background: Theme.shared.color.surface,
             navigationTitle: .details
         ) {
-            content(state: viewModel.viewState, onScan: viewModel.onScan)
+            content(onScan: viewModel.onScan)
         }
     }
 }
 
 @MainActor
 @ViewBuilder
-private func content(state: AppLandingState, onScan: @escaping () -> Void) -> some View {
+private func content(onScan: @escaping () -> Void) -> some View {
     ScrollView {
         GeometryReader { geometry in
             VStack(spacing: .zero) {
@@ -51,13 +51,13 @@ private func content(state: AppLandingState, onScan: @escaping () -> Void) -> so
                 .padding(.bottom, SPACING_MEDIUM)
                 
                 VStack (alignment: .leading, spacing: .zero) {
-                    Text(LocalizableStringKey.splashTitle.toString)
-                        .font(Theme.shared.font.titleLarge.font)
+                    Text(LocalizableStringKey.landingScreenTitle.toString)
+                        .typography(Theme.shared.font.titleLarge)
                         .fontWeight(.medium)
                         .padding(.bottom, SPACING_MEDIUM)
                     Text(LocalizableStringKey.landingScreenbody.toString)
+                        .typography(Theme.shared.font.bodyLarge)
                         .foregroundStyle(Theme.shared.color.lightText)
-                        .font(Theme.shared.font.bodyLarge.font)
                         .padding(.bottom, SPACING_LARGE)
                         .fixedSize(horizontal: false, vertical: true)
                 }
@@ -75,8 +75,8 @@ private func content(state: AppLandingState, onScan: @escaping () -> Void) -> so
                             .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 4)
                     }
                     Text(LocalizableStringKey.scanTitle.toString)
+                        .typography(Theme.shared.font.bodyLarge)
                         .foregroundStyle(Theme.shared.color.lightText)
-                        .font(Theme.shared.font.bodyLarge.font)
                 }
                 
                 Spacer()

@@ -15,16 +15,16 @@ struct CredentialDetailsView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
             Text(LocalizableStringKey.credentialDetailsTitle.toString)
+                .typography(Theme.shared.font.labelMedium)
                 .foregroundStyle(Theme.shared.color.primary)
-                .font(Theme.shared.font.labelMedium.font)
                 .padding(.bottom, SPACING_EXTRA_SMALL)
             HStack {
                 VStack(alignment: .leading) {
                     Text(LocalizableStringKey.ageOver18Label.toString)
-                        .font(Theme.shared.font.bodyLarge.font)
+                        .typography(Theme.shared.font.bodyLarge)
                     Text("true")
+                        .typography(Theme.shared.font.bodyLarge)
                         .foregroundStyle(Theme.shared.color.lightText)
-                        .font(Theme.shared.font.bodyLarge.font)
                 }
                 .padding()
                 Spacer()

@@ -562,6 +562,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "onboarding_verification_national_id")
     case .verificationNationalIdDescription:
         bundle.localizedString(forKey: "onboarding_verification_national_id_description")
+    case .landingScreenTitle:
+        bundle.localizedString(forKey: "landing_screen_title")
     case .landingScreenbody:
         bundle.localizedString(forKey: "landing_screen_body")
     case .europeanUnionLabel1:

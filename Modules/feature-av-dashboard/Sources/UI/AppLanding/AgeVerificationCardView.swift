@@ -39,7 +39,7 @@ struct AgeVerificationCardView: View {
                                 .frame(width: 38, height: 26)
                                 .padding(.trailing, SPACING_SMALL)
                             Text(LocalizableStringKey.europeanUnionLabel1.toString)
-                                .font(Theme.shared.font.labelSmall.font)
+                                .typography(Theme.shared.font.labelSmall)
                                 .foregroundStyle(Theme.shared.color.lightText)
                         }
                         Spacer()
@@ -49,7 +49,7 @@ struct AgeVerificationCardView: View {
                                 .frame(width: 10, height: 10)
                                 .padding(.trailing, SPACING_EXTRA_SMALL)
                             Text(LocalizableStringKey.europeanUnionLabel2.toString)
-                                .font(Theme.shared.font.labelSmall.font)
+                                .typography(Theme.shared.font.labelSmall)
                                 .foregroundStyle(Theme.shared.color.lightText)
                         }
                     }
@@ -61,7 +61,7 @@ struct AgeVerificationCardView: View {
                             .resizable()
                             .frame(width: 64, height: 61)
                         Text(LocalizableStringKey.splashTitle.toString)
-                            .font(Theme.shared.font.titleMedium.font)
+                            .typography(Theme.shared.font.titleMedium)
                             .foregroundStyle(Theme.shared.color.primary)
                     }
                     .padding(.bottom, SPACING_MEDIUM)

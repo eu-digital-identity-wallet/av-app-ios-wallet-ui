@@ -1291,6 +1291,17 @@
         }
       }
     },
+    "landing_screen_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Age Verification"
+          }
+        }
+      }
+    },
     "learn_more" : {
       "extractionState" : "manual",
       "localizations" : {

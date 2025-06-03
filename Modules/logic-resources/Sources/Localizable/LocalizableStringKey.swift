@@ -293,6 +293,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
     case verificationNationalIdDescription
     
     // Landing screen
+    case landingScreenTitle
     case landingScreenbody
     case europeanUnionLabel1
     case europeanUnionLabel2
