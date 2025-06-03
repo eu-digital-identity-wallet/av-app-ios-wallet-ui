@@ -92,34 +92,37 @@ struct WalletKitConfigImpl: WalletKitConfig {
   var vciConfig: VciConfig {
     return switch configLogic.appBuildVariant {
     case .DEMO:
-        .init(
-          issuerUrl: "https://issuer.eudiw.dev",
-          clientId: "wallet-dev",
-          redirectUri: URL(string: "eu.europa.ec.euidi://authorization")!,
-          usePAR: true,
-          useDPoP: true
-        )
+            .init(
+                issuerUrl: "https://issuer.ageverification.dev",
+                clientId: "wallet-dev",
+                redirectUri: URL(string: "eu.europa.ec.euidi://authorization")!,
+                usePAR: true,
+                useDPoP: true
+            )
     case .DEV:
-        .init(
-          issuerUrl: "https://dev.issuer.eudiw.dev",
-          clientId: "wallet-dev",
-          redirectUri: URL(string: "eu.europa.ec.euidi://authorization")!,
-          usePAR: true,
-          useDPoP: true
-        )
+            .init(
+                issuerUrl: "https://issuer.ageverification.dev",
+                clientId: "wallet-dev",
+                redirectUri: URL(string: "eu.europa.ec.euidi://authorization")!,
+                usePAR: true,
+                useDPoP: true
+            )
+        }
     }
-  }
 
   var readerConfig: ReaderConfig {
-    let certificates = [
-      "pidissuerca02_cz",
-      "pidissuerca02_ee",
-      "pidissuerca02_eu",
-      "pidissuerca02_lu",
-      "pidissuerca02_nl",
-      "pidissuerca02_pt",
-      "pidissuerca02_ut"
-    ]
+
+      let certificates = [
+        "av_cert",
+        "pidissuerca02_cz",
+        "pidissuerca02_ee",
+        "pidissuerca02_eu",
+        "pidissuerca02_lu",
+        "pidissuerca02_nl",
+        "pidissuerca02_pt",
+        "pidissuerca02_ut"
+      ]
+
     let certsData: [Data] = certificates.compactMap {
       Data(name: $0, ext: "der")
     }

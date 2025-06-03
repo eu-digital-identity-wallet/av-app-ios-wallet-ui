@@ -62,7 +62,7 @@ private func content(state: ConsentViewState, onNext: @escaping () -> Void, onTe
 
         WrapButtonView(
             style: .primary,
-            title: .welcomeSkipButton,
+            title: .consentConfirmButton,
             isLoading: false,
             isEnabled: state.nextButtonEnabled,
             onAction: onNext()

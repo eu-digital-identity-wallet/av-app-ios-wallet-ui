@@ -30,6 +30,7 @@ public struct ExpandableCardView<Content: View>: View {
     subtitle: LocalizableStringKey? = nil,
     mainTextVerticalPadding: CGFloat? = nil,
     isLoading: Bool = false,
+    isExpanded: Bool = false,
     @ViewBuilder content: @escaping () -> Content
   ) {
     self.title = title
@@ -37,6 +38,7 @@ public struct ExpandableCardView<Content: View>: View {
     self.backgroundColor = backgroundColor
     self.mainTextVerticalPadding = mainTextVerticalPadding
     self.isLoading = isLoading
+    self.isExpanded = isExpanded
     self.content = content
   }
 

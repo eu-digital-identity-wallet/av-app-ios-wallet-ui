@@ -278,6 +278,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
     case consentCheckboxLabel2
     case consentHyperlinkLabel1
     case consentHyperlinkLabel2
+    case consentConfirmButton
 
     // Pin Setup Step
     case quickPinCreateTitle

@@ -49,10 +49,6 @@ public struct AppIconAndTextView: View {
         .resizable()
         .scaledToFit()
         .frame(width: appIconAndTextData.appIconSize, height: appIconAndTextData.appIconSize)
-      appIconAndTextData.appText
-        .resizable()
-        .scaledToFit()
-        .frame(width: appIconAndTextData.appTextSize, height: appIconAndTextData.appTextSize)
     }
     .frame(maxWidth: .infinity, alignment: .center)
   }

@@ -544,6 +544,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "consent_hyperlink_label_1")
     case .consentHyperlinkLabel2:
         bundle.localizedString(forKey: "consent_hyperlink_label_2")
+    case .consentConfirmButton:
+        bundle.localizedString(forKey: "consent_screen_confirm_button")
     case .quickPinCreateTitle:
         bundle.localizedString(forKey: "quick_pin_create_title")
     case .quickPinReEnterTitle:
