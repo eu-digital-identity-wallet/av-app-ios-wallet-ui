@@ -75,9 +75,6 @@ Whether you cloned or downloaded the 'zipped' sources you will either find the s
 
 In either case open a terminal pointing to the directory you put the sources in. The local build process is described [here](./wiki/how_to_build.md) and the configuration options are described [here](./wiki/configuration.md).
 
-> [!NOTE]
-> The minimum device requirement for this application is  Android API level 28.
-
 ### Testing
 
 To test the app, there is an issuer and verifier service available online. This allows you to perform the enrollment directly from within the app or via the online issuer in order to receive a proof of age attestation. With the verifier, you can then present this attestation.
