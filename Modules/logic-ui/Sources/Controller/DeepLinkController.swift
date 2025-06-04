@@ -75,7 +75,7 @@ final class DeepLinkControllerImpl: DeepLinkController {
 
     var isRqesPendingAction: Bool {
       deepLinkExecutable.action == .rqes
-      && !routerHost.isScreenForeground(with: .featureDashboardModule(.dashboard))
+      && !routerHost.isScreenForeground(with: .featureAVDashboardModule(.appLanding))
     }
 
     var shouldPopToDashboardFirst: Bool {
@@ -91,7 +91,7 @@ final class DeepLinkControllerImpl: DeepLinkController {
       }
       if shouldPopToDashboardFirst {
         routerHost.popTo(
-          with: .featureDashboardModule(.dashboard),
+          with: .featureAVDashboardModule(.appLanding),
           inclusive: false,
           animated: false
         )
@@ -110,7 +110,7 @@ final class DeepLinkControllerImpl: DeepLinkController {
         with: .featurePresentationModule(
           .presentationRequest(
             presentationCoordinator: remoteSessionCoordinator,
-            originator: .featureDashboardModule(.dashboard)
+            originator: .featureAVDashboardModule(.appLanding)
           )
         )
       ) {
@@ -118,7 +118,7 @@ final class DeepLinkControllerImpl: DeepLinkController {
           with: .featurePresentationModule(
             .presentationRequest(
               presentationCoordinator: remoteSessionCoordinator,
-              originator: .featureDashboardModule(.dashboard)
+              originator: .featureAVDashboardModule(.appLanding)
             )
           )
         )
@@ -135,8 +135,8 @@ final class DeepLinkControllerImpl: DeepLinkController {
       let config = UIConfig.Generic(
         arguments: ["uri": deepLinkExecutable.plainUrl.absoluteString],
         navigationSuccessType: routerHost.userIsLoggedInWithDocuments()
-        ? .popTo(.featureDashboardModule(.dashboard))
-        : .push(.featureDashboardModule(.dashboard)),
+        ? .popTo(.featureAVDashboardModule(.appLanding))
+        : .push(.featureAVDashboardModule(.appLanding)),
         navigationCancelType: .pop
       )
       if !routerHost.isScreenForeground(with: .featureIssuanceModule(.credentialOfferRequest(config: config))) {

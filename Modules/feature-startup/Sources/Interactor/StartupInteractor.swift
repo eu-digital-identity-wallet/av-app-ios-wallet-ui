@@ -59,7 +59,7 @@ final class StartupInteractorImpl: StartupInteractor {
             quickPinOnlyCaption: .loginCaptionQuickPinOnly,
             navigationSuccessType: .push(
               hasDocuments
-              ? .featureDashboardModule(.dashboard)
+              ? .featureAVDashboardModule(.appLanding)
               : .featureIssuanceModule(.issuanceAddDocument(config: IssuanceFlowUiConfig(flow: .noDocument)))
             ),
             navigationBackType: nil,

@@ -67,7 +67,7 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
         successButton: config.isSetFlow ? .quickPinSetSuccessButton : .quickPinUpdateSuccessButton,
         successNavigationType: config.isSetFlow
         ? .push(screen: .featureIssuanceModule(.issuanceAddDocument(config: IssuanceFlowUiConfig(flow: .noDocument))))
-        : .pop(screen: .featureDashboardModule(.dashboard)),
+        : .pop(screen: .featureAVDashboardModule(.appLanding)),
         isCancellable: config.isUpdateFlow,
         pinError: nil,
         isButtonActive: false,

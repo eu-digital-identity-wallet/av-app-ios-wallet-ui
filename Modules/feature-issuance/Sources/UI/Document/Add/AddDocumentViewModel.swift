@@ -116,7 +116,7 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
         .qrScanner(
           config: ScannerUiConfig(
             flow: .issuing(
-              successNavigation: .push(.featureDashboardModule(.dashboard)),
+              successNavigation: .push(.featureAVDashboardModule(.appLanding)),
               cancelNavigation: .popTo(
                 .featureIssuanceModule(
                   .issuanceAddDocument(config: viewState.config)
@@ -249,9 +249,9 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
     var navigationType: UIConfig.DeepLinkNavigationType {
       return switch viewState.config.flow {
       case .noDocument:
-          .push(screen: .featureDashboardModule(.dashboard))
+          .push(screen: .featureAVDashboardModule(.appLanding))
       case .extraDocument:
-          .pop(screen: .featureDashboardModule(.dashboard))
+          .pop(screen: .featureAVDashboardModule(.appLanding))
       }
     }
 
@@ -312,7 +312,7 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
         .credentialOfferRequest(
           config: UIConfig.Generic(
             arguments: ["uri": uri],
-            navigationSuccessType: .push(.featureDashboardModule(.dashboard)),
+            navigationSuccessType: .push(.featureAVDashboardModule(.appLanding)),
             navigationCancelType: .pop
           )
         )
@@ -329,9 +329,9 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
 
     let onSuccesNavigation = switch viewState.config.flow {
     case .noDocument:
-      UIConfig.DeepLinkNavigationType.push(screen: .featureDashboardModule(.dashboard))
+      UIConfig.DeepLinkNavigationType.push(screen: .featureAVDashboardModule(.appLanding))
     case .extraDocument:
-      UIConfig.DeepLinkNavigationType.pop(screen: .featureDashboardModule(.dashboard))
+      UIConfig.DeepLinkNavigationType.pop(screen: .featureAVDashboardModule(.appLanding))
     }
 
     switch state {

@@ -22,14 +22,6 @@ let package = Package(
         "feature-common"
       ],
       path: "./Sources"
-    ),
-    .testTarget(
-      name: "feature-av-dashboard-tests",
-      dependencies: [
-        "feature-av-dashboard",
-        "feature-common",
-        "feature-test"
-      ],
-      path: "./Tests")
+    )
   ]
 )

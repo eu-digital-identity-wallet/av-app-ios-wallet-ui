@@ -83,7 +83,7 @@ final class PresentationLoadingViewModel<Router: RouterHost, RequestItem: Sendab
       }
       return .deepLink(
         link: url,
-        popToScreen: .featureDashboardModule(.dashboard)
+        popToScreen: .featureAVDashboardModule(.appLanding)
       )
     }
 

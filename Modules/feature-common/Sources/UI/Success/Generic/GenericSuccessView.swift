@@ -113,7 +113,7 @@ private func getCenteredIcon(
         .init(
           title: LocalizableStringKey.okButton,
           style: .primary,
-          navigationType: UIConfig.DeepLinkNavigationType.push(screen: .featureDashboardModule(.dashboard))
+          navigationType: UIConfig.DeepLinkNavigationType.push(screen: .featureAVDashboardModule(.appLanding))
         )
       ],
       visualKind: .customIcon(Theme.shared.image.clock, Theme.shared.color.pending)

@@ -103,7 +103,7 @@ final class HomeTabViewModel<Router: RouterHost>: ViewModel<Router, HomeTabState
           with: .featureProximityModule(
             .proximityConnection(
               presentationCoordinator: await self.interactor.getWalletKitController().startProximityPresentation(),
-              originator: .featureDashboardModule(.dashboard)
+              originator: .featureAVDashboardModule(.appLanding)
             )
           )
         )

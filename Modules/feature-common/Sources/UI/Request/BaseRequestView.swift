@@ -161,7 +161,7 @@ private func noDocumentsFound(
     relyingParty: .custom("relying party"),
     isTrusted: true,
     allowShare: true,
-    originator: .featureDashboardModule(.dashboard),
+    originator: .featureAVDashboardModule(.appLanding),
     initialized: true,
     contentHeaderConfig: .init(
       appIconAndTextData: AppIconAndTextData(
