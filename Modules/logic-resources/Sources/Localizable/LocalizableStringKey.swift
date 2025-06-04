@@ -291,6 +291,15 @@ public enum LocalizableStringKey: Equatable, Sendable {
     case verificationStepDescription
     case verificationNationalId
     case verificationNationalIdDescription
+    
+    // Landing screen
+    case landingScreenTitle
+    case landingScreenbody
+    case europeanUnionLabel1
+    case europeanUnionLabel2
+    case ageOver18Label
+    case credentialDetailsTitle
+    case scanTitle
 }
 
 public extension LocalizableStringKey {

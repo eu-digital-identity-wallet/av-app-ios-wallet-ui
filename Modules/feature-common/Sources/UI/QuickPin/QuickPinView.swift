@@ -124,7 +124,7 @@ private func pinView(
     button: .quickPinNextButton,
     success: .success,
     successButton: .quickPinSetSuccessButton,
-    successNavigationType: .push(screen: .featureDashboardModule(.dashboard)),
+    successNavigationType: .push(screen: .featureAVDashboardModule(.appLanding)),
     isCancellable: false,
     pinError: nil,
     isButtonActive: true,

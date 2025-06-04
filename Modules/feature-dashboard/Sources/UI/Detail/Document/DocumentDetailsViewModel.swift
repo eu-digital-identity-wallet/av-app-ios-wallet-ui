@@ -92,11 +92,11 @@ final class DocumentDetailsViewModel<Router: RouterHost>: ViewModel<Router, Docu
 
   func pop() {
     isDeletionModalShowing = false
-    router.popTo(with: .featureDashboardModule(.dashboard))
+    router.popTo(with: .featureAVDashboardModule(.appLanding))
   }
 
   func onContinue() {
-    router.push(with: .featureDashboardModule(.dashboard))
+    router.push(with: .featureAVDashboardModule(.appLanding))
   }
 
   func onDeleteDocument() {

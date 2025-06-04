@@ -184,6 +184,8 @@ private extension RouterHostImpl {
       ProximityRouter.resolve(module: module, host: self)
     case .featureOnboardingModule(let module):
         OnboardingRouter.resolve(module: module, host: self)
+    case .featureAVDashboardModule(let module):
+        AVDashboardRouter.resolve(module: module, host: self)
     }
   }
 }

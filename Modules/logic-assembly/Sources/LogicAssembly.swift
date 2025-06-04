@@ -29,3 +29,4 @@
 @_exported import feature_issuance
 @_exported import feature_proximity
 @_exported import feature_onboarding
+@_exported import feature_av_dashboard

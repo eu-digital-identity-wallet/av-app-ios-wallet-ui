@@ -122,7 +122,7 @@ final class ScannerViewModel<Router: RouterHost>: ViewModel<Router, ScannerState
         with: .featurePresentationModule(
           .presentationRequest(
             presentationCoordinator: await interactor.startCrossDevicePresentation(scanResult: scanResult),
-            originator: .featureDashboardModule(.dashboard)
+            originator: .featureAVDashboardModule(.appLanding)
           )
         )
       )

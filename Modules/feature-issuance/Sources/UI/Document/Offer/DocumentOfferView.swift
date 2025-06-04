@@ -120,7 +120,7 @@ private func noDocumentsFound(
     error: nil,
     config: UIConfig.Generic(
       arguments: ["uri": "uri"],
-      navigationSuccessType: .push(.featureDashboardModule(.dashboard)),
+      navigationSuccessType: .push(.featureAVDashboardModule(.appLanding)),
       navigationCancelType: .pop
     ),
     offerUri: "offer uri",
@@ -154,7 +154,7 @@ private func noDocumentsFound(
     error: nil,
     config: UIConfig.Generic(
       arguments: ["uri": "uri"],
-      navigationSuccessType: .push(.featureDashboardModule(.dashboard)),
+      navigationSuccessType: .push(.featureAVDashboardModule(.appLanding)),
       navigationCancelType: .pop
     ),
     offerUri: "offer uri",

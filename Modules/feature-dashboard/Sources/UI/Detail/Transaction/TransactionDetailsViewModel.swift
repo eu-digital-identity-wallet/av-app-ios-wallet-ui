@@ -94,6 +94,6 @@ final class TransactionDetailsViewModel<Router: RouterHost>: ViewModel<Router, T
   }
 
   func pop() {
-    router.popTo(with: .featureDashboardModule(.dashboard))
+    router.popTo(with: .featureAVDashboardModule(.appLanding))
   }
 }

@@ -562,6 +562,20 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "onboarding_verification_national_id")
     case .verificationNationalIdDescription:
         bundle.localizedString(forKey: "onboarding_verification_national_id_description")
+    case .landingScreenTitle:
+        bundle.localizedString(forKey: "landing_screen_title")
+    case .landingScreenbody:
+        bundle.localizedString(forKey: "landing_screen_body")
+    case .europeanUnionLabel1:
+        bundle.localizedString(forKey: "european_union_label_1")
+    case .europeanUnionLabel2:
+        bundle.localizedString(forKey: "european_union_label_2")
+    case .ageOver18Label:
+        bundle.localizedString(forKey: "age_over_18_label")
+    case .credentialDetailsTitle:
+        bundle.localizedString(forKey: "credential_details_title")
+    case .scanTitle:
+        bundle.localizedString(forKey: "scan_title")
     }
   }
 }
