@@ -7,7 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 ![Proof of age attestations for all Europeans - An age verification solution for EU citizens and residents](./docs/media/top-banner-av.png)
 
 <h1 align="center">
-    Age Verification (AV) Android application
+    Age Verification (AV) iOS application
 </h1>
 
 <p align="center">
