@@ -576,6 +576,18 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "credential_details_title")
     case .scanTitle:
         bundle.localizedString(forKey: "scan_title")
+    case .biometricSetupTitle:
+        bundle.localizedString(forKey: "biometric_setup_title")
+    case .biometricSetupDescription(let arg):
+        bundle.localizedStringWithArguments(forKey: "biometric_setup_description", arguments: [arg])
+    case .biometricSetupButton:
+        bundle.localizedString(forKey: "biometric_setup_enable")
+    case .biometricSetupSkipButton:
+        bundle.localizedString(forKey: "biometric_setup_skip")
+    case .biometricSetupErrorNoHardware:
+        bundle.localizedString(forKey: "biometric_no_hardware")
+    case .biometricSetupUnknownError:
+        bundle.localizedString(forKey: "biometric_unknown_error")
     }
   }
 }
