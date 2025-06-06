@@ -11,11 +11,11 @@ import logic_core
 
 struct AppLandingView<Router: RouterHost>: View {
     @ObservedObject var viewModel: AppLandingViewModel<Router>
-    
+
     init(with viewModel: AppLandingViewModel<Router>) {
         self.viewModel = viewModel
     }
-    
+
     var body: some View {
         ContentScreenView(
             padding: .zero,
@@ -40,7 +40,7 @@ private func content(onScan: @escaping () -> Void) -> some View {
                         .frame(width: geometry.size.width / 2 - 44)
                     Theme.shared.image.logo
                         .resizable()
-                        .frame(width: 57,height: 48)
+                        .frame(width: 57, height: 48)
                     Spacer()
                     Button(action: {
                     }) {
@@ -49,8 +49,8 @@ private func content(onScan: @escaping () -> Void) -> some View {
                     .buttonStyle(.plain)
                 }
                 .padding(.bottom, SPACING_MEDIUM)
-                
-                VStack (alignment: .leading, spacing: .zero) {
+
+                VStack(alignment: .leading, spacing: .zero) {
                     Text(LocalizableStringKey.landingScreenTitle.toString)
                         .typography(Theme.shared.font.titleLarge)
                         .fontWeight(.medium)
@@ -61,11 +61,11 @@ private func content(onScan: @escaping () -> Void) -> some View {
                         .padding(.bottom, SPACING_LARGE)
                         .fixedSize(horizontal: false, vertical: true)
                 }
-                
+
                 AgeVerificationCardView()
-                
+
                 CredentialDetailsView()
-                
+
                 VStack(alignment: .center) {
                     Button(action: {
                         onScan()
@@ -78,7 +78,7 @@ private func content(onScan: @escaping () -> Void) -> some View {
                         .typography(Theme.shared.font.bodyLarge)
                         .foregroundStyle(Theme.shared.color.lightText)
                 }
-                
+
                 Spacer()
             }
             .padding()
@@ -86,5 +86,5 @@ private func content(onScan: @escaping () -> Void) -> some View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Theme.shared.color.surface)
     }
-    
+
 }

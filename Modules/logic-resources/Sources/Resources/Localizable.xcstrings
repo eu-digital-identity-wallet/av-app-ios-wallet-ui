@@ -177,6 +177,72 @@
         }
       }
     },
+    "biometric_no_hardware" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your device does not support biometric authentication"
+          }
+        }
+      }
+    },
+    "biometric_setup_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use your fingerprint or face recognition to log in to the “%@” app."
+          }
+        }
+      }
+    },
+    "biometric_setup_enable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start setup"
+          }
+        }
+      }
+    },
+    "biometric_setup_skip" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skip"
+          }
+        }
+      }
+    },
+    "biometric_setup_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Biometric access"
+          }
+        }
+      }
+    },
+    "biometric_unknown_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Something went wrong initializing biometric authentication. Please try again"
+          }
+        }
+      }
+    },
     "biometry_confirm_request" : {
       "extractionState" : "manual",
       "localizations" : {

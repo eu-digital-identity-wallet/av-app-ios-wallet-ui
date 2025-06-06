@@ -28,6 +28,9 @@ public final class CommonRouter {
           interactor: DIGraph.resolver.force(
             QuickPinInteractor.self
           ),
+          biometricInteractor: DIGraph.resolver.force(
+            BiometryInteractor.self
+          ),
           config: config
         )
       ).eraseToAnyView()
@@ -60,6 +63,14 @@ public final class CommonRouter {
           )
         )
       ).eraseToAnyView()
+    case .biometrySetup(config: let config):
+      BiometrySetupView(with: .init(
+        router: host,
+        interactor: DIGraph.resolver.force(BiometryInteractor.self),
+        config: config
+        )
+      )
+      .eraseToAnyView()
     }
   }
 }

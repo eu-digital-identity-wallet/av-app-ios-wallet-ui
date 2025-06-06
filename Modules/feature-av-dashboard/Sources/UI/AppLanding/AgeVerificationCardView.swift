@@ -5,7 +5,6 @@
 //  Created by A200156428 on 02/06/25.
 //
 
-
 import SwiftUI
 import feature_common
 import logic_resources
@@ -13,15 +12,15 @@ import logic_core
 
 struct AgeVerificationCardView: View {
     let cardHeight: CGFloat = 129
-    
+
     var body: some View {
-        ZStack{
+        ZStack {
             RoundedRectangle(cornerRadius: 8)
                 .fill(Theme.shared.color.surfaceContainer)
                 .frame(height: cardHeight)
                 .clipped()
                 .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 4)
-            
+
             HStack(alignment: .top, spacing: .zero) {
                 Rectangle()
                     .fill(Theme.shared.color.primary)
@@ -31,7 +30,7 @@ struct AgeVerificationCardView: View {
                     .fill(Theme.shared.color.primary)
                     .frame(width: 5, height: cardHeight)
                     .padding(.trailing, SPACING_SMALL)
-                VStack(spacing: .zero){
+                VStack(spacing: .zero) {
                     HStack(alignment: .top) {
                         HStack(alignment: .center, spacing: .zero) {
                             Theme.shared.image.europeanUnionLogo
@@ -43,7 +42,7 @@ struct AgeVerificationCardView: View {
                                 .foregroundStyle(Theme.shared.color.lightText)
                         }
                         Spacer()
-                        HStack(alignment: .center, spacing: .zero){
+                        HStack(alignment: .center, spacing: .zero) {
                             Theme.shared.image.euCredentialLogo
                                 .resizable()
                                 .frame(width: 10, height: 10)
@@ -73,4 +72,3 @@ struct AgeVerificationCardView: View {
         .padding(.bottom, SPACING_LARGE_MEDIUM)
     }
 }
-

@@ -45,16 +45,19 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
   @Published var isCancelModalShowing: Bool = false
 
   private let interactor: QuickPinInteractor
+  private let biometricInteractor: BiometryInteractor
 
   init(
     router: Router,
     interactor: QuickPinInteractor,
+    biometricInteractor: BiometryInteractor,
     config: any UIConfigType
   ) {
     guard let config = config as? QuickPinUiConfig else {
       fatalError("QuickPinViewModel:: Invalid configuraton")
     }
     self.interactor = interactor
+    self.biometricInteractor = biometricInteractor
     super.init(
       router: router,
       initialState: .init(
@@ -161,16 +164,28 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
 
   private func onSuccess() {
     interactor.setPin(newPin: uiPinInputField)
-      switch viewState.successNavigationType {
-      case .pop(let screen, let inclusive):
-          router.popTo(with: screen, inclusive: inclusive)
-      case .deepLink(_, let popToScreen):
-          router.popTo(with: popToScreen)
-      case .push(let screen):
-          router.push(with: screen, animated: false)
-      case .none:
-          break
-      }
+
+    if viewState.config.isSetFlow {
+      let biometrySetupConfig = UIConfig.BiometricSetupUiConfig(
+        title: .biometricSetupTitle,
+        caption: .biometricSetupDescription(LocalizableStringKey.splashTitle.toString),
+        button: .biometricSetupButton,
+        skipButton: .biometricSetupSkipButton,
+        navigationSuccessType: viewState.successNavigationType)
+      router.push(with: .featureCommonModule(.biometrySetup(config: biometrySetupConfig)), animated: false)
+      return
+    }
+
+    switch viewState.successNavigationType {
+    case .pop(let screen, let inclusive):
+      router.popTo(with: screen, inclusive: inclusive)
+    case .deepLink(_, let popToScreen):
+      router.popTo(with: popToScreen)
+    case .push(let screen):
+      router.push(with: screen, animated: false)
+    case .none:
+      break
+    }
   }
 
   private func subscribeToPinInput() {
@@ -190,11 +205,11 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
         .copy(isButtonActive: value.count == viewState.quickPinSize)
     }
 
-      DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1, execute: DispatchWorkItem(block: { [weak self] in
-          guard let sSelf = self else { return }
-          if value.count == sSelf.viewState.quickPinSize {
-              sSelf.onButtonClick()
-          }
-      }))
+    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1, execute: DispatchWorkItem(block: { [weak self] in
+      guard let sSelf = self else { return }
+      if value.count == sSelf.viewState.quickPinSize {
+        sSelf.onButtonClick()
+      }
+    }))
   }
 }

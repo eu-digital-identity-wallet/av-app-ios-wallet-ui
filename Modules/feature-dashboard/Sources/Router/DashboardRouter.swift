@@ -19,7 +19,7 @@ import logic_core
 
 @MainActor
 public final class DashboardRouter {
-    
+
     public static func resolve(module: FeatureDashboardRouteModule, host: some RouterHost) -> AnyView {
         switch module {
         case .dashboard:
@@ -90,7 +90,7 @@ public final class DashboardRouter {
                     transactionId: id
                 )
             ).eraseToAnyView()
-            
+
         }
     }
 }
