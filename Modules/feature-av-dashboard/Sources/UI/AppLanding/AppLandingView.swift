@@ -26,6 +26,9 @@ struct AppLandingView<Router: RouterHost>: View {
         ) {
             content(onScan: viewModel.onScan)
         }
+        .task {
+            await viewModel.getCredentialDetails()
+        }
     }
 }
 

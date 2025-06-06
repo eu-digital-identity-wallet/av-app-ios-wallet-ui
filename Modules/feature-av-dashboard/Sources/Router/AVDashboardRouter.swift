@@ -14,8 +14,10 @@ public final class AVDashboardRouter {
     public static func resolve(module: FeatureAVDashboardRouteModule, host: some RouterHost) -> AnyView {
         switch module {
         case .appLanding:
-            AppLandingView(with: .init(router: host))
-                .eraseToAnyView()
+            AppLandingView(with: .init(router: host, interactor: DIGraph.resolver.force(
+                LandingPageInteractor.self
+            )))
+            .eraseToAnyView()
         }
     }
 }
