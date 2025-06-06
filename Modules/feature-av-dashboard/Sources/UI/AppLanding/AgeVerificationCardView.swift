@@ -69,6 +69,6 @@ struct AgeVerificationCardView: View {
             }
             .clipShape(RoundedRectangle(cornerRadius: 8))
         }
-        .padding(.bottom, SPACING_LARGE_MEDIUM)
+        .padding(.bottom, SPACING_LARGE)
     }
 }

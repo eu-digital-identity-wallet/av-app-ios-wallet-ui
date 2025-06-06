@@ -11,10 +11,11 @@ import logic_core
 
 @Copyable
 struct AppLandingState: ViewState {
-   // let document: LandingViewUiModel
+    let document: LandingViewUiModel
     let title: LocalizableStringKey
     let isLoading: Bool
     let error: ContentErrorView.Config?
+    
 }
 
 final class AppLandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingState> {
@@ -23,7 +24,7 @@ final class AppLandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandin
     init(router: Router, interactor: LandingPageInteractor,) {
         self.interactor = interactor
         super.init(router: router,
-                   initialState: .init(title: .completed,
+                   initialState: .init(document: LandingViewUiModel.mock(), title: .completed,
                                        isLoading: true,
                                        error: nil
                                       )
@@ -34,16 +35,28 @@ final class AppLandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandin
     }
     
     func getCredentialDetails() async {
-        
-//        let walletController: WalletKitController
-//        let documents = walletController.fetchIssuedDocuments(with: [.avAgeOver18])
-//        print(documents)
+
         let state = await Task.detached { () -> AgeCredentialPartialState in
             return await self.interactor.getAgeCredential()
         }.value
         
-//        switch state {
-//        }
+        switch state {
+        case .success(let document):
+          self.setState {
+            $0.copy(
+              document: document,
+              isLoading: false,
+            ).copy(error: nil)
+          }
+        case .failure(let error):
+          self.setState {
+            $0.copy(
+              isLoading: true,
+              error: .init(
+                description: .custom(error.localizedDescription), cancelAction: (),
+              )
+            )
+          }
+        }
     }
-
 }

@@ -11,28 +11,40 @@ import logic_resources
 import logic_core
 
 struct CredentialDetailsView: View {
-
+    
+    var claims: [DocClaim]
+    
+    public init(claims: [DocClaim]) {
+        self.claims = claims
+    }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
             Text(LocalizableStringKey.credentialDetailsTitle.toString)
-                .typography(Theme.shared.font.labelMedium)
+                .typography(Theme.shared.font.labelLarge)
                 .foregroundStyle(Theme.shared.color.primary)
                 .padding(.bottom, SPACING_EXTRA_SMALL)
-            HStack {
-                VStack(alignment: .leading) {
-                    Text(LocalizableStringKey.ageOver18Label.toString)
-                        .typography(Theme.shared.font.bodyLarge)
-                    Text("true")
-                        .typography(Theme.shared.font.bodyLarge)
-                        .foregroundStyle(Theme.shared.color.lightText)
+            VStack(alignment: .leading, spacing: 15){
+                ForEach(claims) { claim in
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text(claim.name)
+                            .typography(Theme.shared.font.bodyLarge)
+                        Text(claim.stringValue)
+                            .typography(Theme.shared.font.bodyLarge)
+                            .foregroundStyle(Theme.shared.color.lightText)
+                        if claim != claims.last {
+                            Divider()
+                                .padding(.top, 10)
+                        }
+                    }
                 }
-                .padding()
-                Spacer()
             }
+            .padding()
+            
             .background(RoundedRectangle(cornerRadius: 8)
                 .fill(Theme.shared.color.surfaceContainer)
                 .clipped()
-                .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 4))
+            )
         }
         .padding(.bottom, SPACING_LARGE)
     }
