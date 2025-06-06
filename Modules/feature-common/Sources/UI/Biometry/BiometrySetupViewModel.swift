@@ -28,7 +28,7 @@ final class BiometrySetupViewModel<Router: RouterHost>: ViewModel<Router, Biomet
     config: any UIConfigType
   ) {
     guard let config = config as? UIConfig.BiometricSetupUiConfig else {
-      fatalError("QuickPinViewModel:: Invalid configuraton")
+      fatalError("BiometrySetupViewModel:: Invalid configuraton")
     }
     self.interactor = interactor
     super.init(

@@ -28,9 +28,6 @@ public final class CommonRouter {
           interactor: DIGraph.resolver.force(
             QuickPinInteractor.self
           ),
-          biometricInteractor: DIGraph.resolver.force(
-            BiometryInteractor.self
-          ),
           config: config
         )
       ).eraseToAnyView()

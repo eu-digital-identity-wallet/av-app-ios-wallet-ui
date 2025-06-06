@@ -43,21 +43,17 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
 
   @Published var uiPinInputField: String = ""
   @Published var isCancelModalShowing: Bool = false
-
   private let interactor: QuickPinInteractor
-  private let biometricInteractor: BiometryInteractor
 
   init(
     router: Router,
     interactor: QuickPinInteractor,
-    biometricInteractor: BiometryInteractor,
     config: any UIConfigType
   ) {
     guard let config = config as? QuickPinUiConfig else {
       fatalError("QuickPinViewModel:: Invalid configuraton")
     }
     self.interactor = interactor
-    self.biometricInteractor = biometricInteractor
     super.init(
       router: router,
       initialState: .init(
