@@ -24,9 +24,9 @@ struct CredentialDetailsView: View {
                 .typography(Theme.shared.font.labelLarge)
                 .foregroundStyle(Theme.shared.color.primary)
                 .padding(.bottom, SPACING_EXTRA_SMALL)
-            VStack(alignment: .leading, spacing: 15){
+            VStack(alignment: .leading, spacing: SPACING_MEDIUM){
                 ForEach(claims) { claim in
-                    VStack(alignment: .leading, spacing: 5) {
+                    VStack(alignment: .leading, spacing: SPACING_EXTRA_SMALL) {
                         Text(claim.name)
                             .typography(Theme.shared.font.bodyLarge)
                         Text(claim.stringValue)
@@ -34,7 +34,7 @@ struct CredentialDetailsView: View {
                             .foregroundStyle(Theme.shared.color.lightText)
                         if claim != claims.last {
                             Divider()
-                                .padding(.top, 10)
+                                .padding(.top, SPACING_SMALL)
                         }
                     }
                 }

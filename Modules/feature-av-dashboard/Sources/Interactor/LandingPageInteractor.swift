@@ -25,7 +25,6 @@ final class LandingPageInteractorImpl: LandingPageInteractor {
     
     func getAgeCredential() async -> AgeCredentialPartialState {
         
-
         let documents = walletController.fetchIssuedDocuments(with: [.avAgeOver18])
         
         guard let documentDetails = documents.first?.transformToLandingUi() else {
