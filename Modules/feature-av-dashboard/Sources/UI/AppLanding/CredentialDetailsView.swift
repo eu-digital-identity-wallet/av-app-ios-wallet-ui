@@ -12,10 +12,10 @@ import logic_core
 
 struct CredentialDetailsView: View {
     
-    var claims: [DocClaim]
+    var documentFields: [GenericExpandableItem]
     
-    public init(claims: [DocClaim]) {
-        self.claims = claims
+    public init(documentFields: [GenericExpandableItem]) {
+        self.documentFields = documentFields
     }
     
     var body: some View {
@@ -24,27 +24,7 @@ struct CredentialDetailsView: View {
                 .typography(Theme.shared.font.labelLarge)
                 .foregroundStyle(Theme.shared.color.primary)
                 .padding(.bottom, SPACING_EXTRA_SMALL)
-            VStack(alignment: .leading, spacing: SPACING_MEDIUM){
-                ForEach(claims) { claim in
-                    VStack(alignment: .leading, spacing: SPACING_EXTRA_SMALL) {
-                        Text(claim.name)
-                            .typography(Theme.shared.font.bodyLarge)
-                        Text(claim.stringValue)
-                            .typography(Theme.shared.font.bodyLarge)
-                            .foregroundStyle(Theme.shared.color.lightText)
-                        if claim != claims.last {
-                            Divider()
-                                .padding(.top, SPACING_SMALL)
-                        }
-                    }
-                }
-            }
-            .padding()
-            
-            .background(RoundedRectangle(cornerRadius: 8)
-                .fill(Theme.shared.color.surfaceContainer)
-                .clipped()
-            )
+            WrapExpandableListView(items: documentFields, hideSensitiveContent: false)
         }
         .padding(.bottom, SPACING_LARGE)
     }

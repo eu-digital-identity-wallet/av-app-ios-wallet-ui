@@ -83,9 +83,13 @@ public struct WrapExpandableListView<T: Sendable>: View {
   private func expandableItemView(_ item: ExpandableListItem<T>) -> some View {
     switch item {
     case .single(let singleData):
-      WrapListItemView(listItem: singleData.collapsed) {
-        onItemClick?(singleData.collapsed)
-      }
+        let modifiedListItem = hideSensitiveContent ?
+                singleData.collapsed :
+                singleData.collapsed.copy(isBlur: false)
+
+              WrapListItemView(listItem: modifiedListItem) {
+                onItemClick?(modifiedListItem)
+              }
     case .nested(let nestedData):
       WrapExpandableListView(
         header: nestedData.collapsed,

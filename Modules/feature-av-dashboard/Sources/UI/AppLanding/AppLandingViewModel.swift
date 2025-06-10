@@ -11,7 +11,7 @@ import logic_core
 
 @Copyable
 struct AppLandingState: ViewState {
-    let document: LandingViewUiModel
+    let document: DocumentUIModel
     let title: LocalizableStringKey
     let isLoading: Bool
     let error: ContentErrorView.Config?
@@ -24,7 +24,7 @@ final class AppLandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandin
     init(router: Router, interactor: LandingPageInteractor,) {
         self.interactor = interactor
         super.init(router: router,
-                   initialState: .init(document: LandingViewUiModel.mock(), title: .completed,
+                   initialState: .init(document: DocumentUIModel.mock(), title: .completed,
                                        isLoading: true,
                                        error: nil
                                       )
@@ -35,7 +35,9 @@ final class AppLandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandin
     }
     
     func getCredentialDetails() async {
-
+        self.setState {
+            $0.copy(isLoading: true)
+        }
         let state = await Task.detached { () -> AgeCredentialPartialState in
             return await self.interactor.getAgeCredential()
         }.value
@@ -51,7 +53,7 @@ final class AppLandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandin
         case .failure(let error):
           self.setState {
             $0.copy(
-              isLoading: true,
+              isLoading: false,
               error: .init(
                 description: .custom(error.localizedDescription), cancelAction: (),
               )

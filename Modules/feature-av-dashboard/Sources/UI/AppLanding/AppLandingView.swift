@@ -64,8 +64,7 @@ private func content(viewState: AppLandingState, onScan: @escaping () -> Void) -
             }
             
             AgeVerificationCardView()
-            
-            CredentialDetailsView(claims: viewState.document.docClaims)
+            CredentialDetailsView(documentFields: viewState.document.documentFields)
             
             VStack(alignment: .center) {
                 Button(action: {
