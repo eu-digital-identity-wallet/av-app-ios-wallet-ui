@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F14907B72ABAF54B00DDFE56"
-               BuildableName = "EudiWallet.app"
-               BlueprintName = "EudiWallet"
-               ReferencedContainer = "container:EudiReferenceWallet.xcodeproj">
+               BuildableName = "AgeVerification.app"
+               BlueprintName = "AgeVerification"
+               ReferencedContainer = "container:AgeVerification.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -49,9 +49,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F14907B72ABAF54B00DDFE56"
-            BuildableName = "EudiWallet.app"
-            BlueprintName = "EudiWallet"
-            ReferencedContainer = "container:EudiReferenceWallet.xcodeproj">
+            BuildableName = "AgeVerification.app"
+            BlueprintName = "AgeVerification"
+            ReferencedContainer = "container:AgeVerification.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F14907B72ABAF54B00DDFE56"
-            BuildableName = "EudiWallet.app"
-            BlueprintName = "EudiWallet"
-            ReferencedContainer = "container:EudiReferenceWallet.xcodeproj">
+            BuildableName = "AgeVerification.app"
+            BlueprintName = "AgeVerification"
+            ReferencedContainer = "container:AgeVerification.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
