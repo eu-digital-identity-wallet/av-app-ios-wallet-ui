@@ -33,9 +33,9 @@ final class DocumentSignInteractorImpl: DocumentSignInteractor {
     let eudiRQESUi: EudiRQESUi
 
     do {
-      eudiRQESUi = try EudiRQESUi.instance()
+      eudiRQESUi = try .instance()
     } catch {
-      eudiRQESUi = EudiRQESUi.init(config: configLogic.rqesConfig)
+      eudiRQESUi = .init(config: configLogic.rqesConfig)
     }
 
     guard let controller = await UIApplication.shared.topViewController() else {

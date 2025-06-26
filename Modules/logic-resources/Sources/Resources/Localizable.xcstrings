@@ -150,7 +150,18 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Authenticate, authorise transactions and share your digital documents in person or online."
+            "value" : "Authenticate, authorise transactions and share your digital documentsin person or online."
+          }
+        }
+      }
+    },
+    "batch_issuance_counter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Batch issuance counter"
           }
         }
       }
@@ -760,6 +771,50 @@
         }
       }
     },
+    "document_details_document_credentials_expanded_button_hide_text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hide"
+          }
+        }
+      }
+    },
+    "document_details_document_credentials_expanded_text_subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For security reasons, this document can be shared a limited number of times before it needs to be re-issued by the issuing authority."
+          }
+        }
+      }
+    },
+    "document_details_document_credentials_more_info_text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "More info"
+          }
+        }
+      }
+    },
+    "document_details_document_credentials_text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@/%@ instances remaining"
+          }
+        }
+      }
+    },
     "document_details_revoked_document_message" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -800,6 +855,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Documents"
+          }
+        }
+      }
+    },
+    "documents_list_credentials_usage_text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@/%@"
           }
         }
       }
@@ -1353,6 +1419,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "With your proof of age, you can prove to services restricted to adults that you are old enough to access them.\nThe proof of age shows only that you are older than 18. It contains no other personal information."
+          }
+        }
+      }
+    },
+    "landing_screen_credentials_left" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d left"
+          }
+        }
+      }
+    },
+    "landing_screen_add_more" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add more"
           }
         }
       }
@@ -2383,6 +2471,17 @@
         }
       }
     },
+    "settings_menu" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        }
+      }
+    },
     "share_button" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2573,7 +2672,7 @@
     "today" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
+               "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "TODAY"

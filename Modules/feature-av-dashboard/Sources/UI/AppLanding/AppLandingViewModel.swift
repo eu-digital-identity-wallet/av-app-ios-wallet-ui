@@ -15,7 +15,7 @@ struct AppLandingState: ViewState {
     let title: LocalizableStringKey
     let isLoading: Bool
     let error: ContentErrorView.Config?
-    
+    let credRemainingCount: Int?
 }
 
 final class AppLandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingState> {
@@ -26,7 +26,8 @@ final class AppLandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandin
         super.init(router: router,
                    initialState: .init(document: DocumentUIModel.mock(), title: .completed,
                                        isLoading: true,
-                                       error: nil
+                                       error: nil,
+                                       credRemainingCount: nil
                                       )
         )
     }
@@ -43,11 +44,12 @@ final class AppLandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandin
         }.value
         
         switch state {
-        case .success(let document):
+        case .success(let document, let credRemainingCount):
           self.setState {
             $0.copy(
               document: document,
               isLoading: false,
+              credRemainingCount: credRemainingCount,
             ).copy(error: nil)
           }
         case .failure(let error):
@@ -61,4 +63,16 @@ final class AppLandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandin
           }
         }
     }
+
+  func getMoreCredentials() {
+    if viewState.credRemainingCount ?? -1 < 1 {
+        router.push(
+          with: .featureIssuanceModule(
+            .issuanceAddDocument(
+              config: IssuanceFlowUiConfig(flow: .extraDocument)
+            )
+          )
+        )
+    }
+  }
 }

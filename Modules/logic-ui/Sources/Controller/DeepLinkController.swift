@@ -92,8 +92,7 @@ final class DeepLinkControllerImpl: DeepLinkController {
       if shouldPopToDashboardFirst {
         routerHost.popTo(
           with: .featureAVDashboardModule(.appLanding),
-          inclusive: false,
-          animated: false
+          inclusive: false
         )
       }
       return
@@ -169,6 +168,23 @@ final class DeepLinkControllerImpl: DeepLinkController {
           authorizationCode: code
         )
       }
+    case .av:
+        let config = UIConfig.Generic(
+        arguments: ["uri": deepLinkExecutable.plainUrl.absoluteString],
+        navigationSuccessType: routerHost.userIsLoggedInWithDocuments()
+        ? .popTo(.featureAVDashboardModule(.appLanding))
+        : .push(.featureAVDashboardModule(.appLanding)),
+        navigationCancelType: .pop
+      )
+      if !routerHost.isScreenForeground(with: .featureIssuanceModule(.credentialOfferRequest(config: config))) {
+        routerHost.push(with: .featureIssuanceModule(.credentialOfferRequest(config: config)))
+      } else {
+        NotificationCenter.default.post(
+          name: NSNotification.CredentialOffer,
+          object: nil,
+          userInfo: ["uri": deepLinkExecutable.plainUrl.absoluteString]
+        )
+      }
     }
   }
 
@@ -201,6 +217,7 @@ public extension DeepLink {
     case credential_offer
     case rqes
     case external
+    case av
 
     private var name: String {
       return rawValue.replacingOccurrences(of: "_", with: "-")
@@ -221,6 +238,8 @@ public extension DeepLink {
         return .openid4vp
       case _ where credential_offer.getSchemas(with: urlSchemaController).contains(scheme):
         return .credential_offer
+      case _ where av.getSchemas(with: urlSchemaController).contains(scheme):
+        return .openid4vp
       case _ where rqes.getSchemas(with: urlSchemaController).contains(scheme):
         return .rqes
       default:

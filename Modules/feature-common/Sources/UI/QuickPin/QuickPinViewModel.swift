@@ -168,7 +168,7 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
         button: .biometricSetupButton,
         skipButton: .biometricSetupSkipButton,
         navigationSuccessType: viewState.successNavigationType)
-      router.push(with: .featureCommonModule(.biometrySetup(config: biometrySetupConfig)), animated: false)
+      router.push(with: .featureCommonModule(.biometrySetup(config: biometrySetupConfig)))
       return
     }
 
@@ -178,7 +178,7 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
     case .deepLink(_, let popToScreen):
       router.popTo(with: popToScreen)
     case .push(let screen):
-      router.push(with: screen, animated: false)
+      router.push(with: screen)
     case .none:
       break
     }

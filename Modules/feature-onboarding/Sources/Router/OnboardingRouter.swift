@@ -19,9 +19,6 @@ public final class OnboardingRouter {
         case .consent:
             ConsentView(with: .init(router: host))
                 .eraseToAnyView()
-        case .enrollment:
-            EnrollmentView(with: .init(router: host))
-                .eraseToAnyView()
         }
     }
 }

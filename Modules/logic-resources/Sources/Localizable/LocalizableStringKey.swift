@@ -253,6 +253,13 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case transactionDetailsRequestDeletionButton
   case transactionDetailsReportTransactionMessage
   case transactionDetailsReportTransactionButton
+  case settings
+  case batchIssuanceCunter
+  case documentDetailsDocumentCredentialsText([String])
+  case documentDetailsDocumentCredentialsMoreInfoText
+  case documentDetailsDocumentCredentialsExpandedTextSubtitle
+  case documentDetailsDocumentCredentialsExpandedButtonHideText
+  case documentsListCredentialsUsageText([String])
   case splashTitle
   case splashSponsorsTitle
 
@@ -300,6 +307,8 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case ageOver18Label
   case credentialDetailsTitle
   case scanTitle
+  case landingCredentialsLeft(Int)
+  case addMoreCredentials
 
   // Biometric Setup
   case biometricSetupTitle

@@ -75,7 +75,7 @@ open class DocumentSuccessViewModel<Router: RouterHost, RequestItem: Sendable>: 
       deepLinkController.cacheDeepLinkURL(url: url)
       router.popTo(with: popToScreen)
     case .push:
-        router.push(with: .featureAVDashboardModule(.appLanding), animated: true)
+        router.push(with: .featureAVDashboardModule(.appLanding))
     case .none:
       break
     }

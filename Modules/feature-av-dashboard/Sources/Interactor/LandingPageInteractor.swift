@@ -25,15 +25,28 @@ final class LandingPageInteractorImpl: LandingPageInteractor {
     
     func getAgeCredential() async -> AgeCredentialPartialState {
         
-        let documents = walletController.fetchIssuedDocuments(with: [.avAgeOver18])
+        let documents = walletController.fetchIssuedDocuments(with: [.avAgeOver18,.mdocEUDIAgeOver18])
         guard let documentDetails = documents.first?.transformToDocumentUi() else {
           return .failure(WalletCoreError.unableFetchDocument)
         }
-        return .success(documentDetails)
+        let credentialCount = await getCredentialsUsageCount(documentId: documentDetails.id)
+        return .success(documentDetails, credentialCount)
+    }
+    
+    private func getCredentialsUsageCount(documentId: String) async -> Int? {
+      do {
+        if let usageCounts = try await walletController.getCredentialsUsageCount(id: documentId) {
+          return usageCounts.remaining
+        } else {
+          return nil
+        }
+      } catch {
+        return nil
+      }
     }
 }
 
 public enum AgeCredentialPartialState: Sendable {
-  case success(DocumentUIModel)
+  case success(DocumentUIModel, Int?)
   case failure(Error)
 }

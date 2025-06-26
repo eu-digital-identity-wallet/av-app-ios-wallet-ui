@@ -73,7 +73,7 @@ final class BiometrySetupViewModel<Router: RouterHost>: ViewModel<Router, Biomet
     case .deepLink(_, let popToScreen):
       router.popTo(with: popToScreen)
     case .push(let screen):
-      router.push(with: screen, animated: false)
+      router.push(with: screen)
     case .none:
       break
     }

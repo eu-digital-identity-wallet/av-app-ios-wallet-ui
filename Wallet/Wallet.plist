@@ -20,6 +20,8 @@
 				<string>openid4vp</string>
 				<string>openid-credential-offer</string>
 				<string>rqes</string>
+				<string>av</string>
+				<string>avsp</string>
 			</array>
 		</dict>
 	</array>
@@ -27,8 +29,6 @@
 	<string>$(CHANGELOG_URL)</string>
 	<key>Core User Auth</key>
 	<string>$(CORE_USER_AUTH)</string>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
 	<key>Wallet Host Url</key>
 	<string>$(WALLET_HOST_URL)</string>
 </dict>

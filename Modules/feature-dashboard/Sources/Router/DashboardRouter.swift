@@ -19,78 +19,83 @@ import logic_core
 
 @MainActor
 public final class DashboardRouter {
-    
-    public static func resolve(module: FeatureDashboardRouteModule, host: some RouterHost) -> AnyView {
-        switch module {
-        case .dashboard:
-            DashboardView(
-                with: .init(
-                    router: host,
-                    dashboardInteractor: DIGraph.resolver.force(
-                        DashboardInteractor.self
-                    ),
-                    homeTabInteractor: DIGraph.resolver.force(
-                        HomeTabInteractor.self
-                    ),
-                    documentTabInteractor: DIGraph.resolver.force(
-                        DocumentTabInteractor.self
-                    ),
-                    transactionTabInteractor: DIGraph.resolver.force(
-                        TransactionTabInteractor.self
-                    ),
-                    deepLinkController: DIGraph.resolver.force(
-                        DeepLinkController.self
-                    )
-                )
-            ).eraseToAnyView()
-        case .signDocument:
-            SignDocumentView(
-                with: .init(
-                    router: host,
-                    interactor: DIGraph.resolver.force(
-                        DocumentSignInteractor.self
-                    )
-                )
-            ).eraseToAnyView()
-        case .sideMenu:
-            SideMenuView(
-                with: .init(
-                    router: host,
-                    interactor: DIGraph.resolver.force(
-                        SideMenuInteractor.self
-                    ),
-                    walletKit: DIGraph.resolver.force(
-                        WalletKitController.self
-                    )
-                )
-            ).eraseToAnyView()
-        case .issuanceOption:
-            IssuanceOptionView(
-                with: .init(
-                    router: host
-                )
-            ).eraseToAnyView()
-        case .documentDetails(id: let id):
-            DocumentDetailsView(
-                with: .init(
-                    router: host,
-                    interactor: DIGraph.resolver.force(
-                        DocumentDetailsInteractor.self
-                    ),
-                    documentId: id
-                )
-            ).eraseToAnyView()
-        case .transactionDetails(id: let id):
-            TransactionDetailsView(
-                with: .init(
-                    router: host,
-                    interactor: DIGraph.resolver.force(
-                        TransactionDetailsInteractor.self
-                    ),
-                    transactionId: id
-                )
-            ).eraseToAnyView()
-            
-        }
+
+  public static func resolve(module: FeatureDashboardRouteModule, host: some RouterHost) -> AnyView {
+    switch module {
+    case .dashboard:
+      DashboardView(
+        with: .init(
+          router: host,
+          dashboardInteractor: DIGraph.resolver.force(
+            DashboardInteractor.self
+          ),
+          homeTabInteractor: DIGraph.resolver.force(
+            HomeTabInteractor.self
+          ),
+          documentTabInteractor: DIGraph.resolver.force(
+            DocumentTabInteractor.self
+          ),
+          transactionTabInteractor: DIGraph.resolver.force(
+            TransactionTabInteractor.self
+          ),
+          deepLinkController: DIGraph.resolver.force(
+            DeepLinkController.self
+          )
+        )
+      ).eraseToAnyView()
+    case .signDocument:
+      SignDocumentView(
+        with: .init(
+          router: host,
+          interactor: DIGraph.resolver.force(
+            DocumentSignInteractor.self
+          )
+        )
+      ).eraseToAnyView()
+    case .sideMenu:
+      SideMenuView(
+        with: .init(
+          router: host
+        )
+      ).eraseToAnyView()
+    case .settingsMenu:
+      SettingsView(
+        with: .init(
+          router: host,
+          interactor: DIGraph.resolver.force(
+            SettingsInteractor.self
+          ),
+          walletKit: DIGraph.resolver.force(
+            WalletKitController.self
+          )
+        )
+      ).eraseToAnyView()
+    case .issuanceOption:
+      IssuanceOptionView(
+        with: .init(
+          router: host
+        )
+      ).eraseToAnyView()
+    case .documentDetails(id: let id):
+      DocumentDetailsView(
+        with: .init(
+          router: host,
+          interactor: DIGraph.resolver.force(
+            DocumentDetailsInteractor.self
+          ),
+          documentId: id
+        )
+      ).eraseToAnyView()
+    case .transactionDetails(id: let id):
+      TransactionDetailsView(
+        with: .init(
+          router: host,
+          interactor: DIGraph.resolver.force(
+            TransactionDetailsInteractor.self
+          ),
+          transactionId: id
+        )
+      ).eraseToAnyView()
     }
+  }
 }
