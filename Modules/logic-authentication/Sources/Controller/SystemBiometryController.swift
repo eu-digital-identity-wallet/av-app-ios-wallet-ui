@@ -87,7 +87,21 @@ final class SystemBiometryControllerImpl: SystemBiometryController {
   private func canEvaluateForBiometrics() -> AnyPublisher<Bool, SystemBiometryError> {
 
     guard context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &biometricError.value) else {
-      return Fail(error: SystemBiometryError.deniedAccess).eraseToAnyPublisher()
+      if let error = biometricError.value {
+        switch error.code {
+        case -6:
+          return Fail(error: SystemBiometryError.deniedAccess).eraseToAnyPublisher()
+        case -7:
+          if context.biometryType == .faceID {
+            return Fail(error: SystemBiometryError.noFaceIdEnrolled).eraseToAnyPublisher()
+          } else {
+            return Fail(error: SystemBiometryError.noFingerprintEnrolled).eraseToAnyPublisher()
+          }
+        default:
+          return Fail(error: SystemBiometryError.biometricError).eraseToAnyPublisher()
+        }
+      }
+      return Fail(error: SystemBiometryError.biometricError).eraseToAnyPublisher()
     }
 
     if let error = biometricError.value {

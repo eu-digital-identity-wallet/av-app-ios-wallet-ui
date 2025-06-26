@@ -13,16 +13,9 @@
  * ANY KIND, either express or implied. See the Licence for the specific language
  * governing permissions and limitations under the Licence.
  */
-@testable import feature_presentation
-@testable import feature_test
-@testable import logic_test
+import logic_business
+import Cuckoo
 
-final class BaseTests: EudiTest {
-    func testExample() throws {
-        // XCTest Documentation
-        // https://developer.apple.com/documentation/xctest
+extension FilterableList: @retroactive Matchable {}
 
-        // Defining Test Cases and Test Methods
-        // https://developer.apple.com/documentation/xctest/defining_test_cases_and_test_methods
-    }
-}
+extension SortOrderType: @retroactive Matchable {}

@@ -29,6 +29,6 @@ final class WelcomeViewModel<Router: RouterHost>: ViewModel<Router, WelcomeViewS
     }
 
     func onNext() {
-        router.push(with: .featureOnboardingModule(.consent), animated: false)
+        router.push(with: .featureOnboardingModule(.consent))
     }
 }

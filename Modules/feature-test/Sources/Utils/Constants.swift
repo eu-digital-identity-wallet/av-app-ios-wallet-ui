@@ -27,7 +27,7 @@ private extension Constants {
   
   static let pkb64 = "pQECIAEhWCBoHIiBQnDRMLUT4yOLqJ1l8mrfNIgrjNnFq4RyZgxSmiJYIGD/Sabu6GejaR4eTiym1JkyjnBNcJ+f59pN+lCEyhVyI1ggC6EPCKyGci++LGWUX3fXpPFW6pYO8pyyKLMKs1qF0jo="
   static let kcSks = KeyChainSecureKeyStorage(serviceName: "name", accessGroup: "Group")
-  static let pk = CoseKeyPrivate(privateKeyId: pkb64, secureArea: SoftwareSecureArea.create(storage: kcSks))
+  static let pk = CoseKeyPrivate(privateKeyId: pkb64, index: 0, secureArea: SoftwareSecureArea.create(storage: kcSks))
   static let dr = DeviceResponse(data: Constants.sampleCborData.bytes)!
 }
 
@@ -55,6 +55,7 @@ extension Constants {
     validFrom: nil,
     validUntil: nil,
     statusIdentifier: nil,
+    secureAreaName: nil,
     modifiedAt: nil,
     docClaims: [
       .init(
@@ -89,6 +90,7 @@ extension Constants {
     validFrom: nil,
     validUntil: nil,
     statusIdentifier: nil,
+    secureAreaName: nil,
     modifiedAt: nil,
     docClaims: [
       .init(
@@ -109,6 +111,60 @@ extension Constants {
     ],
     docDataFormat: .cbor,
     hashingAlg: nil
+  )
+  
+  static let scopedDocument = ScopedDocument(
+    name: "Test Document",
+    issuer: "Test Issuer",
+    configId: "test-config-id",
+    isPid: true,
+    docTypeIdentifier: DocumentTypeIdentifier.mDocPid,
+    isAgeVerification: false
+  )
+
+  static let scopedDocumentNotPid = ScopedDocument(
+    name: "Test Document",
+    issuer: "Test Issuer",
+    configId: "test-config-id",
+    isPid: false,
+    docTypeIdentifier: DocumentTypeIdentifier.mDocPid,
+    isAgeVerification: false
+  )
+
+  static let defferedPendingDocument = Document(
+    id: "doc-id",
+    docType: "type",
+    docDataFormat: .sdjwt,
+    data: Data(),
+    docKeyInfo: nil,
+    createdAt: Date(),
+    metadata: nil,
+    displayName: "My Document",
+    status: .deferred
+  )
+  
+  static let issuedPendingDocument = Document(
+    id: "doc-id",
+    docType: "type",
+    docDataFormat: .sdjwt,
+    data: Data(),
+    docKeyInfo: nil,
+    createdAt: Date(),
+    metadata: nil,
+    displayName: "My Document",
+    status: .issued
+  )
+
+  static let pendingDocument = Document(
+    id: "doc-id",
+    docType: "type",
+    docDataFormat: .sdjwt,
+    data: Data(),
+    docKeyInfo: nil,
+    createdAt: Date(),
+    metadata: nil,
+    displayName: "My Document",
+    status: .pending
   )
 }
 
@@ -148,12 +204,65 @@ extension Constants {
     dataFormat: .cbor
   )
   
+  static let eudiRemoteVerifierMock: TransactionLogItem = .init(
+    id: "transactionId1",
+    transactionLogData: .presentation(
+      log: .init(
+        TransactionLog(
+          timestamp: Int64(Date().timeIntervalSince1970),
+          status: .completed,
+          errorMessage: nil,
+          rawRequest: nil,
+          rawResponse: nil,
+          relyingParty: TransactionLog.RelyingParty(
+            name: "EUDI Remote Verifier",
+            isVerified: true,
+            certificateChain: [],
+            readerAuth: nil
+          ),
+          type: .presentation,
+          dataFormat: .json,
+          sessionTranscript: nil,
+          docMetadata: nil
+        ),
+        uiCulture: Locale.current.systemLanguageCode
+      )
+    )
+  )
+  
+  static let otherRelPartyMock: TransactionLogItem = .init(
+    id: "transactionId2",
+    transactionLogData: .presentation(
+      log: .init(
+        TransactionLog(
+          timestamp: Int64(Date().addingTimeInterval(-3600).timeIntervalSince1970),
+          status: .failed,
+          errorMessage: "Some Error",
+          rawRequest: nil,
+          rawResponse: nil,
+          relyingParty: TransactionLog.RelyingParty(
+            name: "Other Relaying Party",
+            isVerified: false,
+            certificateChain: [],
+            readerAuth: nil
+          ),
+          type: .presentation,
+          dataFormat: .json,
+          sessionTranscript: nil,
+          docMetadata: nil
+        ),
+        uiCulture: Locale.current.systemLanguageCode
+      )
+    )
+  )
+  
   static let mockPresentationSession = PresentationSession(
     presentationService: MockPresentationService(
       transactionLog: mockTransactionLog,
       flow: .other
     ),
     docIdToPresentInfo: [:],
+    documentKeyIndexes: [:],
     userAuthenticationRequired: false
   )
 }

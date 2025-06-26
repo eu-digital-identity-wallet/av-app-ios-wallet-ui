@@ -506,6 +506,20 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "transaction_details_report_transaction_message")
     case .transactionDetailsReportTransactionButton:
       bundle.localizedString(forKey: "transaction_detailsReport_transaction_button")
+    case .settings:
+      bundle.localizedString(forKey: "settings_menu")
+    case .batchIssuanceCunter:
+      bundle.localizedString(forKey: "batch_issuance_counter")
+    case .documentDetailsDocumentCredentialsText(let args):
+      bundle.localizedStringWithArguments(forKey: "document_details_document_credentials_text", arguments: args)
+    case .documentDetailsDocumentCredentialsMoreInfoText:
+      bundle.localizedString(forKey: "document_details_document_credentials_more_info_text")
+    case .documentDetailsDocumentCredentialsExpandedTextSubtitle:
+      bundle.localizedString(forKey: "document_details_document_credentials_expanded_text_subtitle")
+    case .documentDetailsDocumentCredentialsExpandedButtonHideText:
+      bundle.localizedString(forKey: "document_details_document_credentials_expanded_button_hide_text")
+    case .documentsListCredentialsUsageText(let args):
+      bundle.localizedStringWithArguments(forKey: "documents_list_credentials_usage_text", arguments: args)
     case .splashTitle:
         bundle.localizedString(forKey: "splash_title")
     case .splashSponsorsTitle:
@@ -576,6 +590,22 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "credential_details_title")
     case .scanTitle:
         bundle.localizedString(forKey: "scan_title")
+    case .biometricSetupTitle:
+        bundle.localizedString(forKey: "biometric_setup_title")
+    case .biometricSetupDescription(let arg):
+        bundle.localizedStringWithArguments(forKey: "biometric_setup_description", arguments: [arg])
+    case .biometricSetupButton:
+        bundle.localizedString(forKey: "biometric_setup_enable")
+    case .biometricSetupSkipButton:
+        bundle.localizedString(forKey: "biometric_setup_skip")
+    case .biometricSetupErrorNoHardware:
+        bundle.localizedString(forKey: "biometric_no_hardware")
+    case .biometricSetupUnknownError:
+        bundle.localizedString(forKey: "biometric_unknown_error")
+    case .landingCredentialsLeft(let arg):
+        bundle.localizedStringWithArguments(forKey: "landing_screen_credentials_left", arguments: [arg])
+    case .addMoreCredentials:
+        bundle.localizedString(forKey: "landing_screen_add_more")
     }
   }
 }
