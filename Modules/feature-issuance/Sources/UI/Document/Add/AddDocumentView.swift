@@ -17,15 +17,16 @@ import SwiftUI
 import logic_ui
 import feature_common
 import logic_resources
+import logic_core
 
 struct AddDocumentView<Router: RouterHost>: View {
 
-  @ObservedObject var viewModel: AddDocumentViewModel<Router>
+  @StateObject private var viewModel: AddDocumentViewModel<Router>
 
   var contentSize: CGFloat = 0.0
 
   init(with viewModel: AddDocumentViewModel<Router>) {
-    self.viewModel = viewModel
+    self._viewModel = StateObject(wrappedValue: viewModel)
     self.contentSize = getScreenRect().width / 2.0
   }
 
@@ -38,11 +39,11 @@ struct AddDocumentView<Router: RouterHost>: View {
       isLoading: viewModel.viewState.isLoading,
       toolbarContent: viewModel.toolbarContent()
     ) {
-
-      OnboardingTabsView(selectedIndex: 3)
-
-      content(viewState: viewModel.viewState) { type in
-        viewModel.onClick(for: type)
+      if !(viewModel.viewState.config.isExtraDocumentFlow == true) {
+        OnboardingTabsView(selectedIndex: 3)
+      }
+      content(viewState: viewModel.viewState) { configId, identifier in
+        viewModel.onClick(configId: configId, docTypeIdentifier: identifier)
       }
 
       if viewModel.viewState.showFooterScanner {
@@ -64,7 +65,7 @@ struct AddDocumentView<Router: RouterHost>: View {
 @ViewBuilder
 private func content(
   viewState: AddDocumentViewState,
-  action: @escaping (String) -> Void
+  action: @escaping (String, DocumentTypeIdentifier) -> Void
 ) -> some View {
   ScrollView {
       VStack(alignment: .leading, spacing: 16) {
@@ -82,7 +83,7 @@ private func content(
             WrapListItemView(
               listItem: cell.listItem,
               isLoading: cell.isLoading,
-              action: { action(cell.configId) }
+              action: { action(cell.configId, cell.docTypeIdentifier) }
             )
           }
       }
@@ -141,7 +142,7 @@ private func scanFooter(
     showFooterScanner: true
   )
 
-  content(viewState: viewState) { _ in }
+  content(viewState: viewState) { _, _ in }
 }
 
 #Preview {

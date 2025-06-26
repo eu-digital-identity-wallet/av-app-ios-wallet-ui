@@ -60,6 +60,14 @@ public final class CommonRouter {
           )
         )
       ).eraseToAnyView()
+    case .biometrySetup(config: let config):
+      BiometrySetupView(with: .init(
+        router: host,
+        interactor: DIGraph.resolver.force(BiometryInteractor.self),
+        config: config
+        )
+      )
+      .eraseToAnyView()
     }
   }
 }

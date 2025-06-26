@@ -12,27 +12,19 @@ import logic_core
 
 struct CredentialDetailsView: View {
     
+    var documentFields: [GenericExpandableItem]
+    
+    public init(documentFields: [GenericExpandableItem]) {
+        self.documentFields = documentFields
+    }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
             Text(LocalizableStringKey.credentialDetailsTitle.toString)
-                .typography(Theme.shared.font.labelMedium)
+                .typography(Theme.shared.font.labelLarge)
                 .foregroundStyle(Theme.shared.color.primary)
                 .padding(.bottom, SPACING_EXTRA_SMALL)
-            HStack {
-                VStack(alignment: .leading) {
-                    Text(LocalizableStringKey.ageOver18Label.toString)
-                        .typography(Theme.shared.font.bodyLarge)
-                    Text("true")
-                        .typography(Theme.shared.font.bodyLarge)
-                        .foregroundStyle(Theme.shared.color.lightText)
-                }
-                .padding()
-                Spacer()
-            }
-            .background(RoundedRectangle(cornerRadius: 8)
-                .fill(Theme.shared.color.surfaceContainer)
-                .clipped()
-                .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 4))
+            WrapExpandableListView(items: documentFields, hideSensitiveContent: false)
         }
         .padding(.bottom, SPACING_LARGE)
     }

@@ -253,53 +253,70 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case transactionDetailsRequestDeletionButton
   case transactionDetailsReportTransactionMessage
   case transactionDetailsReportTransactionButton
+  case settings
+  case batchIssuanceCunter
+  case documentDetailsDocumentCredentialsText([String])
+  case documentDetailsDocumentCredentialsMoreInfoText
+  case documentDetailsDocumentCredentialsExpandedTextSubtitle
+  case documentDetailsDocumentCredentialsExpandedButtonHideText
+  case documentsListCredentialsUsageText([String])
   case splashTitle
   case splashSponsorsTitle
 
-    // feature-onboarding
-    case onboardingStepWelcome
-    case onboardingStepConsent
-    case onboardoingStepPin
-    case onboardingStepEnrollment
+  // feature-onboarding
+  case onboardingStepWelcome
+  case onboardingStepConsent
+  case onboardoingStepPin
+  case onboardingStepEnrollment
 
-    // welcome step
-    case welcomeTitle1
-    case welcomePage1
-    case welcomeTitle2
-    case welcomePage2
-    case welcomeTitle3
-    case welcomePage3
-    case welcomeSkipButton
-    case welcomeNextButton
+  // welcome step
+  case welcomeTitle1
+  case welcomePage1
+  case welcomeTitle2
+  case welcomePage2
+  case welcomeTitle3
+  case welcomePage3
+  case welcomeSkipButton
+  case welcomeNextButton
 
-    // Consent Step
-    case consentTitle
-    case consentCheckboxLabel1
-    case consentCheckboxLabel2
-    case consentHyperlinkLabel1
-    case consentHyperlinkLabel2
-    case consentConfirmButton
+  // Consent Step
+  case consentTitle
+  case consentCheckboxLabel1
+  case consentCheckboxLabel2
+  case consentHyperlinkLabel1
+  case consentHyperlinkLabel2
+  case consentConfirmButton
 
-    // Pin Setup Step
-    case quickPinCreateTitle
-    case quickPinReEnterTitle
-    case quickPinCreateSubtitle
-    case quickPinReEnterSubtitle
+  // Pin Setup Step
+  case quickPinCreateTitle
+  case quickPinReEnterTitle
+  case quickPinCreateSubtitle
+  case quickPinReEnterSubtitle
 
-    // Verification Step
-    case verificationStepTitle
-    case verificationStepDescription
-    case verificationNationalId
-    case verificationNationalIdDescription
-    
-    // Landing screen
-    case landingScreenTitle
-    case landingScreenbody
-    case europeanUnionLabel1
-    case europeanUnionLabel2
-    case ageOver18Label
-    case credentialDetailsTitle
-    case scanTitle
+  // Verification Step
+  case verificationStepTitle
+  case verificationStepDescription
+  case verificationNationalId
+  case verificationNationalIdDescription
+
+  // Landing screen
+  case landingScreenTitle
+  case landingScreenbody
+  case europeanUnionLabel1
+  case europeanUnionLabel2
+  case ageOver18Label
+  case credentialDetailsTitle
+  case scanTitle
+  case landingCredentialsLeft(Int)
+  case addMoreCredentials
+
+  // Biometric Setup
+  case biometricSetupTitle
+  case biometricSetupDescription(String)
+  case biometricSetupButton
+  case biometricSetupSkipButton
+  case biometricSetupErrorNoHardware
+  case biometricSetupUnknownError
 }
 
 public extension LocalizableStringKey {

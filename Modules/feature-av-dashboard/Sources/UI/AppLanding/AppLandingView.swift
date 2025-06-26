@@ -11,11 +11,11 @@ import logic_core
 
 struct AppLandingView<Router: RouterHost>: View {
     @ObservedObject var viewModel: AppLandingViewModel<Router>
-    
+
     init(with viewModel: AppLandingViewModel<Router>) {
         self.viewModel = viewModel
     }
-    
+
     var body: some View {
         ContentScreenView(
             padding: .zero,
@@ -24,20 +24,23 @@ struct AppLandingView<Router: RouterHost>: View {
             background: Theme.shared.color.surface,
             navigationTitle: .details
         ) {
-            content(onScan: viewModel.onScan)
+            content(viewState: viewModel.viewState, onScan: viewModel.onScan, onGetMoreCredentials: viewModel.getMoreCredentials )
+        }
+        .task {
+            await viewModel.getCredentialDetails()
         }
     }
 }
 
 @MainActor
 @ViewBuilder
-private func content(onScan: @escaping () -> Void) -> some View {
-    ScrollView {
-        GeometryReader { geometry in
+private func content(viewState: AppLandingState, onScan: @escaping () -> Void, onGetMoreCredentials: @escaping () -> Void) -> some View {
+    ZStack(alignment: .bottom) {
+        ScrollView {
             VStack(spacing: .zero) {
                 HStack(alignment: .top, spacing: .zero) {
                     Spacer()
-                        .frame(width: geometry.size.width / 2 - 44)
+                        .frame(width: UIScreen.main.bounds.width / 2 - 44)
                     Theme.shared.image.logo
                         .resizable()
                         .frame(width: 57,height: 48)
@@ -49,7 +52,6 @@ private func content(onScan: @escaping () -> Void) -> some View {
                     .buttonStyle(.plain)
                 }
                 .padding(.bottom, SPACING_MEDIUM)
-                
                 VStack (alignment: .leading, spacing: .zero) {
                     Text(LocalizableStringKey.landingScreenTitle.toString)
                         .typography(Theme.shared.font.titleLarge)
@@ -62,29 +64,35 @@ private func content(onScan: @escaping () -> Void) -> some View {
                         .fixedSize(horizontal: false, vertical: true)
                 }
                 
-                AgeVerificationCardView()
-                
-                CredentialDetailsView()
-                
-                VStack(alignment: .center) {
-                    Button(action: {
-                        onScan()
-                    }) {
-                        Theme.shared.image.scanButton
-                            .frame(height: 76)
-                            .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 4)
-                    }
-                    Text(LocalizableStringKey.scanTitle.toString)
-                        .typography(Theme.shared.font.bodyLarge)
-                        .foregroundStyle(Theme.shared.color.lightText)
-                }
-                
+                AgeVerificationCardView(credentialsCount: viewState.credRemainingCount, onTap: onGetMoreCredentials)
+                CredentialDetailsView(documentFields: viewState.document.documentFields)
                 Spacer()
+                    .frame(height: 130)
             }
             .padding()
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Theme.shared.color.surface)
+        
+        // Sticky scan button
+        VStack(alignment: .center) {
+            Button(action: {
+                onScan()
+            }) {
+                Theme.shared.image.scanButton
+                    .frame(height: 76)
+                    .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 4)
+            }
+            Text(LocalizableStringKey.scanTitle.toString)
+                .typography(Theme.shared.font.bodyLarge)
+                .foregroundStyle(Theme.shared.color.lightText)
+        }
+        .padding(.bottom, 20)
+        .frame(maxWidth: .infinity)
+        .background(
+            Rectangle()
+                .fill(Theme.shared.color.surface)
+                .shadow(color: .black.opacity(0.05), radius: 4, x: 0, y: -2)
+        )
     }
-    
+    .frame(maxWidth: .infinity, maxHeight: .infinity)
+    .background(Theme.shared.color.surface)
 }

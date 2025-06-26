@@ -19,17 +19,17 @@ import logic_resources
 
 struct StartupView<Router: RouterHost>: View {
 
-  @ObservedObject private var viewModel: StartupViewModel<Router>
+  @StateObject private var viewModel: StartupViewModel<Router>
 
   init(with viewModel: StartupViewModel<Router>) {
-    self.viewModel = viewModel
+    self._viewModel = StateObject(wrappedValue: viewModel)
   }
 
   var body: some View {
     ContentScreenView(
       padding: .zero,
       canScroll: false,
-      background: Theme.shared.color.primary
+      background: Theme.shared.color.surface
     ) {
       content(viewState: viewModel.viewState)
     }
@@ -45,6 +45,8 @@ private func content(viewState: StartupState) -> some View {
   ZStack {
     SplashBackgroundView()
   }
+  .frame(maxWidth: .infinity, maxHeight: .infinity)
+  .ignoresSafeArea(.all)
 }
 
 #Preview {

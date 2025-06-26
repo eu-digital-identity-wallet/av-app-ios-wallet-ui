@@ -31,9 +31,6 @@ public protocol DocumentOfferInteractor: Sendable {
     issuerName: String,
     successNavigation: UIConfig.TwoWayNavigationType
   ) async -> OfferDynamicIssuancePartialState
-
-  func getHoldersName(for documentIdentifier: String) -> String?
-  func getDocumentSuccessCaption(for documentIdentifier: String) -> LocalizableStringKey?
   func fetchStoredDocuments(documentIds: [String]) async -> OfferDocumentsPartialState
 }
 
@@ -64,10 +61,14 @@ final class DocumentOfferInteractorImpl: DocumentOfferInteractor {
 
       let hasPidInOffer = offer.docModels.first(
         where: { offer in
-          let identifier = DocumentTypeIdentifier(rawValue: offer.docType.ifNilOrEmpty { offer.credentialConfigurationIdentifier })
-          // MARK: - TODO Re-activate once SD-JWT PID Rule book is in place in ARF.
-          // return identifier == .mDocPid || identifier == .sdJwtPid
-            return identifier == .avAgeOver18 || identifier == .mdocEUDIAgeOver18
+          let identifier = DocumentTypeIdentifier(
+            rawValue: offer.docType.ifNilOrEmpty {
+              offer.vct.ifNilOrEmpty {
+                offer.credentialConfigurationIdentifier
+              }
+            }
+          )
+          return identifier == .mDocPid || identifier == .sdJwtPid
         }
       ) != nil
 
@@ -198,24 +199,6 @@ final class DocumentOfferInteractorImpl: DocumentOfferInteractor {
     } catch {
       return .failure(WalletCoreError.unableToIssueAndStore)
     }
-  }
-
-  public func getHoldersName(for documentIdentifier: String) -> String? {
-    guard
-      let bearerName = walletController.fetchDocument(with: documentIdentifier)?.getBearersName()
-    else {
-      return nil
-    }
-    return  "\(bearerName.first) \(bearerName.last)"
-  }
-
-  public func getDocumentSuccessCaption(for documentIdentifier: String) -> LocalizableStringKey? {
-    guard
-      let document = walletController.fetchDocument(with: documentIdentifier)
-    else {
-      return nil
-    }
-    return .issuanceSuccessCaption([document.displayName.orEmpty])
   }
 
   func fetchStoredDocuments(documentIds: [String]) async -> OfferDocumentsPartialState {
