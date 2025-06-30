@@ -44,7 +44,6 @@ The AV iOS is the application that allows users to:
 This is an initial version of the software, developed solely for the purpose of demonstrating the business flow of the solution. It is not intended for production use, and does not yet include the full set of functional, security, or integration features required for a live deployment.
 
 The current release provides only basic functionality, with several key features to be introduced in future versions, including:
- - Support for batch issuing
  - App and device verification based on Google Play Integrity API and Apple App Attestation
  - Additional issuance methods beyond the currently implemented eID based method. 
 
@@ -65,9 +64,9 @@ This version should be considered a foundational prototype to support early test
 
 The app consumes the SDK called EUDIW Wallet core [Wallet core](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-core) and a list of available libraries to facilitate remote presentation and issuing test/demo functionality following partially the specification of the [ARF](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework), including:
  
-- OpenID4VP - draft 23 (remote presentation), presentation exchange v2.0,
+- OpenID4VP - draft 24 (remote presentation)
  
-- OpenID4VCI draft 14 (issuing)
+- OpenID4VCI draft 15 (issuing)
   
 ### Build
 
@@ -102,10 +101,20 @@ This project has adopted the [Contributor Covenant](https://www.contributor-cove
 
 By participating in this project, you agree to abide by its [Code of Conduct](./CODE_OF_CONDUCT.md) at all times.
 
-## Licensing
+## License
 
-Copyright (C) 2025 European Commission, Scytales, T-Systems International GmbH and all other contributors.
+### License details
 
-This project follows the [REUSE standard for software licensing](https://reuse.software/). Each file contains copyright and license information, and license texts can be found in the [./LICENSES](./LICENSES) folder. For more information visit https://reuse.software/. You can find a guide for developers at https://telekom.github.io/reuse-template/.  
+Copyright (c) 2025 European Commission
 
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the LICENSES folder.
+Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
+Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
+except in compliance with the Licence.
+
+You may obtain a copy of the Licence at:
+https://joinup.ec.europa.eu/software/page/eupl
+
+Unless required by applicable law or agreed to in writing, software distributed under 
+the Licence is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF 
+ANY KIND, either express or implied. See the Licence for the specific language 
+governing permissions and limitations under the Licence.
