@@ -9,10 +9,10 @@ import feature_common
 import logic_resources
 import logic_core
 
-struct AppLandingView<Router: RouterHost>: View {
-    @ObservedObject var viewModel: AppLandingViewModel<Router>
+struct LandingView<Router: RouterHost>: View {
+    @ObservedObject var viewModel: LandingViewModel<Router>
 
-    init(with viewModel: AppLandingViewModel<Router>) {
+    init(with viewModel: LandingViewModel<Router>) {
         self.viewModel = viewModel
     }
 

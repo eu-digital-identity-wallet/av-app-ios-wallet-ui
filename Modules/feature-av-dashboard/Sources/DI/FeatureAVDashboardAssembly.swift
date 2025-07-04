@@ -9,7 +9,7 @@ public final class FeatureAVDashboardAssembly: Assembly {
     public init() {}
 
     public func assemble(container: Container) {
-        container.register(LandingPageInteractor.self) { r in
+        container.register(LandingInteractor.self) { r in
           LandingPageInteractorImpl(
             walletController: r.force(WalletKitController.self)
           )
