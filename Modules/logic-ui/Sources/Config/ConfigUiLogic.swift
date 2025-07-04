@@ -31,8 +31,7 @@ public protocol ConfigUiLogic: Sendable {
 struct ConfigUiLogicImpl: ConfigUiLogic {
 
   public var backgroundColorForScreenDictionary: [AppRouteKey: UIConfig.ToolBar] = [
-    AppRoute.featureAVDashboardModule(.appLanding).info.key: .init(Theme.shared.color.background),
-    AppRoute.featureDashboardModule(.documentDetails(id: "")).info.key: .init(Theme.shared.color.background)
+    AppRoute.featureAVDashboardModule(.appLanding).info.key: .init(Theme.shared.color.background)
   ]
 
   public var dashboardRoute: AppRoute {

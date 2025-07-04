@@ -106,35 +106,7 @@ enableInheritance = true
 protocolsOnly = true
 omitHeaders = false
 
-[modules.FeatureDashboard]
-output = "../Modules/feature-dashboard/Tests/Mock/GeneratedMocks.swift"
-testableImports = [
-	"logic_core", 
-	"logic_business", 
-	"logic_analytics",
-	"logic_ui", 
-	"logic_api", 
-	"logic_authentication",
-	"feature_common",
-	"feature_dashboard"
-]
-sources = [
-	"../Modules/logic-core/Sources/**/*.swift",
-	"../Modules/logic-business/Sources/**/*.swift",
-	"../Modules/logic-analytics/Sources/**/*.swift",
-	"../Modules/logic-ui/Sources/**/*.swift",
-	"../Modules/logic-api/Sources/**/*.swift",
-	"../Modules/logic-authentication/Sources/**/*.swift",
-    "../Modules/feature-common/Sources/**/*.swift",
-    "../Modules/feature-dashboard/Sources/**/*.swift"
-]
 
-[modules.FeatureDashboard.options]
-glob = true
-keepDocumentation = false
-enableInheritance = true
-protocolsOnly = true
-omitHeaders = false
 
 [modules.FeatureStartup]
 output = "../Modules/feature-startup/Tests/Mock/GeneratedMocks.swift"
@@ -226,32 +198,3 @@ enableInheritance = true
 protocolsOnly = true
 omitHeaders = false
 
-[modules.FeatureProximity]
-output = "../Modules/feature-proximity/Tests/Mock/GeneratedMocks.swift"
-testableImports = [
-	"logic_core", 
-	"logic_business", 
-	"logic_analytics",
-	"logic_ui", 
-	"logic_api", 
-	"logic_authentication",
-	"feature_common",
-	"feature_proximity"
-]
-sources = [
-	"../Modules/logic-core/Sources/**/*.swift",
-	"../Modules/logic-business/Sources/**/*.swift",
-	"../Modules/logic-analytics/Sources/**/*.swift",
-	"../Modules/logic-ui/Sources/**/*.swift",
-	"../Modules/logic-api/Sources/**/*.swift",
-	"../Modules/logic-authentication/Sources/**/*.swift",
-    "../Modules/feature-common/Sources/**/*.swift",
-    "../Modules/feature-proximity/Sources/**/*.swift"
-]
-
-[modules.FeatureProximity.options]
-glob = true
-keepDocumentation = false
-enableInheritance = true
-protocolsOnly = true
-omitHeaders = false

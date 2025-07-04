@@ -8,12 +8,12 @@
 import logic_core
 import feature_common
 
-public protocol LandingPageInteractor: Sendable {
+public protocol LandingInteractor: Sendable {
     
     func getAgeCredential() async -> AgeCredentialPartialState  
 }
 
-final class LandingPageInteractorImpl: LandingPageInteractor {
+final class LandingPageInteractorImpl: LandingInteractor {
     
     private let walletController: WalletKitController
 

@@ -16,13 +16,7 @@
     }
   },
   "testTargets" : [
-    {
-      "target" : {
-        "containerPath" : "container:Modules\/feature-dashboard",
-        "identifier" : "feature-dashboard-tests",
-        "name" : "feature-dashboard-tests"
-      }
-    },
+
     {
       "target" : {
         "containerPath" : "container:Modules\/feature-common",
@@ -44,13 +38,7 @@
         "name" : "feature-presentation-tests"
       }
     },
-    {
-      "target" : {
-        "containerPath" : "container:Modules\/feature-proximity",
-        "identifier" : "feature-proximity-tests",
-        "name" : "feature-proximity-tests"
-      }
-    },
+
     {
       "target" : {
         "containerPath" : "container:Modules\/feature-startup",
