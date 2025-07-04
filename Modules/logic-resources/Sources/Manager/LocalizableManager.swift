@@ -612,9 +612,25 @@ final class LocalizableManager: LocalizableManagerType {
 
 fileprivate extension Bundle {
   func localizedString(forKey key: String) -> String {
-    self.localizedString(forKey: key, value: nil, table: nil)
+    let localizedBundle = self.localizedBundle()
+    return localizedBundle.localizedString(forKey: key, value: nil, table: nil)
   }
+  
   func localizedStringWithArguments(forKey key: String, arguments: [CVarArg]) -> String {
-    String(format: self.localizedString(forKey: key), locale: nil, arguments: arguments)
+    String(format: self.localizedString(forKey: key), locale: Locale.current, arguments: arguments)
+  }
+  
+  private func localizedBundle() -> Bundle {
+    let preferredLanguages = Locale.preferredLanguages
+    let availableLocalizations = self.localizations
+
+    let matchedLocalizations = Bundle.preferredLocalizations(from: availableLocalizations, forPreferences: preferredLanguages)
+
+    if let preferredLanguage = matchedLocalizations.first,
+       let path = self.path(forResource: preferredLanguage, ofType: "lproj"),
+       let localizedBundle = Bundle(path: path) {
+      return localizedBundle
+    }
+    return self
   }
 }

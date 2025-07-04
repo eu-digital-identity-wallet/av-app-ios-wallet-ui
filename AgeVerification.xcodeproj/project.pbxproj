@@ -236,7 +236,9 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				da,
+				fr,
+				it,
 			);
 			mainGroup = F14907AF2ABAF54B00DDFE56;
 			productRefGroup = F14907B92ABAF54B00DDFE56 /* Products */;
@@ -393,7 +395,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_ASSET_PATHS = "Wallet/Preview\\ Content";
-				DEVELOPMENT_TEAM = RJ3NCM4TS2;
+				DEVELOPMENT_TEAM = 9FH6TNGWF2;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_TESTING_SEARCH_PATHS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
