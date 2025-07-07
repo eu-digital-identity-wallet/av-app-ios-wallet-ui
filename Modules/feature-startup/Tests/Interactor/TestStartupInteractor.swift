@@ -28,22 +28,26 @@ final class TestStartupInteractor: EudiTest {
   var quickPinInteractor: MockQuickPinInteractor!
   var keyChainController: MockKeyChainController!
   var prefsController: MockPrefsController!
+  var configLogic: MockConfigLogic!
   
   override func setUp() {
     self.walletKitController = MockWalletKitController()
     self.quickPinInteractor = MockQuickPinInteractor()
     self.keyChainController = MockKeyChainController()
     self.prefsController = MockPrefsController()
+    self.configLogic = MockConfigLogic()
     self.interactor = StartupInteractorImpl(
       walletKitController: walletKitController,
       quickPinInteractor: quickPinInteractor,
       keyChainController: keyChainController,
-      prefsController: prefsController
+      prefsController: prefsController,
+      configLogic: configLogic
     )
     
     stubPrefsControllerSetValue()
     stubKeyChainClear()
     stubWalletKiControllerClearAllDocuments()
+    stubConfigLogicAppVersion()
   }
   
   override func tearDown() {
@@ -221,5 +225,11 @@ private extension TestStartupInteractor {
     verify(prefsController, times(count)).setValue(any(), forKey: Prefs.Key.runAtLeastOnce)
     verify(keyChainController, times(count)).clear()
     verify(walletKitController, times(count)).clearAllDocuments()
+  }
+  
+  func stubConfigLogicAppVersion(_ version: String = "1.0.0") {
+    stub(configLogic) { mock in
+      when(mock.appVersion.get).thenReturn(version)
+    }
   }
 }
