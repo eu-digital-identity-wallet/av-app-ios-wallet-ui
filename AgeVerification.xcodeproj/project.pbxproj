@@ -411,7 +411,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = yyyy.mm.v;
+				MARKETING_VERSION = "0.1.0-beta05";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scytales.av;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -514,8 +514,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = yyyy.mm.v;
-				PRODUCT_BUNDLE_IDENTIFIER = eu.europa.ec.euidi;
+				MARKETING_VERSION = "0.1.0-beta05";
+				PRODUCT_BUNDLE_IDENTIFIER = com.scytales.av;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "EUDI Demo Release";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "EUDI Demo Release";
@@ -680,8 +680,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = yyyy.mm.v;
-				PRODUCT_BUNDLE_IDENTIFIER = eu.europa.ec.av.dev;
+				MARKETING_VERSION = "0.1.0-beta05";
+				PRODUCT_BUNDLE_IDENTIFIER = com.scytales.av.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -727,8 +727,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = yyyy.mm.v;
-				PRODUCT_BUNDLE_IDENTIFIER = eu.europa.ec.euidi.dev;
+				MARKETING_VERSION = "0.1.0-beta05";
+				PRODUCT_BUNDLE_IDENTIFIER = com.scytales.av.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "EUDI Dev Release";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "EUDI Dev Release";
