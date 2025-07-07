@@ -23,10 +23,8 @@
 @_exported import logic_api
 @_exported import logic_storage
 @_exported import feature_common
-@_exported import feature_dashboard
 @_exported import feature_startup
 @_exported import feature_presentation
 @_exported import feature_issuance
-@_exported import feature_proximity
 @_exported import feature_onboarding
 @_exported import feature_av_dashboard

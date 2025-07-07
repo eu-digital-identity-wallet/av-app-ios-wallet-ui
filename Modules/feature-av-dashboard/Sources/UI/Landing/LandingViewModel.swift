@@ -18,10 +18,10 @@ struct AppLandingState: ViewState {
     let credRemainingCount: Int?
 }
 
-final class AppLandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingState> {
+final class LandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingState> {
     
-    private let interactor: LandingPageInteractor
-    init(router: Router, interactor: LandingPageInteractor,) {
+    private let interactor: LandingInteractor
+    init(router: Router, interactor: LandingInteractor,) {
         self.interactor = interactor
         super.init(router: router,
                    initialState: .init(document: DocumentUIModel.mock(), title: .completed,
@@ -33,6 +33,10 @@ final class AppLandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandin
     }
     func onScan() {
         router.push(with: .featureCommonModule(.qrScanner(config: ScannerUiConfig(flow: .presentation))))
+    }
+    
+    func onSettings() {
+        router.push(with: .featureAVDashboardModule(.settings))
     }
     
     func getCredentialDetails() async {

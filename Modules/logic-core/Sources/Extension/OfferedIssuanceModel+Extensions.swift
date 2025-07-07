@@ -14,8 +14,10 @@
  * governing permissions and limitations under the Licence.
  */
 
+import OpenID4VCI
+
 extension OfferedIssuanceModel: @retroactive Equatable {
-  public static func == (lhs: OfferedIssuanceModel, rhs: OfferedIssuanceModel) -> Bool {
+    public static func == (lhs: OfferedIssuanceModel, rhs: OfferedIssuanceModel) -> Bool {
     return lhs.issuerName == rhs.issuerName
     && lhs.issuerLogoUrl == rhs.issuerLogoUrl
     && lhs.docModels == rhs.docModels

@@ -15,9 +15,14 @@
  */
 import SwiftUI
 import logic_resources
+import logic_business
 
 public struct SplashBackgroundView: View {
-    public init() {}
+    private let appVersion: String
+    
+    public init(appVersion: String) {
+        self.appVersion = appVersion
+    }
 
     public var body: some View {
         VStack(spacing: 0) {
@@ -46,6 +51,14 @@ public struct SplashBackgroundView: View {
             }
 
             Spacer()
+
+            // Version Section
+            VStack(spacing: SPACING_SMALL) {
+                Text(appVersion)
+                    .typography(Theme.shared.font.bodySmall)
+                    .foregroundColor(Theme.shared.color.primary)
+            }
+            .padding(.bottom, SPACING_MEDIUM)
 
             // Footer Section
             HStack(spacing: SPACING_LARGE_MEDIUM) {
@@ -90,12 +103,12 @@ public struct SplashBackgroundView: View {
 
 #Preview {
     Group {
-        SplashBackgroundView()
+        SplashBackgroundView(appVersion: "1.0.0")
     }
 }
 
 #Preview("Dark Mode") {
     Group {
-        SplashBackgroundView()
+        SplashBackgroundView(appVersion: "1.0.0")
     }
 }

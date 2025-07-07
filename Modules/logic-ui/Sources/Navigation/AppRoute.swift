@@ -54,36 +54,6 @@ public enum FeatureCommonRouteModule: AppRouteModule {
   }
 }
 
-public enum FeatureDashboardRouteModule: AppRouteModule {
-
-  case dashboard
-  case signDocument
-  case sideMenu
-  case settingsMenu
-  case issuanceOption
-  case documentDetails(id: String)
-  case transactionDetails(id: String)
-
-  public var info: (key: String, arguments: [String: String]) {
-    return switch self {
-    case .dashboard:
-      (key: "Dashboard", arguments: [:])
-    case .signDocument:
-      (key: "SignDocument", arguments: [:])
-    case .sideMenu:
-      (key: "SideMenu", arguments: [:])
-    case .settingsMenu:
-      (key: "settingsMenu", arguments: [:])
-    case .issuanceOption:
-      (key: "issuanceOption", arguments: [:])
-    case .documentDetails(let id):
-      (key: "DocumentDetails", arguments: ["id": id])
-    case .transactionDetails(let id):
-      (key: "TransactionDetails", arguments: ["id": id])
-    }
-  }
-}
-
 public indirect enum FeaturePresentationRouteModule: AppRouteModule {
 
   case presentationLoader(
@@ -117,49 +87,6 @@ public indirect enum FeaturePresentationRouteModule: AppRouteModule {
       (key: "PresentationRequest", arguments: ["originator": originator.info.key])
     case .presentationSuccess(let config, _):
       (key: "PresentationSuccess", arguments: ["config": config.log])
-    }
-  }
-}
-
-public indirect enum FeatureProximityRouteModule: AppRouteModule {
-
-  case proximityConnection(
-    presentationCoordinator: ProximitySessionCoordinator,
-    originator: AppRoute
-  )
-  case proximityRequest(
-    presentationCoordinator: ProximitySessionCoordinator,
-    originator: AppRoute
-  )
-  case proximityLoader(
-    relyingParty: String,
-    relyingPartyisTrusted: Bool,
-    presentationCoordinator: ProximitySessionCoordinator,
-    originator: AppRoute,
-    items: [any Routable]
-  )
-  case proximitySuccess(
-    config: any UIConfigType,
-    [any Routable]
-  )
-
-  public var info: (key: String, arguments: [String: String]) {
-    return switch self {
-    case .proximityConnection(_, let originator):
-      (key: "ProximityConnection", arguments: ["originator": originator.info.key])
-    case .proximityRequest(_, let originator):
-      (key: "ProximityRequest", arguments: ["originator": originator.info.key])
-    case .proximityLoader(let relyingParty, _, _, let originator, let items):
-      (
-        key: "ProximityLoader",
-        arguments: [
-          "relyingParty": relyingParty,
-          "originator": originator.info.key,
-          "items": items.map { $0.log }.joined(separator: "|")
-        ]
-      )
-    case .proximitySuccess:
-      (key: "ProximitySuccess", arguments: [:])
     }
   }
 }
@@ -201,11 +128,14 @@ public enum FeatureOnboardingRouteModule: AppRouteModule {
 
 public enum FeatureAVDashboardRouteModule: AppRouteModule {
     case appLanding
+    case settings
 
     public var info: (key: String, arguments: [String: String]) {
         return switch self {
         case .appLanding:
             (key: "AppLanding", arguments: [:])
+        case .settings:
+            (key: "Settings", arguments: [:])
         }
     }
 }
@@ -213,11 +143,9 @@ public enum FeatureAVDashboardRouteModule: AppRouteModule {
 public enum AppRoute: AppRouteModule {
 
   case featureStartupModule(FeatureStartupRouteModule)
-  case featureDashboardModule(FeatureDashboardRouteModule)
   case featureCommonModule(FeatureCommonRouteModule)
   case featureIssuanceModule(FeatureIssuanceRouteModule)
   case featurePresentationModule(FeaturePresentationRouteModule)
-  case featureProximityModule(FeatureProximityRouteModule)
   case featureOnboardingModule(FeatureOnboardingRouteModule)
   case featureAVDashboardModule(FeatureAVDashboardRouteModule)
 
@@ -225,15 +153,11 @@ public enum AppRoute: AppRouteModule {
     return switch self {
     case .featureStartupModule(let module):
       module.info
-    case .featureDashboardModule(let module):
-      module.info
     case .featureCommonModule(let module):
       module.info
     case .featureIssuanceModule(let module):
       module.info
     case .featurePresentationModule(let module):
-      module.info
-    case .featureProximityModule(let module):
       module.info
     case .featureOnboardingModule(let module):
         module.info

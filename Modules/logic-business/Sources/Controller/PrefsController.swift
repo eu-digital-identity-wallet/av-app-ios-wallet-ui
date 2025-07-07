@@ -62,7 +62,8 @@ final class PrefsControllerImpl: PrefsController {
   }
 
   public func getUserLocale() -> String {
-    return getString(forKey: .language) ?? "en_GB"
+    let systemLanguageCode = Locale.current.language.languageCode?.identifier ?? "en"
+    return systemLanguageCode
   }
 }
 
