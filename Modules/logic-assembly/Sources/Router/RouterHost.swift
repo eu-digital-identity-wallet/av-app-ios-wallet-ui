@@ -44,7 +44,7 @@ final class RouterHostImpl: RouterHost, ObservableObject {
     pathElements.append(route)
     onNavigationFollowUp(with: route)
   }
-    
+
   public func popTo(with route: AppRoute, inclusive: Bool) {
     guard
       canNavigate(
