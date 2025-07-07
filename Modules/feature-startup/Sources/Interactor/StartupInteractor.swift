@@ -20,6 +20,7 @@ import logic_business
 
 public protocol StartupInteractor: Sendable {
   func initialize(with splashAnimationDuration: TimeInterval) async -> AppRoute
+  func getAppVersion() -> String
 }
 
 final class StartupInteractorImpl: StartupInteractor {
@@ -28,6 +29,7 @@ final class StartupInteractorImpl: StartupInteractor {
   private let quickPinInteractor: QuickPinInteractor
   private let keyChainController: KeyChainController
   private let prefsController: PrefsController
+  private let configLogic: ConfigLogic
 
   private var hasDocuments: Bool {
     return !walletKitController.fetchAllDocuments().isEmpty
@@ -37,12 +39,14 @@ final class StartupInteractorImpl: StartupInteractor {
     walletKitController: WalletKitController,
     quickPinInteractor: QuickPinInteractor,
     keyChainController: KeyChainController,
-    prefsController: PrefsController
+    prefsController: PrefsController,
+    configLogic: ConfigLogic
   ) {
     self.walletKitController = walletKitController
     self.quickPinInteractor = quickPinInteractor
     self.keyChainController = keyChainController
     self.prefsController = prefsController
+    self.configLogic = configLogic
   }
 
   public func initialize(with splashAnimationDuration: TimeInterval) async -> AppRoute {
@@ -71,6 +75,10 @@ final class StartupInteractorImpl: StartupInteractor {
     } else {
         return .featureOnboardingModule(.welcome)
     }
+  }
+  
+  func getAppVersion() -> String {
+    configLogic.appVersion
   }
 
   private func manageStorageForFirstRun() async {

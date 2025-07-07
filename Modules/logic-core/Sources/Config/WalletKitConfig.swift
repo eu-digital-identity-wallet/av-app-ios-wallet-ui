@@ -98,7 +98,7 @@ struct WalletKitConfigImpl: WalletKitConfig {
     return switch configLogic.appBuildVariant {
     case .DEMO:
         .init(
-          issuerUrl: "https://issuer.dev.ageverification.dev/",
+          issuerUrl: "https://issuer.ageverification.dev/",
           clientId: "wallet-dev",
           redirectUri: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
           usePAR: true,
@@ -174,7 +174,7 @@ struct WalletKitConfigImpl: WalletKitConfig {
         .other(formatType: "urn:eu.europa.ec.eudi:ehic:1")
       ],
       .SocialSecurity: [
-        .other(formatType: "eu.europa.ec.eudi.samplepda1.1"),
+        .other(formatType: "eu.europa.ec.eudi.pda1.1"),
         .other(formatType: "urn:eu.europa.ec.eudi:pda1:1")
       ],
       .Retail: [

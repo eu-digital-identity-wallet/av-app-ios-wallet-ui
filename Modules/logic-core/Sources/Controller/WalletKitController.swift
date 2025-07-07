@@ -241,7 +241,7 @@ final class WalletKitControllerImpl: WalletKitController {
     let rule = configLogic.documentIssuanceConfig.rule(for: docTypeIdentifier)
     let keyOptions = KeyOptions(credentialPolicy: rule.policy, batchSize: rule.numberOfCredentials)
 
-    return try await wallet.issueDocument(docType: nil, scope: nil, identifier: identifier, keyOptions: keyOptions)
+    return try await wallet.issueDocument(docTypeIdentifier: .identifier(identifier), keyOptions: keyOptions)
   }
 
   func requestDeferredIssuance(with doc: WalletStorage.Document) async throws -> DocClaimsDecodable {
@@ -399,11 +399,11 @@ final class WalletKitControllerImpl: WalletKitController {
   func getDocumentStatus(for statusIdentifier: StatusIdentifier) async throws -> CredentialStatus {
     return try await wallet.getDocumentStatus(for: statusIdentifier)
   }
-  
+
   func deleteDepletedDocuments(ofType docTypeIdentifier: DocumentTypeIdentifier) async throws -> Int {
     let documents = fetchIssuedDocuments(with: [docTypeIdentifier])
     var deletedCount = 0
-    
+
     for document in documents {
       if let usageCounts = try? await getCredentialsUsageCount(id: document.id),
          usageCounts.remaining == 0 {
@@ -411,7 +411,7 @@ final class WalletKitControllerImpl: WalletKitController {
         deletedCount += 1
       }
     }
-    
+
     return deletedCount
   }
 }
