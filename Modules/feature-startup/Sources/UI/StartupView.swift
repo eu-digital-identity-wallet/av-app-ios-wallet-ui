@@ -43,7 +43,7 @@ struct StartupView<Router: RouterHost>: View {
 @ViewBuilder
 private func content(viewState: StartupState) -> some View {
   ZStack {
-    SplashBackgroundView()
+    SplashBackgroundView(appVersion: viewState.appVersion)
   }
   .frame(maxWidth: .infinity, maxHeight: .infinity)
   .ignoresSafeArea(.all)
@@ -52,7 +52,8 @@ private func content(viewState: StartupState) -> some View {
 #Preview {
   let viewState = StartupState(
     splashDuration: 10,
-    setupError: nil
+    setupError: nil,
+    appVersion: "1.0.0"
   )
 
   ContentScreenView(

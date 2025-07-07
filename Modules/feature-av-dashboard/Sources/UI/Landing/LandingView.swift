@@ -24,7 +24,7 @@ struct LandingView<Router: RouterHost>: View {
             background: Theme.shared.color.surface,
             navigationTitle: .details
         ) {
-            content(viewState: viewModel.viewState, onScan: viewModel.onScan, onGetMoreCredentials: viewModel.getMoreCredentials )
+            content(viewState: viewModel.viewState, onScan: viewModel.onScan, onGetMoreCredentials: viewModel.getMoreCredentials, onSettings: viewModel.onSettings )
         }
         .task {
             await viewModel.getCredentialDetails()
@@ -34,7 +34,7 @@ struct LandingView<Router: RouterHost>: View {
 
 @MainActor
 @ViewBuilder
-private func content(viewState: AppLandingState, onScan: @escaping () -> Void, onGetMoreCredentials: @escaping () -> Void) -> some View {
+private func content(viewState: AppLandingState, onScan: @escaping () -> Void, onGetMoreCredentials: @escaping () -> Void, onSettings: @escaping () -> Void) -> some View {
     ZStack(alignment: .bottom) {
         ScrollView {
             VStack(spacing: .zero) {
@@ -46,6 +46,7 @@ private func content(viewState: AppLandingState, onScan: @escaping () -> Void, o
                         .frame(width: 57,height: 48)
                     Spacer()
                     Button(action: {
+                        onSettings()
                     }) {
                         Theme.shared.image.settingsIcon
                     }

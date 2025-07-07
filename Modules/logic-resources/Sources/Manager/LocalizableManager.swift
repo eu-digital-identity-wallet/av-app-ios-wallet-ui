@@ -615,11 +615,11 @@ fileprivate extension Bundle {
     let localizedBundle = self.localizedBundle()
     return localizedBundle.localizedString(forKey: key, value: nil, table: nil)
   }
-  
+
   func localizedStringWithArguments(forKey key: String, arguments: [CVarArg]) -> String {
     String(format: self.localizedString(forKey: key), locale: Locale.current, arguments: arguments)
   }
-  
+
   private func localizedBundle() -> Bundle {
     let preferredLanguages = Locale.preferredLanguages
     let availableLocalizations = self.localizations

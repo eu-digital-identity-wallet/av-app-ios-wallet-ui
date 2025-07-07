@@ -128,11 +128,14 @@ public enum FeatureOnboardingRouteModule: AppRouteModule {
 
 public enum FeatureAVDashboardRouteModule: AppRouteModule {
     case appLanding
+    case settings
 
     public var info: (key: String, arguments: [String: String]) {
         return switch self {
         case .appLanding:
             (key: "AppLanding", arguments: [:])
+        case .settings:
+            (key: "Settings", arguments: [:])
         }
     }
 }

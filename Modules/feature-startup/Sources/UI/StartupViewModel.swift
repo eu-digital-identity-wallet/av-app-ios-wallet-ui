@@ -20,6 +20,7 @@ import logic_ui
 struct StartupState: ViewState {
   let splashDuration: TimeInterval
   let setupError: Error?
+  let appVersion: String
 }
 
 final class StartupViewModel<Router: RouterHost>: ViewModel<Router, StartupState> {
@@ -36,7 +37,8 @@ final class StartupViewModel<Router: RouterHost>: ViewModel<Router, StartupState
       router: router,
       initialState: .init(
         splashDuration: splashDuration,
-        setupError: nil
+        setupError: nil,
+        appVersion: interactor.getAppVersion()
       )
     )
   }
