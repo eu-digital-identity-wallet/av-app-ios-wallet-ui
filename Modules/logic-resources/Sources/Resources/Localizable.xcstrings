@@ -9,24 +9,6 @@
             "state": "translated",
             "value": "Add doc"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajouter un doc"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aggiungi doc"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tilføj dokument"
-          }
         }
       }
     },
@@ -37,24 +19,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Add document request"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajouter une demande de document"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aggiungi richiesta di documento"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tilføj dokumentanmodning"
           }
         }
       }
@@ -67,24 +31,6 @@
             "state": "translated",
             "value": "Select a document to add in your EUDI Wallet"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sélectionnez un document à ajouter dans votre portefeuille Eudi"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seleziona un documento da aggiungere nel portafoglio Eudi"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vælg et dokument, der skal tilføjes i din EUDI Wallet"
-          }
         }
       }
     },
@@ -95,24 +41,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Add document"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajouter un document"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aggiungi documento"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tilføj dokument"
           }
         }
       }
@@ -125,24 +53,6 @@
             "state": "translated",
             "value": "Add documents to your wallet by choosing from the list below."
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajoutez des documents à votre portefeuille en choisissant dans la liste ci-dessous."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aggiungi documenti al tuo portafoglio scegliendo dall'elenco qui sotto."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Føj dokumenter til din wallet ved at vælge fra listen nedenfor."
-          }
         }
       }
     },
@@ -153,24 +63,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Age over 18"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Plus de 18 ans"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Età oltre 18 anni"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Alder over 18"
           }
         }
       }
@@ -183,24 +75,6 @@
             "state": "translated",
             "value": "Access online services"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Accéder aux services en ligne"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Accedi ai servizi online"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Adgang til onlinetjenester"
-          }
         }
       }
     },
@@ -211,24 +85,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Identify yourself to a wide range of public and private online services while protecting your privacy. Prove who you are with just a few taps — no need to manage countless passwords."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Identifiez-vous à un large éventail de services en ligne publics et privés tout en protégeant votre vie privée. Prouvez qui vous êtes avec quelques robinets - pas besoin de gérer d'innombrables mots de passe."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Identificati a una vasta gamma di servizi online pubblici e privati ​​proteggendo la tua privacy. Dimostra chi sei con pochi tocchi: non è necessario gestire innumerevoli password."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Identificer dig selv til en lang række offentlige og private onlinetjenester, mens du beskytter dit privatliv. Bevis, hvem du er, med blot et par tryk – du behøver ikke at administrere utallige adgangskoder."
           }
         }
       }
@@ -241,24 +97,6 @@
             "state": "translated",
             "value": "Sign documents safely"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Signer les documents en toute sécurité"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Firmare i documenti in modo sicuro"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Underskriv dokumenter sikkert"
-          }
         }
       }
     },
@@ -269,24 +107,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sign documents with just your wallet. Providing a legally binding e-signature will be faster and easier than ever, enabling you to conduct business wherever you are."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Signez des documents avec juste votre portefeuille. Fournir une signature électronique juridiquement contraignante sera plus rapide et plus facile que jamais, vous permettant de mener des affaires où que vous soyez."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Firma i documenti con solo il tuo portafoglio. Fornire una firma elettronica legalmente vincolante sarà più veloce e più facile che mai, consentendo di condurre affari ovunque tu sia."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Underskriv dokumenter med kun din wallet. At give en juridisk bindende e-signatur vil være hurtigere og nemmere end nogensinde før, så du kan drive forretning, uanset hvor du er."
           }
         }
       }
@@ -299,24 +119,6 @@
             "state": "translated",
             "value": "Ascending"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ascendant"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ascendente"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stigende"
-          }
         }
       }
     },
@@ -327,24 +129,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Filter By Attestation"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtre par attestation"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtro per attestazione"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtrer efter attestering"
           }
         }
       }
@@ -357,24 +141,6 @@
             "state": "translated",
             "value": "Authenticate"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Authentifier"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Autenticare"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Autentificer"
-          }
         }
       }
     },
@@ -385,24 +151,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Authenticate, authorise transactions and share your digital documentsin person or online."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Authentifiez, autorisez les transactions et partagez vos documents numériques en personne ou en ligne."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Autentica, autorizza le transazioni e condividi la persona dei documenti digitali o online."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Autentificer, godkend transaktioner og del dine digitale dokumenter personligt eller online."
           }
         }
       }
@@ -415,24 +163,6 @@
             "state": "translated",
             "value": "Batch issuance counter"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Comptoir d'émission par lots"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Contatore di emissione batch"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Batchudstedelsestæller"
-          }
         }
       }
     },
@@ -443,24 +173,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Before today"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Avant aujourd'hui"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Prima di oggi"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Før i dag"
           }
         }
       }
@@ -473,24 +185,6 @@
             "state": "translated",
             "value": "Beyond 30 days"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Au-delà de 30 jours"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Oltre 30 giorni"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ud over 30 dage"
-          }
         }
       }
     },
@@ -501,24 +195,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Your device does not support biometric authentication"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Votre appareil ne prend pas en charge l'authentification biométrique"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Il tuo dispositivo non supporta l'autenticazione biometrica"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Din enhed understøtter ikke biometrisk godkendelse"
           }
         }
       }
@@ -531,24 +207,6 @@
             "state": "translated",
             "value": "Use your fingerprint or face recognition to log in to the “%@” app."
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Utilisez votre empreinte digitale ou la reconnaissance faciale pour vous connecter à l'application « %@ »."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Usa l'impronta digitale o il riconoscimento del viso per accedere al \"%@\"App."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Brug dit fingeraftryk eller ansigtsgenkendelse til at logge ind i \"%@\"-appen."
-          }
         }
       }
     },
@@ -559,24 +217,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Start setup"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Démarrer la configuration"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Avvia la configurazione"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Start opsætning"
           }
         }
       }
@@ -589,24 +229,6 @@
             "state": "translated",
             "value": "Skip"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sauter"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Saltare"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Spring over"
-          }
         }
       }
     },
@@ -617,24 +239,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Biometric access"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Accès biométrique"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Accesso biometrico"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Biometrisk adgang"
           }
         }
       }
@@ -647,24 +251,6 @@
             "state": "translated",
             "value": "Something went wrong initializing biometric authentication. Please try again"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Une erreur est survenue lors de l'initialisation de l'authentification biométrique. Veuillez réessayer."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Qualcosa è andato storto inizializza l'autenticazione biometrica. Per favore riprova"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noget gik galt under initialisering af biometrisk godkendelse. Prøv igen"
-          }
         }
       }
     },
@@ -675,24 +261,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Confirm request"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Confirmer la demande"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Conferma la richiesta"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bekræft anmodning"
           }
         }
       }
@@ -705,24 +273,6 @@
             "state": "translated",
             "value": "Go to settings"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aller dans les paramètres"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vai alle impostazioni"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gå til indstillinger"
-          }
         }
       }
     },
@@ -733,24 +283,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Enable"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Activer"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Abilitare"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aktivér"
           }
         }
       }
@@ -763,24 +295,6 @@
             "state": "translated",
             "value": "Enable bluetooth to share your information using the QR/TAP option"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Activez Bluetooth pour partager vos informations à l'aide de l'option QR / TAP"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Abilita Bluetooth per condividere le tue informazioni utilizzando l'opzione QR/TAP"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aktivér Bluetooth for at dele dine oplysninger ved hjælp af QR/TAP-indstillingen"
-          }
         }
       }
     },
@@ -791,24 +305,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Enable bluetooth?"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Activer Bluetooth?"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Abilita Bluetooth?"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aktivér Bluetooth?"
           }
         }
       }
@@ -821,24 +317,6 @@
             "state": "translated",
             "value": "Camera permission not provided\nOpen App Settings"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Autorisation de la caméra non fournie\nOuvrir les paramètres de l'application"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Autorizzazione della fotocamera non fornita\nApri le impostazioni dell'app"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kameratilladelse ikke givet"
-          }
         }
       }
     },
@@ -849,24 +327,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Cancel"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annuler"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancellare"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annuller"
           }
         }
       }
@@ -879,24 +339,6 @@
             "state": "translated",
             "value": "Cancel will redirect you back to the documents list with no new documents"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annuler vous redirigera vers la liste des documents sans nouveaux documents"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annulla ti reindirizzerà all'elenco dei documenti senza nuovi documenti"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annuller vil omdirigere dig tilbage til dokumentlisten uden nye dokumenter"
-          }
         }
       }
     },
@@ -907,24 +349,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Continue issuance"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Continuer la publication"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Continua l'emissione"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fortsæt udstedelse"
           }
         }
       }
@@ -937,24 +361,6 @@
             "state": "translated",
             "value": "Cancel issuance process?"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annuler le processus d'émission?"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annullare il processo di emissione?"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annuller udstedelsesprocessen?"
-          }
         }
       }
     },
@@ -965,24 +371,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "EDUCATION"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ÉDUCATION"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Istruzione"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "UDDANNELSE"
           }
         }
       }
@@ -995,24 +383,6 @@
             "state": "translated",
             "value": "FINANCE"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "FINANCE"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "FINANZA"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "FINANS"
-          }
         }
       }
     },
@@ -1023,24 +393,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "GOVERNMENT"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "GOUVERNEMENT"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "GOVERNO"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OFFENTLIG"
           }
         }
       }
@@ -1053,24 +405,6 @@
             "state": "translated",
             "value": "HEALTH"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "SANTÉ"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "SALUTE"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "SUNDHED"
-          }
         }
       }
     },
@@ -1081,24 +415,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "OTHER"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AUTRE"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ALTRO"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ANDRE"
           }
         }
       }
@@ -1111,24 +427,6 @@
             "state": "translated",
             "value": "RETAIL"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "VENTE AU DÉTAIL"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "VEDERE AL DETTAGLIO"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DETAILHANDEL"
-          }
         }
       }
     },
@@ -1139,24 +437,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "SOCIAL SECURITY"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sécurité sociale"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "PREVIDENZA SOCIALE"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "SOCIALSIKRING"
           }
         }
       }
@@ -1169,24 +449,6 @@
             "state": "translated",
             "value": "TRAVEL"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "VOYAGE"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "VIAGGIO"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "REJSE"
-          }
         }
       }
     },
@@ -1198,24 +460,6 @@
             "state": "translated",
             "value": "Change pin"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Changer le code PIN"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cambia il perno"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Skift pin"
-          }
         }
       }
     },
@@ -1223,24 +467,6 @@
       "extractionState": "manual",
       "localizations": {
         "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Changelog"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Changelog"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Changelog"
-          }
-        },
-        "da": {
           "stringUnit": {
             "state": "translated",
             "value": "Changelog"
@@ -1256,24 +482,6 @@
             "state": "translated",
             "value": "Choose from list"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Choisissez parmi la liste"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Scegli dall'elenco"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vælg fra listen"
-          }
         }
       }
     },
@@ -1284,24 +492,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Choose a digital document from the list below to add to your wallet."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Choisissez un document numérique dans la liste ci-dessous pour ajouter à votre portefeuille."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Scegli un documento digitale dall'elenco qui sotto per aggiungere al tuo portafoglio."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vælg et digitalt dokument fra listen nedenfor for at tilføje til din wallet."
           }
         }
       }
@@ -1314,24 +504,6 @@
             "state": "translated",
             "value": "Close"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fermer"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vicino"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Luk"
-          }
         }
       }
     },
@@ -1342,24 +514,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Completed"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Complété"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Completato"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Afsluttet"
           }
         }
       }
@@ -1372,24 +526,6 @@
             "state": "translated",
             "value": "I accept the Terms of Service"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "J'accepte les conditions d'utilisation"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Accetto i termini di servizio"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Jeg accepterer servicevilkårene"
-          }
         }
       }
     },
@@ -1400,24 +536,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "I accept the Data Protection Information"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "J'accepte les informations de protection des données"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Accetto le informazioni sulla protezione dei dati"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Jeg accepterer databeskyttelsesoplysningerne"
           }
         }
       }
@@ -1430,24 +548,6 @@
             "state": "translated",
             "value": "Terms of Service"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Conditions de service"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Termini di servizio"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Servicevilkår"
-          }
         }
       }
     },
@@ -1458,24 +558,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Data Protection Information"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Informations sur la protection des données"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Informazioni sulla protezione dei dati"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Oplysninger om databeskyttelse"
           }
         }
       }
@@ -1488,24 +570,6 @@
             "state": "translated",
             "value": "Confirm"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Confirmer"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Confermare"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bekræft"
-          }
         }
       }
     },
@@ -1516,24 +580,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "First we need your consent"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nous avons d'abord besoin de votre consentement"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Per prima cosa abbiamo bisogno del tuo consenso"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Først har vi brug for dit samtykke"
           }
         }
       }
@@ -1546,24 +592,6 @@
             "state": "translated",
             "value": "Credential Details"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Détails"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dettagli credenziali"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Legitimationsoplysninger"
-          }
         }
       }
     },
@@ -1574,24 +602,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Your documents from %@ have been successfully issued except %@"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vos documents de %@ ont été émis avec succès sauf %@"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "I tuoi documenti da %@ sono stati emessi con successo tranne %@"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dine dokumenter fra %@ er blevet udstedt med succes undtagen %@"
           }
         }
       }
@@ -1604,24 +614,6 @@
             "state": "translated",
             "value": "Continue"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Continuer"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Continuare"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fortsæt"
-          }
         }
       }
     },
@@ -1632,24 +624,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Your documents from %@ have been successfully issued."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vos documents de %@ ont été publiés avec succès."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "I tuoi documenti da %@ sono stati emessi con successo."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dine dokumenter fra %@ er blevet udstedt med succes."
           }
         }
       }
@@ -1662,24 +636,6 @@
             "state": "translated",
             "value": "Data shared"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Données partagées"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dati condivisi"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DATA DELT"
-          }
         }
       }
     },
@@ -1690,24 +646,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Data sharing request"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Demande de partage de données"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Richiesta di condivisione dei dati"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Anmodning om datadeling"
           }
         }
       }
@@ -1720,24 +658,6 @@
             "state": "translated",
             "value": "The following transaction requires your permission and authentication."
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La transaction suivante nécessite votre autorisation et votre authentification."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La seguente transazione richiede l'autorizzazione e l'autenticazione."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Følgende transaktion kræver din tilladelse og godkendelse."
-          }
         }
       }
     },
@@ -1748,24 +668,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Date Issued"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Date émise"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Data emessa"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Udstedelsesdato"
           }
         }
       }
@@ -1778,24 +680,6 @@
             "state": "translated",
             "value": "Default"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Défaut"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Predefinito"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Standard"
-          }
         }
       }
     },
@@ -1806,24 +690,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "New documents have been added to your wallet."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "De nouveaux documents ont été ajoutés à votre portefeuille."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nuovi documenti sono stati aggiunti al tuo portafoglio."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nye dokumenter er blevet tilføjet til din wallet."
           }
         }
       }
@@ -1836,24 +702,6 @@
             "state": "translated",
             "value": "Documents issued"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Documents émis"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Documenti emessi"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dokumenter udstedt"
-          }
         }
       }
     },
@@ -1864,24 +712,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Delete"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Supprimer"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eliminare"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Slet"
           }
         }
       }
@@ -1894,24 +724,6 @@
             "state": "translated",
             "value": "Delete document"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Supprimer le document"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Elimina documento"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Slet dokument"
-          }
         }
       }
     },
@@ -1922,24 +734,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "This document will be permanently deleted from your wallet and may affect access to services."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ce document sera supprimé en permanence de votre portefeuille et peut affecter l'accès aux services."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Questo documento verrà eliminato permanentemente dal tuo portafoglio e potrebbe influire sull'accesso ai servizi."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dette dokument vil blive slettet permanent fra din wallet og kan påvirke adgangen til tjenester."
           }
         }
       }
@@ -1952,24 +746,6 @@
             "state": "translated",
             "value": "Descending"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Descendant"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Discendente"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Faldende"
-          }
         }
       }
     },
@@ -1980,24 +756,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Details"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Détails"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dettagli"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Detaljer"
           }
         }
       }
@@ -2010,24 +768,6 @@
             "state": "translated",
             "value": "Add Document"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajouter un document"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aggiungi documento"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tilføj dokument"
-          }
         }
       }
     },
@@ -2038,24 +778,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Hide"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cacher"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nascondere"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Skjul"
           }
         }
       }
@@ -2068,24 +790,6 @@
             "state": "translated",
             "value": "For security reasons, this document can be shared a limited number of times before it needs to be re-issued by the issuing authority."
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pour des raisons de sécurité, ce document peut être partagé un nombre limité de fois avant qu'il ne soit réémis par l'autorité émettrice."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Per motivi di sicurezza, questo documento può essere condiviso un numero limitato di volte prima che debba essere riemesso dall'autorità emittente."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Af sikkerhedsmæssige årsager kan dette dokument deles et begrænset antal gange, før det skal udstedes igen af den udstedende myndighed."
-          }
         }
       }
     },
@@ -2096,24 +800,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "More info"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Plus d'informations"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Maggiori informazioni"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mere info"
           }
         }
       }
@@ -2126,24 +812,6 @@
             "state": "translated",
             "value": "%@/%@ instances remaining"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@/ /%@ Instances restantes"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@/%@ istanze rimanenti"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@/%@ forekomster tilbage"
-          }
         }
       }
     },
@@ -2154,24 +822,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "This document has been revoked by the issuer. Contact the issuing service for more information."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ce document a été révoqué par l'émetteur. Contactez le service émetteur pour plus d'informations."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Questo documento è stato revocato dall'emittente. Contattare il servizio di emissione per ulteriori informazioni."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dette dokument er blevet tilbagekaldt af udstederen. Kontakt den udstedende tjeneste for mere information."
           }
         }
       }
@@ -2184,24 +834,6 @@
             "state": "translated",
             "value": "Document number"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Numéro de document"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Numero di documento"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dokumentnummer"
-          }
         }
       }
     },
@@ -2212,24 +844,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Filter By Document Signing"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtre par signature de document"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtro mediante la firma del documento"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtrer efter dokumentsignering"
           }
         }
       }
@@ -2242,24 +856,6 @@
             "state": "translated",
             "value": "Documents"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Documents"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Documenti"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dokumenter"
-          }
         }
       }
     },
@@ -2267,24 +863,6 @@
       "extractionState": "manual",
       "localizations": {
         "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@/%@"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@/ /%@"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@/%@"
-          }
-        },
-        "da": {
           "stringUnit": {
             "state": "translated",
             "value": "%@/%@"
@@ -2300,24 +878,6 @@
             "state": "translated",
             "value": "Done"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fait"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fatto"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Færdig"
-          }
         }
       }
     },
@@ -2329,49 +889,12 @@
             "state": "translated",
             "value": "Electronically sign digital documents with your wallet by choosing a file from your device."
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Signez électroniquement les documents numériques avec votre portefeuille en choisissant un fichier à partir de votre appareil."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Firma elettronicamente documenti digitali con il tuo portafoglio scegliendo un file dal tuo dispositivo."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Underskriv elektronisk digitale dokumenter med din wallet ved at vælge en fil fra din enhed."
-          }
         }
       }
     },
     "empty": {
       "extractionState": "manual",
-      "localizations": {
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": ""
-          }
-        }
-      }
+      "localizations": {}
     },
     "end_date": {
       "extractionState": "manual",
@@ -2380,24 +903,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "End date"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Date de fin"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Data di fine"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Slutdato"
           }
         }
       }
@@ -2410,24 +915,6 @@
             "state": "translated",
             "value": "Unable to fetch document"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Impossible de récupérer le document"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Impossibile recuperare il documento"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kan ikke hente dokumentet"
-          }
         }
       }
     },
@@ -2438,24 +925,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Unable to fetch documents"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Impossible de récupérer des documents"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Impossibile recuperare i documenti"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kan ikke hente dokumenter"
           }
         }
       }
@@ -2468,24 +937,6 @@
             "state": "translated",
             "value": "Unable to present and share your documents."
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Impossible de présenter et de partager vos documents."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Impossibile presentare e condividere i tuoi documenti."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kan ikke præsentere og dele dine dokumenter."
-          }
         }
       }
     },
@@ -2496,24 +947,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "European\nUnion"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "européen\nUnion"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "europeo\nUnione"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Europæisk\\nUnion"
           }
         }
       }
@@ -2526,24 +959,6 @@
             "state": "translated",
             "value": "EU certified official credential"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Crédités officiels certifiés de l'UE"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Credenziali ufficiali certificate dell'UE"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "EU-certificeret officiel legitimation"
-          }
         }
       }
     },
@@ -2554,24 +969,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "expiry"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "expiration"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "scadenza"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "udløb"
           }
         }
       }
@@ -2584,24 +981,6 @@
             "state": "translated",
             "value": "Expired"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Expiré"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Scaduto"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Udløbet"
-          }
         }
       }
     },
@@ -2612,24 +991,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Expiry Date"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Date d'expiration"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Data di scadenza"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Udløbsdato"
           }
         }
       }
@@ -2642,24 +1003,6 @@
             "state": "translated",
             "value": "Filter by Expiry Period"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtre par période d'expiration"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtrare per periodo di scadenza"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtrer efter udløbsperiode"
-          }
         }
       }
     },
@@ -2670,24 +1013,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Failed"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Échoué"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fallito"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mislykkedes"
           }
         }
       }
@@ -2700,24 +1025,6 @@
             "state": "translated",
             "value": "Unable to fetch transaction log"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Impossible de récupérer le journal des transactions"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Impossibile recuperare il registro delle transazioni"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kan ikke hente transaktionsloggen"
-          }
         }
       }
     },
@@ -2728,24 +1035,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Filter by Category"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtre par catégorie"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtro per categoria"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtrer efter kategori"
           }
         }
       }
@@ -2758,24 +1047,6 @@
             "state": "translated",
             "value": "Filter By Transaction Date Period"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtre par période de date de transaction"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtro per periodo di data di transazione"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtrer efter transaktionsdatoperiode"
-          }
         }
       }
     },
@@ -2786,24 +1057,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Filter by Issuer"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtre par émetteur"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtro per emittente"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtrer efter udsteder"
           }
         }
       }
@@ -2816,24 +1069,6 @@
             "state": "translated",
             "value": "Filter By State"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtre par état"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtro per stato"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtrer efter status"
-          }
         }
       }
     },
@@ -2844,24 +1079,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Filter By Status"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtre par statut"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtro per stato"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtrer efter status"
           }
         }
       }
@@ -2874,24 +1091,6 @@
             "state": "translated",
             "value": "Filter By Type"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtre par type"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtro per tipo"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtrer efter type"
-          }
         }
       }
     },
@@ -2902,24 +1101,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Filters"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtres"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtri"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtre"
           }
         }
       }
@@ -2932,24 +1113,6 @@
             "state": "translated",
             "value": "From device"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "De l'appareil"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dal dispositivo"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fra enhed"
-          }
         }
       }
     },
@@ -2960,24 +1123,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "If the issue persists, please contact customer support"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si le problème persiste, veuillez contacter le support client"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se il problema persiste, si prega di contattare l'assistenza clienti"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hvis problemet fortsætter, kontakt venligst kundesupport"
           }
         }
       }
@@ -2990,24 +1135,6 @@
             "state": "translated",
             "value": "Houston we have a problem!"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Houston Nous avons un problème!"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Houston abbiamo un problema!"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Houston, vi har et problem!"
-          }
         }
       }
     },
@@ -3018,24 +1145,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Issuer"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Émetteur"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Emittente"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Udsteder"
           }
         }
       }
@@ -3048,24 +1157,6 @@
             "state": "translated",
             "value": "Home"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Maison"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Casa"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hjem"
-          }
         }
       }
     },
@@ -3076,24 +1167,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "In person"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "En personne"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Di persona"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Personligt"
           }
         }
       }
@@ -3106,24 +1179,6 @@
             "state": "translated",
             "value": "In progress"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "En cours"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "In corso"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "I gang"
-          }
         }
       }
     },
@@ -3134,24 +1189,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Incomplete"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Incomplet"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Incompleto"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ufuldstændig"
           }
         }
       }
@@ -3164,24 +1201,6 @@
             "state": "translated",
             "value": "Your selection of data to be shared may impact the service"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Votre sélection de données à partager peut avoir un impact sur le service"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La tua selezione di dati da condividere può avere un impatto sul servizio"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dit valg af data, der skal deles, kan påvirke tjenesten"
-          }
         }
       }
     },
@@ -3192,24 +1211,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Invalid quick pin"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pin rapide non valide"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pin rapido non valido"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ugyldig hurtig pin"
           }
         }
       }
@@ -3222,24 +1223,6 @@
             "state": "translated",
             "value": "Issuance"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Émission"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Emissione"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Udstedelse"
-          }
         }
       }
     },
@@ -3250,24 +1233,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Type the %@-digit transaction code you received"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Saisissez le code de transaction à %@ chiffres que vous avez reçu"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Digitare il %@-Digit Codice di transazione che hai ricevuto"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Indtast den %@-cifrede transaktionskode, du har modtaget"
           }
         }
       }
@@ -3280,24 +1245,6 @@
             "state": "translated",
             "value": "%@ requires verification"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ nécessite une vérification"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ richiede verifica"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ kræver verifikation"
-          }
         }
       }
     },
@@ -3308,24 +1255,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Continue"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Continuer"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Continuare"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fortsæt"
           }
         }
       }
@@ -3338,24 +1267,6 @@
             "state": "translated",
             "value": "You will not be able to use your %@ for future verifications"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vous ne pourrez pas utiliser votre %@ pour les vérifications futures"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Non sarai in grado di usare il tuo %@ Per le verifiche future"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Du vil ikke kunne bruge din %@ til fremtidige verifikationer"
-          }
         }
       }
     },
@@ -3366,24 +1277,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Delete %@?"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Supprimer %@?"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ELETE %@?"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Slet %@?"
           }
         }
       }
@@ -3396,24 +1289,6 @@
             "state": "translated",
             "value": "Issuance failed"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Échec de l'émission"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "L'emissione non è riuscita"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Udstedelse mislykkedes"
-          }
         }
       }
     },
@@ -3424,24 +1299,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "ISSUANCE REQUEST"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Demande d'émission"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Richiesta di emissione"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ANMODNING OM UDSTEDELSE"
           }
         }
       }
@@ -3454,24 +1311,6 @@
             "state": "translated",
             "value": "You can now add your %@"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vous pouvez maintenant ajouter votre %@"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ora puoi aggiungere il tuo %@"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Du kan nu tilføje din %@"
-          }
         }
       }
     },
@@ -3482,24 +1321,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Your documents from %@ have been requested. You will be notified when they have been issued to your wallet."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vos documents de %@ ont été demandés. Vous serez informé lorsqu'ils auront été délivrés à votre portefeuille."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "I tuoi documenti da %@ sono stati richiesti. Sarai avvisato quando saranno stati emessi sul tuo portafoglio."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dine dokumenter fra %@ er blevet anmodet om. Du får besked, når de er blevet udstedt til din wallet."
           }
         }
       }
@@ -3512,24 +1333,6 @@
             "state": "translated",
             "value": "You have successfully added the document(s) to your wallet"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vous avez réussi à ajouter le (s) document (s) à votre portefeuille"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hai aggiunto con successo i documenti al tuo portafoglio"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Du har med succes tilføjet dokumentet/dokumenterne til din wallet"
-          }
         }
       }
     },
@@ -3540,24 +1343,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Next"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Suivant"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Prossimo"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Næste"
           }
         }
       }
@@ -3570,24 +1355,6 @@
             "state": "translated",
             "value": "Success!"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Succès!"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Successo!"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Succes!"
-          }
         }
       }
     },
@@ -3598,24 +1365,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Issue"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Problème"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Problema"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Udsted"
           }
         }
       }
@@ -3628,24 +1377,6 @@
             "state": "translated",
             "value": "wants to add the following to your wallet:"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "veut ajouter ce qui suit à votre portefeuille:"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "vuole aggiungere quanto segue al tuo portafoglio:"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ønsker at tilføje følgende til din wallet:"
-          }
         }
       }
     },
@@ -3656,24 +1387,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Item not found in storage"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Article introuvable dans le stockage"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Articolo non trovato in archiviazione"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Element ikke fundet i lager"
           }
         }
       }
@@ -3686,24 +1399,6 @@
             "state": "translated",
             "value": "Items not found in storage"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Articles introuvables dans le stockage"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Articoli non trovati in archiviazione"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Elementer ikke fundet i lager"
-          }
         }
       }
     },
@@ -3714,24 +1409,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Just now"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tout à l' heure"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Proprio adesso"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lige nu"
           }
         }
       }
@@ -3744,24 +1421,6 @@
             "state": "translated",
             "value": "With your proof of age, you can prove to services restricted to adults that you are old enough to access them.\nThe proof of age shows only that you are older than 18. It contains no other personal information."
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Avec votre preuve d'âge, vous pouvez prouver aux services limités aux adultes que vous êtes assez vieux pour y accéder.\nLa preuve d'âge montre que vous avez plus de 18 ans. Il ne contient aucune autre information personnelle."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Con la tua prova dell'età, puoi dimostrare ai servizi limitati agli adulti che sei abbastanza grande per accedervi.\nLa prova dell'età mostra solo che hai più di 18 anni. Non contiene altre informazioni personali."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Med dit aldersbevis kan du bevise for tjenester, der er begrænset til voksne, at du er gammel nok til at få adgang til dem.\\nAldersbeviset viser kun, at du er over 18. Det indeholder ingen andre personlige oplysninger."
-          }
         }
       }
     },
@@ -3772,24 +1431,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "%d left"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%d gauche"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%d Sinistra"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%d tilbage"
           }
         }
       }
@@ -3802,24 +1443,6 @@
             "state": "translated",
             "value": "Add more"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajouter plus"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aggiungi altro"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tilføj mere"
-          }
         }
       }
     },
@@ -3830,24 +1453,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Age Verification"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vérification de l'âge"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Verifica dell'età"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aldersverifikation"
           }
         }
       }
@@ -3860,24 +1465,6 @@
             "state": "translated",
             "value": "Learn more"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apprendre encore plus"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Saperne di più"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lær mere"
-          }
         }
       }
     },
@@ -3888,24 +1475,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Load Sample Data"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Chargez des données d'échantillons"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Carica i dati di esempio"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Indlæs eksempeldata"
           }
         }
       }
@@ -3918,24 +1487,6 @@
             "state": "translated",
             "value": "Use your biometrics to login"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Utilisez votre biométrie pour vous connecter"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Usa la tua biometria per accedere"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Brug din biometri til at logge ind"
-          }
         }
       }
     },
@@ -3947,24 +1498,6 @@
             "state": "translated",
             "value": "Type your quick pin to login"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tapez votre épingle rapide pour vous connecter"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Digita il tuo pin rapido per accedere"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Indtast din hurtige pin for at logge ind"
-          }
         }
       }
     },
@@ -3972,24 +1505,6 @@
       "extractionState": "manual",
       "localizations": {
         "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Login"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se connecter"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Login"
-          }
-        },
-        "da": {
           "stringUnit": {
             "state": "translated",
             "value": "Login"
@@ -4005,24 +1520,6 @@
             "state": "translated",
             "value": "%@ minute ago"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Il y a %@ minute"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ minuto fa"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ minut siden"
-          }
         }
       }
     },
@@ -4033,24 +1530,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "%@ minutes ago"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Il y a %@ minutes"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ minuti fa"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ minutter siden"
           }
         }
       }
@@ -4063,24 +1542,6 @@
             "state": "translated",
             "value": "Wallet needs to be activated first with a National ID"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Le portefeuille doit être activé en premier avec une pièce d'identité nationale"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Il portafoglio deve essere attivato per primo con un ID nazionale"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wallet skal først aktiveres med et nationalt ID"
-          }
         }
       }
     },
@@ -4091,24 +1552,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "More options"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Plus d'options"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Più opzioni"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Flere muligheder"
           }
         }
       }
@@ -4121,24 +1564,6 @@
             "state": "translated",
             "value": "My EU Wallet"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mon portefeuille UE"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Il mio portafoglio europeo"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Min EU-wallet"
-          }
         }
       }
     },
@@ -4149,24 +1574,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Next 7 days"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "7 jours suivants"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "I prossimi 7 giorni"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "De næste 7 dage"
           }
         }
       }
@@ -4179,49 +1586,12 @@
             "state": "translated",
             "value": "Next 30 days"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "30 jours suivants"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Next 30 giorni"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "De næste 30 dage"
-          }
         }
       }
     },
     "no": {
       "extractionState": "manual",
-      "localizations": {
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "non"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "no"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "nej"
-          }
-        }
-      }
+      "localizations": {}
     },
     "no_results": {
       "extractionState": "manual",
@@ -4230,24 +1600,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "No results"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aucun résultat"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nessun risultato"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingen resultater"
           }
         }
       }
@@ -4260,24 +1612,6 @@
             "state": "translated",
             "value": "No documents found. Try changing your search or filters."
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aucun document trouvé. Essayez de changer votre recherche ou vos filtres."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nessun documento trovato. Prova a cambiare la ricerca o i filtri."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingen dokumenter fundet. Prøv at ændre din søgning eller filtre."
-          }
         }
       }
     },
@@ -4289,24 +1623,6 @@
             "state": "translated",
             "value": "No transactions found. Try changing your search or filters."
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aucune transaction trouvée. Essayez de changer votre recherche ou vos filtres."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nessuna transazione trovata. Prova a cambiare la ricerca o i filtri."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingen transaktioner fundet. Prøv at ændre din søgning eller filtre."
-          }
         }
       }
     },
@@ -4314,24 +1630,6 @@
       "extractionState": "manual",
       "localizations": {
         "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "D'ACCORD"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OK"
-          }
-        },
-        "da": {
           "stringUnit": {
             "state": "translated",
             "value": "OK"
@@ -4347,24 +1645,6 @@
             "state": "translated",
             "value": "Welcome"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Accueillir"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Benvenuto"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Velkommen"
-          }
         }
       }
     },
@@ -4375,24 +1655,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Consent"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Consentement"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Consenso"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Samtykke"
           }
         }
       }
@@ -4405,24 +1667,6 @@
             "state": "translated",
             "value": "Security"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sécurité"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sicurezza"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sikkerhed"
-          }
         }
       }
     },
@@ -4433,24 +1677,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Verification"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vérification"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Verifica"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Verifikation"
           }
         }
       }
@@ -4463,24 +1689,6 @@
             "state": "translated",
             "value": "This verification is needed to create a proof of age that you are over 18. The eID details will not be shared with online services you access."
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cette vérification est nécessaire pour créer une preuve d'âge que vous avez plus de 18 ans. Les détails de l'Aïd ne seront pas partagés avec les services en ligne auxquels vous accédez."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Questa verifica è necessaria per creare una prova dell'età che hai più di 18 anni. I dettagli EID non saranno condivisi con i servizi online a cui accedi."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Denne verifikation er nødvendig for at oprette et bevis på, at du er over 18 år. eID-oplysningerne vil ikke blive delt med de onlinetjenester, du får adgang til."
-          }
         }
       }
     },
@@ -4488,24 +1696,6 @@
       "extractionState": "manual",
       "localizations": {
         "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "National eID / National idP"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eid national / PDI national"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "National Eid / National IDP"
-          }
-        },
-        "da": {
           "stringUnit": {
             "state": "translated",
             "value": "National eID / National idP"
@@ -4521,24 +1711,6 @@
             "state": "translated",
             "value": "Identify online using your eID"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Identifiez en ligne en utilisant votre EID"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Identifica online utilizzando il tuo EID"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Identificer dig online med din eID"
-          }
         }
       }
     },
@@ -4550,24 +1722,6 @@
             "state": "translated",
             "value": "Choose your age verification method"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Choisissez votre méthode de vérification d'âge"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Scegli il tuo metodo di verifica dell'età"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vælg din aldersverifikationsmetode"
-          }
         }
       }
     },
@@ -4575,24 +1729,6 @@
       "extractionState": "manual",
       "localizations": {
         "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Online"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "En ligne"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Online"
-          }
-        },
-        "da": {
           "stringUnit": {
             "state": "translated",
             "value": "Online"
@@ -4608,24 +1744,6 @@
             "state": "translated",
             "value": "OR"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OU"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ELLER"
-          }
         }
       }
     },
@@ -4636,24 +1754,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Or share via NFC"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ou partager via NFC"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O condividere tramite NFC"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Eller del via NFC"
           }
         }
       }
@@ -4666,24 +1766,6 @@
             "state": "translated",
             "value": "ORDER BY"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Commander"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ordine di"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sorter efter"
-          }
         }
       }
     },
@@ -4694,24 +1776,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pending"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "En attente"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "In attesa"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Afventer"
           }
         }
       }
@@ -4724,24 +1788,6 @@
             "state": "translated",
             "value": "Please wait..."
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "S'il vous plaît, attendez..."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Attendere prego..."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vent venligst ..."
-          }
         }
       }
     },
@@ -4752,24 +1798,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Presentation"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Présentation"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Presentazione"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Præsentation"
           }
         }
       }
@@ -4782,24 +1810,6 @@
             "state": "translated",
             "value": "Hold your phone near object to scan."
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tenez votre téléphone près de l'objet pour scanner."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tieni il telefono vicino all'oggetto per scansionare."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hold din telefon tæt på objektet for at scanne."
-          }
         }
       }
     },
@@ -4810,24 +1820,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Show this QR code to access the necessary information for sharing"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Afficher ce code QR pour accéder aux informations nécessaires pour le partage"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mostra questo codice QR per accedere alle informazioni necessarie per la condivisione"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vis denne QR-kode for at få adgang til de nødvendige oplysninger til deling"
           }
         }
       }
@@ -4840,24 +1832,6 @@
             "state": "translated",
             "value": "Having trouble scanning the QR Code?\nPlease try an alternative way"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vous avez du mal à scanner le code QR?\nVeuillez essayer une autre manière"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hai difficoltà a scansionare il codice QR?\nPer favore prova un modo alternativo"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Har du problemer med at scanne QR-koden?\\nPrøv en alternativ metode"
-          }
         }
       }
     },
@@ -4868,24 +1842,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Confirm"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Confirmer"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Confermare"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bekræft"
           }
         }
       }
@@ -4898,24 +1854,6 @@
             "state": "translated",
             "value": "Your 6-digit PIN"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Votre code PIN à 6 chiffres"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Il tuo pin a 6 cifre"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Din 6-cifrede pin"
-          }
         }
       }
     },
@@ -4926,24 +1864,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Repeat your 6-digit PIN"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Répétez votre code PIN à 6 chiffres"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ripeti il ​​tuo pin a 6 cifre"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gentag din 6-cifrede pin"
           }
         }
       }
@@ -4956,24 +1876,6 @@
             "state": "translated",
             "value": "Confirm your PIN"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Confirmez votre code PIN"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Conferma il tuo perno"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bekræft din pin"
-          }
         }
       }
     },
@@ -4984,24 +1886,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Choose a PIN to access the app"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Choisissez un code PIN pour accéder à l'application"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Scegli un pin per accedere all'app"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vælg en pin for at få adgang til appen"
           }
         }
       }
@@ -5014,24 +1898,6 @@
             "state": "translated",
             "value": "Pins do not match"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Les épingles ne correspondent pas"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "I pin non corrispondono"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pinkoderne stemmer ikke overens"
-          }
         }
       }
     },
@@ -5042,24 +1908,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Enter a PIN"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Entrez un code PIN"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Immettere un pin"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Indtast en pin"
           }
         }
       }
@@ -5072,24 +1920,6 @@
             "state": "translated",
             "value": "Proceed"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Procéder"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Procedere"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fortsæt"
-          }
         }
       }
     },
@@ -5100,24 +1930,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Secure your wallet with a PIN code and connect to your National System."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sécurisez votre portefeuille avec un code PIN et connectez-vous à votre système national."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Proteggi il tuo portafoglio con un codice PIN e connettiti al sistema nazionale."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sikr din wallet med en PIN-kode og forbind til dit nationale system."
           }
         }
       }
@@ -5130,24 +1942,6 @@
             "state": "translated",
             "value": "Re-enter the quick pin"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Saisissez à nouveau le code PIN"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rientrare nel pin rapido"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Indtast den hurtige pin igen"
-          }
         }
       }
     },
@@ -5158,24 +1952,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "To activate your wallet, connect to your National System to add your Digital ID."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pour activer votre portefeuille, connectez-vous à votre système national pour ajouter votre identifiant numérique."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Per attivare il tuo portafoglio, connettiti al sistema nazionale per aggiungere il tuo ID digitale."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "For at aktivere din wallet skal du forbinde til dit nationale system for at tilføje dit digitale ID."
           }
         }
       }
@@ -5188,24 +1964,6 @@
             "state": "translated",
             "value": "Add my Digital ID"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ajouter mon identifiant numérique"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aggiungi il mio ID digitale"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tilføj mit digitale ID"
-          }
         }
       }
     },
@@ -5216,24 +1974,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Welcome to your wallet"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bienvenue dans votre portefeuille"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Benvenuti nel tuo portafoglio"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Velkommen til din wallet"
           }
         }
       }
@@ -5246,24 +1986,6 @@
             "state": "translated",
             "value": "Cancel will redirect you back to the home without changing the quick pin"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annuler vous redirigera vers la maison sans modifier la broche rapide"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annulla ti reindirizzerà a casa senza cambiare il pin rapido"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annuller vil omdirigere dig tilbage til hjemmet uden at ændre den hurtige pin"
-          }
         }
       }
     },
@@ -5274,24 +1996,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Continue"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Continuer"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Continuare"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fortsæt"
           }
         }
       }
@@ -5304,24 +2008,6 @@
             "state": "translated",
             "value": "Cancel quick pin changing?"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annuler le changement de broche rapide?"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annullare la modifica del pin rapido?"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Annuller ændring af hurtig pin?"
-          }
         }
       }
     },
@@ -5332,24 +2018,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Type your current pin"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Saisissez votre code PIN actuel"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Digita il tuo pin corrente"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Indtast din nuværende pin"
           }
         }
       }
@@ -5362,24 +2030,6 @@
             "state": "translated",
             "value": "Re-enter the quick pin"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Saisissez à nouveau le code PIN"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rientrare nel pin rapido"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Indtast den hurtige pin igen"
-          }
         }
       }
     },
@@ -5390,24 +2040,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Set a quick pin for future logins"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Définissez un code PIN pour les connexions futures"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Imposta un pin rapido per gli accessi futuri"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Indstil en hurtig pin til fremtidige logins"
           }
         }
       }
@@ -5420,24 +2052,6 @@
             "state": "translated",
             "value": "You successfully set the quick pin"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vous définissez avec succès la broche rapide"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hai impostato correttamente il pin rapido"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Du har sat den hurtige pin med succes"
-          }
         }
       }
     },
@@ -5448,24 +2062,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Back to home"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Retour à la maison"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Torna a casa"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tilbage til hjemmet"
           }
         }
       }
@@ -5478,24 +2074,6 @@
             "state": "translated",
             "value": "Change pin"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Changer de broche"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cambia il perno"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Skift pin"
-          }
         }
       }
     },
@@ -5506,24 +2084,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Filter By Relying Party"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtrer par partie de confiance"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtra facendo affidamento sulla festa"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Filtrer efter betroet part"
           }
         }
       }
@@ -5536,24 +2096,6 @@
             "state": "translated",
             "value": "Removed from favorites"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Retiré des favoris"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rimosso dai preferiti"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fjernet fra favoritter"
-          }
         }
       }
     },
@@ -5564,24 +2106,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "The document was successfully removed from your favorite list"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Le document a été supprimé avec succès de votre liste préférée"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Il documento è stato rimosso con successo dalla tua lista preferita"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dokumentet blev fjernet fra din favoritliste"
           }
         }
       }
@@ -5594,24 +2118,6 @@
             "state": "translated",
             "value": "Please confirm the issuance of the following"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Veuillez confirmer l'émission des éléments suivants"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si prega di confermare l'emissione di quanto segue"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bekræft venligst udstedelsen af følgende"
-          }
         }
       }
     },
@@ -5622,24 +2128,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Unable to fetch and process the credential offer"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Impossible de récupérer et de traiter l'offre d'identification"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Incapace di recuperare ed elaborare l'offerta credenziale"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kan ikke hente og behandle legitimationstilbuddet"
           }
         }
       }
@@ -5652,24 +2140,6 @@
             "state": "translated",
             "value": "%@ wants to issue the following in your wallet"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ veut émettre ce qui suit dans votre portefeuille"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ vuole emettere quanto segue nel tuo portafoglio"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ ønsker at udstede følgende i din wallet"
-          }
         }
       }
     },
@@ -5680,24 +2150,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Why we need your data?"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pourquoi avons-nous besoin de vos données?"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Perché abbiamo bisogno dei tuoi dati?"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hvorfor har vi brug for dine data?"
           }
         }
       }
@@ -5710,24 +2162,6 @@
             "state": "translated",
             "value": "The requested document is not available in your EUDI Wallet. Please contact the authorised issuer for further information."
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Le document demandé n'est pas disponible dans votre portefeuille Eudi. Veuillez contacter l'émetteur autorisé pour plus d'informations."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Il documento richiesto non è disponibile nel portafoglio Eudi. Si prega di contattare l'emittente autorizzato per ulteriori informazioni."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Det anmodede dokument er ikke tilgængeligt i din EUDI Wallet. Kontakt den autoriserede udsteder for yderligere information."
-          }
         }
       }
     },
@@ -5738,24 +2172,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Use your biometrics to share information"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Utilisez votre biométrie pour partager des informations"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Usa la tua biometria per condividere informazioni"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Brug din biometri til at dele information"
           }
         }
       }
@@ -5768,24 +2184,6 @@
             "state": "translated",
             "value": "Please review carefully before sharing your data."
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Veuillez consulter attentivement avant de partager vos données."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si prega di rivedere attentamente prima di condividere i tuoi dati."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gennemgå omhyggeligt, inden du deler dine data."
-          }
         }
       }
     },
@@ -5796,24 +2194,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Enter your PIN to share data"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Entrez votre broche pour partager les données"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Inserisci il tuo PIN per condividere i dati"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Indtast din pin for at dele data"
           }
         }
       }
@@ -5826,24 +2206,6 @@
             "state": "translated",
             "value": "%@ requests the following"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ demande ce qui suit"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ richiede quanto segue"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%@ anmoder om følgende"
-          }
         }
       }
     },
@@ -5854,24 +2216,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "It allows us to verify your identity with the requesting party"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Il nous permet de vérifier votre identité avec la partie demandante"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ci consente di verificare la tua identità con la parte richiedente"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Det gør det muligt for os at bekræfte din identitet med den anmodende part"
           }
         }
       }
@@ -5884,24 +2228,6 @@
             "state": "translated",
             "value": "Relying Party"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Partie de confiance"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Parte affidabile"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Betroet part"
-          }
         }
       }
     },
@@ -5912,24 +2238,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "A relying party is considered trusted when it meets predefined criteria for security, data protection, compliance, and responsible data handling. Trust is reinforced through assessments, audits, and certifications."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Une partie de confiance est considérée comme vérifiée lorsqu'elle répond à des critères prédéfinis de sécurité, de protection des données, de conformité et de gestion responsable des données. La confiance est renforcée par des évaluations, des audits et des certifications."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Una parte di affidamento è considerata attendibile quando soddisfa i criteri predefiniti per la sicurezza, la protezione dei dati, la conformità e la gestione dei dati responsabili. La fiducia è rafforzata attraverso valutazioni, audit e certificazioni."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "En betroet part anses for at være pålidelig, når den opfylder foruddefinerede kriterier for sikkerhed, databeskyttelse, overholdelse og ansvarlig datahåndtering. Tillid styrkes gennem vurderinger, revisioner og certificeringer."
           }
         }
       }
@@ -5942,24 +2250,6 @@
             "state": "translated",
             "value": "requests the following"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "demande ce qui suit"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "richiede quanto segue"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "anmoder om følgende"
-          }
         }
       }
     },
@@ -5970,24 +2260,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Reset"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Réinitialiser"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reset"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nulstil"
           }
         }
       }
@@ -6000,24 +2272,6 @@
             "state": "translated",
             "value": "Retrieve logs"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Récupérer les journaux"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Recupera i registri"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hent logfiler"
-          }
         }
       }
     },
@@ -6028,24 +2282,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Revoked"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Révoqué"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Revocato"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tilbagekaldt"
           }
         }
       }
@@ -6058,24 +2294,6 @@
             "state": "translated",
             "value": "The following documents have been revoked."
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Les documents suivants ont été révoqués."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "I seguenti documenti sono stati revocati."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Følgende dokumenter er blevet tilbagekaldt."
-          }
         }
       }
     },
@@ -6086,24 +2304,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Revoked documents"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Documents révoqués"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Documenti revocati"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tilbagekaldte dokumenter"
           }
         }
       }
@@ -6116,24 +2316,6 @@
             "state": "translated",
             "value": "Saved to favorites"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sauvé aux favoris"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Salvato ai preferiti"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gemt til favoritter"
-          }
         }
       }
     },
@@ -6145,24 +2327,6 @@
             "state": "translated",
             "value": "The document was successfully added from your favorite list"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Le document a été ajouté avec succès à partir de votre liste préférée"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Il documento è stato aggiunto con successo alla tua lista dei preferiti"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dokumentet blev tilføjet til din favoritliste"
-          }
         }
       }
     },
@@ -6170,24 +2334,6 @@
       "extractionState": "manual",
       "localizations": {
         "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Scan QR"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Scan QR"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Scansionare qr"
-          }
-        },
-        "da": {
           "stringUnit": {
             "state": "translated",
             "value": "Scan QR"
@@ -6203,24 +2349,6 @@
             "state": "translated",
             "value": "Scan"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Balayage"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Scansione"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Scan"
-          }
         }
       }
     },
@@ -6231,24 +2359,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Scan a QR code provided from an issuer to add a digital document to your wallet."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Scannez un code QR fourni par un émetteur pour ajouter un document numérique à votre portefeuille."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Scansiona un codice QR fornito da un emittente per aggiungere un documento digitale al tuo portafoglio."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Scan en QR-kode fra en udsteder for at tilføje et digitalt dokument til din wallet."
           }
         }
       }
@@ -6261,24 +2371,6 @@
             "state": "translated",
             "value": "Scan a QR code provided from a Relying Party to present a digital document online."
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Scannez un code QR fourni par une partie de rejet pour présenter un document numérique en ligne."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Scansiona un codice QR fornito da una parte di affidamento per presentare un documento digitale online."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Scan en QR-kode fra en betroet part for at præsentere et digitalt dokument online."
-          }
         }
       }
     },
@@ -6289,24 +2381,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Scan QR to add"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Scanner QR pour ajouter"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Scansionare QR per aggiungere"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Scan QR for at tilføje"
           }
         }
       }
@@ -6319,24 +2393,6 @@
             "state": "translated",
             "value": "Present a document"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Présenter un document"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Presenta un documento"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Præsentér et dokument"
-          }
         }
       }
     },
@@ -6347,24 +2403,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Your document has been requested. You will be notified when it has been issued to your wallet."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Votre document a été demandé. Vous serez informé quand il aura été délivré à votre portefeuille."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Il tuo documento è stato richiesto. Sarai avvisato quando è stato emesso sul tuo portafoglio."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dit dokument er blevet anmodet om. Du får besked, når det er blevet udstedt til din wallet."
           }
         }
       }
@@ -6377,24 +2415,6 @@
             "state": "translated",
             "value": "Your document %@ has been requested. You will be notified when it has been issued to your wallet."
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Votre document %@ a été demandé. Vous serez informé quand il aura été délivré à votre portefeuille."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Il tuo documento %@ è stato richiesto. Sarai avvisato quando è stato emesso sul tuo portafoglio."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dit dokument %@ er blevet anmodet om. Du får besked, når det er blevet udstedt til din wallet."
-          }
         }
       }
     },
@@ -6405,24 +2425,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Your document %@ from %@ has been requested. You will be notified when it has been issued to your wallet."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Votre document %@ depuis %@ a été demandé. Vous serez informé quand il aura été délivré à votre portefeuille."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Il tuo documento %@ da %@ è stato richiesto. Sarai avvisato quando è stato emesso sul tuo portafoglio."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dit dokument %@ fra %@ er blevet anmodet om. Du får besked, når det er blevet udstedt til din wallet."
           }
         }
       }
@@ -6435,24 +2437,6 @@
             "state": "translated",
             "value": "Search"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Recherche"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ricerca"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Søg"
-          }
         }
       }
     },
@@ -6463,24 +2447,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Search Documents"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rechercher des documents"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Documenti di ricerca"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Søg dokumenter"
           }
         }
       }
@@ -6493,24 +2459,6 @@
             "state": "translated",
             "value": "Search Transactions"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Transactions de recherche"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Transazioni di ricerca"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Søg transaktioner"
-          }
         }
       }
     },
@@ -6521,24 +2469,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Select document"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sélectionner un document"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seleziona Documento"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vælg dokument"
           }
         }
       }
@@ -6551,24 +2481,6 @@
             "state": "translated",
             "value": "Settings"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Paramètres"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Impostazioni"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Indstillinger"
-          }
         }
       }
     },
@@ -6579,24 +2491,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Share"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Partager"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Condividere"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Del"
           }
         }
       }
@@ -6609,24 +2503,6 @@
             "state": "translated",
             "value": "Please review carefully before sharing your data."
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Veuillez consulter attentivement avant de partager vos données."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si prega di rivedere attentamente prima di condividere i tuoi dati."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gennemgå omhyggeligt, inden du deler dine data."
-          }
         }
       }
     },
@@ -6637,24 +2513,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "SHOW QR"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Montrer QR"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mostra qr"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "VIS QR"
           }
         }
       }
@@ -6667,24 +2525,6 @@
             "state": "translated",
             "value": "Show Results"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Montrer les résultats"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mostra i risultati"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vis resultater"
-          }
         }
       }
     },
@@ -6695,24 +2535,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Sign document"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Document de signe"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Documento di segno"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Underskriv dokument"
           }
         }
       }
@@ -6725,24 +2547,6 @@
             "state": "translated",
             "value": "Select a document from your device to sign electronically."
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sélectionnez un document dans votre appareil pour signer électroniquement."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seleziona un documento dal dispositivo per firmare elettronicamente."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vælg et dokument fra din enhed for at underskrive elektronisk."
-          }
         }
       }
     },
@@ -6753,24 +2557,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Signed Documents"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Documents signés"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Documenti firmati"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Underskrevne dokumenter"
           }
         }
       }
@@ -6783,24 +2569,6 @@
             "state": "translated",
             "value": "Signing"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Signature"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Firma"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Underskriver"
-          }
         }
       }
     },
@@ -6811,24 +2579,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "SORT BY"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "TRIER PAR"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ordinare da"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sorter efter"
           }
         }
       }
@@ -6841,24 +2591,6 @@
             "state": "translated",
             "value": "SORT BY ISSUED DATE"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Trier par date émise"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ordina per data emessa"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sorter efter udstedelsesdato"
-          }
         }
       }
     },
@@ -6869,24 +2601,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Powered by"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Alimenté par"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Offerto da"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Drevet af"
           }
         }
       }
@@ -6899,24 +2613,6 @@
             "state": "translated",
             "value": "Age Verification"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vérification de l'âge"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Verifica dell'età"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aldersverifikation"
-          }
         }
       }
     },
@@ -6927,24 +2623,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Start date"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Date de début"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Data di inizio"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Startdato"
           }
         }
       }
@@ -6957,24 +2635,6 @@
             "state": "translated",
             "value": "You have successfully added the following to your wallet"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vous avez réussi à ajouter ce qui suit à votre portefeuille"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hai aggiunto correttamente quanto segue al tuo portafoglio"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Du har med succes tilføjet følgende til din wallet"
-          }
         }
       }
     },
@@ -6985,24 +2645,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Success"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Succès"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Successo"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Succes"
           }
         }
       }
@@ -7015,24 +2657,6 @@
             "state": "translated",
             "value": "You successfully shared the following information with"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vous avez partagé avec succès les informations suivantes avec"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hai condiviso correttamente le seguenti informazioni con"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Du har med succes delt følgende oplysninger med"
-          }
         }
       }
     },
@@ -7043,24 +2667,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "THIS WEEK"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "CETTE SEMAINE"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Questa settimana"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Denne uge"
           }
         }
       }
@@ -7073,24 +2679,6 @@
             "state": "translated",
             "value": "TODAY"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AUJOURD'HUI"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "OGGI"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "I DAG"
-          }
         }
       }
     },
@@ -7101,24 +2689,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Invalid transaction code format. Length should be between %@ to %@ digits and only numeric characters are allowed."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Format de code de transaction non valide. La longueur doit être entre %@ à %@ Les chiffres et seuls les caractères numériques sont autorisés."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Formato del codice di transazione non valido. La lunghezza dovrebbe essere tra %@ A %@ Sono consentite cifre e solo caratteri numerici."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ugyldigt transaktionskodeformat. Længden skal være mellem %@ og %@ cifre, og kun numeriske tegn er tilladt."
           }
         }
       }
@@ -7131,24 +2701,6 @@
             "state": "translated",
             "value": "Transaction Date"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Date de transaction"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Data delle transazioni"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Transaktionsdato"
-          }
         }
       }
     },
@@ -7159,24 +2711,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Completed"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Complété"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Completato"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Afsluttet"
           }
         }
       }
@@ -7189,24 +2723,6 @@
             "state": "translated",
             "value": "DATA SHARED"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Données partagées"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dati condivisi"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DATA DELT"
-          }
         }
       }
     },
@@ -7217,24 +2733,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "DATA SIGNED"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Données signées"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dati firmati"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "DATA UNDERSKREVET"
           }
         }
       }
@@ -7247,24 +2745,6 @@
             "state": "translated",
             "value": "Request data deletion"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Demander la suppression des données"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Richiedere la cancellazione dei dati"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Anmod om sletning af data"
-          }
         }
       }
     },
@@ -7275,24 +2755,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "You can request to stop processing personal data linked to this transaction. This may affect your access to services."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vous pouvez demander à arrêter le traitement des données personnelles liées à cette transaction. Cela peut affecter votre accès aux services."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "È possibile richiedere di interrompere l'elaborazione dei dati personali collegati a questa transazione. Ciò può influire sul tuo accesso ai servizi."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Du kan anmode om at stoppe behandlingen af personoplysninger, der er knyttet til denne transaktion. Dette kan påvirke din adgang til tjenester."
           }
         }
       }
@@ -7305,24 +2767,6 @@
             "state": "translated",
             "value": "If you believe this relying party has unlawfully requested personal data, you can report this transaction to the authorities. "
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Si vous pensez que cette partie en comptant a demandé illégalement des données personnelles, vous pouvez signaler cette transaction aux autorités."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se ritieni che questa parte di affidamento abbia i dati personali richiesti illegalmente, puoi segnalare questa transazione alle autorità."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hvis du mener, at denne betroede part ulovligt har anmodet om personoplysninger, kan du rapportere denne transaktion til myndighederne."
-          }
         }
       }
     },
@@ -7333,24 +2777,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Date"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Date"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Data"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dato"
           }
         }
       }
@@ -7363,24 +2789,6 @@
             "state": "translated",
             "value": "Report suspicious transaction"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Signaler une transaction suspecte"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Segnala transazione sospetta"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rapportér mistænkelig transaktion"
-          }
         }
       }
     },
@@ -7391,24 +2799,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Transaction information"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Informations sur les transactions"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Informazioni sulla transazione"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Transaktionsoplysninger"
           }
         }
       }
@@ -7421,24 +2811,6 @@
             "state": "translated",
             "value": "Transactions"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Transactions"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Transazioni"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Transaktioner"
-          }
         }
       }
     },
@@ -7449,24 +2821,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Trusted Relying Party"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Partie de confiance vérifiée"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Affidamento della festa di affidamento"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Betroet part"
           }
         }
       }
@@ -7479,24 +2833,6 @@
             "state": "translated",
             "value": "A Relying Party is considered trusted when it meets predefined criteria for security, data protection, compliance, and responsible data handling. Trust is reinforced through assessments, audits, and certifications."
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Une partie de confiance est considérée comme vérifiée lorsqu'elle répond à des critères prédéfinis de sécurité, de protection des données, de conformité et de gestion responsable des données. La confiance est renforcée par des évaluations, des audits et des certifications."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Una parte di affidamento è considerata attendibile quando soddisfa i criteri predefiniti per la sicurezza, la protezione dei dati, la conformità e la gestione dei dati responsabili. La fiducia è rafforzata attraverso valutazioni, audit e certificazioni."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "En betroet part anses for at være pålidelig, når den opfylder foruddefinerede kriterier for sikkerhed, databeskyttelse, overholdelse og ansvarlig datahåndtering. Tillid styrkes gennem vurderinger, revisioner og certificeringer."
-          }
         }
       }
     },
@@ -7507,24 +2843,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Try again"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Essayer à nouveau"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Riprova"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Prøv igen"
           }
         }
       }
@@ -7537,24 +2855,6 @@
             "state": "translated",
             "value": "Something went wrong issuing your document(s)"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Quelque chose a mal tourné en émettant votre (s) document (s)"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Qualcosa è andato storto emettendo i tuoi documenti"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Noget gik galt under udstedelsen af dine dokumenter"
-          }
         }
       }
     },
@@ -7565,24 +2865,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Not available"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pas disponible"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Non disponibile"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ikke tilgængelig"
           }
         }
       }
@@ -7595,24 +2877,6 @@
             "state": "translated",
             "value": "Unknown Date"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Date inconnue"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Data sconosciuta"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ukendt dato"
-          }
         }
       }
     },
@@ -7623,24 +2887,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Issuer"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Émetteur"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Emittente"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Udsteder"
           }
         }
       }
@@ -7653,24 +2899,6 @@
             "state": "translated",
             "value": "Verifier"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vérificateur"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Verificatore"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Verifikator"
-          }
         }
       }
     },
@@ -7681,24 +2909,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Valid"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Valide"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Valido"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gyldig"
           }
         }
       }
@@ -7711,24 +2921,6 @@
             "state": "translated",
             "value": "Valid until %@"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Valide jusqu'à %@"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Valido fino a %@"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gyldig indtil %@"
-          }
         }
       }
     },
@@ -7739,24 +2931,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "View details"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Afficher les détails"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Visualizza i dettagli"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se detaljer"
           }
         }
       }
@@ -7769,24 +2943,6 @@
             "state": "translated",
             "value": "View details"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Afficher les détails"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Visualizza i dettagli"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Se detaljer"
-          }
         }
       }
     },
@@ -7797,24 +2953,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Your wallet is secured!"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Votre portefeuille est sécurisé!"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Il tuo portafoglio è fissato!"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Din wallet er sikret!"
           }
         }
       }
@@ -7827,24 +2965,6 @@
             "state": "translated",
             "value": "Welcome back, %@"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Content de te revoir, %@"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bentornato, %@"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Velkommen tilbage, %@"
-          }
         }
       }
     },
@@ -7855,24 +2975,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Using this app you can securely prove you are over 18 when accessing services restricted to adults."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "En utilisant cette application, vous pouvez prouver en toute sécurité que vous avez plus de 18 ans lorsque vous accédez aux services limités aux adultes."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Utilizzando questa app puoi dimostrare in modo sicuro di avere più di 18 anni quando accedi ai servizi limitati agli adulti."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Med denne app kan du sikkert bevise, at du er over 18 år, når du får adgang til tjenester, der er begrænset til voksne."
           }
         }
       }
@@ -7885,24 +2987,6 @@
             "state": "translated",
             "value": "Verify that you are over 18 once, use this proof to securely access many services restricted to adults."
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vérifiez que vous avez plus de 18 ans une fois, utilisez cette preuve pour accéder solidement à de nombreux services limités aux adultes."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Verifica di avere più di 18 anni, utilizzare questa prova per accedere in modo sicuro a molti servizi limitati agli adulti."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bekræft én gang, at du er over 18, og brug dette bevis til sikkert at få adgang til mange tjenester, der er begrænset til voksne."
-          }
         }
       }
     },
@@ -7913,24 +2997,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "You stay in control of your data: only the proof that you are over 18 is shared. No other personal details are stored or shared with online services."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vous gardez le contrôle de vos données: seule la preuve que vous avez plus de 18 ans est partagée. Aucun autre détail personnel n'est stocké ou partagé avec les services en ligne."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rimani in controllo dei tuoi dati: solo la prova che hai più di 18 anni è condivisa. Nessun altro dettaglio personale viene archiviato o condiviso con i servizi online."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Du har kontrol over dine data: Kun beviset på, at du er over 18, deles. Ingen andre personlige oplysninger gemmes eller deles med onlinetjenester."
           }
         }
       }
@@ -7943,24 +3009,6 @@
             "state": "translated",
             "value": "Next"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Suivant"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Prossimo"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Næste"
-          }
         }
       }
     },
@@ -7971,24 +3019,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Skip"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sauter"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Saltare"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Spring over"
           }
         }
       }
@@ -8001,24 +3031,6 @@
             "state": "translated",
             "value": "Welcome"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Accueillir"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Benvenuto"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Velkommen"
-          }
         }
       }
     },
@@ -8029,24 +3041,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Simple Age Verification"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vérification de l'âge simple"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Verifica dell'età semplice"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Enkel aldersverifikation"
           }
         }
       }
@@ -8059,24 +3053,6 @@
             "state": "translated",
             "value": "Privacy Protection"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Protection de la vie privée"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Protezione della privacy"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Beskyttelse af privatliv"
-          }
         }
       }
     },
@@ -8088,24 +3064,6 @@
             "state": "translated",
             "value": "No Relying Party"
           }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pas de fête"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nessuna festa di affidamento"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ingen betroet part"
-          }
         }
       }
     },
@@ -8116,24 +3074,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "yes"
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Oui"
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "SÌ"
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ja"
           }
         }
       }
