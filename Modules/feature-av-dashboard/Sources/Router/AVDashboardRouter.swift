@@ -18,6 +18,12 @@ public final class AVDashboardRouter {
                 LandingInteractor.self
             )))
             .eraseToAnyView()
+        case .settings:
+            SettingsView(with: .init(
+                router: host, 
+                interactor: DIGraph.resolver.force(SettingsInteractor.self)
+            ))
+            .eraseToAnyView()
         }
     }
 }

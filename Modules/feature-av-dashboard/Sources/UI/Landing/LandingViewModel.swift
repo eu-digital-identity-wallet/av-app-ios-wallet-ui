@@ -35,6 +35,10 @@ final class LandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingSt
         router.push(with: .featureCommonModule(.qrScanner(config: ScannerUiConfig(flow: .presentation))))
     }
     
+    func onSettings() {
+        router.push(with: .featureAVDashboardModule(.settings))
+    }
+    
     func getCredentialDetails() async {
         self.setState {
             $0.copy(isLoading: true)
