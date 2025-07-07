@@ -506,15 +506,131 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "transaction_details_report_transaction_message")
     case .transactionDetailsReportTransactionButton:
       bundle.localizedString(forKey: "transaction_detailsReport_transaction_button")
+    case .settings:
+      bundle.localizedString(forKey: "settings_menu")
+    case .batchIssuanceCunter:
+      bundle.localizedString(forKey: "batch_issuance_counter")
+    case .documentDetailsDocumentCredentialsText(let args):
+      bundle.localizedStringWithArguments(forKey: "document_details_document_credentials_text", arguments: args)
+    case .documentDetailsDocumentCredentialsMoreInfoText:
+      bundle.localizedString(forKey: "document_details_document_credentials_more_info_text")
+    case .documentDetailsDocumentCredentialsExpandedTextSubtitle:
+      bundle.localizedString(forKey: "document_details_document_credentials_expanded_text_subtitle")
+    case .documentDetailsDocumentCredentialsExpandedButtonHideText:
+      bundle.localizedString(forKey: "document_details_document_credentials_expanded_button_hide_text")
+    case .documentsListCredentialsUsageText(let args):
+      bundle.localizedStringWithArguments(forKey: "documents_list_credentials_usage_text", arguments: args)
+    case .splashTitle:
+        bundle.localizedString(forKey: "splash_title")
+    case .splashSponsorsTitle:
+        bundle.localizedString(forKey: "splash_sponsors_title")
+    case .welcomeTitle1:
+        bundle.localizedString(forKey: "welcome_title_1")
+    case .welcomePage1:
+        bundle.localizedString(forKey: "welcome_page_1")
+    case .welcomeTitle2:
+        bundle.localizedString(forKey: "welcome_title_2")
+    case .welcomePage2:
+        bundle.localizedString(forKey: "welcome_page_2")
+    case .welcomeTitle3:
+        bundle.localizedString(forKey: "welcome_title_3")
+    case .welcomePage3:
+        bundle.localizedString(forKey: "welcome_page_3")
+    case .welcomeSkipButton:
+        bundle.localizedString(forKey: "welcome_screen_skip")
+    case .welcomeNextButton:
+        bundle.localizedString(forKey: "welcome_screen_next")
+    case .onboardingStepWelcome:
+        bundle.localizedString(forKey: "onboarding_step_1_title")
+    case .onboardingStepConsent:
+        bundle.localizedString(forKey: "onboarding_step_2_title")
+    case .onboardoingStepPin:
+        bundle.localizedString(forKey: "onboarding_step_3_title")
+    case .onboardingStepEnrollment:
+        bundle.localizedString(forKey: "onboarding_step_4_title")
+    case .consentTitle:
+        bundle.localizedString(forKey: "consent_title")
+    case .consentCheckboxLabel1:
+        bundle.localizedString(forKey: "consent_checkbox_label_1")
+    case .consentCheckboxLabel2:
+        bundle.localizedString(forKey: "consent_checkbox_label_2")
+    case .consentHyperlinkLabel1:
+        bundle.localizedString(forKey: "consent_hyperlink_label_1")
+    case .consentHyperlinkLabel2:
+        bundle.localizedString(forKey: "consent_hyperlink_label_2")
+    case .consentConfirmButton:
+        bundle.localizedString(forKey: "consent_screen_confirm_button")
+    case .quickPinCreateTitle:
+        bundle.localizedString(forKey: "quick_pin_create_title")
+    case .quickPinReEnterTitle:
+        bundle.localizedString(forKey: "quick_pin_create_reenter_title")
+    case .quickPinCreateSubtitle:
+        bundle.localizedString(forKey: "quick_pin_create_enter_subtitle")
+    case .quickPinReEnterSubtitle:
+        bundle.localizedString(forKey: "quick_pin_create_reenter_subtitle")
+    case .verificationStepTitle:
+        bundle.localizedString(forKey: "onboarding_verification_title")
+    case .verificationStepDescription:
+        bundle.localizedString(forKey: "onboarding_verification_description")
+    case .verificationNationalId:
+        bundle.localizedString(forKey: "onboarding_verification_national_id")
+    case .verificationNationalIdDescription:
+        bundle.localizedString(forKey: "onboarding_verification_national_id_description")
+    case .landingScreenTitle:
+        bundle.localizedString(forKey: "landing_screen_title")
+    case .landingScreenbody:
+        bundle.localizedString(forKey: "landing_screen_body")
+    case .europeanUnionLabel1:
+        bundle.localizedString(forKey: "european_union_label_1")
+    case .europeanUnionLabel2:
+        bundle.localizedString(forKey: "european_union_label_2")
+    case .ageOver18Label:
+        bundle.localizedString(forKey: "age_over_18_label")
+    case .credentialDetailsTitle:
+        bundle.localizedString(forKey: "credential_details_title")
+    case .scanTitle:
+        bundle.localizedString(forKey: "scan_title")
+    case .biometricSetupTitle:
+        bundle.localizedString(forKey: "biometric_setup_title")
+    case .biometricSetupDescription(let arg):
+        bundle.localizedStringWithArguments(forKey: "biometric_setup_description", arguments: [arg])
+    case .biometricSetupButton:
+        bundle.localizedString(forKey: "biometric_setup_enable")
+    case .biometricSetupSkipButton:
+        bundle.localizedString(forKey: "biometric_setup_skip")
+    case .biometricSetupErrorNoHardware:
+        bundle.localizedString(forKey: "biometric_no_hardware")
+    case .biometricSetupUnknownError:
+        bundle.localizedString(forKey: "biometric_unknown_error")
+    case .landingCredentialsLeft(let arg):
+        bundle.localizedStringWithArguments(forKey: "landing_screen_credentials_left", arguments: [arg])
+    case .addMoreCredentials:
+        bundle.localizedString(forKey: "landing_screen_add_more")
     }
   }
 }
 
 fileprivate extension Bundle {
   func localizedString(forKey key: String) -> String {
-    self.localizedString(forKey: key, value: nil, table: nil)
+    let localizedBundle = self.localizedBundle()
+    return localizedBundle.localizedString(forKey: key, value: nil, table: nil)
   }
+
   func localizedStringWithArguments(forKey key: String, arguments: [CVarArg]) -> String {
-    String(format: self.localizedString(forKey: key), locale: nil, arguments: arguments)
+    String(format: self.localizedString(forKey: key), locale: Locale.current, arguments: arguments)
+  }
+
+  private func localizedBundle() -> Bundle {
+    let preferredLanguages = Locale.preferredLanguages
+    let availableLocalizations = self.localizations
+
+    let matchedLocalizations = Bundle.preferredLocalizations(from: availableLocalizations, forPreferences: preferredLanguages)
+
+    if let preferredLanguage = matchedLocalizations.first,
+       let path = self.path(forResource: preferredLanguage, ofType: "lproj"),
+       let localizedBundle = Bundle(path: path) {
+      return localizedBundle
+    }
+    return self
   }
 }

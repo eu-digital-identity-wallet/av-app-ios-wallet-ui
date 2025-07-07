@@ -67,10 +67,21 @@ public protocol ImageManagerProtocol: Sendable {
   var digitalIdIssuance: Image { get }
   var documentSuccessPending: Image { get }
   var verified: Image { get }
+  var ageVerification: Image { get }
+  var checkboxChecked: Image { get }
+  var checkboxUnchecked: Image { get }
+  var euMap: Image { get }
+  var telekomLogo: Image { get }
+  var scytalesLogo: Image { get }
+  var pidIcon: Image { get }
+  var settingsIcon: Image { get }
+  var europeanUnionLogo: Image { get }
+  var euCredentialLogo: Image { get }
+  var _18PlusLogo: Image { get }
+  var scanButton: Image { get }
 }
 
 final class ImageManager: ImageManagerProtocol {
-
   enum ImageEnum: String {
     case faceId = "face-id"
     case id = "id"
@@ -123,6 +134,18 @@ final class ImageManager: ImageManagerProtocol {
     case digitalIdIssuance = "digital-id-issuance"
     case documentSuccessPending = "document-success-pending"
     case verified = "verified"
+    case ageVerification = "age-verification"
+    case checkboxChecked = "checkbox-checked"
+    case checkboxUnchecked = "checkbox-unchecked"
+    case euMap = "eu-map"
+    case telekomLogo = "telekom-logo"
+    case scytalesLogo = "scytales-logo"
+    case pidIcon = "pid-icon"
+    case settingsIcon = "settings"
+    case europeanUnionLogo = "european-union"
+    case euCredentialLogo = "eu-credential"
+    case _18PlusLogo = "18plus_Logo"
+    case scanButton = "scanButton"
   }
 
   // MARK: - Properties
@@ -286,5 +309,41 @@ final class ImageManager: ImageManagerProtocol {
   }
   var verified: Image {
     Image(ImageEnum.verified.rawValue, bundle: bundle)
+  }
+  var ageVerification: Image {
+    Image(ImageEnum.ageVerification.rawValue, bundle: bundle)
+  }
+  var checkboxChecked: Image {
+    Image(ImageEnum.checkboxChecked.rawValue, bundle: bundle)
+  }
+  var checkboxUnchecked: Image {
+    Image(ImageEnum.checkboxUnchecked.rawValue, bundle: bundle)
+  }
+  var euMap: Image {
+    Image(ImageEnum.euMap.rawValue, bundle: bundle)
+  }
+  var telekomLogo: Image {
+    Image(ImageEnum.telekomLogo.rawValue, bundle: bundle)
+  }
+  var scytalesLogo: Image {
+    Image(ImageEnum.scytalesLogo.rawValue, bundle: bundle)
+  }
+  var pidIcon: Image {
+    Image(ImageEnum.pidIcon.rawValue, bundle: bundle)
+  }
+  var settingsIcon: Image {
+    Image(ImageEnum.settingsIcon.rawValue, bundle: bundle)
+  }
+  var europeanUnionLogo: Image {
+    Image(ImageEnum.europeanUnionLogo.rawValue, bundle: bundle)
+  }
+  var euCredentialLogo: Image {
+    Image(ImageEnum.euCredentialLogo.rawValue, bundle: bundle)
+  }
+  var _18PlusLogo: Image {
+    Image(ImageEnum._18PlusLogo.rawValue, bundle: bundle)
+  }
+  var scanButton: Image {
+    Image(ImageEnum.scanButton.rawValue, bundle: bundle)
   }
 }

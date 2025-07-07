@@ -19,12 +19,9 @@ import logic_core
 
 public protocol AddDocumentInteractor: Sendable {
   func fetchScopedDocuments(with flow: IssuanceFlowUiConfig.Flow) async -> ScopedDocumentsPartialState
-  func issueDocument(configId: String) async -> IssueResultPartialState
+  func issueDocument(configId: String, docTypeIdentifier: DocumentTypeIdentifier) async -> IssueResultPartialState
   func resumeDynamicIssuance() async -> IssueDynamicDocumentPartialState
   func getScopedDocument(configId: String) async throws -> ScopedDocument
-
-  func getHoldersName(for documentIdentifier: String) -> String?
-  func getDocumentSuccessCaption(for documentIdentifier: String) -> LocalizableStringKey?
   func fetchStoredDocuments(documentIds: [String]) async -> IssueDocumentsPartialState
 }
 
@@ -41,14 +38,17 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
   public func fetchScopedDocuments(with flow: IssuanceFlowUiConfig.Flow) async -> ScopedDocumentsPartialState {
     do {
       let documents: [AddDocumentUIModel] = try await walletController.getScopedDocuments().compactMap { doc in
-        if flow == .extraDocument || doc.isPid {
+          if doc.isAgeVerification {
           return .init(
             listItem: .init(
-              mainText: .custom(doc.name),
-              trailingContent: .icon(Theme.shared.image.plus)
+              mainText: .verificationNationalId,
+              supportingText: .verificationNationalIdDescription,
+              leadingIcon: LeadingIcon(image: Theme.shared.image.pidIcon),
+              trailingContent: nil
             ),
             isEnabled: true,
-            configId: doc.configId
+            configId: doc.configId,
+            docTypeIdentifier: doc.docTypeIdentifier
           )
         } else {
           return nil
@@ -64,9 +64,12 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
     }
   }
 
-  public func issueDocument(configId: String) async -> IssueResultPartialState {
+  public func issueDocument(
+    configId: String,
+    docTypeIdentifier: DocumentTypeIdentifier
+  ) async -> IssueResultPartialState {
     do {
-      let doc = try await walletController.issueDocument(identifier: configId)
+      let doc = try await walletController.issueDocument(identifier: configId, docTypeIdentifier: docTypeIdentifier)
       if doc.isDeferred {
         return .deferredSuccess
       } else if let authorizePresentationUrl = doc.authorizePresentationUrl {
@@ -78,6 +81,7 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
         let session = await walletController.startSameDevicePresentation(deepLink: presentationComponents)
         return .dynamicIssuance(session)
       } else {
+        _ = try? await walletController.deleteDepletedDocuments(ofType: docTypeIdentifier)
         return .success(doc.id)
       }
     } catch {
@@ -115,24 +119,6 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
     try await walletController.getScopedDocuments().first {
       $0.configId == configId
     } ?? ScopedDocument.empty()
-  }
-
-  public func getHoldersName(for documentIdentifier: String) -> String? {
-    guard
-      let bearerName = walletController.fetchDocument(with: documentIdentifier)?.getBearersName()
-    else {
-      return nil
-    }
-    return  "\(bearerName.first) \(bearerName.last)"
-  }
-
-  public func getDocumentSuccessCaption(for documentIdentifier: String) -> LocalizableStringKey? {
-    guard
-      let document = walletController.fetchDocument(with: documentIdentifier)
-    else {
-      return nil
-    }
-    return .issuanceSuccessCaption([document.displayName.orEmpty])
   }
 
   func fetchStoredDocuments(documentIds: [String]) async -> IssueDocumentsPartialState {

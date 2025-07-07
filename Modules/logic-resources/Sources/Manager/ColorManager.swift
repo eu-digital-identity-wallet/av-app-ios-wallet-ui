@@ -72,9 +72,12 @@ public protocol ColorManagerProtocol: Sendable {
   var pending: Color { get }
   var success: Color { get }
   var warning: Color { get }
+    
+  var lightText: Color { get }
 }
 
 final class ColorManager: ColorManagerProtocol {
+    
   // MARK: - Properties
 
   enum MaterialColors: String, CaseIterable {
@@ -122,6 +125,7 @@ final class ColorManager: ColorManagerProtocol {
     case inversePrimary
     case scrim
     case shadow
+    case lightText
   }
 
   enum BaseColors: String, CaseIterable {
@@ -319,6 +323,10 @@ final class ColorManager: ColorManagerProtocol {
   }
   public var shadow: Color {
     Color(MaterialColors.shadow.rawValue, bundle: bundle)
+  }
+    
+  public var lightText: Color {
+    Color(MaterialColors.lightText.rawValue, bundle: bundle)
   }
 
   let bundle: Bundle

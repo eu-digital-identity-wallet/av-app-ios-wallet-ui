@@ -14,10 +14,12 @@
  * governing permissions and limitations under the Licence.
  */
 
-public enum DocumentTypeIdentifier: RawRepresentable, Equatable, Sendable {
+public enum DocumentTypeIdentifier: RawRepresentable, Equatable, Sendable, Hashable {
 
   case mDocPid
   case sdJwtPid
+  case avAgeOver18
+  case mdocEUDIAgeOver18
   case other(formatType: String)
 
   public var rawValue: String {
@@ -28,6 +30,10 @@ public enum DocumentTypeIdentifier: RawRepresentable, Equatable, Sendable {
       Self.sdJwtPidDocType
     case .other(let formatType):
       formatType
+    case .avAgeOver18:
+        Self.avAgeOver18Type
+    case .mdocEUDIAgeOver18:
+        Self.mdocEUDIAgeOver18Type
     }
   }
 
@@ -37,6 +43,10 @@ public enum DocumentTypeIdentifier: RawRepresentable, Equatable, Sendable {
       self = .mDocPid
     case Self.sdJwtPidDocType:
       self = .sdJwtPid
+    case Self.avAgeOver18Type:
+        self = .avAgeOver18
+    case Self.mdocEUDIAgeOver18Type:
+        self = .mdocEUDIAgeOver18
     default:
       self = .other(formatType: rawValue)
     }
@@ -45,5 +55,7 @@ public enum DocumentTypeIdentifier: RawRepresentable, Equatable, Sendable {
 
 private extension DocumentTypeIdentifier {
   static let mDocPidDocType = "eu.europa.ec.eudi.pid.1"
-  static let sdJwtPidDocType = "urn:eu.europa.ec.eudi:pid:1"
+  static let sdJwtPidDocType = "urn:eudi:pid:1"
+  static let avAgeOver18Type = "eu.europa.ec.av.1"
+  static let mdocEUDIAgeOver18Type = "eu.europa.ec.eudi.pseudonym.age_over_18.1"
 }

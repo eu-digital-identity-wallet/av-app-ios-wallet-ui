@@ -46,7 +46,7 @@ public protocol WalletKitController: Sendable {
   func deleteDocument(with id: String, status: DocumentStatus) async throws
   func loadDocuments() async throws
 
-  func issueDocument(identifier: String) async throws -> WalletStorage.Document
+  func issueDocument(identifier: String, docTypeIdentifier: DocumentTypeIdentifier) async throws -> WalletStorage.Document
   func requestDeferredIssuance(with doc: WalletStorage.Document) async throws -> DocClaimsDecodable
   func resolveOfferUrlDocTypes(uriOffer: String) async throws -> OfferedIssuanceModel
   func issueDocumentsByOfferUrl(
@@ -81,6 +81,9 @@ public protocol WalletKitController: Sendable {
   func removeRevokedDocument(with id: String) async throws
 
   func getDocumentStatus(for statusIdentifier: StatusIdentifier) async throws -> CredentialStatus
+  func getCredentialsUsageCount(id: String) async throws -> CredentialsUsageCounts?
+
+  func deleteDepletedDocuments(ofType docTypeIdentifier: DocumentTypeIdentifier) async throws -> Int
 }
 
 final class WalletKitControllerImpl: WalletKitController {
@@ -125,7 +128,8 @@ final class WalletKitControllerImpl: WalletKitController {
     )
     wallet.trustedReaderCertificates = configLogic.readerConfig.trustedCerts
     wallet.logFileName = configLogic.logFileName
-    walletKit.transactionLogger = configLogic.transactionLogger
+    wallet.transactionLogger = configLogic.transactionLogger
+    wallet.verifierRedirectUri = "https://verifier-backend.ageverification.dev"
   }
 
   func resolveOfferUrlDocTypes(uriOffer: String) async throws -> OfferedIssuanceModel {
@@ -137,6 +141,16 @@ final class WalletKitControllerImpl: WalletKitController {
     docTypes: [OfferedDocModel],
     txCodeValue: String?
   ) async throws -> [WalletStorage.Document] {
+    let docTypes = docTypes.map { docType in
+      let identifier: DocumentTypeIdentifier? = docType.docType.map {
+        DocumentTypeIdentifier(rawValue: $0)
+      } ?? docType.vct.map { DocumentTypeIdentifier(rawValue: $0) }
+
+      let rule = configLogic.documentIssuanceConfig.rule(for: identifier)
+      let keyOptions = KeyOptions(credentialPolicy: rule.policy, batchSize: rule.numberOfCredentials)
+      return docType.copy(keyOptions: keyOptions)
+    }
+
     return try await wallet.issueDocumentsByOfferUrl(
       offerUri: offerUri,
       docTypes: docTypes,
@@ -188,6 +202,10 @@ final class WalletKitControllerImpl: WalletKitController {
     return fetchIssuedDocuments() + fetchDeferredDocuments().transformToDeferredDecodables()
   }
 
+  func getCredentialsUsageCount(id: String) async throws -> CredentialsUsageCounts? {
+    try await wallet.getCredentialsUsageCount(id: id)
+  }
+
   func fetchDeferredDocuments() -> [WalletStorage.Document] {
     return wallet.storage.deferredDocuments
   }
@@ -219,8 +237,11 @@ final class WalletKitControllerImpl: WalletKitController {
     fetchIssuedDocuments().filter { ids.contains($0.id) }
   }
 
-  func issueDocument(identifier: String) async throws -> WalletStorage.Document {
-    return try await wallet.issueDocument(docType: nil, scope: nil, identifier: identifier)
+  func issueDocument(identifier: String, docTypeIdentifier: DocumentTypeIdentifier) async throws -> WalletStorage.Document {
+    let rule = configLogic.documentIssuanceConfig.rule(for: docTypeIdentifier)
+    let keyOptions = KeyOptions(credentialPolicy: rule.policy, batchSize: rule.numberOfCredentials)
+
+    return try await wallet.issueDocument(docTypeIdentifier: .identifier(identifier), keyOptions: keyOptions)
   }
 
   func requestDeferredIssuance(with doc: WalletStorage.Document) async throws -> DocClaimsDecodable {
@@ -279,23 +300,29 @@ final class WalletKitControllerImpl: WalletKitController {
     return metadata.credentialsSupported.compactMap { credential in
       switch credential.value {
       case .msoMdoc(let config):
+        let identifier = DocumentTypeIdentifier(rawValue: config.docType)
+        let isAgeVerification = identifier == .avAgeOver18 || identifier == .mdocEUDIAgeOver18
         return ScopedDocument(
           name: config.display.getName(fallback: credential.key.value),
           issuer: metadata.display.getName(fallback: ""),
           configId: credential.key.value,
-          isPid: DocumentTypeIdentifier(rawValue: config.docType) == .mDocPid
+          isPid: identifier == .mDocPid,
+          docTypeIdentifier: identifier,
+          isAgeVerification: isAgeVerification
         )
-        // MARK: - TODO Re-activate isPid Check once SD-JWT PID Rule book is in place in ARF.
       case .sdJwtVc(let config):
-        //        guard let vct = config.vct else {
-        //          return nil
-        //        }
+        guard let vct = config.vct else {
+          return nil
+        }
+        let identifier = DocumentTypeIdentifier(rawValue: vct)
+        let isAgeVerification = identifier == .avAgeOver18 || identifier == .mdocEUDIAgeOver18
         return ScopedDocument(
           name: config.display.getName(fallback: credential.key.value),
           issuer: metadata.display.getName(fallback: ""),
           configId: credential.key.value,
-          //isPid: DocumentTypeIdentifier(rawValue: vct) == .sdJwtPid
-          isPid: false
+          isPid: identifier == .sdJwtPid,
+          docTypeIdentifier: identifier,
+          isAgeVerification: isAgeVerification
         )
       default: return nil
       }
@@ -371,6 +398,21 @@ final class WalletKitControllerImpl: WalletKitController {
 
   func getDocumentStatus(for statusIdentifier: StatusIdentifier) async throws -> CredentialStatus {
     return try await wallet.getDocumentStatus(for: statusIdentifier)
+  }
+
+  func deleteDepletedDocuments(ofType docTypeIdentifier: DocumentTypeIdentifier) async throws -> Int {
+    let documents = fetchIssuedDocuments(with: [docTypeIdentifier])
+    var deletedCount = 0
+
+    for document in documents {
+      if let usageCounts = try? await getCredentialsUsageCount(id: document.id),
+         usageCounts.remaining == 0 {
+        try await deleteDocument(with: document.id, status: .issued)
+        deletedCount += 1
+      }
+    }
+
+    return deletedCount
   }
 }
 

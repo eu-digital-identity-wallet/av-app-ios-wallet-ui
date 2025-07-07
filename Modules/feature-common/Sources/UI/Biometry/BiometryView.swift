@@ -19,11 +19,11 @@ import logic_resources
 
 struct BiometryView<Router: RouterHost>: View {
 
-  @ObservedObject var viewModel: BiometryViewModel<Router>
+  @StateObject private var viewModel: BiometryViewModel<Router>
   @Environment(\.scenePhase) var scenePhase
 
   init(with viewModel: BiometryViewModel<Router>) {
-    self.viewModel = viewModel
+    self._viewModel = StateObject(wrappedValue: viewModel)
   }
 
   var body: some View {
@@ -33,6 +33,7 @@ struct BiometryView<Router: RouterHost>: View {
     ) {
       content(
         viewState: viewModel.viewState,
+        subtitleText: LocalizableStringKey.quickPinCreateSubtitle.toString,
         uiPinInputField: $viewModel.uiPinInputField,
         onBiometry: viewModel.onBiometry
       )
@@ -60,6 +61,7 @@ struct BiometryView<Router: RouterHost>: View {
 @ViewBuilder
 private func content(
   viewState: BiometryState,
+  subtitleText: String,
   uiPinInputField: Binding<String>,
   onBiometry: @escaping () -> Void
 ) -> some View {
@@ -83,6 +85,7 @@ private func content(
   VSpacer.large()
 
   pinView(
+    subtitleText: subtitleText,
     uiPinInputField: uiPinInputField,
     quickPinSize: viewState.quickPinSize,
     areBiometricsEnabled: viewState.areBiometricsEnabled,
@@ -105,19 +108,24 @@ private func content(
 @MainActor
 @ViewBuilder
 private func pinView(
+  subtitleText: String,
   uiPinInputField: Binding<String>,
   quickPinSize: Int,
   areBiometricsEnabled: Bool,
   pinError: String?
 ) -> some View {
-  VStack(spacing: .zero) {
+VStack(alignment: .leading, spacing: .zero) {
+    Text(subtitleText)
+        .typography(Theme.shared.font.bodySmall)
+        .foregroundColor(Theme.shared.color.grey)
+        .padding(.bottom, SPACING_EXTRA_SMALL)
 
     PinTextFieldView(
       numericText: uiPinInputField,
       maxDigits: quickPinSize,
       isSecureEntry: true,
       canFocus: .constant(!areBiometricsEnabled),
-      shouldUseFullScreen: false,
+      shouldUseFullScreen: true,
       hasError: pinError != nil
     )
 
@@ -166,6 +174,7 @@ private func pinView(
   ContentScreenView {
     content(
       viewState: viewState,
+      subtitleText: "",
       uiPinInputField: .constant("uiPinInputField"),
       onBiometry: {})
   }

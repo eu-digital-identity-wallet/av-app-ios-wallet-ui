@@ -25,6 +25,7 @@ public struct WrapExpandableListView<T: Sendable>: View {
   private let hideSensitiveContent: Bool
   private let hasHeader: Bool
   private let isLoading: Bool
+  @State private var isExpanded: Bool = false
 
   public init(
     header: ListItemData? = nil,
@@ -33,6 +34,7 @@ public struct WrapExpandableListView<T: Sendable>: View {
     hideSensitiveContent: Bool,
     hasHeader: Bool = true,
     isLoading: Bool = false,
+    isExpanded: Bool = false,
     onItemClick: ((ListItemData) -> Void)? = nil
   ) {
     self.header = header
@@ -41,6 +43,7 @@ public struct WrapExpandableListView<T: Sendable>: View {
     self.hideSensitiveContent = hideSensitiveContent
     self.hasHeader = hasHeader
     self.isLoading = isLoading
+    self.isExpanded = isExpanded
     self.onItemClick = onItemClick
   }
 
@@ -52,7 +55,8 @@ public struct WrapExpandableListView<T: Sendable>: View {
             backgroundColor: backgroundColor,
             title: header.mainText,
             subtitle: header.supportingText,
-            isLoading: isLoading
+            isLoading: isLoading,
+            isExpanded: self.isExpanded
           ) {
             contentList()
           }
@@ -79,9 +83,13 @@ public struct WrapExpandableListView<T: Sendable>: View {
   private func expandableItemView(_ item: ExpandableListItem<T>) -> some View {
     switch item {
     case .single(let singleData):
-      WrapListItemView(listItem: singleData.collapsed) {
-        onItemClick?(singleData.collapsed)
-      }
+        let modifiedListItem = hideSensitiveContent ?
+                singleData.collapsed :
+                singleData.collapsed.copy(isBlur: false)
+
+              WrapListItemView(listItem: modifiedListItem) {
+                onItemClick?(modifiedListItem)
+              }
     case .nested(let nestedData):
       WrapExpandableListView(
         header: nestedData.collapsed,
@@ -95,7 +103,7 @@ public struct WrapExpandableListView<T: Sendable>: View {
   }
 }
 
-struct WrapExpandableListPreviewView: View {
+private struct WrapExpandableListPreviewView: View {
   @State private var expandableItems: [ExpandableListItem] = [
     .single(
       GenericExpandableItem.SingleListItemData(

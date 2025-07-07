@@ -23,7 +23,7 @@ public protocol ProximitySessionCoordinator: Sendable {
 
   init(session: PresentationSession)
 
-  func initialize() async
+  func initialize() async throws
   func startQrEngagement() async throws -> UIImage
   func requestReceived() async throws -> PresentationRequest
   func sendResponse(response: RequestItemConvertible) async
@@ -40,7 +40,6 @@ final class ProximitySessionCoordinatorImpl: ProximitySessionCoordinator {
   let sendableCurrentValueSubject: SendableCurrentValueSubject<PresentationState> = .init(.loading)
 
   private let session: PresentationSession
-
   private let sendableAnyCancellable: SendableAnyCancellable = .init()
 
   init(session: PresentationSession) {
@@ -73,8 +72,8 @@ final class ProximitySessionCoordinatorImpl: ProximitySessionCoordinator {
     stopPresentation()
   }
 
-  public func initialize() async {
-    await session.startQrEngagement()
+  public func initialize() async throws {
+    try await session.startQrEngagement()
     _ = await session.receiveRequest()
   }
 
@@ -98,7 +97,7 @@ final class ProximitySessionCoordinatorImpl: ProximitySessionCoordinator {
   }
 
   public func sendResponse(response: RequestItemConvertible) async {
-    await session.sendResponse(userAccepted: true, itemsToSend: response.asRequestItems())
+    await session.sendResponse(userAccepted: true, itemsToSend: response.items)
   }
 
   public func getState() async -> PresentationState {
@@ -110,7 +109,7 @@ final class ProximitySessionCoordinatorImpl: ProximitySessionCoordinator {
   }
 
   func getStream() -> AsyncStream<PresentationState> {
-    return sendableCurrentValueSubject.getAsyncStream()
+    self.sendableCurrentValueSubject.getAsyncStream()
   }
 
   public func stopPresentation() {

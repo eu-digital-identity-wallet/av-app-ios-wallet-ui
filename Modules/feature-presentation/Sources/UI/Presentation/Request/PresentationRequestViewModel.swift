@@ -83,7 +83,7 @@ final class PresentationRequestViewModel<Router: RouterHost>: BaseRequestViewMod
           self.router.push(with: route)
         } else {
           self.router.popTo(
-            with: self.getPopRoute() ?? .featureDashboardModule(.dashboard)
+            with: self.getPopRoute() ?? .featureAVDashboardModule(.appLanding)
           )
         }
       case .failure(let error):

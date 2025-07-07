@@ -17,15 +17,16 @@ import SwiftUI
 import logic_ui
 import feature_common
 import logic_resources
+import logic_core
 
 struct AddDocumentView<Router: RouterHost>: View {
 
-  @ObservedObject var viewModel: AddDocumentViewModel<Router>
+  @StateObject private var viewModel: AddDocumentViewModel<Router>
 
   var contentSize: CGFloat = 0.0
 
   init(with viewModel: AddDocumentViewModel<Router>) {
-    self.viewModel = viewModel
+    self._viewModel = StateObject(wrappedValue: viewModel)
     self.contentSize = getScreenRect().width / 2.0
   }
 
@@ -34,19 +35,19 @@ struct AddDocumentView<Router: RouterHost>: View {
       padding: .zero,
       canScroll: true,
       errorConfig: viewModel.viewState.error,
-      navigationTitle: .chooseFromList,
+      navigationTitle: nil,
       isLoading: viewModel.viewState.isLoading,
       toolbarContent: viewModel.toolbarContent()
     ) {
-
-      content(viewState: viewModel.viewState) { type in
-        viewModel.onClick(for: type)
+      if !(viewModel.viewState.config.isExtraDocumentFlow == true) {
+        OnboardingTabsView(selectedIndex: 3)
+      }
+      content(viewState: viewModel.viewState) { configId, identifier in
+        viewModel.onClick(configId: configId, docTypeIdentifier: identifier)
       }
 
       if viewModel.viewState.showFooterScanner {
-
         VSpacer.extraSmall()
-
         scanFooter(
           viewState: viewModel.viewState,
           contentSize: contentSize,
@@ -64,25 +65,27 @@ struct AddDocumentView<Router: RouterHost>: View {
 @ViewBuilder
 private func content(
   viewState: AddDocumentViewState,
-  action: @escaping (String) -> Void
+  action: @escaping (String, DocumentTypeIdentifier) -> Void
 ) -> some View {
   ScrollView {
-    VStack(spacing: SPACING_LARGE_MEDIUM) {
+      VStack(alignment: .leading, spacing: 16) {
+        VSpacer.small()
+          Text(.verificationStepTitle)
+            .typography(Theme.shared.font.titleMedium)
+            .multilineTextAlignment(.leading)
 
-      Text(.chooseFromListTitle)
-        .typography(Theme.shared.font.bodyLarge)
-        .foregroundStyle(Theme.shared.color.onSurface)
+          Text(.verificationStepDescription)
+            .typography(Theme.shared.font.bodyLarge)
+            .foregroundStyle(Theme.shared.color.onSurface)
 
-      VStack(spacing: SPACING_MEDIUM_SMALL) {
         ForEach(viewState.addDocumentCellModels) { cell in
           WrapCardView {
             WrapListItemView(
               listItem: cell.listItem,
               isLoading: cell.isLoading,
-              action: { action(cell.configId) }
+              action: { action(cell.configId, cell.docTypeIdentifier) }
             )
           }
-        }
       }
     }
     .padding(.horizontal, Theme.shared.dimension.padding)
@@ -98,22 +101,15 @@ private func scanFooter(
   action: @escaping @autoclosure () -> Void
 ) -> some View {
   VStack(spacing: SPACING_MEDIUM) {
-
     Spacer()
-
     HStack {
-
       Spacer()
-
       VStack(alignment: .center, spacing: SPACING_MEDIUM) {
-
         Text(.or)
           .typography(Theme.shared.font.bodyMedium)
           .foregroundColor(Theme.shared.color.onSurfaceVariant)
-
         Theme.shared.image.scanDocumentImage
       }
-
       Spacer()
     }
 
@@ -146,7 +142,7 @@ private func scanFooter(
     showFooterScanner: true
   )
 
-  content(viewState: viewState) { _ in }
+  content(viewState: viewState) { _, _ in }
 }
 
 #Preview {

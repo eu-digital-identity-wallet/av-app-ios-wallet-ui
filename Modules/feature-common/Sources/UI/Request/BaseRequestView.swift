@@ -19,7 +19,7 @@ import logic_resources
 
 public struct BaseRequestView<Router: RouterHost>: View {
 
-  @ObservedObject var viewModel: BaseRequestViewModel<Router>
+  @ObservedObject private var viewModel: BaseRequestViewModel<Router>
 
   public init(with router: Router, viewModel: BaseRequestViewModel<Router>) {
     self.viewModel = viewModel
@@ -161,7 +161,7 @@ private func noDocumentsFound(
     relyingParty: .custom("relying party"),
     isTrusted: true,
     allowShare: true,
-    originator: .featureDashboardModule(.dashboard),
+    originator: .featureAVDashboardModule(.appLanding),
     initialized: true,
     contentHeaderConfig: .init(
       appIconAndTextData: AppIconAndTextData(

@@ -349,7 +349,7 @@ public class MockKeyChainController: KeyChainController, Cuckoo.ProtocolMock, @u
             "validateKeyChainBiometry() throws",
             parameters: (),
             escapingParameters: (),
-            superclassCall: Cuckoo.MockManager.crashOnProtocolSuperclassCall(),
+errorType: Error.self,            superclassCall: Cuckoo.MockManager.crashOnProtocolSuperclassCall(),
             defaultCall: __defaultImplStub!.validateKeyChainBiometry()
         )
     }
@@ -421,7 +421,7 @@ public class MockKeyChainController: KeyChainController, Cuckoo.ProtocolMock, @u
             ))
         }
         
-        func validateKeyChainBiometry() -> Cuckoo.ProtocolStubNoReturnThrowingFunction<()> {
+        func validateKeyChainBiometry() -> Cuckoo.ProtocolStubNoReturnThrowingFunction<(),Error> {
             let matchers: [Cuckoo.ParameterMatcher<Void>] = []
             return .init(stub: cuckoo_manager.createStub(for: MockKeyChainController.self,
                 method: "validateKeyChainBiometry() throws",
@@ -1237,6 +1237,14 @@ import Cuckoo
 
 
 
+// MARK: - Mocks generated from file: '../Modules/logic-business/Sources/Extension/ConfigLogic+Extensions.swift'
+
+import Cuckoo
+import Foundation
+@testable import logic_business
+
+
+
 // MARK: - Mocks generated from file: '../Modules/logic-business/Sources/Extension/Data+Extensions.swift'
 
 import Cuckoo
@@ -1331,14 +1339,6 @@ import Foundation
 
 import Cuckoo
 import UIKit
-@testable import logic_business
-
-
-
-// MARK: - Mocks generated from file: '../Modules/logic-business/Sources/Functions/ConfigLogic+Extensions.swift'
-
-import Cuckoo
-import Foundation
 @testable import logic_business
 
 
@@ -2118,6 +2118,16 @@ public class MockFilterableItemPayload: FilterableItemPayload, Cuckoo.ProtocolMo
         __defaultImplStub = stub
         cuckoo_manager.enableDefaultStubImplementation()
     }
+    
+    public var id: String {
+        get {
+            return cuckoo_manager.getter(
+                "id",
+                superclassCall: Cuckoo.MockManager.crashOnProtocolSuperclassCall(),
+                defaultCall: __defaultImplStub!.id
+            )
+        }
+    }
 
 
     public struct __StubbingProxy_FilterableItemPayload: Cuckoo.StubbingProxy {
@@ -2125,6 +2135,10 @@ public class MockFilterableItemPayload: FilterableItemPayload, Cuckoo.ProtocolMo
     
         public init(manager: Cuckoo.MockManager) {
             self.cuckoo_manager = manager
+        }
+        
+        var id: Cuckoo.ProtocolToBeStubbedReadOnlyProperty<MockFilterableItemPayload,String> {
+            return .init(manager: cuckoo_manager, name: "id")
         }
     }
 
@@ -2138,10 +2152,20 @@ public class MockFilterableItemPayload: FilterableItemPayload, Cuckoo.ProtocolMo
             self.callMatcher = callMatcher
             self.sourceLocation = sourceLocation
         }
+        
+        var id: Cuckoo.VerifyReadOnlyProperty<String> {
+            return .init(manager: cuckoo_manager, name: "id", callMatcher: callMatcher, sourceLocation: sourceLocation)
+        }
     }
 }
 
 public class FilterableItemPayloadStub:FilterableItemPayload, @unchecked Sendable {
+    
+    public var id: String {
+        get {
+            return DefaultValueRegistry.defaultValue(for: (String).self)
+        }
+    }
 
 
 }

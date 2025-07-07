@@ -19,8 +19,8 @@ import logic_ui
 @Copyable
 struct StartupState: ViewState {
   let splashDuration: TimeInterval
-  let isAnimating: Bool
   let setupError: Error?
+  let appVersion: String
 }
 
 final class StartupViewModel<Router: RouterHost>: ViewModel<Router, StartupState> {
@@ -37,19 +37,14 @@ final class StartupViewModel<Router: RouterHost>: ViewModel<Router, StartupState
       router: router,
       initialState: .init(
         splashDuration: splashDuration,
-        isAnimating: false,
-        setupError: nil
+        setupError: nil,
+        appVersion: interactor.getAppVersion()
       )
     )
   }
 
-  func startAnimatingSplash() {
-    setState { $0.copy(isAnimating: true) }
-  }
-
   func initialize() async {
     let route = await interactor.initialize(with: viewState.splashDuration)
-    setState { $0.copy(isAnimating: false) }
     router.push(with: route)
   }
 }

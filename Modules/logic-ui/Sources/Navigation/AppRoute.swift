@@ -36,6 +36,7 @@ public enum FeatureCommonRouteModule: AppRouteModule {
   case qrScanner(config: any UIConfigType)
   case biometry(config: any UIConfigType)
   case genericSuccess(config: any UIConfigType)
+  case biometrySetup(config: any UIConfigType)
 
   public var info: (key: String, arguments: [String: String]) {
     return switch self {
@@ -47,33 +48,8 @@ public enum FeatureCommonRouteModule: AppRouteModule {
       (key: "QuickPin", arguments: ["config": config.log])
     case .qrScanner(config: let config):
       (key: "QRScanner", arguments: ["config": config.log])
-    }
-  }
-}
-
-public enum FeatureDashboardRouteModule: AppRouteModule {
-
-  case dashboard
-  case signDocument
-  case sideMenu
-  case issuanceOption
-  case documentDetails(id: String)
-  case transactionDetails(id: String)
-
-  public var info: (key: String, arguments: [String: String]) {
-    return switch self {
-    case .dashboard:
-      (key: "Dashboard", arguments: [:])
-    case .signDocument:
-      (key: "SignDocument", arguments: [:])
-    case .sideMenu:
-      (key: "SideMenu", arguments: [:])
-    case .issuanceOption:
-      (key: "issuanceOption", arguments: [:])
-    case .documentDetails(let id):
-      (key: "DocumentDetails", arguments: ["id": id])
-    case .transactionDetails(let id):
-      (key: "TransactionDetails", arguments: ["id": id])
+    case .biometrySetup(let config):
+      (key: "BiometrySetup", arguments: ["config": config.log])
     }
   }
 }
@@ -115,49 +91,6 @@ public indirect enum FeaturePresentationRouteModule: AppRouteModule {
   }
 }
 
-public indirect enum FeatureProximityRouteModule: AppRouteModule {
-
-  case proximityConnection(
-    presentationCoordinator: ProximitySessionCoordinator,
-    originator: AppRoute
-  )
-  case proximityRequest(
-    presentationCoordinator: ProximitySessionCoordinator,
-    originator: AppRoute
-  )
-  case proximityLoader(
-    relyingParty: String,
-    relyingPartyisTrusted: Bool,
-    presentationCoordinator: ProximitySessionCoordinator,
-    originator: AppRoute,
-    items: [any Routable]
-  )
-  case proximitySuccess(
-    config: any UIConfigType,
-    [any Routable]
-  )
-
-  public var info: (key: String, arguments: [String: String]) {
-    return switch self {
-    case .proximityConnection(_, let originator):
-      (key: "ProximityConnection", arguments: ["originator": originator.info.key])
-    case .proximityRequest(_, let originator):
-      (key: "ProximityRequest", arguments: ["originator": originator.info.key])
-    case .proximityLoader(let relyingParty, _, _, let originator, let items):
-      (
-        key: "ProximityLoader",
-        arguments: [
-          "relyingParty": relyingParty,
-          "originator": originator.info.key,
-          "items": items.map { $0.log }.joined(separator: "|")
-        ]
-      )
-    case .proximitySuccess:
-      (key: "ProximitySuccess", arguments: [:])
-    }
-  }
-}
-
 public enum FeatureIssuanceRouteModule: AppRouteModule {
 
   case issuanceAddDocument(config: any UIConfigType)
@@ -179,20 +112,46 @@ public enum FeatureIssuanceRouteModule: AppRouteModule {
   }
 }
 
+public enum FeatureOnboardingRouteModule: AppRouteModule {
+    case welcome
+    case consent
+
+    public var info: (key: String, arguments: [String: String]) {
+        return switch self {
+        case .welcome:
+            (key: "Welcome", arguments: [:])
+        case .consent
+            : (key: "Consent", arguments: [:])
+        }
+    }
+}
+
+public enum FeatureAVDashboardRouteModule: AppRouteModule {
+    case appLanding
+    case settings
+
+    public var info: (key: String, arguments: [String: String]) {
+        return switch self {
+        case .appLanding:
+            (key: "AppLanding", arguments: [:])
+        case .settings:
+            (key: "Settings", arguments: [:])
+        }
+    }
+}
+
 public enum AppRoute: AppRouteModule {
 
   case featureStartupModule(FeatureStartupRouteModule)
-  case featureDashboardModule(FeatureDashboardRouteModule)
   case featureCommonModule(FeatureCommonRouteModule)
   case featureIssuanceModule(FeatureIssuanceRouteModule)
   case featurePresentationModule(FeaturePresentationRouteModule)
-  case featureProximityModule(FeatureProximityRouteModule)
+  case featureOnboardingModule(FeatureOnboardingRouteModule)
+  case featureAVDashboardModule(FeatureAVDashboardRouteModule)
 
   public var info: (key: String, arguments: [String: String]) {
     return switch self {
     case .featureStartupModule(let module):
-      module.info
-    case .featureDashboardModule(let module):
       module.info
     case .featureCommonModule(let module):
       module.info
@@ -200,8 +159,10 @@ public enum AppRoute: AppRouteModule {
       module.info
     case .featurePresentationModule(let module):
       module.info
-    case .featureProximityModule(let module):
-      module.info
+    case .featureOnboardingModule(let module):
+        module.info
+    case .featureAVDashboardModule(let module):
+        module.info
     }
   }
 }

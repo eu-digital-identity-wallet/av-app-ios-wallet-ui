@@ -19,16 +19,17 @@ import logic_resources
 
 struct QuickPinView<Router: RouterHost>: View {
 
-  @ObservedObject var viewModel: QuickPinViewModel<Router>
+  @StateObject private var viewModel: QuickPinViewModel<Router>
 
   init(with viewModel: QuickPinViewModel<Router>) {
-    self.viewModel = viewModel
+    self._viewModel = StateObject(wrappedValue: viewModel)
   }
 
   var body: some View {
     ContentScreenView(
-      navigationTitle: viewModel.viewState.navigationTitle,
-      toolbarContent: viewModel.toolbarContent()
+      padding: .zero,
+      navigationTitle: nil,
+      toolbarContent: nil
     ) {
       content(
         viewState: viewModel.viewState,
@@ -59,47 +60,45 @@ private func content(
   onShowCancellationModal: @escaping () -> Void,
   onButtonClick: @escaping () -> Void
 ) -> some View {
-
-  ContentHeaderView(
-    config: ContentHeaderConfig(
-      appIconAndTextData: AppIconAndTextData(
-        appIcon: ThemeManager.shared.image.logoEuDigitalIndentityWallet,
-        appText: ThemeManager.shared.image.euditext
-      )
-    )
-  )
-
-  ContentTitleView(
-    title: viewState.title,
-    caption: viewState.caption
-  )
-
-  VSpacer.large()
-
-  pinView(
-    uiPinInputField: uiPinInputField,
-    quickPinSize: viewState.quickPinSize,
-    pinError: viewState.pinError
-  )
-
-  Spacer()
+    ScrollView {
+        OnboardingTabsView(selectedIndex: 2)
+        VStack(alignment: .leading, spacing: .zero) {
+            VSpacer.small()
+            Text(viewState.step == QuickPinStep.firstInput ? LocalizableStringKey.quickPinCreateTitle.toString : LocalizableStringKey.quickPinReEnterTitle.toString)
+                .typography(Theme.shared.font.titleMedium)
+            VSpacer.small()
+            pinView(
+                subtitleText: viewState.step == .firstInput ? LocalizableStringKey.quickPinCreateSubtitle.toString : LocalizableStringKey.quickPinReEnterSubtitle.toString,
+                uiPinInputField: uiPinInputField,
+                quickPinSize: viewState.quickPinSize,
+                pinError: viewState.pinError
+            )
+            Spacer()
+        }
+        .padding(.horizontal, Theme.shared.dimension.padding)
+    }
 }
 
 @MainActor
 @ViewBuilder
 private func pinView(
+  subtitleText: String,
   uiPinInputField: Binding<String>,
   quickPinSize: Int,
   pinError: LocalizableStringKey?
 ) -> some View {
-  VStack(spacing: .zero) {
+    Group {
+    Text(subtitleText)
+        .typography(Theme.shared.font.bodySmall)
+        .foregroundColor(Theme.shared.color.grey)
+        .padding(.bottom, SPACING_EXTRA_SMALL)
 
     PinTextFieldView(
       numericText: uiPinInputField,
       maxDigits: quickPinSize,
       isSecureEntry: true,
       canFocus: .constant(true),
-      shouldUseFullScreen: false,
+      shouldUseFullScreen: true,
       hasError: pinError != nil
     )
 
@@ -125,7 +124,7 @@ private func pinView(
     button: .quickPinNextButton,
     success: .success,
     successButton: .quickPinSetSuccessButton,
-    successNavigationType: .push(screen: .featureDashboardModule(.dashboard)),
+    successNavigationType: .push(screen: .featureAVDashboardModule(.appLanding)),
     isCancellable: false,
     pinError: nil,
     isButtonActive: true,

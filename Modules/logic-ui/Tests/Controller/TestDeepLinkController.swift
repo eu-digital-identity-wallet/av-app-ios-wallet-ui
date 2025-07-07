@@ -103,7 +103,7 @@ final class TestDeepLinkController: EudiTest {
     let sessionCoordinator = RemoteSessionCoordinatorImpl(
       session: Self.mockPresentationSession
     )
-    let appRoute = AppRoute.featurePresentationModule(.presentationRequest(presentationCoordinator: sessionCoordinator, originator: .featureDashboardModule(.dashboard)))
+    let appRoute = AppRoute.featurePresentationModule(.presentationRequest(presentationCoordinator: sessionCoordinator, originator: .featureAVDashboardModule(.appLanding)))
     let pendingAction = Self.mockedOpenId4VPDeepLinkAction
     
     stubHandleDeepLink(
@@ -350,12 +350,19 @@ private extension TestDeepLinkController {
     dataFormat: .cbor
   )
   
+  static let mockStorageService: DataStorageService = KeyChainStorageService(
+    serviceName: "",
+    accessGroup: ""
+  )
+  
   static let mockPresentationSession = PresentationSession(
     presentationService: MockPresentationService(
       transactionLog: mockTransactionLog,
       flow: .other
     ),
+    storageManager: .init(storageService: mockStorageService),
     docIdToPresentInfo: [:],
+    documentKeyIndexes: [:],
     userAuthenticationRequired: false
   )
 }

@@ -70,6 +70,11 @@ protocol WalletKitConfig: Sendable {
    * The interval (in seconds) at which revocations are checked.
    */
   var revocationInterval: TimeInterval { get }
+
+  /**
+   * Configuration for document issuance, including default rules and specific overrides.
+   */
+  var documentIssuanceConfig: DocumentIssuanceConfig { get }
 }
 
 struct WalletKitConfigImpl: WalletKitConfig {
@@ -93,17 +98,17 @@ struct WalletKitConfigImpl: WalletKitConfig {
     return switch configLogic.appBuildVariant {
     case .DEMO:
         .init(
-          issuerUrl: "https://issuer.eudiw.dev",
+          issuerUrl: "https://issuer.ageverification.dev/",
           clientId: "wallet-dev",
-          redirectUri: URL(string: "eu.europa.ec.euidi://authorization")!,
+          redirectUri: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
           usePAR: true,
           useDPoP: true
         )
     case .DEV:
         .init(
-          issuerUrl: "https://dev.issuer.eudiw.dev",
+          issuerUrl: "https://issuer.dev.ageverification.dev/",
           clientId: "wallet-dev",
-          redirectUri: URL(string: "eu.europa.ec.euidi://authorization")!,
+		  redirectUri: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
           usePAR: true,
           useDPoP: true
         )
@@ -112,6 +117,7 @@ struct WalletKitConfigImpl: WalletKitConfig {
 
   var readerConfig: ReaderConfig {
     let certificates = [
+      "av_cert",
       "pidissuerca02_cz",
       "pidissuerca02_ee",
       "pidissuerca02_eu",
@@ -143,6 +149,7 @@ struct WalletKitConfigImpl: WalletKitConfig {
         .mDocPid,
         .sdJwtPid,
         .other(formatType: "org.iso.18013.5.1.mDL"),
+        .other(formatType: "eu.europa.ec.av.1"),
         .other(formatType: "eu.europa.ec.eudi.pseudonym.age_over_18.1"),
         .other(formatType: "urn:eu.europa.ec.eudi:pseudonym_age_over_18:1"),
         .other(formatType: "eu.europa.ec.eudi.tax.1"),
@@ -167,7 +174,7 @@ struct WalletKitConfigImpl: WalletKitConfig {
         .other(formatType: "urn:eu.europa.ec.eudi:ehic:1")
       ],
       .SocialSecurity: [
-        .other(formatType: "eu.europa.ec.eudi.samplepda1.1"),
+        .other(formatType: "eu.europa.ec.eudi.pda1.1"),
         .other(formatType: "urn:eu.europa.ec.eudi:pda1:1")
       ],
       .Retail: [
@@ -188,5 +195,15 @@ struct WalletKitConfigImpl: WalletKitConfig {
 
   var revocationInterval: TimeInterval {
     300
+  }
+
+  var documentIssuanceConfig: DocumentIssuanceConfig {
+    DocumentIssuanceConfig(
+      defaultRule: DocumentIssuanceRule(
+        policy: .oneTimeUse,
+        numberOfCredentials: 30
+      ),
+      documentSpecificRules: [:]
+    )
   }
 }

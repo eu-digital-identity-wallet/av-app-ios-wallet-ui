@@ -20,10 +20,10 @@ import feature_common
 
 struct DocumentOfferView<Router: RouterHost>: View {
 
-  @ObservedObject var viewModel: DocumentOfferViewModel<Router>
+  @StateObject private var viewModel: DocumentOfferViewModel<Router>
 
   init(with viewModel: DocumentOfferViewModel<Router>) {
-    self.viewModel = viewModel
+    self._viewModel = StateObject(wrappedValue: viewModel)
   }
 
   var body: some View {
@@ -120,7 +120,7 @@ private func noDocumentsFound(
     error: nil,
     config: UIConfig.Generic(
       arguments: ["uri": "uri"],
-      navigationSuccessType: .push(.featureDashboardModule(.dashboard)),
+      navigationSuccessType: .push(.featureAVDashboardModule(.appLanding)),
       navigationCancelType: .pop
     ),
     offerUri: "offer uri",
@@ -154,7 +154,7 @@ private func noDocumentsFound(
     error: nil,
     config: UIConfig.Generic(
       arguments: ["uri": "uri"],
-      navigationSuccessType: .push(.featureDashboardModule(.dashboard)),
+      navigationSuccessType: .push(.featureAVDashboardModule(.appLanding)),
       navigationCancelType: .pop
     ),
     offerUri: "offer uri",
