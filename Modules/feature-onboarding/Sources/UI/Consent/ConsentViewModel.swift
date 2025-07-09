@@ -12,8 +12,6 @@ import Foundation
 
 @Copyable
 struct ConsentViewState: ViewState {
-    let title: LocalizableStringKey
-    let uiModel: ConsentViewUiModel?
     let isLoading: Bool
     let error: ContentErrorView.Config?
     let termsOfServiceAccepted: Bool
@@ -24,8 +22,7 @@ struct ConsentViewState: ViewState {
 final class ConsentViewModel<Router: RouterHost>: ViewModel<Router, ConsentViewState> {
     init(router: Router) {
         super.init(router: router,
-                   initialState: .init(title: .completed,
-                                       uiModel: ConsentViewUiModel.mock(),
+                   initialState: .init(
                                        isLoading: true,
                                        error: nil,
                                        termsOfServiceAccepted: false,
