@@ -11,8 +11,6 @@ import feature_common
 
 @Copyable
 struct WelcomeViewState: ViewState {
-    let title: LocalizableStringKey
-    let uiModel: WelcomeViewUiModel?
     let isLoading: Bool
     let error: ContentErrorView.Config?
 }
@@ -20,8 +18,7 @@ struct WelcomeViewState: ViewState {
 final class WelcomeViewModel<Router: RouterHost>: ViewModel<Router, WelcomeViewState> {
     init(router: Router) {
         super.init(router: router,
-                   initialState: .init(title: .completed,
-                                       uiModel: WelcomeViewUiModel.mock(),
+                   initialState: .init(
                                        isLoading: true,
                                        error: nil
                                       )
