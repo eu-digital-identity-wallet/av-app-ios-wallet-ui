@@ -188,7 +188,6 @@ public enum LocalizableStringKey: Equatable, Sendable {
 
 public extension LocalizableStringKey {
   var toString: String {
-    print("LocalizableStringKey.toString for \(self)")
     return LocalizableManager.shared.get(with: self)
   }
   var toLocalizedStringKey: LocalizedStringKey {

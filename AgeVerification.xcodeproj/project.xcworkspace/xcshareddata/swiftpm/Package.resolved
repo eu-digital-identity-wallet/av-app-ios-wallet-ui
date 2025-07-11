@@ -1,5 +1,5 @@
 {
-  "originHash" : "657c5e4df19bef40c21a2c8c320faf76d1c32941c39a0eed1d56eeb4757d568f",
+  "originHash" : "e3d7141a3cecfef488faf2eecf4682ea10b230f5076331d964f0502b435ec2b4",
   "pins" : [
     {
       "identity" : "activityindicatorview",
@@ -195,8 +195,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-kit.git",
       "state" : {
-        "revision" : "afa6399798e1ab4d0dbaf3a70e0ac094ce51fe73",
-        "version" : "0.12.8"
+        "revision" : "d6c8c9ca5d30352b3b5361c89bcb5a9e937bfb96",
+        "version" : "0.13.0"
       }
     },
     {
@@ -213,8 +213,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-sdjwt-swift.git",
       "state" : {
-        "revision" : "5d318469727bc845f4b001490974b80392d2acb8",
-        "version" : "0.6.3"
+        "revision" : "5d33ca40db259729d9473dd7c71f1bb214ec1755",
+        "version" : "0.7.2"
       }
     },
     {
@@ -422,6 +422,15 @@
       "state" : {
         "revision" : "e8d6eba1fef23ae5b359c46b03f7d94be2f41fed",
         "version" : "3.12.3"
+      }
+    },
+    {
+      "identity" : "swift-json-schema",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/niscy-eudiw/swift-json-schema",
+      "state" : {
+        "revision" : "105cfcd41cf83f264f23ed36dc11191dea45b65f",
+        "version" : "0.0.4"
       }
     },
     {
