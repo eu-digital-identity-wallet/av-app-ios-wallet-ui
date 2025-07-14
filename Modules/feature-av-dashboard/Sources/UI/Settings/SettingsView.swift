@@ -92,13 +92,13 @@ private func content(
         
         // App Version Section
         VStack(alignment: .leading, spacing: SPACING_SMALL) {
-          Text("App Information")
+          Text(LocalizableStringKey.settingsAppInformation.toString)
             .typography(Theme.shared.font.headlineSmall)
             .fontWeight(.medium)
             .padding(.horizontal)
           
           HStack {
-            Text("Version")
+            Text(LocalizableStringKey.settingsAppVersion.toString)
               .typography(Theme.shared.font.bodyLarge)
               .foregroundStyle(Theme.shared.color.onSurface)
             
@@ -115,7 +115,7 @@ private func content(
         
         // Credentials Section
         VStack(alignment: .leading, spacing: SPACING_SMALL) {
-          Text("Credentials")
+          Text(LocalizableStringKey.settingsCredentials.toString)
             .typography(Theme.shared.font.headlineSmall)
             .fontWeight(.medium)
             .padding(.horizontal)
@@ -124,7 +124,7 @@ private func content(
             onShowDeleteModal()
           }) {
             HStack {
-              Text("Delete Age Verification Credentials")
+              Text(LocalizableStringKey.settingsDeleteCredentials.toString)
                 .typography(Theme.shared.font.bodyLarge)
                 .foregroundStyle(Theme.shared.color.error)
               
