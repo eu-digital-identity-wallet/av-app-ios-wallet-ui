@@ -30,7 +30,7 @@ public struct BaseRequestView<Router: RouterHost>: View {
       padding: .zero,
       canScroll: true,
       errorConfig: viewModel.viewState.error,
-      navigationTitle: .dataSharingRequest,
+      navigationTitle: nil,
       toolbarContent: viewModel.toolbarContent()
     ) {
       content(

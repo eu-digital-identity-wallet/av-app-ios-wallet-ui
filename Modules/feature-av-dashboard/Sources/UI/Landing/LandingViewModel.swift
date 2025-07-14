@@ -12,7 +12,6 @@ import logic_core
 @Copyable
 struct AppLandingState: ViewState {
     let document: DocumentUIModel
-    let title: LocalizableStringKey
     let isLoading: Bool
     let error: ContentErrorView.Config?
     let credRemainingCount: Int?
@@ -24,7 +23,7 @@ final class LandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingSt
     init(router: Router, interactor: LandingInteractor,) {
         self.interactor = interactor
         super.init(router: router,
-                   initialState: .init(document: DocumentUIModel.mock(), title: .completed,
+                   initialState: .init(document: DocumentUIModel.mock(),
                                        isLoading: true,
                                        error: nil,
                                        credRemainingCount: nil
