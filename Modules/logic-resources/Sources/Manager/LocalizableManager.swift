@@ -336,6 +336,14 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedStringWithArguments(forKey: "landing_screen_credentials_left", arguments: [arg])
     case .addMoreCredentials:
         bundle.localizedString(forKey: "landing_screen_add_more")
+    case .settingsAppInformation:
+        bundle.localizedString(forKey: "settings_app_information")
+    case .settingsAppVersion:
+        bundle.localizedString(forKey: "settings_app_version")
+    case .settingsCredentials:
+        bundle.localizedString(forKey: "settings_credentials")
+    case .settingsDeleteCredentials:
+        bundle.localizedString(forKey: "settings_delete_credentials")
     }
   }
 }

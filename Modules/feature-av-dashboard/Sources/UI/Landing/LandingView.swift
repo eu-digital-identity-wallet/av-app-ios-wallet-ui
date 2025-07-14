@@ -22,7 +22,7 @@ struct LandingView<Router: RouterHost>: View {
             canScroll: true,
             errorConfig: viewModel.viewState.error,
             background: Theme.shared.color.surface,
-            navigationTitle: .details
+            navigationTitle: nil
         ) {
             content(viewState: viewModel.viewState, onScan: viewModel.onScan, onGetMoreCredentials: viewModel.getMoreCredentials, onSettings: viewModel.onSettings )
         }
@@ -77,6 +77,7 @@ private func content(viewState: AppLandingState, onScan: @escaping () -> Void, o
         VStack(alignment: .center) {
             Button(action: {
                 onScan()
+              
             }) {
                 Theme.shared.image.scanButton
                     .frame(height: 76)

@@ -184,13 +184,19 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case biometricSetupDescription(String)
   case biometricSetupButton
   case biometricSetupSkipButton
+  
+  // Settings
+  case settingsAppInformation
+  case settingsAppVersion
+  case settingsCredentials
+  case settingsDeleteCredentials
 }
 
 public extension LocalizableStringKey {
   var toString: String {
-    print("LocalizableStringKey.toString for \(self)")
     return LocalizableManager.shared.get(with: self)
   }
+  @available(macOS 10.15, *)
   var toLocalizedStringKey: LocalizedStringKey {
     LocalizedStringKey(self.toString)
   }
