@@ -42,11 +42,6 @@ protocol WalletKitConfig: Sendable {
   var readerConfig: ReaderConfig { get }
 
   /**
-   * Verifier Redirect URI
-   */
-  var verifierRedirectUri: String { get }
-
-  /**
    * User authentication required accessing core's secure storage
    */
   var userAuthenticationRequired: Bool { get }
@@ -117,15 +112,6 @@ struct WalletKitConfigImpl: WalletKitConfig {
           usePAR: true,
           useDPoP: true
         )
-    }
-  }
-
-  var verifierRedirectUri: String {
-    return switch configLogic.appBuildVariant {
-    case .DEMO:
-      "https://verifier-backend.ageverification.dev"
-    case .DEV:
-      "https://verifier-backend.dev.ageverification.dev"
     }
   }
 

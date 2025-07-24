@@ -129,8 +129,6 @@ final class WalletKitControllerImpl: WalletKitController {
     wallet.trustedReaderCertificates = configLogic.readerConfig.trustedCerts
     wallet.logFileName = configLogic.logFileName
     wallet.transactionLogger = configLogic.transactionLogger
-      
-    wallet.verifierApiUri = configLogic.verifierRedirectUri
   }
 
   func resolveOfferUrlDocTypes(uriOffer: String) async throws -> OfferedIssuanceModel {
