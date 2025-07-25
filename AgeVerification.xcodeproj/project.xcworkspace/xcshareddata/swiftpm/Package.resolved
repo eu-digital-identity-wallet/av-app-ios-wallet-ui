@@ -1,5 +1,5 @@
 {
-  "originHash" : "657c5e4df19bef40c21a2c8c320faf76d1c32941c39a0eed1d56eeb4757d568f",
+  "originHash" : "857407b5ec37fe061c2657bdf57419d922989dba09c05432008b20dbbca8e86e",
   "pins" : [
     {
       "identity" : "activityindicatorview",
@@ -132,8 +132,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-openid4vci-swift.git",
       "state" : {
-        "revision" : "2309adb82d968cb81ea7afb8580e0dd4a942b5d9",
-        "version" : "0.15.1"
+        "revision" : "c4bd0181ce27a9b22bf271bb3f89933f0355c608",
+        "version" : "0.15.2"
       }
     },
     {
@@ -177,8 +177,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-siop-openid4vp-swift.git",
       "state" : {
-        "revision" : "c629dc825c7269bf5eab8a8c3af607fbdb6af39a",
-        "version" : "0.13.1"
+        "revision" : "b322b0d7c910614c31a1ce2513b1529b8485b515",
+        "version" : "0.15.1"
       }
     },
     {
@@ -195,8 +195,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-kit.git",
       "state" : {
-        "revision" : "afa6399798e1ab4d0dbaf3a70e0ac094ce51fe73",
-        "version" : "0.12.8"
+        "revision" : "317fc0987cb68564888f626bd155229821114ebd",
+        "version" : "0.13.4"
       }
     },
     {
@@ -213,8 +213,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-sdjwt-swift.git",
       "state" : {
-        "revision" : "5d318469727bc845f4b001490974b80392d2acb8",
-        "version" : "0.6.3"
+        "revision" : "5d33ca40db259729d9473dd7c71f1bb214ec1755",
+        "version" : "0.7.2"
       }
     },
     {
@@ -422,6 +422,15 @@
       "state" : {
         "revision" : "e8d6eba1fef23ae5b359c46b03f7d94be2f41fed",
         "version" : "3.12.3"
+      }
+    },
+    {
+      "identity" : "swift-json-schema",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/niscy-eudiw/swift-json-schema",
+      "state" : {
+        "revision" : "105cfcd41cf83f264f23ed36dc11191dea45b65f",
+        "version" : "0.0.4"
       }
     },
     {

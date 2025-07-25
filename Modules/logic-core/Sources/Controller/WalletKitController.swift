@@ -129,7 +129,6 @@ final class WalletKitControllerImpl: WalletKitController {
     wallet.trustedReaderCertificates = configLogic.readerConfig.trustedCerts
     wallet.logFileName = configLogic.logFileName
     wallet.transactionLogger = configLogic.transactionLogger
-    wallet.verifierRedirectUri = "https://verifier-backend.ageverification.dev"
   }
 
   func resolveOfferUrlDocTypes(uriOffer: String) async throws -> OfferedIssuanceModel {

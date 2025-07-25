@@ -411,7 +411,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "0.1.0-beta05";
+				MARKETING_VERSION = "2025.07-1";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scytales.av;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -514,7 +514,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "0.1.0-beta05";
+				MARKETING_VERSION = "2025.07-1";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scytales.av;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "EUDI Demo Release";
@@ -680,7 +680,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "0.1.0-beta05";
+				MARKETING_VERSION = "2025.07-1";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scytales.av.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -727,7 +727,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = "0.1.0-beta05";
+				MARKETING_VERSION = "2025.07-1";
 				PRODUCT_BUNDLE_IDENTIFIER = com.scytales.av.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "EUDI Dev Release";

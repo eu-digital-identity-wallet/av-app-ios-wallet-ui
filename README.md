@@ -39,30 +39,11 @@ The AV iOS is the application that allows users to:
 1. Obtain, store, and present an age verification attestation.
 2. Share the proof of age attestation with online services to gain access.
 
-## Dislaimer
-
-This is an initial version of the software, developed solely for the purpose of demonstrating the business flow of the solution. It is not intended for production use, and does not yet include the full set of functional, security, or integration features required for a live deployment.
-
-The current release provides only basic functionality, with several key features to be introduced in future versions, including:
- - App and device verification based on Google Play Integrity API and Apple App Attestation
- - Additional issuance methods beyond the currently implemented eID based method. 
-
-These planned features align with the requirements and methods described in the Age Verification Profile.
-
-This version should be considered a foundational prototype to support early testing, feedback, and integration discussions.
-- The initial development release may be changed substantially over time and might introduce new features but also may change or remove existing ones, potentially breaking compatibility with your existing code.
-- The initial development release may contain errors or design flaws and other problems that could cause system or other failures and data loss.
-- The initial development release has reduced security, privacy, availability, and reliability standards relative to future releases. This could make the software slower, less reliable, or more vulnerable to attacks than mature software.
-- The initial development release is not yet comprehensively documented.
-- Users of the software must perform sufficient engineering and additional testing to properly evaluate their application and determine whether any of the open-sourced components are suitable for use in that application.
-- We strongly recommend not putting this version of the software into production use.
-- Only the latest version of the software will be supported
-
 ## Development
 
 ### Specifications Employed
 
-The app consumes the SDK called EUDIW Wallet core [Wallet core](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-core) and a list of available libraries to facilitate remote presentation and issuing test/demo functionality following partially the specification of the [ARF](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework), including:
+The app consumes the SDK called EUDIW Wallet core [Wallet Kit](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-kit) and a list of available libraries to facilitate remote presentation and issuing test/demo functionality following partially the specification of the [ARF](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework), including:
  
 - OpenID4VP - draft 24 (remote presentation)
  
@@ -95,6 +76,25 @@ The following channels are available for discussions, feedback, and support requ
 | **Issues**    | <a href="/../../issues" title="Open Issues"><img src="https://img.shields.io/github/issues/eu-digital-identity-wallet/av-verifier-ui?style=flat"></a>  |
 | **Other requests**    | <a href="mailto:av-tscy@scytales.com" title="Email AVS Team"><img src="https://img.shields.io/badge/email-AVS%20team-green?logo=mail.ru&style=flat-square&logoColor=white"></a>   |
 
+## Disclaimer
+
+This is the first release of the software, developed solely for the purpose of demonstrating the business flow of the solution. It is not intended for production use, and does not yet include the full set of functional, security, or integration features required for a live deployment.
+
+The current release provides only basic functionality, with several key features to be introduced in future versions, including:
+ - App and device verification based on Google Play Integrity API and Apple App Attestation
+ - Additional issuance methods beyond the currently implemented eID based method. 
+
+These planned features align with the requirements and methods described in the Age Verification Profile.
+
+This version should be considered a foundational prototype to support early testing, feedback, and integration discussions.
+- The initial development release may be changed substantially over time and might introduce new features but also may change or remove existing ones, potentially breaking compatibility with your existing code.
+- The initial development release may contain errors or design flaws and other problems that could cause system or other failures and data loss.
+- The initial development release has reduced security, privacy, availability, and reliability standards relative to future releases. This could make the software slower, less reliable, or more vulnerable to attacks than mature software.
+- The initial development release is not yet comprehensively documented.
+- Users of the software must perform sufficient engineering and additional testing to properly evaluate their application and determine whether any of the open-sourced components are suitable for use in that application.
+- We strongly recommend not putting this version of the software into production use.
+- Only the latest version of the software will be supported
+
 ## Code of Conduct
 
 This project has adopted the [Contributor Covenant](https://www.contributor-covenant.org/) in version 2.1 as our code of conduct. Please see the details in our [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). All contributors must abide by the code of conduct.
@@ -107,14 +107,8 @@ By participating in this project, you agree to abide by its [Code of Conduct](./
 
 Copyright (c) 2025 European Commission
 
-Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
-Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
-except in compliance with the Licence.
+Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work except in compliance with the Licence.
 
-You may obtain a copy of the Licence at:
-https://joinup.ec.europa.eu/software/page/eupl
+You may obtain a copy of the Licence at: https://joinup.ec.europa.eu/software/page/eupl
 
-Unless required by applicable law or agreed to in writing, software distributed under 
-the Licence is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF 
-ANY KIND, either express or implied. See the Licence for the specific language 
-governing permissions and limitations under the Licence.
+Unless required by applicable law or agreed to in writing, software distributed under the Licence is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the Licence for the specific language governing permissions and limitations under the Licence.
