@@ -15,7 +15,7 @@ let package = Package(
   dependencies: [
     .package(
       url: "https://github.com/realm/realm-swift.git",
-      from: "10.54.1"
+      from: "20.0.3"
     ),
     .package(
       name: "logic-business",

@@ -15,7 +15,7 @@ let package = Package(
   dependencies: [
     .package(
       url: "https://github.com/kishikawakatsumi/KeychainAccess.git",
-      from: "3.0.0"
+      from: "4.2.2"
     ),
     .package(
       url: "https://github.com/iziz/libPhoneNumber-iOS.git",
