@@ -35,6 +35,7 @@ final class KeyChainControllerImpl: KeyChainController {
 
   private let biometryKey = "eu.europa.ec.euidi.biometric.access"
   private let keyChain: Keychain = Keychain()
+      .accessibility(.whenUnlocked)
 
   public func storeValue(key: KeyChainWrapper, value: String) {
     keyChain[key.value] = value
