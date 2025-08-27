@@ -32,6 +32,11 @@ struct Application: App {
 
   init() {
 
+#if !DEBUG
+    disableUnifiedLogging()
+    disableSwinjectLogging()
+#endif
+
     // Depedency Injection
     DIGraph.assembleDependenciesGraph()
 

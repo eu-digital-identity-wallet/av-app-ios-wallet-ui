@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE3062342E586862007BDAF6 /* Logging+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3062332E58685C007BDAF6 /* Logging+Util.swift */; };
 		EE4ECF952DED964500C82928 /* av_cert.der in Resources */ = {isa = PBXBuildFile; fileRef = EE4ECF942DED964500C82928 /* av_cert.der */; };
 		F02921632B8E07870076A58B /* WalletDemoRelease.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F02921612B8E07870076A58B /* WalletDemoRelease.xcconfig */; };
 		F02921642B8E07870076A58B /* WalletDevRelease.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F02921622B8E07870076A58B /* WalletDevRelease.xcconfig */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		1198ECD72AC453F200F4E71A /* logic-resources */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "logic-resources"; path = "Modules/logic-resources"; sourceTree = "<group>"; };
 		EA887C042DE9D1C70087CB2F /* feature-av-dashboard */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "feature-av-dashboard"; path = "Modules/feature-av-dashboard"; sourceTree = "<group>"; };
+		EE3062332E58685C007BDAF6 /* Logging+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logging+Util.swift"; sourceTree = "<group>"; };
 		EE4ECF942DED964500C82928 /* av_cert.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = av_cert.der; sourceTree = "<group>"; };
 		EE9D75C42DDDF09400BAEE0F /* feature-onboarding */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "feature-onboarding"; path = "Modules/feature-onboarding"; sourceTree = "<group>"; };
 		F018D9F32D087C410015876D /* logic-storage */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "logic-storage"; path = "Modules/logic-storage"; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				F09E1EA02AC33A6800779C25 /* Config */,
 				F14907BB2ABAF54B00DDFE56 /* Application.swift */,
 				F12E940E2ABC6C000086EC93 /* AppDelegate.swift */,
+				EE3062332E58685C007BDAF6 /* Logging+Util.swift */,
 				F14907BF2ABAF55000DDFE56 /* Assets.xcassets */,
 				F14907C12ABAF55000DDFE56 /* Preview Content */,
 				F09E1EA22AC3443000779C25 /* Wallet.plist */,
@@ -308,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F12E940F2ABC6C000086EC93 /* AppDelegate.swift in Sources */,
+				EE3062342E586862007BDAF6 /* Logging+Util.swift in Sources */,
 				F14907BC2ABAF54B00DDFE56 /* Application.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
