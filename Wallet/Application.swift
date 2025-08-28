@@ -16,6 +16,7 @@
 import SwiftUI
 import PartialSheet
 import logic_assembly
+import Logging
 
 @main
 struct Application: App {
@@ -35,8 +36,12 @@ struct Application: App {
 #if !DEBUG
     disableUnifiedLogging()
     disableSwinjectLogging()
+    disableURLCache()
+    LoggingSystem.bootstrap { _ in
+      SwiftLogNoOpLogHandler()
+    }
 #endif
-
+    
     // Depedency Injection
     DIGraph.assembleDependenciesGraph()
 
