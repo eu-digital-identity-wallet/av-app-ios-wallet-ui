@@ -184,12 +184,19 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case biometricSetupDescription(String)
   case biometricSetupButton
   case biometricSetupSkipButton
-  
+
   // Settings
   case settingsAppInformation
   case settingsAppVersion
   case settingsCredentials
   case settingsDeleteCredentials
+
+  // Quick Pin ( BiometryView )
+  case quickPinInvalidWithAttempts(Int)
+  case quickPinInvalidLastAttempt
+  case quickPinLockedOut
+  case quickPinLockoutCountdownMinutes([Int])
+  case quickPinLockoutCountdownSeconds(Int)
 }
 
 public extension LocalizableStringKey {
