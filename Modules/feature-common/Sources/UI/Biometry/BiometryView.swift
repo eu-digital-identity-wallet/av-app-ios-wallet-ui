@@ -167,7 +167,6 @@ VStack(alignment: .leading, spacing: .zero) {
     biometryImage: Theme.shared.image.faceId,
     isCancellable: true,
     quickPinSize: 6,
-    isLockedOut: false,
     lockoutEndTime: 0,
     contentHeaderConfig: .init(
       appIconAndTextData: AppIconAndTextData(

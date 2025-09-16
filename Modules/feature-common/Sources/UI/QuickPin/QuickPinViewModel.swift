@@ -157,7 +157,7 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
       setState {
         $0.copy(pinError: .custom(errorMessage))
       }
-    case .lockedOut(lockoutEndTime: let lockoutEndTime, attemptsUsed: let attemptsUsed):
+    case .lockedOut(lockoutEndTime: let lockoutEndTime):
         startLockoutTimer(lockoutEndTime: lockoutEndTime)
     }
   }

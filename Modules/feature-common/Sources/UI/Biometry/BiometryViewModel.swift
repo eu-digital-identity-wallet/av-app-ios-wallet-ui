@@ -28,9 +28,11 @@ struct BiometryState: ViewState {
   let biometryImage: Image?
   let isCancellable: Bool
   let quickPinSize: Int
-  let isLockedOut: Bool
   let lockoutEndTime: TimeInterval
   let contentHeaderConfig: ContentHeaderConfig
+  var isLockedOut: Bool {
+    lockoutEndTime > 0
+  }
 }
 
 final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometryState> {
@@ -69,7 +71,6 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
         biometryImage: interactor.biometricsImage,
         isCancellable: config.navigationBackType != nil,
         quickPinSize: 6,
-        isLockedOut: false,
         lockoutEndTime: 0,
         contentHeaderConfig: .init(
           appIconAndTextData: AppIconAndTextData(
@@ -84,6 +85,11 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
   }
 
   func onAppearBiometry() {
+    checkCurrentLockoutStatus()
+    guard !viewState.isLockedOut else {
+      return
+    }
+
     if viewState.config.shouldInitializeBiometricOnCreate, viewState.areBiometricsEnabled, !viewState.autoBiometryInitiated {
       setState { $0.copy(autoBiometryInitiated: true) }
       DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(AUTO_VERIFY_ON_APPEAR_DELAY)) {
@@ -99,6 +105,9 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
   }
 
   func onBiometry() {
+    guard !viewState.isLockedOut else {
+      return
+    }
     interactor.authenticate()
       .sink { _ in } receiveValue: { [weak self] (state) in
         guard let self = self else { return }
@@ -122,6 +131,14 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
     setState { $0.copy(scenePhase: phase) }
     if let pending = viewState.pendingNavigation {
       doNavigation(navigationType: pending)
+    }
+  }
+
+  private func checkCurrentLockoutStatus() {
+    let lockoutStatus = interactor.getLockoutStatus()
+    if lockoutStatus.isLockedOut {
+      setState { $0.copy(lockoutEndTime: lockoutStatus.lockoutEndTimeInterval) }
+      startLockoutTimer(lockoutEndTime: Double(lockoutStatus.lockoutEndTimeInterval!))
     }
   }
 
@@ -161,16 +178,16 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
     switch pinValidationResult {
       case .success:
         setState {
-          $0.copy(pinError: nil, isLockedOut: false)
+          $0.copy(pinError: nil, lockoutEndTime: 0)
         }
         self.authenticated()
       case .failure(let errorMessage, _):
         setState {
-          $0.copy(pinError: errorMessage, isLockedOut: false)
+          $0.copy(pinError: errorMessage, lockoutEndTime: 0)
         }
-      case .lockedOut(let lockoutEndTime, _):
+      case .lockedOut(let lockoutEndTime):
         setState {
-          $0.copy(isLockedOut: true, lockoutEndTime: lockoutEndTime)
+          $0.copy(lockoutEndTime: lockoutEndTime)
         }
         startLockoutTimer(lockoutEndTime: lockoutEndTime)
     }
@@ -190,7 +207,6 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
         await MainActor.run {
           self.setState {
             $0.copy(pinError: nil)
-              .copy(isLockedOut: false)
               .copy(lockoutEndTime: 0)
           }
         }

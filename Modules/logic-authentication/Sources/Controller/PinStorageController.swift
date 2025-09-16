@@ -25,6 +25,7 @@ public protocol PinStorageController: Sendable {
   func retrievePin() -> String?
   func setPin(with pin: String)
   func isPinValid(with pin: String) -> PinValidationResult
+  func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?)
 }
 
 final class PinStorageControllerImpl: PinStorageController {
@@ -92,5 +93,13 @@ final class PinStorageControllerImpl: PinStorageController {
     }
 
     return PinStorageControllerImpl.BASE_LOCKOUT_DURATION * Double(multiplier)
+  }
+
+  func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?) {
+    if provider.isCurrentlyLockedOut() {
+      return (true, provider.getLockoutUntil())
+    } else {
+      return (false, nil)
+    }
   }
 }
