@@ -65,12 +65,19 @@ final class TestPinStorageController: EudiTest {
     // Given
     let testPin = "1111"
     stubIsPinValid(result: true)
-    
+    stubIsLockedOut(result: false)
+    stubResetFailedAttempts()
+
     // When
     let result = controller.isPinValid(with: testPin)
-    
+
+    debugPrint("result: \(result)")
+    var pinResult = false
+    if case .success = result {
+      pinResult = true
+    }
     // Then
-    XCTAssertTrue(result, "The controller should return true for a valid pin.")
+    XCTAssertTrue(pinResult, "The controller should return true for a valid pin.")
   }
   
 }
@@ -93,6 +100,18 @@ extension TestPinStorageController {
   func stubIsPinValid(result: Bool) {
     stub(provider) { mock in
       when(mock.isPinValid(with: any())).thenReturn(result)
+    }
+  }
+
+  func stubIsLockedOut(result: Bool) {
+    stub(provider) { mock in
+      when(mock.isCurrentlyLockedOut()).thenReturn(result)
+    }
+  }
+
+  func stubResetFailedAttempts() {
+    stub(provider) { mock in
+      when(mock.resetFailedAttempts()).thenDoNothing()
     }
   }
 }
