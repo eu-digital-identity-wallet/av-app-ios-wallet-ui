@@ -13,6 +13,7 @@
  * ANY KIND, either express or implied. See the Licence for the specific language
  * governing permissions and limitations under the Licence.
  */
+import Foundation
 import logic_business
 
 final class KeychainPinStorageProvider: PinStorageProvider {
@@ -34,6 +35,36 @@ final class KeychainPinStorageProvider: PinStorageProvider {
   func isPinValid(with pin: String) -> Bool {
     keyChainController.getValue(key: KeyIdentifier.devicePin) == pin
   }
+
+  // MARK: - Brute Force Attack Helper Methods
+
+  func getFailedAttempts() -> Int {
+    Int(keyChainController.getValue(key: KeyIdentifier.pinFailedAttempts) ?? "0") ?? 0
+  }
+
+  func incrementFailedAttempts() -> Int {
+    let currentAttempts = getFailedAttempts() + 1
+    keyChainController.storeValue(key: KeyIdentifier.pinFailedAttempts, value: String(currentAttempts))
+    return currentAttempts
+  }
+
+  func resetFailedAttempts() {
+    keyChainController.storeValue(key: KeyIdentifier.pinFailedAttempts, value: "0")
+    keyChainController.storeValue(key: KeyIdentifier.lockoutUntil, value: "0")
+  }
+
+  func setLockoutUntil(timestamp: TimeInterval) {
+    keyChainController.storeValue(key: KeyIdentifier.lockoutUntil, value: String(timestamp))
+  }
+
+  func getLockoutUntil() -> TimeInterval {
+    TimeInterval(keyChainController.getValue(key: KeyIdentifier.lockoutUntil) ?? "0") ?? 0
+  }
+
+  func isCurrentlyLockedOut() -> Bool {
+    let lockoutUntil = getLockoutUntil()
+    return lockoutUntil > 0 && Date.now.timeIntervalSince1970 < lockoutUntil
+  }
 }
 
 private enum KeyIdentifier: String, KeyChainWrapper {
@@ -43,4 +74,6 @@ private enum KeyIdentifier: String, KeyChainWrapper {
   }
 
   case devicePin
+  case pinFailedAttempts
+  case lockoutUntil
 }

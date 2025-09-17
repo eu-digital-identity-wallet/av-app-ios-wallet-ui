@@ -28,13 +28,18 @@ struct BiometryState: ViewState {
   let biometryImage: Image?
   let isCancellable: Bool
   let quickPinSize: Int
+  let lockoutEndTime: TimeInterval
   let contentHeaderConfig: ContentHeaderConfig
+  var isLockedOut: Bool {
+    lockoutEndTime > 0
+  }
 }
 
 final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometryState> {
 
   private let AUTO_VERIFY_ON_APPEAR_DELAY = 250
   private let PIN_INPUT_DEBOUNCE = 250
+  private var lockoutTimer: LockoutTimer
 
   @Published var uiPinInputField: String = ""
   @Published var biometryError: SystemBiometryError?
@@ -51,6 +56,8 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
       fatalError("BiometryViewModel:: Invalid configuraton")
     }
     self.interactor = interactor
+    self.lockoutTimer = LockoutTimer()
+
     super.init(
       router: router,
       initialState: .init(
@@ -64,6 +71,7 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
         biometryImage: interactor.biometricsImage,
         isCancellable: config.navigationBackType != nil,
         quickPinSize: 6,
+        lockoutEndTime: 0,
         contentHeaderConfig: .init(
           appIconAndTextData: AppIconAndTextData(
             appIcon: ThemeManager.shared.image.logoEuDigitalIndentityWallet,
@@ -77,6 +85,11 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
   }
 
   func onAppearBiometry() {
+    checkCurrentLockoutStatus()
+    guard !viewState.isLockedOut else {
+      return
+    }
+
     if viewState.config.shouldInitializeBiometricOnCreate, viewState.areBiometricsEnabled, !viewState.autoBiometryInitiated {
       setState { $0.copy(autoBiometryInitiated: true) }
       DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(AUTO_VERIFY_ON_APPEAR_DELAY)) {
@@ -92,6 +105,9 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
   }
 
   func onBiometry() {
+    guard !viewState.isLockedOut else {
+      return
+    }
     interactor.authenticate()
       .sink { _ in } receiveValue: { [weak self] (state) in
         guard let self = self else { return }
@@ -118,6 +134,14 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
     }
   }
 
+  private func checkCurrentLockoutStatus() {
+    let lockoutStatus = interactor.getLockoutStatus()
+    if lockoutStatus.isLockedOut {
+      setState { $0.copy(lockoutEndTime: lockoutStatus.lockoutEndTimeInterval) }
+      startLockoutTimer(lockoutEndTime: Double(lockoutStatus.lockoutEndTimeInterval!))
+    }
+  }
+
   private func subscribeToPinInput() {
 
     let publisher = self.$uiPinInputField.dropFirst()
@@ -141,20 +165,61 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
   }
 
   private func processPin(value: String) {
-    if value.count == viewState.quickPinSize {
-      switch interactor.isPinValid(with: uiPinInputField) {
+
+    if value.count != viewState.quickPinSize {
+      return
+    }
+
+    if viewState.isLockedOut {
+      return
+    }
+
+    let pinValidationResult = interactor.isPinValid(with: value)
+    switch pinValidationResult {
       case .success:
+        setState {
+          $0.copy(pinError: nil, lockoutEndTime: 0)
+        }
         self.authenticated()
-      case .failure(let error):
-        setState { $0.copy(pinError: error.localizedDescription) }
+      case .failure(let errorMessage, _):
+        setState {
+          $0.copy(pinError: errorMessage, lockoutEndTime: 0)
+        }
+      case .lockedOut(let lockoutEndTime):
+        setState {
+          $0.copy(lockoutEndTime: lockoutEndTime)
+        }
+        startLockoutTimer(lockoutEndTime: lockoutEndTime)
+    }
+  }
+
+  private func startLockoutTimer(lockoutEndTime: TimeInterval) {
+    lockoutTimer.start(until: lockoutEndTime) { message in
+      Task {
+        await MainActor.run {
+          self.setState {
+            $0.copy(pinError: message)
+          }
+        }
       }
-    } else {
-      setState { $0.copy(pinError: nil) }
+    } onCompletion: {
+      Task {
+        await MainActor.run {
+          self.setState {
+            $0.copy(pinError: nil)
+              .copy(lockoutEndTime: 0)
+          }
+        }
+      }
     }
   }
 
   private func authenticated() {
     doNavigation(navigationType: viewState.config.navigationSuccessType)
+  }
+
+  private func pinAttemptFailed(_ error: Error) {
+    setState { $0.copy(pinError: error.localizedDescription) }
   }
 
   private func doNavigation(navigationType: UIConfig.ThreeWayNavigationType) {

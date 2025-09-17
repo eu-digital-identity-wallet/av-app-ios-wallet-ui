@@ -35,6 +35,7 @@ public protocol BiometryInteractor: Sendable {
   func isBiometryEnabled() -> Bool
   func setBiometrySelection(isEnabled: Bool)
   func isPinValid(with pin: String) -> QuickPinPartialState
+  func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?)
 }
 
 final class BiometryInteractorImpl: BiometryInteractor {
@@ -120,4 +121,7 @@ final class BiometryInteractorImpl: BiometryInteractor {
     quickPinInteractor.isPinValid(pin: pin)
   }
 
+  func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?) {
+    quickPinInteractor.getLockoutStatus()
+  }
 }

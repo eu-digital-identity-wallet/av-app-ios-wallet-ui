@@ -56,7 +56,7 @@ final class TestQuickPinInteractor: EudiTest {
     // Given
     let pin = "1234"
     stub(pinStorageController) { mock in
-      when(mock.isPinValid(with: any())).thenReturn(true)
+      when(mock.isPinValid(with: any())).thenReturn(.success)
     }
     
     // When
@@ -76,7 +76,7 @@ final class TestQuickPinInteractor: EudiTest {
     // Given
     let pin = "1234"
     stub(pinStorageController) { mock in
-      when(mock.isPinValid(with: any())).thenReturn(false)
+      when(mock.isPinValid(with: any())).thenReturn(.failed(attemptsRemaining: 3))
     }
     
     // When
@@ -84,8 +84,8 @@ final class TestQuickPinInteractor: EudiTest {
     
     // Then
     switch state {
-    case .failure(let error):
-      XCTAssertEqual(error.localizedDescription, AuthenticationError.quickPinInvalid.localizedDescription)
+    case .failure(let errorMessage, _):
+        XCTAssertEqual(errorMessage, LocalizableStringKey.quickPinInvalidWithAttempts(3).toString)
     default:
       XCTFail("Wrong state \(state)")
     }
@@ -126,7 +126,7 @@ final class TestQuickPinInteractor: EudiTest {
     let newPin = "4321"
     let currentPin = "1234"
     stub(pinStorageController) { mock in
-      when(mock.isPinValid(with: any())).thenReturn(true)
+      when(mock.isPinValid(with: any())).thenReturn(.success)
     }
     stub(pinStorageController) { mock in
       when(mock.setPin(with: any())).thenDoNothing()
@@ -151,7 +151,7 @@ final class TestQuickPinInteractor: EudiTest {
     // Given
     let newPin = "4321"
     stub(pinStorageController) { mock in
-      when(mock.isPinValid(with: any())).thenReturn(false)
+      when(mock.isPinValid(with: any())).thenReturn(.failed(attemptsRemaining: 3))
     }
     stub(pinStorageController) { mock in
       when(mock.setPin(with: any())).thenDoNothing()
@@ -164,8 +164,8 @@ final class TestQuickPinInteractor: EudiTest {
     verify(pinStorageController, times(0)).setPin(with: any())
     
     switch state {
-    case .failure(let error):
-      XCTAssertEqual(error.localizedDescription, AuthenticationError.quickPinInvalid.localizedDescription)
+      case .failure(let errorMessage, _):
+      XCTAssertEqual(errorMessage, LocalizableStringKey.quickPinInvalidWithAttempts(3).toString)
     default:
       XCTFail("Wrong state \(state)")
     }
