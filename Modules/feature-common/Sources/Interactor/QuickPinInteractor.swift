@@ -27,6 +27,7 @@ public protocol QuickPinInteractor: Sendable {
   func changePin(currentPin: String, newPin: String) -> QuickPinPartialState
   func hasPin() -> Bool
   func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?)
+  func validatePinSecurity(_ pin: String) -> LocalizableStringKey?
 }
 
 final class QuickPinInteractorImpl: QuickPinInteractor {
@@ -52,9 +53,9 @@ final class QuickPinInteractorImpl: QuickPinInteractor {
       case .success:
         setPin(newPin: newPin)
         return pinValidationStatus
-      case .failure(let errorMessage, let attemptsRemaining):
+      case .failure:
         return pinValidationStatus
-      case .lockedOut(let lockoutEndTime):
+      case .lockedOut:
         return pinValidationStatus
     }
   }
@@ -78,5 +79,41 @@ final class QuickPinInteractorImpl: QuickPinInteractor {
 
   func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?) {
     pinStorageController.getLockoutStatus()
+  }
+
+  public func validatePinSecurity(_ pin: String) -> LocalizableStringKey? {
+
+    var error: LocalizableStringKey?
+
+    // All digits same (e.g. 000000, 111111)
+    let firstChar = pin.first!
+    if pin.allSatisfy({ $0 == firstChar }) {
+      error =  .quickPinErrorInsecurePin
+    }
+
+    // Sequential (ascending or descending, e.g. 123456 or 654321)
+    let digits = pin.compactMap { $0.wholeNumberValue }
+    if isSequential(digits: digits) {
+      error =  .quickPinErrorInsecurePin
+    }
+
+    // Palindrome (e.g. 123321, 255552, 456654, 159951)
+    if pin == String(pin.reversed()) {
+      error =  .quickPinErrorInsecurePin
+    }
+
+    return error
+  }
+
+  private func isSequential(digits: [Int]) -> Bool {
+    guard digits.count > 1 else { return false }
+
+    // Check ascending (e.g. 1,2,3,4...)
+    let isAscending = zip(digits, digits.dropFirst()).allSatisfy { $1 == $0 + 1 }
+
+    // Check descending (e.g. 6,5,4,3...)
+    let isDescending = zip(digits, digits.dropFirst()).allSatisfy { $1 == $0 - 1 }
+
+    return isAscending || isDescending
   }
 }

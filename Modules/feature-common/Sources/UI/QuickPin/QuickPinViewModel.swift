@@ -85,6 +85,9 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
     case .validate:
       onValidate()
     case .firstInput:
+      if !validateFirstPinSecurity(uiPinInputField) {
+        break
+      }
       setState {
         $0
           .copy(
@@ -153,7 +156,7 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
           .copy(pinError: nil)
       }
       uiPinInputField = ""
-    case .failure(let errorMessage, let attemptsRemaining):
+    case .failure(let errorMessage, _):
       setState {
         $0.copy(pinError: .custom(errorMessage))
       }
@@ -231,5 +234,16 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
         }
       }
     }
+  }
+
+  func validateFirstPinSecurity(_ pin: String) -> Bool {
+
+    if let error = interactor.validatePinSecurity(pin) {
+      setState {
+        $0.copy(pinError: error, isButtonActive: false)
+      }
+      return false
+    }
+    return true
   }
 }
