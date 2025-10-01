@@ -17,7 +17,8 @@ import logic_authentication
 
 public enum QuickPinPartialState: Sendable {
   case success
-  case failure(Error)
+  case failure(errorMessage: String, attemptsRemaining: Int)
+  case lockedOut(lockoutEndTime: TimeInterval)
 }
 
 public protocol QuickPinInteractor: Sendable {
@@ -25,6 +26,7 @@ public protocol QuickPinInteractor: Sendable {
   func isPinValid(pin: String) -> QuickPinPartialState
   func changePin(currentPin: String, newPin: String) -> QuickPinPartialState
   func hasPin() -> Bool
+  func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?)
 }
 
 final class QuickPinInteractorImpl: QuickPinInteractor {
@@ -40,19 +42,20 @@ final class QuickPinInteractorImpl: QuickPinInteractor {
   }
 
   public func isPinValid(pin: String) -> QuickPinPartialState {
-    if self.isCurrentPinValid(pin: pin) {
-      return .success
-    } else {
-      return .failure(AuthenticationError.quickPinInvalid)
-    }
+    isCurrentPinValid(pin: pin)
   }
 
   public func changePin(currentPin: String, newPin: String) -> QuickPinPartialState {
-    if self.isCurrentPinValid(pin: currentPin) {
-      self.setPin(newPin: newPin)
-      return .success
-    } else {
-      return .failure(AuthenticationError.quickPinInvalid)
+
+    let pinValidationStatus = isCurrentPinValid(pin: currentPin)
+    switch pinValidationStatus {
+      case .success:
+        setPin(newPin: newPin)
+        return pinValidationStatus
+      case .failure(let errorMessage, let attemptsRemaining):
+        return pinValidationStatus
+      case .lockedOut(let lockoutEndTime):
+        return pinValidationStatus
     }
   }
 
@@ -60,7 +63,20 @@ final class QuickPinInteractorImpl: QuickPinInteractor {
     return pinStorageController.retrievePin()?.isEmpty == false
   }
 
-  private func isCurrentPinValid(pin: String) -> Bool {
-    return pinStorageController.isPinValid(with: pin)
+  private func isCurrentPinValid(pin: String) -> QuickPinPartialState {
+    let pinValidStatus = pinStorageController.isPinValid(with: pin)
+    switch pinValidStatus {
+        case .success:
+        return .success
+      case .failed(let attemptsRemaining):
+        let errorMessage = attemptsRemaining > 1 ? LocalizableStringKey.quickPinInvalidWithAttempts(attemptsRemaining).toString :  LocalizableStringKey.quickPinInvalidLastAttempt.toString
+        return .failure(errorMessage: errorMessage, attemptsRemaining: attemptsRemaining)
+      case .lockedOut(let lockoutEndTimeInterval, _):
+        return .lockedOut(lockoutEndTime: lockoutEndTimeInterval)
+    }
+  }
+
+  func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?) {
+    pinStorageController.getLockoutStatus()
   }
 }

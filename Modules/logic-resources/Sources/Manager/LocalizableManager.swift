@@ -382,6 +382,16 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "passport_enrollment_intro_step4_title")
     case .passportEnrollmentIntroStep5Title:
       bundle.localizedString(forKey: "passport_enrollment_intro_step5_title")
+    case .quickPinInvalidWithAttempts(let arg):
+        bundle.localizedStringWithArguments(forKey: "quick_pin_invalid_with_attempts", arguments: [arg])
+    case .quickPinInvalidLastAttempt:
+        bundle.localizedString(forKey: "quick_pin_invalid_last_attempt")
+    case .quickPinLockedOut:
+        bundle.localizedString(forKey: "quick_pin_locked_out")
+    case .quickPinLockoutCountdownMinutes(let args):
+        bundle.localizedStringWithArguments(forKey: "quick_pin_lockout_countdown_minutes", arguments: args)
+    case .quickPinLockoutCountdownSeconds(let arg):
+        bundle.localizedStringWithArguments(forKey: "quick_pin_lockout_countdown_seconds", arguments: [arg])
     }
   }
 }

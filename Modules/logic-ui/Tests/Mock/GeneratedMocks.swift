@@ -3588,6 +3588,16 @@ errorType: Error.self,            superclassCall: Cuckoo.MockManager.crashOnProt
             defaultCall: await __defaultImplStub!.getCredentialsUsageCount(id: p0)
         )
     }
+    
+    public func deleteDepletedDocuments(ofType p0: DocumentTypeIdentifier) async throws -> Int {
+        return try await cuckoo_manager.callThrows(
+            "deleteDepletedDocuments(ofType p0: DocumentTypeIdentifier) async throws -> Int",
+            parameters: (p0),
+            escapingParameters: (p0),
+errorType: Error.self,            superclassCall: Cuckoo.MockManager.crashOnProtocolSuperclassCall(),
+            defaultCall: await __defaultImplStub!.deleteDepletedDocuments(ofType: p0)
+        )
+    }
 
     public struct __StubbingProxy_WalletKitController: Cuckoo.StubbingProxy {
         private let cuckoo_manager: Cuckoo.MockManager
@@ -3892,6 +3902,14 @@ errorType: Error.self,            superclassCall: Cuckoo.MockManager.crashOnProt
             let matchers: [Cuckoo.ParameterMatcher<(String)>] = [wrap(matchable: p0) { $0 }]
             return .init(stub: cuckoo_manager.createStub(for: MockWalletKitController.self,
                 method: "getCredentialsUsageCount(id p0: String) async throws -> CredentialsUsageCounts?",
+                parameterMatchers: matchers
+            ))
+        }
+        
+        func deleteDepletedDocuments<M1: Cuckoo.Matchable>(ofType p0: M1) -> Cuckoo.ProtocolStubThrowingFunction<(DocumentTypeIdentifier), Int,Error> where M1.MatchedType == DocumentTypeIdentifier {
+            let matchers: [Cuckoo.ParameterMatcher<(DocumentTypeIdentifier)>] = [wrap(matchable: p0) { $0 }]
+            return .init(stub: cuckoo_manager.createStub(for: MockWalletKitController.self,
+                method: "deleteDepletedDocuments(ofType p0: DocumentTypeIdentifier) async throws -> Int",
                 parameterMatchers: matchers
             ))
         }
@@ -4355,6 +4373,18 @@ errorType: Error.self,            superclassCall: Cuckoo.MockManager.crashOnProt
                 sourceLocation: sourceLocation
             )
         }
+        
+        
+        @discardableResult
+        func deleteDepletedDocuments<M1: Cuckoo.Matchable>(ofType p0: M1) -> Cuckoo.__DoNotUse<(DocumentTypeIdentifier), Int> where M1.MatchedType == DocumentTypeIdentifier {
+            let matchers: [Cuckoo.ParameterMatcher<(DocumentTypeIdentifier)>] = [wrap(matchable: p0) { $0 }]
+            return cuckoo_manager.verify(
+                "deleteDepletedDocuments(ofType p0: DocumentTypeIdentifier) async throws -> Int",
+                callMatcher: callMatcher,
+                parameterMatchers: matchers,
+                sourceLocation: sourceLocation
+            )
+        }
     }
 }
 
@@ -4514,6 +4544,10 @@ public class WalletKitControllerStub:WalletKitController, @unchecked Sendable {
     
     public func getCredentialsUsageCount(id p0: String) async throws -> CredentialsUsageCounts? {
         return DefaultValueRegistry.defaultValue(for: (CredentialsUsageCounts?).self)
+    }
+    
+    public func deleteDepletedDocuments(ofType p0: DocumentTypeIdentifier) async throws -> Int {
+        return DefaultValueRegistry.defaultValue(for: (Int).self)
     }
 }
 
@@ -5517,6 +5551,7 @@ import Cuckoo
 // MARK: - Mocks generated from file: '../Modules/logic-core/Sources/Extension/OfferedIssuanceModel+Extensions.swift'
 
 import Cuckoo
+import OpenID4VCI
 @testable import logic_core
 @testable import logic_business
 @testable import logic_analytics
@@ -6869,6 +6904,18 @@ import logic_resources
 
 import Cuckoo
 import PartialSheet
+import SwiftUI
+import logic_resources
+@testable import logic_core
+@testable import logic_business
+@testable import logic_analytics
+@testable import logic_ui
+
+
+
+// MARK: - Mocks generated from file: '../Modules/logic-ui/Sources/DesignSystem/Component/Splash/SplashBackgroundView.swift'
+
+import Cuckoo
 import SwiftUI
 import logic_resources
 @testable import logic_core

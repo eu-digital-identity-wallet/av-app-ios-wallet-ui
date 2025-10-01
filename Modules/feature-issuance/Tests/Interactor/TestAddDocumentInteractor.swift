@@ -421,7 +421,8 @@ final class TestAddDocumentInteractor: EudiTest {
       issuer: "Test Issuer",
       configId: "id",
       isPid: true,
-      docTypeIdentifier: .mDocPid
+      docTypeIdentifier: .mDocPid,
+      isAgeVerification: true
     )
 
     let scopedDocument2 = ScopedDocument(
@@ -429,7 +430,8 @@ final class TestAddDocumentInteractor: EudiTest {
       issuer: "Test Issuer",
       configId: "id",
       isPid: true,
-      docTypeIdentifier: .mDocPid
+      docTypeIdentifier: .mDocPid,
+      isAgeVerification: true
     )
 
     let scopedDocument3 = ScopedDocument(
@@ -437,7 +439,8 @@ final class TestAddDocumentInteractor: EudiTest {
       issuer: "Test Issuer",
       configId: "id",
       isPid: true,
-      docTypeIdentifier: .mDocPid
+      docTypeIdentifier: .mDocPid,
+      isAgeVerification: true
     )
 
     let scopedDocument4 = ScopedDocument(
@@ -445,7 +448,8 @@ final class TestAddDocumentInteractor: EudiTest {
       issuer: "Test Issuer",
       configId: "id",
       isPid: true,
-      docTypeIdentifier: .mDocPid
+      docTypeIdentifier: .mDocPid,
+      isAgeVerification: true
     )
 
     stubGetScopedDocumentsSuccess(with: [
@@ -504,6 +508,7 @@ private extension TestAddDocumentInteractor {
     stub(walletKitController) { stub in
       when(stub.issueDocument(identifier: equal(to: "deferred-doc"), docTypeIdentifier: equal(to: DocumentTypeIdentifier.init(rawValue: "eu.europa.ec.eudi.pid.1"))))
         .thenReturn(document)
+      when(stub.deleteDepletedDocuments(ofType: any())).thenReturn(0, 0)
     }
   }
   

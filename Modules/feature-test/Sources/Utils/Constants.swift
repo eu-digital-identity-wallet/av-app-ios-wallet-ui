@@ -124,7 +124,8 @@ extension Constants {
     issuer: "Test Issuer",
     configId: "test-config-id",
     isPid: true,
-    docTypeIdentifier: DocumentTypeIdentifier.mDocPid
+    docTypeIdentifier: DocumentTypeIdentifier.mDocPid,
+    isAgeVerification: true
   )
 
   static let scopedDocumentNotPid = ScopedDocument(
@@ -132,7 +133,8 @@ extension Constants {
     issuer: "Test Issuer",
     configId: "test-config-id",
     isPid: false,
-    docTypeIdentifier: DocumentTypeIdentifier.mDocPid
+    docTypeIdentifier: DocumentTypeIdentifier.mDocPid,
+    isAgeVerification: true
   )
 
   static let defferedPendingDocument = Document(

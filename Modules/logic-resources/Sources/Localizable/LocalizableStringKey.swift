@@ -214,6 +214,12 @@ public enum LocalizableStringKey: Equatable, Sendable {
   //generic
   case back
 
+  // Quick Pin ( BiometryView )
+  case quickPinInvalidWithAttempts(Int)
+  case quickPinInvalidLastAttempt
+  case quickPinLockedOut
+  case quickPinLockoutCountdownMinutes([Int])
+  case quickPinLockoutCountdownSeconds(Int)
 }
 
 public extension LocalizableStringKey {

@@ -3226,6 +3226,61 @@
         }
       }
     },
+    "quick_pin_invalid_last_attempt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid PIN. This is your last attempt before lockout."
+          }
+        }
+      }
+    },
+    "quick_pin_invalid_with_attempts" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid PIN. %d attempts remaining."
+          }
+        }
+      }
+    },
+    "quick_pin_locked_out" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Too many failed attempts. Please wait before trying again."
+          }
+        }
+      }
+    },
+    "quick_pin_lockout_countdown_minutes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Account locked. Try again in %d:%02d"
+          }
+        }
+      }
+    },
+    "quick_pin_lockout_countdown_seconds" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Account locked. Try again in %d seconds"
+          }
+        }
+      }
+    },
     "quick_pin_next_button" : {
       "extractionState" : "manual",
       "localizations" : {
