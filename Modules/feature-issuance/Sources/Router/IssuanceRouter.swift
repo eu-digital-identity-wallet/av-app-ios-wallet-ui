@@ -68,6 +68,12 @@ public final class IssuanceRouter {
           config: config
         )
       ).eraseToAnyView()
+    case .passportIntro:
+      PassportIntroView(
+        with: .init(
+          router: host
+        )
+      ).eraseToAnyView()
     }
   }
 }

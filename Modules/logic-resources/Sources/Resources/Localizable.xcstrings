@@ -103,6 +103,17 @@
         }
       }
     },
+    "back_button_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        }
+      }
+    },
     "batch_issuance_counter" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2610,6 +2621,28 @@
         }
       }
     },
+    "onboarding_verification_passport_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Short Description"
+          }
+        }
+      }
+    },
+    "onboarding_verification_passport_id" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passport or ID Card"
+          }
+        }
+      }
+    },
     "onboarding_verification_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2693,6 +2726,171 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ORDER BY"
+          }
+        }
+      }
+    },
+    "passport_enrollment_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Passport method is quick and secure! Scan your ID, take a photo, and record a short video—three steps for maximum safety and fraud protection."
+          }
+        }
+      }
+    },
+    "passport_enrollment_intro_step1_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capture a clear image of your Passport."
+          }
+        }
+      }
+    },
+    "passport_enrollment_intro_step1_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Take a Photo of the Passport"
+          }
+        }
+      }
+    },
+    "passport_enrollment_intro_step2_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Place your Passport on your smartphone to read the data"
+          }
+        }
+      }
+    },
+    "passport_enrollment_intro_step2_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Read in your Passport"
+          }
+        }
+      }
+    },
+    "passport_enrollment_intro_step3_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Film yourself for identity verification."
+          }
+        }
+      }
+    },
+    "passport_enrollment_intro_step3_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Record a video of yourself"
+          }
+        }
+      }
+    },
+    "passport_enrollment_intro_step4_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consent"
+          }
+        }
+      }
+    },
+    "passport_enrollment_intro_step5_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Issuing of the Proof of Age Attestation"
+          }
+        }
+      }
+    },
+    "passport_enrollment_step1_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identification"
+          }
+        }
+      }
+    },
+    "passport_enrollment_step2_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Biometrics"
+          }
+        }
+      }
+    },
+    "passport_enrollment_step3_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Live Video"
+          }
+        }
+      }
+    },
+    "passpost_enrollment_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Passport method is quick and secure! Scan your ID, take a photo, and record a short video—three steps for maximum safety and fraud protection."
+          }
+        }
+      }
+    },
+    "passpost_enrollment_header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Age Verification Enrollment Method"
+          }
+        }
+      }
+    },
+    "passpost_enrollment_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passport or ID Card"
           }
         }
       }
@@ -4332,6 +4530,17 @@
         }
       }
     },
+    "start_procedure" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Procedure"
+          }
+        }
+      }
+    },
     "success" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -4398,6 +4607,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hai condiviso correttamente le seguenti informazioni con"
+          }
+        }
+      }
+    },
+    "take_a_photo_button_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Take a Photo"
           }
         }
       }
