@@ -28,10 +28,6 @@ final class PassportIntroViewModel<Router: RouterHost>: ViewModel<Router, Passpo
   }
 
   func startProcedureButtonTapped() {
-    router.push(with:
-        .featureIssuanceModule(
-          .passportEnrollmentInstruction
-        )
-    )
+
   }
 }
