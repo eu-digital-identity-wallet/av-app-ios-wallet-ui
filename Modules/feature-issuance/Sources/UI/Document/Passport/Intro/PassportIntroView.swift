@@ -32,7 +32,7 @@ private func content(
 ) -> some View {
   ScrollView {
     VStack(alignment: .leading, spacing: .zero) {
-      VSpacer.custom(size: 80.0)
+      VSpacer.largeMedium()
       HStack {
         Spacer()
         Theme.shared.image.passportCard
@@ -49,18 +49,17 @@ private func content(
       VSpacer.extraSmall()
       Text(LocalizableStringKey.passpostEnrollmentTitle.toString)
         .typography(Theme.shared.font.labelLarge)
-        .foregroundStyle(Theme.shared.color.black)
 
       VSpacer.largeMedium()
       Text(LocalizableStringKey.passpostEnrollmentDescription.toString)
         .typography(Theme.shared.font.bodyLarge)
-        .foregroundStyle(Theme.shared.color.black)
 
       VSpacer.largeMedium()
       passportEnrollmentStepsView(viewState: viewState)
     }
     .padding(.horizontal, 16)
   }
+  VSpacer.extraLarge()
   HStack {
     WrapButtonView(
       style: .secondary,
@@ -68,14 +67,12 @@ private func content(
       isLoading: false,
       onAction: onBackButtonTapped()
     )
-    .padding(.horizontal, SPACING_SMALL)
     WrapButtonView(
       style: .primary,
       title: LocalizableStringKey.startProcedure,
       isLoading: false,
       onAction: onStartProcedureTapped()
     )
-    .padding(.horizontal, SPACING_SMALL)
   }
   .frame(maxWidth: .infinity)
   .padding(.horizontal, Theme.shared.dimension.padding)
@@ -91,12 +88,10 @@ private func passportEnrollmentStepsView(viewState: PassportIntroViewState) -> s
       VStack(alignment: .leading, spacing: 4) {
         Text("\(index + 1). \(step.0.toString)")
           .typography(Theme.shared.font.headlineMedium)
-          .foregroundColor(.primary)
 
         if let description = step.1 {
           Text(description.toString)
             .typography(Theme.shared.font.bodyLarge)
-            .foregroundColor(Theme.shared.color.black)
             .fixedSize(horizontal: false, vertical: true)
             .padding(.leading)
         }
