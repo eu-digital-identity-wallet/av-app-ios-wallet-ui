@@ -59,24 +59,28 @@ private func content(
       VSpacer.largeMedium()
       passportEnrollmentStepsView(viewState: viewState)
     }
-    .padding([.leading, .trailing], 16)
+    .padding(.horizontal, 16)
   }
-  // Bottom Button Container
-  VStack(spacing: 0) {
-    ButtonContainer(
-      secondaryTitle: LocalizableStringKey.back,
-      primaryTitle: LocalizableStringKey.startProcedure,
-      secondaryAction: {
-        onBackButtonTapped()
-      },
-      primaryAction: {
-        onStartProcedureTapped()
-      }
+  HStack {
+    WrapButtonView(
+      style: .secondary,
+      title: LocalizableStringKey.back,
+      isLoading: false,
+      onAction: onBackButtonTapped()
     )
-    .padding(.horizontal, 20)
-    .padding(.vertical, 16)
-    .padding(.bottom, 64)
+    .padding(.horizontal, SPACING_SMALL)
+    WrapButtonView(
+      style: .primary,
+      title: LocalizableStringKey.startProcedure,
+      isLoading: false,
+      onAction: onStartProcedureTapped()
+    )
+    .padding(.horizontal, SPACING_SMALL)
   }
+  .frame(maxWidth: .infinity)
+  .padding(.horizontal, Theme.shared.dimension.padding)
+  .padding(.bottom, 64)
+
 }
 
 @MainActor
