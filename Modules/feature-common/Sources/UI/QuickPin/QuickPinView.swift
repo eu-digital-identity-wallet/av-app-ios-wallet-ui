@@ -61,7 +61,8 @@ private func content(
   onButtonClick: @escaping () -> Void
 ) -> some View {
     ScrollView {
-        OnboardingTabsView(selectedIndex: 2)
+      OnboardingTabsView(steps: OboardingSteps.allCases,
+                           selectedIndex: 2)
         VStack(alignment: .leading, spacing: .zero) {
             VSpacer.small()
             Text(viewState.step == QuickPinStep.firstInput ? LocalizableStringKey.quickPinCreateTitle.toString : LocalizableStringKey.quickPinReEnterTitle.toString)

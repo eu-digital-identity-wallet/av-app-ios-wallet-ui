@@ -34,7 +34,8 @@ struct ConsentView<Router: RouterHost>: View {
 @ViewBuilder
 private func content(state: ConsentViewState, onNext: @escaping () -> Void, onTermsChanged: @escaping (Bool) -> Void, onDataProtectionChanged: @escaping (Bool) -> Void) -> some View {
     VStack {
-        OnboardingTabsView(selectedIndex: 1)
+      OnboardingTabsView(steps: OboardingSteps.allCases,
+                          selectedIndex: 1)
         VStack(alignment: .leading) {
             Text(LocalizableStringKey.consentTitle.toString)
                 .font(Theme.shared.font.titleMedium.font)

@@ -9,13 +9,34 @@ import SwiftUI
 import logic_resources
 import logic_core
 
-enum OboardingSteps: Equatable {
+public protocol Steps {
+  var localizedKey: LocalizableStringKey { get }
+}
+
+public enum PassportEnrollmentSteps: Steps, Equatable, CaseIterable {
+  case identification
+  case biometrics
+  case liveVideo
+
+  public var localizedKey: LocalizableStringKey {
+    switch self {
+    case .identification:
+      return LocalizableStringKey.passportEnrollmentIdentification
+    case .biometrics:
+      return LocalizableStringKey.passportEnrollmentBiometrics
+    case .liveVideo:
+      return LocalizableStringKey.passportEnrollmentLiveVideo
+    }
+  }
+}
+
+public enum OboardingSteps: Steps, Equatable, CaseIterable {
     case welcome
     case consent
     case pin
     case enrollment
 
-    var localizedKey: LocalizableStringKey {
+  public var localizedKey: LocalizableStringKey {
         switch self {
         case .welcome:
             return .onboardingStepWelcome
@@ -30,11 +51,13 @@ enum OboardingSteps: Equatable {
 }
 
 public struct OnboardingTabsView: View {
-    let steps: [OboardingSteps] = [.welcome, .consent, .pin, .enrollment]
+    let steps: [Steps]
     var selectedIndex: Int = 0
 
-    public init(selectedIndex: Int = 0) {
-        self.selectedIndex = selectedIndex
+  public init(steps: [Steps],
+              selectedIndex: Int = 0) {
+    self.selectedIndex = selectedIndex
+    self.steps = steps
     }
 
     public var body: some View {

@@ -98,6 +98,7 @@ public enum FeatureIssuanceRouteModule: AppRouteModule {
   case credentialOfferRequest(config: any UIConfigType)
   case issuanceCode(config: any UIConfigType)
   case passportIntro
+  case passportEnrollmentInstruction
 
   public var info: (key: String, arguments: [String: String]) {
     return switch self {
@@ -111,6 +112,8 @@ public enum FeatureIssuanceRouteModule: AppRouteModule {
       (key: "CredentialOfferRequest", arguments: ["config": config.log])
     case .passportIntro:
       (key: "PassportIntro", arguments: [:])
+    case .passportEnrollmentInstruction:
+      (key: "PassportEnrollmentInstruction", arguments: [:])
     }
   }
 }

@@ -40,7 +40,8 @@ private func content(state: WelcomeViewState,
                      onNext: @escaping () -> Void) -> some View {
 
     VStack {
-        OnboardingTabsView(selectedIndex: 0)
+      OnboardingTabsView(steps: OboardingSteps.allCases,
+                         selectedIndex: 0)
         WelcomeInfoCarousel()
         Spacer()
         WrapButtonView(

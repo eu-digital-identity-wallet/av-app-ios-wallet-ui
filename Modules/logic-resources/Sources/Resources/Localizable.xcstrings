@@ -2741,6 +2741,61 @@
         }
       }
     },
+    "passport_enrollment_instruction_body1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For this step, simply capture a clear photo of your passport. Make sure:"
+          }
+        }
+      }
+    },
+    "passport_enrollment_instruction_body2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We take an identification code from this passport to get access to the machine readable part of the passport."
+          }
+        }
+      }
+    },
+    "passport_enrollment_instruction_header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Take a Photo of your Passport"
+          }
+        }
+      }
+    },
+    "passport_enrollment_instruction_point1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The entire passport is visible and  well-lit."
+          }
+        }
+      }
+    },
+    "passport_enrollment_instruction_point2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No reflections or blurriness obscure  the details."
+          }
+        }
+      }
+    },
     "passport_enrollment_intro_step1_description" : {
       "extractionState" : "manual",
       "localizations" : {

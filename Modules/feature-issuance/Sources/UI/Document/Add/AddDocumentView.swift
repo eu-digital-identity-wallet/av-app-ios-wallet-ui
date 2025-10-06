@@ -40,7 +40,8 @@ struct AddDocumentView<Router: RouterHost>: View {
       toolbarContent: viewModel.toolbarContent()
     ) {
       if !(viewModel.viewState.config.isExtraDocumentFlow == true) {
-        OnboardingTabsView(selectedIndex: 3)
+        OnboardingTabsView(steps: OboardingSteps.allCases,
+                            selectedIndex: 3)
       }
       content(viewState: viewModel.viewState) { configId, identifier in
         viewModel.onClick(configId: configId, docTypeIdentifier: identifier)

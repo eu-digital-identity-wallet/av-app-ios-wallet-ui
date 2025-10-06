@@ -173,14 +173,11 @@ public enum LocalizableStringKey: Equatable, Sendable {
   // Passport Enrollment
   case verificationPassport
   case verificationPassportDescription
+
+  // Passport Enrollment Intro
   case passpostEnrollmentHeader
   case passpostEnrollmentTitle
   case passpostEnrollmentDescription
-  case startProcedure
-  case passportEnrollmentIdentification
-  case passportEnrollmentBiometrics
-  case passportEnrollmentLiveVideo
-  case takeAPhoto
   case passportEnrollmentIntroStep1Description
   case passportEnrollmentIntroStep1Title
   case passportEnrollmentIntroStep2Description
@@ -189,6 +186,18 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case passportEnrollmentIntroStep3Title
   case passportEnrollmentIntroStep4Title
   case passportEnrollmentIntroStep5Title
+  case startProcedure
+
+  // Passport Enrollment Instruction
+  case passportEnrollmentIdentification
+  case passportEnrollmentBiometrics
+  case passportEnrollmentLiveVideo
+  case takeAPhoto
+  case passportEnrollmentInstructionHeader
+  case passportEnrollmentInstructionBody1
+  case passportEnrollmentInstructionPoint1
+  case passportEnrollmentInstructionPoint2
+  case passportEnrollmentInstructionBody2
 
   // Landing screen
   case landingScreenTitle

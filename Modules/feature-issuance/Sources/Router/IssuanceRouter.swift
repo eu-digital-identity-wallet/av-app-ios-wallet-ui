@@ -74,6 +74,12 @@ public final class IssuanceRouter {
           router: host
         )
       ).eraseToAnyView()
+    case .passportEnrollmentInstruction:
+      PassportEnrollmentInstructionView(
+        with: .init(
+          router: host
+        )
+      ).eraseToAnyView()
     }
   }
 }
