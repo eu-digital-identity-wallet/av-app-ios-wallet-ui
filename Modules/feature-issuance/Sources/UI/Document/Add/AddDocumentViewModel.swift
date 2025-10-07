@@ -107,7 +107,15 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
   }
 
   func onClick(configId: String, docTypeIdentifier: DocumentTypeIdentifier) {
-    issueDocument(configId: configId, docTypeIdentifier: docTypeIdentifier)
+    switch docTypeIdentifier {
+    case .other(let format):
+      if format == "passport" {
+        print("passport tapped")
+        router.push(with: .featureIssuanceModule(.passportIntro))
+      }
+    default:
+      issueDocument(configId: configId, docTypeIdentifier: docTypeIdentifier)
+    }
   }
 
   func onScanClick() {

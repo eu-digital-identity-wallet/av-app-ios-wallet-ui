@@ -124,5 +124,8 @@ struct CameraPreview: UIViewRepresentable {
 }
 
 #Preview {
-
+  let viewState = CameraViewState(camera: CameraModel())
+  content(viewState: viewState,
+          camera: viewState.camera,
+          onBackButtonTapped: {})
 }
