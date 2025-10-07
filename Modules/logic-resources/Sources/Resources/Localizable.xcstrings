@@ -2730,6 +2730,17 @@
         }
       }
     },
+    "passport_capture_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Align the Passport or ID Card in the frame"
+          }
+        }
+      }
+    },
     "passport_enrollment_description" : {
       "extractionState" : "manual",
       "localizations" : {

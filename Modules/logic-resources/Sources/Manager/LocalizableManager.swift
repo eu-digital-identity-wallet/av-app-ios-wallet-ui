@@ -402,6 +402,8 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "passport_enrollment_instruction_point2")
     case .passportEnrollmentInstructionBody2:
       bundle.localizedString(forKey: "passport_enrollment_instruction_body2")
+    case .passportCaptureDescription:
+      bundle.localizedString(forKey: "passport_capture_description")
     }
   }
 }

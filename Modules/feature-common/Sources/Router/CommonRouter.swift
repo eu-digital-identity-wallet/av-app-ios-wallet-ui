@@ -68,6 +68,13 @@ public final class CommonRouter {
         )
       )
       .eraseToAnyView()
+    case .camera:
+      CameraView(
+        with: .init(
+          router: host
+        )
+      )
+      .eraseToAnyView()
     }
   }
 }

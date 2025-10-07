@@ -37,6 +37,7 @@ public enum FeatureCommonRouteModule: AppRouteModule {
   case biometry(config: any UIConfigType)
   case genericSuccess(config: any UIConfigType)
   case biometrySetup(config: any UIConfigType)
+  case camera
 
   public var info: (key: String, arguments: [String: String]) {
     return switch self {
@@ -50,6 +51,8 @@ public enum FeatureCommonRouteModule: AppRouteModule {
       (key: "QRScanner", arguments: ["config": config.log])
     case .biometrySetup(let config):
       (key: "BiometrySetup", arguments: ["config": config.log])
+    case .camera:
+      (key: "Camera", arguments: [:])
     }
   }
 }

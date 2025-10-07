@@ -24,6 +24,6 @@ final class PassportEnrollmentInstructionViewModel<Router: RouterHost>: ViewMode
   }
 
   func takeAPhotoTapped() {
-    router.push(with: .featureCommonModule(.qrScanner(config: ScannerUiConfig(flow: .presentation))))
+    router.push(with: .featureCommonModule(.camera))
   }
 }
