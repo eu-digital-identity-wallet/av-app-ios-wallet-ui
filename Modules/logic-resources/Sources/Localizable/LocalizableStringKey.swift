@@ -170,6 +170,26 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case verificationNationalId
   case verificationNationalIdDescription
 
+  // Passport Enrollment
+  case verificationPassport
+  case verificationPassportDescription
+  case passpostEnrollmentHeader
+  case passpostEnrollmentTitle
+  case passpostEnrollmentDescription
+  case startProcedure
+  case passportEnrollmentIdentification
+  case passportEnrollmentBiometrics
+  case passportEnrollmentLiveVideo
+  case takeAPhoto
+  case passportEnrollmentIntroStep1Description
+  case passportEnrollmentIntroStep1Title
+  case passportEnrollmentIntroStep2Description
+  case passportEnrollmentIntroStep2Title
+  case passportEnrollmentIntroStep3Description
+  case passportEnrollmentIntroStep3Title
+  case passportEnrollmentIntroStep4Title
+  case passportEnrollmentIntroStep5Title
+
   // Landing screen
   case landingScreenTitle
   case landingScreenbody
@@ -190,6 +210,9 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case settingsAppVersion
   case settingsCredentials
   case settingsDeleteCredentials
+
+  //generic
+  case back
 
   // Quick Pin ( BiometryView )
   case quickPinInvalidWithAttempts(Int)

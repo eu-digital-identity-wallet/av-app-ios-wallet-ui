@@ -79,6 +79,7 @@ public protocol ImageManagerProtocol: Sendable {
   var euCredentialLogo: Image { get }
   var _18PlusLogo: Image { get }
   var scanButton: Image { get }
+  var passportCard: Image { get }
 }
 
 final class ImageManager: ImageManagerProtocol {
@@ -146,6 +147,7 @@ final class ImageManager: ImageManagerProtocol {
     case euCredentialLogo = "eu-credential"
     case _18PlusLogo = "18plus_Logo"
     case scanButton = "scanButton"
+    case passportCard = "passport"
   }
 
   // MARK: - Properties
@@ -345,5 +347,8 @@ final class ImageManager: ImageManagerProtocol {
   }
   var scanButton: Image {
     Image(ImageEnum.scanButton.rawValue, bundle: bundle)
+  }
+  var passportCard: Image {
+    Image(ImageEnum.passportCard.rawValue, bundle: bundle)
   }
 }

@@ -314,6 +314,16 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "onboarding_verification_national_id")
     case .verificationNationalIdDescription:
         bundle.localizedString(forKey: "onboarding_verification_national_id_description")
+    case .verificationPassport:
+        bundle.localizedString(forKey: "onboarding_verification_passport_id")
+    case .verificationPassportDescription:
+      bundle.localizedString(forKey: "onboarding_verification_passport_description")
+    case .passpostEnrollmentHeader:
+      bundle.localizedString(forKey: "passpost_enrollment_header")
+    case .passpostEnrollmentTitle:
+      bundle.localizedString(forKey: "passpost_enrollment_title")
+    case .passpostEnrollmentDescription:
+      bundle.localizedString(forKey: "passpost_enrollment_description")
     case .landingScreenTitle:
         bundle.localizedString(forKey: "landing_screen_title")
     case .landingScreenbody:
@@ -344,6 +354,34 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "settings_credentials")
     case .settingsDeleteCredentials:
         bundle.localizedString(forKey: "settings_delete_credentials")
+    case .back:
+      bundle.localizedString(forKey: "back_button_title")
+    case .startProcedure:
+      bundle.localizedString(forKey: "start_procedure")
+    case .passportEnrollmentIdentification:
+      bundle.localizedString(forKey: "passport_enrollment_step1_title")
+    case .passportEnrollmentBiometrics:
+      bundle.localizedString(forKey: "passport_enrollment_step2_title")
+    case .passportEnrollmentLiveVideo:
+      bundle.localizedString(forKey: "passport_enrollment_step3_title")
+    case .takeAPhoto:
+      bundle.localizedString(forKey: "take_a_photo_button_title")
+    case .passportEnrollmentIntroStep1Description:
+      bundle.localizedString(forKey: "passport_enrollment_intro_step1_description")
+    case .passportEnrollmentIntroStep1Title:
+      bundle.localizedString(forKey: "passport_enrollment_intro_step1_title")
+    case .passportEnrollmentIntroStep2Description:
+      bundle.localizedString(forKey: "passport_enrollment_intro_step2_description")
+    case .passportEnrollmentIntroStep2Title:
+      bundle.localizedString(forKey: "passport_enrollment_intro_step2_title")
+    case .passportEnrollmentIntroStep3Description:
+      bundle.localizedString(forKey: "passport_enrollment_intro_step3_description")
+    case .passportEnrollmentIntroStep3Title:
+      bundle.localizedString(forKey: "passport_enrollment_intro_step3_title")
+    case .passportEnrollmentIntroStep4Title:
+      bundle.localizedString(forKey: "passport_enrollment_intro_step4_title")
+    case .passportEnrollmentIntroStep5Title:
+      bundle.localizedString(forKey: "passport_enrollment_intro_step5_title")
     case .quickPinInvalidWithAttempts(let arg):
         bundle.localizedStringWithArguments(forKey: "quick_pin_invalid_with_attempts", arguments: [arg])
     case .quickPinInvalidLastAttempt:
