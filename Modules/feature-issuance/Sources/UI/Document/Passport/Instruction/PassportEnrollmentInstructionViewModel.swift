@@ -24,6 +24,6 @@ final class PassportEnrollmentInstructionViewModel<Router: RouterHost>: ViewMode
   }
 
   func takeAPhotoTapped() {
-    router.push(with: .featureCommonModule(.camera))
+    // TODO: take user to passport scanning screen
   }
 }

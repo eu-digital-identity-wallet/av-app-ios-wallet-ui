@@ -105,22 +105,3 @@ private func pointsSection(viewState: PassportEnrollmentInstructionViewState) ->
   }
   .padding(.horizontal)
 }
-
-//HStack(alignment: .firstTextBaseline) {
-//
-//  Text("•")
-//    .typography(Theme.shared.font.bodyLarge)
-//    .multilineTextAlignment(.leading)
-//  Text("The entire passport is visible and well-lit.")
-//    .typography(Theme.shared.font.bodyLarge)
-//    .multilineTextAlignment(.leading)
-//}
-//
-//VSpacer.small()
-//HStack(alignment: .firstTextBaseline) {
-//  Text("•")
-//    .typography(Theme.shared.font.bodyLarge)
-//  Text("No reflections or blurriness obscure the details.")
-//    .typography(Theme.shared.font.bodyLarge)
-//    .multilineTextAlignment(.leading)
-//}
