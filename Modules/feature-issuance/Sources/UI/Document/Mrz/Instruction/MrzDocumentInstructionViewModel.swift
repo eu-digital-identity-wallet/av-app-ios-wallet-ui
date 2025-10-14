@@ -4,12 +4,12 @@ import logic_resources
 import feature_common
 
 @Copyable
-struct PassportEnrollmentInstructionViewState: ViewState {
+struct MrzDocumentInstructionViewState: ViewState {
   let instructionPoints: [String]
 
 }
 
-final class PassportEnrollmentInstructionViewModel<Router: RouterHost>: ViewModel<Router, PassportEnrollmentInstructionViewState> {
+final class MrzDocumentInstructionViewModel<Router: RouterHost>: ViewModel<Router, MrzDocumentInstructionViewState> {
   init(
     router: Router
   ) {

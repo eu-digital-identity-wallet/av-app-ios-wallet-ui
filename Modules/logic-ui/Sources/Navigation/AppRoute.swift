@@ -97,8 +97,8 @@ public enum FeatureIssuanceRouteModule: AppRouteModule {
   case issuanceSuccess(config: any UIConfigType, requestItems: [any Routable])
   case credentialOfferRequest(config: any UIConfigType)
   case issuanceCode(config: any UIConfigType)
-  case passportIntro
-  case passportEnrollmentInstruction
+  case mrzDocumentIntro
+  case mrzDocumentInstruction
 
   public var info: (key: String, arguments: [String: String]) {
     return switch self {
@@ -110,10 +110,10 @@ public enum FeatureIssuanceRouteModule: AppRouteModule {
       (key: "IssuanceCode", arguments: ["config": config.log])
     case .credentialOfferRequest(let config):
       (key: "CredentialOfferRequest", arguments: ["config": config.log])
-    case .passportIntro:
-      (key: "PassportIntro", arguments: [:])
-    case .passportEnrollmentInstruction:
-      (key: "PassportEnrollmentInstruction", arguments: [:])
+    case .mrzDocumentIntro:
+      (key: "MRZDocumentIntro", arguments: [:])
+    case .mrzDocumentInstruction:
+      (key: "MRZDocumentInstruction", arguments: [:])
     }
   }
 }

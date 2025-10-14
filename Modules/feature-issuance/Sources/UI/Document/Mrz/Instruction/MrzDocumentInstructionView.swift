@@ -3,10 +3,10 @@ import logic_ui
 import logic_resources
 import feature_common
 
-struct PassportEnrollmentInstructionView<Router: RouterHost>: View {
-  @StateObject private var viewModel: PassportEnrollmentInstructionViewModel<Router>
+struct MrzDocumentInstructionView<Router: RouterHost>: View {
+  @StateObject private var viewModel: MrzDocumentInstructionViewModel<Router>
 
-  init(with viewModel: PassportEnrollmentInstructionViewModel<Router>) {
+  init(with viewModel: MrzDocumentInstructionViewModel<Router>) {
     self._viewModel = StateObject(wrappedValue: viewModel)
   }
     var body: some View {
@@ -24,7 +24,7 @@ struct PassportEnrollmentInstructionView<Router: RouterHost>: View {
 @MainActor
 @ViewBuilder
 private func content(
-  viewState: PassportEnrollmentInstructionViewState,
+  viewState: MrzDocumentInstructionViewState,
   onBackButtonTapped: @escaping () -> Void,
   onTakeAPhotoTapped: @escaping () -> Void
 ) -> some View {
@@ -80,7 +80,7 @@ private func content(
 }
 
 #Preview {
-  let viewState = PassportEnrollmentInstructionViewState(instructionPoints: [])
+  let viewState = MrzDocumentInstructionViewState(instructionPoints: [])
   content(viewState: viewState,
           onBackButtonTapped: {},
           onTakeAPhotoTapped: {})
@@ -88,7 +88,7 @@ private func content(
 
 @MainActor
 @ViewBuilder
-private func pointsSection(viewState: PassportEnrollmentInstructionViewState) -> some View {
+private func pointsSection(viewState: MrzDocumentInstructionViewState) -> some View {
   VStack(alignment: .leading, spacing: .zero) {
 
     ForEach(viewState.instructionPoints, id: \.self) { point in

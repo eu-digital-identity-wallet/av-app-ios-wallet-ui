@@ -110,8 +110,7 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
     switch docTypeIdentifier {
     case .other(let format):
       if format == "passport" {
-        print("passport tapped")
-        router.push(with: .featureIssuanceModule(.passportIntro))
+        router.push(with: .featureIssuanceModule(.mrzDocumentIntro))
       }
     default:
       issueDocument(configId: configId, docTypeIdentifier: docTypeIdentifier)

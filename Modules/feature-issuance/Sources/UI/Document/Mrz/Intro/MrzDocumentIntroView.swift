@@ -4,10 +4,10 @@ import feature_common
 import logic_resources
 import logic_core
 
-struct PassportIntroView<Router: RouterHost>: View {
-  @StateObject private var viewModel: PassportIntroViewModel<Router>
+struct MrzDocumentIntroView<Router: RouterHost>: View {
+  @StateObject private var viewModel: MrzDocumentIntroViewModel<Router>
 
-  init(with viewModel: PassportIntroViewModel<Router>) {
+  init(with viewModel: MrzDocumentIntroViewModel<Router>) {
     self._viewModel = StateObject(wrappedValue: viewModel)
   }
 
@@ -26,7 +26,7 @@ struct PassportIntroView<Router: RouterHost>: View {
 @MainActor
 @ViewBuilder
 private func content(
-  viewState: PassportIntroViewState,
+  viewState: MrzDocumentIntroViewState,
   onBackButtonTapped: @escaping () -> Void,
   onStartProcedureTapped: @escaping () -> Void
 ) -> some View {
@@ -82,7 +82,7 @@ private func content(
 
 @MainActor
 @ViewBuilder
-private func passportEnrollmentStepsView(viewState: PassportIntroViewState) -> some View {
+private func passportEnrollmentStepsView(viewState: MrzDocumentIntroViewState) -> some View {
   VStack(alignment: .leading, spacing: 20.0) {
     ForEach(Array(viewState.steps.enumerated()), id: \.offset) { index, step in
       VStack(alignment: .leading, spacing: 4) {
@@ -101,7 +101,7 @@ private func passportEnrollmentStepsView(viewState: PassportIntroViewState) -> s
 }
 
 #Preview {
-  let viewState = PassportIntroViewState(
+  let viewState = MrzDocumentIntroViewState(
     steps: [(LocalizableStringKey.passportEnrollmentIntroStep1Title, LocalizableStringKey.passportEnrollmentIntroStep1Description),
             (LocalizableStringKey.passportEnrollmentIntroStep2Title, LocalizableStringKey.passportEnrollmentIntroStep2Description),
             (LocalizableStringKey.passportEnrollmentIntroStep3Title, LocalizableStringKey.passportEnrollmentIntroStep3Description),
