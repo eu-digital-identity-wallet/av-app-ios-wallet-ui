@@ -1,5 +1,5 @@
 //
-//  OboardingSteps.swift
+//  Onboardingsteps.swift
 //  feature-onboarding
 //
 //  Created by Bharat Jagtap on 28/05/25.
@@ -30,7 +30,7 @@ public enum PassportEnrollmentSteps: Steps, Equatable, CaseIterable {
   }
 }
 
-public enum OboardingSteps: Steps, Equatable, CaseIterable {
+public enum Onboardingsteps: Steps, Equatable, CaseIterable {
     case welcome
     case consent
     case pin

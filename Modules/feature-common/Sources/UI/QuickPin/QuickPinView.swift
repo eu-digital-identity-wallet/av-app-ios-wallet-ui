@@ -61,7 +61,7 @@ private func content(
   onButtonClick: @escaping () -> Void
 ) -> some View {
     ScrollView {
-      OnboardingTabsView(steps: OboardingSteps.allCases,
+      OnboardingTabsView(steps: Onboardingsteps.allCases,
                            selectedIndex: 2)
         VStack(alignment: .leading, spacing: .zero) {
             VSpacer.small()

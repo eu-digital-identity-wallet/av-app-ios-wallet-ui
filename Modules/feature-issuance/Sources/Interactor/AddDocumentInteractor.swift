@@ -70,7 +70,6 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
                 configId: doc.configId,
                 docTypeIdentifier: doc.docTypeIdentifier
               )
-//          return nil
         }
       }.sorted(by: compare)
       return .success(documents)
