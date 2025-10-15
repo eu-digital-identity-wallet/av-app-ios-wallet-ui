@@ -68,8 +68,14 @@ public final class IssuanceRouter {
           config: config
         )
       ).eraseToAnyView()
-    case .passportIntro:
-      PassportIntroView(
+    case .mrzDocumentIntro:
+      MrzDocumentIntroView(
+        with: .init(
+          router: host
+        )
+      ).eraseToAnyView()
+    case .mrzDocumentInstruction:
+      MrzDocumentInstructionView(
         with: .init(
           router: host
         )

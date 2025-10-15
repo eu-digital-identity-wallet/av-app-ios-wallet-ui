@@ -48,7 +48,8 @@ private func content(
   onOkButtonClick: @escaping () -> Void,
   onSkipButtonClick: @escaping () -> Void
 ) -> some View {
-  OnboardingTabsView(selectedIndex: 2)
+  OnboardingTabsView(steps: Onboardingsteps.allCases,
+                     selectedIndex: 2)
   VStack(alignment: .leading, spacing: .zero) {
     VSpacer.small()
     Text(viewState.title)

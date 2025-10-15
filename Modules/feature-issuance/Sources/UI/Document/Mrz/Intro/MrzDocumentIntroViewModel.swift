@@ -4,11 +4,11 @@ import logic_resources
 import feature_common
 
 @Copyable
-struct PassportIntroViewState: ViewState {
+struct MrzDocumentIntroViewState: ViewState {
   let steps: [(LocalizableStringKey, LocalizableStringKey?)]
 }
 
-final class PassportIntroViewModel<Router: RouterHost>: ViewModel<Router, PassportIntroViewState> {
+final class MrzDocumentIntroViewModel<Router: RouterHost>: ViewModel<Router, MrzDocumentIntroViewState> {
   init(
     router: Router
   ) {
@@ -28,6 +28,7 @@ final class PassportIntroViewModel<Router: RouterHost>: ViewModel<Router, Passpo
   }
 
   func startProcedureButtonTapped() {
+    router.push(with: .featureIssuanceModule(.mrzDocumentInstruction))
 
   }
 }

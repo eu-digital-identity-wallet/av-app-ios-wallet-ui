@@ -2730,6 +2730,17 @@
         }
       }
     },
+    "passport_capture_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Align the Passport or ID Card in the frame"
+          }
+        }
+      }
+    },
     "passport_enrollment_description" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2737,6 +2748,61 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "The Passport method is quick and secure! Scan your ID, take a photo, and record a short video—three steps for maximum safety and fraud protection."
+          }
+        }
+      }
+    },
+    "passport_enrollment_instruction_body1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For this step, simply capture a clear photo of your passport. Make sure:"
+          }
+        }
+      }
+    },
+    "passport_enrollment_instruction_body2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We take an identification code from this passport to get access to the machine readable part of the passport."
+          }
+        }
+      }
+    },
+    "passport_enrollment_instruction_header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Take a Photo of your Passport"
+          }
+        }
+      }
+    },
+    "passport_enrollment_instruction_point1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The entire passport is visible and  well-lit."
+          }
+        }
+      }
+    },
+    "passport_enrollment_instruction_point2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No reflections or blurriness obscure  the details."
           }
         }
       }
