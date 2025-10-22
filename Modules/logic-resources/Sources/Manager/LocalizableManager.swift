@@ -404,6 +404,30 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "passport_enrollment_instruction_body2")
     case .passportCaptureDescription:
       bundle.localizedString(forKey: "passport_capture_description")
+    case .processingDocument:
+      bundle.localizedString(forKey: "processing_document")
+    case .mrzDocumentReady:
+      bundle.localizedString(forKey: "mrz_document_ready")
+    case .mrzScanning:
+      bundle.localizedString(forKey: "mrz_scanning")
+    case .mrzPlaceDocumentInFrame:
+      bundle.localizedString(forKey: "mrz_place_document_in_frame")
+    case .mrzCameraError:
+      bundle.localizedString(forKey: "mrz_camera_error")
+    case .mrzCameraPermissionDenied:
+      bundle.localizedString(forKey: "mrz_camera_permission_denied")
+    case .mrzCameraSetupFailed:
+      bundle.localizedString(forKey: "mrz_camera_setup_failed")
+    case .mrzUnknownError:
+      bundle.localizedString(forKey: "mrz_unknown_error")
+    case .mrzInitializingCamera:
+      bundle.localizedString(forKey: "mrz_initializing_camera")
+    case .mrzErrorInvalidData:
+      bundle.localizedString(forKey: "mrz_error_invalid_data")
+    case .mrzErrorDocumentExpired:
+      bundle.localizedString(forKey: "mrz_error_document_expired")
+    case .mrzErrorProcessingFailed:
+      bundle.localizedString(forKey: "mrz_error_processing_failed")
     }
   }
 }

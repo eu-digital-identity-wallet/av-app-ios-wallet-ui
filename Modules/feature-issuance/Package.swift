@@ -13,13 +13,15 @@ let package = Package(
   ],
   dependencies: [
     .package(name: "feature-common", path: "./feature-common"),
-    .package(name: "feature-test", path: "./feature-test")
+    .package(name: "feature-test", path: "./feature-test"),
+    .package(name: "mrz-reader", path: "./mrz-reader")
   ],
   targets: [
     .target(
       name: "feature-issuance",
       dependencies: [
-        "feature-common"
+        "feature-common",
+        "mrz-reader"
       ],
       path: "./Sources"
     ),

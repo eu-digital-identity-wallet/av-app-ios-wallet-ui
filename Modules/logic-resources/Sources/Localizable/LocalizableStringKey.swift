@@ -199,6 +199,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case passportEnrollmentInstructionPoint2
   case passportEnrollmentInstructionBody2
   case passportCaptureDescription
+  case processingDocument
 
   // Landing screen
   case landingScreenTitle
@@ -230,6 +231,21 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case quickPinLockedOut
   case quickPinLockoutCountdownMinutes([Int])
   case quickPinLockoutCountdownSeconds(Int)
+
+  // MRZ Scanner
+  case mrzDocumentReady
+  case mrzScanning
+  case mrzPlaceDocumentInFrame
+  case mrzCameraError
+  case mrzCameraPermissionDenied
+  case mrzCameraSetupFailed
+  case mrzUnknownError
+  case mrzInitializingCamera
+
+  // MRZ Errors
+  case mrzErrorInvalidData
+  case mrzErrorDocumentExpired
+  case mrzErrorProcessingFailed
 }
 
 public extension LocalizableStringKey {
