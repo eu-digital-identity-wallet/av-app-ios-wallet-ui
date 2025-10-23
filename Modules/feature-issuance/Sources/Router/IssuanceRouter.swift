@@ -80,6 +80,15 @@ public final class IssuanceRouter {
           router: host
         )
       ).eraseToAnyView()
+    case .mrzDocumentScan:
+      MRZDocumentScanView(
+        with: .init(
+          router: host,
+          interactor: DIGraph.resolver.force(
+            MRZDocumentScanInteractor.self
+          )
+        )
+      ).eraseToAnyView()
     case .biometricReadingInstruction:
       BiometricReadingInstructionView(
         with: .init(

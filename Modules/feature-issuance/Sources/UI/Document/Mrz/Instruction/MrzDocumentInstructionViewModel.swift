@@ -24,6 +24,6 @@ final class MrzDocumentInstructionViewModel<Router: RouterHost>: ViewModel<Route
   }
 
   func takeAPhotoTapped() {
-    // TODO: take user to passport scanning screen
+    router.push(with: .featureIssuanceModule(.mrzDocumentScan))
   }
 }

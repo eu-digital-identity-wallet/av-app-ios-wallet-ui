@@ -99,6 +99,7 @@ public enum FeatureIssuanceRouteModule: AppRouteModule {
   case issuanceCode(config: any UIConfigType)
   case mrzDocumentIntro
   case mrzDocumentInstruction
+  case mrzDocumentScan
   case biometricReadingInstruction
 
   public var info: (key: String, arguments: [String: String]) {
@@ -115,6 +116,8 @@ public enum FeatureIssuanceRouteModule: AppRouteModule {
       (key: "MRZDocumentIntro", arguments: [:])
     case .mrzDocumentInstruction:
       (key: "MRZDocumentInstruction", arguments: [:])
+    case .mrzDocumentScan:
+      (key: "MRZDocumentScan", arguments: [:])
     case .biometricReadingInstruction:
       (key: "NFCReadingGuide", arguments: [:])
     }
