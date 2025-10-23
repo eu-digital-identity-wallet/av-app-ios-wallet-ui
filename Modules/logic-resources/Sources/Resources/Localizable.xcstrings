@@ -131,6 +131,39 @@
         }
       }
     },
+    "biometric_data_reading_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Place your Passport directly on the back of the smartphone, usually at the top."
+          }
+        }
+      }
+    },
+    "biometric_data_reading_header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Read in your Passport"
+          }
+        }
+      }
+    },
+    "biometric_data_reading_link" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Do you need Help?"
+          }
+        }
+      }
+    },
     "biometric_setup_description" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2303,6 +2336,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "L'applicazione dev'essere attivata per prima cosa con un documento d'identità nazionale"
+          }
+        }
+      }
+    },
+    "next_button_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
           }
         }
       }

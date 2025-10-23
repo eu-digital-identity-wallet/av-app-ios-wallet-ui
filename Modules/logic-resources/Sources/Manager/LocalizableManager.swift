@@ -404,6 +404,14 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "passport_enrollment_instruction_body2")
     case .passportCaptureDescription:
       bundle.localizedString(forKey: "passport_capture_description")
+    case .biometricDataReadingHeader:
+      bundle.localizedString(forKey: "biometric_data_reading_header")
+    case .biometricDataReadingDescription:
+      bundle.localizedString(forKey: "biometric_data_reading_description")
+    case .biometricDataReadingLink:
+      bundle.localizedString(forKey: "biometric_data_reading_link")
+    case .nextButtonTitle:
+      bundle.localizedString(forKey: "next_button_title")
     }
   }
 }

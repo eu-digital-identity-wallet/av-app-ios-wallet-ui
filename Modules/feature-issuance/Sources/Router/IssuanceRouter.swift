@@ -80,6 +80,12 @@ public final class IssuanceRouter {
           router: host
         )
       ).eraseToAnyView()
+    case .biometricReadingInstruction:
+      BiometricReadingInstructionView(
+        with: .init(
+          router: host
+        )
+      ).eraseToAnyView()
     }
   }
 }
