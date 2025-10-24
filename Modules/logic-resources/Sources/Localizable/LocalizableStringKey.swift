@@ -231,6 +231,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case quickPinLockedOut
   case quickPinLockoutCountdownMinutes([Int])
   case quickPinLockoutCountdownSeconds(Int)
+  case quickPinErrorInsecurePin
 
   // MRZ Scanner
   case mrzDocumentReady

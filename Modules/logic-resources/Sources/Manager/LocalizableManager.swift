@@ -392,6 +392,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedStringWithArguments(forKey: "quick_pin_lockout_countdown_minutes", arguments: args)
     case .quickPinLockoutCountdownSeconds(let arg):
         bundle.localizedStringWithArguments(forKey: "quick_pin_lockout_countdown_seconds", arguments: [arg])
+    case .quickPinErrorInsecurePin:
+        bundle.localizedString(forKey: "quick_pin_error_insecure_pin")
     case .passportEnrollmentInstructionHeader:
       bundle.localizedString(forKey: "passport_enrollment_instruction_header")
     case .passportEnrollmentInstructionBody1:
