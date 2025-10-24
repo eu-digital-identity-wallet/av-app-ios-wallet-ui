@@ -17,6 +17,7 @@
 		F06325102AC598370004601F /* logic-test in Resources */ = {isa = PBXBuildFile; fileRef = F063250F2AC598370004601F /* logic-test */; };
 		F06325122AC59AF50004601F /* feature-test in Resources */ = {isa = PBXBuildFile; fileRef = F06325112AC59AF50004601F /* feature-test */; };
 		F069CC402AFAC0AD0033AAC5 /* feature-issuance in Resources */ = {isa = PBXBuildFile; fileRef = F069CC3E2AFAC0AD0033AAC5 /* feature-issuance */; };
+		F069CC412AFAC0AD0033AAC7 /* mrz-reader in Resources */ = {isa = PBXBuildFile; fileRef = F069CC3F2AFAC0AD0033AAC6 /* mrz-reader */; };
 		F0A013982AC35ECA00065EAD /* logic-business in Resources */ = {isa = PBXBuildFile; fileRef = F0A013922AC35ECA00065EAD /* logic-business */; };
 		F0A013992AC35ECA00065EAD /* logic-api in Resources */ = {isa = PBXBuildFile; fileRef = F0A013932AC35ECA00065EAD /* logic-api */; };
 		F0A0139A2AC35ECA00065EAD /* feature-startup in Resources */ = {isa = PBXBuildFile; fileRef = F0A013942AC35ECA00065EAD /* feature-startup */; };
@@ -52,6 +53,7 @@
 		F063250F2AC598370004601F /* logic-test */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "logic-test"; path = "Modules/logic-test"; sourceTree = "<group>"; };
 		F06325112AC59AF50004601F /* feature-test */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "feature-test"; path = "Modules/feature-test"; sourceTree = "<group>"; };
 		F069CC3E2AFAC0AD0033AAC5 /* feature-issuance */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "feature-issuance"; path = "Modules/feature-issuance"; sourceTree = "<group>"; };
+		F069CC3F2AFAC0AD0033AAC6 /* mrz-reader */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "mrz-reader"; path = "Modules/mrz-reader"; sourceTree = "<group>"; };
 		F09E1EA22AC3443000779C25 /* Wallet.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Wallet.plist; sourceTree = "<group>"; };
 		F0A013922AC35ECA00065EAD /* logic-business */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "logic-business"; path = "Modules/logic-business"; sourceTree = "<group>"; };
 		F0A013932AC35ECA00065EAD /* logic-api */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "logic-api"; path = "Modules/logic-api"; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				F0A013932AC35ECA00065EAD /* logic-api */,
 				F0A013922AC35ECA00065EAD /* logic-business */,
 				F0A013962AC35ECA00065EAD /* logic-ui */,
+				F069CC3F2AFAC0AD0033AAC6 /* mrz-reader */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				EE4ECF952DED964500C82928 /* av_cert.der in Resources */,
 				F0A013982AC35ECA00065EAD /* logic-business in Resources */,
 				F069CC402AFAC0AD0033AAC5 /* feature-issuance in Resources */,
+				F069CC412AFAC0AD0033AAC7 /* mrz-reader in Resources */,
 				F14907C02ABAF55000DDFE56 /* Assets.xcassets in Resources */,
 				F06325102AC598370004601F /* logic-test in Resources */,
 				F0C6207E2B6A6246007F903F /* logic-analytics in Resources */,
@@ -301,7 +305,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint --fix && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\nswiftlint --fix && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -403,7 +407,7 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Share mdoc using BLE peripheral mode";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Scan QR codes in web pages";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera access to scan your passport/ID card and QR Codes";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Allow Face ID to access stored credentials";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -506,7 +510,7 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Share mdoc using BLE peripheral mode";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Scan QR codes in web pages";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera access to scan your passport/ID card and QR Codes";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Allow Face ID to access stored credentials";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -673,7 +677,7 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Share mdoc using BLE peripheral mode";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Scan QR codes in web pages";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera access to scan your passport/ID card and QR Codes";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Allow Face ID to access stored credentials";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -720,7 +724,7 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Share mdoc using BLE peripheral mode";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Scan QR codes in web pages";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera access to scan your passport/ID card and QR Codes";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Allow Face ID to access stored credentials";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

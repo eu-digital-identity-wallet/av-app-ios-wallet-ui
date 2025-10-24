@@ -30,5 +30,10 @@ public final class FeatureIssuanceAssembly: Assembly {
       DocumentOfferInteractorImpl(walletController: r.force(WalletKitController.self))
     }
     .inObjectScope(ObjectScope.transient)
+
+    container.register(MRZDocumentScanInteractor.self) { r in
+      MRZDocumentScanInteractorImpl(walletController: r.force(WalletKitController.self))
+    }
+    .inObjectScope(ObjectScope.transient)
   }
 }

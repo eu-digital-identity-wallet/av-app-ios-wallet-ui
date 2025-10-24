@@ -68,6 +68,27 @@ public final class IssuanceRouter {
           config: config
         )
       ).eraseToAnyView()
+    case .mrzDocumentIntro:
+      MrzDocumentIntroView(
+        with: .init(
+          router: host
+        )
+      ).eraseToAnyView()
+    case .mrzDocumentInstruction:
+      MrzDocumentInstructionView(
+        with: .init(
+          router: host
+        )
+      ).eraseToAnyView()
+    case .mrzDocumentScan:
+      MRZDocumentScanView(
+        with: .init(
+          router: host,
+          interactor: DIGraph.resolver.force(
+            MRZDocumentScanInteractor.self
+          )
+        )
+      ).eraseToAnyView()
     }
   }
 }

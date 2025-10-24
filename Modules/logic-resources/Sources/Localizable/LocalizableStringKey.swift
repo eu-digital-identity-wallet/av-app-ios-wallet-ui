@@ -170,6 +170,37 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case verificationNationalId
   case verificationNationalIdDescription
 
+  // Passport Enrollment
+  case verificationPassport
+  case verificationPassportDescription
+
+  // Passport Enrollment Intro
+  case passpostEnrollmentHeader
+  case passpostEnrollmentTitle
+  case passpostEnrollmentDescription
+  case passportEnrollmentIntroStep1Description
+  case passportEnrollmentIntroStep1Title
+  case passportEnrollmentIntroStep2Description
+  case passportEnrollmentIntroStep2Title
+  case passportEnrollmentIntroStep3Description
+  case passportEnrollmentIntroStep3Title
+  case passportEnrollmentIntroStep4Title
+  case passportEnrollmentIntroStep5Title
+  case startProcedure
+
+  // Passport Enrollment Instruction
+  case passportEnrollmentIdentification
+  case passportEnrollmentBiometrics
+  case passportEnrollmentLiveVideo
+  case takeAPhoto
+  case passportEnrollmentInstructionHeader
+  case passportEnrollmentInstructionBody1
+  case passportEnrollmentInstructionPoint1
+  case passportEnrollmentInstructionPoint2
+  case passportEnrollmentInstructionBody2
+  case passportCaptureDescription
+  case processingDocument
+
   // Landing screen
   case landingScreenTitle
   case landingScreenbody
@@ -191,6 +222,9 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case settingsCredentials
   case settingsDeleteCredentials
 
+  //generic
+  case back
+
   // Quick Pin ( BiometryView )
   case quickPinInvalidWithAttempts(Int)
   case quickPinInvalidLastAttempt
@@ -198,6 +232,21 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case quickPinLockoutCountdownMinutes([Int])
   case quickPinLockoutCountdownSeconds(Int)
   case quickPinErrorInsecurePin
+
+  // MRZ Scanner
+  case mrzDocumentReady
+  case mrzScanning
+  case mrzPlaceDocumentInFrame
+  case mrzCameraError
+  case mrzCameraPermissionDenied
+  case mrzCameraSetupFailed
+  case mrzUnknownError
+  case mrzInitializingCamera
+
+  // MRZ Errors
+  case mrzErrorInvalidData
+  case mrzErrorDocumentExpired
+  case mrzErrorProcessingFailed
 }
 
 public extension LocalizableStringKey {
