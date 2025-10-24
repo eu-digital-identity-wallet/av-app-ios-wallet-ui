@@ -428,14 +428,14 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "mrz_error_document_expired")
     case .mrzErrorProcessingFailed:
       bundle.localizedString(forKey: "mrz_error_processing_failed")
-    case .biometricDataReadingHeader:
-      bundle.localizedString(forKey: "biometric_data_reading_header")
-    case .biometricDataReadingDescription:
-      bundle.localizedString(forKey: "biometric_data_reading_description")
-    case .biometricDataReadingLink:
-      bundle.localizedString(forKey: "biometric_data_reading_link")
-    case .nextButtonTitle:
-      bundle.localizedString(forKey: "next_button_title")
+    case .passportBiometricsFirstHeader:
+      bundle.localizedString(forKey: "passport_biometrics_first_header")
+    case .passportBiometricsFirstDescription:
+      bundle.localizedString(forKey: "passport_biometrics_first_description")
+    case .passportBiometricsFirstLink:
+      bundle.localizedString(forKey: "passport_biometrics_first_link")
+    case .passportBiometricsNext:
+      bundle.localizedString(forKey: "passport_biometrics_next")
     }
   }
 }

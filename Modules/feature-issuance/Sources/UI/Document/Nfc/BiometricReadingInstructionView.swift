@@ -40,7 +40,7 @@ private func content(
       VStack(alignment: .leading, spacing: .zero) {
         VSpacer.large()
 
-        Text(LocalizableStringKey.biometricDataReadingHeader.toString)
+        Text(LocalizableStringKey.passportBiometricsFirstHeader.toString)
           .typography(Theme.shared.font.displaySmall)
           .fontWeight(.bold)
         VSpacer.large()
@@ -54,11 +54,11 @@ private func content(
         }
         VSpacer.medium()
 
-        Text(LocalizableStringKey.biometricDataReadingDescription.toString)
+        Text(LocalizableStringKey.passportBiometricsFirstDescription.toString)
           .typography(Theme.shared.font.bodyLarge)
         VSpacer.large()
 
-        HyperLinkView(label: LocalizableStringKey.biometricDataReadingLink.toString,
+        HyperLinkView(label: LocalizableStringKey.passportBiometricsFirstLink.toString,
                       onLinkTap: {
           onHelpLinkTapped()
         })
@@ -76,7 +76,7 @@ private func content(
     .padding(.horizontal, SPACING_SMALL)
     WrapButtonView(
       style: .primary,
-      title: LocalizableStringKey.nextButtonTitle,
+      title: LocalizableStringKey.passportBiometricsNext,
       isLoading: false,
       onAction: onNextButtonTapped()
     )
