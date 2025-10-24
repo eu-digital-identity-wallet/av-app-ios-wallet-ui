@@ -541,6 +541,16 @@ public class MockQuickPinInteractor: QuickPinInteractor, Cuckoo.ProtocolMock, @u
             defaultCall: __defaultImplStub!.getLockoutStatus()
         )
     }
+    
+    public func validatePinSecurity(_ p0: String) -> LocalizableStringKey? {
+        return cuckoo_manager.call(
+            "validatePinSecurity(_ p0: String) -> LocalizableStringKey?",
+            parameters: (p0),
+            escapingParameters: (p0),
+            superclassCall: Cuckoo.MockManager.crashOnProtocolSuperclassCall(),
+            defaultCall: __defaultImplStub!.validatePinSecurity(p0)
+        )
+    }
 
     public struct __StubbingProxy_QuickPinInteractor: Cuckoo.StubbingProxy {
         private let cuckoo_manager: Cuckoo.MockManager
@@ -585,6 +595,14 @@ public class MockQuickPinInteractor: QuickPinInteractor, Cuckoo.ProtocolMock, @u
             let matchers: [Cuckoo.ParameterMatcher<Void>] = []
             return .init(stub: cuckoo_manager.createStub(for: MockQuickPinInteractor.self,
                 method: "getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?)",
+                parameterMatchers: matchers
+            ))
+        }
+        
+        func validatePinSecurity<M1: Cuckoo.Matchable>(_ p0: M1) -> Cuckoo.ProtocolStubFunction<(String), LocalizableStringKey?> where M1.MatchedType == String {
+            let matchers: [Cuckoo.ParameterMatcher<(String)>] = [wrap(matchable: p0) { $0 }]
+            return .init(stub: cuckoo_manager.createStub(for: MockQuickPinInteractor.self,
+                method: "validatePinSecurity(_ p0: String) -> LocalizableStringKey?",
                 parameterMatchers: matchers
             ))
         }
@@ -660,6 +678,18 @@ public class MockQuickPinInteractor: QuickPinInteractor, Cuckoo.ProtocolMock, @u
                 sourceLocation: sourceLocation
             )
         }
+        
+        
+        @discardableResult
+        func validatePinSecurity<M1: Cuckoo.Matchable>(_ p0: M1) -> Cuckoo.__DoNotUse<(String), LocalizableStringKey?> where M1.MatchedType == String {
+            let matchers: [Cuckoo.ParameterMatcher<(String)>] = [wrap(matchable: p0) { $0 }]
+            return cuckoo_manager.verify(
+                "validatePinSecurity(_ p0: String) -> LocalizableStringKey?",
+                callMatcher: callMatcher,
+                parameterMatchers: matchers,
+                sourceLocation: sourceLocation
+            )
+        }
     }
 }
 
@@ -685,6 +715,10 @@ public class QuickPinInteractorStub:QuickPinInteractor, @unchecked Sendable {
     
     public func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?) {
         return DefaultValueRegistry.defaultValue(for: ((isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?)).self)
+    }
+    
+    public func validatePinSecurity(_ p0: String) -> LocalizableStringKey? {
+        return DefaultValueRegistry.defaultValue(for: (LocalizableStringKey?).self)
     }
 }
 
