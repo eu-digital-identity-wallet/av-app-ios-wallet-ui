@@ -430,6 +430,14 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "mrz_error_document_expired")
     case .mrzErrorProcessingFailed:
       bundle.localizedString(forKey: "mrz_error_processing_failed")
+    case .passportBiometricsFirstHeader:
+      bundle.localizedString(forKey: "passport_biometrics_first_header")
+    case .passportBiometricsFirstDescription:
+      bundle.localizedString(forKey: "passport_biometrics_first_description")
+    case .passportBiometricsFirstLink:
+      bundle.localizedString(forKey: "passport_biometrics_first_link")
+    case .passportBiometricsNext:
+      bundle.localizedString(forKey: "passport_biometrics_next")
     }
   }
 }

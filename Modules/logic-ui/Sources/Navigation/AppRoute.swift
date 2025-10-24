@@ -100,6 +100,7 @@ public enum FeatureIssuanceRouteModule: AppRouteModule {
   case mrzDocumentIntro
   case mrzDocumentInstruction
   case mrzDocumentScan
+  case biometricReadingInstruction
 
   public var info: (key: String, arguments: [String: String]) {
     return switch self {
@@ -117,6 +118,8 @@ public enum FeatureIssuanceRouteModule: AppRouteModule {
       (key: "MRZDocumentInstruction", arguments: [:])
     case .mrzDocumentScan:
       (key: "MRZDocumentScan", arguments: [:])
+    case .biometricReadingInstruction:
+      (key: "NFCReadingGuide", arguments: [:])
     }
   }
 }

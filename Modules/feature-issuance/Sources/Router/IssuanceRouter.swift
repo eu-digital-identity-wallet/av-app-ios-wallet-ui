@@ -89,6 +89,12 @@ public final class IssuanceRouter {
           )
         )
       ).eraseToAnyView()
+    case .biometricReadingInstruction:
+      BiometricReadingInstructionView(
+        with: .init(
+          router: host
+        )
+      ).eraseToAnyView()
     }
   }
 }

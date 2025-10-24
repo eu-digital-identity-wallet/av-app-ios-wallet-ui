@@ -201,6 +201,12 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case passportCaptureDescription
   case processingDocument
 
+  // Biometric Data reading
+  case passportBiometricsFirstHeader
+  case passportBiometricsFirstDescription
+  case passportBiometricsFirstLink
+  case passportBiometricsNext
+
   // Landing screen
   case landingScreenTitle
   case landingScreenbody

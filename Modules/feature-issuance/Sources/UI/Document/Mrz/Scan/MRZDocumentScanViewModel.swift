@@ -50,8 +50,8 @@ final class MRZDocumentScanViewModel<Router: RouterHost>: ViewModel<Router, MRZD
         setState {
           $0.copy(isProcessing: false, error: nil)
         }
-        // Navigate to success or back to previous screen
-        router.pop()
+        // Navigate to nfc reader instruction screen on success
+        router.push(with: AppRoute.featureIssuanceModule(.biometricReadingInstruction))
 
       case .failure(let error):
         setState {
