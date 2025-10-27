@@ -33,10 +33,12 @@ public enum FeatureStartupRouteModule: AppRouteModule {
 public enum FeatureCommonRouteModule: AppRouteModule {
 
   case quickPin(config: any UIConfigType)
+  case changePin(config: any UIConfigType)
   case qrScanner(config: any UIConfigType)
   case biometry(config: any UIConfigType)
   case genericSuccess(config: any UIConfigType)
   case biometrySetup(config: any UIConfigType)
+  case changePinSuccess
 
   public var info: (key: String, arguments: [String: String]) {
     return switch self {
@@ -50,6 +52,10 @@ public enum FeatureCommonRouteModule: AppRouteModule {
       (key: "QRScanner", arguments: ["config": config.log])
     case .biometrySetup(let config):
       (key: "BiometrySetup", arguments: ["config": config.log])
+    case .changePin(config: let config):
+      (key: "ChangePin", arguments: ["config": config.log])
+    case .changePinSuccess:
+      (key: "ChangePinSuccess", arguments: [:])
     }
   }
 }

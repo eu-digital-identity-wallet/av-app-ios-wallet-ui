@@ -691,6 +691,216 @@
         }
       }
     },
+    "change_pin_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opret venligst en ny pinkode."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte richten Sie eine neue PIN ein."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please set up a new PIN."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez définir un nouveau code PIN."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imposta un nuovo PIN."
+          }
+        }
+      }
+    },
+    "change_pin_first_pin_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Din nye 6-cifrede pinkode"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ihre neue 6-stellige PIN"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your new 6-digit PIN"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votre nouveau code PIN à 6 chiffres"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il tuo nuovo PIN a 6 cifre"
+          }
+        }
+      }
+    },
+    "change_pin_help_text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Undgå venligst at bruge fortløbende tal eller fødselsdage, hvis det er muligt."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte vermeiden Sie nach Möglichkeit die Verwendung von fortlaufenden Zahlen oder Geburtstagen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please avoid using consecutive numbers or birthdays if possible."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez éviter d'utiliser des numéros consécutifs ou des anniversaires si possible."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se possibile, evita di usare numeri consecutivi o date di nascita."
+          }
+        }
+      }
+    },
+    "change_pin_second_pin_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gentag din nye 6-cifrede pinkode"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wiederholen Sie Ihre neue 6-stellige PIN"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repeat your new 6-digit PIN"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Répétez votre nouveau code PIN à 6 chiffres"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ripeti il ​​tuo nuovo PIN di 6 cifre"
+          }
+        }
+      }
+    },
+    "change_pin_success_text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du har ændret din pinkode til din anonyme aldersbekræftelsesapp."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sie haben Ihre PIN für die App zur anonymen Altersüberprüfung geändert."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You have changed your Anonymous Age Verification App PIN."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous avez modifié votre code PIN d'application de vérification d'âge anonyme."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hai modificato il PIN dell'app di verifica dell'età anonima."
+          }
+        }
+      }
+    },
+    "change_quick_pin_caption" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indtast venligst din nuværende pinkode. Når du har bekræftet den, kan du indstille en ny pinkode."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte geben Sie Ihre aktuelle PIN ein. Nach der Bestätigung können Sie eine neue PIN festlegen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enter your current PIN. After confirming it, you can set a new PIN."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez saisir votre code PIN actuel. Après confirmation, vous pourrez en définir un nouveau."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inserisci il tuo PIN attuale. Dopo averlo confermato, potrai impostare un nuovo PIN."
+          }
+        }
+      }
+    },
     "change_quick_pin_option" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3524,6 +3734,9 @@
           }
         }
       }
+    },
+    "pin_dont_match" : {
+      "extractionState" : "manual"
     },
     "please_wait" : {
       "extractionState" : "manual",

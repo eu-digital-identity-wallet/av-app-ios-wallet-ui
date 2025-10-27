@@ -23,7 +23,7 @@ final class BiometricReadingInstructionViewModel<Router: RouterHost>: ViewModel<
   func nextButtonTapped() {
 
   }
-  
+
   func helpLinkTapped() {
     debugPrint("Do you need help? link tapped")
   }

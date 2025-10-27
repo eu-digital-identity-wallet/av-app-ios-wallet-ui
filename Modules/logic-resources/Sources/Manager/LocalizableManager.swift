@@ -438,6 +438,19 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "passport_biometrics_first_link")
     case .passportBiometricsNext:
       bundle.localizedString(forKey: "passport_biometrics_next")
+    case .changeQuickPinCaption:
+        bundle.localizedString(forKey: "change_quick_pin_caption")
+    case .changePinDescription:
+        bundle.localizedString(forKey: "change_pin_description")
+    case .changePinFirstPinDescription:
+        bundle.localizedString(forKey: "change_pin_first_pin_description")
+    case .changePinSecondPinDescription:
+        bundle.localizedString(forKey: "change_pin_second_pin_description")
+    case .changePinHelpText:
+        bundle.localizedString(forKey: "change_pin_help_text")
+    case .changePinSuccessText:
+        bundle.localizedString(forKey: "change_pin_success_text")
+
     }
   }
 }

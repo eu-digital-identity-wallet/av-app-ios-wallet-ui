@@ -16,6 +16,7 @@
 @_exported import SwiftUI
 @_exported import Combine
 @_exported import Copyable
+@_exported import logic_resources
 
 public protocol ViewState {}
 
@@ -35,5 +36,20 @@ open class ViewModel<Router: RouterHost, UiState: ViewState>: ObservableObject {
 
   public func setState(_ reducer: (UiState) -> UiState) {
     self.viewState = reducer(viewState)
+  }
+}
+
+public extension ViewModel {
+  func backActionToolbar(action: (() -> Void)? = nil) -> ToolBarContent {
+      ToolBarContent(leadingActions: [ToolBarContent.Action(title: nil,
+                                                          image: Theme.shared.image.chevronLeft,
+                                                          disabled: false,
+                                                          callback: {
+      if let action {
+        action()
+      } else {
+        self.router.pop()
+      }
+    })])
   }
 }

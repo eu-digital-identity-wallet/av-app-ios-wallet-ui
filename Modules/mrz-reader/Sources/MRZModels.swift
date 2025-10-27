@@ -2,7 +2,7 @@ import Foundation
 import CoreGraphics
 
 // MARK: - MRZ Type
-public enum MRZType : Sendable{
+public enum MRZType: Sendable {
   case td1  // 3 lines, 30 characters each (ID cards)
   case td2  // 2 lines, 36 characters each (official documents)
   case td3  // 2 lines, 44 characters each (passports)

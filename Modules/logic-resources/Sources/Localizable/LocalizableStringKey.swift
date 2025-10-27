@@ -253,6 +253,14 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case mrzErrorInvalidData
   case mrzErrorDocumentExpired
   case mrzErrorProcessingFailed
+
+  // Change Pin
+  case changeQuickPinCaption
+  case changePinDescription
+  case changePinFirstPinDescription
+  case changePinSecondPinDescription
+  case changePinHelpText
+  case changePinSuccessText
 }
 
 public extension LocalizableStringKey {

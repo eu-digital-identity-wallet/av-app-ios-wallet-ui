@@ -27,7 +27,8 @@ struct SettingsView<Router: RouterHost>: View {
       content(
         viewState: viewModel.viewState,
         onNavigateBack: viewModel.navigateBack,
-        onShowDeleteModal: viewModel.onShowDeleteModal
+        onShowDeleteModal: viewModel.onShowDeleteModal,
+        onPinChange: viewModel.onPinChange
       )
     }
     .confirmationDialog(
@@ -49,7 +50,8 @@ struct SettingsView<Router: RouterHost>: View {
 private func content(
   viewState: SettingsState,
   onNavigateBack: @escaping () -> Void,
-  onShowDeleteModal: @escaping () -> Void
+  onShowDeleteModal: @escaping () -> Void,
+  onPinChange: @escaping () -> Void
 ) -> some View {
   VStack(alignment: .leading, spacing: .zero) {
     HStack(alignment: .center, spacing: .zero) {
@@ -142,7 +144,21 @@ private func content(
           .disabled(viewState.isDeletingCredentials)
           .buttonStyle(.plain)
         }
-        
+
+        HStack {
+          Text(LocalizableStringKey.changeQuickPinOption.toString)
+            .typography(Theme.shared.font.headlineSmall)
+            .fontWeight(.medium)
+          Spacer()
+          Theme.shared.image.chevronRight
+            .frame(maxWidth: .infinity, alignment: .topTrailing)
+            .foregroundColor(Theme.shared.color.onSurface)
+        }
+        .padding(.horizontal)
+        .onTapGesture {
+            onPinChange()
+        }
+
         Spacer()
       }
       .padding(.top, SPACING_MEDIUM)
@@ -161,6 +177,7 @@ private func content(
       isDeletingCredentials: false
     ),
     onNavigateBack: {},
-    onShowDeleteModal: {}
+    onShowDeleteModal: {},
+    onPinChange: {}
   )
 }

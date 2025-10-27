@@ -7,13 +7,15 @@ class CameraPreviewUIView: UIView {
     AVCaptureVideoPreviewLayer.self
   }
 
-  var previewLayer: AVCaptureVideoPreviewLayer {
-    layer as! AVCaptureVideoPreviewLayer
+  var previewLayer: AVCaptureVideoPreviewLayer? {
+    layer as? AVCaptureVideoPreviewLayer
   }
 
   override func layoutSubviews() {
     super.layoutSubviews()
-    previewLayer.frame = bounds
+    if let previewLayer = previewLayer {
+        previewLayer.frame = bounds
+    }
   }
 }
 
@@ -24,13 +26,15 @@ struct CameraPreviewView: UIViewRepresentable {
   func makeUIView(context: Context) -> CameraPreviewUIView {
     let view = CameraPreviewUIView(frame: .zero)
     view.backgroundColor = .black
-    view.previewLayer.session = session
-    view.previewLayer.videoGravity = .resizeAspectFill
+    if let previewLayer = view.previewLayer {
+        previewLayer.session = session
+        previewLayer.videoGravity = .resizeAspectFill
 
-    // Set the correct orientation for the preview layer
-    if let connection = view.previewLayer.connection,
-       connection.isVideoOrientationSupported {
-      connection.videoOrientation = .portrait
+        // Set the correct orientation for the preview layer
+        if let connection = previewLayer.connection,
+           connection.isVideoOrientationSupported {
+          connection.videoOrientation = .portrait
+        }
     }
 
     return view

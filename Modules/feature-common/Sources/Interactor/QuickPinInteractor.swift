@@ -26,20 +26,41 @@ public protocol QuickPinInteractor: Sendable {
   func isPinValid(pin: String) -> QuickPinPartialState
   func changePin(currentPin: String, newPin: String) -> QuickPinPartialState
   func hasPin() -> Bool
-  func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?)
+  func isFirstPinIncomplete(_ pin: String, quickPinSize: Int) -> Bool
   func validatePinSecurity(_ pin: String) -> LocalizableStringKey?
+  func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?)
+  func isCurrentPinExistInLastUsedPins(pin: String) -> Bool
 }
 
 final class QuickPinInteractorImpl: QuickPinInteractor {
 
   private let pinStorageController: PinStorageController
+  private let prefsController: PrefsController
 
-  init(pinStorageController: PinStorageController) {
+    init(pinStorageController: PinStorageController, prefsController: PrefsController) {
     self.pinStorageController = pinStorageController
+    self.prefsController = prefsController
   }
 
   public func setPin(newPin: String) {
     pinStorageController.setPin(with: newPin)
+    saveUsedPins(pin: newPin)
+  }
+
+  public func saveUsedPins(pin: String) {
+    var lastUsedPins = (prefsController.getValue(forKey: .lastUsedPins) as? [String]) ?? []
+    if lastUsedPins.count == 3 {
+      lastUsedPins.removeFirst()
+    }
+    lastUsedPins.append(pin)
+    prefsController.setValue(lastUsedPins, forKey: .lastUsedPins)
+  }
+
+  public func isCurrentPinExistInLastUsedPins(pin: String) -> Bool {
+    guard let usedPins = prefsController.getValue(forKey: .lastUsedPins) as? [String] else {
+        return false
+    }
+    return usedPins.contains(pin)
   }
 
   public func isPinValid(pin: String) -> QuickPinPartialState {
@@ -77,6 +98,22 @@ final class QuickPinInteractorImpl: QuickPinInteractor {
     }
   }
 
+  public func isFirstPinIncomplete(_ pin: String, quickPinSize: Int) -> Bool {
+    return pin.count != quickPinSize
+  }
+
+  private func isSequential(digits: [Int]) -> Bool {
+    guard digits.count > 1 else { return false }
+
+    // Check ascending (e.g. 1,2,3,4...)
+    let isAscending = zip(digits, digits.dropFirst()).allSatisfy { $1 == $0 + 1 }
+
+    // Check descending (e.g. 6,5,4,3...)
+    let isDescending = zip(digits, digits.dropFirst()).allSatisfy { $1 == $0 - 1 }
+
+    return isAscending || isDescending
+  }
+
   func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?) {
     pinStorageController.getLockoutStatus()
   }
@@ -103,17 +140,5 @@ final class QuickPinInteractorImpl: QuickPinInteractor {
     }
 
     return error
-  }
-
-  private func isSequential(digits: [Int]) -> Bool {
-    guard digits.count > 1 else { return false }
-
-    // Check ascending (e.g. 1,2,3,4...)
-    let isAscending = zip(digits, digits.dropFirst()).allSatisfy { $1 == $0 + 1 }
-
-    // Check descending (e.g. 6,5,4,3...)
-    let isDescending = zip(digits, digits.dropFirst()).allSatisfy { $1 == $0 - 1 }
-
-    return isAscending || isDescending
   }
 }

@@ -18,9 +18,9 @@ struct AppLandingState: ViewState {
 }
 
 final class LandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingState> {
-    
+
     private let interactor: LandingInteractor
-    init(router: Router, interactor: LandingInteractor,) {
+    init(router: Router, interactor: LandingInteractor, ) {
         self.interactor = interactor
         super.init(router: router,
                    initialState: .init(document: DocumentUIModel.mock(),
