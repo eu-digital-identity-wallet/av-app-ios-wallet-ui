@@ -22,9 +22,9 @@ import XCTest
 @testable import feature_issuance
 @testable import mrz_reader
 
-final class TestMRZDocumentScanInteractor: EudiTest {
+final class TestDocumentMRZScanInteractor: EudiTest {
 
-  var interactor: MRZDocumentScanInteractor!
+  var interactor: DocumentMRZScanInteractor!
   var walletKitController: MockWalletKitController!
 
   override func setUp() {
@@ -193,7 +193,7 @@ final class TestMRZDocumentScanInteractor: EudiTest {
 
 // MARK: - Test Data Helpers
 
-private extension TestMRZDocumentScanInteractor {
+private extension TestDocumentMRZScanInteractor {
 
   func createValidMRZData() -> MRZData {
     let futureDate = getFutureDateString(yearsFromNow: 5)

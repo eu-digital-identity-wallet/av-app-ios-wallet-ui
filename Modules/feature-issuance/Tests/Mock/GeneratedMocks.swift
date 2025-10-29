@@ -1605,6 +1605,101 @@ public class AddDocumentInteractorStub:AddDocumentInteractor, @unchecked Sendabl
 
 
 
+// MARK: - Mocks generated from file: '../Modules/feature-issuance/Sources/Interactor/DocumentMRZScanInteractor.swift'
+
+import Cuckoo
+import Foundation
+import logic_resources
+import mrz_reader
+@testable import logic_core
+@testable import logic_business
+@testable import logic_analytics
+@testable import logic_ui
+@testable import logic_api
+@testable import logic_authentication
+@testable import feature_common
+@testable import feature_issuance
+
+public class MockDocumentMRZScanInteractor: DocumentMRZScanInteractor, Cuckoo.ProtocolMock, @unchecked Sendable {
+    public typealias MocksType = DocumentMRZScanInteractor
+    public typealias Stubbing = __StubbingProxy_DocumentMRZScanInteractor
+    public typealias Verification = __VerificationProxy_DocumentMRZScanInteractor
+
+    // Original typealiases
+
+    public let cuckoo_manager = Cuckoo.MockManager.preconfiguredManager ?? Cuckoo.MockManager(hasParent: false)
+
+    private var __defaultImplStub: (any DocumentMRZScanInteractor)?
+
+    public func enableDefaultImplementation(_ stub: any DocumentMRZScanInteractor) {
+        __defaultImplStub = stub
+        cuckoo_manager.enableDefaultStubImplementation()
+    }
+
+    
+    public func processMRZData(mrzData p0: MRZData) async -> MRZProcessingPartialState {
+        return await cuckoo_manager.call(
+            "processMRZData(mrzData p0: MRZData) async -> MRZProcessingPartialState",
+            parameters: (p0),
+            escapingParameters: (p0),
+            superclassCall: Cuckoo.MockManager.crashOnProtocolSuperclassCall(),
+            defaultCall: await __defaultImplStub!.processMRZData(mrzData: p0)
+        )
+    }
+
+    public struct __StubbingProxy_DocumentMRZScanInteractor: Cuckoo.StubbingProxy {
+        private let cuckoo_manager: Cuckoo.MockManager
+    
+        public init(manager: Cuckoo.MockManager) {
+            self.cuckoo_manager = manager
+        }
+        
+        func processMRZData<M1: Cuckoo.Matchable>(mrzData p0: M1) -> Cuckoo.ProtocolStubFunction<(MRZData), MRZProcessingPartialState> where M1.MatchedType == MRZData {
+            let matchers: [Cuckoo.ParameterMatcher<(MRZData)>] = [wrap(matchable: p0) { $0 }]
+            return .init(stub: cuckoo_manager.createStub(for: MockDocumentMRZScanInteractor.self,
+                method: "processMRZData(mrzData p0: MRZData) async -> MRZProcessingPartialState",
+                parameterMatchers: matchers
+            ))
+        }
+    }
+
+    public struct __VerificationProxy_DocumentMRZScanInteractor: Cuckoo.VerificationProxy {
+        private let cuckoo_manager: Cuckoo.MockManager
+        private let callMatcher: Cuckoo.CallMatcher
+        private let sourceLocation: Cuckoo.SourceLocation
+    
+        public init(manager: Cuckoo.MockManager, callMatcher: Cuckoo.CallMatcher, sourceLocation: Cuckoo.SourceLocation) {
+            self.cuckoo_manager = manager
+            self.callMatcher = callMatcher
+            self.sourceLocation = sourceLocation
+        }
+        
+        
+        @discardableResult
+        func processMRZData<M1: Cuckoo.Matchable>(mrzData p0: M1) -> Cuckoo.__DoNotUse<(MRZData), MRZProcessingPartialState> where M1.MatchedType == MRZData {
+            let matchers: [Cuckoo.ParameterMatcher<(MRZData)>] = [wrap(matchable: p0) { $0 }]
+            return cuckoo_manager.verify(
+                "processMRZData(mrzData p0: MRZData) async -> MRZProcessingPartialState",
+                callMatcher: callMatcher,
+                parameterMatchers: matchers,
+                sourceLocation: sourceLocation
+            )
+        }
+    }
+}
+
+public class DocumentMRZScanInteractorStub:DocumentMRZScanInteractor, @unchecked Sendable {
+
+
+    
+    public func processMRZData(mrzData p0: MRZData) async -> MRZProcessingPartialState {
+        return DefaultValueRegistry.defaultValue(for: (MRZProcessingPartialState).self)
+    }
+}
+
+
+
+
 // MARK: - Mocks generated from file: '../Modules/feature-issuance/Sources/Interactor/DocumentOfferInteractor.swift'
 
 import Cuckoo
@@ -1800,12 +1895,12 @@ public class DocumentOfferInteractorStub:DocumentOfferInteractor, @unchecked Sen
 
 
 
-// MARK: - Mocks generated from file: '../Modules/feature-issuance/Sources/Interactor/MRZDocumentScanInteractor.swift'
+// MARK: - Mocks generated from file: '../Modules/feature-issuance/Sources/Interactor/NFCPassportReaderInteractor.swift'
 
 import Cuckoo
 import Foundation
 import logic_resources
-import mrz_reader
+import NFCPassportReader
 @testable import logic_core
 @testable import logic_business
 @testable import logic_analytics
@@ -1815,50 +1910,50 @@ import mrz_reader
 @testable import feature_common
 @testable import feature_issuance
 
-public class MockMRZDocumentScanInteractor: MRZDocumentScanInteractor, Cuckoo.ProtocolMock, @unchecked Sendable {
-    public typealias MocksType = MRZDocumentScanInteractor
-    public typealias Stubbing = __StubbingProxy_MRZDocumentScanInteractor
-    public typealias Verification = __VerificationProxy_MRZDocumentScanInteractor
+public class MockNFCPassportReaderInteractor: NFCPassportReaderInteractor, Cuckoo.ProtocolMock, @unchecked Sendable {
+    public typealias MocksType = NFCPassportReaderInteractor
+    public typealias Stubbing = __StubbingProxy_NFCPassportReaderInteractor
+    public typealias Verification = __VerificationProxy_NFCPassportReaderInteractor
 
     // Original typealiases
 
     public let cuckoo_manager = Cuckoo.MockManager.preconfiguredManager ?? Cuckoo.MockManager(hasParent: false)
 
-    private var __defaultImplStub: (any MRZDocumentScanInteractor)?
+    private var __defaultImplStub: (any NFCPassportReaderInteractor)?
 
-    public func enableDefaultImplementation(_ stub: any MRZDocumentScanInteractor) {
+    public func enableDefaultImplementation(_ stub: any NFCPassportReaderInteractor) {
         __defaultImplStub = stub
         cuckoo_manager.enableDefaultStubImplementation()
     }
 
     
-    public func processMRZData(mrzData p0: MRZData) async -> MRZProcessingPartialState {
+    public func readPassport(mrzKey p0: String) async -> NFCPassportReadingPartialState {
         return await cuckoo_manager.call(
-            "processMRZData(mrzData p0: MRZData) async -> MRZProcessingPartialState",
+            "readPassport(mrzKey p0: String) async -> NFCPassportReadingPartialState",
             parameters: (p0),
             escapingParameters: (p0),
             superclassCall: Cuckoo.MockManager.crashOnProtocolSuperclassCall(),
-            defaultCall: await __defaultImplStub!.processMRZData(mrzData: p0)
+            defaultCall: await __defaultImplStub!.readPassport(mrzKey: p0)
         )
     }
 
-    public struct __StubbingProxy_MRZDocumentScanInteractor: Cuckoo.StubbingProxy {
+    public struct __StubbingProxy_NFCPassportReaderInteractor: Cuckoo.StubbingProxy {
         private let cuckoo_manager: Cuckoo.MockManager
     
         public init(manager: Cuckoo.MockManager) {
             self.cuckoo_manager = manager
         }
         
-        func processMRZData<M1: Cuckoo.Matchable>(mrzData p0: M1) -> Cuckoo.ProtocolStubFunction<(MRZData), MRZProcessingPartialState> where M1.MatchedType == MRZData {
-            let matchers: [Cuckoo.ParameterMatcher<(MRZData)>] = [wrap(matchable: p0) { $0 }]
-            return .init(stub: cuckoo_manager.createStub(for: MockMRZDocumentScanInteractor.self,
-                method: "processMRZData(mrzData p0: MRZData) async -> MRZProcessingPartialState",
+        func readPassport<M1: Cuckoo.Matchable>(mrzKey p0: M1) -> Cuckoo.ProtocolStubFunction<(String), NFCPassportReadingPartialState> where M1.MatchedType == String {
+            let matchers: [Cuckoo.ParameterMatcher<(String)>] = [wrap(matchable: p0) { $0 }]
+            return .init(stub: cuckoo_manager.createStub(for: MockNFCPassportReaderInteractor.self,
+                method: "readPassport(mrzKey p0: String) async -> NFCPassportReadingPartialState",
                 parameterMatchers: matchers
             ))
         }
     }
 
-    public struct __VerificationProxy_MRZDocumentScanInteractor: Cuckoo.VerificationProxy {
+    public struct __VerificationProxy_NFCPassportReaderInteractor: Cuckoo.VerificationProxy {
         private let cuckoo_manager: Cuckoo.MockManager
         private let callMatcher: Cuckoo.CallMatcher
         private let sourceLocation: Cuckoo.SourceLocation
@@ -1871,10 +1966,10 @@ public class MockMRZDocumentScanInteractor: MRZDocumentScanInteractor, Cuckoo.Pr
         
         
         @discardableResult
-        func processMRZData<M1: Cuckoo.Matchable>(mrzData p0: M1) -> Cuckoo.__DoNotUse<(MRZData), MRZProcessingPartialState> where M1.MatchedType == MRZData {
-            let matchers: [Cuckoo.ParameterMatcher<(MRZData)>] = [wrap(matchable: p0) { $0 }]
+        func readPassport<M1: Cuckoo.Matchable>(mrzKey p0: M1) -> Cuckoo.__DoNotUse<(String), NFCPassportReadingPartialState> where M1.MatchedType == String {
+            let matchers: [Cuckoo.ParameterMatcher<(String)>] = [wrap(matchable: p0) { $0 }]
             return cuckoo_manager.verify(
-                "processMRZData(mrzData p0: MRZData) async -> MRZProcessingPartialState",
+                "readPassport(mrzKey p0: String) async -> NFCPassportReadingPartialState",
                 callMatcher: callMatcher,
                 parameterMatchers: matchers,
                 sourceLocation: sourceLocation
@@ -1883,12 +1978,12 @@ public class MockMRZDocumentScanInteractor: MRZDocumentScanInteractor, Cuckoo.Pr
     }
 }
 
-public class MRZDocumentScanInteractorStub:MRZDocumentScanInteractor, @unchecked Sendable {
+public class NFCPassportReaderInteractorStub:NFCPassportReaderInteractor, @unchecked Sendable {
 
 
     
-    public func processMRZData(mrzData p0: MRZData) async -> MRZProcessingPartialState {
-        return DefaultValueRegistry.defaultValue(for: (MRZProcessingPartialState).self)
+    public func readPassport(mrzKey p0: String) async -> NFCPassportReadingPartialState {
+        return DefaultValueRegistry.defaultValue(for: (NFCPassportReadingPartialState).self)
     }
 }
 
@@ -2069,7 +2164,7 @@ import mrz_reader
 
 
 
-// MARK: - Mocks generated from file: '../Modules/feature-issuance/Sources/UI/Document/Nfc/BiometricReadingInstructionView.swift'
+// MARK: - Mocks generated from file: '../Modules/feature-issuance/Sources/UI/Document/Nfc/DocumentDataDisplayView.swift'
 
 import Cuckoo
 import SwiftUI
@@ -2085,10 +2180,42 @@ import logic_resources
 
 
 
-// MARK: - Mocks generated from file: '../Modules/feature-issuance/Sources/UI/Document/Nfc/BiometricReadingInstructionViewModel.swift'
+// MARK: - Mocks generated from file: '../Modules/feature-issuance/Sources/UI/Document/Nfc/DocumentDataDisplayViewModel.swift'
 
 import Cuckoo
 import Foundation
+@testable import logic_core
+@testable import logic_business
+@testable import logic_analytics
+@testable import logic_ui
+@testable import logic_api
+@testable import logic_authentication
+@testable import feature_common
+@testable import feature_issuance
+
+
+
+// MARK: - Mocks generated from file: '../Modules/feature-issuance/Sources/UI/Document/Nfc/DocumentNFCView.swift'
+
+import Cuckoo
+import SwiftUI
+import logic_resources
+@testable import logic_core
+@testable import logic_business
+@testable import logic_analytics
+@testable import logic_ui
+@testable import logic_api
+@testable import logic_authentication
+@testable import feature_common
+@testable import feature_issuance
+
+
+
+// MARK: - Mocks generated from file: '../Modules/feature-issuance/Sources/UI/Document/Nfc/DocumentNFCViewModel.swift'
+
+import Cuckoo
+import Foundation
+import logic_resources
 @testable import logic_core
 @testable import logic_business
 @testable import logic_analytics
@@ -2167,6 +2294,22 @@ import logic_resources
 
 import Cuckoo
 import SwiftUI
+@testable import logic_core
+@testable import logic_business
+@testable import logic_analytics
+@testable import logic_ui
+@testable import logic_api
+@testable import logic_authentication
+@testable import feature_common
+@testable import feature_issuance
+
+
+
+// MARK: - Mocks generated from file: '../Modules/feature-issuance/Sources/Util/MRZKeyExtractor.swift'
+
+import Cuckoo
+import Foundation
+import mrz_reader
 @testable import logic_core
 @testable import logic_business
 @testable import logic_analytics

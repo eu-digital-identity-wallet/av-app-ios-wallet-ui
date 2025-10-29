@@ -31,8 +31,13 @@ public final class FeatureIssuanceAssembly: Assembly {
     }
     .inObjectScope(ObjectScope.transient)
 
-    container.register(MRZDocumentScanInteractor.self) { r in
+    container.register(DocumentMRZScanInteractor.self) { r in
       MRZDocumentScanInteractorImpl(walletController: r.force(WalletKitController.self))
+    }
+    .inObjectScope(ObjectScope.transient)
+
+    container.register(NFCPassportReaderInteractor.self) { r in
+      NFCPassportReaderInteractorImpl(walletController: r.force(WalletKitController.self))
     }
     .inObjectScope(ObjectScope.transient)
   }

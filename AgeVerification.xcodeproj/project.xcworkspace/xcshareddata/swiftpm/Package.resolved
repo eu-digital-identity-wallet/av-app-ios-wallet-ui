@@ -1,5 +1,5 @@
 {
-  "originHash" : "2b3c50c5c0b973d0080e370a87a7e6a2d487f76194c4048849c20352946757b1",
+  "originHash" : "788192d67a160c412ca658333874f5297e69f94cb5e5fc032a32139f9872f4c2",
   "pins" : [
     {
       "identity" : "activityindicatorview",
@@ -141,8 +141,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-presentation-exchange-swift.git",
       "state" : {
-        "revision" : "68a3746efefbff06e20365dce1c8dabcbc3670f8",
-        "version" : "0.4.1"
+        "revision" : "0c28d64c636e65c6734d2f89c7a4fb4be76fe05e",
+        "version" : "0.4.2"
       }
     },
     {
@@ -231,8 +231,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/KittyMac/Hitch.git",
       "state" : {
-        "revision" : "d6c147a1d70992db39a141cb5bf9cf8fbb776250",
-        "version" : "0.4.148"
+        "revision" : "d3bfe4b90303653d71f5423c6ec2cbe47b75d7ed",
+        "version" : "0.4.151"
       }
     },
     {
@@ -278,6 +278,24 @@
       "state" : {
         "branch" : "master",
         "revision" : "3220b4027117c41f076f1bcc7f3c492ab8957348"
+      }
+    },
+    {
+      "identity" : "nfcpassportreader",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AndyQ/NFCPassportReader",
+      "state" : {
+        "revision" : "4a29a9b954c8ea0d4d35b96af6fe1849258b31e1",
+        "version" : "2.2.0"
+      }
+    },
+    {
+      "identity" : "openssl",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/krzyzanowskim/OpenSSL.git",
+      "state" : {
+        "revision" : "623c84da314e85363236507ca38a4bde65df21c3",
+        "version" : "3.3.3001"
       }
     },
     {
@@ -357,8 +375,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/KittyMac/Spanker.git",
       "state" : {
-        "revision" : "820f96e9e5836e2ac9808c1b706727b876fa3d9b",
-        "version" : "0.2.51"
+        "revision" : "ff05ac41aea633ca7a9fd966d3164373247ee8dd",
+        "version" : "0.2.53"
       }
     },
     {
@@ -393,8 +411,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-asn1.git",
       "state" : {
-        "revision" : "f70225981241859eb4aa1a18a75531d26637c8cc",
-        "version" : "1.4.0"
+        "revision" : "40d25bbb2fc5b557a9aa8512210bded327c0f60d",
+        "version" : "1.5.0"
       }
     },
     {
@@ -402,8 +420,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-certificates.git",
       "state" : {
-        "revision" : "870f4d5fe5fcfedc13f25d70e103150511746404",
-        "version" : "1.11.0"
+        "revision" : "f4cd9e78a1ec209b27e426a5f5c693675f95e75a",
+        "version" : "1.15.0"
       }
     },
     {
@@ -420,8 +438,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-crypto.git",
       "state" : {
-        "revision" : "84b1d494118d63629a785230135f82991f02329e",
-        "version" : "3.13.2"
+        "revision" : "bcd2b89f2a4446395830b82e4e192765edd71e18",
+        "version" : "4.0.0"
       }
     },
     {
@@ -465,8 +483,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/niscy-eudiw/SwiftCBOR.git",
       "state" : {
-        "revision" : "2c8c55273d4c4aae21bb46c2afbae79ee072eff4",
-        "version" : "0.6.2"
+        "revision" : "7d6271345212f3864309666b6eb9f9941be6873d",
+        "version" : "0.6.3"
       }
     },
     {

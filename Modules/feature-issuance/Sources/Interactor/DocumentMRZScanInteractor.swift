@@ -3,11 +3,11 @@ import logic_core
 import logic_resources
 import mrz_reader
 
-public protocol MRZDocumentScanInteractor: Sendable {
+public protocol DocumentMRZScanInteractor: Sendable {
   func processMRZData(mrzData: MRZData) async -> MRZProcessingPartialState
 }
 
-final class MRZDocumentScanInteractorImpl: MRZDocumentScanInteractor {
+final class MRZDocumentScanInteractorImpl: DocumentMRZScanInteractor {
 
   private let walletController: WalletKitController
 
@@ -21,10 +21,6 @@ final class MRZDocumentScanInteractorImpl: MRZDocumentScanInteractor {
       guard validateMRZData(mrzData) else {
         return .failure(MRZError.invalidData)
       }
-
-      // TODO: Submit MRZ data to wallet controller for document issuance
-      // For now, this is a placeholder that would integrate with the actual issuance flow
-      // let documentId = try await walletController.issueDocumentWithMRZ(mrzData: mrzData)
 
       // Placeholder: Return the document number as identifier
       return .success(mrzData.documentNumber)

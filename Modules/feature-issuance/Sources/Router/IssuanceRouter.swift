@@ -68,31 +68,44 @@ public final class IssuanceRouter {
           config: config
         )
       ).eraseToAnyView()
-    case .mrzDocumentIntro:
+    case .documentMRZIntro:
       MrzDocumentIntroView(
         with: .init(
           router: host
         )
       ).eraseToAnyView()
-    case .mrzDocumentInstruction:
+    case .documentMRZInstruction:
       MrzDocumentInstructionView(
         with: .init(
           router: host
         )
       ).eraseToAnyView()
-    case .mrzDocumentScan:
+    case .documentMRZScan:
       MRZDocumentScanView(
         with: .init(
           router: host,
           interactor: DIGraph.resolver.force(
-            MRZDocumentScanInteractor.self
+            DocumentMRZScanInteractor.self
           )
         )
       ).eraseToAnyView()
-    case .biometricReadingInstruction:
-      BiometricReadingInstructionView(
+    case .documentNFC(let mrzKey):
+      DocumentNFCView(
         with: .init(
-          router: host
+          router: host,
+          interactor: DIGraph.resolver.force(
+            NFCPassportReaderInteractor.self
+          ),
+          mrzKey: mrzKey
+        )
+      ).eraseToAnyView()
+    case .documentDataDisplay(photo: let photo, birthDate: let birthDate, expiryDate: let expiryDate):
+      DocumentDataDisplayView(
+        with: .init(
+          router: host,
+          photo: photo,
+          birthDate: birthDate,
+          expiryDate: expiryDate
         )
       ).eraseToAnyView()
     }

@@ -103,10 +103,11 @@ public enum FeatureIssuanceRouteModule: AppRouteModule {
   case issuanceSuccess(config: any UIConfigType, requestItems: [any Routable])
   case credentialOfferRequest(config: any UIConfigType)
   case issuanceCode(config: any UIConfigType)
-  case mrzDocumentIntro
-  case mrzDocumentInstruction
-  case mrzDocumentScan
-  case biometricReadingInstruction
+  case documentMRZIntro
+  case documentMRZInstruction
+  case documentMRZScan
+  case documentNFC(mrzKey: String)
+  case documentDataDisplay(photo: Data?, birthDate: String?, expiryDate: String?)
 
   public var info: (key: String, arguments: [String: String]) {
     return switch self {
@@ -118,14 +119,16 @@ public enum FeatureIssuanceRouteModule: AppRouteModule {
       (key: "IssuanceCode", arguments: ["config": config.log])
     case .credentialOfferRequest(let config):
       (key: "CredentialOfferRequest", arguments: ["config": config.log])
-    case .mrzDocumentIntro:
-      (key: "MRZDocumentIntro", arguments: [:])
-    case .mrzDocumentInstruction:
-      (key: "MRZDocumentInstruction", arguments: [:])
-    case .mrzDocumentScan:
-      (key: "MRZDocumentScan", arguments: [:])
-    case .biometricReadingInstruction:
-      (key: "NFCReadingGuide", arguments: [:])
+    case .documentMRZIntro:
+      (key: "DocumentMRZIntro", arguments: [:])
+    case .documentMRZInstruction:
+      (key: "DocumentMRZInstruction", arguments: [:])
+    case .documentMRZScan:
+      (key: "DocumentMRZScan", arguments: [:])
+    case .documentNFC:
+      (key: "DocumentNFC", arguments: [:])
+    case .documentDataDisplay:
+      (key: "DocumentDataDisplay", arguments: [:])
     }
   }
 }

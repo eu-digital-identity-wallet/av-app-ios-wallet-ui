@@ -24,6 +24,6 @@ final class MrzDocumentInstructionViewModel<Router: RouterHost>: ViewModel<Route
   }
 
   func takeAPhotoTapped() {
-    router.push(with: .featureIssuanceModule(.mrzDocumentScan))
+    router.push(with: .featureIssuanceModule(.documentMRZScan))
   }
 }

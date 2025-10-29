@@ -451,6 +451,58 @@ final class LocalizableManager: LocalizableManagerType {
     case .changePinSuccessText:
         bundle.localizedString(forKey: "change_pin_success_text")
 
+    case .nfcReadyToScan:
+      bundle.localizedString(forKey: "nfc_ready_to_scan")
+    case .nfcInitializing:
+      bundle.localizedString(forKey: "nfc_initializing")
+    case .nfcReadingCOM:
+      bundle.localizedString(forKey: "nfc_reading_com")
+    case .nfcReadingDG1:
+      bundle.localizedString(forKey: "nfc_reading_dg1")
+    case .nfcReadingDG2:
+      bundle.localizedString(forKey: "nfc_reading_dg2")
+    case .nfcReadingSOD:
+      bundle.localizedString(forKey: "nfc_reading_sod")
+    case .nfcReadingProgress:
+      bundle.localizedString(forKey: "nfc_reading_progress")
+    case .nfcReadingSuccess:
+      bundle.localizedString(forKey: "nfc_reading_success")
+    case .nfcHoldSteady:
+      bundle.localizedString(forKey: "nfc_hold_steady")
+    case .nfcStartReading:
+      bundle.localizedString(forKey: "nfc_start_reading")
+    case .nfcErrorTagNotValid:
+      bundle.localizedString(forKey: "nfc_error_tag_not_valid")
+    case .nfcErrorMoreThanOneTag:
+      bundle.localizedString(forKey: "nfc_error_more_than_one_tag")
+    case .nfcErrorConnection:
+      bundle.localizedString(forKey: "nfc_error_connection")
+    case .nfcErrorUserCanceled:
+      bundle.localizedString(forKey: "nfc_error_user_canceled")
+    case .nfcErrorInvalidMRZKey:
+      bundle.localizedString(forKey: "nfc_error_invalid_mrz_key")
+    case .nfcErrorUnexpected:
+      bundle.localizedString(forKey: "nfc_error_unexpected")
+    case .nfcErrorReadingFailed:
+      bundle.localizedString(forKey: "nfc_error_reading_failed")
+    case .nfcErrorMissingData:
+      bundle.localizedString(forKey: "nfc_error_missing_data")
+    case .passportBirthDate:
+      bundle.localizedString(forKey: "passport_birth_date")
+    case .passportExpiryDate:
+      bundle.localizedString(forKey: "passport_expiry_date")
+    case .passportDocumentNumber:
+      bundle.localizedString(forKey: "passport_document_number")
+    case .passportPhoto:
+      bundle.localizedString(forKey: "passport_photo")
+    case .passportDataReviewHeader:
+      bundle.localizedString(forKey: "passport_data_review_header")
+    case .passportDataReviewDescription:
+      bundle.localizedString(forKey: "passport_data_review_description")
+    case .passportIdCardTitle:
+      bundle.localizedString(forKey: "passport_id_card_title")
+    case .continueButton:
+      bundle.localizedString(forKey: "continue_button")
     }
   }
 }

@@ -18,7 +18,9 @@ struct MrzDocumentInstructionView<Router: RouterHost>: View {
                 onBackButtonTapped: viewModel.backButtonTapped,
                 onTakeAPhotoTapped: viewModel.takeAPhotoTapped)
       }
+      .navigationBarHidden(true)
     }
+    
 }
 
 @MainActor

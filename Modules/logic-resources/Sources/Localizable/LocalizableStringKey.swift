@@ -261,6 +261,40 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case changePinSecondPinDescription
   case changePinHelpText
   case changePinSuccessText
+
+  // NFC Passport Reading
+  case nfcReadyToScan
+  case nfcInitializing
+  case nfcReadingCOM
+  case nfcReadingDG1
+  case nfcReadingDG2
+  case nfcReadingSOD
+  case nfcReadingProgress
+  case nfcReadingSuccess
+  case nfcHoldSteady
+  case nfcStartReading
+
+  // NFC Errors
+  case nfcErrorTagNotValid
+  case nfcErrorMoreThanOneTag
+  case nfcErrorConnection
+  case nfcErrorUserCanceled
+  case nfcErrorInvalidMRZKey
+  case nfcErrorUnexpected
+  case nfcErrorReadingFailed
+  case nfcErrorMissingData
+
+  // Passport Data Labels
+  case passportBirthDate
+  case passportExpiryDate
+  case passportDocumentNumber
+  case passportPhoto
+
+  // Passport Data Display
+  case passportDataReviewHeader
+  case passportDataReviewDescription
+  case passportIdCardTitle
+  case continueButton
 }
 
 public extension LocalizableStringKey {

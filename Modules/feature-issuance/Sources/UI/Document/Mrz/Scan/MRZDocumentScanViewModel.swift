@@ -12,11 +12,11 @@ struct MRZDocumentScanViewState: ViewState {
 
 final class MRZDocumentScanViewModel<Router: RouterHost>: ViewModel<Router, MRZDocumentScanViewState> {
 
-  private let interactor: MRZDocumentScanInteractor
+  private let interactor: DocumentMRZScanInteractor
 
   init(
     router: Router,
-    interactor: MRZDocumentScanInteractor
+    interactor: DocumentMRZScanInteractor
   ) {
     self.interactor = interactor
     super.init(
@@ -50,8 +50,13 @@ final class MRZDocumentScanViewModel<Router: RouterHost>: ViewModel<Router, MRZD
         setState {
           $0.copy(isProcessing: false, error: nil)
         }
-        // Navigate to nfc reader instruction screen on success
-        router.push(with: AppRoute.featureIssuanceModule(.biometricReadingInstruction))
+        // Calculate MRZ key for NFC reading with proper format including check digits
+        let mrzKey = MRZKeyExtractor.extractMRZKey(from: mrzData)
+
+        log("MRZ Key extracted: \(mrzKey) (length: \(mrzKey.count))", level: .info)
+
+        // Navigate to document NFC screen on success
+        router.push(with: AppRoute.featureIssuanceModule(.documentNFC(mrzKey: mrzKey)))
 
       case .failure(let error):
         setState {
@@ -74,4 +79,5 @@ final class MRZDocumentScanViewModel<Router: RouterHost>: ViewModel<Router, MRZD
       $0.copy(error: nil)
     }
   }
+
 }

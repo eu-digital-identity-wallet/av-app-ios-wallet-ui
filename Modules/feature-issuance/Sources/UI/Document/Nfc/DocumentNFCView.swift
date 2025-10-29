@@ -4,29 +4,34 @@ import logic_core
 import feature_common
 import logic_resources
 
-struct BiometricReadingInstructionView<Router: RouterHost>: View {
-  @StateObject private var viewModel: BiometricReadingInstructionViewModel<Router>
+struct DocumentNFCView<Router: RouterHost>: View {
+  @StateObject private var viewModel: DocumentNFCViewModel<Router>
 
-  init(with viewModel: BiometricReadingInstructionViewModel<Router>) {
+  init(with viewModel: DocumentNFCViewModel<Router>) {
     self._viewModel = StateObject(wrappedValue: viewModel)
   }
-    var body: some View {
-      ContentScreenView(
-        padding: .zero,
-        canScroll: true
-      ) {
-        content(viewState: viewModel.viewState,
-                onBackButtonTapped: viewModel.backButtonTapped,
-                onNextButtonTapped: viewModel.nextButtonTapped,
-                onHelpLinkTapped: viewModel.helpLinkTapped)
-      }
+
+  var body: some View {
+    ContentScreenView(
+      padding: .zero,
+      canScroll: true,
+      errorConfig: viewModel.viewState.error
+    ) {
+      instructionContent(
+        viewState: viewModel.viewState,
+        onBackButtonTapped: viewModel.backButtonTapped,
+        onNextButtonTapped: viewModel.nextButtonTapped,
+        onHelpLinkTapped: viewModel.helpLinkTapped
+      )
     }
+    .navigationBarHidden(true)
+  }
 }
 
 @MainActor
 @ViewBuilder
-private func content(
-  viewState: BiometricReadingInstructionViewState,
+private func instructionContent(
+  viewState: DocumentNFCViewState,
   onBackButtonTapped: @escaping () -> Void,
   onNextButtonTapped: @escaping () -> Void,
   onHelpLinkTapped: @escaping () -> Void
@@ -88,9 +93,11 @@ private func content(
 }
 
 #Preview {
-  let viewState = BiometricReadingInstructionViewState()
-  content(viewState: viewState,
-          onBackButtonTapped: {},
-          onNextButtonTapped: {},
-          onHelpLinkTapped: {})
+  let viewState = DocumentNFCViewState(error: nil)
+  instructionContent(
+    viewState: viewState,
+    onBackButtonTapped: {},
+    onNextButtonTapped: {},
+    onHelpLinkTapped: {}
+  )
 }

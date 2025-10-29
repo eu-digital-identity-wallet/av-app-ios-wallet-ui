@@ -20,6 +20,7 @@ struct MrzDocumentIntroView<Router: RouterHost>: View {
               onBackButtonTapped: viewModel.backButtonTapped,
               onStartProcedureTapped: viewModel.startProcedureButtonTapped)
     }
+    .navigationBarHidden(true)
   }
 }
 

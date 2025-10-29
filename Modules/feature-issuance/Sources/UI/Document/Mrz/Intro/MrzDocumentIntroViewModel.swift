@@ -28,7 +28,7 @@ final class MrzDocumentIntroViewModel<Router: RouterHost>: ViewModel<Router, Mrz
   }
 
   func startProcedureButtonTapped() {
-    router.push(with: .featureIssuanceModule(.mrzDocumentInstruction))
+    router.push(with: .featureIssuanceModule(.documentMRZInstruction))
 
   }
 }
