@@ -24,10 +24,12 @@ final class TestQuickPinInteractor: EudiTest {
   
   var interactor: QuickPinInteractor!
   var pinStorageController: MockPinStorageController!
+  var prefsController: MockPrefsController!
   
   override func setUp() {
     self.pinStorageController = MockPinStorageController()
-    self.interactor = QuickPinInteractorImpl(pinStorageController: pinStorageController)
+    self.prefsController = MockPrefsController()
+    self.interactor = QuickPinInteractorImpl(pinStorageController: pinStorageController, prefsController: prefsController)
   }
   
   override func tearDown() {
@@ -41,6 +43,10 @@ final class TestQuickPinInteractor: EudiTest {
     let pin = "1234"
     stub(pinStorageController) { mock in
       when(mock.setPin(with: any())).thenDoNothing()
+    }
+    stub(prefsController) { mock in
+      when(mock.getValue(forKey: any())).thenReturn(nil)
+      when(mock.setValue(any(), forKey: any())).thenDoNothing()
     }
     
     // When
@@ -130,6 +136,10 @@ final class TestQuickPinInteractor: EudiTest {
     }
     stub(pinStorageController) { mock in
       when(mock.setPin(with: any())).thenDoNothing()
+    }
+    stub(prefsController) { mock in
+      when(mock.getValue(forKey: any())).thenReturn(nil)
+      when(mock.setValue(any(), forKey: any())).thenDoNothing()
     }
     
     // When
