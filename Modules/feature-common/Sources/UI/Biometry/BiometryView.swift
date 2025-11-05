@@ -79,6 +79,7 @@ private func content(
     ? viewState.config.caption
     : viewState.config.quickPinOnlyCaption,
     titleColor: Theme.shared.color.onSurface,
+    textAlignment: .center,
     topSpacing: viewState.isCancellable ? .withToolbar : .withoutToolbar
   )
 
@@ -118,6 +119,12 @@ private func pinView(
   disabled: Bool
 ) -> some View {
 VStack(alignment: .leading, spacing: .zero) {
+    Text(LocalizableStringKey.quickPinTitle.toString)
+    .typography(Theme.shared.font.bodySmall)
+    .fontWeight(.bold)
+
+    VSpacer.extraSmall()
+
     Text(subtitleText)
         .typography(Theme.shared.font.bodySmall)
         .foregroundColor(Theme.shared.color.grey)

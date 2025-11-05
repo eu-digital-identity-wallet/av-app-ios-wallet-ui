@@ -70,7 +70,7 @@ private func content(
     )
     WrapButtonView(
       style: .primary,
-      title: LocalizableStringKey.startProcedure,
+      title: LocalizableStringKey.start,
       isLoading: false,
       onAction: onStartProcedureTapped()
     )

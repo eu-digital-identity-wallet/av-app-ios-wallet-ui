@@ -306,6 +306,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "quick_pin_create_enter_subtitle")
     case .quickPinReEnterSubtitle:
         bundle.localizedString(forKey: "quick_pin_create_reenter_subtitle")
+    case .quickPinTitle:
+        bundle.localizedString(forKey: "quick_pin_title")
     case .verificationStepTitle:
         bundle.localizedString(forKey: "onboarding_verification_title")
     case .verificationStepDescription:
@@ -356,8 +358,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "settings_delete_credentials")
     case .back:
       bundle.localizedString(forKey: "back_button_title")
-    case .startProcedure:
-      bundle.localizedString(forKey: "start_procedure")
+    case .start:
+      bundle.localizedString(forKey: "start_button_title")
     case .passportEnrollmentIdentification:
       bundle.localizedString(forKey: "passport_enrollment_step1_title")
     case .passportEnrollmentBiometrics:
