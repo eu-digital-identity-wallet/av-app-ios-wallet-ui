@@ -23,6 +23,8 @@ struct DocumentDataDisplayViewState: ViewState {
   let config: DocumentEnrollmentUiConfig
   let isUnderAge: Bool
   let isPassportExpired: Bool
+  let formattedBirthDate: String?
+  let formattedExpiryDate: String?
 
   var isValid: Bool {
     !isUnderAge && !isPassportExpired
@@ -35,15 +37,20 @@ final class DocumentDataDisplayViewModel<Router: RouterHost>: ViewModel<Router, 
     router: Router,
     config: DocumentEnrollmentUiConfig
   ) {
-    let isUnderAge = Self.checkIfUnderAge(birthDate: config.documentData?.birthDate)
-    let isPassportExpired = Self.checkIfPassportExpired(expiryDate: config.documentData?.expiryDate)
+    let isUnderAge = config.documentData?.birthDate.map { MRZDateUtils.isUnderAge($0) } ?? false
+    let isPassportExpired = config.documentData?.expiryDate.map { MRZDateUtils.isExpired($0) } ?? false
+
+    let formattedBirthDate = config.documentData?.birthDate.map { MRZDateUtils.formatBirthDate($0) }
+    let formattedExpiryDate = config.documentData?.expiryDate.map { MRZDateUtils.formatExpiryDate($0) }
 
     super.init(
       router: router,
       initialState: .init(
         config: config,
         isUnderAge: isUnderAge,
-        isPassportExpired: isPassportExpired
+        isPassportExpired: isPassportExpired,
+        formattedBirthDate: formattedBirthDate,
+        formattedExpiryDate: formattedExpiryDate
       )
     )
   }
@@ -54,39 +61,12 @@ final class DocumentDataDisplayViewModel<Router: RouterHost>: ViewModel<Router, 
 
   func continueButtonTapped() {
     guard viewState.isValid else { return }
-    router.push(with: .featureIssuanceModule(.livenessCheck(config: viewState.config)))
-  }
 
-  private static func checkIfUnderAge(birthDate: String?) -> Bool {
-    guard let birthDate = birthDate,
-          let date = parseMRZDate(birthDate) else {
-      return false
+    // Skip liveness check for ID card flow (no photo available for face matching)
+    if viewState.config.flowType == .idCard {
+      router.push(with: .featureIssuanceModule(.credentialIssuance(config: viewState.config)))
+    } else {
+      router.push(with: .featureIssuanceModule(.livenessCheck(config: viewState.config)))
     }
-
-    let calendar = Calendar.current
-    let now = Date()
-    let ageComponents = calendar.dateComponents([.year], from: date, to: now)
-
-    guard let age = ageComponents.year else { return false }
-    return age < 18
-  }
-
-  private static func checkIfPassportExpired(expiryDate: String?) -> Bool {
-    guard let expiryDate = expiryDate,
-          let date = parseMRZDate(expiryDate) else {
-      return false
-    }
-
-    return date < Date()
-  }
-
-  private static func parseMRZDate(_ mrzDate: String) -> Date? {
-    guard mrzDate.count == 6 else { return nil }
-
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyMMdd"
-    formatter.timeZone = TimeZone(secondsFromGMT: 0)
-
-    return formatter.date(from: mrzDate)
   }
 }

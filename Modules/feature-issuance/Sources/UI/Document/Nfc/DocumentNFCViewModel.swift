@@ -106,7 +106,8 @@ final class DocumentNFCViewModel<Router: RouterHost>: ViewModel<Router, Document
                   expiryDate: documentData.expiryDate
                 ),
                 configId: config.configId,
-                docTypeIdentifier: config.docTypeIdentifier
+                docTypeIdentifier: config.docTypeIdentifier,
+                flowType: config.flowType
               )
             )
           ))

@@ -18,12 +18,18 @@ import logic_ui
 import logic_core
 import Foundation
 
+public enum DocumentFlowType: Equatable, Sendable {
+  case passport
+  case idCard
+}
+
 public struct DocumentEnrollmentUiConfig: UIConfigType, Equatable, Sendable {
 
   public let mrzKey: String?
   public let documentData: DocumentData?
   public let configId: String?
   public let docTypeIdentifier: DocumentTypeIdentifier?
+  public let flowType: DocumentFlowType
 
   public var log: String {
     var logString = ""
@@ -33,6 +39,7 @@ public struct DocumentEnrollmentUiConfig: UIConfigType, Equatable, Sendable {
     if documentData != nil {
       logString += " hasDocumentData: true"
     }
+    logString += " flowType: \(flowType)"
     return logString.isEmpty ? "empty" : logString
   }
 
@@ -40,12 +47,14 @@ public struct DocumentEnrollmentUiConfig: UIConfigType, Equatable, Sendable {
     mrzKey: String? = nil,
     documentData: DocumentData? = nil,
     configId: String? = nil,
-    docTypeIdentifier: DocumentTypeIdentifier? = nil
+    docTypeIdentifier: DocumentTypeIdentifier? = nil,
+    flowType: DocumentFlowType = .passport
   ) {
     self.mrzKey = mrzKey
     self.documentData = documentData
     self.configId = configId
     self.docTypeIdentifier = docTypeIdentifier
+    self.flowType = flowType
   }
 }
 

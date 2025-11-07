@@ -71,41 +71,51 @@ private func content(
             .fontWeight(.semibold)
 
           // Passport Photo
-          if let photoData = viewState.config.documentData?.photo,
-             let uiImage = UIImage(data: photoData) {
-            HStack {
-              Spacer()
+          HStack {
+            Spacer()
+            if let photoData = viewState.config.documentData?.photo,
+               let uiImage = UIImage(data: photoData) {
               Image(uiImage: uiImage)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 150, height: 190)
                 .clipShape(RoundedRectangle(cornerRadius: 8))
-              Spacer()
+            } else {
+              // Show X icon placeholder when no photo available
+              ZStack {
+                RoundedRectangle(cornerRadius: 8)
+                  .fill(Color(UIColor.systemGray5))
+                  .frame(width: 150, height: 190)
+                Image(systemName: "xmark")
+                  .font(.system(size: 60, weight: .light))
+                  .foregroundColor(Color(UIColor.systemGray3))
+              }
             }
+            Spacer()
           }
 
           VSpacer.medium()
 
           // Data Fields
           VStack(alignment: .leading, spacing: 20) {
-            if let birthDate = viewState.config.documentData?.birthDate {
+            if let formattedBirthDate = viewState.formattedBirthDate {
               VStack(alignment: .leading, spacing: 4) {
                 Text(LocalizableStringKey.passportBirthDate.toString)
                   .typography(Theme.shared.font.bodyMedium)
                   .foregroundColor(viewState.isUnderAge ? .red : Color(.secondaryLabel))
-                Text(formatDate(birthDate))
+                Text(formattedBirthDate)
                   .typography(Theme.shared.font.titleMedium)
                   .fontWeight(.regular)
                   .foregroundColor(viewState.isUnderAge ? .red : .primary)
               }
             }
 
-            if let expiryDate = viewState.config.documentData?.expiryDate {
+            if let formattedExpiryDate = viewState.formattedExpiryDate {
               VStack(alignment: .leading, spacing: 4) {
                 Text(LocalizableStringKey.passportExpiryDate.toString)
                   .typography(Theme.shared.font.bodyMedium)
                   .foregroundColor(viewState.isPassportExpired ? .red : Color(.secondaryLabel))
-                Text(formatDate(expiryDate))
+                Text(formattedExpiryDate)
                   .typography(Theme.shared.font.titleMedium)
                   .fontWeight(.regular)
                   .foregroundColor(viewState.isPassportExpired ? .red : .primary)
@@ -145,24 +155,6 @@ private func content(
   .padding(.bottom, 64)
 }
 
-@MainActor
-private func formatDate(_ mrzDate: String) -> String {
-  // MRZ date format is YYMMDD
-  guard mrzDate.count == 6 else { return mrzDate }
-
-  let formatter = DateFormatter()
-  formatter.dateFormat = "yyMMdd"
-  formatter.timeZone = TimeZone(secondsFromGMT: 0)
-
-  guard let date = formatter.date(from: mrzDate) else { return mrzDate }
-
-  let displayFormatter = DateFormatter()
-  displayFormatter.dateFormat = "MMM d, yyyy"  // e.g., "Jan 1, 1987"
-  displayFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-
-  return displayFormatter.string(from: date)
-}
-
 #Preview {
   let viewState = DocumentDataDisplayViewState(
     config: DocumentEnrollmentUiConfig(
@@ -174,7 +166,9 @@ private func formatDate(_ mrzDate: String) -> String {
       )
     ),
     isUnderAge: false,
-    isPassportExpired: false
+    isPassportExpired: false,
+    formattedBirthDate: "Jan 1, 1990",
+    formattedExpiryDate: "Dec 31, 2030"
   )
   content(
     viewState: viewState,
