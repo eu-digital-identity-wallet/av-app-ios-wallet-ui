@@ -103,11 +103,13 @@ public enum FeatureIssuanceRouteModule: AppRouteModule {
   case issuanceSuccess(config: any UIConfigType, requestItems: [any Routable])
   case credentialOfferRequest(config: any UIConfigType)
   case issuanceCode(config: any UIConfigType)
-  case documentMRZIntro
-  case documentMRZInstruction
-  case documentMRZScan
-  case documentNFC(mrzKey: String)
-  case documentDataDisplay(photo: Data?, birthDate: String?, expiryDate: String?)
+  case documentMRZIntro(config: any UIConfigType)
+  case documentMRZInstruction(config: any UIConfigType)
+  case documentMRZScan(config: any UIConfigType)
+  case documentNFC(config: any UIConfigType)
+  case documentDataDisplay(config: any UIConfigType)
+  case livenessCheck(config: any UIConfigType)
+  case credentialIssuance(config: any UIConfigType)
 
   public var info: (key: String, arguments: [String: String]) {
     return switch self {
@@ -119,16 +121,20 @@ public enum FeatureIssuanceRouteModule: AppRouteModule {
       (key: "IssuanceCode", arguments: ["config": config.log])
     case .credentialOfferRequest(let config):
       (key: "CredentialOfferRequest", arguments: ["config": config.log])
-    case .documentMRZIntro:
-      (key: "DocumentMRZIntro", arguments: [:])
-    case .documentMRZInstruction:
-      (key: "DocumentMRZInstruction", arguments: [:])
-    case .documentMRZScan:
-      (key: "DocumentMRZScan", arguments: [:])
-    case .documentNFC:
-      (key: "DocumentNFC", arguments: [:])
-    case .documentDataDisplay:
-      (key: "DocumentDataDisplay", arguments: [:])
+    case .documentMRZIntro(let config):
+      (key: "DocumentMRZIntro", arguments: ["config": config.log])
+    case .documentMRZInstruction(let config):
+      (key: "DocumentMRZInstruction", arguments: ["config": config.log])
+    case .documentMRZScan(let config):
+      (key: "DocumentMRZScan", arguments: ["config": config.log])
+    case .documentNFC(let config):
+      (key: "DocumentNFC", arguments: ["config": config.log])
+    case .documentDataDisplay(let config):
+      (key: "DocumentDataDisplay", arguments: ["config": config.log])
+    case .livenessCheck(let config):
+      (key: "LivenessCheck", arguments: ["config": config.log])
+    case .credentialIssuance(let config):
+      (key: "CredentialIssuance", arguments: ["config": config.log])
     }
   }
 }

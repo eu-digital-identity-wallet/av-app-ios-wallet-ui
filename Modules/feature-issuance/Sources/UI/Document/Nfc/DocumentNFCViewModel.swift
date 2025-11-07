@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2025 European Commission
+ *
+ * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
+ * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
+ * except in compliance with the Licence.
+ *
+ * You may obtain a copy of the Licence at:
+ * https://joinup.ec.europa.eu/software/page/eupl
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the Licence is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF
+ * ANY KIND, either express or implied. See the Licence for the specific language
+ * governing permissions and limitations under the Licence.
+ */
+
 import Foundation
 import logic_ui
 import logic_resources
@@ -14,16 +30,16 @@ struct DocumentNFCViewState: ViewState, Copyable {
 }
 
 final class DocumentNFCViewModel<Router: RouterHost>: ViewModel<Router, DocumentNFCViewState> {
-  private let interactor: NFCPassportReaderInteractor
-  private let mrzKey: String
+  private let interactor: NFCDocumentReaderInteractor
+  private let config: DocumentEnrollmentUiConfig
 
   init(
     router: Router,
-    interactor: NFCPassportReaderInteractor,
-    mrzKey: String
+    interactor: NFCDocumentReaderInteractor,
+    config: DocumentEnrollmentUiConfig
   ) {
     self.interactor = interactor
-    self.mrzKey = mrzKey
+    self.config = config
     super.init(
       router: router,
       initialState: .init(error: nil)
@@ -40,39 +56,58 @@ final class DocumentNFCViewModel<Router: RouterHost>: ViewModel<Router, Document
   }
 
   func helpLinkTapped() {
-    debugPrint("Do you need help? link tapped")
+    log("Do you need help? link tapped", level: .debug)
   }
 
   private func startReading() {
     Task {
+      guard let mrzKey = config.mrzKey else {
+        await MainActor.run {
+          setState {
+            $0.copy(
+              error: .init(
+                description: .custom("MRZ key is required for NFC reading"),
+                cancelAction: self.onErrorDismissed()
+              )
+            )
+          }
+        }
+        return
+      }
+      
       let result = await interactor.readPassport(mrzKey: mrzKey)
 
       await MainActor.run {
         switch result {
-        case .success(let passportData):
+        case .success(let documentData):
           // Validate that we have the required data
-          guard passportData.birthDate != nil,
-                passportData.expiryDate != nil,
-                passportData.photo != nil else {
+          guard documentData.birthDate != nil,
+                documentData.expiryDate != nil,
+                documentData.photo != nil else {
             setState {
               $0.copy(
                 error: .init(
                   description: .custom(NFCError.missingData.localizedDescription),
-                  cancelAction: { [weak self] in
-                    self?.onErrorDismissed()
-                  }()
+                  cancelAction: self.onErrorDismissed()
                 )
               )
             }
             return
           }
 
-          // Success - navigate to display screen with data
+          // Success - navigate to display screen with data, preserving configId and docTypeIdentifier
           router.push(with: AppRoute.featureIssuanceModule(
             .documentDataDisplay(
-              photo: passportData.photo,
-              birthDate: passportData.birthDate,
-              expiryDate: passportData.expiryDate
+              config: DocumentEnrollmentUiConfig(
+                mrzKey: mrzKey,
+                documentData: DocumentEnrollmentUiConfig.DocumentData(
+                  photo: documentData.photo,
+                  birthDate: documentData.birthDate,
+                  expiryDate: documentData.expiryDate
+                ),
+                configId: config.configId,
+                docTypeIdentifier: config.docTypeIdentifier
+              )
             )
           ))
 
@@ -83,9 +118,7 @@ final class DocumentNFCViewModel<Router: RouterHost>: ViewModel<Router, Document
               $0.copy(
                 error: .init(
                   description: .custom(error.localizedDescription),
-                  cancelAction: { [weak self] in
-                    self?.onErrorDismissed()
-                  }()
+                  cancelAction: self.onErrorDismissed()
                 )
               )
             }

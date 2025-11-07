@@ -503,6 +503,28 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "passport_id_card_title")
     case .continueButton:
       bundle.localizedString(forKey: "continue_button")
+    case .livenessCheckHeader:
+      bundle.localizedString(forKey: "liveness_check_header")
+    case .livenessCheckDescription:
+      bundle.localizedString(forKey: "liveness_check_description")
+    case .livenessCheckInstructionPoint1:
+      bundle.localizedString(forKey: "liveness_check_instruction_point1")
+    case .livenessCheckInstructionPoint2:
+      bundle.localizedString(forKey: "liveness_check_instruction_point2")
+    case .livenessCheckFooter:
+      bundle.localizedString(forKey: "liveness_check_footer")
+    case .livenessCheckStartButton:
+      bundle.localizedString(forKey: "liveness_check_start_button")
+    case .livenessCheckErrorReferenceImage:
+      bundle.localizedString(forKey: "liveness_check_error_reference_image")
+    case .livenessCheckErrorNotLive:
+      bundle.localizedString(forKey: "liveness_check_error_not_live")
+    case .livenessCheckErrorNoMatch:
+      bundle.localizedString(forKey: "liveness_check_error_no_match")
+    case .credentialIssuanceTitle:
+      bundle.localizedString(forKey: "credential_issuance_title")
+    case .credentialIssuanceDescription:
+      bundle.localizedString(forKey: "credential_issuance_description")
     }
   }
 }

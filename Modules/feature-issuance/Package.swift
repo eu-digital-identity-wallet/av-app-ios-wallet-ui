@@ -23,9 +23,13 @@ let package = Package(
       dependencies: [
         "feature-common",
         "mrz-reader",
-        .product(name: "NFCPassportReader", package: "NFCPassportReader")
+        .product(name: "NFCPassportReader", package: "NFCPassportReader"),
+        "FaceMatchSDK"
       ],
-      path: "./Sources"
+      path: "./Sources",
+      resources: [
+        .process("Resources")
+      ]
     ),
     .testTarget(
       name: "feature-issuance-tests",
@@ -35,6 +39,10 @@ let package = Package(
         "feature-test"
       ],
       path: "./Tests"
+    ),
+    .binaryTarget(
+      name: "FaceMatchSDK",
+      path: "../../Frameworks/FaceMatchSDK.xcframework"
     )
   ]
 )

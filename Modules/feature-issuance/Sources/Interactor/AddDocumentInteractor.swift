@@ -40,7 +40,7 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
       var result = try await walletController.getScopedDocuments()
         result.append(ScopedDocument(name: "Passport or ID Card",
                                      issuer: "Passport or ID Card",
-                                     configId: "abc",
+                                     configId: "eu.europa.ec.eudi.age_verification_mdoc",
                                      isPid: false,
                                      docTypeIdentifier: DocumentTypeIdentifier.other(formatType: "passport"),
                                      isAgeVerification: false))

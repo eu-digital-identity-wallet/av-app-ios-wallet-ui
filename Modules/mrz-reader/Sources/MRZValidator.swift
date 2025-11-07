@@ -15,7 +15,7 @@ class MRZValidator {
   // Validate date format (YYMMDD)
   private static func isValidDate(_ dateStr: String) -> Bool {
     guard dateStr.count == 6 else { return false }
-    guard let year = Int(dateStr.prefix(2)),
+    guard let _ = Int(dateStr.prefix(2)),
           let month = Int(dateStr.dropFirst(2).prefix(2)),
           let day = Int(dateStr.suffix(2)) else {
       return false

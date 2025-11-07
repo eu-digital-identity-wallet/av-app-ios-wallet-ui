@@ -295,6 +295,21 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case passportDataReviewDescription
   case passportIdCardTitle
   case continueButton
+
+  // Liveness Check
+  case livenessCheckHeader
+  case livenessCheckDescription
+  case livenessCheckInstructionPoint1
+  case livenessCheckInstructionPoint2
+  case livenessCheckFooter
+  case livenessCheckStartButton
+  case livenessCheckErrorReferenceImage
+  case livenessCheckErrorNotLive
+  case livenessCheckErrorNoMatch
+
+  // Credential Issuance
+  case credentialIssuanceTitle
+  case credentialIssuanceDescription
 }
 
 public extension LocalizableStringKey {

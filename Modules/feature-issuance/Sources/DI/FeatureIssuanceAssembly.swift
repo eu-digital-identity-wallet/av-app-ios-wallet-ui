@@ -36,8 +36,18 @@ public final class FeatureIssuanceAssembly: Assembly {
     }
     .inObjectScope(ObjectScope.transient)
 
-    container.register(NFCPassportReaderInteractor.self) { r in
+    container.register(NFCDocumentReaderInteractor.self) { r in
       NFCPassportReaderInteractorImpl(walletController: r.force(WalletKitController.self))
+    }
+    .inObjectScope(ObjectScope.transient)
+
+    container.register(CredentialIssuanceInteractor.self) { r in
+      CredentialIssuanceInteractorImpl(walletController: r.force(WalletKitController.self))
+    }
+    .inObjectScope(ObjectScope.transient)
+
+    container.register(LivenessCheckInteractor.self) { r in
+      LivenessCheckInteractorImpl()
     }
     .inObjectScope(ObjectScope.transient)
   }

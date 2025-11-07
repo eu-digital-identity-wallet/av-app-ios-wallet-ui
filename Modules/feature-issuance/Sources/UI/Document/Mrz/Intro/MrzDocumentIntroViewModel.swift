@@ -6,11 +6,14 @@ import feature_common
 @Copyable
 struct MrzDocumentIntroViewState: ViewState {
   let steps: [(LocalizableStringKey, LocalizableStringKey?)]
+  let config: DocumentEnrollmentUiConfig
 }
 
 final class MrzDocumentIntroViewModel<Router: RouterHost>: ViewModel<Router, MrzDocumentIntroViewState> {
+
   init(
-    router: Router
+    router: Router,
+    config: DocumentEnrollmentUiConfig
   ) {
     super.init(router: router,
                initialState: .init(
@@ -18,7 +21,8 @@ final class MrzDocumentIntroViewModel<Router: RouterHost>: ViewModel<Router, Mrz
                                    (LocalizableStringKey.passportEnrollmentIntroStep2Title, LocalizableStringKey.passportEnrollmentIntroStep2Description),
                                    (LocalizableStringKey.passportEnrollmentIntroStep3Title, LocalizableStringKey.passportEnrollmentIntroStep3Description),
                                    (LocalizableStringKey.passportEnrollmentIntroStep4Title, nil),
-                                   (LocalizableStringKey.passportEnrollmentIntroStep5Title, nil)]
+                                   (LocalizableStringKey.passportEnrollmentIntroStep5Title, nil)],
+                config: config
                                   )
     )
   }
@@ -28,7 +32,6 @@ final class MrzDocumentIntroViewModel<Router: RouterHost>: ViewModel<Router, Mrz
   }
 
   func startProcedureButtonTapped() {
-    router.push(with: .featureIssuanceModule(.documentMRZInstruction))
-
+    router.push(with: .featureIssuanceModule(.documentMRZInstruction(config: viewState.config)))
   }
 }

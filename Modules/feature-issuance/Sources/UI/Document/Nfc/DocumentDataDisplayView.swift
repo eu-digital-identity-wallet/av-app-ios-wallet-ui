@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2025 European Commission
+ *
+ * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
+ * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
+ * except in compliance with the Licence.
+ *
+ * You may obtain a copy of the Licence at:
+ * https://joinup.ec.europa.eu/software/page/eupl
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the Licence is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF
+ * ANY KIND, either express or implied. See the Licence for the specific language
+ * governing permissions and limitations under the Licence.
+ */
+
 import SwiftUI
 import logic_ui
 import logic_core
@@ -55,7 +71,7 @@ private func content(
             .fontWeight(.semibold)
 
           // Passport Photo
-          if let photoData = viewState.photo,
+          if let photoData = viewState.config.documentData?.photo,
              let uiImage = UIImage(data: photoData) {
             HStack {
               Spacer()
@@ -72,25 +88,27 @@ private func content(
 
           // Data Fields
           VStack(alignment: .leading, spacing: 20) {
-            if let birthDate = viewState.birthDate {
+            if let birthDate = viewState.config.documentData?.birthDate {
               VStack(alignment: .leading, spacing: 4) {
                 Text(LocalizableStringKey.passportBirthDate.toString)
                   .typography(Theme.shared.font.bodyMedium)
-                  .foregroundColor(Color(.secondaryLabel))
+                  .foregroundColor(viewState.isUnderAge ? .red : Color(.secondaryLabel))
                 Text(formatDate(birthDate))
                   .typography(Theme.shared.font.titleMedium)
                   .fontWeight(.regular)
+                  .foregroundColor(viewState.isUnderAge ? .red : .primary)
               }
             }
 
-            if let expiryDate = viewState.expiryDate {
+            if let expiryDate = viewState.config.documentData?.expiryDate {
               VStack(alignment: .leading, spacing: 4) {
                 Text(LocalizableStringKey.passportExpiryDate.toString)
                   .typography(Theme.shared.font.bodyMedium)
-                  .foregroundColor(Color(.secondaryLabel))
+                  .foregroundColor(viewState.isPassportExpired ? .red : Color(.secondaryLabel))
                 Text(formatDate(expiryDate))
                   .typography(Theme.shared.font.titleMedium)
                   .fontWeight(.regular)
+                  .foregroundColor(viewState.isPassportExpired ? .red : .primary)
               }
             }
           }
@@ -117,6 +135,7 @@ private func content(
       style: .primary,
       title: LocalizableStringKey.continueButton,
       isLoading: false,
+      isEnabled: viewState.isValid,
       onAction: onContinueButtonTapped()
     )
     .padding(.horizontal, SPACING_SMALL)
@@ -146,9 +165,16 @@ private func formatDate(_ mrzDate: String) -> String {
 
 #Preview {
   let viewState = DocumentDataDisplayViewState(
-    photo: nil,
-    birthDate: "900101",
-    expiryDate: "301231"
+    config: DocumentEnrollmentUiConfig(
+      mrzKey: nil,
+      documentData: DocumentEnrollmentUiConfig.DocumentData(
+        photo: nil,
+        birthDate: "900101",
+        expiryDate: "301231"
+      )
+    ),
+    isUnderAge: false,
+    isPassportExpired: false
   )
   content(
     viewState: viewState,

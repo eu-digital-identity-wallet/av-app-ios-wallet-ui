@@ -3,11 +3,11 @@ import logic_core
 import logic_resources
 import NFCPassportReader
 
-public protocol NFCPassportReaderInteractor: Sendable {
-  func readPassport(mrzKey: String) async -> NFCPassportReadingPartialState
+public protocol NFCDocumentReaderInteractor: Sendable {
+  func readPassport(mrzKey: String) async -> NFCDocumentReadingPartialState
 }
 
-final class NFCPassportReaderInteractorImpl: NFCPassportReaderInteractor {
+final class NFCPassportReaderInteractorImpl: NFCDocumentReaderInteractor {
 
   private let walletController: WalletKitController
 
@@ -15,7 +15,7 @@ final class NFCPassportReaderInteractorImpl: NFCPassportReaderInteractor {
     self.walletController = walletController
   }
 
-  func readPassport(mrzKey: String) async -> NFCPassportReadingPartialState {
+  func readPassport(mrzKey: String) async -> NFCDocumentReadingPartialState {
     let startTime = Date()
 
     do {
@@ -24,10 +24,13 @@ final class NFCPassportReaderInteractorImpl: NFCPassportReaderInteractor {
       let passportReader = PassportReader()
 
       // Read passport using NFC with async/await
+      // Skip PACE as Integrated Mapping (IM) is not yet implemented in NFCPassportReader 2.2.0
+      // This ensures we use BAC directly, which is fully supported and more reliable
       let nfcModel = try await passportReader.readPassport(
         mrzKey: mrzKey,
         tags: [.COM, .DG1, .DG2, .SOD],
-        skipSecureElements: true
+        skipSecureElements: true,
+        skipPACE: true
       )
 
       let duration = Date().timeIntervalSince(startTime)
@@ -37,8 +40,8 @@ final class NFCPassportReaderInteractorImpl: NFCPassportReaderInteractor {
       logNFCResult(success: true, duration: duration, error: nil)
 
       // Extract the required data
-      let passportData = extractPassportData(from: nfcModel)
-      return .success(passportData)
+      let documentData = extractPassportData(from: nfcModel)
+      return .success(documentData)
 
     } catch let error as NFCPassportReaderError {
       let duration = Date().timeIntervalSince(startTime)
@@ -75,7 +78,7 @@ final class NFCPassportReaderInteractorImpl: NFCPassportReaderInteractor {
     log(message, level: success ? .info : .warning)
   }
 
-  private func extractPassportData(from nfcModel: NFCPassportModel) -> PassportData {
+  private func extractPassportData(from nfcModel: NFCPassportModel) -> DocumentData {
     // Extract data from the passport model
     let birthDate = nfcModel.dateOfBirth
     let expiryDate = nfcModel.documentExpiryDate
@@ -87,7 +90,7 @@ final class NFCPassportReaderInteractorImpl: NFCPassportReaderInteractor {
       photoData = Data(dg2.imageData)
     }
 
-    return PassportData(
+    return DocumentData(
       birthDate: birthDate,
       expiryDate: expiryDate,
       documentNumber: documentNumber,
@@ -117,15 +120,15 @@ final class NFCPassportReaderInteractorImpl: NFCPassportReaderInteractor {
   }
 }
 
-public struct PassportData: Sendable {
+public struct DocumentData: Sendable {
   public let birthDate: String?
   public let expiryDate: String?
   public let documentNumber: String
   public let photo: Data?
 }
 
-public enum NFCPassportReadingPartialState: Sendable {
-  case success(PassportData)
+public enum NFCDocumentReadingPartialState: Sendable {
+  case success(DocumentData)
   case failure(NFCError)
 }
 

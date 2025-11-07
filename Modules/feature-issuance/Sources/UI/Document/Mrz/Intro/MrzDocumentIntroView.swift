@@ -103,13 +103,18 @@ private func passportEnrollmentStepsView(viewState: MrzDocumentIntroViewState) -
 
 #Preview {
   let viewState = MrzDocumentIntroViewState(
-    steps: [(LocalizableStringKey.passportEnrollmentIntroStep1Title, LocalizableStringKey.passportEnrollmentIntroStep1Description),
-            (LocalizableStringKey.passportEnrollmentIntroStep2Title, LocalizableStringKey.passportEnrollmentIntroStep2Description),
-            (LocalizableStringKey.passportEnrollmentIntroStep3Title, LocalizableStringKey.passportEnrollmentIntroStep3Description),
-            (LocalizableStringKey.passportEnrollmentIntroStep4Title, nil),
-            (LocalizableStringKey.passportEnrollmentIntroStep5Title, nil)]
+    steps: [
+      (LocalizableStringKey.passportEnrollmentIntroStep1Title, LocalizableStringKey.passportEnrollmentIntroStep1Description),
+      (LocalizableStringKey.passportEnrollmentIntroStep2Title, LocalizableStringKey.passportEnrollmentIntroStep2Description),
+      (LocalizableStringKey.passportEnrollmentIntroStep3Title, LocalizableStringKey.passportEnrollmentIntroStep3Description),
+      (LocalizableStringKey.passportEnrollmentIntroStep4Title, nil),
+      (LocalizableStringKey.passportEnrollmentIntroStep5Title, nil)
+    ],
+    config: DocumentEnrollmentUiConfig()
   )
-  content(viewState: viewState,
-          onBackButtonTapped: {},
-          onStartProcedureTapped: {})
+  content(
+    viewState: viewState,
+    onBackButtonTapped: {},
+    onStartProcedureTapped: {}
+  )
 }
