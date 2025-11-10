@@ -74,6 +74,7 @@ public protocol ColorManagerProtocol: Sendable {
   var warning: Color { get }
     
   var lightText: Color { get }
+  var cameraFrame: Color { get }
 }
 
 final class ColorManager: ColorManagerProtocol {
@@ -126,6 +127,7 @@ final class ColorManager: ColorManagerProtocol {
     case scrim
     case shadow
     case lightText
+    case cameraFrame
   }
 
   enum BaseColors: String, CaseIterable {
@@ -254,6 +256,9 @@ final class ColorManager: ColorManagerProtocol {
   }
   public var onBackground: Color {
     Color(MaterialColors.onBackground.rawValue, bundle: bundle)
+  }
+  public var cameraFrame: Color {
+    Color(MaterialColors.cameraFrame.rawValue, bundle: bundle)
   }
 
   // MARK: - Surface

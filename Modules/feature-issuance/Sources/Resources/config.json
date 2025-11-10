@@ -1,0 +1,8 @@
+{
+  "face_detector_model": "mediapipe_long.onnx",
+  "embedding_extractor_model": "glintr100.onnx",
+  "liveness_model0": "silentface40.onnx",
+  "liveness_model1": "silentface27.onnx",
+  "liveness_threshold": 0.972017,
+  "matching_threshold": 0.5
+}

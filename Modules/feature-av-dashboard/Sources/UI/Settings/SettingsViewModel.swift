@@ -77,4 +77,22 @@ final class SettingsViewModel<Router: RouterHost>: ViewModel<Router, SettingsSta
       }
     }
   }
+
+  func onPinChange() {
+      router.push(with: .featureCommonModule(
+        .biometry(
+          config: UIConfig.Biometry(
+            navigationTitle: .custom(""),
+            displayLogo: false,
+            title: .changeQuickPinOption,
+            caption: .custom(""),
+            quickPinOnlyCaption: .changeQuickPinCaption,
+            navigationSuccessType: .push(.featureCommonModule(.changePin(config: QuickPinUiConfig(flow: .update)))),
+            navigationBackType: .pop,
+            isPreAuthorization: true,
+            shouldInitializeBiometricOnCreate: false)
+        )
+      )
+      )
+  }
 }

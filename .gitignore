@@ -92,3 +92,21 @@ xcov_output
 
 # End of https://www.toptal.com/developers/gitignore/api/swift
 .idea/
+
+# Sweetpad VSCode
+buildServer.json
+
+# LLM instruction files
+Claude*.md
+ChatGPT*.md
+Gemini*.md
+AGENTS.md
+Prompts/
+Instructions/
+.claude/
+.cursor/
+.cursorrules/
+.github/copilot-instructions.md
+
+# Temporary backup files
+*.bak

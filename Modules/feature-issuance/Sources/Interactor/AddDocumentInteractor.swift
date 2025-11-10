@@ -37,7 +37,15 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
 
   public func fetchScopedDocuments(with flow: IssuanceFlowUiConfig.Flow) async -> ScopedDocumentsPartialState {
     do {
-      let documents: [AddDocumentUIModel] = try await walletController.getScopedDocuments().compactMap { doc in
+      var result = try await walletController.getScopedDocuments()
+        result.append(ScopedDocument(name: "Passport or ID Card",
+                                     issuer: "Passport or ID Card",
+                                     configId: "eu.europa.ec.eudi.age_verification_mdoc",
+                                     isPid: false,
+                                     docTypeIdentifier: DocumentTypeIdentifier.other(formatType: "passport"),
+                                     isAgeVerification: false))
+
+      let documents: [AddDocumentUIModel] = result.compactMap { doc in
           if doc.isAgeVerification {
           return .init(
             listItem: .init(
@@ -51,7 +59,17 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
             docTypeIdentifier: doc.docTypeIdentifier
           )
         } else {
-          return nil
+            return .init(
+                listItem: .init(
+                  mainText: .verificationPassport,
+                  supportingText: .verificationPassportDescription,
+                  leadingIcon: LeadingIcon(image: Theme.shared.image.passportCard),
+                  trailingContent: nil
+                ),
+                isEnabled: true,
+                configId: doc.configId,
+                docTypeIdentifier: doc.docTypeIdentifier
+              )
         }
       }.sorted(by: compare)
       return .success(documents)

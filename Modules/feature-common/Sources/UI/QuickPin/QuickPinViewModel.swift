@@ -44,6 +44,7 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
   @Published var uiPinInputField: String = ""
   @Published var isCancelModalShowing: Bool = false
   private let interactor: QuickPinInteractor
+  private var lockoutTimer: LockoutTimer
 
   init(
     router: Router,
@@ -54,6 +55,7 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
       fatalError("QuickPinViewModel:: Invalid configuraton")
     }
     self.interactor = interactor
+    self.lockoutTimer = LockoutTimer()
     super.init(
       router: router,
       initialState: .init(
@@ -83,6 +85,9 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
     case .validate:
       onValidate()
     case .firstInput:
+      if !validateFirstPinSecurity(uiPinInputField) {
+        break
+      }
       setState {
         $0
           .copy(
@@ -151,10 +156,12 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
           .copy(pinError: nil)
       }
       uiPinInputField = ""
-    case .failure(let error):
+    case .failure(let errorMessage, _):
       setState {
-        $0.copy(pinError: .custom(error.localizedDescription))
+        $0.copy(pinError: .custom(errorMessage))
       }
+    case .lockedOut(lockoutEndTime: let lockoutEndTime):
+        startLockoutTimer(lockoutEndTime: lockoutEndTime)
     }
   }
 
@@ -207,5 +214,36 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
         sSelf.onButtonClick()
       }
     }))
+  }
+
+  private func startLockoutTimer(lockoutEndTime: TimeInterval) {
+    lockoutTimer.start(until: lockoutEndTime) { message in
+      Task {
+        await MainActor.run {
+          self.setState {
+            $0.copy(pinError: .custom(message))
+          }
+        }
+      }
+    } onCompletion: {
+      Task {
+        await MainActor.run {
+          self.setState {
+            $0.copy(pinError: nil)
+          }
+        }
+      }
+    }
+  }
+
+  func validateFirstPinSecurity(_ pin: String) -> Bool {
+
+    if let error = interactor.validatePinSecurity(pin) {
+      setState {
+        $0.copy(pinError: error, isButtonActive: false)
+      }
+      return false
+    }
+    return true
   }
 }

@@ -127,9 +127,10 @@ final class WalletKitControllerImpl: WalletKitController {
       useDPoP: configLogic.vciConfig.useDPoP
     )
     wallet.trustedReaderCertificates = configLogic.readerConfig.trustedCerts
+    #if DEBUG
     wallet.logFileName = configLogic.logFileName
+    #endif
     wallet.transactionLogger = configLogic.transactionLogger
-    wallet.verifierRedirectUri = configLogic.verifierRedirectUri
   }
 
   func resolveOfferUrlDocTypes(uriOffer: String) async throws -> OfferedIssuanceModel {

@@ -30,5 +30,25 @@ public final class FeatureIssuanceAssembly: Assembly {
       DocumentOfferInteractorImpl(walletController: r.force(WalletKitController.self))
     }
     .inObjectScope(ObjectScope.transient)
+
+    container.register(DocumentMRZScanInteractor.self) { r in
+      MRZDocumentScanInteractorImpl(walletController: r.force(WalletKitController.self))
+    }
+    .inObjectScope(ObjectScope.transient)
+
+    container.register(NFCDocumentReaderInteractor.self) { r in
+      NFCPassportReaderInteractorImpl(walletController: r.force(WalletKitController.self))
+    }
+    .inObjectScope(ObjectScope.transient)
+
+    container.register(CredentialIssuanceInteractor.self) { r in
+      CredentialIssuanceInteractorImpl(walletController: r.force(WalletKitController.self))
+    }
+    .inObjectScope(ObjectScope.transient)
+
+    container.register(LivenessCheckInteractor.self) { r in
+      LivenessCheckInteractorImpl()
+    }
+    .inObjectScope(ObjectScope.transient)
   }
 }

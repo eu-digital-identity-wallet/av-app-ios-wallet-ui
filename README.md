@@ -7,7 +7,7 @@ SPDX-License-Identifier: Apache-2.0
 ![Proof of age attestations for all Europeans - An age verification solution for EU citizens and residents](./docs/media/top-banner-av.png)
 
 <h1 align="center">
-    Age Verification (AV) Android application
+    Age Verification (AV) iOS application
 </h1>
 
 <p align="center">
@@ -18,10 +18,10 @@ SPDX-License-Identifier: Apache-2.0
 
 <p align="center">
   <a href="#about">About</a> •
-  <a href="#disclaimer">Disclaimer</a> •
   <a href="#development">Development</a> •
   <a href="#documentation">Documentation</a> •
   <a href="#support-and-feedback">Support</a> •
+  <a href="#important-note">Important note</a> •
   <a href="#code-of-conduct">Code of Conduct</a> •
   <a href="#licensing">Licensing</a>
 </p>
@@ -39,35 +39,15 @@ The AV iOS is the application that allows users to:
 1. Obtain, store, and present an age verification attestation.
 2. Share the proof of age attestation with online services to gain access.
 
-## Dislaimer
-
-This is an initial version of the software, developed solely for the purpose of demonstrating the business flow of the solution. It is not intended for production use, and does not yet include the full set of functional, security, or integration features required for a live deployment.
-
-The current release provides only basic functionality, with several key features to be introduced in future versions, including:
- - Support for batch issuing
- - App and device verification based on Google Play Integrity API and Apple App Attestation
- - Additional issuance methods beyond the currently implemented eID based method. 
-
-These planned features align with the requirements and methods described in the Age Verification Profile.
-
-This version should be considered a foundational prototype to support early testing, feedback, and integration discussions.
-- The initial development release may be changed substantially over time and might introduce new features but also may change or remove existing ones, potentially breaking compatibility with your existing code.
-- The initial development release may contain errors or design flaws and other problems that could cause system or other failures and data loss.
-- The initial development release has reduced security, privacy, availability, and reliability standards relative to future releases. This could make the software slower, less reliable, or more vulnerable to attacks than mature software.
-- The initial development release is not yet comprehensively documented.
-- Users of the software must perform sufficient engineering and additional testing to properly evaluate their application and determine whether any of the open-sourced components are suitable for use in that application.
-- We strongly recommend not putting this version of the software into production use.
-- Only the latest version of the software will be supported
-
 ## Development
 
 ### Specifications Employed
 
-The app consumes the SDK called EUDIW Wallet core [Wallet core](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-core) and a list of available libraries to facilitate remote presentation and issuing test/demo functionality following partially the specification of the [ARF](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework), including:
+The app consumes the SDK called EUDIW Wallet core [Wallet Kit](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-kit) and a list of available libraries to facilitate remote presentation and issuing test/demo functionality following partially the specification of the [ARF](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework), including:
  
-- OpenID4VP - draft 23 (remote presentation), presentation exchange v2.0,
+- OpenID4VP - draft 24 (remote presentation)
  
-- OpenID4VCI draft 14 (issuing)
+- OpenID4VCI draft 15 (issuing)
   
 ### Build
 
@@ -94,7 +74,14 @@ The following channels are available for discussions, feedback, and support requ
 | Type                     | Channel                                                |
 | ------------------------ | ------------------------------------------------------ |
 | **Issues**    | <a href="/../../issues" title="Open Issues"><img src="https://img.shields.io/github/issues/eu-digital-identity-wallet/av-verifier-ui?style=flat"></a>  |
+| **Discussion**    | <a href="https://github.com/eu-digital-identity-wallet/av-doc-technical-specification/discussions" title="Discussion"><img src="https://img.shields.io/github/discussions/eu-digital-identity-wallet/av-doc-technical-specification"></a>  |
 | **Other requests**    | <a href="mailto:av-tscy@scytales.com" title="Email AVS Team"><img src="https://img.shields.io/badge/email-AVS%20team-green?logo=mail.ru&style=flat-square&logoColor=white"></a>   |
+
+## Important note
+
+This white-label application is a reference implementation of the Age Verification solution that should be customised before publishing it. The current version is not feature complete and will require further integration work before production deployment. In particular, any national-specific enrolment procedures must be implemented by the respective Member States or publishing parties.
+
+Please note that this application is still under active development. It is regularly updated and new features and improvements are continuously being added.
 
 ## Code of Conduct
 
@@ -104,8 +91,10 @@ By participating in this project, you agree to abide by its [Code of Conduct](./
 
 ## Licensing
 
-Copyright (C) 2025 European Commission, Scytales, T-Systems International GmbH and all other contributors.
+Copyright (c) 2025 European Commission
 
-This project follows the [REUSE standard for software licensing](https://reuse.software/). Each file contains copyright and license information, and license texts can be found in the [./LICENSES](./LICENSES) folder. For more information visit https://reuse.software/. You can find a guide for developers at https://telekom.github.io/reuse-template/.  
+Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work except in compliance with the Licence.
 
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the LICENSES folder.
+You may obtain a copy of the Licence at: https://joinup.ec.europa.eu/software/page/eupl
+
+Unless required by applicable law or agreed to in writing, software distributed under the Licence is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the Licence for the specific language governing permissions and limitations under the Licence.

@@ -170,6 +170,43 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case verificationNationalId
   case verificationNationalIdDescription
 
+  // Passport Enrollment
+  case verificationPassport
+  case verificationPassportDescription
+
+  // Passport Enrollment Intro
+  case passpostEnrollmentHeader
+  case passpostEnrollmentTitle
+  case passpostEnrollmentDescription
+  case passportEnrollmentIntroStep1Description
+  case passportEnrollmentIntroStep1Title
+  case passportEnrollmentIntroStep2Description
+  case passportEnrollmentIntroStep2Title
+  case passportEnrollmentIntroStep3Description
+  case passportEnrollmentIntroStep3Title
+  case passportEnrollmentIntroStep4Title
+  case passportEnrollmentIntroStep5Title
+  case startProcedure
+
+  // Passport Enrollment Instruction
+  case passportEnrollmentIdentification
+  case passportEnrollmentBiometrics
+  case passportEnrollmentLiveVideo
+  case takeAPhoto
+  case passportEnrollmentInstructionHeader
+  case passportEnrollmentInstructionBody1
+  case passportEnrollmentInstructionPoint1
+  case passportEnrollmentInstructionPoint2
+  case passportEnrollmentInstructionBody2
+  case passportCaptureDescription
+  case processingDocument
+
+  // Biometric Data reading
+  case passportBiometricsFirstHeader
+  case passportBiometricsFirstDescription
+  case passportBiometricsFirstLink
+  case passportBiometricsNext
+
   // Landing screen
   case landingScreenTitle
   case landingScreenbody
@@ -184,12 +221,95 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case biometricSetupDescription(String)
   case biometricSetupButton
   case biometricSetupSkipButton
-  
+
   // Settings
   case settingsAppInformation
   case settingsAppVersion
   case settingsCredentials
   case settingsDeleteCredentials
+
+  //generic
+  case back
+
+  // Quick Pin ( BiometryView )
+  case quickPinInvalidWithAttempts(Int)
+  case quickPinInvalidLastAttempt
+  case quickPinLockedOut
+  case quickPinLockoutCountdownMinutes([Int])
+  case quickPinLockoutCountdownSeconds(Int)
+  case quickPinErrorInsecurePin
+
+  // MRZ Scanner
+  case mrzDocumentReady
+  case mrzScanning
+  case mrzPlaceDocumentInFrame
+  case mrzCameraError
+  case mrzCameraPermissionDenied
+  case mrzCameraSetupFailed
+  case mrzUnknownError
+  case mrzInitializingCamera
+
+  // MRZ Errors
+  case mrzErrorInvalidData
+  case mrzErrorDocumentExpired
+  case mrzErrorProcessingFailed
+
+  // Change Pin
+  case changeQuickPinCaption
+  case changePinDescription
+  case changePinFirstPinDescription
+  case changePinSecondPinDescription
+  case changePinHelpText
+  case changePinSuccessText
+
+  // NFC Passport Reading
+  case nfcReadyToScan
+  case nfcInitializing
+  case nfcReadingCOM
+  case nfcReadingDG1
+  case nfcReadingDG2
+  case nfcReadingSOD
+  case nfcReadingProgress
+  case nfcReadingSuccess
+  case nfcHoldSteady
+  case nfcStartReading
+
+  // NFC Errors
+  case nfcErrorTagNotValid
+  case nfcErrorMoreThanOneTag
+  case nfcErrorConnection
+  case nfcErrorUserCanceled
+  case nfcErrorInvalidMRZKey
+  case nfcErrorUnexpected
+  case nfcErrorReadingFailed
+  case nfcErrorMissingData
+
+  // Passport Data Labels
+  case passportBirthDate
+  case passportExpiryDate
+  case passportDocumentNumber
+  case passportPhoto
+
+  // Passport Data Display
+  case passportDataReviewHeader
+  case passportDataReviewDescription
+  case passportIdCardTitle
+  case continueButton
+
+  // Liveness Check
+  case livenessCheckHeader
+  case livenessCheckDescription
+  case livenessCheckInstructionPoint1
+  case livenessCheckInstructionPoint2
+  case livenessCheckFooter
+  case livenessCheckStartButton
+  case livenessCheckErrorReferenceImage
+  case livenessCheckErrorNotLive
+  case livenessCheckErrorNoMatch
+
+  // Credential Issuance
+  case credentialIssuanceTitle
+  case credentialIssuanceDescription
 }
 
 public extension LocalizableStringKey {

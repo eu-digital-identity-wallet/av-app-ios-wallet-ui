@@ -68,6 +68,16 @@ public final class CommonRouter {
         )
       )
       .eraseToAnyView()
+    case .changePin(config: let config):
+      ChangePinView(with: .init(
+        router: host,
+        interactor: DIGraph.resolver.force(QuickPinInteractor.self),
+        config: config)
+      ).eraseToAnyView()
+    case .changePinSuccess:
+      ChangePinSuccessView(with: .init(
+        router: host)
+      ).eraseToAnyView()
     }
   }
 }

@@ -4,6 +4,12 @@
     "add_doc" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dokument hinzufügen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -15,6 +21,12 @@
     "add_document_request" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dokumentanfrage hinzufügen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -26,6 +38,12 @@
     "add_document_subtitle" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen Sie ein Dokument aus, das Sie Ihrer EUDI Wallet hinzufügen möchten"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -37,6 +55,12 @@
     "add_document_title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dokument hinzufügen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -48,6 +72,12 @@
     "ascending" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aufsteigend"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -59,6 +89,12 @@
     "authenticate_authorise_transactions" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authentifizieren Sie sich, autorisieren Sie Transaktionen und teilen Sie Ihre digitalen Dokumente persönlich oder online."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -67,9 +103,26 @@
         }
       }
     },
+    "back_button_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        }
+      }
+    },
     "batch_issuance_counter" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Batch-Ausstellungszähler"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -85,6 +138,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Brug dit fingeraftryk eller ansigtsgenkendelse til at logge ind på appen “%@”."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verwenden Sie Ihren Fingerabdruck oder die Gesichtserkennung, um sich bei der App „%@“ anzumelden."
           }
         },
         "en" : {
@@ -116,6 +175,12 @@
             "value" : "Start installation"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Setup starten"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -143,6 +208,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Spring over"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Überspringen"
           }
         },
         "en" : {
@@ -174,6 +245,12 @@
             "value" : "Biometrisk adgang"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Biometrischer Zugang"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -201,6 +278,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bekræft"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anfrage bestätigen"
           }
         },
         "en" : {
@@ -232,6 +315,12 @@
             "value" : "Indstillinger"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zu Einstellungen gehen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -259,6 +348,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kameratilladelse ikke angivet\\nÅbn app-indstillinger"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kameraberechtigung nicht erteilt\nApp-Einstellungen öffnen"
           }
         },
         "en" : {
@@ -290,6 +385,12 @@
             "value" : "Annuller"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbrechen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -317,6 +418,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "UDDANNELSE"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "BILDUNG"
           }
         },
         "en" : {
@@ -348,6 +455,12 @@
             "value" : "FINANS"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "FINANZEN"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -375,6 +488,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "REGERING"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "REGIERUNG"
           }
         },
         "en" : {
@@ -406,6 +525,12 @@
             "value" : "SUNDHED"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GESUNDHEIT"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -433,6 +558,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ANDET"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ANDERE"
           }
         },
         "en" : {
@@ -464,6 +595,12 @@
             "value" : "DETAILHANDEL"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "EINZELHANDEL"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -491,6 +628,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "SOCIAL SIKRING"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SOZIALVERSICHERUNG"
           }
         },
         "en" : {
@@ -522,6 +665,12 @@
             "value" : "REJSE"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "REISEN"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -542,6 +691,216 @@
         }
       }
     },
+    "change_pin_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opret venligst en ny pinkode."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte richten Sie eine neue PIN ein."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please set up a new PIN."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez définir un nouveau code PIN."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imposta un nuovo PIN."
+          }
+        }
+      }
+    },
+    "change_pin_first_pin_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Din nye 6-cifrede pinkode"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ihre neue 6-stellige PIN"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your new 6-digit PIN"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votre nouveau code PIN à 6 chiffres"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il tuo nuovo PIN a 6 cifre"
+          }
+        }
+      }
+    },
+    "change_pin_help_text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Undgå venligst at bruge fortløbende tal eller fødselsdage, hvis det er muligt."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte vermeiden Sie nach Möglichkeit die Verwendung von fortlaufenden Zahlen oder Geburtstagen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please avoid using consecutive numbers or birthdays if possible."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez éviter d'utiliser des numéros consécutifs ou des anniversaires si possible."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se possibile, evita di usare numeri consecutivi o date di nascita."
+          }
+        }
+      }
+    },
+    "change_pin_second_pin_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gentag din nye 6-cifrede pinkode"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wiederholen Sie Ihre neue 6-stellige PIN"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repeat your new 6-digit PIN"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Répétez votre nouveau code PIN à 6 chiffres"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ripeti il ​​tuo nuovo PIN di 6 cifre"
+          }
+        }
+      }
+    },
+    "change_pin_success_text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du har ændret din pinkode til din anonyme aldersbekræftelsesapp."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sie haben Ihre PIN für die App zur anonymen Altersüberprüfung geändert."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You have changed your Anonymous Age Verification App PIN."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous avez modifié votre code PIN d'application de vérification d'âge anonyme."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hai modificato il PIN dell'app di verifica dell'età anonima."
+          }
+        }
+      }
+    },
+    "change_quick_pin_caption" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indtast venligst din nuværende pinkode. Når du har bekræftet den, kan du indstille en ny pinkode."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte geben Sie Ihre aktuelle PIN ein. Nach der Bestätigung können Sie eine neue PIN festlegen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enter your current PIN. After confirming it, you can set a new PIN."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez saisir votre code PIN actuel. Après confirmation, vous pourrez en définir un nouveau."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inserisci il tuo PIN attuale. Dopo averlo confermato, potrai impostare un nuovo PIN."
+          }
+        }
+      }
+    },
     "change_quick_pin_option" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -549,6 +908,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Skift PIN"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PIN ändern"
           }
         },
         "en" : {
@@ -574,6 +939,12 @@
     "changelog" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Änderungsprotokoll"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -589,6 +960,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Luk"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schließen"
           }
         },
         "en" : {
@@ -614,6 +991,12 @@
     "completed" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abgeschlossen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -629,6 +1012,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Jeg accepterer servicevilkårene"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ich akzeptiere die Nutzungsbedingungen"
           }
         },
         "en" : {
@@ -660,6 +1049,12 @@
             "value" : "Jeg accepterer"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ich akzeptiere die Datenschutzinformationen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -687,6 +1082,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Servicevilkår"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nutzungsbedingungen"
           }
         },
         "en" : {
@@ -718,6 +1119,12 @@
             "value" : "Oplysninger om databeskyttelse"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datenschutzinformationen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -745,6 +1152,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bekræft"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bestätigen"
           }
         },
         "en" : {
@@ -776,6 +1189,12 @@
             "value" : "Vi skal bruge dit samtykke først"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zuerst benötigen wir Ihr Einverständnis"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -796,6 +1215,138 @@
         }
       }
     },
+    "continue_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continue"
+          }
+        }
+      }
+    },
+    "liveness_check_header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Record a quick video of yourself"
+          }
+        }
+      }
+    },
+    "liveness_check_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In this step, you will record a short video of yourself to confirm your identity. Make sure to:"
+          }
+        }
+      }
+    },
+    "liveness_check_instruction_point1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Face the camera directly in good lighting."
+          }
+        }
+      }
+    },
+    "liveness_check_instruction_point2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avoid filters, masks, or obstructions."
+          }
+        }
+      }
+    },
+    "liveness_check_footer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This step ensures that you are the rightful owner of the passport / ID card."
+          }
+        }
+      }
+    },
+    "liveness_check_start_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start live video"
+          }
+        }
+      }
+    },
+    "liveness_check_error_reference_image" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to extract face from reference image. Please try again."
+          }
+        }
+      }
+    },
+    "liveness_check_error_not_live" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liveness check failed. Please try again in good lighting."
+          }
+        }
+      }
+    },
+    "liveness_check_error_no_match" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Face does not match reference image. Please try again."
+          }
+        }
+      }
+    },
+    "credential_issuance_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verification Complete"
+          }
+        }
+      }
+    },
+    "credential_issuance_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We are now issuing your proof of age. This might take up to 30 seconds"
+          }
+        }
+      }
+    },
     "credential_details_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -803,6 +1354,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Legitimationsdetaljer"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anmeldedaten-Details"
           }
         },
         "en" : {
@@ -828,6 +1385,12 @@
     "credential_offer_partial_success_caption" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ihre Dokumente von %@ wurden erfolgreich ausgestellt, außer %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -839,6 +1402,12 @@
     "credential_offer_success_caption" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ihre Dokumente von %@ wurden erfolgreich ausgestellt."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -854,6 +1423,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Udført"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erfolg"
           }
         },
         "en" : {
@@ -885,6 +1460,12 @@
             "value" : "ANMODNING OM DATADELING"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datenanfrage"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -912,6 +1493,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Følgende transaktion kræver din tilladelse og godkendelse."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die folgende Transaktion erfordert Ihre Berechtigung und Authentifizierung."
           }
         },
         "en" : {
@@ -943,6 +1530,12 @@
             "value" : "Ja, slet"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ja, löschen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -972,6 +1565,12 @@
             "value" : "Er du sikker på, at du vil slette alle gemte beviser?"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sind Sie sicher, dass Sie alle gespeicherten Nachweise löschen möchten?"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -995,6 +1594,12 @@
     "descending" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Absteigend"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1006,6 +1611,12 @@
     "details" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Details"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1017,6 +1628,12 @@
     "document_added" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dokument hinzufügen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1028,6 +1645,12 @@
     "document_details_document_credentials_text" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@/%@ Instanzen verbleibend"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1039,6 +1662,12 @@
     "documents_list_credentials_usage_text" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@/%@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1054,6 +1683,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Luk"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schließen"
           }
         },
         "en" : {
@@ -1079,6 +1714,12 @@
     "error_unable_fetch_document" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dokument kann nicht abgerufen werden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1090,6 +1731,12 @@
     "error_unable_fetch_documents" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dokumente können nicht abgerufen werden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1105,6 +1752,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ups! Noget gik galt"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ihre Dokumente können nicht präsentiert und geteilt werden."
           }
         },
         "en" : {
@@ -1136,6 +1789,12 @@
             "value" : "Den Europæiske\\nUnion"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Europäische\nUnion"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1159,6 +1818,12 @@
     "failed" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehlgeschlagen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1170,6 +1835,12 @@
     "fetch_error_transaction_log" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Transaktionsprotokoll kann nicht abgerufen werden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1185,6 +1856,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Filtre"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filter"
           }
         },
         "en" : {
@@ -1216,6 +1893,12 @@
             "value" : "Hvis problemet fortsætter, bedes du kontakte kundesupport"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wenn das Problem weiterhin besteht, wenden Sie sich bitte an den Kundensupport"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1243,6 +1926,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ups! Noget gik galt"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ups! Etwas ist schief gelaufen"
           }
         },
         "en" : {
@@ -1274,6 +1963,12 @@
             "value" : "I gang"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In Bearbeitung"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1301,6 +1996,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hvis du vælger ikke at dele visse data, kan det resultere i manglende udstedelse af det anmodede dokument."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ihre Auswahl der zu teilenden Daten kann den Service beeinträchtigen"
           }
         },
         "en" : {
@@ -1332,6 +2033,12 @@
             "value" : "Ugyldig PIN"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ungültige PIN"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1355,6 +2062,12 @@
     "issuance_code_caption" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geben Sie den %@-stelligen Transaktionscode ein, den Sie erhalten haben"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1370,6 +2083,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Følgende transaktion kræver din tilladelse og godkendelse. %@"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ erfordert Verifikation"
           }
         },
         "en" : {
@@ -1395,6 +2114,12 @@
     "issuance_details_doc_deletion_caption" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sie können Ihre %@ nicht für zukünftige Verifikationen verwenden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1406,6 +2131,12 @@
     "issuance_details_doc_deletion_title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ löschen?"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1421,6 +2152,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "UDSTEDELSESANMODNING"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AUSSTELLUNGSANFRAGE"
           }
         },
         "en" : {
@@ -1446,6 +2183,12 @@
     "issuance_success_caption" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sie können jetzt Ihre %@ hinzufügen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1461,6 +2204,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dit %@ dokument er blevet anmodet. Du får besked, når det er blevet udstedt til din applikation."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ihre Dokumente von %@ wurden angefordert. Sie werden benachrichtigt, wenn sie in Ihre Wallet ausgestellt wurden."
           }
         },
         "en" : {
@@ -1486,6 +2235,12 @@
     "issue_button" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausstellen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1501,6 +2256,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ønsker at tilføje følgende"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "möchte Folgendes zu Ihrer Wallet hinzufügen:"
           }
         },
         "en" : {
@@ -1526,6 +2287,12 @@
     "item_not_found_in_storage" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Element im Speicher nicht gefunden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1537,6 +2304,12 @@
     "items_not_found_in_storage" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemente im Speicher nicht gefunden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1552,6 +2325,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tilføj flere"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weitere hinzufügen"
           }
         },
         "en" : {
@@ -1583,6 +2362,12 @@
             "value" : "Du kan dele dit aldersbevis med tjenester, der er begrænset til voksne.\\nAldersbeviset bekræfter kun, at du er over 18 år. Det indeholder ingen andre personlige oplysninger."
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sie können Ihren Altersnachweis mit Diensten teilen, die auf Erwachsene beschränkt sind. Dieser Nachweis bestätigt, dass Sie über 18 Jahre alt sind, ohne andere persönliche Informationen preiszugeben."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1610,6 +2395,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%d tilbage"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d verbleibend"
           }
         },
         "en" : {
@@ -1641,6 +2432,12 @@
             "value" : "Aldersverifikation"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Altersverifikation"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1664,6 +2461,12 @@
     "learn_more" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mehr erfahren"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1679,6 +2482,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Brug din biometri for at få adgang til applikationen for aldersverifikationen."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verwenden Sie Ihre Biometrie, um auf die Altersverifikations-App zuzugreifen."
           }
         },
         "en" : {
@@ -1710,6 +2519,12 @@
             "value" : "Du skal indtaste din PIN for at få adgang til applikationen for aldersverifikationen."
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Um auf die Altersverifikations-App zuzugreifen, geben Sie bitte Ihre PIN ein."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1739,6 +2554,12 @@
             "value" : "Velkommen tilbage!"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Willkommen zurück!"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1762,6 +2583,12 @@
     "minute_ago" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "vor %@ Minute"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1773,6 +2600,12 @@
     "minutes_ago" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "vor %@ Minuten"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1788,6 +2621,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Applikation skal først aktiveres med et nationalt ID"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Wallet muss zuerst mit einem nationalen Ausweis aktiviert werden"
           }
         },
         "en" : {
@@ -1810,9 +2649,609 @@
         }
       }
     },
+    "mrz_camera_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kamerafejl"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kamerafehler"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Camera Error"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur de caméra"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Errore fotocamera"
+          }
+        }
+      }
+    },
+    "mrz_camera_permission_denied" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kameraadgang nægtet. Aktiver venligst kameratilladelse i Indstillinger."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kamerazugriff verweigert. Bitte aktivieren Sie die Kameraberechtigung in den Einstellungen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Camera access denied. Please enable camera permission in Settings."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accès à la caméra refusé. Veuillez activer l'autorisation de la caméra dans Paramètres."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accesso alla fotocamera negato. Abilita l'autorizzazione della fotocamera nelle Impostazioni."
+          }
+        }
+      }
+    },
+    "mrz_camera_setup_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kunne ikke konfigurere kamera. Prøv venligst igen."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kamera-Setup fehlgeschlagen. Bitte versuchen Sie es erneut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to setup camera. Please try again."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec de la configuration de la caméra. Veuillez réessayer."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile configurare la fotocamera. Riprova."
+          }
+        }
+      }
+    },
+    "mrz_document_ready" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dokument klar"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dokument bereit"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Document Ready"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Document prêt"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Documento pronto"
+          }
+        }
+      }
+    },
+    "mrz_error_document_expired" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Det scannede dokument er udløbet."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das gescannte Dokument ist abgelaufen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The scanned document has expired."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le document scanné a expiré."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il documento scansionato è scaduto."
+          }
+        }
+      }
+    },
+    "mrz_error_invalid_data" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De scannede dokumentdata er ugyldige eller ufuldstændige."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die gescannten Dokumentdaten sind ungültig oder unvollständig."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The scanned document data is invalid or incomplete."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les données du document scanné sont invalides ou incomplètes."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I dati del documento scansionato non sono validi o sono incompleti."
+          }
+        }
+      }
+    },
+    "mrz_error_processing_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kunne ikke behandle dokumentet. Prøv venligst igen."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dokument konnte nicht verarbeitet werden. Bitte versuchen Sie es erneut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to process the document. Please try again."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec du traitement du document. Veuillez réessayer."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile elaborare il documento. Riprova."
+          }
+        }
+      }
+    },
+    "mrz_initializing_camera" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Initialiserer kamera..."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kamera wird initialisiert..."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Initializing camera..."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Initialisation de la caméra..."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inizializzazione fotocamera..."
+          }
+        }
+      }
+    },
+    "mrz_place_document_in_frame" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placer dokumentet inden for rammen"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Platzieren Sie das Dokument im Rahmen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Place document within the frame"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placez le document dans le cadre"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posiziona il documento all'interno della cornice"
+          }
+        }
+      }
+    },
+    "mrz_scanning" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scanner..."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scannen..."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scanning..."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Numérisation..."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scansione..."
+          }
+        }
+      }
+    },
+    "mrz_unknown_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der opstod en ukendt fejl"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein unbekannter Fehler ist aufgetreten"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unknown error occurred"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une erreur inconnue s'est produite"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si è verificato un errore sconosciuto"
+          }
+        }
+      }
+    },
+    "next_button_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        }
+      }
+    },
+    "nfc_error_connection" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connection error. Please try again."
+          }
+        }
+      }
+    },
+    "nfc_error_invalid_mrz_key" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid passport data. Please scan MRZ again."
+          }
+        }
+      }
+    },
+    "nfc_error_missing_data" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Required passport data is missing"
+          }
+        }
+      }
+    },
+    "nfc_error_more_than_one_tag" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "More than one NFC tag detected"
+          }
+        }
+      }
+    },
+    "nfc_error_reading_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to read passport. Please try again."
+          }
+        }
+      }
+    },
+    "nfc_error_tag_not_valid" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NFC tag not valid"
+          }
+        }
+      }
+    },
+    "nfc_error_unexpected" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unexpected error occurred"
+          }
+        }
+      }
+    },
+    "nfc_error_user_canceled" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan canceled"
+          }
+        }
+      }
+    },
+    "nfc_hold_steady" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hold your device steady against the passport"
+          }
+        }
+      }
+    },
+    "nfc_initializing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Initializing NFC..."
+          }
+        }
+      }
+    },
+    "nfc_reading_com" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reading document information..."
+          }
+        }
+      }
+    },
+    "nfc_reading_dg1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reading passport data..."
+          }
+        }
+      }
+    },
+    "nfc_reading_dg2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reading biometric photo..."
+          }
+        }
+      }
+    },
+    "nfc_reading_progress" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reading passport..."
+          }
+        }
+      }
+    },
+    "nfc_reading_sod" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verifying security..."
+          }
+        }
+      }
+    },
+    "nfc_reading_success" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passport read successfully!"
+          }
+        }
+      }
+    },
+    "nfc_ready_to_scan" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ready to Scan Passport"
+          }
+        }
+      }
+    },
+    "nfc_start_reading" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan Passport"
+          }
+        }
+      }
+    },
     "no_results" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Ergebnisse"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1824,6 +3263,12 @@
     "no_results_documents_description" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Dokumente gefunden. Versuchen Sie, Ihre Suche oder Filter zu ändern."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1836,6 +3281,12 @@
       "extractionState" : "manual",
       "localizations" : {
         "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "OK"
@@ -1870,6 +3321,12 @@
             "value" : "Velkommen"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Willkommen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1897,6 +3354,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Samtykke"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einverständnis"
           }
         },
         "en" : {
@@ -1928,6 +3391,12 @@
             "value" : "Sikkerhed"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sicherheit"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1955,6 +3424,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Verifikation"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verifizierung"
           }
         },
         "en" : {
@@ -1986,6 +3461,12 @@
             "value" : "Denne verifikation er nødvendig for at skabe et bevis på, at du er over 18 år. eID -detaljerne vil ikke blive delt med onlinetjenester, du får adgang til."
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diese Verifikation ist erforderlich, um einen Nachweis zu erstellen, dass Sie über 18 Jahre alt sind. Die eID-Details werden nicht mit Online-Diensten geteilt, auf die Sie zugreifen."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2013,6 +3494,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "National eID / National IDP"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nationaler eID / Nationaler idP"
           }
         },
         "en" : {
@@ -2044,6 +3531,12 @@
             "value" : "Identificer online ved hjælp af dit eID"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Online-Identifikation mit Ihrer eID"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2064,6 +3557,28 @@
         }
       }
     },
+    "onboarding_verification_passport_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Short Description"
+          }
+        }
+      }
+    },
+    "onboarding_verification_passport_id" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passport or ID Card"
+          }
+        }
+      }
+    },
     "onboarding_verification_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2071,6 +3586,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vælg din metode til aldersverifikation"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen Sie Ihre Altersverifikationsmethode"
           }
         },
         "en" : {
@@ -2102,6 +3623,12 @@
             "value" : "ELLER"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ODER"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2125,6 +3652,12 @@
     "order_by" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SORTIEREN NACH"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2133,9 +3666,463 @@
         }
       }
     },
+    "passport_biometrics_first_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placer dit pas direkte på bagsiden af smartphonen, normalt øverst."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Legen Sie Ihren Reisepass direkt auf die Rückseite des Smartphones, normalerweise oben."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Place your Passport directly on the back of the smartphone, usually at the top."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placez votre passeport directement sur le dos du smartphone, généralement en haut."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posiziona il passaporto direttamente sul retro dello smartphone, di solito nella parte superiore."
+          }
+        }
+      }
+    },
+    "passport_biometrics_first_header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Læs dit pas ind"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lesen Sie Ihren Reisepass ein"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Read in your Passport"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lisez votre passeport"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leggi il tuo passaporto"
+          }
+        }
+      }
+    },
+    "passport_biometrics_first_link" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Har du brug for hjælp?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benötigen Sie Hilfe?"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Do you need Help?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avez-vous besoin d'aide ?"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hai bisogno di aiuto?"
+          }
+        }
+      }
+    },
+    "passport_biometrics_next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Næste"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weiter"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suivant"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avanti"
+          }
+        }
+      }
+    },
+    "passport_birth_date" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date of birth"
+          }
+        }
+      }
+    },
+    "passport_capture_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Align the Passport or ID Card in the frame"
+          }
+        }
+      }
+    },
+    "passport_data_review_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please review the information extracted from your passport."
+          }
+        }
+      }
+    },
+    "passport_data_review_header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please verify your data"
+          }
+        }
+      }
+    },
+    "passport_document_number" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Document Number"
+          }
+        }
+      }
+    },
+    "passport_enrollment_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Passport method is quick and secure! Scan your ID, take a photo, and record a short video—three steps for maximum safety and fraud protection."
+          }
+        }
+      }
+    },
+    "passport_enrollment_instruction_body1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For this step, simply capture a clear photo of your passport. Make sure:"
+          }
+        }
+      }
+    },
+    "passport_enrollment_instruction_body2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We take an identification code from this passport to get access to the machine readable part of the passport."
+          }
+        }
+      }
+    },
+    "passport_enrollment_instruction_header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Take a Photo of your Passport"
+          }
+        }
+      }
+    },
+    "passport_enrollment_instruction_point1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The entire passport is visible and well-lit."
+          }
+        }
+      }
+    },
+    "passport_enrollment_instruction_point2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No reflections or blurriness obscure the details."
+          }
+        }
+      }
+    },
+    "passport_enrollment_intro_step1_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capture a clear image of your Passport."
+          }
+        }
+      }
+    },
+    "passport_enrollment_intro_step1_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Take a Photo of the Passport"
+          }
+        }
+      }
+    },
+    "passport_enrollment_intro_step2_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Place your Passport on your smartphone to read the data"
+          }
+        }
+      }
+    },
+    "passport_enrollment_intro_step2_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Read in your Passport"
+          }
+        }
+      }
+    },
+    "passport_enrollment_intro_step3_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Film yourself for identity verification."
+          }
+        }
+      }
+    },
+    "passport_enrollment_intro_step3_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Record a video of yourself"
+          }
+        }
+      }
+    },
+    "passport_enrollment_intro_step4_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consent"
+          }
+        }
+      }
+    },
+    "passport_enrollment_intro_step5_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Issuing of the Proof of Age Attestation"
+          }
+        }
+      }
+    },
+    "passport_enrollment_step1_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identification"
+          }
+        }
+      }
+    },
+    "passport_enrollment_step2_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Biometrics"
+          }
+        }
+      }
+    },
+    "passport_enrollment_step3_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Live Video"
+          }
+        }
+      }
+    },
+    "passport_expiry_date" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date of expiry"
+          }
+        }
+      }
+    },
+    "passport_id_card_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passport / ID card"
+          }
+        }
+      }
+    },
+    "passport_photo" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Photo"
+          }
+        }
+      }
+    },
+    "passpost_enrollment_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Passport method is quick and secure! Scan your ID, take a photo, and record a short video—three steps for maximum safety and fraud protection."
+          }
+        }
+      }
+    },
+    "passpost_enrollment_header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Age Verification Enrollment Method"
+          }
+        }
+      }
+    },
+    "passpost_enrollment_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passport or ID Card"
+          }
+        }
+      }
+    },
     "pending" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausstehend"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2144,6 +4131,9 @@
         }
       }
     },
+    "pin_dont_match" : {
+      "extractionState" : "manual"
+    },
     "please_wait" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2151,6 +4141,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vent venligst ..."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte warten..."
           }
         },
         "en" : {
@@ -2176,10 +4172,27 @@
     "presentation" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Präsentation"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Presentation"
+          }
+        }
+      }
+    },
+    "processing_document" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Processing document..."
           }
         }
       }
@@ -2191,6 +4204,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Har du problemer med at scanne QR -koden?\\nPrøv en alternativ måde"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Probleme beim Scannen des QR-Codes?\nBitte versuchen Sie einen alternativen Weg"
           }
         },
         "en" : {
@@ -2222,6 +4241,12 @@
             "value" : "Bekræft"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bestätigen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2249,6 +4274,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Din 6-cifrede PIN"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ihre 6-stellige PIN"
           }
         },
         "en" : {
@@ -2280,6 +4311,12 @@
             "value" : "Gentag din 6-cifrede PIN"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wiederholen Sie Ihre 6-stellige PIN"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2307,6 +4344,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bekræft din PIN"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bestätigen Sie Ihre PIN"
           }
         },
         "en" : {
@@ -2338,6 +4381,12 @@
             "value" : "Vælg en PIN for at få adgang til appen"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen Sie eine PIN für den App-Zugang"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2367,6 +4416,12 @@
             "value" : "PIN stemmer ikke overens"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PINs stimmen nicht überein"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2390,10 +4445,106 @@
     "quick_pin_enter_a_pin" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PIN eingeben"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Enter a PIN"
+          }
+        }
+      }
+    },
+    "quick_pin_error_insecure_pin" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usikker pinkode"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unsichere PIN"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Insecure PIN"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Code PIN non sécurisé"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PIN non sicuro"
+          }
+        }
+      }
+    },
+    "quick_pin_invalid_last_attempt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid PIN. This is your last attempt before lockout."
+          }
+        }
+      }
+    },
+    "quick_pin_invalid_with_attempts" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid PIN. %d attempts remaining."
+          }
+        }
+      }
+    },
+    "quick_pin_locked_out" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Too many failed attempts. Please wait before trying again."
+          }
+        }
+      }
+    },
+    "quick_pin_lockout_countdown_minutes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Account locked. Try again in %d:%02d"
+          }
+        }
+      }
+    },
+    "quick_pin_lockout_countdown_seconds" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Account locked. Try again in %d seconds"
           }
         }
       }
@@ -2405,6 +4556,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bekræft"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bestätigen"
           }
         },
         "en" : {
@@ -2436,6 +4593,12 @@
             "value" : "Vælg en PIN for at få adgang til appen"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen Sie eine PIN für den App-Zugang"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2465,6 +4628,12 @@
             "value" : "Bekræft din PIN"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bestätigen Sie Ihre PIN"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2488,6 +4657,12 @@
     "quick_pin_set_success" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Um Ihre Wallet zu aktivieren, verbinden Sie sich mit Ihrem nationalen System, um Ihre digitale ID hinzuzufügen."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2499,6 +4674,12 @@
     "quick_pin_set_success_button" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Meine digitale ID hinzufügen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2510,6 +4691,12 @@
     "quick_pin_set_title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Willkommen zu Ihrer Wallet"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2525,6 +4712,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Annullering vil føre dig tilbage til startsiden uden at ændre PIN"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbrechen führt Sie zurück zur Startseite, ohne die Schnell-PIN zu ändern"
           }
         },
         "en" : {
@@ -2550,6 +4743,12 @@
     "quick_pin_update_cancellation_continue" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fortfahren"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2565,6 +4764,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Annullér ændring af PIN?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PIN-Änderung abbrechen?"
           }
         },
         "en" : {
@@ -2596,6 +4801,12 @@
             "value" : "Indtast din nuværende PIN"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geben Sie Ihre aktuelle PIN ein"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2619,6 +4830,12 @@
     "quick_pin_update_step_three_caption" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geben Sie die Schnell-PIN erneut ein"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2630,6 +4847,12 @@
     "quick_pin_update_step_two_caption" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Legen Sie eine Schnell-PIN für zukünftige Anmeldungen fest"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2641,6 +4864,12 @@
     "quick_pin_update_success" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sie haben die Schnell-PIN erfolgreich festgelegt"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2652,6 +4881,12 @@
     "quick_pin_update_success_button" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurück zur Startseite"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2667,6 +4902,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Skift PIN"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PIN ändern"
           }
         },
         "en" : {
@@ -2698,6 +4939,12 @@
             "value" : "Kan ikke hente og behandle legitimationstilbuddet"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Anmeldedaten-Angebot kann nicht abgerufen und verarbeitet werden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2727,6 +4974,12 @@
             "value" : "%@ ønsker at tilføje følgende"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ möchte Folgendes hinzufügen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2750,6 +5003,12 @@
     "request_data_info_notice" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warum benötigen wir Ihre Daten?"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2765,6 +5024,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Det anmodede dokument er ikke tilgængeligt i din applikation for aldersverifikation.\nKontakt den autoriserede udsteder for yderligere information."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das angeforderte Dokument ist in Ihrer Altersverifikations-App nicht verfügbar. Bitte wenden Sie sich für weitere Informationen an den autorisierten Aussteller."
           }
         },
         "en" : {
@@ -2796,6 +5061,12 @@
             "value" : "Brug din biometri til at godkende transaktionen."
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verwenden Sie Ihre Biometrie, um die Transaktion zu genehmigen."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2823,6 +5094,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Verificer din identitet for at godkende transaktionen."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Um die Transaktion zu genehmigen, müssen Sie Ihre Identität verifizieren."
           }
         },
         "en" : {
@@ -2854,6 +5131,12 @@
             "value" : "%@ anmoder om følgende"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ fordert Folgendes an"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2877,6 +5160,12 @@
     "request_data_sheet_caption" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dies ermöglicht es uns, Ihre Identität bei der anfragenden Partei zu verifizieren"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2892,6 +5181,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Online tjeneste"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Online-Dienst"
           }
         },
         "en" : {
@@ -2917,6 +5212,12 @@
     "request_data_verified_entity_message" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eine vertrauende Partei gilt als vertrauenswürdig, wenn sie vordefinierte Kriterien für Sicherheit, Datenschutz, Compliance und verantwortlichen Datenumgang erfüllt. Das Vertrauen wird durch Bewertungen, Audits und Zertifizierungen gestärkt."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2932,6 +5233,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "anmoder om følgende"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "fordert Folgendes an"
           }
         },
         "en" : {
@@ -2957,6 +5264,12 @@
     "retrieve_logs" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Protokolle abrufen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2972,6 +5285,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scan QR-kode"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QR scannen"
           }
         },
         "en" : {
@@ -3003,6 +5322,12 @@
             "value" : "Skan"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scannen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3026,6 +5351,12 @@
     "scanner_qr_caption_issuing" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scannen Sie einen QR-Code eines Ausstellers, um ein digitales Dokument zu Ihrer Wallet hinzuzufügen."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3041,6 +5372,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scan en QR-kode leveret af onlinetjenesten  for at vise et bevis på alder."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scannen Sie einen QR-Code des Online-Dienstes, um den Altersnachweis zu präsentieren."
           }
         },
         "en" : {
@@ -3066,6 +5403,12 @@
     "scanner_qr_title_issuing" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QR-Code scannen zum Hinzufügen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3081,6 +5424,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fremvis dokument online"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dokument online präsentieren"
           }
         },
         "en" : {
@@ -3106,6 +5455,12 @@
     "scoped_issuance_success_deferred_caption" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ihr Dokument wurde angefordert. Sie werden benachrichtigt, wenn es in Ihre Wallet ausgestellt wurde."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3117,6 +5472,12 @@
     "scoped_issuance_success_deferred_caption_docname" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ihr Dokument %@ wurde angefordert. Sie werden benachrichtigt, wenn es in Ihre Wallet ausgestellt wurde."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3128,6 +5489,12 @@
     "scoped_issuance_success_deferred_caption_docname_and_issuer_name" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ihr Dokument %@ von %@ wurde angefordert. Sie werden benachrichtigt, wenn es in Ihre Wallet ausgestellt wurde."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3143,6 +5510,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Søg"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suchen"
           }
         },
         "en" : {
@@ -3174,6 +5547,12 @@
             "value" : "App-information"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App-Informationen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3198,6 +5577,12 @@
       "extractionState" : "manual",
       "localizations" : {
         "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version"
+          }
+        },
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Version"
@@ -3232,6 +5617,12 @@
             "value" : "Legitimations"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anmeldedaten"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3259,6 +5650,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Slet alle certifikater med aldersbevis"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle Altersnachweise löschen"
           }
         },
         "en" : {
@@ -3290,6 +5687,12 @@
             "value" : "Indstillinger"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3317,6 +5720,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Del"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Teilen"
           }
         },
         "en" : {
@@ -3348,6 +5757,12 @@
             "value" : "Gennemgå omhyggeligt, inden du deler dine data."
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte prüfen Sie sorgfältig, bevor Sie Ihre Daten teilen."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3375,6 +5790,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Drevet af"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bereitgestellt von"
           }
         },
         "en" : {
@@ -3406,6 +5827,12 @@
             "value" : "Aldersverifikation"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Altersverifikation"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3426,6 +5853,17 @@
         }
       }
     },
+    "start_procedure" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start Procedure"
+          }
+        }
+      }
+    },
     "success" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3433,6 +5871,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Udført"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erfolg"
           }
         },
         "en" : {
@@ -3464,6 +5908,12 @@
             "value" : "Du delte følgende oplysninger med"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sie haben die folgenden Informationen erfolgreich geteilt mit"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3484,6 +5934,17 @@
         }
       }
     },
+    "take_a_photo_button_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Take a Photo"
+          }
+        }
+      }
+    },
     "transaction_code_format_error" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3491,6 +5952,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ugyldigt transaktionskodeformat. Længden skal være mellem %@ og %@ cifre, og kun numeriske tegn er tilladt."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ungültiges Transaktionscode-Format. Die Länge sollte zwischen %@ und %@ Ziffern liegen und nur numerische Zeichen sind erlaubt."
           }
         },
         "en" : {
@@ -3516,6 +5983,12 @@
     "trusted_relying_party" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vertrauenswürdige vertrauende Partei"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3527,6 +6000,12 @@
     "trusted_relying_party_description" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eine vertrauende Partei gilt als vertrauenswürdig, wenn sie vordefinierte Kriterien für Sicherheit, Datenschutz, Compliance und verantwortlichen Datenumgang erfüllt. Das Vertrauen wird durch Bewertungen, Audits und Zertifizierungen gestärkt."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3542,6 +6021,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Prøv igen"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erneut versuchen"
           }
         },
         "en" : {
@@ -3573,6 +6058,12 @@
             "value" : "Noget gik galt med at udstede dit/dine dokumenter(er)"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beim Ausstellen Ihrer Dokument(e) ist etwas schief gelaufen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3600,6 +6091,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Udsteder"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aussteller"
           }
         },
         "en" : {
@@ -3631,6 +6128,12 @@
             "value" : "Online tjeneste"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Online-Dienst"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3654,6 +6157,12 @@
     "valid" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gültig"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3665,6 +6174,12 @@
     "valid_until" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gültig bis %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3680,6 +6195,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Legitimationsdetaljer"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anmeldedaten-Details"
           }
         },
         "en" : {
@@ -3705,6 +6226,12 @@
     "welcome_back" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Willkommen zurück, %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3720,6 +6247,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Med denne app kan du sikkert bevise, at du er over 18 år, når du får adgang til tjenester der er begrænset til voksne."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit dieser App können Sie sicher beweisen, dass Sie über 18 Jahre alt sind, wenn Sie auf Dienste zugreifen, die auf Erwachsene beschränkt sind."
           }
         },
         "en" : {
@@ -3751,6 +6284,12 @@
             "value" : "Verificér din alder én gang og brug dette bevis til sikker adgang til mange tjenester, der er begrænset til voksne."
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verifizieren Sie einmal, dass Sie über 18 Jahre alt sind, und nutzen Sie diesen Nachweis, um sicher auf viele Dienste zuzugreifen, die auf Erwachsene beschränkt sind."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3778,6 +6317,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Du bevarer kontrollen over dine data: Det er kun beviset for, at du er over 18 år, som deles. Ingen andre personlige oplysninger gemmes eller deles med onlinetjenester."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sie behalten die Kontrolle über Ihre Daten: Nur der Nachweis, dass Sie über 18 Jahre alt sind, wird geteilt. Keine anderen persönlichen Details werden gespeichert oder mit Online-Diensten geteilt."
           }
         },
         "en" : {
@@ -3809,6 +6354,12 @@
             "value" : "Spring over"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Überspringen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3836,6 +6387,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Velkommen"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Willkommen"
           }
         },
         "en" : {
@@ -3867,6 +6424,12 @@
             "value" : "Enkel aldersverifikation"
           }
         },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einfache Altersverifikation"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3894,6 +6457,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Beskyttelse af personlige oplysninger"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datenschutz"
           }
         },
         "en" : {

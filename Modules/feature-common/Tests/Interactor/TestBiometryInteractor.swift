@@ -90,16 +90,16 @@ final class TestBiometryInteractor: EudiTest {
   func testIsPinValid_WhenQuickPinInteractorReturnsNotValid_ThenReturnFailurePartialState() {
     // Given
     let pin = "1234"
-    let mockedError = AuthenticationError.quickPinInvalid
+    let mockedErrorMessage = LocalizableStringKey.quickPinInvalidWithAttempts(0).toString
     stub(quickPinInteractor) { mock in
-      when(mock.isPinValid(pin: pin)).thenReturn(.failure(mockedError))
+      when(mock.isPinValid(pin: pin)).thenReturn(.failure(errorMessage: mockedErrorMessage, attemptsRemaining: 0))
     }
     // When
     let state = interactor.isPinValid(with: pin)
     // Then
     switch state {
-    case .failure(let error):
-      XCTAssertEqual(error.localizedDescription, mockedError.localizedDescription)
+    case .failure(let errorMessage, _):
+      XCTAssertEqual(errorMessage, mockedErrorMessage)
     default:
       XCTFail("Wrong state \(state)")
     }

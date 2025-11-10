@@ -43,7 +43,7 @@ private func content(viewState: AppLandingState, onScan: @escaping () -> Void, o
                         .frame(width: UIScreen.main.bounds.width / 2 - 44)
                     Theme.shared.image.logo
                         .resizable()
-                        .frame(width: 57,height: 48)
+                        .frame(width: 57, height: 48)
                     Spacer()
                     Button(action: {
                         onSettings()
@@ -53,7 +53,7 @@ private func content(viewState: AppLandingState, onScan: @escaping () -> Void, o
                     .buttonStyle(.plain)
                 }
                 .padding(.bottom, SPACING_MEDIUM)
-                VStack (alignment: .leading, spacing: .zero) {
+                VStack(alignment: .leading, spacing: .zero) {
                     Text(LocalizableStringKey.landingScreenTitle.toString)
                         .typography(Theme.shared.font.titleLarge)
                         .fontWeight(.medium)
@@ -64,7 +64,7 @@ private func content(viewState: AppLandingState, onScan: @escaping () -> Void, o
                         .padding(.bottom, SPACING_LARGE)
                         .fixedSize(horizontal: false, vertical: true)
                 }
-                
+
                 AgeVerificationCardView(credentialsCount: viewState.credRemainingCount, onTap: onGetMoreCredentials)
                 CredentialDetailsView(documentFields: viewState.document.documentFields)
                 Spacer()

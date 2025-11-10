@@ -4,7 +4,11 @@
       "id" : "D081D3EF-C7D4-419F-84E7-75A782F84C42",
       "name" : "Test Scheme Action",
       "options" : {
-
+        "targetForVariableExpansion" : {
+          "containerPath" : "container:AgeVerification.xcodeproj",
+          "identifier" : "F14907B72ABAF54B00DDFE56",
+          "name" : "AgeVerification"
+        }
       }
     }
   ],
@@ -16,7 +20,6 @@
     }
   },
   "testTargets" : [
-
     {
       "target" : {
         "containerPath" : "container:Modules\/feature-common",
@@ -38,7 +41,6 @@
         "name" : "feature-presentation-tests"
       }
     },
-
     {
       "target" : {
         "containerPath" : "container:Modules\/feature-startup",

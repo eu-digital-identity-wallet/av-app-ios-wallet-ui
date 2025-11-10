@@ -77,8 +77,6 @@ public struct ReaderConfig {
 
 The *WalletKitConfigImpl* implementation of the *WalletKitConfig* protocol can be located inside the logic-core module.
 
-The application's IACA certificates are located [here](https://github.com/eu-digital-identity-wallet/eudi-app-ios-wallet-ui/tree/main/Wallet/Sample)
-
 ```swift
   var readerConfigConfig: ReaderConfig {
     guard let cert = Data(name: "eudi_pid_issuer_ut", ext: "der") else {
