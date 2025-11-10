@@ -33,10 +33,12 @@ public enum FeatureStartupRouteModule: AppRouteModule {
 public enum FeatureCommonRouteModule: AppRouteModule {
 
   case quickPin(config: any UIConfigType)
+  case changePin(config: any UIConfigType)
   case qrScanner(config: any UIConfigType)
   case biometry(config: any UIConfigType)
   case genericSuccess(config: any UIConfigType)
   case biometrySetup(config: any UIConfigType)
+  case changePinSuccess
 
   public var info: (key: String, arguments: [String: String]) {
     return switch self {
@@ -50,6 +52,10 @@ public enum FeatureCommonRouteModule: AppRouteModule {
       (key: "QRScanner", arguments: ["config": config.log])
     case .biometrySetup(let config):
       (key: "BiometrySetup", arguments: ["config": config.log])
+    case .changePin(config: let config):
+      (key: "ChangePin", arguments: ["config": config.log])
+    case .changePinSuccess:
+      (key: "ChangePinSuccess", arguments: [:])
     }
   }
 }
@@ -97,6 +103,13 @@ public enum FeatureIssuanceRouteModule: AppRouteModule {
   case issuanceSuccess(config: any UIConfigType, requestItems: [any Routable])
   case credentialOfferRequest(config: any UIConfigType)
   case issuanceCode(config: any UIConfigType)
+  case documentMRZIntro(config: any UIConfigType)
+  case documentMRZInstruction(config: any UIConfigType)
+  case documentMRZScan(config: any UIConfigType)
+  case documentNFC(config: any UIConfigType)
+  case documentDataDisplay(config: any UIConfigType)
+  case livenessCheck(config: any UIConfigType)
+  case credentialIssuance(config: any UIConfigType)
 
   public var info: (key: String, arguments: [String: String]) {
     return switch self {
@@ -108,6 +121,20 @@ public enum FeatureIssuanceRouteModule: AppRouteModule {
       (key: "IssuanceCode", arguments: ["config": config.log])
     case .credentialOfferRequest(let config):
       (key: "CredentialOfferRequest", arguments: ["config": config.log])
+    case .documentMRZIntro(let config):
+      (key: "DocumentMRZIntro", arguments: ["config": config.log])
+    case .documentMRZInstruction(let config):
+      (key: "DocumentMRZInstruction", arguments: ["config": config.log])
+    case .documentMRZScan(let config):
+      (key: "DocumentMRZScan", arguments: ["config": config.log])
+    case .documentNFC(let config):
+      (key: "DocumentNFC", arguments: ["config": config.log])
+    case .documentDataDisplay(let config):
+      (key: "DocumentDataDisplay", arguments: ["config": config.log])
+    case .livenessCheck(let config):
+      (key: "LivenessCheck", arguments: ["config": config.log])
+    case .credentialIssuance(let config):
+      (key: "CredentialIssuance", arguments: ["config": config.log])
     }
   }
 }

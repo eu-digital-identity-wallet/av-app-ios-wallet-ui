@@ -15,6 +15,7 @@
  */
 import logic_ui
 import logic_business
+import feature_common
 
 @MainActor
 public final class IssuanceRouter {
@@ -22,7 +23,7 @@ public final class IssuanceRouter {
   public static func resolve(module: FeatureIssuanceRouteModule, host: some RouterHost) -> AnyView {
     switch module {
     case .issuanceAddDocument(config: let config):
-      AddDocumentView(
+      return AddDocumentView(
         with: .init(
           router: host,
           interactor: DIGraph.resolver.force(
@@ -38,7 +39,7 @@ public final class IssuanceRouter {
       let config,
       let uiModels
     ):
-      DocumentIssuanceSuccessView(
+      return DocumentIssuanceSuccessView(
         with: .init(
           router: host,
           config: config,
@@ -49,7 +50,7 @@ public final class IssuanceRouter {
         )
       ).eraseToAnyView()
     case .credentialOfferRequest(let config):
-      DocumentOfferView(
+      return DocumentOfferView(
         with: .init(
           router: host,
           interactor: DIGraph.resolver.force(
@@ -59,13 +60,130 @@ public final class IssuanceRouter {
         )
       ).eraseToAnyView()
     case .issuanceCode(config: let config):
-      OfferCodeView(
+      return OfferCodeView(
         with: .init(
           router: host,
           interactor: DIGraph.resolver.force(
             DocumentOfferInteractor.self
           ),
           config: config
+        )
+      ).eraseToAnyView()
+    case .documentMRZIntro(let config):
+      guard let documentEnrollmentConfig = config as? DocumentEnrollmentUiConfig else {
+        return ContentErrorView(
+          config: .init(
+            description: .custom("Invalid configuration type"),
+            cancelAction: {}()
+          )
+        ).eraseToAnyView()
+      }
+      return MrzDocumentIntroView(
+        with: .init(
+          router: host,
+          config: documentEnrollmentConfig
+        )
+      ).eraseToAnyView()
+    case .documentMRZInstruction(let config):
+      guard let documentEnrollmentConfig = config as? DocumentEnrollmentUiConfig else {
+        return ContentErrorView(
+          config: .init(
+            description: .custom("Invalid configuration type"),
+            cancelAction: {}()
+          )
+        ).eraseToAnyView()
+      }
+      return MrzDocumentInstructionView(
+        with: .init(
+          router: host,
+          config: documentEnrollmentConfig
+        )
+      ).eraseToAnyView()
+    case .documentMRZScan(let config):
+      guard let documentEnrollmentConfig = config as? DocumentEnrollmentUiConfig else {
+        return ContentErrorView(
+          config: .init(
+            description: .custom("Invalid configuration type"),
+            cancelAction: {}()
+          )
+        ).eraseToAnyView()
+      }
+      return MRZDocumentScanView(
+        with: .init(
+          router: host,
+          interactor: DIGraph.resolver.force(
+            DocumentMRZScanInteractor.self
+          ),
+          config: documentEnrollmentConfig
+        )
+      ).eraseToAnyView()
+    case .documentNFC(let config):
+      guard let documentEnrollmentConfig = config as? DocumentEnrollmentUiConfig else {
+        return ContentErrorView(
+          config: .init(
+            description: .custom("Invalid configuration type"),
+            cancelAction: {}()
+          )
+        ).eraseToAnyView()
+      }
+      return DocumentNFCView(
+        with: .init(
+          router: host,
+          interactor: DIGraph.resolver.force(
+            NFCDocumentReaderInteractor.self
+          ),
+          config: documentEnrollmentConfig
+        )
+      ).eraseToAnyView()
+    case .documentDataDisplay(let config):
+      guard let documentEnrollmentConfig = config as? DocumentEnrollmentUiConfig else {
+        return ContentErrorView(
+          config: .init(
+            description: .custom("Invalid configuration type"),
+            cancelAction: {}()
+          )
+        ).eraseToAnyView()
+      }
+      return DocumentDataDisplayView(
+        with: .init(
+          router: host,
+          config: documentEnrollmentConfig
+        )
+      ).eraseToAnyView()
+    case .livenessCheck(let config):
+      guard let documentConfig = config as? DocumentEnrollmentUiConfig else {
+        return ContentErrorView(
+          config: .init(
+            description: .custom("Invalid configuration type"),
+            cancelAction: {}()
+          )
+        ).eraseToAnyView()
+      }
+      return LivenessCheckView(
+        with: .init(
+          router: host,
+          config: documentConfig,
+          interactor: DIGraph.resolver.force(
+            LivenessCheckInteractor.self
+          )
+        )
+      ).eraseToAnyView()
+    case .credentialIssuance(let config):
+      guard let documentEnrollmentConfig = config as? DocumentEnrollmentUiConfig else {
+        return ContentErrorView(
+          config: .init(
+            description: .custom("Invalid configuration type"),
+            cancelAction: {}()
+          )
+        ).eraseToAnyView()
+      }
+      return CredentialIssuanceView(
+        with: .init(
+          router: host,
+          config: documentEnrollmentConfig,
+          interactor: DIGraph.resolver.force(
+            CredentialIssuanceInteractor.self
+          )
         )
       ).eraseToAnyView()
     }

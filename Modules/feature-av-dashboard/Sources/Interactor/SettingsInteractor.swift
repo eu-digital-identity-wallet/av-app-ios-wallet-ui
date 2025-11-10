@@ -8,16 +8,16 @@
 import logic_core
 import logic_business
 
-protocol SettingsInteractor : Sendable {
+protocol SettingsInteractor: Sendable {
     func getAppVersion() -> String
     func deleteAgeVerificationCredentials() async -> Result<Void, Error>
 }
 
 final class SettingsInteractorImpl {
-    
+
     private let configLogic: ConfigLogic
     private let walletController: WalletKitController
-    
+
     init(
         configLogic: ConfigLogic,
         walletController: WalletKitController

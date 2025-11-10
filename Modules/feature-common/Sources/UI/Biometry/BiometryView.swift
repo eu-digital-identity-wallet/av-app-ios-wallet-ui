@@ -89,7 +89,9 @@ private func content(
     uiPinInputField: uiPinInputField,
     quickPinSize: viewState.quickPinSize,
     areBiometricsEnabled: viewState.areBiometricsEnabled,
-    pinError: viewState.pinError)
+    pinError: viewState.pinError,
+    disabled: viewState.isLockedOut
+  )
 
   Spacer()
 
@@ -112,7 +114,8 @@ private func pinView(
   uiPinInputField: Binding<String>,
   quickPinSize: Int,
   areBiometricsEnabled: Bool,
-  pinError: String?
+  pinError: String?,
+  disabled: Bool
 ) -> some View {
 VStack(alignment: .leading, spacing: .zero) {
     Text(subtitleText)
@@ -128,6 +131,7 @@ VStack(alignment: .leading, spacing: .zero) {
       shouldUseFullScreen: true,
       hasError: pinError != nil
     )
+    .disabled(disabled)
 
     VSpacer.mediumSmall()
 
@@ -163,6 +167,7 @@ VStack(alignment: .leading, spacing: .zero) {
     biometryImage: Theme.shared.image.faceId,
     isCancellable: true,
     quickPinSize: 6,
+    lockoutEndTime: 0,
     contentHeaderConfig: .init(
       appIconAndTextData: AppIconAndTextData(
         appIcon: ThemeManager.shared.image.logoEuDigitalIndentityWallet,

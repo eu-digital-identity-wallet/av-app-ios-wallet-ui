@@ -314,6 +314,16 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "onboarding_verification_national_id")
     case .verificationNationalIdDescription:
         bundle.localizedString(forKey: "onboarding_verification_national_id_description")
+    case .verificationPassport:
+        bundle.localizedString(forKey: "onboarding_verification_passport_id")
+    case .verificationPassportDescription:
+      bundle.localizedString(forKey: "onboarding_verification_passport_description")
+    case .passpostEnrollmentHeader:
+      bundle.localizedString(forKey: "passpost_enrollment_header")
+    case .passpostEnrollmentTitle:
+      bundle.localizedString(forKey: "passpost_enrollment_title")
+    case .passpostEnrollmentDescription:
+      bundle.localizedString(forKey: "passpost_enrollment_description")
     case .landingScreenTitle:
         bundle.localizedString(forKey: "landing_screen_title")
     case .landingScreenbody:
@@ -344,6 +354,177 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "settings_credentials")
     case .settingsDeleteCredentials:
         bundle.localizedString(forKey: "settings_delete_credentials")
+    case .back:
+      bundle.localizedString(forKey: "back_button_title")
+    case .startProcedure:
+      bundle.localizedString(forKey: "start_procedure")
+    case .passportEnrollmentIdentification:
+      bundle.localizedString(forKey: "passport_enrollment_step1_title")
+    case .passportEnrollmentBiometrics:
+      bundle.localizedString(forKey: "passport_enrollment_step2_title")
+    case .passportEnrollmentLiveVideo:
+      bundle.localizedString(forKey: "passport_enrollment_step3_title")
+    case .takeAPhoto:
+      bundle.localizedString(forKey: "take_a_photo_button_title")
+    case .passportEnrollmentIntroStep1Description:
+      bundle.localizedString(forKey: "passport_enrollment_intro_step1_description")
+    case .passportEnrollmentIntroStep1Title:
+      bundle.localizedString(forKey: "passport_enrollment_intro_step1_title")
+    case .passportEnrollmentIntroStep2Description:
+      bundle.localizedString(forKey: "passport_enrollment_intro_step2_description")
+    case .passportEnrollmentIntroStep2Title:
+      bundle.localizedString(forKey: "passport_enrollment_intro_step2_title")
+    case .passportEnrollmentIntroStep3Description:
+      bundle.localizedString(forKey: "passport_enrollment_intro_step3_description")
+    case .passportEnrollmentIntroStep3Title:
+      bundle.localizedString(forKey: "passport_enrollment_intro_step3_title")
+    case .passportEnrollmentIntroStep4Title:
+      bundle.localizedString(forKey: "passport_enrollment_intro_step4_title")
+    case .passportEnrollmentIntroStep5Title:
+      bundle.localizedString(forKey: "passport_enrollment_intro_step5_title")
+    case .quickPinInvalidWithAttempts(let arg):
+        bundle.localizedStringWithArguments(forKey: "quick_pin_invalid_with_attempts", arguments: [arg])
+    case .quickPinInvalidLastAttempt:
+        bundle.localizedString(forKey: "quick_pin_invalid_last_attempt")
+    case .quickPinLockedOut:
+        bundle.localizedString(forKey: "quick_pin_locked_out")
+    case .quickPinLockoutCountdownMinutes(let args):
+        bundle.localizedStringWithArguments(forKey: "quick_pin_lockout_countdown_minutes", arguments: args)
+    case .quickPinLockoutCountdownSeconds(let arg):
+        bundle.localizedStringWithArguments(forKey: "quick_pin_lockout_countdown_seconds", arguments: [arg])
+    case .quickPinErrorInsecurePin:
+        bundle.localizedString(forKey: "quick_pin_error_insecure_pin")
+    case .passportEnrollmentInstructionHeader:
+      bundle.localizedString(forKey: "passport_enrollment_instruction_header")
+    case .passportEnrollmentInstructionBody1:
+      bundle.localizedString(forKey: "passport_enrollment_instruction_body1")
+    case .passportEnrollmentInstructionPoint1:
+      bundle.localizedString(forKey: "passport_enrollment_instruction_point1")
+    case .passportEnrollmentInstructionPoint2:
+      bundle.localizedString(forKey: "passport_enrollment_instruction_point2")
+    case .passportEnrollmentInstructionBody2:
+      bundle.localizedString(forKey: "passport_enrollment_instruction_body2")
+    case .passportCaptureDescription:
+      bundle.localizedString(forKey: "passport_capture_description")
+    case .processingDocument:
+      bundle.localizedString(forKey: "processing_document")
+    case .mrzDocumentReady:
+      bundle.localizedString(forKey: "mrz_document_ready")
+    case .mrzScanning:
+      bundle.localizedString(forKey: "mrz_scanning")
+    case .mrzPlaceDocumentInFrame:
+      bundle.localizedString(forKey: "mrz_place_document_in_frame")
+    case .mrzCameraError:
+      bundle.localizedString(forKey: "mrz_camera_error")
+    case .mrzCameraPermissionDenied:
+      bundle.localizedString(forKey: "mrz_camera_permission_denied")
+    case .mrzCameraSetupFailed:
+      bundle.localizedString(forKey: "mrz_camera_setup_failed")
+    case .mrzUnknownError:
+      bundle.localizedString(forKey: "mrz_unknown_error")
+    case .mrzInitializingCamera:
+      bundle.localizedString(forKey: "mrz_initializing_camera")
+    case .mrzErrorInvalidData:
+      bundle.localizedString(forKey: "mrz_error_invalid_data")
+    case .mrzErrorDocumentExpired:
+      bundle.localizedString(forKey: "mrz_error_document_expired")
+    case .mrzErrorProcessingFailed:
+      bundle.localizedString(forKey: "mrz_error_processing_failed")
+    case .passportBiometricsFirstHeader:
+      bundle.localizedString(forKey: "passport_biometrics_first_header")
+    case .passportBiometricsFirstDescription:
+      bundle.localizedString(forKey: "passport_biometrics_first_description")
+    case .passportBiometricsFirstLink:
+      bundle.localizedString(forKey: "passport_biometrics_first_link")
+    case .passportBiometricsNext:
+      bundle.localizedString(forKey: "passport_biometrics_next")
+    case .changeQuickPinCaption:
+        bundle.localizedString(forKey: "change_quick_pin_caption")
+    case .changePinDescription:
+        bundle.localizedString(forKey: "change_pin_description")
+    case .changePinFirstPinDescription:
+        bundle.localizedString(forKey: "change_pin_first_pin_description")
+    case .changePinSecondPinDescription:
+        bundle.localizedString(forKey: "change_pin_second_pin_description")
+    case .changePinHelpText:
+        bundle.localizedString(forKey: "change_pin_help_text")
+    case .changePinSuccessText:
+        bundle.localizedString(forKey: "change_pin_success_text")
+
+    case .nfcReadyToScan:
+      bundle.localizedString(forKey: "nfc_ready_to_scan")
+    case .nfcInitializing:
+      bundle.localizedString(forKey: "nfc_initializing")
+    case .nfcReadingCOM:
+      bundle.localizedString(forKey: "nfc_reading_com")
+    case .nfcReadingDG1:
+      bundle.localizedString(forKey: "nfc_reading_dg1")
+    case .nfcReadingDG2:
+      bundle.localizedString(forKey: "nfc_reading_dg2")
+    case .nfcReadingSOD:
+      bundle.localizedString(forKey: "nfc_reading_sod")
+    case .nfcReadingProgress:
+      bundle.localizedString(forKey: "nfc_reading_progress")
+    case .nfcReadingSuccess:
+      bundle.localizedString(forKey: "nfc_reading_success")
+    case .nfcHoldSteady:
+      bundle.localizedString(forKey: "nfc_hold_steady")
+    case .nfcStartReading:
+      bundle.localizedString(forKey: "nfc_start_reading")
+    case .nfcErrorTagNotValid:
+      bundle.localizedString(forKey: "nfc_error_tag_not_valid")
+    case .nfcErrorMoreThanOneTag:
+      bundle.localizedString(forKey: "nfc_error_more_than_one_tag")
+    case .nfcErrorConnection:
+      bundle.localizedString(forKey: "nfc_error_connection")
+    case .nfcErrorUserCanceled:
+      bundle.localizedString(forKey: "nfc_error_user_canceled")
+    case .nfcErrorInvalidMRZKey:
+      bundle.localizedString(forKey: "nfc_error_invalid_mrz_key")
+    case .nfcErrorUnexpected:
+      bundle.localizedString(forKey: "nfc_error_unexpected")
+    case .nfcErrorReadingFailed:
+      bundle.localizedString(forKey: "nfc_error_reading_failed")
+    case .nfcErrorMissingData:
+      bundle.localizedString(forKey: "nfc_error_missing_data")
+    case .passportBirthDate:
+      bundle.localizedString(forKey: "passport_birth_date")
+    case .passportExpiryDate:
+      bundle.localizedString(forKey: "passport_expiry_date")
+    case .passportDocumentNumber:
+      bundle.localizedString(forKey: "passport_document_number")
+    case .passportPhoto:
+      bundle.localizedString(forKey: "passport_photo")
+    case .passportDataReviewHeader:
+      bundle.localizedString(forKey: "passport_data_review_header")
+    case .passportDataReviewDescription:
+      bundle.localizedString(forKey: "passport_data_review_description")
+    case .passportIdCardTitle:
+      bundle.localizedString(forKey: "passport_id_card_title")
+    case .continueButton:
+      bundle.localizedString(forKey: "continue_button")
+    case .livenessCheckHeader:
+      bundle.localizedString(forKey: "liveness_check_header")
+    case .livenessCheckDescription:
+      bundle.localizedString(forKey: "liveness_check_description")
+    case .livenessCheckInstructionPoint1:
+      bundle.localizedString(forKey: "liveness_check_instruction_point1")
+    case .livenessCheckInstructionPoint2:
+      bundle.localizedString(forKey: "liveness_check_instruction_point2")
+    case .livenessCheckFooter:
+      bundle.localizedString(forKey: "liveness_check_footer")
+    case .livenessCheckStartButton:
+      bundle.localizedString(forKey: "liveness_check_start_button")
+    case .livenessCheckErrorReferenceImage:
+      bundle.localizedString(forKey: "liveness_check_error_reference_image")
+    case .livenessCheckErrorNotLive:
+      bundle.localizedString(forKey: "liveness_check_error_not_live")
+    case .livenessCheckErrorNoMatch:
+      bundle.localizedString(forKey: "liveness_check_error_no_match")
+    case .credentialIssuanceTitle:
+      bundle.localizedString(forKey: "credential_issuance_title")
+    case .credentialIssuanceDescription:
+      bundle.localizedString(forKey: "credential_issuance_description")
     }
   }
 }

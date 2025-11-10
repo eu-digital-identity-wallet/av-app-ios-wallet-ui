@@ -22,17 +22,17 @@ final class LandingPageInteractorImpl: LandingInteractor {
     ) {
       self.walletController = walletController
     }
-    
+
     func getAgeCredential() async -> AgeCredentialPartialState {
-        
-        let documents = walletController.fetchIssuedDocuments(with: [.avAgeOver18,.mdocEUDIAgeOver18])
+
+        let documents = walletController.fetchIssuedDocuments(with: [.avAgeOver18, .mdocEUDIAgeOver18])
         guard let documentDetails = documents.first?.transformToDocumentUi() else {
           return .failure(WalletCoreError.unableFetchDocument)
         }
         let credentialCount = await getCredentialsUsageCount(documentId: documentDetails.id)
         return .success(documentDetails, credentialCount)
     }
-    
+
     private func getCredentialsUsageCount(documentId: String) async -> Int? {
       do {
         if let usageCounts = try await walletController.getCredentialsUsageCount(id: documentId) {

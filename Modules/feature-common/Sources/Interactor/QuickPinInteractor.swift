@@ -17,7 +17,8 @@ import logic_authentication
 
 public enum QuickPinPartialState: Sendable {
   case success
-  case failure(Error)
+  case failure(errorMessage: String, attemptsRemaining: Int)
+  case lockedOut(lockoutEndTime: TimeInterval)
 }
 
 public protocol QuickPinInteractor: Sendable {
@@ -25,34 +26,58 @@ public protocol QuickPinInteractor: Sendable {
   func isPinValid(pin: String) -> QuickPinPartialState
   func changePin(currentPin: String, newPin: String) -> QuickPinPartialState
   func hasPin() -> Bool
+  func isFirstPinIncomplete(_ pin: String, quickPinSize: Int) -> Bool
+  func validatePinSecurity(_ pin: String) -> LocalizableStringKey?
+  func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?)
+  func isCurrentPinExistInLastUsedPins(pin: String) -> Bool
 }
 
 final class QuickPinInteractorImpl: QuickPinInteractor {
 
   private let pinStorageController: PinStorageController
+  private let prefsController: PrefsController
 
-  init(pinStorageController: PinStorageController) {
+    init(pinStorageController: PinStorageController, prefsController: PrefsController) {
     self.pinStorageController = pinStorageController
+    self.prefsController = prefsController
   }
 
   public func setPin(newPin: String) {
     pinStorageController.setPin(with: newPin)
+    saveUsedPins(pin: newPin)
+  }
+
+  public func saveUsedPins(pin: String) {
+    var lastUsedPins = (prefsController.getValue(forKey: .lastUsedPins) as? [String]) ?? []
+    if lastUsedPins.count == 3 {
+      lastUsedPins.removeFirst()
+    }
+    lastUsedPins.append(pin)
+    prefsController.setValue(lastUsedPins, forKey: .lastUsedPins)
+  }
+
+  public func isCurrentPinExistInLastUsedPins(pin: String) -> Bool {
+    guard let usedPins = prefsController.getValue(forKey: .lastUsedPins) as? [String] else {
+        return false
+    }
+    return usedPins.contains(pin)
   }
 
   public func isPinValid(pin: String) -> QuickPinPartialState {
-    if self.isCurrentPinValid(pin: pin) {
-      return .success
-    } else {
-      return .failure(AuthenticationError.quickPinInvalid)
-    }
+    isCurrentPinValid(pin: pin)
   }
 
   public func changePin(currentPin: String, newPin: String) -> QuickPinPartialState {
-    if self.isCurrentPinValid(pin: currentPin) {
-      self.setPin(newPin: newPin)
-      return .success
-    } else {
-      return .failure(AuthenticationError.quickPinInvalid)
+
+    let pinValidationStatus = isCurrentPinValid(pin: currentPin)
+    switch pinValidationStatus {
+      case .success:
+        setPin(newPin: newPin)
+        return pinValidationStatus
+      case .failure:
+        return pinValidationStatus
+      case .lockedOut:
+        return pinValidationStatus
     }
   }
 
@@ -60,7 +85,60 @@ final class QuickPinInteractorImpl: QuickPinInteractor {
     return pinStorageController.retrievePin()?.isEmpty == false
   }
 
-  private func isCurrentPinValid(pin: String) -> Bool {
-    return pinStorageController.isPinValid(with: pin)
+  private func isCurrentPinValid(pin: String) -> QuickPinPartialState {
+    let pinValidStatus = pinStorageController.isPinValid(with: pin)
+    switch pinValidStatus {
+        case .success:
+        return .success
+      case .failed(let attemptsRemaining):
+        let errorMessage = attemptsRemaining > 1 ? LocalizableStringKey.quickPinInvalidWithAttempts(attemptsRemaining).toString :  LocalizableStringKey.quickPinInvalidLastAttempt.toString
+        return .failure(errorMessage: errorMessage, attemptsRemaining: attemptsRemaining)
+      case .lockedOut(let lockoutEndTimeInterval, _):
+        return .lockedOut(lockoutEndTime: lockoutEndTimeInterval)
+    }
+  }
+
+  public func isFirstPinIncomplete(_ pin: String, quickPinSize: Int) -> Bool {
+    return pin.count != quickPinSize
+  }
+
+  private func isSequential(digits: [Int]) -> Bool {
+    guard digits.count > 1 else { return false }
+
+    // Check ascending (e.g. 1,2,3,4...)
+    let isAscending = zip(digits, digits.dropFirst()).allSatisfy { $1 == $0 + 1 }
+
+    // Check descending (e.g. 6,5,4,3...)
+    let isDescending = zip(digits, digits.dropFirst()).allSatisfy { $1 == $0 - 1 }
+
+    return isAscending || isDescending
+  }
+
+  func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?) {
+    pinStorageController.getLockoutStatus()
+  }
+
+  public func validatePinSecurity(_ pin: String) -> LocalizableStringKey? {
+
+    var error: LocalizableStringKey?
+
+    // All digits same (e.g. 000000, 111111)
+    let firstChar = pin.first!
+    if pin.allSatisfy({ $0 == firstChar }) {
+      error =  .quickPinErrorInsecurePin
+    }
+
+    // Sequential (ascending or descending, e.g. 123456 or 654321)
+    let digits = pin.compactMap { $0.wholeNumberValue }
+    if isSequential(digits: digits) {
+      error =  .quickPinErrorInsecurePin
+    }
+
+    // Palindrome (e.g. 123321, 255552, 456654, 159951)
+    if pin == String(pin.reversed()) {
+      error =  .quickPinErrorInsecurePin
+    }
+
+    return error
   }
 }

@@ -23,7 +23,7 @@ public final class FeatureCommonAssembly: Assembly {
 
   public func assemble(container: Container) {
     container.register(QuickPinInteractor.self) { r in
-      QuickPinInteractorImpl(pinStorageController: r.force(PinStorageController.self))
+        QuickPinInteractorImpl(pinStorageController: r.force(PinStorageController.self), prefsController: r.force(PrefsController.self))
     }
     .inObjectScope(ObjectScope.transient)
 
