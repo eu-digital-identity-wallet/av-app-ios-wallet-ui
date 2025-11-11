@@ -311,6 +311,14 @@ public enum LocalizableStringKey: Equatable, Sendable {
   // Credential Issuance
   case credentialIssuanceTitle
   case credentialIssuanceDescription
+    
+  // Settings
+  case settingsSupport
+  case settingsUnlockWithBiometrics
+  case settingsLanguage
+  case settingsDeleteAllProofsOfAttestation
+  case settingsTermsOfService
+  case settingsAboutThisApp
 }
 
 public extension LocalizableStringKey {

@@ -78,6 +78,21 @@ final class SettingsViewModel<Router: RouterHost>: ViewModel<Router, SettingsSta
     }
   }
 
+  func onSettingItemTap(item: SettingsMenuItem) {
+      switch item {
+      case .changePin:
+          onPinChange()
+      case .deleteAgeAttestationProof:
+          onShowDeleteModal()
+      default:
+          log("default tap")
+      }
+  }
+
+  func onSupportItemTap(item: SupportMenuItem) {
+
+  }
+
   func onPinChange() {
       router.push(with: .featureCommonModule(
         .biometry(
@@ -94,5 +109,16 @@ final class SettingsViewModel<Router: RouterHost>: ViewModel<Router, SettingsSta
         )
       )
       )
+  }
+
+  func toolbarContent() -> ToolBarContent {
+    .init(
+      trailingActions: [],
+      leadingActions: [
+        .init(image: Theme.shared.image.chevronLeft) {
+          self.router.pop()
+        }
+     ]
+    )
   }
 }

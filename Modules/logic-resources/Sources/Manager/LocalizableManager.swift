@@ -527,6 +527,18 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "credential_issuance_title")
     case .credentialIssuanceDescription:
       bundle.localizedString(forKey: "credential_issuance_description")
+    case .settingsSupport:
+        bundle.localizedString(forKey: "settings_support")
+    case .settingsUnlockWithBiometrics:
+        bundle.localizedString(forKey: "settings_unlock_with_biometrics")
+    case .settingsLanguage:
+        bundle.localizedString(forKey: "settings_language")
+    case .settingsDeleteAllProofsOfAttestation:
+        bundle.localizedString(forKey: "settings_delete_all_proofs_attestation")
+    case .settingsTermsOfService:
+        bundle.localizedString(forKey: "settings_terms_of_service")
+    case .settingsAboutThisApp:
+        bundle.localizedString(forKey: "settings_about_this_app")
     }
   }
 }
