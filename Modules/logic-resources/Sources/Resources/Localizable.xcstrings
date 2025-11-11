@@ -4705,6 +4705,17 @@
         }
       }
     },
+    "quick_pin_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "PIN"
+          }
+        }
+      }
+    },
     "quick_pin_update_cancellation_caption" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5853,13 +5864,13 @@
         }
       }
     },
-    "start_procedure" : {
+    "start_button_title" : {
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Start Procedure"
+            "value" : "Start"
           }
         }
       }
