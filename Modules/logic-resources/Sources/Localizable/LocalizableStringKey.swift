@@ -163,6 +163,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case quickPinReEnterTitle
   case quickPinCreateSubtitle
   case quickPinReEnterSubtitle
+  case quickPinTitle
 
   // Verification Step
   case verificationStepTitle
@@ -186,7 +187,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case passportEnrollmentIntroStep3Title
   case passportEnrollmentIntroStep4Title
   case passportEnrollmentIntroStep5Title
-  case startProcedure
+  case start
 
   // Passport Enrollment Instruction
   case passportEnrollmentIdentification
@@ -310,6 +311,14 @@ public enum LocalizableStringKey: Equatable, Sendable {
   // Credential Issuance
   case credentialIssuanceTitle
   case credentialIssuanceDescription
+    
+  // Settings
+  case settingsSupport
+  case settingsUnlockWithBiometrics
+  case settingsLanguage
+  case settingsDeleteAllProofsOfAttestation
+  case settingsTermsOfService
+  case settingsAboutThisApp
 }
 
 public extension LocalizableStringKey {
