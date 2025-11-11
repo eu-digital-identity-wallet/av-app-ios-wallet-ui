@@ -16,18 +16,13 @@ final class MRZDocumentScanInteractorImpl: DocumentMRZScanInteractor {
   }
 
   func processMRZData(mrzData: MRZData) async -> MRZProcessingPartialState {
-    do {
-      // Validate MRZ data
-      guard validateMRZData(mrzData) else {
-        return .failure(MRZError.invalidData)
-      }
-
-      // Placeholder: Return the document number as identifier
-      return .success(mrzData.documentNumber)
-
-    } catch {
-      return .failure(error)
+    // Validate MRZ data
+    guard validateMRZData(mrzData) else {
+      return .failure(MRZError.invalidData)
     }
+
+    // Placeholder: Return the document number as identifier
+    return .success(mrzData.documentNumber)
   }
 
   private func validateMRZData(_ mrzData: MRZData) -> Bool {
