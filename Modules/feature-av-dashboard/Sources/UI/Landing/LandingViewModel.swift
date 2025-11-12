@@ -33,11 +33,11 @@ final class LandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingSt
     func onScan() {
         router.push(with: .featureCommonModule(.qrScanner(config: ScannerUiConfig(flow: .presentation))))
     }
-    
+
     func onSettings() {
         router.push(with: .featureAVDashboardModule(.settings))
     }
-    
+
     func getCredentialDetails() async {
         self.setState {
             $0.copy(isLoading: true)
@@ -45,7 +45,7 @@ final class LandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingSt
         let state = await Task.detached { () -> AgeCredentialPartialState in
             return await self.interactor.getAgeCredential()
         }.value
-        
+
         switch state {
         case .success(let document, let credRemainingCount):
           self.setState {
@@ -72,7 +72,7 @@ final class LandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingSt
         router.push(
           with: .featureIssuanceModule(
             .issuanceAddDocument(
-              config: IssuanceFlowUiConfig(flow: .extraDocument)
+              config: IssuanceFlowUiConfig(flow: .extraDocument(filterType: .mDocPid))
             )
           )
         )

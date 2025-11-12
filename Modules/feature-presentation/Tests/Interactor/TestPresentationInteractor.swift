@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -624,7 +624,7 @@ private extension TestPresentationInteractor {
             .single(
               .init(
                 collapsed: .init(
-                  mainText: .custom("value"),
+                  mainContent: .text(.custom("value")),
                   overlineText: .custom("elementIdentifier"),
                   isEnable: true,
                   trailingContent: .checkbox(

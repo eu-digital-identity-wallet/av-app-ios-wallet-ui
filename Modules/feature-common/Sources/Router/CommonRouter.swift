@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -25,7 +25,7 @@ public final class CommonRouter {
       QuickPinView(
         with: .init(
           router: host,
-          interactor: DIGraph.resolver.force(
+          interactor: DIGraph.shared.resolver.force(
             QuickPinInteractor.self
           ),
           config: config
@@ -36,7 +36,7 @@ public final class CommonRouter {
         with: .init(
           config: config,
           router: host,
-          interactor: DIGraph.resolver.force(
+          interactor: DIGraph.shared.resolver.force(
             ScannerInteractor.self
           )
         )
@@ -45,7 +45,7 @@ public final class CommonRouter {
       BiometryView(
         with: .init(
           router: host,
-          interactor: DIGraph.resolver.force(
+          interactor: DIGraph.shared.resolver.force(
             BiometryInteractor.self
           ), config: config
         )
@@ -55,7 +55,7 @@ public final class CommonRouter {
         with: .init(
           config: config,
           router: host,
-          deepLinkController: DIGraph.resolver.force(
+          deepLinkController: DIGraph.shared.resolver.force(
             DeepLinkController.self
           )
         )
@@ -63,7 +63,7 @@ public final class CommonRouter {
     case .biometrySetup(config: let config):
       BiometrySetupView(with: .init(
         router: host,
-        interactor: DIGraph.resolver.force(BiometryInteractor.self),
+        interactor: DIGraph.shared.resolver.force(BiometryInteractor.self),
         config: config
         )
       )
@@ -71,7 +71,7 @@ public final class CommonRouter {
     case .changePin(config: let config):
       ChangePinView(with: .init(
         router: host,
-        interactor: DIGraph.resolver.force(QuickPinInteractor.self),
+        interactor: DIGraph.shared.resolver.force(QuickPinInteractor.self),
         config: config)
       ).eraseToAnyView()
     case .changePinSuccess:

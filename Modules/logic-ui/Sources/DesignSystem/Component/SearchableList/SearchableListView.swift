@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -62,8 +62,8 @@ private struct SearchableModifier: ViewModifier {
       .background(backgroundColor)
 
       content
-        .onChange(of: searchText) { newValue in
-          onSearchTextChange?(newValue)
+        .onChange(of: searchText) {
+          onSearchTextChange?(searchText)
         }
     }
   }
@@ -136,11 +136,11 @@ private struct CustomSearchBar: UIViewRepresentable {
   NavigationView {
     WrapListItemsView(
       listItems: [
-        .init(mainText: .custom("Family name"), supportingText: .custom("Doe")),
-        .init(mainText: .custom("Given names"), supportingText: .custom("John")),
-        .init(mainText: .custom("Date of birth"), supportingText: .custom("21 Oct 1994")),
-        .init(mainText: .custom("Age over 18"), supportingText: .custom("21 Oct 1994")),
-        .init(mainText: .custom("Date of issue"), supportingText: .custom("21 Oct 1994"))
+        .init(mainContent: .text(.custom("Family name")), supportingText: .custom("Doe")),
+        .init(mainContent: .text(.custom("Given names")), supportingText: .custom("John")),
+        .init(mainContent: .text(.custom("Date of birth")), supportingText: .custom("21 Oct 1994")),
+        .init(mainContent: .text(.custom("Age over 18")), supportingText: .custom("21 Oct 1994")),
+        .init(mainContent: .text(.custom("Date of issue")), supportingText: .custom("21 Oct 1994"))
       ]
     )
     .searchable(

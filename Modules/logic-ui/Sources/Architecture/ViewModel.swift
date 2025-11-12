@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -16,17 +16,21 @@
 @_exported import SwiftUI
 @_exported import Combine
 @_exported import Copyable
-@_exported import logic_resources
+import Observation
+import logic_resources
 
 public protocol ViewState {}
 
 @MainActor
-open class ViewModel<Router: RouterHost, UiState: ViewState>: ObservableObject {
+@Observable
+open class ViewModel<Router: RouterHost, UiState: ViewState> {
 
+  public private(set) var viewState: UiState
+
+  @ObservationIgnored
   public lazy var cancellables = Set<AnyCancellable>()
 
-  @Published public private(set) var viewState: UiState
-
+  @ObservationIgnored
   public let router: Router
 
   public init(router: Router, initialState: UiState) {

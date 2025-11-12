@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -17,10 +17,11 @@ import logic_ui
 import logic_resources
 import feature_common
 import logic_core
+import OrderedCollections
 
 @Copyable
 struct AddDocumentViewState: ViewState {
-  let addDocumentCellModels: [AddDocumentUIModel]
+  let addDocumentCellModels: OrderedDictionary<String, [AddDocumentUIModel]>
   let error: ContentErrorView.Config?
   let config: IssuanceFlowUiConfig
   let showFooterScanner: Bool
@@ -30,7 +31,10 @@ struct AddDocumentViewState: ViewState {
   }
 
   var isLoading: Bool {
-    !addDocumentCellModels.isEmpty && addDocumentCellModels.allSatisfy { $0.isLoading }
+    guard !addDocumentCellModels.isEmpty else { return false }
+    return addDocumentCellModels
+      .flatMap { $0.value }
+      .allSatisfy { $0.isLoading }
   }
 }
 
@@ -56,7 +60,7 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
         addDocumentCellModels: AddDocumentUIModel.mocks,
         error: nil,
         config: config,
-        showFooterScanner: false
+        showFooterScanner: config.isNoDocumentFlow
       )
     )
   }
@@ -81,17 +85,18 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
     case .success(let documents):
       setState {
         $0.copy(
-          addDocumentCellModels: documents
+          addDocumentCellModels: documents,
+          showFooterScanner: showScannerFooter(documents: documents)
         )
         .copy(error: nil)
       }
     case .failure(let error):
       setState {
         $0.copy(
-          addDocumentCellModels: [],
+          addDocumentCellModels: [:],
           error: link == nil
           ? .init(
-            description: .custom(error.localizedDescription),
+            description: .custom(error.errorMessage),
             cancelAction: self.setState { $0.copy(error: nil) },
             action: { Task { await self.initialize() } }
           )
@@ -106,36 +111,34 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
     }
   }
 
-  func onClick(configId: String, docTypeIdentifier: DocumentTypeIdentifier) {
-    switch docTypeIdentifier {
-    case .other(let format):
-      if format == "passport" {
-        // Store configId and docTypeIdentifier for the passport enrollment flow
-        router.push(
-          with: .featureIssuanceModule(
-            .documentMRZIntro(
-              config: DocumentEnrollmentUiConfig(
-                mrzKey: nil,
-                documentData: nil,
-                configId: configId,
-                docTypeIdentifier: docTypeIdentifier
-              )
-            )
-          )
-        )
-      }
-    default:
-      issueDocument(configId: configId, docTypeIdentifier: docTypeIdentifier)
-    }
+  func onClick(
+    issuerId: String,
+    configId: String,
+    docTypeIdentifier: DocumentTypeIdentifier
+  ) {
+    issueDocument(
+      issuerId: issuerId,
+      configId: configId,
+      docTypeIdentifier: docTypeIdentifier
+    )
   }
 
   func onScanClick() {
+    var successNavigation: UIConfig.TwoWayNavigationType {
+      switch viewState.config.flow {
+      case .noDocument:
+          .push(.featureAVDashboardModule(.appLanding))
+      case .extraDocument:
+          .popTo(.featureAVDashboardModule(.appLanding))
+      }
+    }
+
     router.push(
       with: .featureCommonModule(
         .qrScanner(
           config: ScannerUiConfig(
             flow: .issuing(
-              successNavigation: .push(.featureAVDashboardModule(.appLanding)),
+              successNavigation: successNavigation,
               cancelNavigation: .popTo(
                 .featureIssuanceModule(
                   .issuanceAddDocument(config: viewState.config)
@@ -176,8 +179,10 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
       )
     }
 
+    let interactor = self.interactor
+
     let state = await Task.detached { () -> IssueDynamicDocumentPartialState in
-      return await self.interactor.resumeDynamicIssuance()
+      return await interactor.resumeDynamicIssuance()
     }.value
 
     switch state {
@@ -198,7 +203,7 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
         $0.copy(
           addDocumentCellModels: transformCellLoadingState(with: false),
           error: .init(
-            description: .custom(error.localizedDescription),
+            description: .custom(error.errorMessage),
             cancelAction: self.setState { $0.copy(error: nil) }
           )
         )
@@ -206,7 +211,11 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
     }
   }
 
-  private func issueDocument(configId: String, docTypeIdentifier: DocumentTypeIdentifier) {
+  private func issueDocument(
+    issuerId: String,
+    configId: String,
+    docTypeIdentifier: DocumentTypeIdentifier
+  ) {
     Task {
       setState {
         $0.copy(
@@ -215,8 +224,14 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
         .copy(error: nil)
       }
 
+      let interactor = self.interactor
+
       let state = await Task.detached { () -> IssueResultPartialState in
-        return await self.interactor.issueDocument(configId: configId, docTypeIdentifier: docTypeIdentifier)
+        return await interactor.issueDocument(
+          issuerId: issuerId,
+          configId: configId,
+          docTypeIdentifier: docTypeIdentifier
+        )
       }.value
 
       switch state {
@@ -241,7 +256,7 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
           $0.copy(
             addDocumentCellModels: transformCellLoadingState(with: false),
             error: .init(
-              description: .custom(error.localizedDescription),
+              description: .custom(error.errorMessage),
               cancelAction: self.setState { $0.copy(error: nil) }
             )
           )
@@ -308,13 +323,14 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
     )
   }
 
-  private func transformCellLoadingState(with isLoading: Bool) -> [AddDocumentUIModel] {
-    return viewState.addDocumentCellModels.map({
-      var cell = $0
-      cell.isLoading = isLoading
-      return cell
+  private func transformCellLoadingState(with isLoading: Bool) -> OrderedDictionary<String, [AddDocumentUIModel]> {
+    viewState.addDocumentCellModels.mapValues { models in
+      models.map { model in
+        var updated = model
+        updated.isLoading = isLoading
+        return updated
+      }
     }
-    )
   }
 
   private func hasDeepLink() -> String? {
@@ -340,8 +356,11 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
   }
 
   private func fetchStoredDocuments(docId: String) async {
+
+    let interactor = self.interactor
+
     let state = await Task.detached { () -> IssueDocumentsPartialState in
-      return await self.interactor.fetchStoredDocuments(
+      return await interactor.fetchStoredDocuments(
         documentIds: [docId]
       )
     }.value
@@ -379,11 +398,15 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
         $0.copy(
           addDocumentCellModels: transformCellLoadingState(with: false),
           error: .init(
-            description: .custom(error.localizedDescription),
+            description: .custom(error.errorMessage),
             cancelAction: self.setState { $0.copy(error: nil) }
           )
         )
       }
     }
+  }
+
+  private func showScannerFooter(documents: OrderedDictionary<String, [AddDocumentUIModel]>) -> Bool {
+    viewState.config.flow == .noDocument || documents.isEmpty
   }
 }

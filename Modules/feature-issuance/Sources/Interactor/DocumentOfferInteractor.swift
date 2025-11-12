@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -50,8 +50,8 @@ final class DocumentOfferInteractorImpl: DocumentOfferInteractor {
       let codeMinLength = 4
       let codeMaxLength = 6
 
-      let offer = try await walletController.resolveOfferUrlDocTypes(uriOffer: uri)
-        let hasPidStored = !walletController.fetchIssuedDocuments(with: [.avAgeOver18, .mdocEUDIAgeOver18]).isEmpty
+      let offer = try await walletController.resolveOfferUrlDocTypes(offerUri: uri)
+      let hasPidStored = !walletController.fetchIssuedDocuments(with: [.mDocPid, .sdJwtPid]).isEmpty
 
       if let spec = offer.txCodeSpec,
          let codeLength = spec.length,
@@ -197,7 +197,7 @@ final class DocumentOfferInteractorImpl: DocumentOfferInteractor {
       }
 
     } catch {
-      return .failure(WalletCoreError.unableToIssueAndStore)
+      return .failure(error)
     }
   }
 

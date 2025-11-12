@@ -41,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		1198ECD72AC453F200F4E71A /* logic-resources */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "logic-resources"; path = "Modules/logic-resources"; sourceTree = "<group>"; };
+		2E71CDBF2EC4A0D7006EB934 /* feature-proximity */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "feature-proximity"; path = "/Users/A200111500/Documents/Projects/av-app-ios-wallet-ui/Modules/feature-proximity"; sourceTree = "<absolute>"; };
 		489E779B2EC1FE55005061B4 /* AgeVerification.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AgeVerification.entitlements; sourceTree = "<group>"; };
 		EA887C042DE9D1C70087CB2F /* feature-av-dashboard */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "feature-av-dashboard"; path = "Modules/feature-av-dashboard"; sourceTree = "<group>"; };
 		EE3062332E58685C007BDAF6 /* SecurityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityExtensions.swift; sourceTree = "<group>"; };
@@ -181,6 +182,7 @@
 				F0C6207D2B6A6246007F903F /* logic-analytics */,
 				F069CC3E2AFAC0AD0033AAC5 /* feature-issuance */,
 				F05E9F372AFABBC200891E8F /* feature-presentation */,
+				2E71CDBF2EC4A0D7006EB934 /* feature-proximity */,
 				F0BFE9B62AD557290062826F /* feature-common */,
 				1198ECD72AC453F200F4E71A /* logic-resources */,
 				F06325112AC59AF50004601F /* feature-test */,
@@ -418,7 +420,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -431,7 +433,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = "Debug Demo";
@@ -521,7 +523,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -535,7 +537,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = "Release Demo";
@@ -689,7 +691,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -702,7 +704,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = "Debug Dev";
@@ -736,7 +738,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -750,7 +752,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = "Release Dev";

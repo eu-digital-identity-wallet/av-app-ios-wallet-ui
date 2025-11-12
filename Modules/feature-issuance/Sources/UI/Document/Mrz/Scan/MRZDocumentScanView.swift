@@ -20,7 +20,7 @@ import logic_resources
 import mrz_reader
 
 struct MRZDocumentScanView<Router: RouterHost>: View {
-  @StateObject private var viewModel: MRZDocumentScanViewModel<Router>
+  @State private var viewModel: MRZDocumentScanViewModel<Router>
 
   #if DEBUG
   private let loggingEnabled = true
@@ -29,7 +29,7 @@ struct MRZDocumentScanView<Router: RouterHost>: View {
   #endif
 
   init(with viewModel: MRZDocumentScanViewModel<Router>) {
-    self._viewModel = StateObject(wrappedValue: viewModel)
+    self._viewModel = State(wrappedValue: viewModel)
   }
 
   var body: some View {

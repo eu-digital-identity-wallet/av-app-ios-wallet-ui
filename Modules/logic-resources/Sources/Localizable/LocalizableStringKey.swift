@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -37,6 +37,11 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case successfullySharedFollowingInformation
   case incompleteRequestDataSelection
   case addDoc
+  case filters
+  case sortByIssuedDateSectionTitle
+  case showResults
+  case welcomeBack([String])
+  case viewDocumentDetails
   case pleaseWait
   case requestDataShareQuickPinCaption
   case requestDataShareBiometryCaption
@@ -68,6 +73,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case quickPinUpdateCancellationTitle
   case quickPinUpdateCancellationCaption
   case quickPinUpdateCancellationContinue
+  case successTitlePunctuated
   case issuerWantWalletAddition
   case unknownVerifier
   case unknownIssuer
@@ -85,6 +91,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case requestCredentialOfferTitle([String])
   case requestCredentialOfferNoDocument
   case unableToIssueAndStore
+  case missingMetadata
   case issueButton
   case issuanceCodeTitle([String])
   case issuanceCodeCaption([String])
@@ -110,10 +117,33 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case close
   case trustedRelyingParty
   case trustedRelyingPartyDescription
+  case reset
+  case all
+  case descending
+  case ascending
+//  case trustedRelyingParty
+//  case trustedRelyingPartyDescription
+  case alertAccessOnlineServices
+  case alertAccessOnlineServicesMessage
+  case alertSignDocumentsSafely
+  case alertSignDocumentsSafelyMessage
+  case authenticate
+  case inPerson
+  case online
+  case savedToFavorites
+  case succesfullyAddedFollowingToWallet
+  case removedFromFavorites
+  case savedToFavoritesMessage
+  case removedFromFavoritesMessages
   case viewDetails
   case requestsTheFollowing
   case noResults
   case noResultsDocumentsDescription
+  case noResultsTransactionsDescription
+  case proximityConnectionBleDescription
+  case selectExpiryPeriod
+  case filterByState
+  case sortBy
   case deleteDocumentConfirmDialog
   case valid
   case issuanceRequest
@@ -127,6 +157,16 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case categoryTravel
   case changelog
   case failed
+  case filterByDate
+  case startDate
+  case endDate
+  case relyingParty
+  case signedDocuments
+  case transactionInformation
+  case transactionDetailsDataShare
+  case transactionDetailsDataSigned
+  case transactionDetailsScreenCardDateLabel
+  case transactionDetailsCompleted
   case or
   case errorFetchTransactionLog
   case settings
@@ -311,6 +351,28 @@ public enum LocalizableStringKey: Equatable, Sendable {
   // Credential Issuance
   case credentialIssuanceTitle
   case credentialIssuanceDescription
+
+  case incomplete
+  case justNow
+  case revoked
+  case documentDetailsRevokedDocumentMessage
+  case revokedModalTitle
+  case revokedModalDescription
+  case transactionDetailsRequestDeletionMessage
+  case transactionDetailsRequestDeletionButton
+  case transactionDetailsReportTransactionMessage
+  case transactionDetailsReportTransactionButton
+//  case settings
+  case documentDetailsDocumentCredentialsText([String])
+  case documentDetailsDocumentCredentialsMoreInfoText
+  case documentDetailsDocumentCredentialsExpandedTextSubtitle
+  case documentDetailsDocumentCredentialsExpandedButtonHideText
+  case documentsListCredentialsUsageText([String])
+  case expandableDocumentCredentialsIssueButton
+  case issuanceAddDocumentNoOptions
+  case proximityConnectivityCaption
+  case chooseFromList
+  case chooseFromListTitle
 }
 
 public extension LocalizableStringKey {

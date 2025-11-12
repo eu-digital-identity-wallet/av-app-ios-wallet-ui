@@ -10,10 +10,10 @@ import logic_ui
 import logic_resources
 
 struct BiometrySetupView<Router: RouterHost>: View {
-  @ObservedObject var viewModel: BiometrySetupViewModel<Router>
+  @State var viewModel: BiometrySetupViewModel<Router>
 
   init(with viewModel: BiometrySetupViewModel<Router>) {
-    self.viewModel = viewModel
+    self._viewModel = State(wrappedValue: viewModel)
   }
 
   var body: some View {

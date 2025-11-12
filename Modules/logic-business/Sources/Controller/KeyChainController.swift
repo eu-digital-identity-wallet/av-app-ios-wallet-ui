@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -76,7 +76,7 @@ private extension KeyChainControllerImpl {
     try self.keyChain
       .accessibility(
         .whenPasscodeSetThisDeviceOnly,
-        authenticationPolicy: [.touchIDAny]
+        authenticationPolicy: [.biometryAny]
       )
       .set(UUID().uuidString, key: self.biometryKey)
   }
@@ -90,13 +90,4 @@ private extension KeyChainControllerImpl {
       clearKeyChainBiometry()
     }
   }
-}
-
-public enum KeyChainIdentifier: String, KeyChainWrapper {
-
-  public var value: String {
-    self.rawValue
-  }
-
-  case realmKey
 }

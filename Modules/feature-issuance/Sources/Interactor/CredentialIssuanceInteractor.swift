@@ -3,7 +3,7 @@ import feature_common
 import logic_core
 
 public protocol CredentialIssuanceInteractor: Sendable {
-  func issueDocument(configId: String, docTypeIdentifier: DocumentTypeIdentifier) async -> IssueResultPartialState
+  func issueDocument(issuerId: String, configId: String, docTypeIdentifier: DocumentTypeIdentifier) async -> IssueResultPartialState
   func fetchStoredDocuments(documentIds: [String]) async -> IssueDocumentsPartialState
 }
 
@@ -18,11 +18,12 @@ final class CredentialIssuanceInteractorImpl: CredentialIssuanceInteractor {
   }
 
   public func issueDocument(
+    issuerId: String,
     configId: String,
     docTypeIdentifier: DocumentTypeIdentifier
   ) async -> IssueResultPartialState {
     do {
-      let doc = try await walletController.issueDocument(identifier: configId, docTypeIdentifier: docTypeIdentifier)
+      let doc = try await walletController.issueDocument(issuerId: issuerId, identifier: configId, docTypeIdentifier: docTypeIdentifier)
       if doc.isDeferred {
         return .deferredSuccess
       } else if let authorizePresentationUrl = doc.authorizePresentationUrl {
@@ -34,7 +35,8 @@ final class CredentialIssuanceInteractorImpl: CredentialIssuanceInteractor {
         let session = await walletController.startSameDevicePresentation(deepLink: presentationComponents)
         return .dynamicIssuance(session)
       } else {
-        _ = try? await walletController.deleteDepletedDocuments(ofType: docTypeIdentifier)
+//        _ = try? await walletController.deleteDepletedDocuments(ofType: docTypeIdentifier)
+//        return .success(doc.id)
         return .success(doc.id)
       }
     } catch {

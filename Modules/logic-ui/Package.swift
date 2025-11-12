@@ -1,11 +1,11 @@
-// swift-tools-version: 6.0.0
+// swift-tools-version: 6.2
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
   name: "logic-ui",
-  platforms: [.iOS(.v16)],
+  platforms: [.iOS(.v17)],
   products: [
     .library(
       name: "logic-ui",
@@ -50,8 +50,12 @@ let package = Package(
       from: "3.1.1"
     ),
     .package(
-      url: "https://github.com/lorenzofiamingo/swiftui-cached-async-image.git",
-      from: "2.1.1"
+      url: "https://github.com/SDWebImage/SDWebImageSwiftUI",
+      from: "3.1.3"
+    ),
+    .package(
+      url: "https://github.com/SDWebImage/SDWebImageSVGCoder",
+      from: "1.7.0"
     ),
     .package(name: "logic-test", path: "./logic-test")
   ],
@@ -81,8 +85,12 @@ let package = Package(
           package: "SwiftUI-Shimmer"
         ),
         .product(
-          name: "CachedAsyncImage",
-          package: "swiftui-cached-async-image"
+          name: "SDWebImageSwiftUI",
+          package: "SDWebImageSwiftUI"
+        ),
+        .product(
+          name: "SDWebImageSVGCoder",
+          package: "SDWebImageSVGCoder"
         )
       ],
       path: "./Sources"

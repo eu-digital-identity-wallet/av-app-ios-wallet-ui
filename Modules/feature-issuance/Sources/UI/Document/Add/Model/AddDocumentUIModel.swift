@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -15,12 +15,14 @@
  */
 import logic_ui
 import logic_core
+import OrderedCollections
 
 public struct AddDocumentUIModel: Identifiable, Sendable, Equatable {
 
   public let id: String
   public let listItem: ListItemData
   public let configId: String
+  public let issuerId: String
   public let docTypeIdentifier: DocumentTypeIdentifier
   public var isEnabled: Bool
   public var isLoading: Bool
@@ -30,6 +32,7 @@ public struct AddDocumentUIModel: Identifiable, Sendable, Equatable {
     isEnabled: Bool,
     isLoading: Bool = false,
     configId: String,
+    issuerId: String,
     docTypeIdentifier: DocumentTypeIdentifier
   ) {
     self.id = UUID().uuidString
@@ -37,41 +40,56 @@ public struct AddDocumentUIModel: Identifiable, Sendable, Equatable {
     self.listItem = listItem
     self.isLoading = isLoading
     self.configId = configId
+    self.issuerId = issuerId
     self.docTypeIdentifier = docTypeIdentifier
   }
 }
 
 public extension AddDocumentUIModel {
-  static var mocks: [AddDocumentUIModel] {
+  static var mocks: OrderedDictionary<String, [AddDocumentUIModel]> {
     [
-      .init(
-        listItem: .init(mainText: .custom("Document name 1")),
-        isEnabled: true,
-        isLoading: true,
-        configId: "id",
-        docTypeIdentifier: .mDocPid
-      ),
-      .init(
-        listItem: .init(mainText: .custom("Document name 2")),
-        isEnabled: true,
-        isLoading: true,
-        configId: "id",
-        docTypeIdentifier: .mDocPid
-      ),
-      .init(
-        listItem: .init(mainText: .custom("Document name 3")),
-        isEnabled: true,
-        isLoading: true,
-        configId: "id",
-        docTypeIdentifier: .mDocPid
-      ),
-      .init(
-        listItem: .init(mainText: .custom("Document name 4")),
-        isEnabled: true,
-        isLoading: true,
-        configId: "id",
-        docTypeIdentifier: .mDocPid
-      )
+      "Issuer": [
+        .init(
+          listItem: .init(
+            mainContent: .text(.custom("Document name 1"))
+          ),
+          isEnabled: true,
+          isLoading: true,
+          configId: "id",
+          issuerId: "id",
+          docTypeIdentifier: .mDocPid
+        ),
+        .init(
+          listItem: .init(
+            mainContent: .text(.custom("Document name 2"))
+          ),
+          isEnabled: true,
+          isLoading: true,
+          configId: "id",
+          issuerId: "id",
+          docTypeIdentifier: .mDocPid
+        ),
+        .init(
+          listItem: .init(
+            mainContent: .text(.custom("Document name 3"))
+          ),
+          isEnabled: true,
+          isLoading: true,
+          configId: "id",
+          issuerId: "id",
+          docTypeIdentifier: .mDocPid
+        ),
+        .init(
+          listItem: .init(
+            mainContent: .text(.custom("Document name 4"))
+          ),
+          isEnabled: true,
+          isLoading: true,
+          configId: "id",
+          issuerId: "id",
+          docTypeIdentifier: .mDocPid
+        )
+      ]
     ]
   }
 }

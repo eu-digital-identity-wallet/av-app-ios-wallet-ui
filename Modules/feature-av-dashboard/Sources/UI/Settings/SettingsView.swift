@@ -11,12 +11,12 @@ import logic_resources
 import logic_core
 
 struct SettingsView<Router: RouterHost>: View {
-  @ObservedObject var viewModel: SettingsViewModel<Router>
-  
+  @State var viewModel: SettingsViewModel<Router>
+
   init(with viewModel: SettingsViewModel<Router>) {
-    self.viewModel = viewModel
+    self._viewModel = State(wrappedValue: viewModel)
   }
-  
+
   var body: some View {
     ContentScreenView(
       padding: .zero,
@@ -31,17 +31,18 @@ struct SettingsView<Router: RouterHost>: View {
         onPinChange: viewModel.onPinChange
       )
     }
-    .confirmationDialog(
-      title: .custom(""),
-      message: .deleteDocumentConfirmDialog,
-      destructiveText: .deleteDocument,
-      baseText: .cancelButton,
-      isPresented: $viewModel.isDeletionModalShowing,
-      destructiveAction: {
+    .dialogCompat(.custom(""),
+                  isPresented: $viewModel.isDeletionModalShowing) {
+      Button(.deleteDocument, role: .destructive) {
         viewModel.onDeleteCredentials()
-      },
-      baseAction: viewModel.onShowDeleteModal()
-    )
+      }
+      Button(.cancelButton, role: .cancel) {
+        viewModel.onShowDeleteModal()
+      }
+    } message: {
+      Text(.deleteDocumentConfirmDialog)
+    }
+
   }
 }
 
@@ -62,15 +63,15 @@ private func content(
           .frame(width: 24, height: 24)
       }
       .buttonStyle(.plain)
-      
+
       Spacer()
-      
+
       Text(LocalizableStringKey.settings.toString)
         .typography(Theme.shared.font.titleLarge)
         .fontWeight(.medium)
-      
+
       Spacer()
-      
+
       // Invisible button to balance the layout
       Button(action: {}) {
         Color.clear
@@ -79,7 +80,7 @@ private func content(
       .disabled(true)
     }
     .padding()
-    
+
     if viewState.isLoading {
       Spacer()
       HStack {
@@ -91,21 +92,21 @@ private func content(
     } else {
       // Settings content
       VStack(alignment: .leading, spacing: SPACING_LARGE) {
-        
+
         // App Version Section
         VStack(alignment: .leading, spacing: SPACING_SMALL) {
           Text(LocalizableStringKey.settingsAppInformation.toString)
             .typography(Theme.shared.font.headlineSmall)
             .fontWeight(.medium)
             .padding(.horizontal)
-          
+
           HStack {
             Text(LocalizableStringKey.settingsAppVersion.toString)
               .typography(Theme.shared.font.bodyLarge)
               .foregroundStyle(Theme.shared.color.onSurface)
-            
+
             Spacer()
-            
+
             Text(viewState.appVersion)
               .typography(Theme.shared.font.bodyLarge)
               .foregroundStyle(Theme.shared.color.lightText)
@@ -114,14 +115,14 @@ private func content(
           .padding(.vertical, SPACING_SMALL)
           .background(Theme.shared.color.surface)
         }
-        
+
         // Credentials Section
         VStack(alignment: .leading, spacing: SPACING_SMALL) {
           Text(LocalizableStringKey.settingsCredentials.toString)
             .typography(Theme.shared.font.headlineSmall)
             .fontWeight(.medium)
             .padding(.horizontal)
-          
+
           Button(action: {
             onShowDeleteModal()
           }) {
@@ -129,9 +130,9 @@ private func content(
               Text(LocalizableStringKey.settingsDeleteCredentials.toString)
                 .typography(Theme.shared.font.bodyLarge)
                 .foregroundStyle(Theme.shared.color.error)
-              
+
               Spacer()
-              
+
               if viewState.isDeletingCredentials {
                 ProgressView()
                   .scaleEffect(0.8)

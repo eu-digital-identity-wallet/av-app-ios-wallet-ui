@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -16,10 +16,15 @@
 import logic_resources
 import feature_common
 import logic_core
+import OrderedCollections
 
 public protocol AddDocumentInteractor: Sendable {
   func fetchScopedDocuments(with flow: IssuanceFlowUiConfig.Flow) async -> ScopedDocumentsPartialState
-  func issueDocument(configId: String, docTypeIdentifier: DocumentTypeIdentifier) async -> IssueResultPartialState
+  func issueDocument(
+    issuerId: String,
+    configId: String,
+    docTypeIdentifier: DocumentTypeIdentifier
+  ) async -> IssueResultPartialState
   func resumeDynamicIssuance() async -> IssueDynamicDocumentPartialState
   func getScopedDocument(configId: String) async throws -> ScopedDocument
   func fetchStoredDocuments(documentIds: [String]) async -> IssueDocumentsPartialState
@@ -37,57 +42,63 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
 
   public func fetchScopedDocuments(with flow: IssuanceFlowUiConfig.Flow) async -> ScopedDocumentsPartialState {
     do {
-      var result = try await walletController.getScopedDocuments()
-        result.append(ScopedDocument(name: "Passport or ID Card",
-                                     issuer: "Passport or ID Card",
-                                     configId: "eu.europa.ec.eudi.age_verification_mdoc",
-                                     isPid: false,
-                                     docTypeIdentifier: DocumentTypeIdentifier.other(formatType: "passport"),
-                                     isAgeVerification: false))
+      let documents: [AddDocumentUIModel] = try await walletController.getScopedDocuments().compactMap { doc in
+        switch flow {
+        case .noDocument:
+          guard doc.isPid else { return nil }
 
-      let documents: [AddDocumentUIModel] = result.compactMap { doc in
-          if doc.isAgeVerification {
-          return .init(
-            listItem: .init(
-              mainText: .verificationNationalId,
-              supportingText: .verificationNationalIdDescription,
-              leadingIcon: LeadingIcon(image: Theme.shared.image.pidIcon),
-              trailingContent: nil
-            ),
-            isEnabled: true,
-            configId: doc.configId,
-            docTypeIdentifier: doc.docTypeIdentifier
-          )
-        } else {
-            return .init(
-                listItem: .init(
-                  mainText: .verificationPassport,
-                  supportingText: .verificationPassportDescription,
-                  leadingIcon: LeadingIcon(image: Theme.shared.image.passportCard),
-                  trailingContent: nil
-                ),
-                isEnabled: true,
-                configId: doc.configId,
-                docTypeIdentifier: doc.docTypeIdentifier
-              )
+        case .extraDocument(let identifier):
+          if let identifier, doc.docTypeIdentifier != identifier {
+            return nil
+          }
         }
-      }.sorted(by: compare)
-      return .success(documents)
+
+        return .init(
+          listItem: .init(
+            mainContent: .text(.custom(doc.name)),
+            trailingContent: .icon(Theme.shared.image.plus)
+          ),
+          isEnabled: true,
+          configId: doc.configId,
+          issuerId: doc.issuer,
+          docTypeIdentifier: doc.docTypeIdentifier
+        )
+      }
+
+      let grouped: [String: [AddDocumentUIModel]] = Dictionary(
+        grouping: documents,
+        by: { $0.issuerId }
+      ).mapValues { section in
+        section.sorted(by: compare)
+      }
+
+      let ordered = OrderedDictionary<String, [AddDocumentUIModel]>(
+        uniqueKeysWithValues: Array(grouped).sorted {
+          $0.key.localizedCompare($1.key) == .orderedAscending
+        }
+      )
+
+      return .success(ordered)
     } catch {
       return .failure(error)
     }
 
     func compare(_ first: AddDocumentUIModel, _ second: AddDocumentUIModel) -> Bool {
-      return first.listItem.mainText.toString.lowercased() < second.listItem.mainText.toString.lowercased()
+      return first.listItem.mainContent.asString.lowercased() < second.listItem.mainContent.asString.lowercased()
     }
   }
 
   public func issueDocument(
+    issuerId: String,
     configId: String,
     docTypeIdentifier: DocumentTypeIdentifier
   ) async -> IssueResultPartialState {
     do {
-      let doc = try await walletController.issueDocument(identifier: configId, docTypeIdentifier: docTypeIdentifier)
+      let doc = try await walletController.issueDocument(
+        issuerId: issuerId,
+        identifier: configId,
+        docTypeIdentifier: docTypeIdentifier
+      )
       if doc.isDeferred {
         return .deferredSuccess
       } else if let authorizePresentationUrl = doc.authorizePresentationUrl {
@@ -99,11 +110,10 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
         let session = await walletController.startSameDevicePresentation(deepLink: presentationComponents)
         return .dynamicIssuance(session)
       } else {
-        _ = try? await walletController.deleteDepletedDocuments(ofType: docTypeIdentifier)
         return .success(doc.id)
       }
     } catch {
-      return .failure(WalletCoreError.unableToIssueAndStore)
+      return .failure(error)
     }
   }
 
@@ -129,7 +139,7 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
       }
 
     } catch {
-      return .failure(WalletCoreError.unableToIssueAndStore)
+      return .failure(error)
     }
   }
 
@@ -153,7 +163,7 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
 }
 
 public enum ScopedDocumentsPartialState: Sendable {
-  case success([AddDocumentUIModel])
+  case success(OrderedDictionary<String, [AddDocumentUIModel]>)
   case failure(Error)
 }
 

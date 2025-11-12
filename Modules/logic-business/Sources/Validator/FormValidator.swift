@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -182,7 +182,7 @@ final class FormValidatorImpl: FormValidator {
   }
 
   private func isPhoneNumberValid(phone: String, countryCode: String) -> Bool {
-    guard let phoneUtil = NBPhoneNumberUtil.sharedInstance() else { return false }
+    let phoneUtil = NBPhoneNumberUtil.sharedInstance()
     do {
       let phoneNumber: NBPhoneNumber = try phoneUtil.parse(phone, defaultRegion: countryCode)
       return phoneUtil.isValidNumber(phoneNumber)

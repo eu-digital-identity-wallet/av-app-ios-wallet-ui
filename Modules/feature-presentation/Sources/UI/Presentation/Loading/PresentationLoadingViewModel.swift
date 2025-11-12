@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -128,8 +128,10 @@ final class PresentationLoadingViewModel<Router: RouterHost, RequestItem: Sendab
 
     startPublisherTask()
 
+    let interactor = self.interactor
+
     let result = await Task.detached { () -> RemoteSentResponsePartialState in
-      return await self.interactor.onSendResponse()
+      return await interactor.onSendResponse()
     }.value
 
     switch result {

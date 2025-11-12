@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -30,10 +30,13 @@ final class PresentationRequestViewModel<Router: RouterHost>: BaseRequestViewMod
   }
 
   override func doWork() async {
+
     self.onStartLoading()
 
+    let interactor = self.interactor
+
     let result = await Task.detached { () -> Result<OnlineAuthenticationRequestSuccessModel, Error> in
-      return await self.interactor.onDeviceEngagement()
+      return await interactor.onDeviceEngagement()
     }.value
 
     switch result {
@@ -72,9 +75,10 @@ final class PresentationRequestViewModel<Router: RouterHost>: BaseRequestViewMod
     Task {
 
       let items = self.viewState.items
+      let interactor = self.interactor
 
       let result = await Task.detached { () -> Result<RequestItemConvertible, Error> in
-        return await self.interactor.onResponsePrepare(requestItems: items)
+        return await interactor.onResponsePrepare(requestItems: items)
       }.value
 
       switch result {

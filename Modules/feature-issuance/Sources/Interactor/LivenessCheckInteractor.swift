@@ -69,7 +69,7 @@ final class LivenessCheckInteractorImpl: LivenessCheckInteractor {
     }
     #endif
   }
-
+  // swiftlint:disable large_tuple
   #if !targetEnvironment(simulator)
   private nonisolated func captureAndMatchAsync(referenceImagePath: String) async -> (processed: Bool, referenceIsValid: Bool, capturedIsLive: Bool, isSameSubject: Bool, capturedPath: String?) {
     await withUnsafeContinuation { continuation in
@@ -87,6 +87,7 @@ final class LivenessCheckInteractorImpl: LivenessCheckInteractor {
     }
   }
   #endif
+  // swiftlint:enable large_tuple
 
   private func initializeSDK() {
     #if !targetEnvironment(simulator)

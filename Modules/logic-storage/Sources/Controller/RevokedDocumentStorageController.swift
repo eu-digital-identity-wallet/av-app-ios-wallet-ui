@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -13,32 +13,34 @@
  * ANY KIND, either express or implied. See the Licence for the specific language
  * governing permissions and limitations under the Licence.
  */
-import RealmSwift
+import Foundation
 
 public protocol RevokedDocumentStorageController: StorageController where Value == RevokedDocument {}
 
 final class RevokedDocumentStorageControllerImpl: RevokedDocumentStorageController {
 
-  private let realmService: RealmService
+  private let swiftDataService: SwiftDataService
 
-  init(realmService: RealmService) {
-    self.realmService = realmService
+  init(swiftDataService: SwiftDataService) {
+    self.swiftDataService = swiftDataService
   }
 
   func store(_ value: RevokedDocument) async throws {
-    try await realmService.write(value.toRealmRevokedDocument())
+    try await swiftDataService.write(value.toSdModel())
   }
 
   func store(_ values: [RevokedDocument]) async throws {
-    try await realmService.writeAll(values.toRealmRevokedDocuments())
+    try await swiftDataService.writeAll(values.toSdModels())
   }
 
   func update(_ value: RevokedDocument) async throws {
-    try await realmService.write(value.toRealmRevokedDocument())
+    try await swiftDataService.write(value.toSdModel())
   }
 
   func retrieve(_ identifier: String) async throws -> RevokedDocument {
-    let revokedDocument = try await realmService.read(RealmRevokedDocument.self, id: identifier) {
+    let revokedDocument = try await swiftDataService.read(
+      predicate: #Predicate<SDRevokedDocument> { $0.identifier == identifier }
+    ) {
       $0.toRevokedDocument()
     }
     guard let revokedDocument else {
@@ -48,7 +50,7 @@ final class RevokedDocumentStorageControllerImpl: RevokedDocumentStorageControll
   }
 
   func retrieveAll() async throws -> [RevokedDocument] {
-    let revokedDocuments = try await realmService.readAll(RealmRevokedDocument.self) { $0.toRevokedDocument() }
+    let revokedDocuments = try await swiftDataService.readAll(SDRevokedDocument.self) { $0.toRevokedDocument() }
     guard !revokedDocuments.isEmpty else {
       throw StorageError.itemsNotFound
     }
@@ -56,10 +58,12 @@ final class RevokedDocumentStorageControllerImpl: RevokedDocumentStorageControll
   }
 
   func delete(_ identifier: String) async throws {
-    try await realmService.delete(RealmRevokedDocument.self, id: identifier)
+    try await swiftDataService.delete(
+      predicate: #Predicate<SDRevokedDocument> { $0.identifier == identifier }
+    )
   }
 
   func deleteAll() async throws {
-    try await realmService.deleteAll(of: RealmRevokedDocument.self)
+    try await swiftDataService.deleteAll(of: SDRevokedDocument.self)
   }
 }

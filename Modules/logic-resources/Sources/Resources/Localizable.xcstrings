@@ -953,6 +953,28 @@
         }
       }
     },
+    "choose_from_list" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose from list"
+          }
+        }
+      }
+    },
+    "choose_from_list_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose a digital document from the list below to add to your wallet."
+          }
+        }
+      }
+    },
     "close" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1226,127 +1248,6 @@
         }
       }
     },
-    "liveness_check_header" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Record a quick video of yourself"
-          }
-        }
-      }
-    },
-    "liveness_check_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "In this step, you will record a short video of yourself to confirm your identity. Make sure to:"
-          }
-        }
-      }
-    },
-    "liveness_check_instruction_point1" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Face the camera directly in good lighting."
-          }
-        }
-      }
-    },
-    "liveness_check_instruction_point2" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Avoid filters, masks, or obstructions."
-          }
-        }
-      }
-    },
-    "liveness_check_footer" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "This step ensures that you are the rightful owner of the passport / ID card."
-          }
-        }
-      }
-    },
-    "liveness_check_start_button" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start live video"
-          }
-        }
-      }
-    },
-    "liveness_check_error_reference_image" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unable to extract face from reference image. Please try again."
-          }
-        }
-      }
-    },
-    "liveness_check_error_not_live" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Liveness check failed. Please try again in good lighting."
-          }
-        }
-      }
-    },
-    "liveness_check_error_no_match" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Face does not match reference image. Please try again."
-          }
-        }
-      }
-    },
-    "credential_issuance_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Verification Complete"
-          }
-        }
-      }
-    },
-    "credential_issuance_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We are now issuing your proof of age. This might take up to 30 seconds"
-          }
-        }
-      }
-    },
     "credential_details_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1378,6 +1279,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dettagli delle credenziali"
+          }
+        }
+      }
+    },
+    "credential_issuance_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We are now issuing your proof of age. This might take up to 30 seconds"
+          }
+        }
+      }
+    },
+    "credential_issuance_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verification Complete"
           }
         }
       }
@@ -2471,6 +2394,105 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Learn more"
+          }
+        }
+      }
+    },
+    "liveness_check_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In this step, you will record a short video of yourself to confirm your identity. Make sure to:"
+          }
+        }
+      }
+    },
+    "liveness_check_error_no_match" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Face does not match reference image. Please try again."
+          }
+        }
+      }
+    },
+    "liveness_check_error_not_live" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liveness check failed. Please try again in good lighting."
+          }
+        }
+      }
+    },
+    "liveness_check_error_reference_image" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to extract face from reference image. Please try again."
+          }
+        }
+      }
+    },
+    "liveness_check_footer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This step ensures that you are the rightful owner of the passport / ID card."
+          }
+        }
+      }
+    },
+    "liveness_check_header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Record a quick video of yourself"
+          }
+        }
+      }
+    },
+    "liveness_check_instruction_point1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Face the camera directly in good lighting."
+          }
+        }
+      }
+    },
+    "liveness_check_instruction_point2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avoid filters, masks, or obstructions."
+          }
+        }
+      }
+    },
+    "liveness_check_start_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start live video"
           }
         }
       }
@@ -4196,6 +4218,10 @@
           }
         }
       }
+    },
+    "proxmity_connectivity_caption" : {
+      "comment" : "Show this QR code to access the necessary information for sharing",
+      "extractionState" : "manual"
     },
     "qr_scan_informative_text" : {
       "extractionState" : "manual",

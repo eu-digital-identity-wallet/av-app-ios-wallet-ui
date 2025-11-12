@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -32,7 +32,7 @@ public final class PresentationRouter {
       PresentationLoadingView(
         with: .init(
           router: host,
-          interactor: DIGraph.resolver.force(
+          interactor: DIGraph.shared.resolver.force(
             PresentationInteractor.self,
             argument: presentationCoordinator as RemoteSessionCoordinator
           ),
@@ -49,7 +49,7 @@ public final class PresentationRouter {
       PresentationRequestView(
         with: .init(
           router: host,
-          interactor: DIGraph.resolver.force(
+          interactor: DIGraph.shared.resolver.force(
             PresentationInteractor.self,
             argument: presentationCoordinator as RemoteSessionCoordinator
           ),
@@ -64,7 +64,7 @@ public final class PresentationRouter {
         with: .init(
           router: host,
           config: config,
-          deepLinkController: DIGraph.resolver.force(
+          deepLinkController: DIGraph.shared.resolver.force(
             DeepLinkController.self
           ),
           requestItems: uiModels.compactMap { $0 as? PresentationListItemSection }

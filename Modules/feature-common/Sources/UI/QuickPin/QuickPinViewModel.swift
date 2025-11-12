@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -15,6 +15,7 @@
  */
 import logic_ui
 import logic_resources
+import Observation
 
 enum QuickPinStep: Equatable {
   case validate
@@ -39,11 +40,25 @@ struct QuickPinState: ViewState {
   let quickPinSize: Int
 }
 
+@Observable
 final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinState> {
 
-  @Published var uiPinInputField: String = ""
-  @Published var isCancelModalShowing: Bool = false
+//  @Published var uiPinInputField: String = ""
+//  @Published var isCancelModalShowing: Bool = false
+//  private let interactor: QuickPinInteractor
+//  private var lockoutTimer: LockoutTimer
+
+  var uiPinInputField: String = "" {
+    didSet {
+      debouncedPinInputField.send(uiPinInputField)
+    }
+  }
+  var isCancelModalShowing: Bool = false
+
+  @ObservationIgnored
   private let interactor: QuickPinInteractor
+  @ObservationIgnored
+  private var debouncedPinInputField = CurrentValueSubject<String, Never>("")
   private var lockoutTimer: LockoutTimer
 
   init(
@@ -192,7 +207,7 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
   }
 
   private func subscribeToPinInput() {
-    $uiPinInputField
+    debouncedPinInputField
       .dropFirst()
       .removeDuplicates()
       .sink { [weak self] value in

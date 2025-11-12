@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -26,10 +26,10 @@ public final class IssuanceRouter {
       return AddDocumentView(
         with: .init(
           router: host,
-          interactor: DIGraph.resolver.force(
+          interactor: DIGraph.shared.resolver.force(
             AddDocumentInteractor.self
           ),
-          deepLinkController: DIGraph.resolver.force(
+          deepLinkController: DIGraph.shared.resolver.force(
             DeepLinkController.self
           ),
           config: config
@@ -43,7 +43,7 @@ public final class IssuanceRouter {
         with: .init(
           router: host,
           config: config,
-          deepLinkController: DIGraph.resolver.force(
+          deepLinkController: DIGraph.shared.resolver.force(
             DeepLinkController.self
           ),
           requestItems: uiModels.compactMap { $0 as? GenericListItemSection }
@@ -53,7 +53,7 @@ public final class IssuanceRouter {
       return DocumentOfferView(
         with: .init(
           router: host,
-          interactor: DIGraph.resolver.force(
+          interactor: DIGraph.shared.resolver.force(
             DocumentOfferInteractor.self
           ),
           config: config
@@ -63,7 +63,7 @@ public final class IssuanceRouter {
       return OfferCodeView(
         with: .init(
           router: host,
-          interactor: DIGraph.resolver.force(
+          interactor: DIGraph.shared.resolver.force(
             DocumentOfferInteractor.self
           ),
           config: config
@@ -111,7 +111,7 @@ public final class IssuanceRouter {
       return MRZDocumentScanView(
         with: .init(
           router: host,
-          interactor: DIGraph.resolver.force(
+          interactor: DIGraph.shared.resolver.force(
             DocumentMRZScanInteractor.self
           ),
           config: documentEnrollmentConfig
@@ -129,7 +129,7 @@ public final class IssuanceRouter {
       return DocumentNFCView(
         with: .init(
           router: host,
-          interactor: DIGraph.resolver.force(
+          interactor: DIGraph.shared.resolver.force(
             NFCDocumentReaderInteractor.self
           ),
           config: documentEnrollmentConfig
@@ -163,7 +163,7 @@ public final class IssuanceRouter {
         with: .init(
           router: host,
           config: documentConfig,
-          interactor: DIGraph.resolver.force(
+          interactor: DIGraph.shared.resolver.force(
             LivenessCheckInteractor.self
           )
         )
@@ -181,7 +181,7 @@ public final class IssuanceRouter {
         with: .init(
           router: host,
           config: documentEnrollmentConfig,
-          interactor: DIGraph.resolver.force(
+          interactor: DIGraph.shared.resolver.force(
             CredentialIssuanceInteractor.self
           )
         )

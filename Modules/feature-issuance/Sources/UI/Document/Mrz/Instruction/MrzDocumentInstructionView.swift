@@ -20,10 +20,10 @@ import logic_resources
 import feature_common
 
 struct MrzDocumentInstructionView<Router: RouterHost>: View {
-  @StateObject private var viewModel: MrzDocumentInstructionViewModel<Router>
+  @State private var viewModel: MrzDocumentInstructionViewModel<Router>
 
   init(with viewModel: MrzDocumentInstructionViewModel<Router>) {
-    self._viewModel = StateObject(wrappedValue: viewModel)
+    self._viewModel = State(wrappedValue: viewModel)
   }
     var body: some View {
       ContentScreenView(
@@ -36,7 +36,7 @@ struct MrzDocumentInstructionView<Router: RouterHost>: View {
       }
       .navigationBarHidden(true)
     }
-    
+
 }
 
 @MainActor

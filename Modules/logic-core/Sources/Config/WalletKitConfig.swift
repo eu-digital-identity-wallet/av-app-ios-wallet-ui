@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -17,14 +17,6 @@ import Foundation
 import logic_business
 import EudiWalletKit
 
-struct VciConfig: Sendable {
-  public let issuerUrl: String
-  public let clientId: String
-  public let redirectUri: URL
-  public let usePAR: Bool
-  public let useDPoP: Bool
-}
-
 struct ReaderConfig: Sendable {
   public let trustedCerts: [Data]
 }
@@ -34,7 +26,12 @@ protocol WalletKitConfig: Sendable {
   /**
    * VCI Configuration
    */
-  var vciConfig: VciConfig { get }
+  var vciConfig: [String: OpenId4VciConfiguration] { get }
+
+  /**
+   * VP Configuration
+   */
+  var vpConfig: OpenId4VpConfiguration { get }
 
   /**
    * Reader Configuration
@@ -94,30 +91,71 @@ struct WalletKitConfigImpl: WalletKitConfig {
     false
   }
 
-  var vciConfig: VciConfig {
-    return switch configLogic.appBuildVariant {
-    case .DEMO:
-        .init(
-          issuerUrl: "https://issuer.ageverification.dev/",
-          clientId: "wallet-dev",
-          redirectUri: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
-          usePAR: true,
-          useDPoP: true
-        )
-    case .DEV:
-        .init(
-          issuerUrl: "https://issuer.dev.ageverification.dev/",
-          clientId: "wallet-dev",
-		  redirectUri: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
-          usePAR: true,
-          useDPoP: true
-        )
+  var vciConfig: [String: OpenId4VciConfiguration] {
+
+    let openId4VciConfigurations: [OpenId4VciConfiguration] = {
+      switch configLogic.appBuildVariant {
+      case .DEMO:
+        return [
+          .init(
+            credentialIssuerURL: "https://ec.issuer.eudiw.dev",
+            client: .public(id: "wallet-dev"),
+            authFlowRedirectionURI: URL(string: "eu.europa.ec.euidi://authorization")!,
+            usePAR: true,
+            useDpopIfSupported: true,
+            cacheIssuerMetadata: true
+          ),
+          .init(
+            credentialIssuerURL: "https://issuer-backend.eudiw.dev",
+            client: .public(id: "wallet-dev"),
+            authFlowRedirectionURI: URL(string: "eu.europa.ec.euidi://authorization")!,
+            usePAR: true,
+            useDpopIfSupported: true,
+            cacheIssuerMetadata: true
+          )
+        ]
+      case .DEV:
+        return [
+          .init(
+            credentialIssuerURL: "https://ec.dev.issuer.eudiw.dev",
+            client: .public(id: "wallet-dev"),
+            authFlowRedirectionURI: URL(string: "eu.europa.ec.euidi://authorization")!,
+            usePAR: true,
+            useDpopIfSupported: true,
+            cacheIssuerMetadata: true
+          ),
+          .init(
+            credentialIssuerURL: "https://dev.issuer-backend.eudiw.dev",
+            client: .public(id: "wallet-dev"),
+            authFlowRedirectionURI: URL(string: "eu.europa.ec.euidi://authorization")!,
+            usePAR: true,
+            useDpopIfSupported: true,
+            cacheIssuerMetadata: true
+          )
+        ]
+      }
+    }()
+
+    return openId4VciConfigurations.reduce(
+      into: [String: OpenId4VciConfiguration]()
+    ) { dict, config in
+      guard
+        let issuer = config.credentialIssuerURL,
+        let url = URL(string: issuer),
+        let host = url.host
+      else {
+        return
+      }
+      dict[host] = config
     }
+  }
+
+  var vpConfig: OpenId4VpConfiguration {
+    .init(clientIdSchemes: [.x509SanDns, .x509Hash])
   }
 
   var readerConfig: ReaderConfig {
     let certificates = [
-      "av_cert",
       "pidissuerca02_cz",
       "pidissuerca02_ee",
       "pidissuerca02_eu",
@@ -149,7 +187,6 @@ struct WalletKitConfigImpl: WalletKitConfig {
         .mDocPid,
         .sdJwtPid,
         .other(formatType: "org.iso.18013.5.1.mDL"),
-        .other(formatType: "eu.europa.ec.av.1"),
         .other(formatType: "eu.europa.ec.eudi.pseudonym.age_over_18.1"),
         .other(formatType: "urn:eu.europa.ec.eudi:pseudonym_age_over_18:1"),
         .other(formatType: "eu.europa.ec.eudi.tax.1"),
@@ -200,10 +237,19 @@ struct WalletKitConfigImpl: WalletKitConfig {
   var documentIssuanceConfig: DocumentIssuanceConfig {
     DocumentIssuanceConfig(
       defaultRule: DocumentIssuanceRule(
-        policy: .oneTimeUse,
-        numberOfCredentials: 30
+        policy: .rotateUse,
+        numberOfCredentials: 1
       ),
-      documentSpecificRules: [:]
+      documentSpecificRules: [
+        DocumentTypeIdentifier.mDocPid: DocumentIssuanceRule(
+          policy: .oneTimeUse,
+          numberOfCredentials: 10
+        ),
+        DocumentTypeIdentifier.sdJwtPid: DocumentIssuanceRule(
+          policy: .oneTimeUse,
+          numberOfCredentials: 10
+        )
+      ]
     )
   }
 }
