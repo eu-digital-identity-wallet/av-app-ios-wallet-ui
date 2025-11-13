@@ -373,6 +373,14 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case proximityConnectivityCaption
   case chooseFromList
   case chooseFromListTitle
+
+  // Settings
+  case settingsSupport
+  case settingsUnlockWithBiometrics
+  case settingsLanguage
+  case settingsDeleteAllProofsOfAttestation
+  case settingsTermsOfService
+  case settingsAboutThisApp
 }
 
 public extension LocalizableStringKey {

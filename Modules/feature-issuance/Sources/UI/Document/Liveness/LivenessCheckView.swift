@@ -78,7 +78,7 @@ private func content(
         Text(LocalizableStringKey.livenessCheckHeader.toString)
           .typography(Theme.shared.font.displaySmall)
           .fontWeight(.bold)
-        
+
         VSpacer.large()
 
         Text(LocalizableStringKey.livenessCheckDescription.toString)
@@ -89,13 +89,13 @@ private func content(
 
         // Instruction Points
         VStack(alignment: .leading, spacing: 16) {
-          ForEach(Array(viewState.instructionPoints.enumerated()), id: \.offset) { index, point in
+          ForEach(Array(viewState.instructionPoints.enumerated()), id: \.offset) { _, point in
             HStack(alignment: .top, spacing: 12) {
               Circle()
                 .fill(Theme.shared.color.primary)
                 .frame(width: 8, height: 8)
                 .padding(.top, 8)
-              
+
               Text(point)
                 .typography(Theme.shared.font.bodyMedium)
                 .fixedSize(horizontal: false, vertical: true)

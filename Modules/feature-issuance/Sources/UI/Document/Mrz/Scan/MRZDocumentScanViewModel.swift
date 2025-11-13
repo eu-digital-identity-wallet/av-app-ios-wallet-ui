@@ -63,7 +63,7 @@ final class MRZDocumentScanViewModel<Router: RouterHost>: ViewModel<Router, MRZD
       }.value
 
       switch result {
-      case .success(let documentId):
+      case .success:
         setState {
           $0.copy(isProcessing: false, error: nil)
         }
@@ -72,24 +72,34 @@ final class MRZDocumentScanViewModel<Router: RouterHost>: ViewModel<Router, MRZD
         let isIDCard = mrzData.mrzType == .td1
 
         if isIDCard {
-          // For ID cards, skip NFC and go directly to data display with partial data
-          let documentData = DocumentEnrollmentUiConfig.DocumentData(
-            photo: nil,  // No photo without NFC
-            birthDate: mrzData.dateOfBirth,
-            expiryDate: mrzData.expirationDate
-          )
+//          // For ID cards, skip NFC and go directly to data display with partial data
+//          let documentData = DocumentEnrollmentUiConfig.DocumentData(
+//            photo: nil,  // No photo without NFC
+//            birthDate: mrzData.dateOfBirth,
+//            expiryDate: mrzData.expirationDate
+//          )
+//
+//          router.push(with: AppRoute.featureIssuanceModule(
+//            .documentDataDisplay(
+//              config: DocumentEnrollmentUiConfig(
+//                mrzKey: nil,
+//                documentData: documentData,
+//                configId: viewState.config.configId,
+//                docTypeIdentifier: viewState.config.docTypeIdentifier,
+//                flowType: .idCard
+//              )
+//            )
+//          ))
 
-          router.push(with: AppRoute.featureIssuanceModule(
-            .documentDataDisplay(
-              config: DocumentEnrollmentUiConfig(
-                mrzKey: nil,
-                documentData: documentData,
-                configId: viewState.config.configId,
-                docTypeIdentifier: viewState.config.docTypeIdentifier,
-                flowType: .idCard
+          // Show error for ID cards
+          setState {
+            $0.copy(
+              isProcessing: false,
+              error: .init(
+                description: .custom(""), cancelAction: ()
               )
             )
-          ))
+          }
         } else {
           // For passports (TD3), continue with NFC flow
           let mrzKey = MRZKeyExtractor.extractMRZKey(from: mrzData)
@@ -115,7 +125,7 @@ final class MRZDocumentScanViewModel<Router: RouterHost>: ViewModel<Router, MRZD
             isProcessing: false,
             error: .init(
               description: .custom(error.localizedDescription),
-              cancelAction: self.onErrorDismissed()
+              cancelAction: { self.onErrorDismissed() }()
             )
           )
         }
@@ -127,6 +137,8 @@ final class MRZDocumentScanViewModel<Router: RouterHost>: ViewModel<Router, MRZD
     setState {
       $0.copy(error: nil)
     }
+    // Temporary solution to go back one step when ID card is used.
+    router.popTo(with: .featureIssuanceModule(.documentMRZInstruction(config: viewState.config)))
   }
 
 }

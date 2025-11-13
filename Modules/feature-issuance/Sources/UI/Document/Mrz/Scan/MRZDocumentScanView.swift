@@ -79,5 +79,18 @@ struct MRZDocumentScanView<Router: RouterHost>: View {
         }
       }
     }
+    .alert(
+      "Error",
+      isPresented: Binding(
+        get: { viewModel.viewState.error != nil },
+        set: { if !$0 { viewModel.onErrorDismissed() } }
+      ),
+      actions: {
+        Button("OK") { }
+      },
+      message: {
+        Text("ID cards are currently not supported. Please use a biometric passport.")
+      }
+    )
   }
 }
