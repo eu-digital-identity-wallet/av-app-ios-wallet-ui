@@ -35,8 +35,6 @@ final class CredentialIssuanceInteractorImpl: CredentialIssuanceInteractor {
         let session = await walletController.startSameDevicePresentation(deepLink: presentationComponents)
         return .dynamicIssuance(session)
       } else {
-//        _ = try? await walletController.deleteDepletedDocuments(ofType: docTypeIdentifier)
-//        return .success(doc.id)
         return .success(doc.id)
       }
     } catch {

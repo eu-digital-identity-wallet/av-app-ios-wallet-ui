@@ -20,18 +20,20 @@ public struct ScopedDocument: Equatable, Sendable {
   public let configId: String
   public let isPid: Bool
   public let docTypeIdentifier: DocumentTypeIdentifier
+  public let isAgeVerification: Bool
 
-    public init(name: String, issuer: String, configId: String, isPid: Bool, docTypeIdentifier: DocumentTypeIdentifier) {
+    public init(name: String, issuer: String, configId: String, isPid: Bool, docTypeIdentifier: DocumentTypeIdentifier, isAgeVerification: Bool) {
         self.name = name
         self.issuer = issuer
         self.configId = configId
         self.isPid = isPid
         self.docTypeIdentifier = docTypeIdentifier
+        self.isAgeVerification = isAgeVerification
     }
 }
 
 public extension ScopedDocument {
   static func empty() -> ScopedDocument {
-    .init(name: "", issuer: "", configId: "", isPid: false, docTypeIdentifier: .mDocPid)
+    .init(name: "", issuer: "", configId: "", isPid: false, docTypeIdentifier: .mDocPid, isAgeVerification: false)
   }
 }

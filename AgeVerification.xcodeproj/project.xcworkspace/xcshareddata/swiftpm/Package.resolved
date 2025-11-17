@@ -1,5 +1,5 @@
 {
-  "originHash" : "549a64eeaaa92b421c52ead2fc54a2392f2186b68f10ed4540a9763f359e2aab",
+  "originHash" : "0e541d883e2a6bf16dddc5fae5000dd7582d83ac60c09d4c6a6c9b95fc162650",
   "pins" : [
     {
       "identity" : "activityindicatorview",
@@ -35,6 +35,33 @@
       "state" : {
         "revision" : "b39252eacd159904afd7d718bba0afabb87f2f2f",
         "version" : "1.3.9"
+      }
+    },
+    {
+      "identity" : "asn1",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/leif-ibsen/ASN1",
+      "state" : {
+        "revision" : "e38d1b8b43d8b53ffadde9836f34289176bb7a0c",
+        "version" : "2.7.0"
+      }
+    },
+    {
+      "identity" : "av-lib-ios-w3c-dc-api",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/eu-digital-identity-wallet/av-lib-ios-w3c-dc-api.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "9883c60787225cd310e80096c393e0666424774d"
+      }
+    },
+    {
+      "identity" : "bigint",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/leif-ibsen/BigInt",
+      "state" : {
+        "revision" : "8c6f93aa37504b7b1ba3954335b5548a19fbbd82",
+        "version" : "1.22.0"
       }
     },
     {
@@ -89,6 +116,15 @@
       "state" : {
         "revision" : "856aa829a5717220326368589a3d1390e7ec1785",
         "version" : "2.1.0"
+      }
+    },
+    {
+      "identity" : "digest",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/leif-ibsen/Digest",
+      "state" : {
+        "revision" : "95ba89b494aaff5f3cd2933c03b9a890323dbf2c",
+        "version" : "1.13.0"
       }
     },
     {
@@ -476,6 +512,15 @@
       "state" : {
         "revision" : "d535b0836be52c846d87605adad1205445e4dc35",
         "version" : "0.0.4"
+      }
+    },
+    {
+      "identity" : "swifthpke",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/leif-ibsen/SwiftHPKE",
+      "state" : {
+        "revision" : "38742b7ac47912d156f57957cc9ccb9d6b3ad3a7",
+        "version" : "2.8.0"
       }
     },
     {

@@ -53,6 +53,14 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
           }
         }
 
+        if doc.isAgeVerification {
+          print("***********")
+          print(doc.name)
+          print(doc.docTypeIdentifier)
+          print(doc.issuer)
+          print("***********")
+        }
+
         return .init(
           listItem: .init(
             mainContent: .text(.custom(doc.name)),

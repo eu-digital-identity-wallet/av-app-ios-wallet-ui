@@ -16,6 +16,7 @@
 import logic_business
 import SwiftUI
 import logic_storage
+import IdentityDocumentServices
 
 private enum KeyIdentifier: String, KeyChainWrapper {
   public var value: String {
@@ -114,6 +115,7 @@ final class WalletKitControllerImpl: WalletKitController {
 
     guard let walletKit = try? EudiWallet(
       serviceName: configLogic.documentStorageServiceName,
+      accessGroup: "tsi.com.scytales.av.dev",
       trustedReaderCertificates: configLogic.readerConfig.trustedCerts,
       userAuthenticationRequired: configLogic.userAuthenticationRequired,
       openID4VpConfig: configLogic.vpConfig,
@@ -319,33 +321,105 @@ final class WalletKitControllerImpl: WalletKitController {
     return .init(pendingDoc: pendingDoc, url: url)
   }
 
+//  func getScopedDocuments() async throws -> [ScopedDocument] {
+//
+//    try await withThrowingTaskGroup(of: [ScopedDocument].self) { group in
+//
+//      for issuerName in configLogic.vciConfig.keys {
+//        group.addTask { [self] in
+//          let metadata = try await wallet.getIssuerMetadata(issuerName: issuerName)
+//
+//          return metadata.credentialsSupported.compactMap { credential in
+//            switch credential.value {
+//            case .msoMdoc(let config):
+//              let identifier = DocumentTypeIdentifier(rawValue: config.docType)
+//              let isAgeVerification = identifier == .avAgeOver18 || identifier == .mdocEUDIAgeOver18
+//
+//              return ScopedDocument(
+//                name: config.credentialMetadata?.display.getName(fallback: credential.key.value) ?? credential.key.value,
+//                issuer: metadata.credentialIssuerIdentifier.url.host.ifNilOrEmpty { issuerName },
+//                configId: credential.key.value,
+//                isPid: identifier == .mDocPid,
+//                docTypeIdentifier: identifier,
+//                isAgeVerification: isAgeVerification
+//              )
+//
+//            case .sdJwtVc(let config):
+//              guard let vct = config.vct else { return nil }
+//
+//              let identifier = DocumentTypeIdentifier(rawValue: vct)
+//              let isAgeVerification = identifier == .avAgeOver18 || identifier == .mdocEUDIAgeOver18
+//
+//              return ScopedDocument(
+//                name: config.credentialMetadata?.display.getName(fallback: credential.key.value) ?? credential.key.value,
+//                issuer: metadata.credentialIssuerIdentifier.url.host.ifNilOrEmpty { issuerName },
+//                configId: credential.key.value,
+//                isPid: identifier == .sdJwtPid,
+//                docTypeIdentifier: identifier,
+//                isAgeVerification: isAgeVerification
+//              )
+//
+//            default:
+//              return nil
+//            }
+//          }
+//        }
+//      }
+//
+//      // Collect the results from the task group
+//      var allDocuments: [ScopedDocument] = []
+//
+//      for try await docs in group {
+//        allDocuments.append(contentsOf: docs)
+//      }
+//
+//      return allDocuments
+//    }
+//  }
   func getScopedDocuments() async throws -> [ScopedDocument] {
 
     try await withThrowingTaskGroup(of: [ScopedDocument].self) { group in
       for issuerName in configLogic.vciConfig.keys {
+        print("******")
+        print("****** \(issuerName)")
+        print("******")
         group.addTask {
           let metadata = try await self.wallet.getIssuerMetadata(issuerName: issuerName)
           return metadata.credentialsSupported.compactMap { credential in
             switch credential.value {
             case .msoMdoc(let config):
               let id = DocumentTypeIdentifier(rawValue: config.docType)
+              print("****** msoMdoc")
+              print("******\(config.docType)")
+              print("******")
+              let isAgeVerification = id == .avAgeOver18 || id == .mdocEUDIAgeOver18
               return ScopedDocument(
                 name: config.credentialMetadata?.display.getName(fallback: credential.key.value) ?? credential.key.value,
                 issuer: metadata.credentialIssuerIdentifier.url.host.ifNilOrEmpty { issuerName },
                 configId: credential.key.value,
                 isPid: id == .mDocPid,
-                docTypeIdentifier: id
+                docTypeIdentifier: id,
+                isAgeVerification: isAgeVerification,
               )
 
             case .sdJwtVc(let config):
-              guard let vct = config.vct else { return nil }
+              guard let vct = config.vct else { return ScopedDocument(name: "", issuer: "", configId: "",
+                                                                      isPid: false,
+                                                                      docTypeIdentifier: DocumentTypeIdentifier.other(formatType: "false"),
+                                                                      isAgeVerification: false) }
               let id = DocumentTypeIdentifier(rawValue: vct)
+              print("****** sdjwtVC")
+              print("******\(config.vct)")
+              print("******")
+              let isAgeVerification = id == .avAgeOver18 || id == .mdocEUDIAgeOver18 || id == .mDocPid
+
               return ScopedDocument(
                 name: config.credentialMetadata?.display.getName(fallback: credential.key.value) ?? credential.key.value,
                 issuer: metadata.credentialIssuerIdentifier.url.host.ifNilOrEmpty { issuerName },
                 configId: credential.key.value,
                 isPid: id == .sdJwtPid,
-                docTypeIdentifier: id
+                docTypeIdentifier: id,
+                isAgeVerification: isAgeVerification
               )
 
             default:
