@@ -116,11 +116,26 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
     configId: String,
     docTypeIdentifier: DocumentTypeIdentifier
   ) {
-    issueDocument(
-      issuerId: issuerId,
-      configId: configId,
-      docTypeIdentifier: docTypeIdentifier
-    )
+    switch docTypeIdentifier {
+    case .other(let format):
+      if format == "passport" {
+        // Store configId and docTypeIdentifier for the passport enrollment flow
+        router.push(
+          with: .featureIssuanceModule(
+            .documentMRZIntro(
+              config: DocumentEnrollmentUiConfig(
+                mrzKey: nil,
+                documentData: nil,
+                configId: configId,
+                docTypeIdentifier: docTypeIdentifier
+              )
+            )
+          )
+        )
+      }
+    default:
+      issueDocument(issuerId: issuerId, configId: configId, docTypeIdentifier: docTypeIdentifier)
+    }
   }
 
   func onScanClick() {

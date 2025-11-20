@@ -41,36 +41,40 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
   }
 
   public func fetchScopedDocuments(with flow: IssuanceFlowUiConfig.Flow) async -> ScopedDocumentsPartialState {
+    let passport = ScopedDocument(
+      name: "Passport or ID Card",
+      issuer: "Passport or ID Card",
+      configId: "eu.europa.ec.eudi.age_verification_mdoc",
+      isPid: false,
+      docTypeIdentifier: DocumentTypeIdentifier.other(formatType: "passport"),
+      isAgeVerification: false
+    )
+
     do {
-      let documents: [AddDocumentUIModel] = try await walletController.getScopedDocuments().compactMap { doc in
-        switch flow {
-        case .noDocument:
-          guard doc.isPid else { return nil }
-
-        case .extraDocument(let identifier):
-          if let identifier, doc.docTypeIdentifier != identifier {
-            return nil
-          }
-        }
-
+      var scopedDocuments = try await walletController.getScopedDocuments()
+      scopedDocuments.append(passport)
+      let documents: [AddDocumentUIModel] = scopedDocuments.compactMap { doc in
         if doc.isAgeVerification {
-          print("***********")
-          print(doc.name)
-          print(doc.docTypeIdentifier)
-          print(doc.issuer)
-          print("***********")
+          return .init(listItem: .init(mainContent: MainContent.text(LocalizableStringKey.verificationNationalId),
+                                       supportingText: LocalizableStringKey.verificationNationalIdDescription,
+                                       leadingIcon: LeadingIcon(image: Theme.shared.image.pidIcon),
+                                       trailingContent: nil),
+                       isEnabled: true,
+                       configId: doc.configId,
+                       issuerId: doc.issuer,
+                       docTypeIdentifier: doc.docTypeIdentifier)
+        } else {
+          return .init(
+            listItem: .init(
+              mainContent: .text(.custom(doc.name)),
+              trailingContent: .icon(Theme.shared.image.plus)
+            ),
+            isEnabled: true,
+            configId: doc.configId,
+            issuerId: doc.issuer,
+            docTypeIdentifier: doc.docTypeIdentifier
+          )
         }
-
-        return .init(
-          listItem: .init(
-            mainContent: .text(.custom(doc.name)),
-            trailingContent: .icon(Theme.shared.image.plus)
-          ),
-          isEnabled: true,
-          configId: doc.configId,
-          issuerId: doc.issuer,
-          docTypeIdentifier: doc.docTypeIdentifier
-        )
       }
 
       let grouped: [String: [AddDocumentUIModel]] = Dictionary(
@@ -158,7 +162,7 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
   }
 
   func fetchStoredDocuments(documentIds: [String]) async -> IssueDocumentsPartialState {
-    let documents = walletController.fetchDocuments(with: documentIds)
+    let documents = await walletController.fetchDocuments(with: documentIds)
     let documentsDetails = documents.compactMap {
       $0.transformToDocumentUi(isSensitive: false)
     }

@@ -41,8 +41,8 @@ public protocol WalletKitController: Sendable {
   func fetchIssuedDocuments(excluded: [DocumentTypeIdentifier]) -> [DocClaimsDecodable]
   func fetchMainPidDocument() -> DocClaimsDecodable?
   func fetchDocument(with id: String) -> DocClaimsDecodable?
-  func fetchDocuments(with ids: [String]) -> [DocClaimsDecodable]
-  func clearAllDocuments() async
+  func fetchDocuments(with ids: [String]) async -> [DocClaimsDecodable]
+  func clearAllDocuments() async throws
   func deleteDocument(with id: String, status: DocumentStatus) async throws
   func loadDocuments() async throws
   func issueDocument(
@@ -115,7 +115,7 @@ final class WalletKitControllerImpl: WalletKitController {
 
     guard let walletKit = try? EudiWallet(
       serviceName: configLogic.documentStorageServiceName,
-      accessGroup: "tsi.com.scytales.av.dev",
+      accessGroup: "K2GH358D95.tsi.com.scytales.av.dev",
       trustedReaderCertificates: configLogic.readerConfig.trustedCerts,
       userAuthenticationRequired: configLogic.userAuthenticationRequired,
       openID4VpConfig: configLogic.vpConfig,
@@ -156,8 +156,9 @@ final class WalletKitControllerImpl: WalletKitController {
     )
   }
 
-  func clearAllDocuments() async {
+  func clearAllDocuments() async throws {
     try? await wallet.deleteAllDocuments()
+    try await removeAllRegistration(with: wallet.loadAllDocuments()?.compactMap { return $0.id })
   }
 
   func deleteDocument(with id: String, status: DocumentStatus) async throws {
@@ -227,8 +228,27 @@ final class WalletKitControllerImpl: WalletKitController {
     wallet.storage.getDocumentModel(id: id)
   }
 
-  func fetchDocuments(with ids: [String]) -> [DocClaimsDecodable] {
-    fetchIssuedDocuments().filter { ids.contains($0.id) }
+  func fetchDocuments(with ids: [String]) async -> [DocClaimsDecodable] {
+    let documents = fetchIssuedDocuments().filter { ids.contains($0.id) }
+    for document in documents {
+      if let docType = document.docType {
+        do {
+          if #available(iOS 26.0, *) {
+            try await DocumentRegistrationManager.shared.addRegistration(
+              mobileDocumentType: docType,
+              supportedAuthorityKeyIdentifiers: [],
+              documentIdentifier: document.id,
+              invalidationDate: document.validUntil
+            )
+          } else {
+            // Fallback on earlier versions
+          }
+        } catch let error {
+          print("Add failed:", error.localizedDescription)
+        }
+      }
+    }
+    return documents
   }
 
   func issueDocument(issuerId: String, identifier: String, docTypeIdentifier: DocumentTypeIdentifier) async throws -> WalletStorage.Document {
@@ -320,78 +340,16 @@ final class WalletKitControllerImpl: WalletKitController {
 
     return .init(pendingDoc: pendingDoc, url: url)
   }
-
-//  func getScopedDocuments() async throws -> [ScopedDocument] {
-//
-//    try await withThrowingTaskGroup(of: [ScopedDocument].self) { group in
-//
-//      for issuerName in configLogic.vciConfig.keys {
-//        group.addTask { [self] in
-//          let metadata = try await wallet.getIssuerMetadata(issuerName: issuerName)
-//
-//          return metadata.credentialsSupported.compactMap { credential in
-//            switch credential.value {
-//            case .msoMdoc(let config):
-//              let identifier = DocumentTypeIdentifier(rawValue: config.docType)
-//              let isAgeVerification = identifier == .avAgeOver18 || identifier == .mdocEUDIAgeOver18
-//
-//              return ScopedDocument(
-//                name: config.credentialMetadata?.display.getName(fallback: credential.key.value) ?? credential.key.value,
-//                issuer: metadata.credentialIssuerIdentifier.url.host.ifNilOrEmpty { issuerName },
-//                configId: credential.key.value,
-//                isPid: identifier == .mDocPid,
-//                docTypeIdentifier: identifier,
-//                isAgeVerification: isAgeVerification
-//              )
-//
-//            case .sdJwtVc(let config):
-//              guard let vct = config.vct else { return nil }
-//
-//              let identifier = DocumentTypeIdentifier(rawValue: vct)
-//              let isAgeVerification = identifier == .avAgeOver18 || identifier == .mdocEUDIAgeOver18
-//
-//              return ScopedDocument(
-//                name: config.credentialMetadata?.display.getName(fallback: credential.key.value) ?? credential.key.value,
-//                issuer: metadata.credentialIssuerIdentifier.url.host.ifNilOrEmpty { issuerName },
-//                configId: credential.key.value,
-//                isPid: identifier == .sdJwtPid,
-//                docTypeIdentifier: identifier,
-//                isAgeVerification: isAgeVerification
-//              )
-//
-//            default:
-//              return nil
-//            }
-//          }
-//        }
-//      }
-//
-//      // Collect the results from the task group
-//      var allDocuments: [ScopedDocument] = []
-//
-//      for try await docs in group {
-//        allDocuments.append(contentsOf: docs)
-//      }
-//
-//      return allDocuments
-//    }
-//  }
   func getScopedDocuments() async throws -> [ScopedDocument] {
 
     try await withThrowingTaskGroup(of: [ScopedDocument].self) { group in
       for issuerName in configLogic.vciConfig.keys {
-        print("******")
-        print("****** \(issuerName)")
-        print("******")
         group.addTask {
           let metadata = try await self.wallet.getIssuerMetadata(issuerName: issuerName)
           return metadata.credentialsSupported.compactMap { credential in
             switch credential.value {
             case .msoMdoc(let config):
               let id = DocumentTypeIdentifier(rawValue: config.docType)
-              print("****** msoMdoc")
-              print("******\(config.docType)")
-              print("******")
               let isAgeVerification = id == .avAgeOver18 || id == .mdocEUDIAgeOver18
               return ScopedDocument(
                 name: config.credentialMetadata?.display.getName(fallback: credential.key.value) ?? credential.key.value,
@@ -403,19 +361,15 @@ final class WalletKitControllerImpl: WalletKitController {
               )
 
             case .sdJwtVc(let config):
-              guard let vct = config.vct else { return ScopedDocument(name: "", issuer: "", configId: "",
-                                                                      isPid: false,
-                                                                      docTypeIdentifier: DocumentTypeIdentifier.other(formatType: "false"),
-                                                                      isAgeVerification: false) }
+              guard let vct = config.vct else {
+                return nil
+              }
               let id = DocumentTypeIdentifier(rawValue: vct)
-              print("****** sdjwtVC")
-              print("******\(config.vct)")
-              print("******")
-              let isAgeVerification = id == .avAgeOver18 || id == .mdocEUDIAgeOver18 || id == .mDocPid
+              let isAgeVerification = id == .avAgeOver18 || id == .mdocEUDIAgeOver18
 
               return ScopedDocument(
                 name: config.credentialMetadata?.display.getName(fallback: credential.key.value) ?? credential.key.value,
-                issuer: metadata.credentialIssuerIdentifier.url.host.ifNilOrEmpty { issuerName },
+                issuer: metadata.credentialIssuerIdentifier.url.host.ifNilOrEmpty { "issuer.ageverification.dev" },
                 configId: credential.key.value,
                 isPid: id == .sdJwtPid,
                 docTypeIdentifier: id,
@@ -638,5 +592,20 @@ extension WalletKitController {
         status: .available(isRequired: false)
       )
     ]
+  }
+
+  func removeAllRegistration(with ids: [String]?) async {
+    if #available(iOS 26.0, *) {
+      guard let ids else {
+        return
+      }
+      do {
+        try await DocumentRegistrationManager.shared.removeRegistration(documentIdentifiers: ids)
+      } catch {
+        print("Remove failed:", error)
+      }
+    } else {
+      // Fallback on earlier versions
+    }
   }
 }

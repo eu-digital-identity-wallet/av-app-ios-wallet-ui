@@ -98,9 +98,9 @@ struct WalletKitConfigImpl: WalletKitConfig {
       case .DEMO:
         return [
           .init(
-            credentialIssuerURL: "https://ec.issuer.eudiw.dev",
+            credentialIssuerURL: "https://issuer.ageverification.dev",
             client: .public(id: "wallet-dev"),
-            authFlowRedirectionURI: URL(string: "eu.europa.ec.euidi://authorization")!,
+            authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
             usePAR: true,
             useDpopIfSupported: true,
             cacheIssuerMetadata: true
@@ -108,7 +108,7 @@ struct WalletKitConfigImpl: WalletKitConfig {
           .init(
             credentialIssuerURL: "https://issuer-backend.eudiw.dev",
             client: .public(id: "wallet-dev"),
-            authFlowRedirectionURI: URL(string: "eu.europa.ec.euidi://authorization")!,
+            authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
             usePAR: true,
             useDpopIfSupported: true,
             cacheIssuerMetadata: true
@@ -117,17 +117,17 @@ struct WalletKitConfigImpl: WalletKitConfig {
       case .DEV:
         return [
           .init(
-            credentialIssuerURL: "https://ec.dev.issuer.eudiw.dev",
+            credentialIssuerURL: "https://issuer.ageverification.dev",
             client: .public(id: "wallet-dev"),
-            authFlowRedirectionURI: URL(string: "eu.europa.ec.euidi://authorization")!,
+            authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
             usePAR: true,
             useDpopIfSupported: true,
             cacheIssuerMetadata: true
           ),
           .init(
-            credentialIssuerURL: "https://dev.issuer-backend.eudiw.dev",
+            credentialIssuerURL: "https://issuer.ageverification.dev",
             client: .public(id: "wallet-dev"),
-            authFlowRedirectionURI: URL(string: "eu.europa.ec.euidi://authorization")!,
+            authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
             usePAR: true,
             useDpopIfSupported: true,
             cacheIssuerMetadata: true
@@ -156,6 +156,7 @@ struct WalletKitConfigImpl: WalletKitConfig {
 
   var readerConfig: ReaderConfig {
     let certificates = [
+      "av_cert",
       "pidissuerca02_cz",
       "pidissuerca02_ee",
       "pidissuerca02_eu",
@@ -187,6 +188,7 @@ struct WalletKitConfigImpl: WalletKitConfig {
         .mDocPid,
         .sdJwtPid,
         .other(formatType: "org.iso.18013.5.1.mDL"),
+        .other(formatType: "eu.europa.ec.av.1"),
         .other(formatType: "eu.europa.ec.eudi.pseudonym.age_over_18.1"),
         .other(formatType: "urn:eu.europa.ec.eudi:pseudonym_age_over_18:1"),
         .other(formatType: "eu.europa.ec.eudi.tax.1"),

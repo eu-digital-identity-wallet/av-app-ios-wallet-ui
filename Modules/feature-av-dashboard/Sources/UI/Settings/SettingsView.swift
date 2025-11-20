@@ -43,10 +43,10 @@ enum SupportMenuItem: String, CaseIterable, Identifiable {
 }
 
 struct SettingsView<Router: RouterHost>: View {
-  @State var viewModel: SettingsViewModel<Router>
+  @ObservedObject var viewModel: SettingsViewModel<Router>
 
   init(with viewModel: SettingsViewModel<Router>) {
-    self._viewModel = State(wrappedValue: viewModel)
+    self.viewModel = viewModel
   }
 
   var body: some View {

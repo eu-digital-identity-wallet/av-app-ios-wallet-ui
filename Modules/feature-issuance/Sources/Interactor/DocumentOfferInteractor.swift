@@ -202,7 +202,7 @@ final class DocumentOfferInteractorImpl: DocumentOfferInteractor {
   }
 
   func fetchStoredDocuments(documentIds: [String]) async -> OfferDocumentsPartialState {
-    let documents = walletController.fetchDocuments(with: documentIds)
+    let documents = await walletController.fetchDocuments(with: documentIds)
     let documentsDetails = documents.compactMap {
       $0.transformToDocumentUi(isSensitive: false)
     }

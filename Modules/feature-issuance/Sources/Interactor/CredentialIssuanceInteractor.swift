@@ -43,7 +43,7 @@ final class CredentialIssuanceInteractorImpl: CredentialIssuanceInteractor {
   }
 
   public func fetchStoredDocuments(documentIds: [String]) async -> IssueDocumentsPartialState {
-    let documents = walletController.fetchDocuments(with: documentIds)
+    let documents = await walletController.fetchDocuments(with: documentIds)
     let documentsDetails = documents.compactMap {
       $0.transformToDocumentUi(isSensitive: false)
     }

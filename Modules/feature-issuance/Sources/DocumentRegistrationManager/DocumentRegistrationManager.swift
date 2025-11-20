@@ -2,7 +2,6 @@ import Foundation
 import IdentityDocumentServices
 
 @available(iOS 26.0, *)
-
 actor DocumentRegistrationManager {
 
   @MainActor static let shared = DocumentRegistrationManager()
@@ -40,12 +39,11 @@ actor DocumentRegistrationManager {
   }
 
   /// Removes a registration based on the document identifier
-  func removeRegistration(documentIdentifiers: [String]) async throws {
+  func removeRegistration(documentIdentifier: String) async throws {
 
     let store = makeStore()
-    for documentIdentifier in documentIdentifiers {
-      try await store.removeRegistration(forDocumentIdentifier: documentIdentifier)
-    }
+
+    try await store.removeRegistration(forDocumentIdentifier: documentIdentifier)
   }
 }
 

@@ -83,7 +83,7 @@ final class StartupInteractorImpl: StartupInteractor {
 
   private func manageStorageForFirstRun() async {
     if !prefsController.getBool(forKey: .runAtLeastOnce) {
-      await walletKitController.clearAllDocuments()
+      try? await walletKitController.clearAllDocuments()
       keyChainController.clear()
       prefsController.setValue(true, forKey: .runAtLeastOnce)
     }
