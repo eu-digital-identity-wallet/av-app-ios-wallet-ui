@@ -3,12 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2EA768A12EC9A6F0007F5DED /* WalletDocumentProvider.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = 2EA7689A2EC9A6F0007F5DED /* WalletDocumentProvider.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		2EA768AB2EC9A78A007F5DED /* DcApi18013AnnexC in Frameworks */ = {isa = PBXBuildFile; productRef = 2EA768AA2EC9A78A007F5DED /* DcApi18013AnnexC */; };
 		EE3062342E586862007BDAF6 /* SecurityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3062332E58685C007BDAF6 /* SecurityExtensions.swift */; };
 		EE4ECF952DED964500C82928 /* av_cert.der in Resources */ = {isa = PBXBuildFile; fileRef = EE4ECF942DED964500C82928 /* av_cert.der */; };
 		F02921632B8E07870076A58B /* WalletDemoRelease.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F02921612B8E07870076A58B /* WalletDemoRelease.xcconfig */; };
@@ -41,16 +39,6 @@
 		F1CACAE22AC3098C00B40DED /* WalletDemo.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F1CACAE12AC3098C00B40DED /* WalletDemo.xcconfig */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		2EA7689F2EC9A6F0007F5DED /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F14907B02ABAF54B00DDFE56 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2EA768992EC9A6F0007F5DED;
-			remoteInfo = WalletDocumentProvider;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		2EA768A22EC9A6F0007F5DED /* Embed ExtensionKit Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -58,7 +46,6 @@
 			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
 			dstSubfolderSpec = 16;
 			files = (
-				2EA768A12EC9A6F0007F5DED /* WalletDocumentProvider.appex in Embed ExtensionKit Extensions */,
 			);
 			name = "Embed ExtensionKit Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,7 +55,6 @@
 /* Begin PBXFileReference section */
 		1198ECD72AC453F200F4E71A /* logic-resources */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "logic-resources"; path = "Modules/logic-resources"; sourceTree = "<group>"; };
 		2E71CDBF2EC4A0D7006EB934 /* feature-proximity */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "feature-proximity"; path = "/Users/A200111500/Documents/Projects/av-app-ios-wallet-ui/Modules/feature-proximity"; sourceTree = "<absolute>"; };
-		2EA7689A2EC9A6F0007F5DED /* WalletDocumentProvider.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = WalletDocumentProvider.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		489E779B2EC1FE55005061B4 /* AgeVerification.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AgeVerification.entitlements; sourceTree = "<group>"; };
 		EA887C042DE9D1C70087CB2F /* feature-av-dashboard */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "feature-av-dashboard"; path = "Modules/feature-av-dashboard"; sourceTree = "<group>"; };
 		EE3062332E58685C007BDAF6 /* SecurityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityExtensions.swift; sourceTree = "<group>"; };
@@ -109,29 +95,7 @@
 		F1CACAE12AC3098C00B40DED /* WalletDemo.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = WalletDemo.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		2EA768A72EC9A6F0007F5DED /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 2EA768992EC9A6F0007F5DED /* WalletDocumentProvider */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		2EA7689B2EC9A6F0007F5DED /* WalletDocumentProvider */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (2EA768A72EC9A6F0007F5DED /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = WalletDocumentProvider; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
-		2EA768972EC9A6F0007F5DED /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2EA768AB2EC9A78A007F5DED /* DcApi18013AnnexC in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F14907B52ABAF54B00DDFE56 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -176,7 +140,6 @@
 				F0A0BE922AC35925002BE0F5 /* EudiWallet.xctestplan */,
 				F14907BA2ABAF54B00DDFE56 /* Wallet */,
 				F14908692ABC467600DDFE56 /* Packages */,
-				2EA7689B2EC9A6F0007F5DED /* WalletDocumentProvider */,
 				F14907B92ABAF54B00DDFE56 /* Products */,
 				F14908182ABC3D0400DDFE56 /* Frameworks */,
 			);
@@ -186,7 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				F14907B82ABAF54B00DDFE56 /* AgeVerification.app */,
-				2EA7689A2EC9A6F0007F5DED /* WalletDocumentProvider.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -250,29 +212,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2EA768992EC9A6F0007F5DED /* WalletDocumentProvider */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2EA768A82EC9A6F0007F5DED /* Build configuration list for PBXNativeTarget "WalletDocumentProvider" */;
-			buildPhases = (
-				2EA768962EC9A6F0007F5DED /* Sources */,
-				2EA768972EC9A6F0007F5DED /* Frameworks */,
-				2EA768982EC9A6F0007F5DED /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				2EA7689B2EC9A6F0007F5DED /* WalletDocumentProvider */,
-			);
-			name = WalletDocumentProvider;
-			packageProductDependencies = (
-				2EA768AA2EC9A78A007F5DED /* DcApi18013AnnexC */,
-			);
-			productName = WalletDocumentProvider;
-			productReference = 2EA7689A2EC9A6F0007F5DED /* WalletDocumentProvider.appex */;
-			productType = "com.apple.product-type.extensionkit-extension";
-		};
 		F14907B72ABAF54B00DDFE56 /* AgeVerification */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F14907DC2ABAF55000DDFE56 /* Build configuration list for PBXNativeTarget "AgeVerification" */;
@@ -286,7 +225,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				2EA768A02EC9A6F0007F5DED /* PBXTargetDependency */,
 			);
 			name = AgeVerification;
 			packageProductDependencies = (
@@ -306,9 +244,6 @@
 				LastSwiftUpdateCheck = 2610;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
-					2EA768992EC9A6F0007F5DED = {
-						CreatedOnToolsVersion = 26.1;
-					};
 					F14907B72ABAF54B00DDFE56 = {
 						CreatedOnToolsVersion = 15.0;
 					};
@@ -326,26 +261,17 @@
 			);
 			mainGroup = F14907AF2ABAF54B00DDFE56;
 			packageReferences = (
-				2EA768A92EC9A78A007F5DED /* XCRemoteSwiftPackageReference "av-lib-ios-w3c-dc-api" */,
 			);
 			productRefGroup = F14907B92ABAF54B00DDFE56 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				F14907B72ABAF54B00DDFE56 /* AgeVerification */,
-				2EA768992EC9A6F0007F5DED /* WalletDocumentProvider */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2EA768982EC9A6F0007F5DED /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F14907B62ABAF54B00DDFE56 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -404,13 +330,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2EA768962EC9A6F0007F5DED /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F14907B42ABAF54B00DDFE56 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -423,349 +342,7 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		2EA768A02EC9A6F0007F5DED /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2EA768992EC9A6F0007F5DED /* WalletDocumentProvider */;
-			targetProxy = 2EA7689F2EC9A6F0007F5DED /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		2EA768A32EC9A6F0007F5DED /* Debug Dev */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = WalletDocumentProvider/WalletDocumentProvider.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = K2GH358D95;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WalletDocumentProvider/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = WalletDocumentProvider;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = eu.europa.ec.euidi.tsi.dev.WalletDocumentProvider;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = "Debug Dev";
-		};
-		2EA768A42EC9A6F0007F5DED /* Debug Demo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = WalletDocumentProvider/WalletDocumentProvider.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = K2GH358D95;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WalletDocumentProvider/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = WalletDocumentProvider;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = eu.europa.ec.euidi.tsi.dev.WalletDocumentProvider;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = "Debug Demo";
-		};
-		2EA768A52EC9A6F0007F5DED /* Release Dev */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = WalletDocumentProvider/WalletDocumentProvider.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = K2GH358D95;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WalletDocumentProvider/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = WalletDocumentProvider;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = eu.europa.ec.euidi.tsi.dev.WalletDocumentProvider;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = "Release Dev";
-		};
-		2EA768A62EC9A6F0007F5DED /* Release Demo */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_ENTITLEMENTS = WalletDocumentProvider/WalletDocumentProvider.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = QS5HDV4ZS9;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WalletDocumentProvider/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = WalletDocumentProvider;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.scytales.av.WalletDocumentProvider;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = "Release Demo";
-		};
 		F0E39F512B7A678200F162E9 /* Debug Demo */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1199,17 +776,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2EA768A82EC9A6F0007F5DED /* Build configuration list for PBXNativeTarget "WalletDocumentProvider" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2EA768A32EC9A6F0007F5DED /* Debug Dev */,
-				2EA768A42EC9A6F0007F5DED /* Debug Demo */,
-				2EA768A52EC9A6F0007F5DED /* Release Dev */,
-				2EA768A62EC9A6F0007F5DED /* Release Demo */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = "Release Demo";
-		};
 		F14907B32ABAF54B00DDFE56 /* Build configuration list for PBXProject "AgeVerification" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1234,23 +800,7 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		2EA768A92EC9A78A007F5DED /* XCRemoteSwiftPackageReference "av-lib-ios-w3c-dc-api" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/eu-digital-identity-wallet/av-lib-ios-w3c-dc-api.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		2EA768AA2EC9A78A007F5DED /* DcApi18013AnnexC */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2EA768A92EC9A78A007F5DED /* XCRemoteSwiftPackageReference "av-lib-ios-w3c-dc-api" */;
-			productName = DcApi18013AnnexC;
-		};
 		F02AE3902BA6E59600C25C59 /* logic-assembly */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "logic-assembly";
