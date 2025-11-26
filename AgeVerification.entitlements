@@ -12,7 +12,7 @@
 	</array>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)tsi.com.scytales.av.dev</string>
+		<string>$(AppIdentifierPrefix)eu.europa.ec.euidi.tsi.dev</string>
 	</array>
 </dict>
 </plist>

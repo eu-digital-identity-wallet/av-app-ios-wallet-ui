@@ -55,7 +55,7 @@
 /* Begin PBXFileReference section */
 		1198ECD72AC453F200F4E71A /* logic-resources */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "logic-resources"; path = "Modules/logic-resources"; sourceTree = "<group>"; };
 		2E71CDBF2EC4A0D7006EB934 /* feature-proximity */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "feature-proximity"; path = "/Users/A200111500/Documents/Projects/av-app-ios-wallet-ui/Modules/feature-proximity"; sourceTree = "<absolute>"; };
-		489E779B2EC1FE55005061B4 /* AgeVerification.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AgeVerification.entitlements; sourceTree = "<group>"; };
+		2EEA0D152ED5EAD50025B324 /* AgeVerification.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AgeVerification.entitlements; sourceTree = "<group>"; };
 		EA887C042DE9D1C70087CB2F /* feature-av-dashboard */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "feature-av-dashboard"; path = "Modules/feature-av-dashboard"; sourceTree = "<group>"; };
 		EE3062332E58685C007BDAF6 /* SecurityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityExtensions.swift; sourceTree = "<group>"; };
 		EE4ECF942DED964500C82928 /* av_cert.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = av_cert.der; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		F14907AF2ABAF54B00DDFE56 = {
 			isa = PBXGroup;
 			children = (
-				489E779B2EC1FE55005061B4 /* AgeVerification.entitlements */,
+				2EEA0D152ED5EAD50025B324 /* AgeVerification.entitlements */,
 				F0A0BE922AC35925002BE0F5 /* EudiWallet.xctestplan */,
 				F14907BA2ABAF54B00DDFE56 /* Wallet */,
 				F14908692ABC467600DDFE56 /* Packages */,
@@ -395,7 +395,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -441,6 +441,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 2025.11.2;
 				PRODUCT_BUNDLE_IDENTIFIER = tsi.com.scytales.av;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -451,6 +452,9 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				TVOS_DEPLOYMENT_TARGET = 17.6;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+				XROS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = "Debug Demo";
 		};
@@ -500,7 +504,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -544,6 +548,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 2025.11.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.scytales.av;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -555,6 +560,9 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				TVOS_DEPLOYMENT_TARGET = 17.6;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+				XROS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = "Release Demo";
 		};
@@ -610,7 +618,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -667,7 +675,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -712,6 +720,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 2025.11.2;
 				PRODUCT_BUNDLE_IDENTIFIER = eu.europa.ec.euidi.tsi.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -722,6 +731,9 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				TVOS_DEPLOYMENT_TARGET = 17.6;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+				XROS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = "Debug Dev";
 		};
@@ -759,6 +771,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 2025.11.2;
 				PRODUCT_BUNDLE_IDENTIFIER = tsi.com.scytales.av.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -770,6 +783,9 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				TVOS_DEPLOYMENT_TARGET = 17.6;
+				WATCHOS_DEPLOYMENT_TARGET = 26.0;
+				XROS_DEPLOYMENT_TARGET = 26.0;
 			};
 			name = "Release Dev";
 		};

@@ -13,23 +13,31 @@
  * ANY KIND, either express or implied. See the Licence for the specific language
  * governing permissions and limitations under the Licence.
  */
-import SwiftUI
+import Foundation
 import logic_resources
 
-public struct SheetContentView<Content: View>: View {
+struct SettingMenuItemUIModel: Identifiable {
 
-  private let content: Content
+  let id: String
+  let title: LocalizableStringKey
+  let showDivider: Bool
+  let isShareLink: Bool
+  let isToggle: Bool
+  let action: () -> Void
 
-  public init(@ViewBuilder content: () -> Content) {
-    self.content = content()
-  }
-
-  public var body: some View {
-    ZStack {
-      self.content
-    }
-    .if(UIDevice.current.uiHomeIndicator == .unavailable) {
-      $0.padding(.bottom)
-    }
+  init(
+    id: String = UUID().uuidString,
+    title: LocalizableStringKey,
+    showDivider: Bool = true,
+    isShareLink: Bool = false,
+    isToggle: Bool = false,
+    action: @autoclosure @escaping () -> Void
+  ) {
+    self.id = id
+    self.title = title
+    self.showDivider = showDivider
+    self.isShareLink = isShareLink
+    self.isToggle = isToggle
+    self.action = action
   }
 }

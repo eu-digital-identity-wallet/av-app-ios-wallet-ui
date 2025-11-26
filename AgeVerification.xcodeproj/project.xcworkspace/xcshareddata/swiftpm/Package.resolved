@@ -1,5 +1,5 @@
 {
-  "originHash" : "fafbc2a94341231ccf9c59abfa19a185fcf411e48abf0e71374af911421edde3",
+  "originHash" : "e2292331846899518cc2a3e15240bc8cbf70724068dadaed0c81cc2dde11372c",
   "pins" : [
     {
       "identity" : "activityindicatorview",
@@ -159,8 +159,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-siop-openid4vp-swift.git",
       "state" : {
-        "revision" : "d9508aaddab82c4095d11305cabfcce2ca94a8fc",
-        "version" : "0.17.7"
+        "revision" : "b4ed7acda1091a923ef1245644d84ec878396cb1",
+        "version" : "0.18.0"
       }
     },
     {
@@ -177,8 +177,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-kit.git",
       "state" : {
-        "revision" : "4f59f3ac58bc1e5762b033cd406653a2a98a344a",
-        "version" : "0.18.1"
+        "revision" : "8c80c13e47b091f88863b9c433d06dbe37c2c56e",
+        "version" : "0.18.3"
       }
     },
     {
@@ -272,15 +272,6 @@
       }
     },
     {
-      "identity" : "partialsheet",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/AndreaMiotto/PartialSheet.git",
-      "state" : {
-        "revision" : "6c61890976181274ea7baf6a4c297418346db799",
-        "version" : "3.1.1"
-      }
-    },
-    {
       "identity" : "pathkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/kylef/PathKit.git",
@@ -305,24 +296,6 @@
       "state" : {
         "revision" : "16da5c62dd737258c6df2e8c430f8a3202f655a7",
         "version" : "4.2.0"
-      }
-    },
-    {
-      "identity" : "realm-core",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/realm/realm-core.git",
-      "state" : {
-        "revision" : "15493076ad9fef22c16cc64cbfbf9e5b65c385f9",
-        "version" : "20.1.0"
-      }
-    },
-    {
-      "identity" : "realm-swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/realm/realm-swift.git",
-      "state" : {
-        "revision" : "6260534683132eb981338c7c39fd5e69205876e6",
-        "version" : "20.0.3"
       }
     },
     {

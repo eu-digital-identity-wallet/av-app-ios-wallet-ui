@@ -36,6 +36,8 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: key)
     case .custom(let literal):
       literal
+    case .space:
+      " "
     case .search:
       bundle.localizedString(forKey: "search")
     case .genericErrorTitle:
@@ -52,6 +54,8 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "share_button")
     case .cancelButton:
       bundle.localizedString(forKey: "cancel_button")
+    case .requestDataCaption:
+      bundle.localizedString(forKey: "request_data_share_caption")
     case .requestDataInfoNotice:
       bundle.localizedString(forKey: "request_data_info_notice")
     case .requestDataTitle(let args):
@@ -88,6 +92,10 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "add_document_request")
     case .addDocumentSubtitle:
       bundle.localizedString(forKey: "add_document_subtitle")
+    case .proximityConnectivityCaption:
+      bundle.localizedString(forKey: "proxmity_connectivity_caption")
+    case .unavailableField:
+      bundle.localizedString(forKey: "unavailable_field")
     case .requestDataVerifiedEntity:
       bundle.localizedString(forKey: "request_data_verified_entity")
     case .requestDataVerifiedEntityMessage:
@@ -140,16 +148,38 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "unknown_verifier")
     case .unknownIssuer:
       bundle.localizedString(forKey: "unknown_issuer")
+    case .genericIssuer:
+      bundle.localizedString(forKey: "generic_issuer")
+    case .yes:
+      bundle.localizedString(forKey: "yes")
+    case .no:
+      bundle.localizedString(forKey: "no")
     case .scanQrCode:
       bundle.localizedString(forKey: "scan_qr_code")
+    case .validUntil(let args):
+      bundle.localizedStringWithArguments(forKey: "valid_until", arguments: args)
+    case .bleDisabledModalTitle:
+      bundle.localizedString(forKey: "ble_disabled_modal_title")
+    case .bleDisabledModalCaption:
+      bundle.localizedString(forKey: "ble_disabled_modal_content")
+    case .bleDisabledModalButton:
+      bundle.localizedString(forKey: "ble_disabled_modal_button")
     case .requestDataNoDocument:
       bundle.localizedString(forKey: "request_data_no_document")
+    case .issuanceDetailsDeletionTitle(let args):
+      bundle.localizedStringWithArguments(forKey: "issuance_details_doc_deletion_title", arguments: args)
     case .deleteDocument:
       bundle.localizedString(forKey: "delete_document")
+    case .issuanceDetailsDeletionCaption(let args):
+      bundle.localizedStringWithArguments(forKey: "issuance_details_doc_deletion_caption", arguments: args)
     case .errorUnableFetchDocuments:
       bundle.localizedString(forKey: "error_unable_fetch_documents")
     case .errorUnableFetchDocument:
       bundle.localizedString(forKey: "error_unable_fetch_document")
+    case .scannerQrTitle:
+      bundle.localizedString(forKey: "scanner_qr_title")
+    case .scannerQrCaption:
+      bundle.localizedString(forKey: "scanner_qr_caption")
     case .cameraError:
       bundle.localizedString(forKey: "camera_error")
     case .missingPid:
@@ -180,22 +210,48 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedStringWithArguments(forKey: "scoped_issuance_success_deferred_caption_docname_and_issuer_name", arguments: args)
     case .issuanceSuccessDeferredCaption(let args):
       bundle.localizedStringWithArguments(forKey: "issuance_success_deferred_caption", arguments: args)
+    case .issuanceFailed:
+      bundle.localizedString(forKey: "issuance_failed")
     case .pending:
       bundle.localizedString(forKey: "pending")
+    case .deferredDocumentsIssuedModalTitle:
+      bundle.localizedString(forKey: "deferred_document_issued_modal_title")
+    case .defferedDocumentsIssuedModalCaption:
+      bundle.localizedString(forKey: "deferred_document_issued_modal_caption")
     case .retrieveLogs:
       bundle.localizedString(forKey: "retrieve_logs")
     case .qrScanInformativeText:
       bundle.localizedString(forKey: "qr_scan_informative_text")
     case .unableToPresentAndShare:
       bundle.localizedString(forKey: "error_unable_present_documents")
+    case .signDocument:
+      bundle.localizedString(forKey: "sign_document")
+    case .signDocumentSubtitle:
+      bundle.localizedString(forKey: "sign_document_subtitle")
+    case .selectDocument:
+      bundle.localizedString(forKey: "select_document")
     case .itemNotFoundInStorage:
       bundle.localizedString(forKey: "item_not_found_in_storage")
     case .itemsNotFoundInStorage:
       bundle.localizedString(forKey: "items_not_found_in_storage")
+    case .home:
+      bundle.localizedString(forKey: "home")
+    case .transactions:
+      bundle.localizedString(forKey: "transactions")
+    case .documents:
+      bundle.localizedString(forKey: "documents")
     case .authenticateAuthoriseTransactions:
       bundle.localizedString(forKey: "authenticate_authorise_transactions")
+    case .electronicallySignDigitalDocuments:
+      bundle.localizedString(forKey: "electronically_sign_digital_documents")
     case .learnMore:
       bundle.localizedString(forKey: "learn_more")
+    case .chooseFromList:
+      bundle.localizedString(forKey: "choose_from_list")
+    case .chooseFromListTitle:
+      bundle.localizedString(forKey: "choose_from_list_title")
+    case .addDocumentsToWallet:
+      bundle.localizedString(forKey: "add_documents_to_wallet")
     case .details:
       bundle.localizedString(forKey: "details")
     case .dataSharingRequest:
@@ -214,8 +270,8 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "trusted_relying_party_description")
     case .issuerWantWalletAddition:
       bundle.localizedString(forKey: "issuer_want_wallet_addition")
-//    case .filterByIssuer:
-//      bundle.localizedString(forKey: "filter_by_issuer")
+    case .filterByIssuer:
+      bundle.localizedString(forKey: "filter_by_issuer")
     case .alertAccessOnlineServices:
       bundle.localizedString(forKey: "alert_access_online_services")
     case .alertAccessOnlineServicesMessage:
@@ -258,6 +314,8 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "view_details")
     case .requestsTheFollowing:
       bundle.localizedString(forKey: "requests_the_following")
+    case .walletIsSecured:
+      bundle.localizedString(forKey: "wallet_is_secured")
     case .noResults:
       bundle.localizedString(forKey: "no_results")
     case .noResultsDocumentsDescription:
@@ -288,10 +346,30 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "sort_by")
     case .deleteDocumentConfirmDialog:
       bundle.localizedString(forKey: "delete_document_confirm_dialog")
+    case .defaultLabel:
+      bundle.localizedString(forKey: "default")
     case .valid:
       bundle.localizedString(forKey: "valid")
+    case .revoke:
+      bundle.localizedString(forKey: "revoke")
+    case .expired:
+      bundle.localizedString(forKey: "expired")
+    case .dateIssued:
+      bundle.localizedString(forKey: "date_issued")
+    case .expiryDate:
+      bundle.localizedString(forKey: "expiry_date")
+    case .nextSevenDays:
+      bundle.localizedString(forKey: "next_seven_days")
+    case .nextThirtyDays:
+      bundle.localizedString(forKey: "next_thirty_days")
+    case .beyondThiryDays:
+      bundle.localizedString(forKey: "beyond_thirty_days")
+    case .beforeToday:
+      bundle.localizedString(forKey: "before_today")
     case .issuanceRequest:
       bundle.localizedString(forKey: "issuance_request")
+    case .myEuWallet:
+      bundle.localizedString(forKey: "My EU Wallet")
     case .categoryGovernment:
       bundle.localizedString(forKey: "category_government")
     case .categoryHealth:
@@ -310,6 +388,18 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "category_travel")
     case .changelog:
       bundle.localizedString(forKey: "changelog")
+    case .orderBy:
+      bundle.localizedString(forKey: "order_by")
+    case .filterByCategory:
+      bundle.localizedString(forKey: "filter_by_category")
+    case .searchDocuments:
+      bundle.localizedString(forKey: "search_documents")
+    case .searchTransactions:
+      bundle.localizedString(forKey: "search_transactions")
+    case .filterByStatus:
+      bundle.localizedString(forKey: "filter_by_status")
+    case .completed:
+      bundle.localizedString(forKey: "completed")
     case .failed:
       bundle.localizedString(forKey: "failed")
     case .filterByDate:
@@ -334,6 +424,28 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "transaction_details_completed")
     case .or:
       bundle.localizedString(forKey: "or")
+    case .today:
+      bundle.localizedString(forKey: "today")
+    case .thisWeek:
+      bundle.localizedString(forKey: "this_week")
+    case .unknownDate:
+      bundle.localizedString(forKey: "unknown_date")
+    case .minutesAgo(let args):
+      bundle.localizedStringWithArguments(forKey: "minutes_ago", arguments: args)
+    case .minuteAgo(let args):
+      bundle.localizedStringWithArguments(forKey: "minute_ago", arguments: args)
+    case .transactionDate:
+      bundle.localizedString(forKey: "transaction_date")
+    case .filterByType:
+      bundle.localizedString(forKey: "filter_by_type")
+    case .presentation:
+      bundle.localizedString(forKey: "presentation")
+    case .signing:
+      bundle.localizedString(forKey: "signing")
+    case .issuance:
+      bundle.localizedString(forKey: "issuance")
+    case .withoutRelyingName:
+      bundle.localizedString(forKey: "without_relying_name")
     case .errorFetchTransactionLog:
       bundle.localizedString(forKey: "fetch_error_transaction_log")
     case .settings:
@@ -625,8 +737,6 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "transaction_details_report_transaction_message")
     case .transactionDetailsReportTransactionButton:
       bundle.localizedString(forKey: "transaction_detailsReport_transaction_button")
-//    case .settings:
-//      bundle.localizedString(forKey: "settings_menu")
     case .documentDetailsDocumentCredentialsText(let args):
       bundle.localizedStringWithArguments(forKey: "document_details_document_credentials_text", arguments: args)
     case .documentDetailsDocumentCredentialsMoreInfoText:
@@ -641,49 +751,29 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "expandable_document_credentials_issue_button")
     case .issuanceAddDocumentNoOptions:
       bundle.localizedString(forKey: "issuance_add_document_no_options")
-    case .proximityConnectivityCaption:
-      bundle.localizedString(forKey: "proxmity_connectivity_caption")
-    case .chooseFromList:
-      bundle.localizedString(forKey: "choose_from_list")
-    case .chooseFromListTitle:
-      bundle.localizedString(forKey: "choose_from_list_title")
     case .settingsSupport:
-        bundle.localizedString(forKey: "settings_support")
+      bundle.localizedString(forKey: "settings_support")
     case .settingsUnlockWithBiometrics:
-        bundle.localizedString(forKey: "settings_unlock_with_biometrics")
-    case .settingsLanguage:
-        bundle.localizedString(forKey: "settings_language")
+      bundle.localizedString(forKey: "settings_unlock_with_biometrics")
     case .settingsDeleteAllProofsOfAttestation:
-        bundle.localizedString(forKey: "settings_delete_all_proofs_attestation")
+      bundle.localizedString(forKey: "settings_delete_all_proofs_attestation")
     case .settingsTermsOfService:
-        bundle.localizedString(forKey: "settings_terms_of_service")
+      bundle.localizedString(forKey: "settings_terms_of_service")
+    case .settingsLanguage:
+      bundle.localizedString(forKey: "settings_language")
     case .settingsAboutThisApp:
-        bundle.localizedString(forKey: "settings_about_this_app")
+      bundle.localizedString(forKey: "settings_about_this_app")
+    case .unknown:
+      bundle.localizedString(forKey: "unknown")
     }
   }
 }
 
 fileprivate extension Bundle {
   func localizedString(forKey key: String) -> String {
-    let localizedBundle = self.localizedBundle()
-    return localizedBundle.localizedString(forKey: key, value: nil, table: nil)
+    self.localizedString(forKey: key, value: nil, table: nil)
   }
-
   func localizedStringWithArguments(forKey key: String, arguments: [CVarArg]) -> String {
-    String(format: self.localizedString(forKey: key), locale: Locale.current, arguments: arguments)
-  }
-
-  private func localizedBundle() -> Bundle {
-    let preferredLanguages = Locale.preferredLanguages
-    let availableLocalizations = self.localizations
-
-    let matchedLocalizations = Bundle.preferredLocalizations(from: availableLocalizations, forPreferences: preferredLanguages)
-
-    if let preferredLanguage = matchedLocalizations.first,
-       let path = self.path(forResource: preferredLanguage, ofType: "lproj"),
-       let localizedBundle = Bundle(path: path) {
-      return localizedBundle
-    }
-    return self
+    String(format: self.localizedString(forKey: key), locale: nil, arguments: arguments)
   }
 }

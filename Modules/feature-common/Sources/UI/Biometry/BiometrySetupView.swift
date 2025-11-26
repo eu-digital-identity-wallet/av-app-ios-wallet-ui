@@ -24,7 +24,7 @@ struct BiometrySetupView<Router: RouterHost>: View {
     ) {
       content(
         viewState: viewModel.viewState,
-        onOkButtonClick: { viewModel.onOkButtonClick() },
+        onOkButtonClick: { Task { await viewModel.onOkButtonClick() } },
         onSkipButtonClick: { viewModel.onSkipButtonClick() }
       )
     }
@@ -33,7 +33,9 @@ struct BiometrySetupView<Router: RouterHost>: View {
         title: Text(.genericErrorTitle),
         message: Text(error.errorDescription.orEmpty),
         primaryButton: .default(Text(.biometryOpenSettings)) {
-          self.viewModel.onSettings()
+          Task {
+            await self.viewModel.onSettings()
+          }
         },
         secondaryButton: .cancel {}
       )

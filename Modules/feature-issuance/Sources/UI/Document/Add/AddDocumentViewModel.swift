@@ -134,7 +134,11 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
         )
       }
     default:
-      issueDocument(issuerId: issuerId, configId: configId, docTypeIdentifier: docTypeIdentifier)
+      issueDocument(
+        issuerId: issuerId,
+        configId: configId,
+        docTypeIdentifier: docTypeIdentifier
+      )
     }
   }
 
@@ -194,11 +198,7 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
       )
     }
 
-    let interactor = self.interactor
-
-    let state = await Task.detached { () -> IssueDynamicDocumentPartialState in
-      return await interactor.resumeDynamicIssuance()
-    }.value
+    let state = await interactor.resumeDynamicIssuance()
 
     switch state {
     case .success(let docId):
@@ -239,15 +239,11 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
         .copy(error: nil)
       }
 
-      let interactor = self.interactor
-
-      let state = await Task.detached { () -> IssueResultPartialState in
-        return await interactor.issueDocument(
-          issuerId: issuerId,
-          configId: configId,
-          docTypeIdentifier: docTypeIdentifier
-        )
-      }.value
+      let state = await interactor.issueDocument(
+        issuerId: issuerId,
+        configId: configId,
+        docTypeIdentifier: docTypeIdentifier
+      )
 
       switch state {
       case .success(let docId):
@@ -372,13 +368,7 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
 
   private func fetchStoredDocuments(docId: String) async {
 
-    let interactor = self.interactor
-
-    let state = await Task.detached { () -> IssueDocumentsPartialState in
-      return await interactor.fetchStoredDocuments(
-        documentIds: [docId]
-      )
-    }.value
+    let state = await interactor.fetchStoredDocuments(documentIds: [docId])
 
     let onSuccesNavigation = switch viewState.config.flow {
     case .noDocument:

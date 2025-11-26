@@ -75,71 +75,79 @@ public extension DocumentUIModel {
 
 public extension DocumentUIModel {
 
-    static func mock() -> DocumentUIModel {
-      DocumentUIModel(
+  static func mock() -> DocumentUIModel {
+    DocumentUIModel(
+      id: UUID().uuidString,
+      type: DocumentTypeIdentifier.mDocPid,
+      documentName: "Digital ID",
+      issuer: .init(
         id: UUID().uuidString,
-        type: DocumentTypeIdentifier.mDocPid,
-        documentName: "Digital ID",
-        issuer: .init(
-          id: UUID().uuidString,
-          issuersName: "Digital Credential Service",
-          logoUrl: URL(string: "https://www.example.com")!,
-          isVerified: true
-        ),
-        createdAt: Date(),
-        hasExpired: false,
-        documentFields:
-          [
-            .single(
-              .init(
-                collapsed: .init(
-                  mainContent: MainContent.text(.custom("AB12356")),
-                  overlineText: .custom("ID no")
-                ),
-                domainModel: nil
-              )
-            ),
-            .single(
-              .init(
-                collapsed: .init(
-                  mainContent: MainContent.text(.custom("Hellenic")),
-                  overlineText: .custom("Nationality")
-                ),
-                domainModel: nil
-              )
-            ),
-            .single(
-              .init(
-                collapsed: .init(
-                  mainContent: MainContent.text(.custom("21 Oct 1994")),
-                  overlineText: .custom("Place of birth")
-                ),
-                domainModel: nil
-              )
-            ),
-            .single(
-              .init(
-                collapsed: .init(
-                  mainContent: MainContent.text(.custom("1,82")),
-                  overlineText: .custom("Height")
-                ),
-                domainModel: nil
-              )
-            )
-          ]
-        +
-        Array(
-          count: 6,
-          createElement: .single(
+        issuersName: "Digital Credential Service",
+        logoUrl: URL(string: "https://www.example.com")!,
+        isVerified: true
+      ),
+      createdAt: Date(),
+      hasExpired: false,
+      documentFields:
+        [
+          .single(
             .init(
               collapsed: .init(
-                mainContent: MainContent.text(.custom("Placeholder Field Value".padded(padLength: 10))),
-                overlineText: .custom("Placeholder Field Title".padded(padLength: 5)),
+                mainContent: MainContent.text(.custom("AB12356")),
+                overlineText: .custom("ID no")
+              ),
+              domainModel: nil
+            )
+          ),
+          .single(
+            .init(
+              collapsed: .init(
+                mainContent: MainContent.text(.custom("Hellenic")),
+                overlineText: .custom("Nationality")
+              ),
+              domainModel: nil
+            )
+          ),
+          .single(
+            .init(
+              collapsed: .init(
+                mainContent: MainContent.text(.custom("21 Oct 1994")),
+                overlineText: .custom("Place of birth")
+              ),
+              domainModel: nil
+            )
+          ),
+          .single(
+            .init(
+              collapsed: .init(
+                mainContent: MainContent.text(.custom("1,82")),
+                overlineText: .custom("Height")
               ),
               domainModel: nil
             )
           )
+        ]
+      +
+      Array(
+        count: 6,
+        createElement: .single(
+          .init(
+            collapsed: .init(
+              mainContent: MainContent.text(.custom("Placeholder Field Value".padded(padLength: 10))),
+              overlineText: .custom("Placeholder Field Title".padded(padLength: 5)),
+            ),
+            domainModel: nil
+          )
         )
       )
-    }
+    )
+  }
+}
+
+public extension DocumentUIModel.IssuerField {
+  static func == (lhs: Self, rhs: Self) -> Bool {
+    lhs.name == rhs.name &&
+    lhs.logoUrl == rhs.logoUrl &&
+    lhs.isVerified == rhs.isVerified
+  }
 }

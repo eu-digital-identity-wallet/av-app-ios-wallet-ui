@@ -30,7 +30,7 @@ public protocol AddDocumentInteractor: Sendable {
   func fetchStoredDocuments(documentIds: [String]) async -> IssueDocumentsPartialState
 }
 
-final class AddDocumentInteractorImpl: AddDocumentInteractor {
+final actor AddDocumentInteractorImpl: AddDocumentInteractor {
 
   private let walletController: WalletKitController
 
@@ -51,6 +51,7 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
     )
 
     do {
+//<<<<<<< HEAD
       var scopedDocuments = try await walletController.getScopedDocuments()
       scopedDocuments.append(passport)
       let documents: [AddDocumentUIModel] = scopedDocuments.compactMap { doc in
@@ -75,6 +76,29 @@ final class AddDocumentInteractorImpl: AddDocumentInteractor {
             docTypeIdentifier: doc.docTypeIdentifier
           )
         }
+//=======
+//      let documents: [AddDocumentUIModel] = try await walletController.getScopedDocuments().compactMap { doc in
+//        switch flow {
+//        case .noDocument:
+//          guard doc.isPid else { return nil }
+//
+//        case .extraDocument(let identifier):
+//          if let identifier, doc.docTypeIdentifier != identifier {
+//            return nil
+//          }
+//        }
+//
+//        return .init(
+//          listItem: .init(
+//            mainContent: .text(.custom(doc.name)),
+//            trailingContent: .icon(Theme.shared.image.plus)
+//          ),
+//          isEnabled: true,
+//          configId: doc.configId,
+//          issuerId: doc.issuer,
+//          docTypeIdentifier: doc.docTypeIdentifier
+//        )
+//>>>>>>> ba555dbdfc90745748893420fe57659745acd3cc
       }
 
       let grouped: [String: [AddDocumentUIModel]] = Dictionary(

@@ -20,6 +20,7 @@ import feature_common
 @MainActor
 public final class IssuanceRouter {
 
+  @ViewBuilder
   public static func resolve(module: FeatureIssuanceRouteModule, host: some RouterHost) -> AnyView {
     switch module {
     case .issuanceAddDocument(config: let config):
@@ -34,7 +35,8 @@ public final class IssuanceRouter {
           ),
           config: config
         )
-      ).eraseToAnyView()
+      )
+      .eraseToAnyView()
     case .issuanceSuccess(
       let config,
       let uiModels

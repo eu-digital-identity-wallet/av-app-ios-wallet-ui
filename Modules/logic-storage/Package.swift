@@ -14,10 +14,6 @@ let package = Package(
   ],
   dependencies: [
     .package(
-      url: "https://github.com/realm/realm-swift.git",
-      from: "20.0.3"
-    ),
-    .package(
       name: "logic-business",
       path: "./logic-business"
     ),
@@ -31,8 +27,7 @@ let package = Package(
       name: "logic-storage",
       dependencies: [
         "logic-business",
-        "logic-resources",
-        .product(name: "RealmSwift", package: "realm-swift")
+        "logic-resources"
       ],
       path: "./Sources"
     )

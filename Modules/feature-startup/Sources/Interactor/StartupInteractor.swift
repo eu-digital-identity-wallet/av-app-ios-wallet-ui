@@ -20,20 +20,16 @@ import logic_business
 
 public protocol StartupInteractor: Sendable {
   func initialize(with splashAnimationDuration: TimeInterval) async -> AppRoute
-  func getAppVersion() -> String
+  func getAppVersion() async -> String
 }
 
-final class StartupInteractorImpl: StartupInteractor {
+final actor StartupInteractorImpl: StartupInteractor {
 
   private let walletKitController: WalletKitController
   private let quickPinInteractor: QuickPinInteractor
   private let keyChainController: KeyChainController
   private let prefsController: PrefsController
   private let configLogic: ConfigLogic
-
-  private var hasDocuments: Bool {
-    return !walletKitController.fetchAllDocuments().isEmpty
-  }
 
   init(
     walletKitController: WalletKitController,
@@ -52,8 +48,9 @@ final class StartupInteractorImpl: StartupInteractor {
   public func initialize(with splashAnimationDuration: TimeInterval) async -> AppRoute {
     await manageStorageForFirstRun()
     try? await walletKitController.loadDocuments()
+    let hasDocuments = await !walletKitController.fetchAllDocuments().isEmpty
     try? await Task.sleep(nanoseconds: splashAnimationDuration.nanoseconds)
-    if quickPinInteractor.hasPin() {
+    if await quickPinInteractor.hasPin() {
       return .featureCommonModule(
         .biometry(
           config: UIConfig.Biometry(
@@ -76,8 +73,8 @@ final class StartupInteractorImpl: StartupInteractor {
         return .featureOnboardingModule(.welcome)
     }
   }
-  
-  func getAppVersion() -> String {
+
+  func getAppVersion() async -> String {
     configLogic.appVersion
   }
 

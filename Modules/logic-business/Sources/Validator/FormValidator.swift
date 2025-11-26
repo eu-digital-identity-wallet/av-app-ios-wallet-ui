@@ -22,7 +22,7 @@ public protocol FormValidator: Sendable {
   func validateForms(forms: [ValidatableForm]) async -> FormsValidationResult
 }
 
-final class FormValidatorImpl: FormValidator {
+final actor FormValidatorImpl: FormValidator {
 
   public func validateForm(form: ValidatableForm) async -> FormValidationResult {
     var foundError = false
@@ -279,7 +279,7 @@ public struct FormValidationResult: Equatable, Sendable {
   }
 }
 
-public struct FormsValidationResult: Equatable {
+public struct FormsValidationResult: Equatable, Sendable {
   public var isValid: Bool
   public var messages: [String]
 

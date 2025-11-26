@@ -22,17 +22,17 @@ public enum QuickPinPartialState: Sendable {
 }
 
 public protocol QuickPinInteractor: Sendable {
-  func setPin(newPin: String)
-  func isPinValid(pin: String) -> QuickPinPartialState
-  func changePin(currentPin: String, newPin: String) -> QuickPinPartialState
-  func hasPin() -> Bool
+  func setPin(newPin: String) async
+  func isPinValid(pin: String) async -> QuickPinPartialState
+  func changePin(currentPin: String, newPin: String) async -> QuickPinPartialState
+  func hasPin() async -> Bool
   func isFirstPinIncomplete(_ pin: String, quickPinSize: Int) -> Bool
   func validatePinSecurity(_ pin: String) -> LocalizableStringKey?
   func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?)
   func isCurrentPinExistInLastUsedPins(pin: String) -> Bool
 }
 
-final class QuickPinInteractorImpl: QuickPinInteractor {
+final actor QuickPinInteractorImpl: @preconcurrency QuickPinInteractor {
 
   private let pinStorageController: PinStorageController
   private let prefsController: PrefsController
@@ -82,7 +82,7 @@ final class QuickPinInteractorImpl: QuickPinInteractor {
   }
 
   public func hasPin() -> Bool {
-    return pinStorageController.retrievePin()?.isEmpty == false
+    pinStorageController.retrievePin()?.isEmpty == false
   }
 
   private func isCurrentPinValid(pin: String) -> QuickPinPartialState {

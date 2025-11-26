@@ -14,7 +14,6 @@
  * governing permissions and limitations under the Licence.
  */
 import SwiftUI
-import PartialSheet
 import logic_assembly
 import Logging
 
@@ -67,7 +66,6 @@ struct Application: App {
 
         routerHost.composeApplication()
           .ignoresSafeArea(edges: .bottom)
-          .attachPartialSheetToRoot()
 
         if blurType != .none {
           BlurView(style: .regular)

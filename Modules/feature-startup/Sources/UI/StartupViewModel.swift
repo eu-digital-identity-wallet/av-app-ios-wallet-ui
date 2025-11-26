@@ -38,7 +38,7 @@ final class StartupViewModel<Router: RouterHost>: ViewModel<Router, StartupState
       initialState: .init(
         splashDuration: splashDuration,
         setupError: nil,
-        appVersion: interactor.getAppVersion()
+        appVersion: ""
       )
     )
   }
