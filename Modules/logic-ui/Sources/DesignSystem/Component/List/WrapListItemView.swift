@@ -88,7 +88,11 @@ public struct WrapListItemView: View {
         }
 
         HStack(spacing: SPACING_SMALL) {
-          Text(listItem.mainText)
+            Text(listItem.mainText == .custom("true")
+                 ? .custom("Yes")
+                 : (listItem.mainText == .custom("false")
+                    ? .custom("No")
+                    : listItem.mainText))
             .typography(Theme.shared.font.headlineMedium)
             .foregroundStyle(Theme.shared.color.onSurface)
             .fontWeight(listItem.mainStyle == .plain ? .medium : .bold)
