@@ -38,7 +38,7 @@ private func content(viewState: AppLandingState, onScan: @escaping () -> Void, o
     ZStack(alignment: .bottom) {
         ScrollView {
             VStack(spacing: .zero) {
-                HStack(alignment: .top, spacing: .zero) {
+                HStack(alignment: .center, spacing: .zero) {
                     Spacer()
                         .frame(width: UIScreen.main.bounds.width / 2 - 44)
                     Theme.shared.image.logo
@@ -89,11 +89,6 @@ private func content(viewState: AppLandingState, onScan: @escaping () -> Void, o
         }
         .padding(.bottom, 20)
         .frame(maxWidth: .infinity)
-        .background(
-            Rectangle()
-                .fill(Theme.shared.color.surface)
-                .shadow(color: .black.opacity(0.05), radius: 4, x: 0, y: -2)
-        )
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)
     .background(Theme.shared.color.surface)

@@ -482,6 +482,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "consent_checkbox_label_1")
     case .consentCheckboxLabel2:
         bundle.localizedString(forKey: "consent_checkbox_label_2")
+    case .consentCheckboxLabel3:
+        bundle.localizedString(forKey: "consent_checkbox_label_3")
     case .consentHyperlinkLabel1:
         bundle.localizedString(forKey: "consent_hyperlink_label_1")
     case .consentHyperlinkLabel2:
@@ -771,9 +773,32 @@ final class LocalizableManager: LocalizableManagerType {
 
 fileprivate extension Bundle {
   func localizedString(forKey key: String) -> String {
-    self.localizedString(forKey: key, value: nil, table: nil)
+    let localizedBundle = self.localizedBundle()
+    let value = localizedBundle.localizedString(forKey: key, value: nil, table: nil)
+    if value == key {
+      return defaultBundle().localizedString(forKey: key, value: nil, table: nil)
+    } else {
+      return value
+    }
   }
   func localizedStringWithArguments(forKey key: String, arguments: [CVarArg]) -> String {
     String(format: self.localizedString(forKey: key), locale: nil, arguments: arguments)
+  }
+
+  private func localizedBundle() -> Bundle {
+    guard let languageCode = Locale.current.language.languageCode?.identifier,
+          let path = self.path(forResource: languageCode, ofType: "lproj"),
+          let bundle = Bundle(path: path) else {
+      return self
+    }
+    return bundle
+  }
+
+  private func defaultBundle() -> Bundle {
+    guard let path = self.path(forResource: "en", ofType: "lproj"),
+          let bundle = Bundle(path: path) else {
+      return self
+    }
+    return bundle
   }
 }

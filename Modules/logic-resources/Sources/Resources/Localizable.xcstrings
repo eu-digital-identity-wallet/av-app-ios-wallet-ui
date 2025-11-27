@@ -1097,6 +1097,41 @@
         }
       }
     },
+    "consent_checkbox_label_3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jeg giver samtykke til behandling af mine personoplysninger af [applikationsudbyderen] med det formål at indhente en aldersbekræftelse. Denne proces kræver scanning af mit ID eller pas og en video af mig selv for at bekræfte min identitet. Disse data vil kun blive behandlet på min enhed og vil ikke være tilgængelige for [applikationsudbyderen] eller nogen tredjepart. Se databeskyttelsesmeddelelsen for yderligere information."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ich willige ein, dass [der App-Anbieter] meine personenbezogenen Daten zum Zweck der Altersverifizierung verarbeitet. Hierfür ist das Scannen meines Personalausweises oder Reisepasses sowie eine Videoaufnahme von mir erforderlich, um meine Identität zu bestätigen. Diese Daten werden ausschließlich auf meinem Gerät verarbeitet und sind weder für [den App-Anbieter] noch für Dritte zugänglich. Weitere Informationen finden Sie in der Datenschutzerklärung."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I consent to the processing of my personal data by [the application provider] for the purpose of obtaining an age verification attestation. This process requires the scanning of my ID or passport and a video of myself to confirm my identity. These data will be processed on my device only and will not be accessible by  [the application provider] or any third party. See the data protection notice for more information."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Je consens au traitement de mes données personnelles par [le fournisseur de l'application] afin d'obtenir une attestation de vérification d'âge. Ce processus requiert la numérisation de ma carte d'identité ou de mon passeport et l'enregistrement d'une vidéo me concernant pour confirmer mon identité. Ces données seront traitées uniquement sur mon appareil et ne seront accessibles ni à [le fournisseur de l'application] ni à aucun tiers. Consultez la politique de protection des données pour plus d'informations."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acconsento al trattamento dei miei dati personali da parte di [il fornitore dell'applicazione] al fine di ottenere un'attestazione di verifica dell'età. Questo processo richiede la scansione del mio documento d'identità o passaporto e un video di me stesso per confermare la mia identità. Questi dati saranno trattati esclusivamente sul mio dispositivo e non saranno accessibili da [il fornitore dell'applicazione] o da terze parti. Per ulteriori informazioni, consultare l'informativa sulla protezione dei dati."
+          }
+        }
+      }
+    },
     "consent_hyperlink_label_1" : {
       "extractionState" : "manual",
       "localizations" : {
