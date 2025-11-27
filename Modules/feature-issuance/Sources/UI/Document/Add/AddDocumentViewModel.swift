@@ -119,7 +119,8 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
     switch docTypeIdentifier {
     case .other(let format):
       if format == "passport" {
-        // Store configId and docTypeIdentifier for the passport enrollment flow
+        // Store configId, issuerId, and the actual age verification docTypeIdentifier for the passport enrollment flow
+        // The "passport" format is just a trigger for the NFC enrollment flow
         router.push(
           with: .featureIssuanceModule(
             .documentMRZIntro(
@@ -127,7 +128,8 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
                 mrzKey: nil,
                 documentData: nil,
                 configId: configId,
-                docTypeIdentifier: docTypeIdentifier
+                docTypeIdentifier: .avAgeOver18,
+                issuerId: issuerId
               )
             )
           )

@@ -61,9 +61,9 @@ private func content(state: ConsentViewState, onNext: @escaping () -> Void, onTe
                 })
 
                 HyperLinkView(label: LocalizableStringKey.consentHyperlinkLabel1.toString, urlString: "https://www.google.com")
-                
+
                 HyperLinkView(label: LocalizableStringKey.consentHyperlinkLabel2.toString, urlString: "https://www.google.com")
-                
+
                 Spacer()
             }
         }

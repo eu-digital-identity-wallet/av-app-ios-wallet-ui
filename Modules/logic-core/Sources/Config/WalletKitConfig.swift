@@ -93,6 +93,11 @@ struct WalletKitConfigImpl: WalletKitConfig {
 
   var vciConfig: [String: OpenId4VciConfiguration] {
 
+    // Note that the following configuration is confusing, but correct.
+    // National IDP -> issuer.ageverification.dev
+    // Passport/ID Document -> issuer.dev.ageverification.dev
+    // for both environments.
+
     let openId4VciConfigurations: [OpenId4VciConfiguration] = {
       switch configLogic.appBuildVariant {
       case .DEMO:
@@ -106,11 +111,11 @@ struct WalletKitConfigImpl: WalletKitConfig {
             cacheIssuerMetadata: true
           ),
           .init(
-            credentialIssuerURL: "https://issuer-backend.eudiw.dev",
+            credentialIssuerURL: "https://issuer.dev.ageverification.dev",
             client: .public(id: "wallet-dev"),
             authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
-            usePAR: true,
-            useDpopIfSupported: true,
+            usePAR: false,
+            useDpopIfSupported: false,
             cacheIssuerMetadata: true
           )
         ]
@@ -125,11 +130,11 @@ struct WalletKitConfigImpl: WalletKitConfig {
             cacheIssuerMetadata: true
           ),
           .init(
-            credentialIssuerURL: "https://issuer.ageverification.dev",
+            credentialIssuerURL: "https://issuer.dev.ageverification.dev",
             client: .public(id: "wallet-dev"),
             authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
-            usePAR: true,
-            useDpopIfSupported: true,
+            usePAR: false,
+            useDpopIfSupported: false,
             cacheIssuerMetadata: true
           )
         ]
@@ -151,7 +156,10 @@ struct WalletKitConfigImpl: WalletKitConfig {
   }
 
   var vpConfig: OpenId4VpConfiguration {
-    .init(clientIdSchemes: [.x509SanDns, .x509Hash])
+    // Match Android configuration: only use RedirectUri scheme
+    // Android uses: withClientIdSchemes(listOf(ClientIdScheme.RedirectUri))
+    // Having multiple schemes can cause the library to use the wrong verification flow
+    .init(clientIdSchemes: [.redirectUri])
   }
 
   var readerConfig: ReaderConfig {

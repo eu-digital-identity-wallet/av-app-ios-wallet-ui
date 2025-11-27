@@ -41,20 +41,37 @@ final actor AddDocumentInteractorImpl: AddDocumentInteractor {
   }
 
   public func fetchScopedDocuments(with flow: IssuanceFlowUiConfig.Flow) async -> ScopedDocumentsPartialState {
-    let passport = ScopedDocument(
-      name: "Passport or ID Card",
-      issuer: "Passport or ID Card",
-      configId: "eu.europa.ec.eudi.age_verification_mdoc",
-      isPid: false,
-      docTypeIdentifier: DocumentTypeIdentifier.other(formatType: "passport"),
-      isAgeVerification: false
-    )
-
     do {
-//<<<<<<< HEAD
-      var scopedDocuments = try await walletController.getScopedDocuments()
-      scopedDocuments.append(passport)
-      let documents: [AddDocumentUIModel] = scopedDocuments.compactMap { doc in
+      let scopedDocuments = try await walletController.getScopedDocuments()
+
+      // Find the document with doctype "eu.europa.ec.av.1" from issuer.dev.ageverification.dev
+      // This is the specific credential type needed for age verification QR code scans
+      let passportIssuerDoc = scopedDocuments.first {
+        $0.issuer == "issuer.dev.ageverification.dev" && $0.docTypeIdentifier == .avAgeOver18
+      }
+
+      // Filter out documents from issuer.dev.ageverification.dev since we only want to show the passport entry
+      let filteredDocuments = scopedDocuments.filter { $0.issuer != "issuer.dev.ageverification.dev" }
+
+      // Create passport entry that uses issuer.dev.ageverification.dev with doctype "eu.europa.ec.av.1"
+      // with a special docTypeIdentifier to trigger the passport enrollment flow
+      let passport: ScopedDocument? = passportIssuerDoc.map { doc in
+        ScopedDocument(
+          name: "Passport or ID Card",
+          issuer: doc.issuer,
+          configId: doc.configId,
+          isPid: false,
+          docTypeIdentifier: DocumentTypeIdentifier.other(formatType: "passport"),
+          isAgeVerification: false
+        )
+      }
+
+      var allDocuments = filteredDocuments
+      if let passport = passport {
+        allDocuments.append(passport)
+      }
+
+      let documents: [AddDocumentUIModel] = allDocuments.compactMap { doc in
         if doc.isAgeVerification {
           return .init(listItem: .init(mainContent: MainContent.text(LocalizableStringKey.verificationNationalId),
                                        supportingText: LocalizableStringKey.verificationNationalIdDescription,
@@ -76,29 +93,6 @@ final actor AddDocumentInteractorImpl: AddDocumentInteractor {
             docTypeIdentifier: doc.docTypeIdentifier
           )
         }
-//=======
-//      let documents: [AddDocumentUIModel] = try await walletController.getScopedDocuments().compactMap { doc in
-//        switch flow {
-//        case .noDocument:
-//          guard doc.isPid else { return nil }
-//
-//        case .extraDocument(let identifier):
-//          if let identifier, doc.docTypeIdentifier != identifier {
-//            return nil
-//          }
-//        }
-//
-//        return .init(
-//          listItem: .init(
-//            mainContent: .text(.custom(doc.name)),
-//            trailingContent: .icon(Theme.shared.image.plus)
-//          ),
-//          isEnabled: true,
-//          configId: doc.configId,
-//          issuerId: doc.issuer,
-//          docTypeIdentifier: doc.docTypeIdentifier
-//        )
-//>>>>>>> ba555dbdfc90745748893420fe57659745acd3cc
       }
 
       let grouped: [String: [AddDocumentUIModel]] = Dictionary(

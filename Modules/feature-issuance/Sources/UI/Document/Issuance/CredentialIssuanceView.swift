@@ -36,7 +36,7 @@ struct CredentialIssuanceView<Router: RouterHost>: View {
     }
     .navigationBarHidden(true)
     .task {
-      await viewModel.issueCredential(issuerId: "")
+      await viewModel.issueCredential()
     }
   }
 }

@@ -13,7 +13,7 @@ struct HyperLinkView: View {
     var label: String
     var urlString: String
     @Environment(\.openURL) var openURL
-    
+
     var body: some View {
         Button(action: {
             openURL(URL(string: urlString)!)
