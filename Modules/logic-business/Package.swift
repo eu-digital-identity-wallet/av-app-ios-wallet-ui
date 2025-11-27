@@ -1,11 +1,11 @@
-// swift-tools-version: 6.0.0
+// swift-tools-version: 6.2
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
   name: "logic-business",
-  platforms: [.iOS(.v16)],
+  platforms: [.iOS(.v17)],
   products: [
     .library(
       name: "logic-business",
@@ -39,11 +39,11 @@ let package = Package(
     ),
     .package(
       url: "https://github.com/eu-digital-identity-wallet/SwiftCopyableMacro.git",
-      from: "0.0.3"
+      from: "0.0.4"
     ),
     .package(
       url: "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-rqes-ui.git",
-      exact: "0.2.2"
+      exact: "0.3.8"
     ),
     .package(name: "logic-test", path: "./logic-test")
   ],

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -19,10 +19,10 @@ import logic_resources
 
 struct QuickPinView<Router: RouterHost>: View {
 
-  @StateObject private var viewModel: QuickPinViewModel<Router>
+  @State private var viewModel: QuickPinViewModel<Router>
 
   init(with viewModel: QuickPinViewModel<Router>) {
-    self._viewModel = StateObject(wrappedValue: viewModel)
+    self._viewModel = State(wrappedValue: viewModel)
   }
 
   var body: some View {
@@ -38,16 +38,20 @@ struct QuickPinView<Router: RouterHost>: View {
         onButtonClick: { viewModel.onButtonClick() }
       )
     }
-    .confirmationDialog(
-      title: .quickPinUpdateCancellationTitle,
-      message: .quickPinUpdateCancellationCaption,
-      destructiveText: .cancelButton,
-      baseText: .quickPinUpdateCancellationContinue,
+    .dialogCompat(
+      .quickPinUpdateCancellationTitle,
       isPresented: $viewModel.isCancelModalShowing,
-      destructiveAction: {
-        viewModel.onPop()
+      actions: {
+        Button(.cancelButton, role: .destructive) {
+          viewModel.onPop()
+        }
+        Button(.quickPinUpdateCancellationContinue, role: .cancel) {
+          viewModel.onShowCancellationModal()
+        }
       },
-      baseAction: viewModel.onShowCancellationModal()
+      message: {
+        Text(.quickPinUpdateCancellationCaption)
+      }
     )
   }
 }

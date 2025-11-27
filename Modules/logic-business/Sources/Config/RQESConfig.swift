@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -31,24 +31,26 @@ final class RQESConfig: EudiRQESUiConfig {
       [
         .init(
           name: "Wallet-Centric",
-          uri: URL(string: "https://walletcentric.signer.eudiw.dev/csc/v2")!,
-          scaURL: "https://walletcentric.signer.eudiw.dev",
+          rsspId: "https://walletcentric.signer.dev.eudiw.dev/csc/v2",
+          tsaUrl: "https://timestamp.sectigo.com/qualified",
           clientId: "wallet-client",
           clientSecret: "somesecret2",
           authFlowRedirectionURI: "rqes://oauth/callback",
-          hashAlgorithm: .SHA256
+          hashAlgorithm: .SHA256,
+          includeRevocationInfo: false
         )
       ]
     case .DEMO:
       [
         .init(
           name: "Wallet-Centric",
-          uri: URL(string: "https://walletcentric.signer.eudiw.dev/csc/v2")!,
-          scaURL: "https://walletcentric.signer.eudiw.dev",
+          rsspId: "https://walletcentric.signer.eudiw.dev/csc/v2",
+          tsaUrl: "https://timestamp.sectigo.com/qualified",
           clientId: "wallet-client",
           clientSecret: "somesecret2",
           authFlowRedirectionURI: "rqes://oauth/callback",
-          hashAlgorithm: .SHA256
+          hashAlgorithm: .SHA256,
+          includeRevocationInfo: false
         )
       ]
     }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -18,6 +18,7 @@ import SwiftUI
 public enum LocalizableStringKey: Equatable, Sendable {
   case dynamic(key: String)
   case custom(String)
+  case space
   case search
   case genericErrorTitle
   case genericErrorDesc
@@ -27,6 +28,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case tryAgain
   case shareButton
   case cancelButton
+  case requestDataCaption
   case requestDataInfoNotice
   case requestDataTitle([String])
   case documentAdded
@@ -37,12 +39,19 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case successfullySharedFollowingInformation
   case incompleteRequestDataSelection
   case addDoc
+  case filters
+  case sortByIssuedDateSectionTitle
+  case showResults
+  case welcomeBack([String])
+  case viewDocumentDetails
   case pleaseWait
   case requestDataShareQuickPinCaption
   case requestDataShareBiometryCaption
   case addDocumentTitle
   case addDocumentSubtitle
   case addDocumentRequest
+  case proximityConnectivityCaption
+  case unavailableField
   case requestDataVerifiedEntity
   case requestDataVerifiedEntityMessage
   case changeQuickPinOption
@@ -68,23 +77,40 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case quickPinUpdateCancellationTitle
   case quickPinUpdateCancellationCaption
   case quickPinUpdateCancellationContinue
+  case successTitlePunctuated
   case issuerWantWalletAddition
   case unknownVerifier
   case unknownIssuer
+  case genericIssuer
+  case filterByIssuer
+  case yes
+  case no
   case scanQrCode
+  case signDocument
+  case signDocumentSubtitle
+  case selectDocument
+  case validUntil([String])
+  case bleDisabledModalTitle
+  case bleDisabledModalCaption
+  case bleDisabledModalButton
   case requestDataNoDocument
+  case issuanceDetailsDeletionTitle([String])
   case deleteDocument
+  case issuanceDetailsDeletionCaption([String])
   case errorUnableFetchDocuments
   case errorUnableFetchDocument
   case scannerQrTitleIssuing
   case scannerQrTitlePresentation
   case scannerQrCaptionIssuing
   case scannerQrCaptionPresentation
+  case scannerQrTitle
+  case scannerQrCaption
   case cameraError
   case missingPid
   case requestCredentialOfferTitle([String])
   case requestCredentialOfferNoDocument
   case unableToIssueAndStore
+  case missingMetadata
   case issueButton
   case issuanceCodeTitle([String])
   case issuanceCodeCaption([String])
@@ -95,28 +121,79 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case scopedIssuanceSuccessDeferredCaptionDocNameAndIssuer([String])
   case issuanceSuccessDeferredCaption([String])
   case pending
+  case issuanceFailed
+  case deferredDocumentsIssuedModalTitle
+  case defferedDocumentsIssuedModalCaption
   case retrieveLogs
   case qrScanInformativeText
   case unableToPresentAndShare
   case itemNotFoundInStorage
   case itemsNotFoundInStorage
+  case home
+  case documents
+  case transactions
   case authenticateAuthoriseTransactions
+  case electronicallySignDigitalDocuments
   case learnMore
+  case chooseFromList
+  case chooseFromListTitle
+
+  // Settings
+  case settingsSupport
+  case settingsUnlockWithBiometrics
+  case settingsLanguage
+  case settingsDeleteAllProofsOfAttestation
+  case settingsTermsOfService
+  case settingsAboutThisApp
+
+  case addDocumentsToWallet
   case details
   case dataSharingRequest
   case dataShared
   case doneButton
   case dataSharingTitle
   case close
+  case reset
+  case all
+  case descending
+  case ascending
   case trustedRelyingParty
   case trustedRelyingPartyDescription
+  case alertAccessOnlineServices
+  case alertAccessOnlineServicesMessage
+  case alertSignDocumentsSafely
+  case alertSignDocumentsSafelyMessage
+  case authenticate
+  case inPerson
+  case online
+  case savedToFavorites
+  case succesfullyAddedFollowingToWallet
+  case removedFromFavorites
+  case savedToFavoritesMessage
+  case removedFromFavoritesMessages
   case viewDetails
   case requestsTheFollowing
+  case walletIsSecured
   case noResults
   case noResultsDocumentsDescription
+  case noResultsTransactionsDescription
+  case proximityConnectionBleDescription
+  case selectExpiryPeriod
+  case filterByState
+  case sortBy
   case deleteDocumentConfirmDialog
+  case defaultLabel
   case valid
+  case revoke
+  case expired
+  case dateIssued
+  case expiryDate
+  case nextSevenDays
+  case nextThirtyDays
+  case beyondThiryDays
+  case beforeToday
   case issuanceRequest
+  case myEuWallet
   case categoryGovernment
   case categoryHealth
   case categoryEducation
@@ -126,8 +203,35 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case categorySocialSecurity
   case categoryTravel
   case changelog
+  case orderBy
+  case filterByCategory
+  case searchDocuments
+  case searchTransactions
+  case filterByStatus
+  case completed
   case failed
+  case filterByDate
+  case startDate
+  case endDate
+  case relyingParty
+  case signedDocuments
+  case transactionInformation
+  case transactionDetailsDataShare
+  case transactionDetailsDataSigned
+  case transactionDetailsScreenCardDateLabel
+  case transactionDetailsCompleted
   case or
+  case today
+  case thisWeek
+  case unknownDate
+  case minutesAgo([String])
+  case minuteAgo([String])
+  case transactionDate
+  case filterByType
+  case presentation
+  case signing
+  case issuance
+  case withoutRelyingName
   case errorFetchTransactionLog
   case settings
 
@@ -312,21 +416,31 @@ public enum LocalizableStringKey: Equatable, Sendable {
   // Credential Issuance
   case credentialIssuanceTitle
   case credentialIssuanceDescription
-    
-  // Settings
-  case settingsSupport
-  case settingsUnlockWithBiometrics
-  case settingsLanguage
-  case settingsDeleteAllProofsOfAttestation
-  case settingsTermsOfService
-  case settingsAboutThisApp
+
+  case incomplete
+  case justNow
+  case revoked
+  case documentDetailsRevokedDocumentMessage
+  case revokedModalTitle
+  case revokedModalDescription
+  case transactionDetailsRequestDeletionMessage
+  case transactionDetailsRequestDeletionButton
+  case transactionDetailsReportTransactionMessage
+  case transactionDetailsReportTransactionButton
+  case documentDetailsDocumentCredentialsText([String])
+  case documentDetailsDocumentCredentialsMoreInfoText
+  case documentDetailsDocumentCredentialsExpandedTextSubtitle
+  case documentDetailsDocumentCredentialsExpandedButtonHideText
+  case documentsListCredentialsUsageText([String])
+  case expandableDocumentCredentialsIssueButton
+  case issuanceAddDocumentNoOptions
+  case unknown
 }
 
 public extension LocalizableStringKey {
   var toString: String {
-    return LocalizableManager.shared.get(with: self)
+    LocalizableManager.shared.get(with: self)
   }
-  @available(macOS 10.15, *)
   var toLocalizedStringKey: LocalizedStringKey {
     LocalizedStringKey(self.toString)
   }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -31,7 +31,7 @@ public enum DocumentTypeIdentifier: RawRepresentable, Equatable, Sendable, Hasha
     case .other(let formatType):
       formatType
     case .avAgeOver18:
-        Self.avAgeOver18Type
+      Self.avAgeOver18Type
     case .mdocEUDIAgeOver18:
         Self.mdocEUDIAgeOver18Type
     }
@@ -44,9 +44,9 @@ public enum DocumentTypeIdentifier: RawRepresentable, Equatable, Sendable, Hasha
     case Self.sdJwtPidDocType:
       self = .sdJwtPid
     case Self.avAgeOver18Type:
-        self = .avAgeOver18
+      self = .avAgeOver18
     case Self.mdocEUDIAgeOver18Type:
-        self = .mdocEUDIAgeOver18
+      self = .mdocEUDIAgeOver18
     default:
       self = .other(formatType: rawValue)
     }

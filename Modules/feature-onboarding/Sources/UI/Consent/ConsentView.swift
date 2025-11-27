@@ -11,10 +11,10 @@ import logic_resources
 import logic_core
 
 struct ConsentView<Router: RouterHost>: View {
-    @ObservedObject var viewModel: ConsentViewModel<Router>
+    @State var viewModel: ConsentViewModel<Router>
 
     init(with viewModel: ConsentViewModel<Router>) {
-        self.viewModel = viewModel
+      self._viewModel = State(wrappedValue: viewModel)
     }
 
     var body: some View {

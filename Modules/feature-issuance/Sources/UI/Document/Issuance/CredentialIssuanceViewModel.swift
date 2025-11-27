@@ -46,7 +46,7 @@ final class CredentialIssuanceViewModel<Router: RouterHost>: ViewModel<Router, C
     )
   }
 
-  func issueCredential() async {
+  func issueCredential(issuerId: String) async {
     guard let configId = config.configId,
           let docTypeIdentifier = config.docTypeIdentifier else {
       await MainActor.run {
@@ -64,6 +64,7 @@ final class CredentialIssuanceViewModel<Router: RouterHost>: ViewModel<Router, C
     }
 
     let result = await interactor.issueDocument(
+      issuerId: issuerId,
       configId: configId,
       docTypeIdentifier: docTypeIdentifier
     )

@@ -17,8 +17,8 @@ struct SettingsState: ViewState {
   let isDeletingCredentials: Bool
 }
 
-final class SettingsViewModel<Router: RouterHost>: ViewModel<Router, SettingsState> {
-  
+final class SettingsViewModel<Router: RouterHost>: ViewModel<Router, SettingsState>, ObservableObject {
+
   @Published var isDeletionModalShowing: Bool = false
   
   private let interactor: SettingsInteractor
@@ -84,8 +84,6 @@ final class SettingsViewModel<Router: RouterHost>: ViewModel<Router, SettingsSta
           onPinChange()
       case .deleteAgeAttestationProof:
           onShowDeleteModal()
-      default:
-          log("default tap")
       }
   }
 

@@ -139,7 +139,7 @@ final class ChangePinViewModel<Router: RouterHost>: ViewModel<Router, ChangePinS
     Task { [weak self] in
       guard let self = self else { return }
       setState { $0.copy(isLoading: true) }
-      interactor.setPin(newPin: self.viewState.pin1)
+      await interactor.setPin(newPin: self.viewState.pin1)
 
       self.navigateToPinChangeSuccess()
       setState { $0.copy(isLoading: false) }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -17,8 +17,7 @@ import SwiftUI
 import logic_resources
 
 public struct ExpandableCardView<Content: View>: View {
-  private let title: LocalizableStringKey
-  private let subtitle: LocalizableStringKey?
+  private let header: ListItemData
   private let backgroundColor: Color
   private let mainTextVerticalPadding: CGFloat?
   private let isLoading: Bool
@@ -26,15 +25,13 @@ public struct ExpandableCardView<Content: View>: View {
 
   public init(
     backgroundColor: Color = Theme.shared.color.surfaceContainer,
-    title: LocalizableStringKey,
-    subtitle: LocalizableStringKey? = nil,
+    header: ListItemData,
     mainTextVerticalPadding: CGFloat? = nil,
     isLoading: Bool = false,
     isExpanded: Bool = false,
     @ViewBuilder content: @escaping () -> Content
   ) {
-    self.title = title
-    self.subtitle = subtitle
+    self.header = header
     self.backgroundColor = backgroundColor
     self.mainTextVerticalPadding = mainTextVerticalPadding
     self.isLoading = isLoading
@@ -52,9 +49,9 @@ public struct ExpandableCardView<Content: View>: View {
         VStack(spacing: .zero) {
           WrapListItemView(
             listItem: .init(
-              mainText: title,
+              mainContent: header.mainContent,
               mainStyle: .bold,
-              supportingText: subtitle,
+              supportingText: header.supportingText,
               trailingContent: .icon(
                 isExpanded ? Theme.shared.image.chevronUp : Theme.shared.image.chevronDown
               )

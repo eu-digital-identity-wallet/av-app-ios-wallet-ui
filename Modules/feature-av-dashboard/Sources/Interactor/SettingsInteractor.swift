@@ -34,7 +34,7 @@ extension SettingsInteractorImpl: SettingsInteractor {
     }
     
     func deleteAgeVerificationCredentials() async -> Result<Void, Error> {
-      await walletController.clearAllDocuments()
+      try? await walletController.clearAllDocuments()
       return .success(())
     }
 }

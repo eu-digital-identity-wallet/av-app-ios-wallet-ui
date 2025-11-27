@@ -10,10 +10,10 @@ import logic_resources
 import logic_core
 
 struct LandingView<Router: RouterHost>: View {
-    @ObservedObject var viewModel: LandingViewModel<Router>
+    @State var viewModel: LandingViewModel<Router>
 
     init(with viewModel: LandingViewModel<Router>) {
-        self.viewModel = viewModel
+      self._viewModel = State(wrappedValue: viewModel)
     }
 
     var body: some View {
@@ -72,12 +72,12 @@ private func content(viewState: AppLandingState, onScan: @escaping () -> Void, o
             }
             .padding()
         }
-        
+
         // Sticky scan button
         VStack(alignment: .center) {
             Button(action: {
                 onScan()
-              
+
             }) {
                 Theme.shared.image.scanButton
                     .frame(height: 76)

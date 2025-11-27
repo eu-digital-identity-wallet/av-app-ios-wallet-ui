@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -20,7 +20,8 @@ import logic_core
 @MainActor
 public final class PresentationRouter {
 
-  public static func resolve(module: FeaturePresentationRouteModule, host: some RouterHost) -> AnyView {
+  @ViewBuilder
+  public static func resolve(module: FeaturePresentationRouteModule, host: some RouterHost) -> some View {
     switch module {
     case .presentationLoader(
       let relyingParty,
@@ -32,7 +33,7 @@ public final class PresentationRouter {
       PresentationLoadingView(
         with: .init(
           router: host,
-          interactor: DIGraph.resolver.force(
+          interactor: DIGraph.shared.resolver.force(
             PresentationInteractor.self,
             argument: presentationCoordinator as RemoteSessionCoordinator
           ),
@@ -41,7 +42,7 @@ public final class PresentationRouter {
           originator: originator,
           requestItems: uiModels.compactMap { $0 as? PresentationListItemSection }
         )
-      ).eraseToAnyView()
+      )
     case .presentationRequest(
       presentationCoordinator: let presentationCoordinator,
       originator: let originator
@@ -49,13 +50,13 @@ public final class PresentationRouter {
       PresentationRequestView(
         with: .init(
           router: host,
-          interactor: DIGraph.resolver.force(
+          interactor: DIGraph.shared.resolver.force(
             PresentationInteractor.self,
             argument: presentationCoordinator as RemoteSessionCoordinator
           ),
           originator: originator
         )
-      ).eraseToAnyView()
+      )
     case .presentationSuccess(
       let config,
       let uiModels
@@ -64,12 +65,12 @@ public final class PresentationRouter {
         with: .init(
           router: host,
           config: config,
-          deepLinkController: DIGraph.resolver.force(
+          deepLinkController: DIGraph.shared.resolver.force(
             DeepLinkController.self
           ),
           requestItems: uiModels.compactMap { $0 as? PresentationListItemSection }
         )
-      ).eraseToAnyView()
+      )
     }
   }
 }

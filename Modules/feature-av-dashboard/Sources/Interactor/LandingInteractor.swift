@@ -9,12 +9,12 @@ import logic_core
 import feature_common
 
 public protocol LandingInteractor: Sendable {
-    
-    func getAgeCredential() async -> AgeCredentialPartialState  
+
+    func getAgeCredential() async -> AgeCredentialPartialState
 }
 
 final class LandingPageInteractorImpl: LandingInteractor {
-    
+
     private let walletController: WalletKitController
 
     public init(
@@ -25,7 +25,7 @@ final class LandingPageInteractorImpl: LandingInteractor {
 
     func getAgeCredential() async -> AgeCredentialPartialState {
 
-        let documents = walletController.fetchIssuedDocuments(with: [.avAgeOver18, .mdocEUDIAgeOver18])
+      let documents = await walletController.fetchIssuedDocuments(with: [.avAgeOver18, .mdocEUDIAgeOver18])
         guard let documentDetails = documents.first?.transformToDocumentUi() else {
           return .failure(WalletCoreError.unableFetchDocument)
         }
@@ -35,7 +35,7 @@ final class LandingPageInteractorImpl: LandingInteractor {
 
     private func getCredentialsUsageCount(documentId: String) async -> Int? {
       do {
-        if let usageCounts = try await walletController.getCredentialsUsageCount(id: documentId) {
+        if let usageCounts = try await walletController.wallet.getCredentialsUsageCount(id: documentId) {
           return usageCounts.remaining
         } else {
           return nil

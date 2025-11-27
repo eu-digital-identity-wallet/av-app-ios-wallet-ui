@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -19,10 +19,10 @@ import logic_resources
 
 struct StartupView<Router: RouterHost>: View {
 
-  @StateObject private var viewModel: StartupViewModel<Router>
+  @State private var viewModel: StartupViewModel<Router>
 
   init(with viewModel: StartupViewModel<Router>) {
-    self._viewModel = StateObject(wrappedValue: viewModel)
+    self._viewModel = State(wrappedValue: viewModel)
   }
 
   var body: some View {

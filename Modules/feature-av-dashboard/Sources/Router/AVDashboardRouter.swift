@@ -11,19 +11,18 @@ import logic_core
 
 @MainActor
 public final class AVDashboardRouter {
-    public static func resolve(module: FeatureAVDashboardRouteModule, host: some RouterHost) -> AnyView {
+  @ViewBuilder
+    public static func resolve(module: FeatureAVDashboardRouteModule, host: some RouterHost) -> some View {
         switch module {
         case .appLanding:
-            LandingView(with: .init(router: host, interactor: DIGraph.resolver.force(
+          LandingView(with: .init(router: host, interactor: DIGraph.shared.resolver.force(
                 LandingInteractor.self
             )))
-            .eraseToAnyView()
         case .settings:
             SettingsView(with: .init(
-                router: host, 
-                interactor: DIGraph.resolver.force(SettingsInteractor.self)
+                router: host,
+                interactor: DIGraph.shared.resolver.force(SettingsInteractor.self)
             ))
-            .eraseToAnyView()
         }
     }
 }

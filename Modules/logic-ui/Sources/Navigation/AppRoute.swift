@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -60,6 +60,36 @@ public enum FeatureCommonRouteModule: AppRouteModule {
   }
 }
 
+public enum FeatureDashboardRouteModule: AppRouteModule {
+
+  case dashboard
+  case signDocument
+  case sideMenu
+  case settingsMenu
+  case issuanceOption
+  case documentDetails(id: String)
+  case transactionDetails(id: String)
+
+  public var info: (key: String, arguments: [String: String]) {
+    return switch self {
+    case .dashboard:
+      (key: "Dashboard", arguments: [:])
+    case .signDocument:
+      (key: "SignDocument", arguments: [:])
+    case .sideMenu:
+      (key: "SideMenu", arguments: [:])
+    case .settingsMenu:
+      (key: "settingsMenu", arguments: [:])
+    case .issuanceOption:
+      (key: "issuanceOption", arguments: [:])
+    case .documentDetails(let id):
+      (key: "DocumentDetails", arguments: ["id": id])
+    case .transactionDetails(let id):
+      (key: "TransactionDetails", arguments: ["id": id])
+    }
+  }
+}
+
 public indirect enum FeaturePresentationRouteModule: AppRouteModule {
 
   case presentationLoader(
@@ -93,6 +123,49 @@ public indirect enum FeaturePresentationRouteModule: AppRouteModule {
       (key: "PresentationRequest", arguments: ["originator": originator.info.key])
     case .presentationSuccess(let config, _):
       (key: "PresentationSuccess", arguments: ["config": config.log])
+    }
+  }
+}
+
+public indirect enum FeatureProximityRouteModule: AppRouteModule {
+
+  case proximityConnection(
+    presentationCoordinator: ProximitySessionCoordinator,
+    originator: AppRoute
+  )
+  case proximityRequest(
+    presentationCoordinator: ProximitySessionCoordinator,
+    originator: AppRoute
+  )
+  case proximityLoader(
+    relyingParty: String,
+    relyingPartyisTrusted: Bool,
+    presentationCoordinator: ProximitySessionCoordinator,
+    originator: AppRoute,
+    items: [any Routable]
+  )
+  case proximitySuccess(
+    config: any UIConfigType,
+    [any Routable]
+  )
+
+  public var info: (key: String, arguments: [String: String]) {
+    return switch self {
+    case .proximityConnection(_, let originator):
+      (key: "ProximityConnection", arguments: ["originator": originator.info.key])
+    case .proximityRequest(_, let originator):
+      (key: "ProximityRequest", arguments: ["originator": originator.info.key])
+    case .proximityLoader(let relyingParty, _, _, let originator, let items):
+      (
+        key: "ProximityLoader",
+        arguments: [
+          "relyingParty": relyingParty,
+          "originator": originator.info.key,
+          "items": items.map { $0.log }.joined(separator: "|")
+        ]
+      )
+    case .proximitySuccess:
+      (key: "ProximitySuccess", arguments: [:])
     }
   }
 }
@@ -175,6 +248,7 @@ public enum AppRoute: AppRouteModule {
   case featurePresentationModule(FeaturePresentationRouteModule)
   case featureOnboardingModule(FeatureOnboardingRouteModule)
   case featureAVDashboardModule(FeatureAVDashboardRouteModule)
+  case featureProximityModule(FeatureProximityRouteModule)
 
   public var info: (key: String, arguments: [String: String]) {
     return switch self {
@@ -189,6 +263,8 @@ public enum AppRoute: AppRouteModule {
     case .featureOnboardingModule(let module):
         module.info
     case .featureAVDashboardModule(let module):
+        module.info
+    case .featureProximityModule(let module):
         module.info
     }
   }

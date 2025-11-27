@@ -953,6 +953,28 @@
         }
       }
     },
+    "choose_from_list" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose from list"
+          }
+        }
+      }
+    },
+    "choose_from_list_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose a digital document from the list below to add to your wallet."
+          }
+        }
+      }
+    },
     "close" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -4231,6 +4253,10 @@
           }
         }
       }
+    },
+    "proxmity_connectivity_caption" : {
+      "comment" : "Show this QR code to access the necessary information for sharing",
+      "extractionState" : "manual"
     },
     "qr_scan_informative_text" : {
       "extractionState" : "manual",

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -83,25 +83,34 @@ public struct WrapListItemView: View {
           Text(overlineText)
             .typography(Theme.shared.font.bodySmall)
             .foregroundStyle(listItem.overlineTextColor)
-            .lineLimit(1)
+            .lineLimit(nil)
+            .multilineTextAlignment(.leading)
             .truncationMode(.tail)
         }
 
         HStack(spacing: SPACING_SMALL) {
-            Text(listItem.mainText == .custom("true")
-                 ? .custom("Yes")
-                 : (listItem.mainText == .custom("false")
-                    ? .custom("No")
-                    : listItem.mainText))
-            .typography(Theme.shared.font.headlineMedium)
-            .foregroundStyle(Theme.shared.color.onSurface)
-            .fontWeight(listItem.mainStyle == .plain ? .medium : .bold)
-            .lineLimit(nil)
-            .multilineTextAlignment(.leading)
-            .truncationMode(.tail)
-            .if(listItem.isBlur) {
-              $0.blur(radius: 4, opaque: false)
-            }
+          switch listItem.mainContent {
+          case .text(let mainText):
+            Text(mainText)
+              .typography(Theme.shared.font.headlineMedium)
+              .foregroundStyle(Theme.shared.color.onSurface)
+              .fontWeight(listItem.mainStyle == .plain ? .medium : .bold)
+              .lineLimit(nil)
+              .multilineTextAlignment(.leading)
+              .truncationMode(.tail)
+              .if(listItem.isBlur) {
+                $0.blur(radius: 4, opaque: false)
+              }
+          case .image(let image):
+            image
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+              .frame(height: Theme.shared.dimension.remoteImageIconSize)
+              .if(listItem.isBlur) {
+                $0.blur(radius: 4, opaque: false)
+              }
+              .padding(.top, SPACING_EXTRA_SMALL)
+          }
 
           Spacer()
 
@@ -111,7 +120,7 @@ public struct WrapListItemView: View {
               HStack(spacing: SPACING_SMALL) {
                 Text(text)
                   .font(Theme.shared.font.bodySmall.font)
-                  .foregroundColor(color)
+                  .foregroundColor(Theme.shared.color.onSurfaceVariant)
                   .lineLimit(1)
                   .multilineTextAlignment(.trailing)
                   .gone(if: text.toString.isEmpty)
@@ -134,7 +143,8 @@ public struct WrapListItemView: View {
             .typography(Theme.shared.font.headlineSmall)
             .font(Theme.shared.font.bodyMedium.font)
             .foregroundStyle(listItem.supportingTextColor)
-            .lineLimit(1)
+            .lineLimit(nil)
+            .multilineTextAlignment(.leading)
             .truncationMode(.tail)
         }
       }
@@ -187,7 +197,7 @@ public struct WrapListItemView: View {
     WrapCardView {
       WrapListItemView(
         listItem: .init(
-          mainText: .custom("Main Text"),
+          mainContent: .text(.custom("Main Text")),
           overlineText: .custom("Overline Text"),
           supportingText: .custom("Valid until: 22 March 2030"),
           leadingIcon: LeadingIcon(image: Image(systemName: "star")),
@@ -200,7 +210,7 @@ public struct WrapListItemView: View {
     WrapCardView {
       WrapListItemView(
         listItem: .init(
-          mainText: .custom("Another Item"),
+          mainContent: .text(.custom("Another Item")),
           overlineText: nil,
           supportingText: .custom("Additional Info"),
           leadingIcon: nil
@@ -211,7 +221,7 @@ public struct WrapListItemView: View {
     WrapCardView {
       WrapListItemView(
         listItem: .init(
-          mainText: .custom("Another Item"),
+          mainContent: .text(.custom("Another Item")),
           overlineText: nil,
           supportingText: .custom("Additional Info"),
           leadingIcon: LeadingIcon(image: Image(systemName: "heart"))
@@ -222,7 +232,7 @@ public struct WrapListItemView: View {
     WrapCardView {
       WrapListItemView(
         listItem: .init(
-          mainText: .custom("Another Item"),
+          mainContent: .text(.custom("Another Item")),
           overlineText: .custom("Overline Texr"),
           supportingText: .custom("Additional Info"),
           overlineTextColor: Theme.shared.color.error,
@@ -234,7 +244,7 @@ public struct WrapListItemView: View {
     WrapCardView {
       WrapListItemView(
         listItem: .init(
-          mainText: .custom("Main Text"),
+          mainContent: .text(.custom("Main Text")),
           overlineText: .custom("Overline Text"),
           supportingText: .custom("Valid until: 22 March 2030"),
           leadingIcon: LeadingIcon(image: Image(systemName: "star")),
@@ -247,7 +257,7 @@ public struct WrapListItemView: View {
     WrapCardView {
       WrapListItemView(
         listItem: .init(
-          mainText: .custom("Another Item"),
+          mainContent: .text(.custom("Another Item")),
           trailingContent: .icon(Image(systemName: "plus"))
         )
       )
@@ -256,7 +266,7 @@ public struct WrapListItemView: View {
     WrapCardView {
       WrapListItemView(
         listItem: .init(
-          mainText: .custom("Another Item"),
+          mainContent: .text(.custom("Another Item")),
           trailingContent: .textWithIcon(
             Image(systemName: "plus"),
             Color.accentColor,
