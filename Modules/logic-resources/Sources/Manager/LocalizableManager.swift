@@ -292,6 +292,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "consent_checkbox_label_1")
     case .consentCheckboxLabel2:
         bundle.localizedString(forKey: "consent_checkbox_label_2")
+    case .consentCheckboxLabel3:
+        bundle.localizedString(forKey: "consent_checkbox_label_3")
     case .consentHyperlinkLabel1:
         bundle.localizedString(forKey: "consent_hyperlink_label_1")
     case .consentHyperlinkLabel2:

@@ -46,7 +46,7 @@ public final class FeatureIssuanceAssembly: Assembly {
     }
     .inObjectScope(ObjectScope.transient)
 
-    container.register(LivenessCheckInteractor.self) { r in
+    container.register(LivenessCheckInteractor.self) { _ in
       LivenessCheckInteractorImpl()
     }
     .inObjectScope(ObjectScope.transient)

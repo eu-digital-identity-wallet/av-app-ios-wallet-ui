@@ -154,6 +154,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case consentTitle
   case consentCheckboxLabel1
   case consentCheckboxLabel2
+  case consentCheckboxLabel3
   case consentHyperlinkLabel1
   case consentHyperlinkLabel2
   case consentConfirmButton

@@ -16,6 +16,7 @@ struct ConsentViewState: ViewState {
     let error: ContentErrorView.Config?
     let termsOfServiceAccepted: Bool
     let dataProtectionInfoAccepted: Bool
+    let dataProcessingInfoAccepted: Bool
     let nextButtonEnabled: Bool
 }
 
@@ -27,6 +28,7 @@ final class ConsentViewModel<Router: RouterHost>: ViewModel<Router, ConsentViewS
                                        error: nil,
                                        termsOfServiceAccepted: false,
                                        dataProtectionInfoAccepted: false,
+                                       dataProcessingInfoAccepted: false,
                                        nextButtonEnabled: false
                                       )
         )
@@ -50,8 +52,16 @@ final class ConsentViewModel<Router: RouterHost>: ViewModel<Router, ConsentViewS
         }
         updateNextButtonState()
     }
+    func onDataProcessingInfoChanged(isChecked: Bool) {
+        setState {
+            $0.copy(
+                dataProcessingInfoAccepted: isChecked
+            )
+        }
+        updateNextButtonState()
+    }
     private func updateNextButtonState() {
-        let newState = viewState.termsOfServiceAccepted && viewState.dataProtectionInfoAccepted
+        let newState = viewState.termsOfServiceAccepted && viewState.dataProtectionInfoAccepted && viewState.dataProcessingInfoAccepted
         setState {
             $0.copy(
                 nextButtonEnabled: newState
