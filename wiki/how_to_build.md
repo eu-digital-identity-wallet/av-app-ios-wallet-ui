@@ -12,7 +12,7 @@ This guide aims to assist developers to build the iOS application.
 
 # Setup Apps
 
-## EUDI iOS Wallet reference application
+## Age Verification iOS App
 
 You need [xcode](https://xcodereleases.com/) and its associated tools installed on your machine. We recommend the latest non-beta version. 
 

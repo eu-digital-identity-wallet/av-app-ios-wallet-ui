@@ -1,9 +1,4 @@
-# EUDI iOS Wallet reference application
-
-:heavy_exclamation_mark: **Important!** Before you proceed, please read
-the [EUDI Wallet Reference Implementation project description](https://github.com/eu-digital-identity-wallet/.github/blob/main/profile/reference-implementation.md)
-
-----
+# Age Verification iOS App
 
 ## Table of contents
 
@@ -19,26 +14,20 @@ the [EUDI Wallet Reference Implementation project description](https://github.co
 
 ## Overview
 
-The EUDI Wallet Reference Implementation is built based on the [Architecture Reference Framework](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/blob/main/docs/architecture-and-reference-framework-main.md) and aims to showcase a robust and interoperable platform for digital identification, authentication, and electronic signatures based on common standards across the European Union.
-The EUDI Wallet Reference Implementation is based on a modular architecture composed of business-agnostic, reusable components that will evolve in incremental steps and can be reused across multiple projects.
+The Age Verification App is an iOS application built on top of the EUDI Wallet Reference Implementation. It provides age verification functionality using digital credentials based on the [Architecture Reference Framework](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/blob/main/docs/architecture-and-reference-framework-main.md).
 
-The EUDI Wallet Reference Implementation is the application that allows users to:
+The Age Verification App allows users to:
 
-1. To obtain, store, and present PID and mDL.
+1. Obtain, store, and present age verification credentials.
 2. Verify presentations.
-3. Share data on proximity scenarios.
-4. Support remote QES and more use cases with the modules included.
-
-The EUDIW project provides an iOS app through this repository. Please refer to the repositories listed in the following sections for more detailed information on how to get started, contribute, and engage with the EUDI Wallet Reference Implementation.
+3. Support age verification use cases.
  
 # 💡 Specifications Employed
 
-The app consumes the SDK called EUDIW Wallet core [Wallet kit](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-kit) and a list of available libraries to facilitate remote presentation, proximity, and issuing test/demo functionality following the specification of the [ARF](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework), including:
- 
+The app consumes the SDK called EUDIW Wallet core [Wallet kit](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-kit) and a list of available libraries to facilitate remote presentation and issuing test/demo functionality following the specification of the [ARF](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework), including:
+
 - OpenID4VP v1 (remote presentation), DCQL
- 
-- ISO18013-5 (proximity presentation)
- 
+
 - OpenID4VCI v1 (issuing)
  
 - Issuer functionality, to support development and testing, one can access an OID4VCI test/demo service for issuing at:
@@ -58,10 +47,6 @@ To support development and testing, one can access a test/demo service for remot
   - [Web verifier source](https://github.com/eu-digital-identity-wallet/eudi-web-verifier)
 
   - [Verifier restful backend service source](https://github.com/eu-digital-identity-wallet/eudi-srv-web-verifier-endpoint-23220-4-kt)
- 
-To support proximity, the EUDI Verifier App is available [here](https://github.com/eu-digital-identity-wallet/eudi-app-multiplatform-verifier-ui) and can request PID and mDL, with reader authentication enabled.
-
-The issuer, verifier service, and verifier app authentication are based on the EUDIW development [IACA](https://github.com/niscy-eudiw/eudi-app-ios-wallet-ui/tree/main/Wallet/Sample)
 
 ## Important things to know
 
@@ -81,9 +66,7 @@ Minimum device requirements
 
 ### Prerequisites
 
-To complete the flows described below, you must build and run the application with Xcode. Alternatively, you can download the Android app [here](https://github.com/eu-digital-identity-wallet/eudi-app-android-wallet-ui/releases).
-
-You will also need to download the EUDI Verifier app. More information can be found [here](https://github.com/eu-digital-identity-wallet/eudi-app-multiplatform-verifier-ui)
+To complete the flows described below, you must build and run the application with Xcode.
 
 ### App launch
 
@@ -128,21 +111,6 @@ To delete a document, navigate to the 'Documents' tab within the 'Dashboard' scr
 11. A browser will open, confirming that the Verifier has accepted your request.
 12. Return to the app. The flow is now complete.
 
-### Proximity flow
-
-1. Log in to the EUDI Wallet app.
-2. You will be on the "Home" tab of the "Dashboard" screen.
-3. Tap the "Authenticate" button on the first informative card. A modal with two options will appear.
-4. Select "In person".
-5. You will be prompted to enable Bluetooth (if it is not already enabled) and grant the necessary permissions for the app to use it (if you have not already done so).
-6. The Verifier scans the presented QR code.
-7. The app's "Request" screen will load. Here, you can select or deselect which attributes to share with the Verifier. You must select at least one attribute to proceed.
-8. Tap "Share".
-9. Enter the PIN you set up during the initial steps.
-10. Upon successful authentication, tap "Close".
-11. The Verifier will receive the data you chose to share.
-12. You will return to the "Home" tab of the "Dashboard" screen. The flow is now complete.
-
 ## How to build - Quick start guide
 
 [This document](wiki/how_to_build.md) describes how you can build the application and deploy the issuing and verification services locally.
@@ -177,8 +145,6 @@ You can find instructions on how to configure the application [here](wiki/config
 
 *feature-issuance*: Document issuance feature.
 
-*feature-proximity*: Proximity scenarios feature.
-
 *logic-assembly*: This module has access to all the above modules and assembles navigation and DI graphs.
 
 ```mermaid
@@ -193,7 +159,6 @@ graph TD;
   feature-dashboard --> logic-assembly
   feature-presentation --> logic-assembly
   feature-issuance --> logic-assembly
-  feature-proximity --> logic-assembly
 
   logic-business --> logic-core
   logic-resources --> logic-core
@@ -202,8 +167,6 @@ graph TD;
   logic-business --> logic-analytics
 
   feature-common --> feature-issuance
-
-  feature-common --> feature-proximity
 
   feature-common --> feature-presentation
 
@@ -244,10 +207,6 @@ Issuance
 Presentation
 
 [Presentation](https://github.com/user-attachments/assets/e23fc563-5650-4a83-a05b-53a54f6dd209)
-
-Proximity
-
-[Proximity](https://github.com/user-attachments/assets/d60c57bb-809a-437b-a76f-3c6c20e0bd16)
 
 ## Disclaimer
 
