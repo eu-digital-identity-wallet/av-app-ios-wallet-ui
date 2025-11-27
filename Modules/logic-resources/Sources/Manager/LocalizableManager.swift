@@ -548,7 +548,12 @@ final class LocalizableManager: LocalizableManagerType {
 fileprivate extension Bundle {
   func localizedString(forKey key: String) -> String {
     let localizedBundle = self.localizedBundle()
-    return localizedBundle.localizedString(forKey: key, value: nil, table: nil)
+    let value = localizedBundle.localizedString(forKey: key, value: nil, table: nil)
+    if value == key {
+      return defaultBundle().localizedString(forKey: key, value: nil, table: nil)
+    } else {
+      return value
+    }
   }
 
   func localizedStringWithArguments(forKey key: String, arguments: [CVarArg]) -> String {
@@ -567,5 +572,10 @@ fileprivate extension Bundle {
       return localizedBundle
     }
     return self
+  }
+
+  private func defaultBundle() -> Bundle {
+    let path = self.path(forResource: "en", ofType: "lproj")
+    return Bundle(path: path!)!
   }
 }
