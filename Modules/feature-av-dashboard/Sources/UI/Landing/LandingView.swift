@@ -28,6 +28,7 @@ struct LandingView<Router: RouterHost>: View {
         }
         .task {
             await viewModel.getCredentialDetails()
+            await viewModel.onCreate()
         }
     }
 }
