@@ -17,7 +17,7 @@ public final class AVDashboardRouter {
         case .appLanding:
           LandingView(with: .init(router: host, interactor: DIGraph.shared.resolver.force(
                 LandingInteractor.self
-            )))
+          ), deepLinkController: DIGraph.shared.resolver.force(DeepLinkController.self)))
         case .settings:
             SettingsView(with: .init(
                 router: host,

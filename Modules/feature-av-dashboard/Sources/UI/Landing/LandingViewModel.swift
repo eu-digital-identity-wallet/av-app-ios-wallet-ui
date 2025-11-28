@@ -18,10 +18,12 @@ struct AppLandingState: ViewState {
 }
 
 final class LandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingState> {
+    private let deepLinkController: DeepLinkController
 
     private let interactor: LandingInteractor
-    init(router: Router, interactor: LandingInteractor, ) {
+    init(router: Router, interactor: LandingInteractor, deepLinkController: DeepLinkController) {
         self.interactor = interactor
+        self.deepLinkController = deepLinkController
         super.init(router: router,
                    initialState: .init(document: DocumentUIModel.mock(),
                                        isLoading: true,
@@ -76,6 +78,21 @@ final class LandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingSt
             )
           )
         )
+    }
+  }
+
+  func onCreate() async {
+    await handleDeepLink()
+  }
+  private func handleDeepLink() async {
+    if let deepLink = deepLinkController.getPendingDeepLinkAction() {
+      deepLinkController.handleDeepLinkAction(
+        routerHost: router,
+        deepLinkExecutable: deepLink,
+        remoteSessionCoordinator: deepLink.requiresCoordinator
+        ? await interactor.getWalletKitController().startSameDevicePresentation(deepLink: deepLink.link)
+        : nil
+      )
     }
   }
 }
