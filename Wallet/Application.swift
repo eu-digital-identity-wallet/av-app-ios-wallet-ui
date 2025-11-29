@@ -34,7 +34,6 @@ struct Application: App {
 
 #if !DEBUG
     disableUnifiedLogging()
-    disableSwinjectLogging()
     disableURLCache()
     LoggingSystem.bootstrap { _ in
       SwiftLogNoOpLogHandler()
