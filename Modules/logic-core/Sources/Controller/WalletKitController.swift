@@ -116,7 +116,7 @@ final actor WalletKitControllerImpl: WalletKitController {
 
     guard let walletKit = try? EudiWallet(
       serviceName: configLogic.documentStorageServiceName,
-      accessGroup: "K2GH358D95.eu.europa.ec.euidi.tsi.dev",
+      accessGroup: WalletKitControllerImpl.getKeychainAccessGroup(),
       trustedReaderCertificates: configLogic.readerConfig.trustedCerts,
       userAuthenticationRequired: configLogic.userAuthenticationRequired,
       openID4VpConfig: configLogic.vpConfig,
@@ -370,7 +370,7 @@ final actor WalletKitControllerImpl: WalletKitController {
 
               return ScopedDocument(
                 name: config.credentialMetadata?.display.getName(fallback: credential.key.value) ?? credential.key.value,
-                issuer: metadata.credentialIssuerIdentifier.url.host.ifNilOrEmpty { issuerName },
+                issuer: metadata.credentialIssuerIdentifier.url.host.ifNilOrEmpty { "issuer.ageverification.dev" },
                 configId: credential.key.value,
                 isPid: id == .sdJwtPid,
                 docTypeIdentifier: id,
@@ -603,5 +603,12 @@ extension WalletKitController {
     } else {
       // Fallback on earlier versions
     }
+  }
+}
+
+extension WalletKitController {
+  // Helper function to get keychain access group
+  static func getKeychainAccessGroup() -> String {
+    return Bundle.getKeychainAccessGroup()
   }
 }

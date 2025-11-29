@@ -18,7 +18,7 @@ import logic_authentication
 import Observation
 
 @Copyable
-struct BiometryState: ViewState {
+public struct BiometryState: ViewState {
   let config: UIConfig.Biometry
   let areBiometricsEnabled: Bool
   let pinError: String?
@@ -37,7 +37,7 @@ struct BiometryState: ViewState {
 }
 
 @Observable
-final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometryState> {
+final public class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometryState> {
 
   @ObservationIgnored
   private let AUTO_VERIFY_ON_APPEAR_DELAY = 250
@@ -58,7 +58,7 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
   @ObservationIgnored
   private var debouncedPinInputField = CurrentValueSubject<String, Never>("")
 
-  init(
+  public init(
     router: Router,
     interactor: BiometryInteractor,
     config: any UIConfigType,
@@ -218,7 +218,11 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
   }
 
   private func authenticated() {
-    doNavigation(navigationType: viewState.config.navigationSuccessType)
+    if let navigationSuccessType = viewState.config.navigationSuccessType {
+      doNavigation(navigationType: navigationSuccessType)
+    } else {
+      viewState.config.onAuthResult?(.success)
+    }
   }
 
   private func pinAttemptFailed(_ error: Error) {

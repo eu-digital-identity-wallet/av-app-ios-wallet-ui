@@ -32,12 +32,12 @@ public protocol QuickPinInteractor: Sendable {
   func isCurrentPinExistInLastUsedPins(pin: String) -> Bool
 }
 
-final actor QuickPinInteractorImpl: @preconcurrency QuickPinInteractor {
+public final actor QuickPinInteractorImpl: @preconcurrency QuickPinInteractor {
 
   private let pinStorageController: PinStorageController
   private let prefsController: PrefsController
 
-    init(pinStorageController: PinStorageController, prefsController: PrefsController) {
+    public init(pinStorageController: PinStorageController, prefsController: PrefsController) {
     self.pinStorageController = pinStorageController
     self.prefsController = prefsController
   }
@@ -114,7 +114,7 @@ final actor QuickPinInteractorImpl: @preconcurrency QuickPinInteractor {
     return isAscending || isDescending
   }
 
-  func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?) {
+  public func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?) {
     pinStorageController.getLockoutStatus()
   }
 

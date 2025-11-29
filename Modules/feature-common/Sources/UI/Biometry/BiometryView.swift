@@ -17,16 +17,16 @@ import SwiftUI
 import logic_ui
 import logic_resources
 
-struct BiometryView<Router: RouterHost>: View {
+public struct BiometryView<Router: RouterHost>: View {
 
   @State private var viewModel: BiometryViewModel<Router>
   @Environment(\.scenePhase) var scenePhase
 
-  init(with viewModel: BiometryViewModel<Router>) {
+  public init(with viewModel: BiometryViewModel<Router>) {
     self._viewModel = State(wrappedValue: viewModel)
   }
 
-  var body: some View {
+  public var body: some View {
     ContentScreenView(
       navigationTitle: viewModel.viewState.config.navigationTitle,
       toolbarContent: viewModel.toolbarContent()

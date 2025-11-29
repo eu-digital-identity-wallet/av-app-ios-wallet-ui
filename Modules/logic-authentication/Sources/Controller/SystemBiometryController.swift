@@ -52,7 +52,7 @@ public protocol SystemBiometryController: Sendable {
   func openSettings(action: @escaping @Sendable () -> Void) async
 }
 
-final actor SystemBiometryControllerImpl: SystemBiometryController {
+public final actor SystemBiometryControllerImpl: SystemBiometryController {
 
   private let context: LAContext
   private let keyChainController: KeyChainController

@@ -1,6 +1,17 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "accept_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accept"
+          }
+        }
+      }
+    },
     "add_doc" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1613,6 +1624,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@/%@ instances remaining"
+          }
+        }
+      }
+    },
+    "document_provider_section_header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This information will be shared:"
           }
         }
       }
@@ -4250,6 +4272,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Processing document..."
+          }
+        }
+      }
+    },
+    "proof_of_age_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Proof of Age"
           }
         }
       }

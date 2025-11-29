@@ -34,13 +34,13 @@ public protocol BiometryInteractor: Sendable {
   func getLockoutStatus() async -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?)
 }
 
-final actor BiometryInteractorImpl: BiometryInteractor {
+public final actor BiometryInteractorImpl: BiometryInteractor {
 
   private let prefsController: PrefsController
   private let quickPinInteractor: QuickPinInteractor
   private let biometryController: SystemBiometryController
 
-  init(
+  public init(
     prefsController: PrefsController,
     quickPinInteractor: QuickPinInteractor,
     biometryController: SystemBiometryController
@@ -102,7 +102,7 @@ final actor BiometryInteractorImpl: BiometryInteractor {
     await quickPinInteractor.isPinValid(pin: pin)
   }
 
-  func getLockoutStatus() async -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?) {
+  public func getLockoutStatus() async -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?) {
     quickPinInteractor.getLockoutStatus()
   }
 

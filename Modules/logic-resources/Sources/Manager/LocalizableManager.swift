@@ -765,6 +765,12 @@ final class LocalizableManager: LocalizableManagerType {
       bundle.localizedString(forKey: "settings_language")
     case .settingsAboutThisApp:
       bundle.localizedString(forKey: "settings_about_this_app")
+    case .acceptButton:
+      bundle.localizedString(forKey: "accept_button")
+    case .proofOfAgeTitle:
+      bundle.localizedString(forKey: "proof_of_age_title")
+    case .documentProviderSectionHeader:
+      bundle.localizedString(forKey: "document_provider_section_header")
     case .unknown:
       bundle.localizedString(forKey: "unknown")
     }

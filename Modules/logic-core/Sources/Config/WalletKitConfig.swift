@@ -180,10 +180,7 @@ struct WalletKitConfigImpl: WalletKitConfig {
   }
 
   var documentStorageServiceName: String {
-    guard let identifier = Bundle.main.bundleIdentifier else {
-      return "eudi.document.storage"
-    }
-    return "\(identifier).eudi.document.storage"
+    return Bundle.getDocumentStorageServiceName()
   }
 
   var logFileName: String {

@@ -31,11 +31,17 @@ public protocol KeyChainController: Sendable {
   func clear()
 }
 
-final class KeyChainControllerImpl: KeyChainController {
+public final class KeyChainControllerImpl: KeyChainController {
+  private let keyChain: Keychain
+
+  public init() {
+    let accessGroup = KeyChainControllerImpl.getKeychainAccessGroup()
+    keyChain = Keychain(service: Bundle.getDocumentStorageServiceName(),
+                        accessGroup: accessGroup)
+      .accessibility(.whenUnlocked)
+  }
 
   private let biometryKey = "eu.europa.ec.euidi.biometric.access"
-  private let keyChain: Keychain = Keychain()
-      .accessibility(.whenUnlocked)
 
   public func storeValue(key: KeyChainWrapper, value: String) {
     keyChain[key.value] = value
@@ -49,7 +55,7 @@ final class KeyChainControllerImpl: KeyChainController {
     keyChain[key.value]
   }
 
-  func getData(key: KeyChainWrapper) -> Data? {
+  public func getData(key: KeyChainWrapper) -> Data? {
     try? keyChain.getData(key.value)
   }
 
@@ -89,5 +95,11 @@ private extension KeyChainControllerImpl {
     if item != nil {
       clearKeyChainBiometry()
     }
+  }
+}
+
+extension KeyChainController {
+  static func getKeychainAccessGroup() -> String {
+    return Bundle.getKeychainAccessGroup()
   }
 }

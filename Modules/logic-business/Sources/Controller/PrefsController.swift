@@ -27,7 +27,9 @@ public protocol PrefsController: Sendable {
   func getUserLocale() -> String
 }
 
-final class PrefsControllerImpl: PrefsController {
+public final class PrefsControllerImpl: PrefsController {
+
+  public init() { }
 
   public func setValue(_ value: Any?, forKey: Prefs.Key) {
     UserDefaults.standard.setValue(value, forKey: forKey.rawValue)

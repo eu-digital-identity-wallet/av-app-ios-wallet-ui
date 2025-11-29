@@ -15,7 +15,7 @@
  */
 import Foundation
 
-protocol PinStorageProvider: Sendable {
+public protocol PinStorageProvider: Sendable {
   func retrievePin() -> String?
   func setPin(with pin: String)
   func isPinValid(with pin: String) -> Bool

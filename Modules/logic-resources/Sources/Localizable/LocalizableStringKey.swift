@@ -435,6 +435,9 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case expandableDocumentCredentialsIssueButton
   case issuanceAddDocumentNoOptions
   case unknown
+  case acceptButton
+  case proofOfAgeTitle
+  case documentProviderSectionHeader
 }
 
 public extension LocalizableStringKey {

@@ -16,52 +16,53 @@
 import Foundation
 import logic_business
 
-final class KeychainPinStorageProvider: PinStorageProvider {
+public final class KeychainPinStorageProvider: PinStorageProvider {
 
   private let keyChainController: KeyChainController
 
-  init(keyChainController: KeyChainController) {
+  public init(keyChainController: KeyChainController) {
     self.keyChainController = keyChainController
   }
 
-  func retrievePin() -> String? {
+  public func retrievePin() -> String? {
     keyChainController.getValue(key: KeyIdentifier.devicePin)
   }
 
-  func setPin(with pin: String) {
+  public func setPin(with pin: String) {
     keyChainController.storeValue(key: KeyIdentifier.devicePin, value: pin)
   }
 
-  func isPinValid(with pin: String) -> Bool {
-    keyChainController.getValue(key: KeyIdentifier.devicePin) == pin
+  public func isPinValid(with pin: String) -> Bool {
+    print("\(keyChainController.getValue(key: KeyIdentifier.devicePin) == pin)")
+    return keyChainController.getValue(key: KeyIdentifier.devicePin) == pin
   }
 
   // MARK: - Brute Force Attack Helper Methods
 
-  func getFailedAttempts() -> Int {
+  public func getFailedAttempts() -> Int {
     Int(keyChainController.getValue(key: KeyIdentifier.pinFailedAttempts) ?? "0") ?? 0
   }
 
-  func incrementFailedAttempts() -> Int {
+  public func incrementFailedAttempts() -> Int {
     let currentAttempts = getFailedAttempts() + 1
     keyChainController.storeValue(key: KeyIdentifier.pinFailedAttempts, value: String(currentAttempts))
     return currentAttempts
   }
 
-  func resetFailedAttempts() {
+  public func resetFailedAttempts() {
     keyChainController.storeValue(key: KeyIdentifier.pinFailedAttempts, value: "0")
     keyChainController.storeValue(key: KeyIdentifier.lockoutUntil, value: "0")
   }
 
-  func setLockoutUntil(timestamp: TimeInterval) {
+  public func setLockoutUntil(timestamp: TimeInterval) {
     keyChainController.storeValue(key: KeyIdentifier.lockoutUntil, value: String(timestamp))
   }
 
-  func getLockoutUntil() -> TimeInterval {
+  public func getLockoutUntil() -> TimeInterval {
     TimeInterval(keyChainController.getValue(key: KeyIdentifier.lockoutUntil) ?? "0") ?? 0
   }
 
-  func isCurrentlyLockedOut() -> Bool {
+  public func isCurrentlyLockedOut() -> Bool {
     let lockoutUntil = getLockoutUntil()
     return lockoutUntil > 0 && Date.now.timeIntervalSince1970 < lockoutUntil
   }
