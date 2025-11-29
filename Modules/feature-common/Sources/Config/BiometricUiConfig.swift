@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -24,19 +24,14 @@ public extension UIConfig {
     public let title: LocalizableStringKey?
     public let caption: LocalizableStringKey
     public let quickPinOnlyCaption: LocalizableStringKey
-    public let navigationSuccessType: ThreeWayNavigationType
+    public let navigationSuccessType: ThreeWayNavigationType?
     public let navigationBackType: ThreeWayNavigationType?
     public let isPreAuthorization: Bool
     public let shouldInitializeBiometricOnCreate: Bool
+    public let onAuthResult: (@Sendable (UIConfig.AuthorizeAction.AuthorizeActionResult) -> Void)?
 
     public var log: String {
-      return "navigationTitle: \(navigationTitle.toString)" +
-      "displayLogo: \(displayLogo)" +
-      "title: \(title?.toString ?? "none")" +
-      " onSuccessNav: \(navigationSuccessType.key)" +
-      " onBackNav: \(navigationBackType?.key ?? "none")" +
-      " isPreAuthorization: \(isPreAuthorization)" +
-      " shouldInitializeBiometricOnCreate: \(shouldInitializeBiometricOnCreate)"
+      return ""
     }
 
     public init(
@@ -45,10 +40,11 @@ public extension UIConfig {
       title: LocalizableStringKey? = nil,
       caption: LocalizableStringKey,
       quickPinOnlyCaption: LocalizableStringKey,
-      navigationSuccessType: ThreeWayNavigationType,
+      navigationSuccessType: ThreeWayNavigationType?,
       navigationBackType: ThreeWayNavigationType?,
       isPreAuthorization: Bool,
-      shouldInitializeBiometricOnCreate: Bool
+      shouldInitializeBiometricOnCreate: Bool,
+      onAuthResult: (@Sendable (UIConfig.AuthorizeAction.AuthorizeActionResult) -> Void)? = nil
     ) {
       self.navigationTitle = navigationTitle
       self.displayLogo = displayLogo
@@ -59,6 +55,19 @@ public extension UIConfig {
       self.navigationBackType = navigationBackType
       self.isPreAuthorization = isPreAuthorization
       self.shouldInitializeBiometricOnCreate = shouldInitializeBiometricOnCreate
+      self.onAuthResult = onAuthResult
+    }
+
+    public static func == (lhs: logic_ui.UIConfig.Biometry, rhs: logic_ui.UIConfig.Biometry) -> Bool {
+      return lhs.navigationTitle == rhs.navigationTitle
+      && lhs.displayLogo == rhs.displayLogo
+      && lhs.title == rhs.title
+      && lhs.caption == rhs.caption
+      && lhs.quickPinOnlyCaption == rhs.quickPinOnlyCaption
+      && lhs.navigationSuccessType == rhs.navigationSuccessType
+      && lhs.navigationBackType == rhs.navigationBackType
+      && lhs.isPreAuthorization == rhs.isPreAuthorization
+      && lhs.shouldInitializeBiometricOnCreate == rhs.shouldInitializeBiometricOnCreate
     }
   }
 }

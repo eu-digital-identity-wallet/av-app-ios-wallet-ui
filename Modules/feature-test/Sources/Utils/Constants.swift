@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -28,7 +28,7 @@ private extension Constants {
   static let pkb64 = "pQECIAEhWCBoHIiBQnDRMLUT4yOLqJ1l8mrfNIgrjNnFq4RyZgxSmiJYIGD/Sabu6GejaR4eTiym1JkyjnBNcJ+f59pN+lCEyhVyI1ggC6EPCKyGci++LGWUX3fXpPFW6pYO8pyyKLMKs1qF0jo="
   static let kcSks = KeyChainSecureKeyStorage(serviceName: "name", accessGroup: "Group")
   static let pk = CoseKeyPrivate(privateKeyId: pkb64, index: 0, secureArea: SoftwareSecureArea.create(storage: kcSks))
-  static let dr = DeviceResponse(data: Constants.sampleCborData.bytes)!
+  static let dr = try! DeviceResponse(data: Constants.sampleCborData.bytes)
 }
 
 extension Constants {
@@ -57,6 +57,7 @@ extension Constants {
       validUntil: nil,
       statusIdentifier: nil,
       credentialsUsageCounts: credentialsUsageCounts,
+      credentialPolicy: .oneTimeUse,
       secureAreaName: nil,
       modifiedAt: nil,
       docClaims: [
@@ -95,6 +96,7 @@ extension Constants {
       validUntil: nil,
       statusIdentifier: nil,
       credentialsUsageCounts: credentialsUsageCounts,
+      credentialPolicy: .oneTimeUse,
       secureAreaName: nil,
       modifiedAt: nil,
       docClaims: [
@@ -124,8 +126,7 @@ extension Constants {
     issuer: "Test Issuer",
     configId: "test-config-id",
     isPid: true,
-    docTypeIdentifier: DocumentTypeIdentifier.mDocPid,
-    isAgeVerification: true
+    docTypeIdentifier: DocumentTypeIdentifier.mDocPid
   )
 
   static let scopedDocumentNotPid = ScopedDocument(
@@ -133,8 +134,7 @@ extension Constants {
     issuer: "Test Issuer",
     configId: "test-config-id",
     isPid: false,
-    docTypeIdentifier: DocumentTypeIdentifier.mDocPid,
-    isAgeVerification: true
+    docTypeIdentifier: DocumentTypeIdentifier.mDocPid
   )
 
   static let defferedPendingDocument = Document(

@@ -30,6 +30,7 @@ public struct DocumentEnrollmentUiConfig: UIConfigType, Equatable, Sendable {
   public let configId: String?
   public let docTypeIdentifier: DocumentTypeIdentifier?
   public let flowType: DocumentFlowType
+  public let issuerId: String?
 
   public var log: String {
     var logString = ""
@@ -40,6 +41,9 @@ public struct DocumentEnrollmentUiConfig: UIConfigType, Equatable, Sendable {
       logString += " hasDocumentData: true"
     }
     logString += " flowType: \(flowType)"
+    if let issuerId = issuerId {
+      logString += " issuerId: \(issuerId)"
+    }
     return logString.isEmpty ? "empty" : logString
   }
 
@@ -48,13 +52,15 @@ public struct DocumentEnrollmentUiConfig: UIConfigType, Equatable, Sendable {
     documentData: DocumentData? = nil,
     configId: String? = nil,
     docTypeIdentifier: DocumentTypeIdentifier? = nil,
-    flowType: DocumentFlowType = .passport
+    flowType: DocumentFlowType = .passport,
+    issuerId: String? = nil
   ) {
     self.mrzKey = mrzKey
     self.documentData = documentData
     self.configId = configId
     self.docTypeIdentifier = docTypeIdentifier
     self.flowType = flowType
+    self.issuerId = issuerId
   }
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -71,21 +71,19 @@ final class ScannerViewModel<Router: RouterHost>: ViewModel<Router, ScannerState
     setState { $0.copy(allowScanning: false) }
     Task {
 
-      let isValid = await Task.detached { () -> Bool in
-        return await self.interactor.validateForm(
-          form: .init(
-            inputs: [
-              [
-                Rule.ValidateUrl(
-                  errorMessage: "",
-                  shouldValidateHost: false,
-                  shouldValidatePath: false
-                )
-              ]: scanResult
-            ]
-          )
-        ).isValid
-      }.value
+      let isValid = await interactor.validateForm(
+        form: .init(
+          inputs: [
+            [
+              Rule.ValidateUrl(
+                errorMessage: "",
+                shouldValidateHost: false,
+                shouldValidatePath: false
+              )
+            ]: scanResult
+          ]
+        )
+      ).isValid
 
       if isValid {
         await self.onScanResultValidated(scanResult: scanResult)

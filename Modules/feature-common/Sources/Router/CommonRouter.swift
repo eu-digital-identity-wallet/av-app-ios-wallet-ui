@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -19,65 +19,65 @@ import logic_business
 @MainActor
 public final class CommonRouter {
 
-  public static func resolve(module: FeatureCommonRouteModule, host: some RouterHost) -> AnyView {
-    return switch module {
+  @ViewBuilder
+  public static func resolve(module: FeatureCommonRouteModule, host: some RouterHost) -> some View {
+    switch module {
     case .quickPin(let config):
       QuickPinView(
         with: .init(
           router: host,
-          interactor: DIGraph.resolver.force(
+          interactor: DIGraph.shared.resolver.force(
             QuickPinInteractor.self
           ),
           config: config
         )
-      ).eraseToAnyView()
+      )
     case .qrScanner(config: let config):
       ScannerView(
         with: .init(
           config: config,
           router: host,
-          interactor: DIGraph.resolver.force(
+          interactor: DIGraph.shared.resolver.force(
             ScannerInteractor.self
           )
         )
-      ).eraseToAnyView()
+      )
     case .biometry(config: let config):
       BiometryView(
         with: .init(
           router: host,
-          interactor: DIGraph.resolver.force(
+          interactor: DIGraph.shared.resolver.force(
             BiometryInteractor.self
           ), config: config
         )
-      ).eraseToAnyView()
+      )
     case .genericSuccess(let config):
       GenericSuccessView(
         with: .init(
           config: config,
           router: host,
-          deepLinkController: DIGraph.resolver.force(
+          deepLinkController: DIGraph.shared.resolver.force(
             DeepLinkController.self
           )
         )
-      ).eraseToAnyView()
+      )
     case .biometrySetup(config: let config):
       BiometrySetupView(with: .init(
         router: host,
-        interactor: DIGraph.resolver.force(BiometryInteractor.self),
+        interactor: DIGraph.shared.resolver.force(BiometryInteractor.self),
         config: config
         )
       )
-      .eraseToAnyView()
     case .changePin(config: let config):
       ChangePinView(with: .init(
         router: host,
-        interactor: DIGraph.resolver.force(QuickPinInteractor.self),
+        interactor: DIGraph.shared.resolver.force(QuickPinInteractor.self),
         config: config)
-      ).eraseToAnyView()
+      )
     case .changePinSuccess:
       ChangePinSuccessView(with: .init(
         router: host)
-      ).eraseToAnyView()
+      )
     }
   }
 }

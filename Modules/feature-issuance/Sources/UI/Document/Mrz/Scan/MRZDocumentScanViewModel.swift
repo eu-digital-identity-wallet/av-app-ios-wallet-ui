@@ -113,7 +113,8 @@ final class MRZDocumentScanViewModel<Router: RouterHost>: ViewModel<Router, MRZD
                 documentData: nil,
                 configId: viewState.config.configId,
                 docTypeIdentifier: viewState.config.docTypeIdentifier,
-                flowType: .passport
+                flowType: .passport,
+                issuerId: viewState.config.issuerId
               )
             )
           ))

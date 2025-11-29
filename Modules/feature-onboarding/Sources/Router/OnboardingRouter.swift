@@ -11,14 +11,13 @@ import logic_core
 
 @MainActor
 public final class OnboardingRouter {
-    public static func resolve(module: FeatureOnboardingRouteModule, host: some RouterHost) -> AnyView {
+  @ViewBuilder
+    public static func resolve(module: FeatureOnboardingRouteModule, host: some RouterHost) -> some View {
         switch module {
         case .welcome:
             WelcomeView(with: .init(router: host))
-                .eraseToAnyView()
         case .consent:
             ConsentView(with: .init(router: host))
-                .eraseToAnyView()
         }
     }
 }

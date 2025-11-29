@@ -64,16 +64,20 @@ struct SettingsView<Router: RouterHost>: View {
         onSupportItemTap: viewModel.onSupportItemTap(item:)
       )
     }
-    .confirmationDialog(
-      title: .custom(""),
-      message: .deleteDocumentConfirmDialog,
-      destructiveText: .deleteDocument,
-      baseText: .cancelButton,
+    .dialogCompat(
+      .custom(""),
       isPresented: $viewModel.isDeletionModalShowing,
-      destructiveAction: {
-        viewModel.onDeleteCredentials()
+      actions: {
+        Button(.deleteDocument, role: .destructive) {
+          viewModel.onDeleteCredentials()
+        }
+        Button(.quickPinUpdateCancellationContinue, role: .cancel) {
+          viewModel.onShowDeleteModal()
+        }
       },
-      baseAction: viewModel.onShowDeleteModal()
+      message: {
+        Text(.deleteDocumentConfirmDialog)
+      }
     )
   }
 }

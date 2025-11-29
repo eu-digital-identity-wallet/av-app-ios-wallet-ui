@@ -17,12 +17,12 @@ struct SettingsState: ViewState {
   let isDeletingCredentials: Bool
 }
 
-final class SettingsViewModel<Router: RouterHost>: ViewModel<Router, SettingsState> {
-  
+final class SettingsViewModel<Router: RouterHost>: ViewModel<Router, SettingsState>, ObservableObject {
+
   @Published var isDeletionModalShowing: Bool = false
-  
+
   private let interactor: SettingsInteractor
-  
+
   init(router: Router, interactor: SettingsInteractor) {
     self.interactor = interactor
     super.init(router: router,
@@ -34,24 +34,24 @@ final class SettingsViewModel<Router: RouterHost>: ViewModel<Router, SettingsSta
                                   )
     )
   }
-  
+
   func navigateBack() {
     router.pop()
   }
-  
+
   func onShowDeleteModal() {
     isDeletionModalShowing = !isDeletionModalShowing
   }
-  
+
   func onDeleteCredentials() {
     isDeletionModalShowing = false
     Task {
       self.setState { $0.copy(isDeletingCredentials: true).copy(error: nil) }
-      
+
       let result = await Task.detached { () -> Result<Void, Error> in
         return await self.interactor.deleteAgeVerificationCredentials()
       }.value
-      
+
       switch result {
       case .success:
         self.setState {
@@ -84,8 +84,6 @@ final class SettingsViewModel<Router: RouterHost>: ViewModel<Router, SettingsSta
           onPinChange()
       case .deleteAgeAttestationProof:
           onShowDeleteModal()
-      default:
-          log("default tap")
       }
   }
 

@@ -11,9 +11,9 @@ import logic_resources
 import logic_core
 
 struct WelcomeView<Router: RouterHost>: View {
-    @ObservedObject var viewModel: WelcomeViewModel<Router>
+    @State var viewModel: WelcomeViewModel<Router>
     init(with viewModel: WelcomeViewModel<Router>) {
-        self.viewModel = viewModel
+      self._viewModel = State(wrappedValue: viewModel)
     }
 
     var body: some View {

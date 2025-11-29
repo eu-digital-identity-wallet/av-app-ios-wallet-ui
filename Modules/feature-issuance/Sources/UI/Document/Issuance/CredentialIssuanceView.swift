@@ -20,10 +20,10 @@ import feature_common
 import logic_resources
 
 struct CredentialIssuanceView<Router: RouterHost>: View {
-  @StateObject private var viewModel: CredentialIssuanceViewModel<Router>
+  @State private var viewModel: CredentialIssuanceViewModel<Router>
 
   init(with viewModel: CredentialIssuanceViewModel<Router>) {
-    self._viewModel = StateObject(wrappedValue: viewModel)
+    self._viewModel = State(wrappedValue: viewModel)
   }
 
   var body: some View {

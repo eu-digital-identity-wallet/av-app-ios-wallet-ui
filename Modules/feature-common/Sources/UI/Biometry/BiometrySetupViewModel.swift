@@ -41,21 +41,18 @@ final class BiometrySetupViewModel<Router: RouterHost>: ViewModel<Router, Biomet
     )
   }
 
-  func onOkButtonClick() {
-    self.interactor.setBiometrySelection(isEnabled: true)
-    interactor.authenticate()
-      .sink { _ in } receiveValue: { [weak self] (state) in
-        guard let self = self else { return }
-        switch state {
-        case .authenticated:
-          self.authenticated()
-        case .failure(let error):
-          if error != .biometricError {
-            self.biometryError = error
-          }
-        default: break
+  func onOkButtonClick() async {
+    await self.interactor.setBiometrySelection(isEnabled: true)
+    Task {
+      switch await interactor.authenticate() {
+      case .authenticated:
+        self.authenticated()
+      case .failure(let error):
+        if error != .biometricError {
+          self.biometryError = error
         }
-      }.store(in: &cancellables)
+      }
+    }
   }
 
   func onSkipButtonClick() {
@@ -79,7 +76,9 @@ final class BiometrySetupViewModel<Router: RouterHost>: ViewModel<Router, Biomet
     }
   }
 
-  func onSettings() {
-    interactor.openSettingsURL {}
+  func onSettings() async {
+    await interactor.openSettings {
+
+    }
   }
 }

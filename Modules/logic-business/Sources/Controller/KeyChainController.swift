@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -31,11 +31,17 @@ public protocol KeyChainController: Sendable {
   func clear()
 }
 
-final class KeyChainControllerImpl: KeyChainController {
+public final class KeyChainControllerImpl: KeyChainController {
+  private let keyChain: Keychain
+
+  public init() {
+    let accessGroup = KeyChainControllerImpl.getKeychainAccessGroup()
+    keyChain = Keychain(service: Bundle.getDocumentStorageServiceName(),
+                        accessGroup: accessGroup)
+      .accessibility(.whenUnlocked)
+  }
 
   private let biometryKey = "eu.europa.ec.euidi.biometric.access"
-  private let keyChain: Keychain = Keychain()
-      .accessibility(.whenUnlocked)
 
   public func storeValue(key: KeyChainWrapper, value: String) {
     keyChain[key.value] = value
@@ -49,7 +55,7 @@ final class KeyChainControllerImpl: KeyChainController {
     keyChain[key.value]
   }
 
-  func getData(key: KeyChainWrapper) -> Data? {
+  public func getData(key: KeyChainWrapper) -> Data? {
     try? keyChain.getData(key.value)
   }
 
@@ -76,7 +82,7 @@ private extension KeyChainControllerImpl {
     try self.keyChain
       .accessibility(
         .whenPasscodeSetThisDeviceOnly,
-        authenticationPolicy: [.touchIDAny]
+        authenticationPolicy: [.biometryAny]
       )
       .set(UUID().uuidString, key: self.biometryKey)
   }
@@ -92,11 +98,8 @@ private extension KeyChainControllerImpl {
   }
 }
 
-public enum KeyChainIdentifier: String, KeyChainWrapper {
-
-  public var value: String {
-    self.rawValue
+extension KeyChainController {
+  static func getKeychainAccessGroup() -> String {
+    return Bundle.getKeychainAccessGroup()
   }
-
-  case realmKey
 }
