@@ -69,13 +69,6 @@ func disableUnifiedLogging() {
 // Call this early in app startup, e.g. in AppDelegate.init()
 #endif
 
-// MARK: - Disable logs from Swinject
-#if !DEBUG
-func disableSwinjectLogging() {
-  Container.loggingFunction = nil
-}
-#endif
-
 // MARK: - Disable Caching for URLSession
 #if !DEBUG
 func disableURLCache() {
