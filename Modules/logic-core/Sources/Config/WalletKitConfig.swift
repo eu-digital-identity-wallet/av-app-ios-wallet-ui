@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -17,14 +17,6 @@ import Foundation
 import logic_business
 import EudiWalletKit
 
-struct VciConfig: Sendable {
-  public let issuerUrl: String
-  public let clientId: String
-  public let redirectUri: URL
-  public let usePAR: Bool
-  public let useDPoP: Bool
-}
-
 struct ReaderConfig: Sendable {
   public let trustedCerts: [Data]
 }
@@ -34,7 +26,12 @@ protocol WalletKitConfig: Sendable {
   /**
    * VCI Configuration
    */
-  var vciConfig: VciConfig { get }
+  var vciConfig: [String: OpenId4VciConfiguration] { get }
+
+  /**
+   * VP Configuration
+   */
+  var vpConfig: OpenId4VpConfiguration { get }
 
   /**
    * Reader Configuration
@@ -94,25 +91,75 @@ struct WalletKitConfigImpl: WalletKitConfig {
     false
   }
 
-  var vciConfig: VciConfig {
-    return switch configLogic.appBuildVariant {
-    case .DEMO:
-        .init(
-          issuerUrl: "https://issuer.ageverification.dev/",
-          clientId: "wallet-dev",
-          redirectUri: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
-          usePAR: true,
-          useDPoP: true
-        )
-    case .DEV:
-        .init(
-          issuerUrl: "https://issuer.dev.ageverification.dev/",
-          clientId: "wallet-dev",
-		  redirectUri: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
-          usePAR: true,
-          useDPoP: true
-        )
+  var vciConfig: [String: OpenId4VciConfiguration] {
+
+    // Note that the following configuration is confusing, but correct.
+    // National IDP -> issuer.ageverification.dev
+    // Passport/ID Document -> issuer.dev.ageverification.dev
+    // for both environments.
+
+    let openId4VciConfigurations: [OpenId4VciConfiguration] = {
+      switch configLogic.appBuildVariant {
+      case .DEMO:
+        return [
+          .init(
+            credentialIssuerURL: "https://issuer.ageverification.dev",
+            client: .public(id: "wallet-dev"),
+            authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
+            usePAR: true,
+            useDpopIfSupported: true,
+            cacheIssuerMetadata: true
+          ),
+          .init(
+            credentialIssuerURL: "https://issuer.dev.ageverification.dev",
+            client: .public(id: "wallet-dev"),
+            authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
+            usePAR: false,
+            useDpopIfSupported: false,
+            cacheIssuerMetadata: true
+          )
+        ]
+      case .DEV:
+        return [
+          .init(
+            credentialIssuerURL: "https://issuer.ageverification.dev",
+            client: .public(id: "wallet-dev"),
+            authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
+            usePAR: true,
+            useDpopIfSupported: true,
+            cacheIssuerMetadata: true
+          ),
+          .init(
+            credentialIssuerURL: "https://issuer.dev.ageverification.dev",
+            client: .public(id: "wallet-dev"),
+            authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
+            usePAR: false,
+            useDpopIfSupported: false,
+            cacheIssuerMetadata: true
+          )
+        ]
+      }
+    }()
+
+    return openId4VciConfigurations.reduce(
+      into: [String: OpenId4VciConfiguration]()
+    ) { dict, config in
+      guard
+        let issuer = config.credentialIssuerURL,
+        let url = URL(string: issuer),
+        let host = url.host
+      else {
+        return
+      }
+      dict[host] = config
     }
+  }
+
+  var vpConfig: OpenId4VpConfiguration {
+    // Match Android configuration: only use RedirectUri scheme
+    // Android uses: withClientIdSchemes(listOf(ClientIdScheme.RedirectUri))
+    // Having multiple schemes can cause the library to use the wrong verification flow
+    .init(clientIdSchemes: [.redirectUri])
   }
 
   var readerConfig: ReaderConfig {
@@ -133,10 +180,7 @@ struct WalletKitConfigImpl: WalletKitConfig {
   }
 
   var documentStorageServiceName: String {
-    guard let identifier = Bundle.main.bundleIdentifier else {
-      return "eudi.document.storage"
-    }
-    return "\(identifier).eudi.document.storage"
+    return Bundle.getDocumentStorageServiceName()
   }
 
   var logFileName: String {
@@ -200,10 +244,19 @@ struct WalletKitConfigImpl: WalletKitConfig {
   var documentIssuanceConfig: DocumentIssuanceConfig {
     DocumentIssuanceConfig(
       defaultRule: DocumentIssuanceRule(
-        policy: .oneTimeUse,
-        numberOfCredentials: 30
+        policy: .rotateUse,
+        numberOfCredentials: 1
       ),
-      documentSpecificRules: [:]
+      documentSpecificRules: [
+        DocumentTypeIdentifier.mDocPid: DocumentIssuanceRule(
+          policy: .oneTimeUse,
+          numberOfCredentials: 10
+        ),
+        DocumentTypeIdentifier.sdJwtPid: DocumentIssuanceRule(
+          policy: .oneTimeUse,
+          numberOfCredentials: 10
+        )
+      ]
     )
   }
 }

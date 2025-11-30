@@ -18,10 +18,12 @@ struct AppLandingState: ViewState {
 }
 
 final class LandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingState> {
+    private let deepLinkController: DeepLinkController
 
     private let interactor: LandingInteractor
-    init(router: Router, interactor: LandingInteractor, ) {
+    init(router: Router, interactor: LandingInteractor, deepLinkController: DeepLinkController) {
         self.interactor = interactor
+        self.deepLinkController = deepLinkController
         super.init(router: router,
                    initialState: .init(document: DocumentUIModel.mock(),
                                        isLoading: true,
@@ -33,11 +35,11 @@ final class LandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingSt
     func onScan() {
         router.push(with: .featureCommonModule(.qrScanner(config: ScannerUiConfig(flow: .presentation))))
     }
-    
+
     func onSettings() {
         router.push(with: .featureAVDashboardModule(.settings))
     }
-    
+
     func getCredentialDetails() async {
         self.setState {
             $0.copy(isLoading: true)
@@ -45,7 +47,7 @@ final class LandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingSt
         let state = await Task.detached { () -> AgeCredentialPartialState in
             return await self.interactor.getAgeCredential()
         }.value
-        
+
         switch state {
         case .success(let document, let credRemainingCount):
           self.setState {
@@ -72,10 +74,25 @@ final class LandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingSt
         router.push(
           with: .featureIssuanceModule(
             .issuanceAddDocument(
-              config: IssuanceFlowUiConfig(flow: .extraDocument)
+              config: IssuanceFlowUiConfig(flow: .extraDocument(filterType: .mDocPid))
             )
           )
         )
+    }
+  }
+
+  func onCreate() async {
+    await handleDeepLink()
+  }
+  private func handleDeepLink() async {
+    if let deepLink = deepLinkController.getPendingDeepLinkAction() {
+      deepLinkController.handleDeepLinkAction(
+        routerHost: router,
+        deepLinkExecutable: deepLink,
+        remoteSessionCoordinator: deepLink.requiresCoordinator
+        ? await interactor.getWalletKitController().startSameDevicePresentation(deepLink: deepLink.link)
+        : nil
+      )
     }
   }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -16,6 +16,7 @@
 
 @_exported import logic_ui
 @_exported import logic_resources
+import Observation
 
 @Copyable
 public struct RequestViewState: ViewState {
@@ -32,11 +33,12 @@ public struct RequestViewState: ViewState {
   public let contentHeaderConfig: ContentHeaderConfig
 }
 
+@Observable
 open class BaseRequestViewModel<Router: RouterHost>: ViewModel<Router, RequestViewState> {
 
-  @Published var isRequestInfoModalShowing: Bool = false
-  @Published var isVerifiedEntityModalShowing: Bool = false
-  @Published var itemsChanged: Bool = false
+  var isRequestInfoModalShowing: Bool = false
+  var isVerifiedEntityModalShowing: Bool = false
+  var itemsChanged: Bool = false
 
   public init(router: Router, originator: AppRoute) {
     super.init(
@@ -125,7 +127,7 @@ open class BaseRequestViewModel<Router: RouterHost>: ViewModel<Router, RequestVi
       $0.copy(
         isLoading: false,
         error: .init(
-          description: .custom(error.localizedDescription),
+          description: .custom(error.errorMessage),
           cancelAction: self.router.pop(),
           action: { self.onErrorAction() }
         )

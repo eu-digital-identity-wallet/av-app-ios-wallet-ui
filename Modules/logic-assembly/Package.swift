@@ -1,11 +1,11 @@
-// swift-tools-version: 6.0.0
+// swift-tools-version: 6.2
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
   name: "logic-assembly",
-  platforms: [.iOS(.v16)],
+  platforms: [.iOS(.v17)],
   products: [
     .library(
       name: "logic-assembly",
@@ -18,7 +18,8 @@ let package = Package(
     .package(name: "feature-presentation", path: "../feature-presentation"),
     .package(name: "feature-issuance", path: "../feature-issuance"),
     .package(name: "feature-onboarding", path: "../feature-onboarding"),
-    .package(name: "feature-av-dashboard", path: "../feature-av-dashboard")
+    .package(name: "feature-av-dashboard", path: "../feature-av-dashboard"),
+    .package(name: "feature-proximity", path: "../feature-proximity")
   ],
   targets: [
     .target(
@@ -29,7 +30,8 @@ let package = Package(
         "feature-presentation",
         "feature-issuance",
         "feature-onboarding",
-        "feature-av-dashboard"
+        "feature-av-dashboard",
+        "feature-proximity"
       ],
       path: "./Sources"
     )

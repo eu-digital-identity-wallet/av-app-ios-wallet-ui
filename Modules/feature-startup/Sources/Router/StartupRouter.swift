@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -19,13 +19,14 @@ import logic_business
 @MainActor
 public final class StartupRouter {
 
-  public static func resolve(module: FeatureStartupRouteModule, host: some RouterHost) -> AnyView {
+  @ViewBuilder
+  public static func resolve(module: FeatureStartupRouteModule, host: some RouterHost) -> some View {
     switch module {
     case .startup:
       StartupView(
         with: .init(
           router: host,
-          interactor: DIGraph.resolver.force(
+          interactor: DIGraph.shared.resolver.force(
             StartupInteractor.self
           )
         )

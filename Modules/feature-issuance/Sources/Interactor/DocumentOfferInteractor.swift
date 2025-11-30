@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -34,7 +34,7 @@ public protocol DocumentOfferInteractor: Sendable {
   func fetchStoredDocuments(documentIds: [String]) async -> OfferDocumentsPartialState
 }
 
-final class DocumentOfferInteractorImpl: DocumentOfferInteractor {
+final actor DocumentOfferInteractorImpl: DocumentOfferInteractor {
 
   private let walletController: WalletKitController
 
@@ -50,8 +50,8 @@ final class DocumentOfferInteractorImpl: DocumentOfferInteractor {
       let codeMinLength = 4
       let codeMaxLength = 6
 
-      let offer = try await walletController.resolveOfferUrlDocTypes(uriOffer: uri)
-        let hasPidStored = !walletController.fetchIssuedDocuments(with: [.avAgeOver18, .mdocEUDIAgeOver18]).isEmpty
+      let offer = try await walletController.resolveOfferUrlDocTypes(offerUri: uri)
+      let hasPidStored = await !walletController.fetchIssuedDocuments(with: [.mDocPid, .sdJwtPid]).isEmpty
 
       if let spec = offer.txCodeSpec,
          let codeLength = spec.length,
@@ -160,11 +160,7 @@ final class DocumentOfferInteractorImpl: DocumentOfferInteractor {
       )
 
       if doc.status == .issued {
-        let state = await Task.detached { () -> OfferDocumentsPartialState in
-          return await self.fetchStoredDocuments(
-            documentIds: [doc.id]
-          )
-        }.value
+        let state = await self.fetchStoredDocuments(documentIds: [doc.id])
         switch state {
         case .success(let documents):
             return .success(
@@ -197,12 +193,12 @@ final class DocumentOfferInteractorImpl: DocumentOfferInteractor {
       }
 
     } catch {
-      return .failure(WalletCoreError.unableToIssueAndStore)
+      return .failure(error)
     }
   }
 
   func fetchStoredDocuments(documentIds: [String]) async -> OfferDocumentsPartialState {
-    let documents = walletController.fetchDocuments(with: documentIds)
+    let documents = await walletController.fetchDocuments(with: documentIds)
     let documentsDetails = documents.compactMap {
       $0.transformToDocumentUi(isSensitive: false)
     }
@@ -218,11 +214,7 @@ final class DocumentOfferInteractorImpl: DocumentOfferInteractor {
     documentIdentifiers: [String],
     isPartialState: Bool = false
   ) async -> OfferResultPartialState {
-    let state = await Task.detached { () -> OfferDocumentsPartialState in
-      return await self.fetchStoredDocuments(
-        documentIds: documentIdentifiers
-      )
-    }.value
+    let state = await self.fetchStoredDocuments(documentIds: documentIdentifiers)
     switch state {
     case .success(let documents):
         if isPartialState {

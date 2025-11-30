@@ -1,11 +1,11 @@
-// swift-tools-version: 6.0
+// swift-tools-version: 6.2
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
   name: "logic-storage",
-  platforms: [.iOS(.v16)],
+  platforms: [.iOS(.v17)],
   products: [
     .library(
       name: "logic-storage",
@@ -13,10 +13,6 @@ let package = Package(
     )
   ],
   dependencies: [
-    .package(
-      url: "https://github.com/realm/realm-swift.git",
-      from: "20.0.3"
-    ),
     .package(
       name: "logic-business",
       path: "./logic-business"
@@ -31,8 +27,7 @@ let package = Package(
       name: "logic-storage",
       dependencies: [
         "logic-business",
-        "logic-resources",
-        .product(name: "RealmSwift", package: "realm-swift")
+        "logic-resources"
       ],
       path: "./Sources"
     )

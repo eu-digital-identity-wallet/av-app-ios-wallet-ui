@@ -28,13 +28,13 @@ final class SettingsInteractorImpl {
 }
 
 extension SettingsInteractorImpl: SettingsInteractor {
-    
+
     func getAppVersion() -> String {
         return configLogic.appVersion
     }
-    
+
     func deleteAgeVerificationCredentials() async -> Result<Void, Error> {
-      await walletController.clearAllDocuments()
+      try? await walletController.clearAllDocuments()
       return .success(())
     }
 }

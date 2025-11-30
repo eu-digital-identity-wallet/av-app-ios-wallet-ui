@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -14,7 +14,6 @@
  * governing permissions and limitations under the Licence.
  */
 import SwiftUI
-import PartialSheet
 import logic_assembly
 import Logging
 
@@ -35,19 +34,18 @@ struct Application: App {
 
 #if !DEBUG
     disableUnifiedLogging()
-    disableSwinjectLogging()
     disableURLCache()
     LoggingSystem.bootstrap { _ in
       SwiftLogNoOpLogHandler()
     }
 #endif
-    
+
     // Depedency Injection
     DIGraph.assembleDependenciesGraph()
 
-    self.routerHost = DIGraph.resolver.force(RouterHost.self)
-    self.deepLinkController = DIGraph.resolver.force(DeepLinkController.self)
-    self.walletKitController = DIGraph.resolver.force(WalletKitController.self)
+    self.routerHost = DIGraph.shared.resolver.force(RouterHost.self)
+    self.deepLinkController = DIGraph.shared.resolver.force(DeepLinkController.self)
+    self.walletKitController = DIGraph.shared.resolver.force(WalletKitController.self)
     self.toolbarConfig = routerHost.getToolbarConfig()
 
   }
@@ -67,7 +65,6 @@ struct Application: App {
 
         routerHost.composeApplication()
           .ignoresSafeArea(edges: .bottom)
-          .attachPartialSheetToRoot()
 
         if blurType != .none {
           BlurView(style: .regular)
@@ -88,8 +85,8 @@ struct Application: App {
           }
         }
       }
-      .onChange(of: scenePhase) { phase in
-        switch phase {
+      .onChange(of: scenePhase) {
+        switch scenePhase {
         case .background:
           self.blurType = .background
         case .inactive:

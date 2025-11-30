@@ -19,7 +19,7 @@ struct CheckboxView: View {
             isChecked.toggle()
             action(isChecked)
         }) {
-            HStack {
+            HStack(alignment: .top) {
                 isChecked ? Theme.shared.image.checkboxChecked : Theme.shared.image.checkboxUnchecked
 
                 Text(label)

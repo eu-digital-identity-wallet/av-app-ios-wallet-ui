@@ -74,7 +74,7 @@ final class DocumentNFCViewModel<Router: RouterHost>: ViewModel<Router, Document
         }
         return
       }
-      
+
       let result = await interactor.readPassport(mrzKey: mrzKey)
 
       await MainActor.run {
@@ -95,7 +95,7 @@ final class DocumentNFCViewModel<Router: RouterHost>: ViewModel<Router, Document
             return
           }
 
-          // Success - navigate to display screen with data, preserving configId and docTypeIdentifier
+          // Success - navigate to display screen with data, preserving configId, docTypeIdentifier, and issuerId
           router.push(with: AppRoute.featureIssuanceModule(
             .documentDataDisplay(
               config: DocumentEnrollmentUiConfig(
@@ -107,7 +107,8 @@ final class DocumentNFCViewModel<Router: RouterHost>: ViewModel<Router, Document
                 ),
                 configId: config.configId,
                 docTypeIdentifier: config.docTypeIdentifier,
-                flowType: config.flowType
+                flowType: config.flowType,
+                issuerId: config.issuerId
               )
             )
           ))
