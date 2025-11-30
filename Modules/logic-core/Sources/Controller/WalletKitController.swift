@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -16,6 +16,7 @@
 import logic_business
 import SwiftUI
 import logic_storage
+import IdentityDocumentServices
 
 private enum KeyIdentifier: String, KeyChainWrapper {
   public var value: String {
@@ -31,24 +32,27 @@ public protocol WalletKitController: Sendable {
   func startProximityPresentation() async -> ProximitySessionCoordinator
   func startSameDevicePresentation(deepLink: URLComponents) async -> RemoteSessionCoordinator
   func startCrossDevicePresentation(urlString: String) async -> RemoteSessionCoordinator
-  func stopPresentation()
+  func stopPresentation() async
 
-  func fetchAllDocuments() -> [DocClaimsDecodable]
-  func fetchDeferredDocuments() -> [WalletStorage.Document]
-  func fetchIssuedDocuments() -> [DocClaimsDecodable]
-  func fetchIssuedDocuments(with types: [DocumentTypeIdentifier]) -> [DocClaimsDecodable]
-  func fetchIssuedDocuments(excluded: [DocumentTypeIdentifier]) -> [DocClaimsDecodable]
-  func fetchMainPidDocument() -> DocClaimsDecodable?
-  func fetchDocument(with id: String) -> DocClaimsDecodable?
-  func fetchDocuments(with ids: [String]) -> [DocClaimsDecodable]
+  func fetchAllDocuments() async -> [DocClaimsDecodable]
+  func fetchDeferredDocuments() async -> [WalletStorage.Document]
+  func fetchIssuedDocuments() async -> [DocClaimsDecodable]
+  func fetchIssuedDocuments(with types: [DocumentTypeIdentifier]) async -> [DocClaimsDecodable]
+  func fetchIssuedDocuments(excluded: [DocumentTypeIdentifier]) async -> [DocClaimsDecodable]
+  func fetchMainPidDocument() async -> DocClaimsDecodable?
+  func fetchDocument(with id: String) async -> DocClaimsDecodable?
+  func fetchDocuments(with ids: [String]) async -> [DocClaimsDecodable]
+  func clearAllDocuments() async throws
 
-  func clearAllDocuments() async
   func deleteDocument(with id: String, status: DocumentStatus) async throws
   func loadDocuments() async throws
-
-  func issueDocument(identifier: String, docTypeIdentifier: DocumentTypeIdentifier) async throws -> WalletStorage.Document
+  func issueDocument(
+    issuerId: String,
+    identifier: String,
+    docTypeIdentifier: DocumentTypeIdentifier
+  ) async throws -> WalletStorage.Document
   func requestDeferredIssuance(with doc: WalletStorage.Document) async throws -> DocClaimsDecodable
-  func resolveOfferUrlDocTypes(uriOffer: String) async throws -> OfferedIssuanceModel
+  func resolveOfferUrlDocTypes(offerUri: String) async throws -> OfferedIssuanceModel
   func issueDocumentsByOfferUrl(
     offerUri: String,
     docTypes: [OfferedDocModel],
@@ -60,13 +64,13 @@ public protocol WalletKitController: Sendable {
     docClaim: DocClaim,
     type: DocumentElementType,
     parser: (String) -> String
-  ) -> [DocumentElementClaim]
-  func retrieveLogFileUrl() -> URL?
+  ) async -> [DocumentElementClaim]
+  func retrieveLogFileUrl() async -> URL?
   func resumePendingIssuance(pendingDoc: WalletStorage.Document, webUrl: URL?) async throws -> WalletStorage.Document
-  func storeDynamicIssuancePendingUrl(with url: URL)
+  func storeDynamicIssuancePendingUrl(with url: URL) async
   func getDynamicIssuancePendingData() async -> DynamicIssuancePendingData?
   func getScopedDocuments() async throws -> [ScopedDocument]
-  func getDocumentCategories() -> DocumentCategories
+  func getDocumentCategories() async -> DocumentCategories
 
   func isDocumentBookmarked(with id: String) async -> Bool
   func storeBookmarkedDocument(with id: String) async throws
@@ -81,12 +85,10 @@ public protocol WalletKitController: Sendable {
   func removeRevokedDocument(with id: String) async throws
 
   func getDocumentStatus(for statusIdentifier: StatusIdentifier) async throws -> CredentialStatus
-  func getCredentialsUsageCount(id: String) async throws -> CredentialsUsageCounts?
-
-  func deleteDepletedDocuments(ofType docTypeIdentifier: DocumentTypeIdentifier) async throws -> Int
+  func isDocumentLowOnCredentials(document: DocClaimsDecodable?) async -> Bool
 }
 
-final class WalletKitControllerImpl: WalletKitController {
+final actor WalletKitControllerImpl: WalletKitController {
 
   let wallet: EudiWallet
   private let sessionCoordinatorHolder: SessionCoordinatorHolder
@@ -112,29 +114,26 @@ final class WalletKitControllerImpl: WalletKitController {
     self.transactionLogStorageController = transactionLogStorageController
     self.revokedDocumentStorageController = revokedDocumentStorageController
 
-    guard let walletKit = try? EudiWallet(serviceName: configLogic.documentStorageServiceName) else {
+    guard let walletKit = try? EudiWallet(
+      serviceName: configLogic.documentStorageServiceName,
+      accessGroup: WalletKitControllerImpl.getKeychainAccessGroup(),
+      trustedReaderCertificates: configLogic.readerConfig.trustedCerts,
+      userAuthenticationRequired: configLogic.userAuthenticationRequired,
+      openID4VpConfig: configLogic.vpConfig,
+      openID4VciConfigurations: configLogic.vciConfig,
+      logFileName: configLogic.logFileName,
+      transactionLogger: configLogic.transactionLogger
+    ) else {
       fatalError("Unable to Initialize WalletKit")
     }
 
+    walletKit.uiCulture = Locale.current.systemLanguageCode
+
     wallet = walletKit
-    wallet.uiCulture = Locale.current.systemLanguageCode
-    wallet.userAuthenticationRequired = configLogic.userAuthenticationRequired
-    wallet.openID4VciIssuerUrl = configLogic.vciConfig.issuerUrl
-    wallet.openID4VciConfig = .init(
-      client: .public(id: configLogic.vciConfig.clientId),
-      authFlowRedirectionURI: configLogic.vciConfig.redirectUri,
-      usePAR: configLogic.vciConfig.usePAR,
-      useDPoP: configLogic.vciConfig.useDPoP
-    )
-    wallet.trustedReaderCertificates = configLogic.readerConfig.trustedCerts
-    #if DEBUG
-    wallet.logFileName = configLogic.logFileName
-    #endif
-    wallet.transactionLogger = configLogic.transactionLogger
   }
 
-  func resolveOfferUrlDocTypes(uriOffer: String) async throws -> OfferedIssuanceModel {
-    return try await wallet.resolveOfferUrlDocTypes(uriOffer: uriOffer)
+  func resolveOfferUrlDocTypes(offerUri: String) async throws -> OfferedIssuanceModel {
+    return try await wallet.resolveOfferUrlDocTypes(offerUri: offerUri)
   }
 
   func issueDocumentsByOfferUrl(
@@ -143,13 +142,12 @@ final class WalletKitControllerImpl: WalletKitController {
     txCodeValue: String?
   ) async throws -> [WalletStorage.Document] {
     let docTypes = docTypes.map { docType in
-      let identifier: DocumentTypeIdentifier? = docType.docType.map {
-        DocumentTypeIdentifier(rawValue: $0)
-      } ?? docType.vct.map { DocumentTypeIdentifier(rawValue: $0) }
-
-      let rule = configLogic.documentIssuanceConfig.rule(for: identifier)
-      let keyOptions = KeyOptions(credentialPolicy: rule.policy, batchSize: rule.numberOfCredentials)
-      return docType.copy(keyOptions: keyOptions)
+      let rule = configLogic.documentIssuanceConfig.rule(for: docType.documentTypeIdentifier)
+      let credentialOptions: CredentialOptions = .init(
+        credentialPolicy: rule.policy,
+        batchSize: rule.numberOfCredentials
+      )
+      return docType.copy(credentialOptions: credentialOptions)
     }
 
     return try await wallet.issueDocumentsByOfferUrl(
@@ -159,8 +157,9 @@ final class WalletKitControllerImpl: WalletKitController {
     )
   }
 
-  func clearAllDocuments() async {
+  func clearAllDocuments() async throws {
     try? await wallet.deleteAllDocuments()
+    try await removeAllRegistration(with: wallet.loadAllDocuments()?.compactMap { return $0.id })
   }
 
   func deleteDocument(with id: String, status: DocumentStatus) async throws {
@@ -173,13 +172,13 @@ final class WalletKitControllerImpl: WalletKitController {
   }
 
   func startProximityPresentation() async -> ProximitySessionCoordinator {
-    self.stopPresentation()
+    await self.stopPresentation()
     let session = await wallet.beginPresentation(flow: .ble)
-    let proximitySessionCoordinator = DIGraph.resolver.force(
+    let proximitySessionCoordinator = DIGraph.shared.resolver.force(
       ProximitySessionCoordinator.self,
       argument: session
     )
-    self.sessionCoordinatorHolder.setActiveProximityCoordinator(proximitySessionCoordinator)
+    await self.sessionCoordinatorHolder.setActiveProximityCoordinator(proximitySessionCoordinator)
     return proximitySessionCoordinator
   }
 
@@ -195,16 +194,12 @@ final class WalletKitControllerImpl: WalletKitController {
     await self.startRemotePresentation(urlString: urlString)
   }
 
-  func stopPresentation() {
-    self.sessionCoordinatorHolder.clear()
+  func stopPresentation() async {
+    await self.sessionCoordinatorHolder.clear()
   }
 
   func fetchAllDocuments() -> [DocClaimsDecodable] {
     return fetchIssuedDocuments() + fetchDeferredDocuments().transformToDeferredDecodables()
-  }
-
-  func getCredentialsUsageCount(id: String) async throws -> CredentialsUsageCounts? {
-    try await wallet.getCredentialsUsageCount(id: id)
   }
 
   func fetchDeferredDocuments() -> [WalletStorage.Document] {
@@ -234,19 +229,56 @@ final class WalletKitControllerImpl: WalletKitController {
     wallet.storage.getDocumentModel(id: id)
   }
 
-  func fetchDocuments(with ids: [String]) -> [DocClaimsDecodable] {
-    fetchIssuedDocuments().filter { ids.contains($0.id) }
+  func fetchDocuments(with ids: [String]) async -> [DocClaimsDecodable] {
+    let documents = fetchIssuedDocuments().filter { ids.contains($0.id) }
+    for document in documents {
+      if let docType = document.docType {
+        do {
+          if #available(iOS 26.0, *) {
+            try await DocumentRegistrationManager.shared.addRegistration(
+              mobileDocumentType: docType,
+              supportedAuthorityKeyIdentifiers: [],
+              documentIdentifier: document.id,
+              invalidationDate: document.validUntil
+            )
+          } else {
+            // Fallback on earlier versions
+          }
+        } catch let error {
+          print("Add failed:", error.localizedDescription)
+        }
+      }
+    }
+    return documents
   }
 
-  func issueDocument(identifier: String, docTypeIdentifier: DocumentTypeIdentifier) async throws -> WalletStorage.Document {
+  func issueDocument(issuerId: String, identifier: String, docTypeIdentifier: DocumentTypeIdentifier) async throws -> WalletStorage.Document {
     let rule = configLogic.documentIssuanceConfig.rule(for: docTypeIdentifier)
-    let keyOptions = KeyOptions(credentialPolicy: rule.policy, batchSize: rule.numberOfCredentials)
-
-    return try await wallet.issueDocument(docTypeIdentifier: .identifier(identifier), keyOptions: keyOptions)
+    return try await wallet.issueDocument(
+      issuerName: issuerId,
+      docTypeIdentifier: .identifier(identifier),
+      credentialOptions: .init(
+        credentialPolicy: rule.policy,
+        batchSize: rule.numberOfCredentials
+      )
+    )
   }
 
   func requestDeferredIssuance(with doc: WalletStorage.Document) async throws -> DocClaimsDecodable {
-    let result = try await wallet.requestDeferredIssuance(deferredDoc: doc)
+    guard
+      let metadata = DocMetadata(from: doc.metadata)
+    else {
+      throw WalletCoreError.missingMetadata
+    }
+    let rule = configLogic.documentIssuanceConfig.rule(for: doc.documentTypeIdentifier)
+    let result = try await wallet.requestDeferredIssuance(
+      issuerName: metadata.credentialIssuerIdentifier,
+      deferredDoc: doc,
+      credentialOptions: .init(
+        credentialPolicy: rule.policy,
+        batchSize: rule.numberOfCredentials
+      )
+    )
     if result.isDeferred {
       return result.transformToDeferredDecodable()
     } else if let doc = fetchDocument(with: result.id) {
@@ -266,7 +298,21 @@ final class WalletKitControllerImpl: WalletKitController {
   }
 
   func resumePendingIssuance(pendingDoc: WalletStorage.Document, webUrl: URL?) async throws -> WalletStorage.Document {
-    return try await wallet.resumePendingIssuance(pendingDoc: pendingDoc, webUrl: webUrl)
+    guard
+      let metadata = DocMetadata(from: pendingDoc.metadata)
+    else {
+      throw WalletCoreError.missingMetadata
+    }
+    let rule = configLogic.documentIssuanceConfig.rule(for: pendingDoc.documentTypeIdentifier)
+    return try await wallet.resumePendingIssuance(
+      issuerName: metadata.credentialIssuerIdentifier,
+      pendingDoc: pendingDoc,
+      webUrl: webUrl,
+      credentialOptions: .init(
+        credentialPolicy: rule.policy,
+        batchSize: rule.numberOfCredentials
+      )
+    )
   }
 
   func storeDynamicIssuancePendingUrl(with url: URL) {
@@ -295,38 +341,62 @@ final class WalletKitControllerImpl: WalletKitController {
 
     return .init(pendingDoc: pendingDoc, url: url)
   }
-
   func getScopedDocuments() async throws -> [ScopedDocument] {
-    let metadata = try await wallet.getIssuerMetadata()
-    return metadata.credentialsSupported.compactMap { credential in
-      switch credential.value {
-      case .msoMdoc(let config):
-        let identifier = DocumentTypeIdentifier(rawValue: config.docType)
-        let isAgeVerification = identifier == .avAgeOver18 || identifier == .mdocEUDIAgeOver18
-        return ScopedDocument(
-          name: config.display.getName(fallback: credential.key.value),
-          issuer: metadata.display.getName(fallback: ""),
-          configId: credential.key.value,
-          isPid: identifier == .mDocPid,
-          docTypeIdentifier: identifier,
-          isAgeVerification: isAgeVerification
-        )
-      case .sdJwtVc(let config):
-        guard let vct = config.vct else {
-          return nil
+
+    try await withThrowingTaskGroup(of: [ScopedDocument].self) { group in
+      for issuerName in configLogic.vciConfig.keys {
+        group.addTask {
+          let metadata = try await self.wallet.getIssuerMetadata(issuerName: issuerName)
+          return metadata.credentialsSupported.compactMap { credential in
+            switch credential.value {
+            case .msoMdoc(let config):
+              let id = DocumentTypeIdentifier(rawValue: config.docType)
+              let isAgeVerification = id == .avAgeOver18 || id == .mdocEUDIAgeOver18
+              return ScopedDocument(
+                name: config.credentialMetadata?.display.getName(fallback: credential.key.value) ?? credential.key.value,
+                issuer: metadata.credentialIssuerIdentifier.url.host.ifNilOrEmpty { issuerName },
+                configId: credential.key.value,
+                isPid: id == .mDocPid,
+                docTypeIdentifier: id,
+                isAgeVerification: isAgeVerification,
+              )
+
+            case .sdJwtVc(let config):
+              guard let vct = config.vct else {
+                return nil
+              }
+              let id = DocumentTypeIdentifier(rawValue: vct)
+              let isAgeVerification = id == .avAgeOver18 || id == .mdocEUDIAgeOver18
+
+              return ScopedDocument(
+                name: config.credentialMetadata?.display.getName(fallback: credential.key.value) ?? credential.key.value,
+                issuer: metadata.credentialIssuerIdentifier.url.host.ifNilOrEmpty { "issuer.ageverification.dev" },
+                configId: credential.key.value,
+                isPid: id == .sdJwtPid,
+                docTypeIdentifier: id,
+                isAgeVerification: isAgeVerification
+              )
+
+            default:
+              return nil
+            }
+          }
         }
-        let identifier = DocumentTypeIdentifier(rawValue: vct)
-        let isAgeVerification = identifier == .avAgeOver18 || identifier == .mdocEUDIAgeOver18
-        return ScopedDocument(
-          name: config.display.getName(fallback: credential.key.value),
-          issuer: metadata.display.getName(fallback: ""),
-          configId: credential.key.value,
-          isPid: identifier == .sdJwtPid,
-          docTypeIdentifier: identifier,
-          isAgeVerification: isAgeVerification
-        )
-      default: return nil
       }
+
+      var documents: [ScopedDocument] = []
+      for try await docs in group {
+        documents.append(contentsOf: docs)
+      }
+      return documents
+    }
+  }
+
+  func isDocumentLowOnCredentials(document: DocClaimsDecodable?) -> Bool {
+    if let document, let documentRemainingCredentials = document.credentialsUsageCounts?.remaining {
+      return document.credentialPolicy == CredentialPolicy.oneTimeUse && documentRemainingCredentials <= 1
+    } else {
+      return false
     }
   }
 
@@ -400,45 +470,25 @@ final class WalletKitControllerImpl: WalletKitController {
   func getDocumentStatus(for statusIdentifier: StatusIdentifier) async throws -> CredentialStatus {
     return try await wallet.getDocumentStatus(for: statusIdentifier)
   }
-
-  func deleteDepletedDocuments(ofType docTypeIdentifier: DocumentTypeIdentifier) async throws -> Int {
-    let documents = fetchIssuedDocuments(with: [docTypeIdentifier])
-    var deletedCount = 0
-
-    for document in documents {
-      if let usageCounts = try? await getCredentialsUsageCount(id: document.id),
-         usageCounts.remaining == 0 {
-        try await deleteDocument(with: document.id, status: .issued)
-        deletedCount += 1
-      }
-    }
-
-    return deletedCount
-  }
 }
 
 private extension WalletKitControllerImpl {
 
   func decodeDeeplink(link: URLComponents) -> String? {
-    // Handling requests of the form
-    //    mdoc-openid4vp://https://eudi.netcompany-intrasoft.com?client_id=Verifier&request_uri=https://eudi.netcompany-intrasoft.com/wallet/request.jwt/OWB1_xVU7ndoHmirBn7S2JpcC5fFPzAXGCY1fTLxDjczVATjzQvre_w4yEcMB4FO5KwuyYXXw-JottarKgEvRQ
-    // so we need to drop scheme and forward slashes and keep the rest of the url in order to
-    // pass to wallet
-
-    return link.removeSchemeFromComponents()?.string
+    link.removeSchemeFromComponents()?.string
   }
 
   func startRemotePresentation(urlString: String) async -> RemoteSessionCoordinator {
-    self.stopPresentation()
+    await self.stopPresentation()
 
     let data = urlString.data(using: .utf8) ?? Data()
 
     let session = await wallet.beginPresentation(flow: .openid4vp(qrCode: data))
-    let remoteSessionCoordinator = DIGraph.resolver.force(
+    let remoteSessionCoordinator = DIGraph.shared.resolver.force(
       RemoteSessionCoordinator.self,
       argument: session
     )
-    self.sessionCoordinatorHolder.setActiveRemoteCoordinator(remoteSessionCoordinator)
+    await self.sessionCoordinatorHolder.setActiveRemoteCoordinator(remoteSessionCoordinator)
     return remoteSessionCoordinator
   }
 }
@@ -538,5 +588,27 @@ extension WalletKitController {
         status: .available(isRequired: false)
       )
     ]
+  }
+
+  func removeAllRegistration(with ids: [String]?) async {
+    if #available(iOS 26.0, *) {
+      guard let ids else {
+        return
+      }
+      do {
+        try await DocumentRegistrationManager.shared.removeRegistration(documentIdentifiers: ids)
+      } catch {
+        print("Remove failed:", error)
+      }
+    } else {
+      // Fallback on earlier versions
+    }
+  }
+}
+
+extension WalletKitController {
+  // Helper function to get keychain access group
+  static func getKeychainAccessGroup() -> String {
+    return Bundle.getKeychainAccessGroup()
   }
 }

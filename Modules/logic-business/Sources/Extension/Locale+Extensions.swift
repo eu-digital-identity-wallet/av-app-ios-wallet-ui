@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -28,7 +28,10 @@ public extension Locale {
   ]
 
   var userSelectedLocale: Locale {
-    return Locale.current
+    guard let identifier = DIGraph.shared.resolver.resolve(PrefsController.self)?.getUserLocale() else {
+      return Locale.current
+    }
+    return Locale(identifier: identifier)
   }
 
   var systemLanguageCode: String? {

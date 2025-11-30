@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -14,20 +14,27 @@
  * governing permissions and limitations under the Licence.
  */
 import logic_ui
+import Observation
+import feature_proximity
 
 private typealias QueueItem = () -> Void
 
-final class RouterHostImpl: RouterHost, ObservableObject {
+@Observable
+final class RouterHostImpl: RouterHost {
 
-  @Published private var pathElements: [AppRoute] = []
+  private var pathElements: [AppRoute] = []
+
+  @ObservationIgnored
   private let rootRoute: AppRoute = .featureStartupModule(.startup)
-
+  @ObservationIgnored
   private let uiConfigLogic: ConfigUiLogic
+  @ObservationIgnored
   private let analyticsController: AnalyticsController
-
+  @ObservationIgnored
   private let lockInterval: Int = 1000
-
+  @ObservationIgnored
   private var queueNavigation: [QueueItem] = []
+  @ObservationIgnored
   private var isLocked: Bool = false
 
   init(
@@ -167,10 +174,14 @@ private extension RouterHostImpl {
     NotificationCenter.default.post(name: .shouldChangeBackgroundColor, object: nil)
   }
 
-  @MainActor func resolveView(_ route: AppRoute) -> AnyView {
+  @MainActor
+  @ViewBuilder
+  func resolveView(_ route: AppRoute) -> some View {
     switch route {
     case .featureStartupModule(let module):
       StartupRouter.resolve(module: module, host: self)
+    case .featureAVDashboardModule(let module):
+      AVDashboardRouter.resolve(module: module, host: self)
     case .featureCommonModule(let module):
       CommonRouter.resolve(module: module, host: self)
     case .featureIssuanceModule(let module):
@@ -178,9 +189,12 @@ private extension RouterHostImpl {
     case .featurePresentationModule(let module):
       PresentationRouter.resolve(module: module, host: self)
     case .featureOnboardingModule(let module):
-        OnboardingRouter.resolve(module: module, host: self)
-    case .featureAVDashboardModule(let module):
-        AVDashboardRouter.resolve(module: module, host: self)
+      OnboardingRouter.resolve(module: module, host: self)
+    case .featureProximityModule(let module):
+      ProximityRouter.resolve(module: module, host: self)
+    default:
+      EmptyView()
+
     }
   }
 }
@@ -189,7 +203,7 @@ private extension RouterHostImpl {
 
   struct RouterContainerView: View {
 
-    @ObservedObject var host: RouterHostImpl
+    @State var host: RouterHostImpl
 
     var body: some View {
       NavigationStack(path: $host.pathElements) {

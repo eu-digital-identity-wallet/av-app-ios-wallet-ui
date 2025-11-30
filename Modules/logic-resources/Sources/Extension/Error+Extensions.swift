@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -13,4 +13,11 @@
  * ANY KIND, either express or implied. See the Licence for the specific language
  * governing permissions and limitations under the Licence.
  */
-public protocol StoredObject: Sendable {}
+import Foundation
+
+public extension Error {
+
+  var errorMessage: String {
+    localizedDescription.isEmpty ? LocalizableStringKey.genericErrorTitle.toString : localizedDescription
+  }
+}

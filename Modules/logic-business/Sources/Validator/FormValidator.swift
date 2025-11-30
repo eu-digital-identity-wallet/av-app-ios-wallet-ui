@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -22,7 +22,7 @@ public protocol FormValidator: Sendable {
   func validateForms(forms: [ValidatableForm]) async -> FormsValidationResult
 }
 
-final class FormValidatorImpl: FormValidator {
+final actor FormValidatorImpl: FormValidator {
 
   public func validateForm(form: ValidatableForm) async -> FormValidationResult {
     var foundError = false
@@ -182,7 +182,7 @@ final class FormValidatorImpl: FormValidator {
   }
 
   private func isPhoneNumberValid(phone: String, countryCode: String) -> Bool {
-    guard let phoneUtil = NBPhoneNumberUtil.sharedInstance() else { return false }
+    let phoneUtil = NBPhoneNumberUtil.sharedInstance()
     do {
       let phoneNumber: NBPhoneNumber = try phoneUtil.parse(phone, defaultRegion: countryCode)
       return phoneUtil.isValidNumber(phoneNumber)
@@ -279,7 +279,7 @@ public struct FormValidationResult: Equatable, Sendable {
   }
 }
 
-public struct FormsValidationResult: Equatable {
+public struct FormsValidationResult: Equatable, Sendable {
   public var isValid: Bool
   public var messages: [String]
 

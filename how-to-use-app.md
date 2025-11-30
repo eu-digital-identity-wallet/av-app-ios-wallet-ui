@@ -1,18 +1,12 @@
-# How to use the application
+# How to use the Age Verification App
 
 Minimum device requirements
 
-- Any device that supports iOS 16.0
+- Any device that supports iOS 17.0
 
 ## Prerequisites
 
-To complete the flows described below you need to build and run the application with xcode. Alternatively, you can directly download the Android app onto your device.
-
-App center download method (Android app)
-
-In addition to building the app from the source, you can also use the Android app which you can download *[here](https://install.appcenter.ms/orgs/eu-digital-identity-wallet/apps/eudi-reference-android/distribution_groups/eudi%20wallet%20(demo)%20public)*
-
-Run the app from the source (xcode build)
+To complete the flows described below you need to build and run the application with Xcode.
 
 Clone this repo and make sure you have access to the dependencies below:
 
@@ -22,7 +16,7 @@ Clone this repo and make sure you have access to the dependencies below:
 
 [iso18013-security](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-iso18013-security.git)
 
-[wallet-storage.](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-storage.git)
+[wallet-storage](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-storage.git)
 
 [wallet-kit](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-kit)
 
@@ -31,8 +25,6 @@ Clone this repo and make sure you have access to the dependencies below:
 [presentation-exchange-swift](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-presentation-exchange-swift.git)
 
 [openid4vci-swift](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-openid4vci-swift)
-
-You will also need to download the Android Verifier app. More information can be found [here](wiki/verifier_proximity.md)
 
 ## App launch
 
@@ -74,16 +66,3 @@ If you want to re-issue a document you must delete it first by tapping on the do
 8. A browser will open showing that the Verifier has accepted your request.
 9. Return to the app. You are back to the "Dashboard" screen and the flow is complete.
 
-## Proximity flow
-
-1. The user logs in successfully to the EUDI Wallet app and views the dashboard.
-2. The user clicks the 'SHOW QR' button to display the QR code.
-3. The Relying Party scans the presented QR code.
-4. EUDI Wallet User can view the requested data set from the relying party.
-
-    1. The distinction between mandatory and optional data elements is depicted.
-    2. The requestor (i.e. relying party) of the data is depicted.
-    3. EUDI Wallet User may select additional optional attributes to be shared.
-5. EUDI Wallet User selects the option to share the attributes.
-6. EUDI Wallet authenticates to share data (quick PIN).
-7. User authorization is accepted - a corresponding message is displayed to the  EUDI Wallet User.

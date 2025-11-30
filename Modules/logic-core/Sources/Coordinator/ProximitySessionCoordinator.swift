@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -27,12 +27,11 @@ public protocol ProximitySessionCoordinator: Sendable {
   func startQrEngagement() async throws -> UIImage
   func requestReceived() async throws -> PresentationRequest
   func sendResponse(response: RequestItemConvertible) async
-
   func getState() async -> PresentationState
+
   func setState(presentationState: PresentationState)
   func getStream() -> AsyncStream<PresentationState>
   func stopPresentation()
-
 }
 
 final class ProximitySessionCoordinatorImpl: ProximitySessionCoordinator {

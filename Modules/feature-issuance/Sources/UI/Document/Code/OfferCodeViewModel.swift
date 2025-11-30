@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -17,6 +17,7 @@ import Foundation
 import logic_ui
 import logic_resources
 import feature_common
+import Observation
 
 @Copyable
 struct OfferCodeViewState: ViewState {
@@ -28,13 +29,23 @@ struct OfferCodeViewState: ViewState {
   let contentHeaderConfig: ContentHeaderConfig
 }
 
+@Observable
 final class OfferCodeViewModel<Router: RouterHost>: ViewModel<Router, OfferCodeViewState> {
 
-  @Published var codeInput: String = ""
-  @Published var codeIsFocused: Bool = true
+  var codeInput: String = "" {
+    didSet {
+      debouncedCodeInput.send(codeInput)
+    }
+  }
+  var codeIsFocused: Bool = true
 
+  @ObservationIgnored
   private let CODE_INPUT_DEBOUNCE = 250
+  @ObservationIgnored
   private let interactor: DocumentOfferInteractor
+
+  @ObservationIgnored
+  private var debouncedCodeInput = CurrentValueSubject<String, Never>("")
 
   init(
     router: Router,
@@ -70,13 +81,12 @@ final class OfferCodeViewModel<Router: RouterHost>: ViewModel<Router, OfferCodeV
   func checkPendingIssuance() async {
 
     let config: IssuanceCodeUiConfig = viewState.config
+    let interactor = self.interactor
 
-    let state = await Task.detached { () -> OfferDynamicIssuancePartialState in
-      return await self.interactor.resumeDynamicIssuance(
-        issuerName: config.issuerName,
-        successNavigation: config.successNavigation
-      )
-    }.value
+    let state = await interactor.resumeDynamicIssuance(
+      issuerName: config.issuerName,
+      successNavigation: config.successNavigation
+    )
 
     switch state {
     case .success(let route):
@@ -87,7 +97,7 @@ final class OfferCodeViewModel<Router: RouterHost>: ViewModel<Router, OfferCodeV
         $0.copy(
           isLoading: false,
           error: .init(
-            description: .custom(error.localizedDescription),
+            description: .custom(error.errorMessage),
             cancelAction: self.setState { $0.copy(error: nil) }
           )
         )
@@ -124,16 +134,15 @@ final class OfferCodeViewModel<Router: RouterHost>: ViewModel<Router, OfferCodeV
       setState { $0.copy(isLoading: true).copy(error: nil) }
 
       let config = viewState.config
+      let codeInput = self.codeInput
 
-      let state = await Task.detached { () -> OfferResultPartialState in
-        return await self.interactor.issueDocuments(
-          with: config.offerUri,
-          issuerName: config.issuerName,
-          docOffers: config.docOffers,
-          successNavigation: config.successNavigation,
-          txCodeValue: self.codeInput
-        )
-      }.value
+      let state = await interactor.issueDocuments(
+        with: config.offerUri,
+        issuerName: config.issuerName,
+        docOffers: config.docOffers,
+        successNavigation: config.successNavigation,
+        txCodeValue: codeInput
+      )
 
       switch state {
       case .success(let route):
@@ -159,7 +168,7 @@ final class OfferCodeViewModel<Router: RouterHost>: ViewModel<Router, OfferCodeV
           $0.copy(
             isLoading: false,
             error: .init(
-              description: .custom(error.localizedDescription),
+              description: .custom(error.errorMessage),
               cancelAction: self.resetError()
             )
           )
@@ -179,7 +188,7 @@ final class OfferCodeViewModel<Router: RouterHost>: ViewModel<Router, OfferCodeV
   }
 
   private func subscribeToCodeInput() {
-    $codeInput
+    debouncedCodeInput
       .dropFirst()
       .debounce(for: .milliseconds(CODE_INPUT_DEBOUNCE), scheduler: RunLoop.main)
       .removeDuplicates()

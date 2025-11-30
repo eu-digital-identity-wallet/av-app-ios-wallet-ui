@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -13,28 +13,30 @@
  * ANY KIND, either express or implied. See the Licence for the specific language
  * governing permissions and limitations under the Licence.
  */
-import PartialSheet
-import SwiftUI
-import logic_resources
+import Swinject
 
-public struct SheetStyle {
+public extension Resolver {
 
-  public static var iphoneSheetStyle: PSIphoneStyle {
-    return PSIphoneStyle(
-      background: .solid(Theme.shared.color.background),
-      handleBarStyle: .none,
-      cover: .enabled(Theme.shared.color.onBackground.opacity(0.5)),
-      cornerRadius: 20
-    )
+  func force<Service>(_ serviceType: Service.Type) -> Service {
+    resolve(serviceType)!
   }
 
-  public static var IpadMacSheetStyle: PSIpadMacStyle {
-    return PSIpadMacStyle(
-      backgroundColor: Theme.shared.color.background,
-      closeButtonStyle: .icon(
-        image: Theme.shared.image.xmark,
-        color: Theme.shared.color.primary
-      )
-    )
+  func force<Service>(_ serviceType: Service.Type, name: String?) -> Service {
+    resolve(serviceType, name: name)!
+  }
+
+  func force<Service, Arg1>(
+    _ serviceType: Service.Type,
+    argument: Arg1
+  ) -> Service {
+    resolve(serviceType, argument: argument)!
+  }
+
+  func force<Service, Arg1>(
+    _ serviceType: Service.Type,
+    name: String?,
+    argument: Arg1
+  ) -> Service {
+    resolve(serviceType, name: name, argument: argument)!
   }
 }
