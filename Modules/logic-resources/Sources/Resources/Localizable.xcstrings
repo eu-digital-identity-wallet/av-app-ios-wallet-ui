@@ -6219,31 +6219,31 @@
       "localizations" : {
         "da" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Du delte følgende oplysninger med"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Sie haben die folgenden Informationen erfolgreich geteilt mit"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "You successfully shared the following information with"
+            "value" : "You have successfully added the following to your application"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Les informations suivantes ont bien été communiquées à"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Hai condiviso correttamente le seguenti informazioni con"
           }
         }

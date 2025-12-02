@@ -39,6 +39,18 @@ public struct WrapListItemView: View {
     return text
   }
 
+  private var mainText: LocalizableStringKey {
+    switch listItem.mainContent {
+    case.text(let content):
+      guard let isBool = Bool(content.toString) else {
+        return content
+      }
+      return isBool ? .custom("yes") : .custom("no")
+    default:
+      return .custom("")
+    }
+  }
+
   public init(
     listItem: ListItemData,
     mainTextVerticalPadding: CGFloat? = nil,
@@ -90,8 +102,8 @@ public struct WrapListItemView: View {
 
         HStack(spacing: SPACING_SMALL) {
           switch listItem.mainContent {
-          case .text(let mainText):
-            Text(mainText)
+          case .text:
+            Text(mainText.toString)
               .typography(Theme.shared.font.headlineMedium)
               .foregroundStyle(Theme.shared.color.onSurface)
               .fontWeight(listItem.mainStyle == .plain ? .medium : .bold)

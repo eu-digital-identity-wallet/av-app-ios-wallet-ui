@@ -30,7 +30,7 @@ public struct DocumentSuccessView<Router: RouterHost, RequestItem: Sendable>: Vi
     ContentScreenView(
       padding: .zero,
       canScroll: true,
-      navigationTitle: .dataShared,
+      navigationTitle: .custom(""),
       toolbarContent: viewModel.toolbarContent()
     ) {
       content(
