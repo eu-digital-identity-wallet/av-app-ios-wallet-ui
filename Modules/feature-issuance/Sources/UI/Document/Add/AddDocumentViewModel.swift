@@ -144,34 +144,6 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
     }
   }
 
-  func onScanClick() {
-    var successNavigation: UIConfig.TwoWayNavigationType {
-      switch viewState.config.flow {
-      case .noDocument:
-          .push(.featureAVDashboardModule(.appLanding))
-      case .extraDocument:
-          .popTo(.featureAVDashboardModule(.appLanding))
-      }
-    }
-
-    router.push(
-      with: .featureCommonModule(
-        .qrScanner(
-          config: ScannerUiConfig(
-            flow: .issuing(
-              successNavigation: successNavigation,
-              cancelNavigation: .popTo(
-                .featureIssuanceModule(
-                  .issuanceAddDocument(config: viewState.config)
-                )
-              )
-            )
-          )
-        )
-      )
-    )
-  }
-
   func pop() {
     router.pop()
   }
