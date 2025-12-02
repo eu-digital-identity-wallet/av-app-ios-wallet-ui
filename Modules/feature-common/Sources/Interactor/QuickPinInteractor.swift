@@ -26,10 +26,10 @@ public protocol QuickPinInteractor: Sendable {
   func isPinValid(pin: String) async -> QuickPinPartialState
   func changePin(currentPin: String, newPin: String) async -> QuickPinPartialState
   func hasPin() async -> Bool
-  func isFirstPinIncomplete(_ pin: String, quickPinSize: Int) -> Bool
-  func validatePinSecurity(_ pin: String) -> LocalizableStringKey?
-  func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?)
-  func isCurrentPinExistInLastUsedPins(pin: String) -> Bool
+  nonisolated func isFirstPinIncomplete(_ pin: String, quickPinSize: Int) -> Bool
+  nonisolated func validatePinSecurity(_ pin: String) -> LocalizableStringKey?
+  func getLockoutStatus() async -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?)
+  nonisolated func isCurrentPinExistInLastUsedPins(pin: String) -> Bool
 }
 
 public final actor QuickPinInteractorImpl: @preconcurrency QuickPinInteractor {
@@ -56,7 +56,7 @@ public final actor QuickPinInteractorImpl: @preconcurrency QuickPinInteractor {
     prefsController.setValue(lastUsedPins, forKey: .lastUsedPins)
   }
 
-  public func isCurrentPinExistInLastUsedPins(pin: String) -> Bool {
+  nonisolated public func isCurrentPinExistInLastUsedPins(pin: String) -> Bool {
     guard let usedPins = prefsController.getValue(forKey: .lastUsedPins) as? [String] else {
         return false
     }
@@ -98,11 +98,11 @@ public final actor QuickPinInteractorImpl: @preconcurrency QuickPinInteractor {
     }
   }
 
-  public func isFirstPinIncomplete(_ pin: String, quickPinSize: Int) -> Bool {
+  nonisolated public func isFirstPinIncomplete(_ pin: String, quickPinSize: Int) -> Bool {
     return pin.count != quickPinSize
   }
 
-  private func isSequential(digits: [Int]) -> Bool {
+  nonisolated private func isSequential(digits: [Int]) -> Bool {
     guard digits.count > 1 else { return false }
 
     // Check ascending (e.g. 1,2,3,4...)
@@ -114,11 +114,11 @@ public final actor QuickPinInteractorImpl: @preconcurrency QuickPinInteractor {
     return isAscending || isDescending
   }
 
-  public func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?) {
+  public func getLockoutStatus() async -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?) {
     pinStorageController.getLockoutStatus()
   }
 
-  public func validatePinSecurity(_ pin: String) -> LocalizableStringKey? {
+  nonisolated public func validatePinSecurity(_ pin: String) -> LocalizableStringKey? {
 
     var error: LocalizableStringKey?
 

@@ -43,11 +43,6 @@ struct QuickPinState: ViewState {
 @Observable
 final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinState> {
 
-//  @Published var uiPinInputField: String = ""
-//  @Published var isCancelModalShowing: Bool = false
-//  private let interactor: QuickPinInteractor
-//  private var lockoutTimer: LockoutTimer
-
   var uiPinInputField: String = "" {
     didSet {
       debouncedPinInputField.send(uiPinInputField)
@@ -101,6 +96,9 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
       case .validate:
         await onValidate()
       case .firstInput:
+        if !validateFirstPinSecurity(uiPinInputField) {
+          break
+        }
         setState {
           $0
             .copy(

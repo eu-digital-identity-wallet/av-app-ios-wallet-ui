@@ -108,6 +108,11 @@ final public class BiometryViewModel<Router: RouterHost>: ViewModel<Router, Biom
       )
     }
 
+    await checkCurrentLockoutStatus()
+    guard !viewState.isLockedOut else {
+      return
+    }
+
     if viewState.config.shouldInitializeBiometricOnCreate, viewState.areBiometricsEnabled, !viewState.autoBiometryInitiated {
       setState { $0.copy(autoBiometryInitiated: true) }
       DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(AUTO_VERIFY_ON_APPEAR_DELAY)) {
