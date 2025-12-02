@@ -36,7 +36,12 @@ public struct WrapListItemView: View {
     else {
       return nil
     }
-    return text
+    // Strings containing "_" are treated as localization keys and fetched from .xcstrings
+    if text.toString.contains("_") {
+      return .dynamic(key: text.toString)
+    } else {
+      return text
+    }
   }
 
   private var mainText: LocalizableStringKey {
