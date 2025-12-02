@@ -32,6 +32,8 @@ final class MrzDocumentIntroViewModel<Router: RouterHost>: ViewModel<Router, Mrz
   }
 
   func startProcedureButtonTapped() {
+    // Clean up any existing passport photo from a previous flow
+    LivenessCheckInteractorImpl.cleanupPassportPhoto()
     router.push(with: .featureIssuanceModule(.documentMRZInstruction(config: viewState.config)))
   }
 }

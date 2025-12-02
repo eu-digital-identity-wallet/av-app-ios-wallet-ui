@@ -47,7 +47,7 @@ final class DocumentNFCViewModel<Router: RouterHost>: ViewModel<Router, Document
   }
 
   func backButtonTapped() {
-    router.pop()
+    router.popTo(with: .featureIssuanceModule(.documentMRZInstruction(config: config)))
   }
 
   func nextButtonTapped() {
