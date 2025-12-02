@@ -1115,31 +1115,31 @@
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jeg accepterer"
+            "value" : "Jeg har læst databeskyttelsesoplysningerne"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ich akzeptiere die Datenschutzinformationen"
+            "value" : "Ich habe die Datenschutzinformationen gelesen"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "I accept the Data Protection Information"
+            "value" : "I have read the Data Protection Information"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "J'accepte la politique de protection des données"
+            "value" : "J'ai lu les informations sur la protection des données"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accetto le Informazioni sulla protezione dei dati"
+            "value" : "Ho letto le informazioni sulla protezione dei dati"
           }
         }
       }
