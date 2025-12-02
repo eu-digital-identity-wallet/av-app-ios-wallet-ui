@@ -72,7 +72,6 @@
 
 /* Begin PBXFileReference section */
 		1198ECD72AC453F200F4E71A /* logic-resources */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "logic-resources"; path = "Modules/logic-resources"; sourceTree = "<group>"; };
-		2E71CDBF2EC4A0D7006EB934 /* feature-proximity */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "feature-proximity"; path = "/Users/A200111500/Documents/Projects/av-app-ios-wallet-ui/Modules/feature-proximity"; sourceTree = "<absolute>"; };
 		2E98E80B2EDA373900EB5B5E /* AgeVerificationRelease Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "AgeVerificationRelease Demo.entitlements"; sourceTree = "<group>"; };
 		2EA7689A2EC9A6F0007F5DED /* WalletDocumentProvider.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = WalletDocumentProvider.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ED634112EDAD20E0085247A /* AgeVerificationDebug Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "AgeVerificationDebug Demo.entitlements"; sourceTree = "<group>"; };
@@ -249,7 +248,6 @@
 				F0C6207D2B6A6246007F903F /* logic-analytics */,
 				F069CC3E2AFAC0AD0033AAC5 /* feature-issuance */,
 				F05E9F372AFABBC200891E8F /* feature-presentation */,
-				2E71CDBF2EC4A0D7006EB934 /* feature-proximity */,
 				F0BFE9B62AD557290062826F /* feature-common */,
 				1198ECD72AC453F200F4E71A /* logic-resources */,
 				F06325112AC59AF50004601F /* feature-test */,
