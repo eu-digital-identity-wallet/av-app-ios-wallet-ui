@@ -19,7 +19,7 @@ import logic_business
 
 public struct SplashBackgroundView: View {
     private let appVersion: String
-    
+
     public init(appVersion: String) {
         self.appVersion = appVersion
     }

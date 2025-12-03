@@ -11,13 +11,13 @@ import logic_resources
 import logic_core
 
 struct CredentialDetailsView: View {
-    
+
     var documentFields: [GenericExpandableItem]
-    
+
     public init(documentFields: [GenericExpandableItem]) {
         self.documentFields = documentFields
     }
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
             Text(LocalizableStringKey.credentialDetailsTitle.toString)

@@ -21,10 +21,10 @@ import feature_common
 import logic_resources
 
 struct DocumentNFCView<Router: RouterHost>: View {
-  @StateObject private var viewModel: DocumentNFCViewModel<Router>
+  @State private var viewModel: DocumentNFCViewModel<Router>
 
   init(with viewModel: DocumentNFCViewModel<Router>) {
-    self._viewModel = StateObject(wrappedValue: viewModel)
+    self._viewModel = State(wrappedValue: viewModel)
   }
 
   var body: some View {

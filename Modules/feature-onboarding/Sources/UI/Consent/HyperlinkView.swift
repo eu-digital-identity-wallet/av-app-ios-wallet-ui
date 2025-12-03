@@ -11,11 +11,12 @@ import logic_core
 
 struct HyperLinkView: View {
     var label: String
-    let onLinkTap: () -> Void
+    var urlString: String
+    @Environment(\.openURL) var openURL
 
     var body: some View {
         Button(action: {
-            onLinkTap()
+            openURL(URL(string: urlString)!)
         }, label: {
             HStack {
                 Text(label)

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -13,23 +13,6 @@
  * ANY KIND, either express or implied. See the Licence for the specific language
  * governing permissions and limitations under the Licence.
  */
-import SwiftUI
-import logic_resources
-
-public struct SheetContentView<Content: View>: View {
-
-  private let content: Content
-
-  public init(@ViewBuilder content: () -> Content) {
-    self.content = content()
-  }
-
-  public var body: some View {
-    ZStack {
-      self.content
-    }
-    .if(UIDevice.current.uiHomeIndicator == .unavailable) {
-      $0.padding(.bottom)
-    }
-  }
+protocol IdentifiableObject: AnyObject {
+  var identifier: String { get }
 }

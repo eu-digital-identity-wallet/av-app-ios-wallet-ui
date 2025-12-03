@@ -1,6 +1,17 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "accept_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accept"
+          }
+        }
+      }
+    },
     "add_doc" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -65,6 +76,42 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Add document"
+          }
+        }
+      }
+    },
+    "age_over_18" : {
+      "comment" : "Proof of Age attestation",
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Alder over 18"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Alter über 18"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Age over 18"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Âge supérieur à 18 ans"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Età superiore a 18 anni"
           }
         }
       }
@@ -953,6 +1000,28 @@
         }
       }
     },
+    "choose_from_list" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose from list"
+          }
+        }
+      }
+    },
+    "choose_from_list_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose a digital document from the list below to add to your wallet."
+          }
+        }
+      }
+    },
     "close" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1046,31 +1115,66 @@
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jeg accepterer"
+            "value" : "Jeg har læst databeskyttelsesoplysningerne"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ich akzeptiere die Datenschutzinformationen"
+            "value" : "Ich habe die Datenschutzinformationen gelesen"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "I accept the Data Protection Information"
+            "value" : "I have read the Data Protection Information"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "J'accepte la politique de protection des données"
+            "value" : "J'ai lu les informations sur la protection des données"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Accetto le Informazioni sulla protezione dei dati"
+            "value" : "Ho letto le informazioni sulla protezione dei dati"
+          }
+        }
+      }
+    },
+    "consent_checkbox_label_3" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jeg giver samtykke til behandling af mine personoplysninger af [applikationsudbyderen] med det formål at indhente en aldersbekræftelse. Denne proces kræver scanning af mit ID eller pas og en video af mig selv for at bekræfte min identitet. Disse data vil kun blive behandlet på min enhed og vil ikke være tilgængelige for [applikationsudbyderen] eller nogen tredjepart. Se databeskyttelsesmeddelelsen for yderligere information."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ich willige ein, dass [der App-Anbieter] meine personenbezogenen Daten zum Zweck der Altersverifizierung verarbeitet. Hierfür ist das Scannen meines Personalausweises oder Reisepasses sowie eine Videoaufnahme von mir erforderlich, um meine Identität zu bestätigen. Diese Daten werden ausschließlich auf meinem Gerät verarbeitet und sind weder für [den App-Anbieter] noch für Dritte zugänglich. Weitere Informationen finden Sie in der Datenschutzerklärung."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I consent to the processing of my personal data by [the application provider] for the purpose of obtaining an age verification attestation. This process requires the scanning of my ID or passport and a video of myself to confirm my identity. These data will be processed on my device only and will not be accessible by  [the application provider] or any third party. See the data protection notice for more information."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Je consens au traitement de mes données personnelles par [le fournisseur de l'application] afin d'obtenir une attestation de vérification d'âge. Ce processus requiert la numérisation de ma carte d'identité ou de mon passeport et l'enregistrement d'une vidéo me concernant pour confirmer mon identité. Ces données seront traitées uniquement sur mon appareil et ne seront accessibles ni à [le fournisseur de l'application] ni à aucun tiers. Consultez la politique de protection des données pour plus d'informations."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acconsento al trattamento dei miei dati personali da parte di [il fornitore dell'applicazione] al fine di ottenere un'attestazione di verifica dell'età. Questo processo richiede la scansione del mio documento d'identità o passaporto e un video di me stesso per confermare la mia identità. Questi dati saranno trattati esclusivamente sul mio dispositivo e non saranno accessibili da [il fornitore dell'applicazione] o da terze parti. Per ulteriori informazioni, consultare l'informativa sulla protezione dei dati."
           }
         }
       }
@@ -1226,127 +1330,6 @@
         }
       }
     },
-    "liveness_check_header" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Record a quick video of yourself"
-          }
-        }
-      }
-    },
-    "liveness_check_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "In this step, you will record a short video of yourself to confirm your identity. Make sure to:"
-          }
-        }
-      }
-    },
-    "liveness_check_instruction_point1" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Face the camera directly in good lighting."
-          }
-        }
-      }
-    },
-    "liveness_check_instruction_point2" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Avoid filters, masks, or obstructions."
-          }
-        }
-      }
-    },
-    "liveness_check_footer" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "This step ensures that you are the rightful owner of the passport / ID card."
-          }
-        }
-      }
-    },
-    "liveness_check_start_button" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start live video"
-          }
-        }
-      }
-    },
-    "liveness_check_error_reference_image" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unable to extract face from reference image. Please try again."
-          }
-        }
-      }
-    },
-    "liveness_check_error_not_live" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Liveness check failed. Please try again in good lighting."
-          }
-        }
-      }
-    },
-    "liveness_check_error_no_match" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Face does not match reference image. Please try again."
-          }
-        }
-      }
-    },
-    "credential_issuance_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Verification Complete"
-          }
-        }
-      }
-    },
-    "credential_issuance_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We are now issuing your proof of age. This might take up to 30 seconds"
-          }
-        }
-      }
-    },
     "credential_details_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1378,6 +1361,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Dettagli delle credenziali"
+          }
+        }
+      }
+    },
+    "credential_issuance_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We are now issuing your proof of age. This might take up to 30 seconds"
+          }
+        }
+      }
+    },
+    "credential_issuance_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verification Complete"
           }
         }
       }
@@ -1655,6 +1660,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@/%@ instances remaining"
+          }
+        }
+      }
+    },
+    "document_provider_section_header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This information will be shared:"
           }
         }
       }
@@ -2471,6 +2487,105 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Learn more"
+          }
+        }
+      }
+    },
+    "liveness_check_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In this step, you will record a short video of yourself to confirm your identity. Make sure to:"
+          }
+        }
+      }
+    },
+    "liveness_check_error_no_match" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Face does not match reference image. Please try again."
+          }
+        }
+      }
+    },
+    "liveness_check_error_not_live" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liveness check failed. Please try again in good lighting."
+          }
+        }
+      }
+    },
+    "liveness_check_error_reference_image" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to extract face from reference image. Please try again."
+          }
+        }
+      }
+    },
+    "liveness_check_footer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This step ensures that you are the rightful owner of the passport / ID card."
+          }
+        }
+      }
+    },
+    "liveness_check_header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Record a quick video of yourself"
+          }
+        }
+      }
+    },
+    "liveness_check_instruction_point1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Face the camera directly in good lighting."
+          }
+        }
+      }
+    },
+    "liveness_check_instruction_point2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avoid filters, masks, or obstructions."
+          }
+        }
+      }
+    },
+    "liveness_check_start_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start live video"
           }
         }
       }
@@ -4196,6 +4311,21 @@
           }
         }
       }
+    },
+    "proof_of_age_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Proof of Age"
+          }
+        }
+      }
+    },
+    "proxmity_connectivity_caption" : {
+      "comment" : "Show this QR code to access the necessary information for sharing",
+      "extractionState" : "manual"
     },
     "qr_scan_informative_text" : {
       "extractionState" : "manual",
@@ -6125,31 +6255,31 @@
       "localizations" : {
         "da" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Du delte følgende oplysninger med"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Sie haben die folgenden Informationen erfolgreich geteilt mit"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "You successfully shared the following information with"
+            "value" : "You have successfully added the following to your application"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Les informations suivantes ont bien été communiquées à"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Hai condiviso correttamente le seguenti informazioni con"
           }
         }

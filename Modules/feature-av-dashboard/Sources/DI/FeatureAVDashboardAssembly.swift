@@ -15,7 +15,7 @@ public final class FeatureAVDashboardAssembly: Assembly {
           )
         }
         .inObjectScope(ObjectScope.transient)
-        
+
         container.register(SettingsInteractor.self) { r in
           SettingsInteractorImpl(
             configLogic: r.force(ConfigLogic.self),

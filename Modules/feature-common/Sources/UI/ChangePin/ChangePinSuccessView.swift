@@ -4,10 +4,10 @@ import logic_resources
 
 struct ChangePinSuccessView<Router: RouterHost>: View {
 
-  @StateObject private var viewModel: ChangePinSuccessViewModel<Router>
+  @State private var viewModel: ChangePinSuccessViewModel<Router>
 
   init(with viewModel: ChangePinSuccessViewModel<Router>) {
-    self._viewModel = StateObject(wrappedValue: viewModel)
+    self._viewModel = State(wrappedValue: viewModel)
   }
 
   var body: some View {

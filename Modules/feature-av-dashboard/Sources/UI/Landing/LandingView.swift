@@ -10,10 +10,10 @@ import logic_resources
 import logic_core
 
 struct LandingView<Router: RouterHost>: View {
-    @ObservedObject var viewModel: LandingViewModel<Router>
+    @State var viewModel: LandingViewModel<Router>
 
     init(with viewModel: LandingViewModel<Router>) {
-        self.viewModel = viewModel
+      self._viewModel = State(wrappedValue: viewModel)
     }
 
     var body: some View {
@@ -28,6 +28,7 @@ struct LandingView<Router: RouterHost>: View {
         }
         .task {
             await viewModel.getCredentialDetails()
+            await viewModel.onCreate()
         }
     }
 }
@@ -38,7 +39,7 @@ private func content(viewState: AppLandingState, onScan: @escaping () -> Void, o
     ZStack(alignment: .bottom) {
         ScrollView {
             VStack(spacing: .zero) {
-                HStack(alignment: .top, spacing: .zero) {
+                HStack(alignment: .center, spacing: .zero) {
                     Spacer()
                         .frame(width: UIScreen.main.bounds.width / 2 - 44)
                     Theme.shared.image.logo
@@ -72,12 +73,12 @@ private func content(viewState: AppLandingState, onScan: @escaping () -> Void, o
             }
             .padding()
         }
-        
+
         // Sticky scan button
         VStack(alignment: .center) {
             Button(action: {
                 onScan()
-              
+
             }) {
                 Theme.shared.image.scanButton
                     .frame(height: 76)
@@ -89,11 +90,6 @@ private func content(viewState: AppLandingState, onScan: @escaping () -> Void, o
         }
         .padding(.bottom, 20)
         .frame(maxWidth: .infinity)
-        .background(
-            Rectangle()
-                .fill(Theme.shared.color.surface)
-                .shadow(color: .black.opacity(0.05), radius: 4, x: 0, y: -2)
-        )
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)
     .background(Theme.shared.color.surface)

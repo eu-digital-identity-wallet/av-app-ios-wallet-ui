@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -15,9 +15,10 @@
  */
 import logic_ui
 import logic_authentication
+import Observation
 
 @Copyable
-struct BiometryState: ViewState {
+public struct BiometryState: ViewState {
   let config: UIConfig.Biometry
   let areBiometricsEnabled: Bool
   let pinError: String?
@@ -35,18 +36,29 @@ struct BiometryState: ViewState {
   }
 }
 
-final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometryState> {
+@Observable
+final public class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometryState> {
 
+  @ObservationIgnored
   private let AUTO_VERIFY_ON_APPEAR_DELAY = 250
+  @ObservationIgnored
   private let PIN_INPUT_DEBOUNCE = 250
   private var lockoutTimer: LockoutTimer
 
-  @Published var uiPinInputField: String = ""
-  @Published var biometryError: SystemBiometryError?
+  var uiPinInputField: String = "" {
+    didSet {
+      debouncedPinInputField.send(uiPinInputField)
+    }
+  }
+  var biometryError: SystemBiometryError?
 
+  @ObservationIgnored
   private let interactor: BiometryInteractor
 
-  init(
+  @ObservationIgnored
+  private var debouncedPinInputField = CurrentValueSubject<String, Never>("")
+
+  public init(
     router: Router,
     interactor: BiometryInteractor,
     config: any UIConfigType,
@@ -62,13 +74,13 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
       router: router,
       initialState: .init(
         config: config,
-        areBiometricsEnabled: interactor.isBiometryEnabled(),
+        areBiometricsEnabled: false,
         pinError: nil,
         throttlePinInput: throttlePinInput,
         scenePhase: .active,
         pendingNavigation: nil,
         autoBiometryInitiated: false,
-        biometryImage: interactor.biometricsImage,
+        biometryImage: nil,
         isCancellable: config.navigationBackType != nil,
         quickPinSize: 6,
         lockoutEndTime: 0,
@@ -84,8 +96,19 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
     self.subscribeToPinInput()
   }
 
-  func onAppearBiometry() {
-    checkCurrentLockoutStatus()
+  func onAppearBiometry() async {
+
+    let biometricsImage = await interactor.getBiometricsImage()
+    let isBiometryEnabled = await interactor.isBiometryEnabled()
+
+    setState {
+      $0.copy(
+        areBiometricsEnabled: isBiometryEnabled,
+        biometryImage: biometricsImage
+      )
+    }
+
+    await checkCurrentLockoutStatus()
     guard !viewState.isLockedOut else {
       return
     }
@@ -108,23 +131,20 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
     guard !viewState.isLockedOut else {
       return
     }
-    interactor.authenticate()
-      .sink { _ in } receiveValue: { [weak self] (state) in
-        guard let self = self else { return }
-        switch state {
-        case .authenticated:
-          self.authenticated()
-        case .failure(let error):
-          if error != .biometricError {
-            self.biometryError = error
-          }
-        default: break
+    Task {
+      switch await interactor.authenticate() {
+      case .authenticated:
+        self.authenticated()
+      case .failure(let error):
+        if error != .biometricError {
+          self.biometryError = error
         }
-      }.store(in: &cancellables)
+      }
+    }
   }
 
   func onSettings() {
-    interactor.openSettingsURL {}
+    Task { await interactor.openSettings {} }
   }
 
   func setPhase(with phase: ScenePhase) {
@@ -134,8 +154,8 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
     }
   }
 
-  private func checkCurrentLockoutStatus() {
-    let lockoutStatus = interactor.getLockoutStatus()
+  private func checkCurrentLockoutStatus() async {
+    let lockoutStatus = await interactor.getLockoutStatus()
     if lockoutStatus.isLockedOut {
       setState { $0.copy(lockoutEndTime: lockoutStatus.lockoutEndTimeInterval) }
       startLockoutTimer(lockoutEndTime: Double(lockoutStatus.lockoutEndTimeInterval!))
@@ -144,7 +164,7 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
 
   private func subscribeToPinInput() {
 
-    let publisher = self.$uiPinInputField.dropFirst()
+    let publisher = self.debouncedPinInputField.dropFirst()
 
     if viewState.throttlePinInput {
       publisher
@@ -165,37 +185,25 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
   }
 
   private func processPin(value: String) {
-
-    if value.count != viewState.quickPinSize {
-      return
-    }
-
-    if viewState.isLockedOut {
-      return
-    }
-
-    let pinValidationResult = interactor.isPinValid(with: value)
-    switch pinValidationResult {
-      case .success:
-        setState {
-          $0.copy(pinError: nil, lockoutEndTime: 0)
+    Task {
+      if value.count == viewState.quickPinSize {
+        switch await interactor.isPinValid(with: uiPinInputField) {
+        case .success:
+          self.authenticated()
+        case .failure(let error):
+          setState { $0.copy(pinError: error.errorMessage) }
+        case .lockedOut(lockoutEndTime: let lockoutEndTime):
+          break
         }
-        self.authenticated()
-      case .failure(let errorMessage, _):
-        setState {
-          $0.copy(pinError: errorMessage, lockoutEndTime: 0)
-        }
-      case .lockedOut(let lockoutEndTime):
-        setState {
-          $0.copy(lockoutEndTime: lockoutEndTime)
-        }
-        startLockoutTimer(lockoutEndTime: lockoutEndTime)
+      } else {
+        setState { $0.copy(pinError: nil) }
+      }
     }
   }
 
   private func startLockoutTimer(lockoutEndTime: TimeInterval) {
     lockoutTimer.start(until: lockoutEndTime) { message in
-      Task {
+      _Concurrency.Task {
         await MainActor.run {
           self.setState {
             $0.copy(pinError: message)
@@ -203,7 +211,7 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
         }
       }
     } onCompletion: {
-      Task {
+      _Concurrency.Task {
         await MainActor.run {
           self.setState {
             $0.copy(pinError: nil)
@@ -215,7 +223,11 @@ final class BiometryViewModel<Router: RouterHost>: ViewModel<Router, BiometrySta
   }
 
   private func authenticated() {
-    doNavigation(navigationType: viewState.config.navigationSuccessType)
+    if let navigationSuccessType = viewState.config.navigationSuccessType {
+      doNavigation(navigationType: navigationSuccessType)
+    } else {
+      viewState.config.onAuthResult?(.success)
+    }
   }
 
   private func pinAttemptFailed(_ error: Error) {

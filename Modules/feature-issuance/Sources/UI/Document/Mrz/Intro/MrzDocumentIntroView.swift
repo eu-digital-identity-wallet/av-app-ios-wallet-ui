@@ -5,10 +5,10 @@ import logic_resources
 import logic_core
 
 struct MrzDocumentIntroView<Router: RouterHost>: View {
-  @StateObject private var viewModel: MrzDocumentIntroViewModel<Router>
+  @State private var viewModel: MrzDocumentIntroViewModel<Router>
 
   init(with viewModel: MrzDocumentIntroViewModel<Router>) {
-    self._viewModel = StateObject(wrappedValue: viewModel)
+    self._viewModel = State(wrappedValue: viewModel)
   }
 
   var body: some View {

@@ -23,7 +23,7 @@ public protocol WalletKitConfig {
   /**
    * VCI Configuration
    */
-  var vciConfig: VciConfig { get }
+  var vciConfig: [String: OpenId4VciConfiguration] { get }
 }
 ```
 Based on the Build Variant of the Wallet (e.g., Dev)
@@ -37,22 +37,37 @@ struct WalletKitConfigImpl: WalletKitConfig {
     self.configLogic = configLogic
   }
 
-  var vciConfig: VciConfig {
-    return switch configLogic.appBuildVariant {
-    case .DEMO:
-        .init(
-          issuerUrl: "your_demo_url",
-          clientId: "your_demo_clientid",
-          redirectUri: URL(string: "your_demo_redirect")!
-        )
-    case .DEV:
-        .init(
-          issuerUrl: "your_dev_url",
-          clientId: "your_dev_clientid",
-          redirectUri: URL(string: "your_dev_redirect")!
-        )
-    }
-  }
+  var vciConfig: [String: OpenId4VciConfiguration] {
+	let openId4VciConfigurations: [OpenId4VciConfiguration] = {
+		switch configLogic.appBuildVariant {
+	    case .DEMO:
+	      return [
+	        .init(
+	          credentialIssuerURL: "your_demo_issuer_url",
+	          client: .public(id: "your_demo_clientid"),
+	          authFlowRedirectionURI: URL(string: "your_demo_redirect")!,
+	          usePAR: should_use_par_bool,
+	          useDPoP: should_use_dpop_bool
+	          useDpopIfSupported: should_use_dpop_bool,
+	          cacheIssuerMetadata: should_cache_metadata_bool
+	        )
+	      ]
+	    case .DEV:
+	      return [
+	        .init(
+	          credentialIssuerURL: "your_dev_issuer_url",
+	          client: .public(id: "your_dev_clientid"),
+	          authFlowRedirectionURI: URL(string: "your_dev_redirect")!,
+	          usePAR: should_use_par_bool,
+	          useDpopIfSupported: should_use_dpop_bool,
+	          cacheIssuerMetadata: should_cache_metadata_bool
+	        )
+	      ]
+	    }
+	  }()
+
+	// ...
+	}
 }
 ```
 
@@ -86,13 +101,50 @@ The *WalletKitConfigImpl* implementation of the *WalletKitConfig* protocol can b
   }
 ```
 
-3. Preregistered Client Scheme
+3. VP API
 
-If you plan to use the Preregistered for OpenId4VP configuration, please add the following to the *WalletKitConfigImpl* initializer.
+Via the *WalletKitConfig* protocol inside the logic-core module.
 
 ```swift
-wallet.verifierApiUri = "your_verifier_url"
-wallet.verifierLegalName = "your_verifier_legal_name"
+public protocol WalletKitConfig {
+  /**
+   * VP Configuration
+   */
+  var vpConfig: OpenId4VpConfiguration { get }
+}
+```
+
+The preregistered scheme is optional. If you want to use it, please add the following: the `SiopOpenID4VP` import and the `.preregistered` option in the `clientIdSchemes` array.
+
+```swift
+import SiopOpenID4VP
+
+struct WalletKitConfigImpl: WalletKitConfig {
+
+  let configLogic: ConfigLogic
+
+  init(configLogic: ConfigLogic) {
+    self.configLogic = configLogic
+  }
+
+  var vpConfig: OpenId4VpConfiguration {
+    .init(
+      clientIdSchemes: [
+        .x509SanDns,
+        .x509Hash,
+        .preregistered(
+          [
+            PreregisteredClient(
+              clientId: "your_verifier_id",
+              verifierApiUri: "your_verifier_url",
+              verifierLegalName: "your_verifier_legal_name"
+            )
+          ]
+        )
+      ]
+    )
+  }
+}
 ```
 
 4. RQES
@@ -142,24 +194,26 @@ final class RQESConfig: EudiRQESUiConfig {
       [
         .init(
           name: "your_dev_name",
-          uri: URL(string: "your_dev_uri")!,
-          scaURL: "your_dev_sca",
+          rsspId: "your_dev_rssp",
+          tsaUrl: "your_dev_tsa",
           clientId: "your_dev_clientid",
           clientSecret: "your_dev_secret",
           authFlowRedirectionURI: "your_dev_redirect",
-          hashAlgorithm: .SHA256
+          hashAlgorithm: .SHA256,
+          includeRevocationInfo: false
         )
       ]
     case .DEMO:
       [
         .init(
           name: "your_demo_name",
-          uri: URL(string: "your_demo_uri")!,
-          scaURL: "your_demo_sca",
+          rsspId: "your_demo_rssp",
+          tsaUrl: "your_demo_tsa",
           clientId: "your_demo_clientid",
           clientSecret: "your_demo_secret",
           authFlowRedirectionURI: "your_demo_redirect",
-          hashAlgorithm: .SHA256
+          hashAlgorithm: .SHA256,
+          includeRevocationInfo: false
         )
       ]
     }

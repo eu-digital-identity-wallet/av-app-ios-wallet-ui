@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -20,10 +20,10 @@ import feature_common
 
 struct DocumentOfferView<Router: RouterHost>: View {
 
-  @StateObject private var viewModel: DocumentOfferViewModel<Router>
+  @State private var viewModel: DocumentOfferViewModel<Router>
 
   init(with viewModel: DocumentOfferViewModel<Router>) {
-    self._viewModel = StateObject(wrappedValue: viewModel)
+    self._viewModel = State(wrappedValue: viewModel)
   }
 
   var body: some View {

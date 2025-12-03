@@ -4,12 +4,12 @@ import logic_resources
 
 struct ChangePinView<Router: RouterHost>: View {
 
-  @StateObject private var viewModel: ChangePinViewModel<Router>
+  @State private var viewModel: ChangePinViewModel<Router>
   @FocusState var uiPinInputFieldInFocus: Bool
   @FocusState var uiPinInputFieldConfirmInFocus: Bool
 
   init(with viewModel: ChangePinViewModel<Router>) {
-    self._viewModel = StateObject(wrappedValue: viewModel)
+    self._viewModel = State(wrappedValue: viewModel)
   }
 
   var body: some View {

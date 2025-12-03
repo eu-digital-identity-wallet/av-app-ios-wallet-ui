@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -28,13 +28,13 @@ public protocol PinStorageController: Sendable {
   func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?)
 }
 
-final class PinStorageControllerImpl: PinStorageController {
+public final class PinStorageControllerImpl: PinStorageController {
   static let MAX_ATTEMPTS: Int = 4
   static let BASE_LOCKOUT_DURATION: TimeInterval = 60
 
   private let provider: PinStorageProvider
 
-  init(provider: PinStorageProvider) {
+  public init(provider: PinStorageProvider) {
     self.provider = provider
   }
 
@@ -95,7 +95,7 @@ final class PinStorageControllerImpl: PinStorageController {
     return PinStorageControllerImpl.BASE_LOCKOUT_DURATION * Double(multiplier)
   }
 
-  func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?) {
+  public func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?) {
     if provider.isCurrentlyLockedOut() {
       return (true, provider.getLockoutUntil())
     } else {

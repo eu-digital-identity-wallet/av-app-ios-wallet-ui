@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -21,12 +21,12 @@ import logic_core
 
 struct AddDocumentView<Router: RouterHost>: View {
 
-  @StateObject private var viewModel: AddDocumentViewModel<Router>
+  @State private var viewModel: AddDocumentViewModel<Router>
 
-  var contentSize: CGFloat = 0.0
+  private var contentSize: CGFloat = 0.0
 
   init(with viewModel: AddDocumentViewModel<Router>) {
-    self._viewModel = StateObject(wrappedValue: viewModel)
+    self._viewModel = State(wrappedValue: viewModel)
     self.contentSize = getScreenRect().width / 2.0
   }
 
@@ -35,25 +35,26 @@ struct AddDocumentView<Router: RouterHost>: View {
       padding: .zero,
       canScroll: true,
       errorConfig: viewModel.viewState.error,
-      navigationTitle: nil,
+      navigationTitle: .chooseFromList,
       isLoading: viewModel.viewState.isLoading,
       toolbarContent: viewModel.toolbarContent()
     ) {
-      if !(viewModel.viewState.config.isExtraDocumentFlow == true) {
-        OnboardingTabsView(steps: Onboardingsteps.allCases,
-                           selectedIndex: 3)
-      }
-      content(viewState: viewModel.viewState) { configId, identifier in
-        viewModel.onClick(configId: configId, docTypeIdentifier: identifier)
+      if viewModel.viewState.addDocumentCellModels.isEmpty {
+        noDocumentsFound()
+      } else {
+        content(
+          viewState: viewModel.viewState
+        ) { issuerId, configId, identifier in
+          viewModel.onClick(
+            issuerId: issuerId,
+            configId: configId,
+            docTypeIdentifier: identifier
+          )
+        }
       }
 
       if viewModel.viewState.showFooterScanner {
         VSpacer.extraSmall()
-        scanFooter(
-          viewState: viewModel.viewState,
-          contentSize: contentSize,
-          action: viewModel.onScanClick()
-        )
       }
     }
     .task {
@@ -66,73 +67,68 @@ struct AddDocumentView<Router: RouterHost>: View {
 @ViewBuilder
 private func content(
   viewState: AddDocumentViewState,
-  action: @escaping (String, DocumentTypeIdentifier) -> Void
+  action: @escaping (String, String, DocumentTypeIdentifier) -> Void
 ) -> some View {
+
   ScrollView {
-      VStack(alignment: .leading, spacing: 16) {
-        VSpacer.small()
-          Text(.verificationStepTitle)
-            .typography(Theme.shared.font.titleMedium)
-            .multilineTextAlignment(.leading)
+    LazyVStack(spacing: SPACING_MEDIUM_SMALL) {
 
-          Text(.verificationStepDescription)
-            .typography(Theme.shared.font.bodyLarge)
-            .foregroundStyle(Theme.shared.color.onSurface)
+      Text(.chooseFromListTitle)
+        .typography(Theme.shared.font.bodyLarge)
+        .foregroundStyle(Theme.shared.color.onSurface)
 
-        ForEach(viewState.addDocumentCellModels) { cell in
-          WrapCardView {
-            WrapListItemView(
-              listItem: cell.listItem,
-              isLoading: cell.isLoading,
-              action: { action(cell.configId, cell.docTypeIdentifier) }
+      ForEach(viewState.addDocumentCellModels.elements, id: \.key) { pair in
+
+        let issuer = pair.key
+        let models = pair.value
+
+        Section(
+          header: WrapTextView(
+            text: .custom(issuer),
+            textConfig: TextConfig(
+              font: Theme.shared.font.bodySmall.font,
+              color: Theme.shared.color.onSurface,
+              textAlign: .leading,
+              fontWeight: .semibold
             )
+          )
+          .frame(maxWidth: .infinity, alignment: .leading)
+          .shimmer(isLoading: viewState.isLoading)
+          .padding(.top, SPACING_MEDIUM_SMALL)
+        ) {
+          ForEach(models, id: \.id) { cell in
+            WrapCardView {
+              WrapListItemView(
+                listItem: cell.listItem,
+                isLoading: cell.isLoading,
+                action: { action(cell.issuerId, cell.configId, cell.docTypeIdentifier) }
+              )
+            }
           }
+        }
       }
     }
     .padding(.horizontal, Theme.shared.dimension.padding)
     .padding(.bottom)
   }
+  .disabled(viewState.addDocumentCellModels.allSatisfy { $0.value.isEmpty })
 }
 
 @MainActor
 @ViewBuilder
-private func scanFooter(
-  viewState: AddDocumentViewState,
-  contentSize: CGFloat,
-  action: @escaping @autoclosure () -> Void
-) -> some View {
-  VStack(spacing: SPACING_MEDIUM) {
-    Spacer()
-    HStack {
-      Spacer()
-      VStack(alignment: .center, spacing: SPACING_MEDIUM) {
-        Text(.or)
-          .typography(Theme.shared.font.bodyMedium)
-          .foregroundColor(Theme.shared.color.onSurfaceVariant)
-        Theme.shared.image.scanDocumentImage
-      }
-      Spacer()
-    }
+private func noDocumentsFound() -> some View {
+  VStack(spacing: .zero) {
+    Text(.chooseFromListTitle)
+      .typography(Theme.shared.font.bodyLarge)
+      .foregroundStyle(Theme.shared.color.onSurface)
 
-    WrapButtonView(
-      style: .custom(
-        textColor: Theme.shared.color.primary,
-        backgroundColor: Theme.shared.color.surfaceContainerLowest,
-        borderColor: Theme.shared.color.primary,
-        useBorder: true
-      ),
-      title: .scanQrCode,
-      isLoading: viewState.isLoading,
-      onAction: action()
+    Spacer()
+    ContentEmptyView(
+      title: .issuanceAddDocumentNoOptions
     )
-
     Spacer()
-
   }
-  .frame(maxWidth: .infinity, maxHeight: contentSize)
-  .padding([.horizontal, .bottom])
-  .background(Theme.shared.color.surfaceContainer)
-  .roundedCorner(SPACING_MEDIUM, corners: [.topLeft, .topRight])
+  .padding(.horizontal, Theme.shared.dimension.padding)
 }
 
 #Preview {
@@ -143,7 +139,9 @@ private func scanFooter(
     showFooterScanner: true
   )
 
-  content(viewState: viewState) { _, _ in }
+  content(
+    viewState: viewState
+  ) { _, _, _ in }
 }
 
 #Preview {
@@ -152,10 +150,5 @@ private func scanFooter(
     error: nil,
     config: IssuanceFlowUiConfig(flow: .noDocument),
     showFooterScanner: true
-  )
-  scanFooter(
-    viewState: viewState,
-    contentSize: 500,
-    action: {}()
   )
 }

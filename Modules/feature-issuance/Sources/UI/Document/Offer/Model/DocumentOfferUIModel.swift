@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -84,27 +84,37 @@ public extension DocumentOfferUIModel {
       uiOffers: [
         .init(
           id: UUID().uuidString,
-          listItem: .init(mainText: .custom("Document Name")),
+          listItem: .init(
+            mainContent: .text(.custom("Document Name"))
+          ),
           documentName: "Document Name"
         ),
         .init(
           id: UUID().uuidString,
-          listItem: .init(mainText: .custom("Document Name")),
+          listItem: .init(
+            mainContent: .text(.custom("Document Name"))
+          ),
           documentName: "Document Name"
         ),
         .init(
           id: UUID().uuidString,
-          listItem: .init(mainText: .custom("Document Name")),
+          listItem: .init(
+            mainContent: .text(.custom("Document Name"))
+          ),
           documentName: "Document Name"
         ),
         .init(
           id: UUID().uuidString,
-          listItem: .init(mainText: .custom("Document Name")),
+          listItem: .init(
+            mainContent: .text(.custom("Document Name"))
+          ),
           documentName: "Document Name"
         ),
         .init(
           id: UUID().uuidString,
-          listItem: .init(mainText: .custom("Document Name")),
+          listItem: .init(
+            mainContent: .text(.custom("Document Name"))
+          ),
           documentName: "Document Name"
         )
       ],
@@ -137,7 +147,9 @@ private extension Array where Element == OfferedDocModel {
     self.forEach { doc in
       offers.append(
         .init(
-          listItem: .init(mainText: .custom(doc.displayName)),
+          listItem: .init(
+            mainContent: .text(.custom(doc.displayName))
+          ),
           documentName: doc.displayName
         )
       )

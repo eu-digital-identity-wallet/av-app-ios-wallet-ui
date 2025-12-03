@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -22,22 +22,22 @@ public enum QuickPinPartialState: Sendable {
 }
 
 public protocol QuickPinInteractor: Sendable {
-  func setPin(newPin: String)
-  func isPinValid(pin: String) -> QuickPinPartialState
-  func changePin(currentPin: String, newPin: String) -> QuickPinPartialState
-  func hasPin() -> Bool
-  func isFirstPinIncomplete(_ pin: String, quickPinSize: Int) -> Bool
-  func validatePinSecurity(_ pin: String) -> LocalizableStringKey?
-  func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?)
-  func isCurrentPinExistInLastUsedPins(pin: String) -> Bool
+  func setPin(newPin: String) async
+  func isPinValid(pin: String) async -> QuickPinPartialState
+  func changePin(currentPin: String, newPin: String) async -> QuickPinPartialState
+  func hasPin() async -> Bool
+  nonisolated func isFirstPinIncomplete(_ pin: String, quickPinSize: Int) -> Bool
+  nonisolated func validatePinSecurity(_ pin: String) -> LocalizableStringKey?
+  func getLockoutStatus() async -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?)
+  nonisolated func isCurrentPinExistInLastUsedPins(pin: String) -> Bool
 }
 
-final class QuickPinInteractorImpl: QuickPinInteractor {
+public final actor QuickPinInteractorImpl: @preconcurrency QuickPinInteractor {
 
   private let pinStorageController: PinStorageController
   private let prefsController: PrefsController
 
-    init(pinStorageController: PinStorageController, prefsController: PrefsController) {
+    public init(pinStorageController: PinStorageController, prefsController: PrefsController) {
     self.pinStorageController = pinStorageController
     self.prefsController = prefsController
   }
@@ -56,7 +56,7 @@ final class QuickPinInteractorImpl: QuickPinInteractor {
     prefsController.setValue(lastUsedPins, forKey: .lastUsedPins)
   }
 
-  public func isCurrentPinExistInLastUsedPins(pin: String) -> Bool {
+  nonisolated public func isCurrentPinExistInLastUsedPins(pin: String) -> Bool {
     guard let usedPins = prefsController.getValue(forKey: .lastUsedPins) as? [String] else {
         return false
     }
@@ -82,7 +82,7 @@ final class QuickPinInteractorImpl: QuickPinInteractor {
   }
 
   public func hasPin() -> Bool {
-    return pinStorageController.retrievePin()?.isEmpty == false
+    pinStorageController.retrievePin()?.isEmpty == false
   }
 
   private func isCurrentPinValid(pin: String) -> QuickPinPartialState {
@@ -98,11 +98,11 @@ final class QuickPinInteractorImpl: QuickPinInteractor {
     }
   }
 
-  public func isFirstPinIncomplete(_ pin: String, quickPinSize: Int) -> Bool {
+  nonisolated public func isFirstPinIncomplete(_ pin: String, quickPinSize: Int) -> Bool {
     return pin.count != quickPinSize
   }
 
-  private func isSequential(digits: [Int]) -> Bool {
+  nonisolated private func isSequential(digits: [Int]) -> Bool {
     guard digits.count > 1 else { return false }
 
     // Check ascending (e.g. 1,2,3,4...)
@@ -114,11 +114,11 @@ final class QuickPinInteractorImpl: QuickPinInteractor {
     return isAscending || isDescending
   }
 
-  func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?) {
+  public func getLockoutStatus() async -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?) {
     pinStorageController.getLockoutStatus()
   }
 
-  public func validatePinSecurity(_ pin: String) -> LocalizableStringKey? {
+  nonisolated public func validatePinSecurity(_ pin: String) -> LocalizableStringKey? {
 
     var error: LocalizableStringKey?
 

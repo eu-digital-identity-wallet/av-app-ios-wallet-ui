@@ -21,10 +21,10 @@ import feature_common
 import logic_resources
 
 struct DocumentDataDisplayView<Router: RouterHost>: View {
-  @StateObject private var viewModel: DocumentDataDisplayViewModel<Router>
+  @State private var viewModel: DocumentDataDisplayViewModel<Router>
 
   init(with viewModel: DocumentDataDisplayViewModel<Router>) {
-    self._viewModel = StateObject(wrappedValue: viewModel)
+    self._viewModel = State(wrappedValue: viewModel)
   }
 
   var body: some View {

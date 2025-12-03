@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -29,6 +29,7 @@ public protocol ConfigUiLogic: Sendable {
 }
 
 struct ConfigUiLogicImpl: ConfigUiLogic {
+  public init() { }
 
   public var backgroundColorForScreenDictionary: [AppRouteKey: UIConfig.ToolBar] = [
     AppRoute.featureAVDashboardModule(.appLanding).info.key: .init(Theme.shared.color.background)

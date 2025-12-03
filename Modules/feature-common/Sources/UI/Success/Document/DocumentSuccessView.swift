@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 European Commission
+ * Copyright (c) 2025 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -18,19 +18,19 @@ import logic_ui
 
 public struct DocumentSuccessView<Router: RouterHost, RequestItem: Sendable>: View {
 
-  @ObservedObject private var viewModel: DocumentSuccessViewModel<Router, RequestItem>
+  @State private var viewModel: DocumentSuccessViewModel<Router, RequestItem>
 
   public init(
     with viewModel: DocumentSuccessViewModel<Router, RequestItem>
   ) {
-    self.viewModel = viewModel
+    self._viewModel = State(wrappedValue: viewModel)
   }
 
   public var body: some View {
     ContentScreenView(
       padding: .zero,
       canScroll: true,
-      navigationTitle: .dataShared,
+      navigationTitle: .custom(""),
       toolbarContent: viewModel.toolbarContent()
     ) {
       content(
@@ -85,14 +85,13 @@ private func documents<RequestItem: Sendable>(
       ForEach(viewState.items, id: \.id) { section in
         WrapExpandableListView(
           header: .init(
-            mainText: .custom(section.title),
+            mainContent: .text(.custom(section.title)),
             supportingText: .viewDetails
           ),
           items: section.listItems,
           backgroundColor: backgroundColor,
           hideSensitiveContent: false,
           isLoading: viewState.isLoading,
-          isExpanded: true,
           onItemClick: { onSelectionChanged($0.groupId) }
         )
       }

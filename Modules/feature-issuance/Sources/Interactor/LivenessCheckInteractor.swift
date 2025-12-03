@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 import logic_core
 import logic_resources
 #if !targetEnvironment(simulator)
@@ -19,29 +20,39 @@ final class LivenessCheckInteractorImpl: LivenessCheckInteractor {
     initializeSDK()
   }
 
+  /// Fixed path for passport reference photo - reused across liveness check attempts
+  static let passportPhotoPath: String = {
+    FileManager.default.temporaryDirectory.appendingPathComponent("passport_reference_photo.jpg").path
+  }()
+
+  /// Cleans up any existing passport photo from a previous flow
+  static func cleanupPassportPhoto() {
+    try? FileManager.default.removeItem(atPath: passportPhotoPath)
+  }
+
   func performLivenessCheck(referenceImageData: Data) async -> LivenessCheckPartialState {
     #if targetEnvironment(simulator)
     return .simulatorNotSupported
     #else
-    // Save photo data to a temporary file for the SDK
-    let tempDirectory = FileManager.default.temporaryDirectory
-    let refPath = tempDirectory.appendingPathComponent("passport_photo_\(UUID().uuidString).jpg").path
-    let refURL = URL(fileURLWithPath: refPath)
+    let refPath = Self.passportPhotoPath
+
+    // Convert passport photo data to standard JPEG format
+    // Passport chips store photos in JPEG2000 format (per ICAO 9303), which the SDK may not support
+    guard let uiImage = UIImage(data: referenceImageData),
+          let jpegData = uiImage.jpegData(compressionQuality: 0.95) else {
+      log("Failed to convert reference image to JPEG format", level: .error)
+      return .failure(.unableToWriteTempFile)
+    }
 
     do {
-      try referenceImageData.write(to: refURL)
+      // Overwrite any existing file at this path
+      try jpegData.write(to: URL(fileURLWithPath: refPath), options: .atomic)
     } catch {
       log("Failed to write reference image to temp file: \(error)", level: .error)
       return .failure(.unableToWriteTempFile)
     }
 
-    // Ensure temporary file is cleaned up when function exits
-    defer {
-      try? FileManager.default.removeItem(at: refURL)
-      log("Cleaned up temporary reference image file", level: .debug)
-    }
-
-    log("Starting liveness check with reference image", level: .info)
+    log("Starting liveness check with reference image at: \(refPath)", level: .info)
 
     // Call the SDK
     let matchResult = await captureAndMatchAsync(referenceImagePath: refPath)
@@ -69,7 +80,7 @@ final class LivenessCheckInteractorImpl: LivenessCheckInteractor {
     }
     #endif
   }
-
+  // swiftlint:disable large_tuple
   #if !targetEnvironment(simulator)
   private nonisolated func captureAndMatchAsync(referenceImagePath: String) async -> (processed: Bool, referenceIsValid: Bool, capturedIsLive: Bool, isSameSubject: Bool, capturedPath: String?) {
     await withUnsafeContinuation { continuation in
@@ -87,6 +98,7 @@ final class LivenessCheckInteractorImpl: LivenessCheckInteractor {
     }
   }
   #endif
+  // swiftlint:enable large_tuple
 
   private func initializeSDK() {
     #if !targetEnvironment(simulator)
