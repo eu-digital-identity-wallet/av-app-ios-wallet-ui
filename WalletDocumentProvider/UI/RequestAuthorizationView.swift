@@ -48,7 +48,15 @@ struct RequestAuthorizationView: View {
       if let requestSet = viewModel.requestSet,
          let websiteName = viewModel.websiteName {
         Text(websiteName).font(.headline).padding(.bottom, 6)
+
         List {
+          HStack(alignment: .center) {
+            ThemeManager.shared.image.logoEuDigitalIndentityWallet
+              .resizable()
+              .scaledToFit()
+              .frame(width: 60, height: 60)
+          }
+          .frame(maxWidth: .infinity, alignment: .center)
           VStack(alignment: .leading, spacing: 12) {
             ForEach(requestSet.requests, id: \.documentType) { rs in
               VStack(alignment: .leading, spacing: 4) {

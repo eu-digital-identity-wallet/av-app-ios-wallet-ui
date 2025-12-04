@@ -69,14 +69,14 @@ class RequestAuthorizationViewModel: ObservableObject {
   func createBiometryConfig(routerHost: RouterHost) -> UIConfig.Biometry {
     UIConfig.Biometry(
       navigationTitle: .custom(""),
-      displayLogo: true,
+      displayLogo: false,
       title: .custom(""),
-      caption: .custom(""),
-      quickPinOnlyCaption: .dataSharingTitle,
+      caption: .dataSharingTitle,
+      quickPinOnlyCaption: .custom(""),
       navigationSuccessType: nil,
       navigationBackType: .pop,
       isPreAuthorization: true,
-      shouldInitializeBiometricOnCreate: true,
+      shouldInitializeBiometricOnCreate: false,
       onAuthResult: { [weak self] result in
         guard let self = self else { return }
 

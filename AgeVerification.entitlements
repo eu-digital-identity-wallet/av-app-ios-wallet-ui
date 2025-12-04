@@ -10,9 +10,13 @@
 	<array>
 		<string>TAG</string>
 	</array>
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>group.tsi.com.scytales.av.dev</string>
+	</array>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)eu.europa.ec.euidi.tsi.dev</string>
+		<string>$(AppIdentifierPrefix)tsi.com.scytales.av.dev</string>
 	</array>
 </dict>
 </plist>
