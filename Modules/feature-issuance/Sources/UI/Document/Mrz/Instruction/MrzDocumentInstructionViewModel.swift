@@ -31,8 +31,8 @@ final class MrzDocumentInstructionViewModel<Router: RouterHost>: ViewModel<Route
     config: DocumentEnrollmentUiConfig
   ) {
     super.init(router: router,
-               initialState: .init(instructionPoints: [LocalizableStringKey.passportEnrollmentInstructionPoint1.toString,
-                                                       LocalizableStringKey.passportEnrollmentInstructionPoint2.toString],
+               initialState: .init(instructionPoints: [LocalizableStringKey.passportIdentificationStepFirst.toString,
+                                                       LocalizableStringKey.passportIdentificationStepSecond.toString],
                                    config: config))
   }
 

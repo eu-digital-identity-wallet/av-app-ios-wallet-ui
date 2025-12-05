@@ -21,11 +21,11 @@ public enum PassportEnrollmentSteps: Steps, Equatable, CaseIterable {
   public var localizedKey: LocalizableStringKey {
     switch self {
     case .identification:
-      return LocalizableStringKey.passportEnrollmentIdentification
+      return LocalizableStringKey.passportIdentification
     case .biometrics:
-      return LocalizableStringKey.passportEnrollmentBiometrics
+      return LocalizableStringKey.passportBiometrics
     case .liveVideo:
-      return LocalizableStringKey.passportEnrollmentLiveVideo
+      return LocalizableStringKey.passportLiveVideo
     }
   }
 }
