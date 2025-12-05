@@ -76,7 +76,7 @@ class RequestAuthorizationViewModel: ObservableObject {
       navigationSuccessType: nil,
       navigationBackType: .pop,
       isPreAuthorization: true,
-      shouldInitializeBiometricOnCreate: false,
+      shouldInitializeBiometricOnCreate: true,
       onAuthResult: { [weak self] result in
         guard let self = self else { return }
 
