@@ -16,7 +16,7 @@ public extension UIConfig.AuthorizeAction {
     public var label: LocalizableStringKey {
       return switch self {
       case .biometricPin:
-          .quickPinReEnterTitle
+            .quickPinCreateReenterTitle
       case .none(let buttonLabel):
         buttonLabel
       }

@@ -35,7 +35,7 @@ struct AddDocumentView<Router: RouterHost>: View {
       padding: .zero,
       canScroll: true,
       errorConfig: viewModel.viewState.error,
-      navigationTitle: .chooseFromList,
+      navigationTitle: .issuanceAddDocumentSubtitle,
       isLoading: viewModel.viewState.isLoading,
       toolbarContent: viewModel.toolbarContent()
     ) {
@@ -73,7 +73,7 @@ private func content(
   ScrollView {
     LazyVStack(spacing: SPACING_MEDIUM_SMALL) {
 
-      Text(.chooseFromListTitle)
+      Text(.issuanceAddDocumentSubtitle)
         .typography(Theme.shared.font.bodyLarge)
         .foregroundStyle(Theme.shared.color.onSurface)
 
@@ -118,7 +118,7 @@ private func content(
 @ViewBuilder
 private func noDocumentsFound() -> some View {
   VStack(spacing: .zero) {
-    Text(.chooseFromListTitle)
+    Text(.issuanceAddDocumentSubtitle)
       .typography(Theme.shared.font.bodyLarge)
       .foregroundStyle(Theme.shared.color.onSurface)
 

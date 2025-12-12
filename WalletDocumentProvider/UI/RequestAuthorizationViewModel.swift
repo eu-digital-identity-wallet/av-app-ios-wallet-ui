@@ -71,7 +71,7 @@ class RequestAuthorizationViewModel: ObservableObject {
       navigationTitle: .custom(""),
       displayLogo: false,
       title: .custom(""),
-      caption: .dataSharingTitle,
+      caption: .issuanceDocumentOfferDescription,
       quickPinOnlyCaption: .custom(""),
       navigationSuccessType: nil,
       navigationBackType: .pop,

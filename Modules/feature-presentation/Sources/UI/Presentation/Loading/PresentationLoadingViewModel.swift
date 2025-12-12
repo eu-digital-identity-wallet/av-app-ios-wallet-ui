@@ -63,11 +63,11 @@ final class PresentationLoadingViewModel<Router: RouterHost, RequestItem: Sendab
   }
 
   override func getTitle() -> LocalizableStringKey {
-    .requestDataTitle([getRelyingParty()])
+    .requestRelyingPartyDescription([getRelyingParty()])
   }
 
   override func getCaption() -> LocalizableStringKey {
-    .requestsTheFollowing
+    .requestRelyingPartyDescription([""])
   }
 
   private func getOnSuccessRoute(with url: URL?) async -> AppRoute {

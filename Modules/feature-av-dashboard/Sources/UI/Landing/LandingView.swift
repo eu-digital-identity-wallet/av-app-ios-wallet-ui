@@ -59,7 +59,7 @@ private func content(viewState: AppLandingState, onScan: @escaping () -> Void, o
                         .typography(Theme.shared.font.titleLarge)
                         .fontWeight(.medium)
                         .padding(.bottom, SPACING_MEDIUM)
-                    Text(LocalizableStringKey.landingScreenbody.toString)
+                    Text(LocalizableStringKey.landingScreenSubtitle.toString)
                         .typography(Theme.shared.font.bodyLarge)
                         .foregroundStyle(Theme.shared.color.lightText)
                         .padding(.bottom, SPACING_LARGE)
@@ -84,7 +84,7 @@ private func content(viewState: AppLandingState, onScan: @escaping () -> Void, o
                     .frame(height: 76)
                     .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 4)
             }
-            Text(LocalizableStringKey.scanTitle.toString)
+            Text(LocalizableStringKey.landingScreenPrimaryButtonLabelScan.toString)
                 .typography(Theme.shared.font.bodyLarge)
                 .foregroundStyle(Theme.shared.color.lightText)
         }

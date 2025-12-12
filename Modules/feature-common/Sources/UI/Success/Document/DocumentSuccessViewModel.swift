@@ -58,8 +58,8 @@ open class DocumentSuccessViewModel<Router: RouterHost, RequestItem: Sendable>: 
         ),
         items: requestItems.removeTrailingContent(),
         navigationTitle: config.relyingPartyIsTrusted
-        ? .documentAdded
-        : .dataShared,
+        ? .custom("") // was .documentAdded but navigationTitle is not used in view
+        : .custom(""), // was .dataShared but navigationTitle is not used in view
         isLoading: false
       )
     )
@@ -85,7 +85,7 @@ open class DocumentSuccessViewModel<Router: RouterHost, RequestItem: Sendable>: 
     .init(
       trailingActions: [
         .init(
-          title: .doneButton
+          title: .cdCloseButton
         ) {
           self.onDone()
         }

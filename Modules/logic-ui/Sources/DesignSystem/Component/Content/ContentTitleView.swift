@@ -156,14 +156,14 @@ public extension ContentTitleView {
 #Preview {
   Group {
     ContentTitleView(
-      title: LocalizableStringKey.tryAgain,
-      caption: LocalizableStringKey.tryAgain
+      title: .genericErrorRetry,
+      caption: .genericErrorRetry
     )
     .lightModePreview()
 
     ContentTitleView(
-      title: LocalizableStringKey.tryAgain,
-      caption: LocalizableStringKey.tryAgain
+      title: LocalizableStringKey.genericErrorRetry,
+      caption: LocalizableStringKey.genericErrorRetry
     )
     .darkModePreview()
   }

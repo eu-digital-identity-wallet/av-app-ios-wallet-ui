@@ -66,16 +66,17 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
     }
     self.interactor = interactor
     self.lockoutTimer = LockoutTimer()
+    // TODO: -
     super.init(
       router: router,
       initialState: .init(
         config: config,
-        navigationTitle: config.isSetFlow ? .quickPinEnterPin : .quickPinConfirmPin,
-        title: config.isSetFlow ? .quickPinSetTitle : .quickPinUpdateTitle,
-        caption: config.isSetFlow ? .quickPinSetCaptionOne : .quickPinUpdateCaptionOne,
+        navigationTitle: config.isSetFlow ? .quickPinCreateTitle : .quickPinChangeTitle,
+        title: config.isSetFlow ? .quickPinCreateTitle : .quickPinChangeTitle,
+        caption: config.isSetFlow ? .quickPinCreateEnterSubtitle : .quickPinChangeEnterNewSubtitle,
         button: .quickPinNextButton,
-        success: config.isSetFlow ? .quickPinSetSuccess : .quickPinUpdateSuccess,
-        successButton: config.isSetFlow ? .quickPinSetSuccessButton : .quickPinUpdateSuccessButton,
+        success: config.isSetFlow ? .custom(".quickPinCreateSuccessText") : .quickPinChangeSuccessText,
+        successButton: config.isSetFlow ? .quickPinNextButton : .quickPinNextButton,
         successNavigationType: config.isSetFlow
         ? .push(screen: .featureIssuanceModule(.issuanceAddDocument(config: IssuanceFlowUiConfig(flow: .noDocument))))
         : .pop(screen: .featureAVDashboardModule(.appLanding)),
@@ -102,8 +103,8 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
         setState {
           $0
             .copy(
-              navigationTitle: .quickPinConfirmPin,
-              caption: viewState.config.isSetFlow ? .quickPinSetCaptionTwo : .quickPinUpdateCaptionThree,
+              navigationTitle: .quickPinChangeTitle,
+              caption: viewState.config.isSetFlow ? .quickPinCreateReenterSubtitle : .quickPinChangeReenterNewSubtitle,
               button: .quickPinConfirmButton,
               step: .retryInput(uiPinInputField)
             )
@@ -113,7 +114,7 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
       case .retryInput(let previousPin):
         guard previousPin == uiPinInputField else {
           setState {
-            $0.copy(pinError: .quickPinDoNotMatch)
+            $0.copy(pinError: .quickPinNonMatch)
           }
           return
         }
@@ -161,7 +162,7 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
       setState {
         $0
           .copy(
-            caption: .quickPinUpdateCaptionTwo,
+            caption: .quickPinChangeReenterNewSubtitle,
             button: .quickPinNextButton,
             step: .firstInput
           )
@@ -183,9 +184,9 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
     if viewState.config.isSetFlow {
       let biometrySetupConfig = UIConfig.BiometricSetupUiConfig(
         title: .biometricSetupTitle,
-        caption: .biometricSetupDescription(LocalizableStringKey.splashTitle.toString),
-        button: .biometricSetupButton,
-        skipButton: .biometricSetupSkipButton,
+        caption: .biometricLoginBiometricsEnabledSubtitle,
+        button: .biometricSetupEnable,
+        skipButton: .biometricSetupSkip,
         navigationSuccessType: viewState.successNavigationType)
       router.push(with: .featureCommonModule(.biometrySetup(config: biometrySetupConfig)))
       return

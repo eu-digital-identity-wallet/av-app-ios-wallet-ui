@@ -29,7 +29,7 @@ struct DocumentOfferView<Router: RouterHost>: View {
   var body: some View {
     ContentScreenView(
       errorConfig: viewModel.viewState.error,
-      navigationTitle: .addDocumentRequest,
+      navigationTitle: .issuanceAddDocumentTitle,
       toolbarContent: viewModel.toolbarContent(),
       notificationAction: .init(
         name: NSNotification.CredentialOffer,
@@ -84,7 +84,7 @@ private func scrollableContent(
           }
         }
 
-        Text(.shareDataReview)
+        Text(.requestWarningText)
           .typography(Theme.shared.font.bodyMedium)
           .foregroundColor(Theme.shared.color.onSurface)
           .multilineTextAlignment(.leading)
@@ -107,7 +107,7 @@ private func noDocumentsFound(
     )
     Spacer()
     ContentEmptyView(
-      title: .requestCredentialOfferNoDocument
+      title: .issuanceDocumentOfferErrorNoDocument
     )
     Spacer()
   }
@@ -145,7 +145,7 @@ private func noDocumentsFound(
   let viewState = DocumentOfferViewState(
     isLoading: false,
     documentOfferUiModel: .init(
-      issuerName: LocalizableStringKey.unknownIssuer.toString,
+      issuerName: LocalizableStringKey.genericDefaultIssuerName.toString,
       issuerLogo: nil,
       txCode: nil,
       uiOffers: [],

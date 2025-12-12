@@ -42,7 +42,7 @@ public struct SplashBackgroundView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(height: 80)
 
-                    Text(LocalizableStringKey.splashTitle.toString)
+                    Text(LocalizableStringKey.splashScreenTitle.toString)
                         .typography(Theme.shared.font.displayLarge)
                         .foregroundStyle(Theme.shared.color.primary)
                         .multilineTextAlignment(.center)
@@ -65,7 +65,7 @@ public struct SplashBackgroundView: View {
                 Spacer()
                     .frame(width: getScreenRect().width * 0.1)
 
-                Text(LocalizableStringKey.splashSponsorsTitle.toString)
+                Text(LocalizableStringKey.splashScreenSponsors.toString)
                     .typography(Theme.shared.font.bodyLarge)
                     .foregroundColor(Theme.shared.color.onPrimary)
 

@@ -59,9 +59,9 @@ final class LivenessCheckViewModel<Router: RouterHost>: ViewModel<Router, Livene
     setState {
       $0.copy(
         errorConfig: ContentErrorView.Config(
-          title: .genericErrorTitle,
+          title: .genericErrorMessage,
           description: description,
-          button: .tryAgain,
+          button: .genericErrorRetry,
           cancelAction: self.router.pop(),
           action: { [weak self] in
             self?.dismissError()
@@ -126,7 +126,7 @@ final class LivenessCheckViewModel<Router: RouterHost>: ViewModel<Router, Livene
       case .unableToWriteTempFile:
         showError(description: .passportLiveVideoErrorNotProcessed)
       case .unknown:
-        showError(description: .genericErrorDesc)
+        showError(description: .genericErrorDescription)
       }
 
     case .simulatorNotSupported:

@@ -23,7 +23,7 @@ struct ConsentView<Router: RouterHost>: View {
             canScroll: false,
             errorConfig: viewModel.viewState.error,
             background: Theme.shared.color.surface,
-            navigationTitle: .details
+            navigationTitle: .onboardingStep2Title
         ) {
             content(state: viewModel.viewState,
                     onNext: viewModel.onNext,
@@ -43,26 +43,26 @@ private func content(state: ConsentViewState, onNext: @escaping () -> Void, onTe
                          selectedIndex: 1)
         ScrollView {
             VStack(alignment: .leading) {
-                Text(LocalizableStringKey.consentTitle.toString)
+                Text(LocalizableStringKey.consentScreenTitle.toString)
                     .font(Theme.shared.font.titleMedium.font)
                     .fontWeight(.medium)
                     .padding(.bottom, SPACING_EXTRA_LARGE)
 
-                CheckboxView(isChecked: state.termsOfServiceAccepted, label: LocalizableStringKey.consentCheckboxLabel1.toString) { ischecked in
+                CheckboxView(isChecked: state.termsOfServiceAccepted, label: LocalizableStringKey.consentScreenTosCheckbox.toString) { ischecked in
                     onTermsChanged(ischecked)
                 }
 
-                CheckboxView(isChecked: state.dataProtectionInfoAccepted, label: LocalizableStringKey.consentCheckboxLabel2.toString, action: { isChecked in
+                CheckboxView(isChecked: state.dataProtectionInfoAccepted, label: LocalizableStringKey.consentScreenDataProtectionCheckbox.toString, action: { isChecked in
                     onDataProtectionChanged(isChecked)
                 })
 
-                CheckboxView(isChecked: state.dataProtectionInfoAccepted, label: LocalizableStringKey.consentCheckboxLabel3.toString, action: { isChecked in
+                CheckboxView(isChecked: state.dataProtectionInfoAccepted, label: LocalizableStringKey.consentScreenDataProtectionCheckbox.toString, action: { isChecked in
                     onDataProcessingChanged(isChecked)
                 })
 
-                HyperLinkView(label: LocalizableStringKey.consentHyperlinkLabel1.toString, urlString: "https://www.google.com")
+                HyperLinkView(label: LocalizableStringKey.consentScreenTosButton.toString, urlString: "https://www.google.com")
 
-                HyperLinkView(label: LocalizableStringKey.consentHyperlinkLabel2.toString, urlString: "https://www.google.com")
+                HyperLinkView(label: LocalizableStringKey.consentScreenDataProtectionButton.toString, urlString: "https://www.google.com")
 
                 Spacer()
             }
@@ -73,7 +73,7 @@ private func content(state: ConsentViewState, onNext: @escaping () -> Void, onTe
 
         WrapButtonView(
             style: .primary,
-            title: .consentConfirmButton,
+            title: .consentScreenConfirmButton,
             isLoading: false,
             isEnabled: state.nextButtonEnabled,
             onAction: onNext()

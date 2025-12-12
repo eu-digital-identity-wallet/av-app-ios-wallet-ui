@@ -31,21 +31,21 @@ public enum DocumentCategory: Sendable, Equatable {
   public var title: LocalizableStringKey {
     return switch self {
     case .Government:
-        .categoryGovernment
+        .documentCategoryGovernment
     case .Travel:
-        .categoryTravel
+        .documentCategoryTravel
     case .Finance:
-        .categoryFinance
+        .documentCategoryFinance
     case .Education:
-        .categoryEducation
+        .documentCategoryEducation
     case .Health:
-        .categoryHealth
+        .documentCategoryHealth
     case .SocialSecurity:
-        .categorySocialSecurity
+        .documentCategorySocialSecurity
     case .Retail:
-        .categoryRetail
+        .documentCategoryRetail
     case .Other:
-        .categoryOther
+        .documentCategoryOther
     }
   }
 

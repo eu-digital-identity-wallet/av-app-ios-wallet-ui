@@ -25,7 +25,7 @@ public extension DocClaimsDecodable {
       }
     )?.name
     ?? issuerDisplay?.first?.name
-    ?? LocalizableStringKey.unknown.toString
+    ?? LocalizableStringKey.genericUnknown.toString
   }
 
   var issuerLogo: URL? {

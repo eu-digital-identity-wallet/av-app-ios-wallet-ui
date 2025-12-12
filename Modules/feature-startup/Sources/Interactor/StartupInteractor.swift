@@ -55,9 +55,9 @@ final actor StartupInteractorImpl: StartupInteractor {
         .biometry(
           config: UIConfig.Biometry(
             navigationTitle: .custom(""),
-            title: .loginTitle,
-            caption: .loginCaption,
-            quickPinOnlyCaption: .loginCaptionQuickPinOnly,
+            title: .biometricLoginTitle,
+            caption: .biometricLoginBiometricsEnabledSubtitle,
+            quickPinOnlyCaption: .biometricLoginBiometricsNotEnabledSubtitle,
             navigationSuccessType: .push(
               hasDocuments
               ? .featureAVDashboardModule(.appLanding)

@@ -125,18 +125,18 @@ public final actor QuickPinInteractorImpl: @preconcurrency QuickPinInteractor {
     // All digits same (e.g. 000000, 111111)
     let firstChar = pin.first!
     if pin.allSatisfy({ $0 == firstChar }) {
-      error =  .quickPinErrorInsecurePin
+      error =  .quickPinInvalidGenericError
     }
 
     // Sequential (ascending or descending, e.g. 123456 or 654321)
     let digits = pin.compactMap { $0.wholeNumberValue }
     if isSequential(digits: digits) {
-      error =  .quickPinErrorInsecurePin
+      error =  .quickPinInvalidGenericError
     }
 
     // Palindrome (e.g. 123321, 255552, 456654, 159951)
     if pin == String(pin.reversed()) {
-      error =  .quickPinErrorInsecurePin
+      error =  .quickPinInvalidGenericError
     }
 
     return error
