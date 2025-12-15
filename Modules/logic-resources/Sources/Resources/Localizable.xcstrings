@@ -322,31 +322,31 @@
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Brug dit fingeraftryk eller ansigtsgenkendelse til at logge ind på appen \\\"%1$s\\\"."
+            "value" : "Brug dit fingeraftryk eller ansigtsgenkendelse til at logge ind på appen “%@”"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Melden Sie sich mit Ihrem Fingerabdruck oder Ihrer Gesichtserkennung bei der App „%1$s“ an."
+            "value" : "Melden Sie sich mit Ihrem Fingerabdruck oder Ihrer Gesichtserkennung bei der App „%@“ an."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Use your fingerprint or face recognition to log in to the \"%1$s\" app."
+            "value" : "Use your fingerprint or face recognition to log in to the “%@“app."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Utilisez votre empreinte digitale ou votre reconnaissance faciale pour vous connecter au \\\"%1$s\\\" App."
+            "value" : "Utilisez votre empreinte digitale ou votre reconnaissance faciale pour vous connecter au “%@” App."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Usa la tua impronta digitale o il riconoscimento facciale per accedere all\\'app \\\"%1$s\\\"."
+            "value" : "Usa la tua impronta digitale o il riconoscimento facciale per accedere all\\'app “%@“."
           }
         }
       }
@@ -4536,31 +4536,31 @@
       "localizations" : {
         "da" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Du har føjet følgende til din applikation"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Sie haben Folgendes erfolgreich zu Ihrem Wallet hinzugefügt"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "You have successfully added the document(s) to your application"
+            "value" : "You have successfully added the following to your application"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Vous avez réussi à ajouter ce qui suit à votre portefeuille"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Hai aggiunto correttamente quanto segue alla tua applicazione"
           }
         }
@@ -9773,31 +9773,31 @@
       "localizations" : {
         "da" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Følgende transaktion kræver din tilladelse og godkendelse."
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Die folgende Transaktion erfordert Ihre Zustimmung und Authentifizierung."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "he following transaction requires your permission and authentication."
+            "value" : "The following transaction requires your permission and authentication."
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "La transaction suivante nécessite votre autorisation et votre authentification."
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "La seguente transazione richiede la tua autorizzazione e autenticazione"
           }
         }

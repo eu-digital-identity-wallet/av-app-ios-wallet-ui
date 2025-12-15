@@ -788,8 +788,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "biometric_prompt_subtitle")
       case .biometricPromptTitle:
         bundle.localizedString(forKey: "biometric_prompt_title")
-      case .biometricSetupDescription:
-        bundle.localizedString(forKey: "biometric_setup_description")
+      case .biometricSetupDescription(let arg):
+        bundle.localizedStringWithArguments(forKey: "biometric_setup_description", arguments: [arg])
       case .biometricSetupEnable:
         bundle.localizedString(forKey: "biometric_setup_enable")
       case .biometricSetupSkip:

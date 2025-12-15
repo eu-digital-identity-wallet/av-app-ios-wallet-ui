@@ -180,11 +180,11 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
 
   private func onSuccess() async {
     await interactor.setPin(newPin: uiPinInputField)
-
+    let appName = LocalizableStringKey.landingScreenTitle.toString
     if viewState.config.isSetFlow {
       let biometrySetupConfig = UIConfig.BiometricSetupUiConfig(
         title: .biometricSetupTitle,
-        caption: .biometricLoginBiometricsEnabledSubtitle,
+        caption: .biometricSetupDescription(appName),
         button: .biometricSetupEnable,
         skipButton: .biometricSetupSkip,
         navigationSuccessType: viewState.successNavigationType)

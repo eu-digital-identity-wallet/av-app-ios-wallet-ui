@@ -54,7 +54,7 @@ private func content<RequestItem: Sendable>(
             appIcon: ThemeManager.shared.image.logoEuDigitalIndentityWallet,
             appText: ThemeManager.shared.image.euditext
           ),
-          description: .documentSuccessHeaderDescription,
+          description: .issuanceSuccessHeaderDescription,
           relyingPartyData: viewState.relyingParty
         )
       )

@@ -428,7 +428,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case biometricNoHardware
   case biometricPromptSubtitle
   case biometricPromptTitle
-  case biometricSetupDescription
+  case biometricSetupDescription(String)
   case biometricSetupEnable
   case biometricSetupSkip
   case biometricSetupTitle

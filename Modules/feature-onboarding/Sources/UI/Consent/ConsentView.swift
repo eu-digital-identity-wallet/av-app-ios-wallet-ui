@@ -56,7 +56,7 @@ private func content(state: ConsentViewState, onNext: @escaping () -> Void, onTe
                     onDataProtectionChanged(isChecked)
                 })
 
-                CheckboxView(isChecked: state.dataProtectionInfoAccepted, label: LocalizableStringKey.consentScreenDataProtectionCheckbox.toString, action: { isChecked in
+              CheckboxView(isChecked: state.personalDataAccepted, label: LocalizableStringKey.consentScreenPersonalDataCheckbox.toString, action: { isChecked in
                     onDataProcessingChanged(isChecked)
                 })
 
