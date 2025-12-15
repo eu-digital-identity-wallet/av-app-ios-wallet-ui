@@ -193,7 +193,7 @@ final public class BiometryViewModel<Router: RouterHost>: ViewModel<Router, Biom
         case .failure(let error):
           setState { $0.copy(pinError: error.errorMessage) }
         case .lockedOut(lockoutEndTime: let lockoutEndTime):
-          break
+          startLockoutTimer(lockoutEndTime: lockoutEndTime)
         }
       } else {
         setState { $0.copy(pinError: nil) }
