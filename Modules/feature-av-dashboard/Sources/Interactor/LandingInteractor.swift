@@ -11,6 +11,7 @@ import feature_common
 public protocol LandingInteractor: Sendable {
 
     func getAgeCredential() async -> AgeCredentialPartialState
+    func reloadDocuments() async
     func getWalletKitController() -> WalletKitController
 }
 
@@ -36,6 +37,10 @@ final class LandingPageInteractorImpl: LandingInteractor {
 
     func getWalletKitController() -> WalletKitController {
       self.walletController
+    }
+
+    func reloadDocuments() async {
+      try? await walletController.loadDocuments()
     }
 }
 
