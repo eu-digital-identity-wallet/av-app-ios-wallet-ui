@@ -4,6 +4,12 @@
     "accept_button" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Akzeptieren"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -153,6 +159,12 @@
     "back_button_title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurück"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -741,6 +753,12 @@
     "cd_close_button" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurück"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -752,6 +770,12 @@
     "cd_flash_button" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kamerablitz umschalten"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1025,6 +1049,12 @@
     "choose_from_list" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen Sie aus der Liste"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1036,6 +1066,12 @@
     "choose_from_list_title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen Sie aus der folgenden Liste ein digitales Dokument aus, das Sie Ihrer Wallet hinzufügen möchten."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1408,6 +1444,12 @@
     "credential_issuance_description" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wir stellen Ihnen nun Ihren Altersnachweis aus. Dies kann bis zu 30 Sekunden dauern."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1419,6 +1461,12 @@
     "credential_issuance_title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verifizierung abgeschlossen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3161,6 +3209,12 @@
     "nfc_error_connection" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verbindungsfehler. Bitte versuchen Sie es erneut."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3176,6 +3230,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Invalid passport data. Please scan MRZ again."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ungültige Passdaten. Bitte scannen Sie MRZ erneut."
           }
         },
         "en" : {
@@ -3195,6 +3255,12 @@
     "nfc_error_missing_data" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die erforderlichen Passdaten fehlen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3212,6 +3278,12 @@
     "nfc_error_more_than_one_tag" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mehrere NFC-Tags erkannt"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3229,6 +3301,12 @@
     "nfc_error_reading_failed" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Reisepass konnte nicht gelesen werden. Bitte versuchen Sie es erneut."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3246,6 +3324,12 @@
     "nfc_error_tag_not_valid" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NFC-Tag nicht gültig"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3257,6 +3341,12 @@
     "nfc_error_unexpected" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es ist ein unerwarteter Fehler aufgetreten"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3268,6 +3358,12 @@
     "nfc_error_user_canceled" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan abgebrochen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3412,6 +3508,35 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Leggi il tuo passaporto/carta d\\'identità tramite l\\'interfaccia NFC"
+          }
+        }
+      }
+    },
+    "no" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingen"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NEIN"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "no"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non"
           }
         }
       }
@@ -4459,7 +4584,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "We are now issuing your proof of age. This might take up to 30 seconds"
+            "value" : "Wir stellen Ihnen nun Ihren Altersnachweis aus. Dies kann bis zu 30 Sekunden dauern."
           }
         },
         "en" : {
@@ -4494,7 +4619,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Verification Complete"
+            "value" : "Verifizierung abgeschlossen"
           }
         },
         "en" : {
@@ -4523,7 +4648,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The Passport method is quick and secure! Scan your ID, take a photo, and record a short video—three steps for maximum safety and fraud protection."
+            "value" : "Die Passport-Methode ist schnell und sicher! Scannen Sie Ihren Ausweis, machen Sie ein Foto und nehmen Sie ein kurzes Video auf – drei Schritte für maximale Sicherheit und Schutz vor Betrug."
           }
         },
         "en" : {
@@ -7083,6 +7208,12 @@
     "required_perms_not_given" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehler: Zugriff verweigert."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7371,6 +7502,12 @@
     "settings" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7907,6 +8044,12 @@
     "start_button_title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8608,6 +8751,35 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Protezione della privacy"
+          }
+        }
+      }
+    },
+    "yes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ja"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ja"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yes"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oui"
           }
         }
       }

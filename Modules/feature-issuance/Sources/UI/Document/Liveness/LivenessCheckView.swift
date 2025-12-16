@@ -119,6 +119,7 @@ private func content(
     WrapButtonView(
       style: .secondary,
       title: LocalizableStringKey.back,
+      gravity: .none,
       isLoading: false,
       onAction: onBackButtonTapped()
     )
