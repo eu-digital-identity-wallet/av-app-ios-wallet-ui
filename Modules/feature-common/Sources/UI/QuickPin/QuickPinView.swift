@@ -29,7 +29,7 @@ struct QuickPinView<Router: RouterHost>: View {
     ContentScreenView(
       padding: .zero,
       navigationTitle: nil,
-      toolbarContent: nil
+      toolbarContent: viewModel.viewState.step == .firstInput ? nil : viewModel.toolbarContent()
     ) {
       content(
         viewState: viewModel.viewState,

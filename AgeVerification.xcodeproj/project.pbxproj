@@ -1315,8 +1315,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/eu-digital-identity-wallet/av-lib-ios-w3c-dc-api.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
