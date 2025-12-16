@@ -276,43 +276,6 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case verificationNationalId
   case verificationNationalIdDescription
 
-  // Passport Enrollment
-  case verificationPassport
-  case verificationPassportDescription
-
-  // Passport Enrollment Intro
-  case passpostEnrollmentHeader
-  case passpostEnrollmentTitle
-  case passpostEnrollmentDescription
-  case passportEnrollmentIntroStep1Description
-  case passportEnrollmentIntroStep1Title
-  case passportEnrollmentIntroStep2Description
-  case passportEnrollmentIntroStep2Title
-  case passportEnrollmentIntroStep3Description
-  case passportEnrollmentIntroStep3Title
-  case passportEnrollmentIntroStep4Title
-  case passportEnrollmentIntroStep5Title
-  case start
-
-  // Passport Enrollment Instruction
-  case passportEnrollmentIdentification
-  case passportEnrollmentBiometrics
-  case passportEnrollmentLiveVideo
-  case takeAPhoto
-  case passportEnrollmentInstructionHeader
-  case passportEnrollmentInstructionBody1
-  case passportEnrollmentInstructionPoint1
-  case passportEnrollmentInstructionPoint2
-  case passportEnrollmentInstructionBody2
-  case passportCaptureDescription
-  case processingDocument
-
-  // Biometric Data reading
-  case passportBiometricsFirstHeader
-  case passportBiometricsFirstDescription
-  case passportBiometricsFirstLink
-  case passportBiometricsNext
-
   // Landing screen
   case landingScreenTitle
   case landingScreenbody
@@ -345,21 +308,6 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case quickPinLockoutCountdownSeconds(Int)
   case quickPinErrorInsecurePin
 
-  // MRZ Scanner
-  case mrzDocumentReady
-  case mrzScanning
-  case mrzPlaceDocumentInFrame
-  case mrzCameraError
-  case mrzCameraPermissionDenied
-  case mrzCameraSetupFailed
-  case mrzUnknownError
-  case mrzInitializingCamera
-
-  // MRZ Errors
-  case mrzErrorInvalidData
-  case mrzErrorDocumentExpired
-  case mrzErrorProcessingFailed
-
   // Change Pin
   case changeQuickPinCaption
   case changePinDescription
@@ -367,51 +315,6 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case changePinSecondPinDescription
   case changePinHelpText
   case changePinSuccessText
-
-  // NFC Passport Reading
-  case nfcReadyToScan
-  case nfcInitializing
-  case nfcReadingCOM
-  case nfcReadingDG1
-  case nfcReadingDG2
-  case nfcReadingSOD
-  case nfcReadingProgress
-  case nfcReadingSuccess
-  case nfcHoldSteady
-  case nfcStartReading
-
-  // NFC Errors
-  case nfcErrorTagNotValid
-  case nfcErrorMoreThanOneTag
-  case nfcErrorConnection
-  case nfcErrorUserCanceled
-  case nfcErrorInvalidMRZKey
-  case nfcErrorUnexpected
-  case nfcErrorReadingFailed
-  case nfcErrorMissingData
-
-  // Passport Data Labels
-  case passportBirthDate
-  case passportExpiryDate
-  case passportDocumentNumber
-  case passportPhoto
-
-  // Passport Data Display
-  case passportDataReviewHeader
-  case passportDataReviewDescription
-  case passportIdCardTitle
-  case continueButton
-
-  // Liveness Check
-  case livenessCheckHeader
-  case livenessCheckDescription
-  case livenessCheckInstructionPoint1
-  case livenessCheckInstructionPoint2
-  case livenessCheckFooter
-  case livenessCheckStartButton
-  case livenessCheckErrorReferenceImage
-  case livenessCheckErrorNotLive
-  case livenessCheckErrorNoMatch
 
   // Credential Issuance
   case credentialIssuanceTitle
@@ -438,6 +341,106 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case acceptButton
   case proofOfAgeTitle
   case documentProviderSectionHeader
+
+  // Pasport Flow
+  case passportIdentificationTitle
+  case passportIdentificationDescription
+  case passportIdentificationStepFirst
+  case passportIdentificationStepSecond
+  case passportIdentificationFooter
+  case passportIdentificationBack
+  case passportIdentificationCapture
+  case passportCaptureTitle
+  case passportCaptureSubtitle
+  case passportIdentification
+  case passportBiometrics
+  case passportLiveVideo
+  case passportBiometricsBack
+  case passportBiometricsNext
+  case passportBiometricsContentDescription
+  case passportBiometricsFirstHeader
+  case passportBiometricsFirstDescription
+  case passportBiometricsFirstLink
+  case passportBiometricsVerifyData
+  case passportBiometricsTryAgain
+  case passportBiometricsPassport
+  case passportBiometricsDob
+  case passportBiometricsDoe
+  case passportBiometricsNoAvailability
+  case passportBiometricsNoPassportData
+  case passportBiometricsScanCancelled
+  case passportBiometricsUnknownError
+  case passportLiveVideoHeader
+  case passportLiveVideoDescription
+  case passportLiveVideoStepFirst
+  case passportLiveVideoStepSecond
+  case passportLiveVideoStepThird
+  case passportLiveVideoFooter
+  case passportLiveVideoBack
+  case passportLiveVideoLiveCapture
+  case passportLiveVideoErrorNotProcessed
+  case passportLiveVideoErrorNotLive
+  case passportLiveVideoErrorNotMatching
+  case passportValidationErrorExpired
+  case passportValidationErrorUnderage
+  case passportValidationErrorIncompleteData
+  case passportLiveVideoDownloadingProgress
+  case passportCredentialIssuanceTitle
+  case passportCredentialIssuanceDescription
+  case consentScreenPersonalDataCheckbox
+  case passportScanIntroEnrollmentMethod
+  case passportScanIntroTitle
+  case passportScanIntroDescription
+  case passportScanIntroBackButton
+  case passportScanIntroStartButton
+  case passportScanIntroStep1Title
+  case passportScanIntroStep1Description
+  case passportScanIntroStep2Title
+  case passportScanIntroStep2Description
+  case passportScanIntroStep3Title
+  case passportScanIntroStep3Description
+  case passportScanIntroStep4Title
+  case passportScanIntroStep5Title
+  case passportScanIntroDataDownloadNotice
+  case cdFlashButton
+  case cdCloseButton
+  case labelClose
+  case labelTurnOn
+  case nfcBodyInitial
+  case nfcBodyReading
+  case nfcHelpLink
+  case nfcTitle
+  case nfcTitleInitial
+  case nfcTitleReading
+  case requiredNfcNotSupported
+  case requiredPermsNotGiven
+  case warningAuthenticationFailed
+  case warningClaNotSupported
+  case warningEnableNfc
+
+  // Additional Keys apart from Android
+  case mrzErrorInvalidData
+  case mrzErrorDocumentExpired
+  case mrzErrorProcessingFailed
+
+  case mrzInitializingCamera
+  case mrzCameraPermissionDenied
+  case mrzCameraSetupFailed
+  case mrzUnknownError
+
+  case mrzDocumentReady
+  case mrzScanning
+  case mrzCameraError
+
+  // NFC Errors
+  case nfcErrorTagNotValid
+  case nfcErrorMoreThanOneTag
+  case nfcErrorConnection
+  case nfcErrorUserCanceled
+  case nfcErrorInvalidMRZKey
+  case nfcErrorUnexpected
+  case nfcErrorReadingFailed
+  case nfcErrorMissingData
 }
 
 public extension LocalizableStringKey {

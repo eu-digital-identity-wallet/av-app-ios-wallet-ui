@@ -58,7 +58,7 @@ private func content(
       VStack(alignment: .leading, spacing: .zero) {
         VSpacer.large()
 
-        Text(LocalizableStringKey.passportDataReviewHeader.toString)
+        Text(LocalizableStringKey.passportBiometricsVerifyData.toString)
           .typography(Theme.shared.font.displaySmall)
           .fontWeight(.bold)
         VSpacer.large()
@@ -66,7 +66,7 @@ private func content(
         // Card Container
         VStack(alignment: .leading, spacing: 16) {
           // Card Title
-          Text(LocalizableStringKey.passportIdCardTitle.toString)
+          Text(LocalizableStringKey.passportBiometricsPassport.toString)
             .typography(Theme.shared.font.titleLarge)
             .fontWeight(.semibold)
 
@@ -100,7 +100,7 @@ private func content(
           VStack(alignment: .leading, spacing: 20) {
             if let formattedBirthDate = viewState.formattedBirthDate {
               VStack(alignment: .leading, spacing: 4) {
-                Text(LocalizableStringKey.passportBirthDate.toString)
+                Text(LocalizableStringKey.passportBiometricsDob.toString)
                   .typography(Theme.shared.font.bodyMedium)
                   .foregroundColor(viewState.isUnderAge ? .red : Color(.secondaryLabel))
                 Text(formattedBirthDate)
@@ -112,7 +112,7 @@ private func content(
 
             if let formattedExpiryDate = viewState.formattedExpiryDate {
               VStack(alignment: .leading, spacing: 4) {
-                Text(LocalizableStringKey.passportExpiryDate.toString)
+                Text(LocalizableStringKey.passportBiometricsDoe.toString)
                   .typography(Theme.shared.font.bodyMedium)
                   .foregroundColor(viewState.isPassportExpired ? .red : Color(.secondaryLabel))
                 Text(formattedExpiryDate)
@@ -136,14 +136,14 @@ private func content(
   HStack {
     WrapButtonView(
       style: .secondary,
-      title: LocalizableStringKey.back,
+      title: LocalizableStringKey.passportBiometricsBack,
       isLoading: false,
       onAction: onBackButtonTapped()
     )
     .padding(.horizontal, SPACING_SMALL)
     WrapButtonView(
       style: .primary,
-      title: LocalizableStringKey.continueButton,
+      title: LocalizableStringKey.passportBiometricsNext,
       isLoading: false,
       isEnabled: viewState.isValid,
       onAction: onContinueButtonTapped()

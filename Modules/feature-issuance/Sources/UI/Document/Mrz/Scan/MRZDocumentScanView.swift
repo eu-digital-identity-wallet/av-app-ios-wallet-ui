@@ -40,7 +40,7 @@ struct MRZDocumentScanView<Router: RouterHost>: View {
           strings: .init(
             documentReady: LocalizableStringKey.mrzDocumentReady.toString,
             scanning: LocalizableStringKey.mrzScanning.toString,
-            placeDocumentInFrame: LocalizableStringKey.mrzPlaceDocumentInFrame.toString,
+            placeDocumentInFrame: LocalizableStringKey.passportCaptureSubtitle.toString,
             cameraError: LocalizableStringKey.mrzCameraError.toString,
             cameraPermissionDenied: LocalizableStringKey.mrzCameraPermissionDenied.toString,
             cameraSetupFailed: LocalizableStringKey.mrzCameraSetupFailed.toString,
@@ -62,7 +62,7 @@ struct MRZDocumentScanView<Router: RouterHost>: View {
           ProgressView()
             .progressViewStyle(CircularProgressViewStyle(tint: .white))
             .scaleEffect(1.5)
-          Text(LocalizableStringKey.processingDocument.toString)
+          Text(LocalizableStringKey.nfcBodyReading.toString)
             .foregroundColor(.white)
             .font(.headline)
         }

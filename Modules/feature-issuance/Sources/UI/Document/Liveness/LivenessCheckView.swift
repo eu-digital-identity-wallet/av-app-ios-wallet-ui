@@ -75,13 +75,13 @@ private func content(
       VStack(alignment: .leading, spacing: .zero) {
         VSpacer.large()
 
-        Text(LocalizableStringKey.livenessCheckHeader.toString)
+        Text(LocalizableStringKey.passportLiveVideoHeader.toString)
           .typography(Theme.shared.font.displaySmall)
           .fontWeight(.bold)
 
         VSpacer.large()
 
-        Text(LocalizableStringKey.livenessCheckDescription.toString)
+        Text(LocalizableStringKey.passportLiveVideoDescription.toString)
           .typography(Theme.shared.font.bodyLarge)
           .multilineTextAlignment(.leading)
 
@@ -105,7 +105,7 @@ private func content(
 
         VSpacer.large()
 
-        Text(LocalizableStringKey.livenessCheckFooter.toString)
+        Text(LocalizableStringKey.passportLiveVideoFooter.toString)
           .typography(Theme.shared.font.bodyMedium)
           .multilineTextAlignment(.leading)
 
@@ -119,6 +119,7 @@ private func content(
     WrapButtonView(
       style: .secondary,
       title: LocalizableStringKey.back,
+      gravity: .none,
       isLoading: false,
       onAction: onBackButtonTapped()
     )
@@ -126,7 +127,7 @@ private func content(
 
     WrapButtonView(
       style: .primary,
-      title: LocalizableStringKey.livenessCheckStartButton,
+      title: LocalizableStringKey.passportLiveVideoLiveCapture,
       isLoading: viewState.isProcessing,
       onAction: onStartVerificationTapped()
     )

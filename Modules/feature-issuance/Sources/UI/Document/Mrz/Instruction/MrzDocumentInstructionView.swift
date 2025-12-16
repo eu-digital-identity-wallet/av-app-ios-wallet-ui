@@ -56,18 +56,18 @@ private func content(
       VStack(alignment: .leading, spacing: .zero) {
         VSpacer.large()
 
-        Text(LocalizableStringKey.passportEnrollmentInstructionHeader.toString)
+        Text(LocalizableStringKey.passportIdentificationTitle.toString)
           .typography(Theme.shared.font.labelLarge)
         VSpacer.large()
 
-        Text(LocalizableStringKey.passportEnrollmentInstructionBody1.toString)
+        Text(LocalizableStringKey.passportIdentificationDescription.toString)
           .typography(Theme.shared.font.bodyLarge)
         VSpacer.large()
 
         pointsSection(viewState: viewState)
 
         VSpacer.large()
-        Text(LocalizableStringKey.passportEnrollmentInstructionBody2.toString)
+        Text(LocalizableStringKey.passportIdentificationFooter.toString)
           .typography(Theme.shared.font.bodyLarge)
           .multilineTextAlignment(.leading)
         Spacer()
@@ -78,14 +78,14 @@ private func content(
   HStack {
     WrapButtonView(
       style: .secondary,
-      title: LocalizableStringKey.back,
+      title: LocalizableStringKey.passportIdentificationBack,
       isLoading: false,
       onAction: onBackButtonTapped()
     )
     .padding(.horizontal, SPACING_SMALL)
     WrapButtonView(
       style: .primary,
-      title: LocalizableStringKey.takeAPhoto,
+      title: LocalizableStringKey.passportIdentificationCapture,
       isLoading: false,
       onAction: onTakeAPhotoTapped()
     )

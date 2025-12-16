@@ -4,6 +4,12 @@
     "accept_button" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Akzeptieren"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -153,6 +159,12 @@
     "back_button_title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurück"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -738,6 +750,40 @@
         }
       }
     },
+    "cd_close_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurück"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        }
+      }
+    },
+    "cd_flash_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kamerablitz umschalten"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toggle camera flash"
+          }
+        }
+      }
+    },
     "change_pin_description" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1003,6 +1049,12 @@
     "choose_from_list" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen Sie aus der Liste"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1014,6 +1066,12 @@
     "choose_from_list_title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wählen Sie aus der folgenden Liste ein digitales Dokument aus, das Sie Ihrer Wallet hinzufügen möchten."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1284,6 +1342,35 @@
         }
       }
     },
+    "consent_screen_personal_data_checkbox" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jeg giver mit samtykke til behandling af mine personoplysninger af [applikationsudbyderen] med det formål at opnå en aldersverifikationserklæring. Denne proces kræver scanning af mit ID eller pas og en video af mig selv for at bekræfte min identitet. Disse data vil kun blive behandlet på min enhed og vil ikke være tilgængelige for [applikationsudbyderen] eller nogen tredjepart. Se databeskyttelsesmeddelelsen for mere information"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ch stimme der Verarbeitung meiner personenbezogenen Daten durch [den Anwendungsanbieter] zu, um eine Altersverifizierungsbescheinigung zu erhalten. Dieser Vorgang erfordert das Scannen meines Ausweises oder Reisepasses und ein Video von mir zur Bestätigung meiner Identität. Diese Daten werden nur auf meinem Gerät verarbeitet und sind weder für [den Anwendungsanbieter] noch für Dritte zugänglich. Weitere Informationen finden Sie in den Datenschutzhinweisen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I give my consent to the processing of my personal data by [application provider] for the purpose of obtaining an age verification statement. This process requires scanning my ID or passport and recording a video of myself to confirm my identity. This data will only be processed on my device and will not be accessible to [application provider] or any third party. See the privacy notice for more information"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Je consens au traitement de mes données personnelles par [le fournisseur de l\\'application] dans le but d\\'obtenir une attestation de vérification d\\'âge. Ce processus nécessite la numérisation de ma carte d\\'identité ou de mon passeport et une vidéo de moi-même pour confirmer mon identité. Ces données seront traitées uniquement sur mon appareil et ne seront pas accessibles par [le fournisseur de l\\'application] ou par un tiers. Consultez l\\'avis de protection des données pour plus d\\'informations"
+          }
+        }
+      }
+    },
     "consent_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1315,17 +1402,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Per prima cosa abbiamo bisogno del tuo consenso"
-          }
-        }
-      }
-    },
-    "continue_button" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Continue"
           }
         }
       }
@@ -1368,6 +1444,12 @@
     "credential_issuance_description" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wir stellen Ihnen nun Ihren Altersnachweis aus. Dies kann bis zu 30 Sekunden dauern."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1379,6 +1461,12 @@
     "credential_issuance_title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verifizierung abgeschlossen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2334,6 +2422,28 @@
         }
       }
     },
+    "label_close" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close"
+          }
+        }
+      }
+    },
+    "label_turn_on" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Turn on"
+          }
+        }
+      }
+    },
     "landing_screen_add_more" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2487,105 +2597,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Learn more"
-          }
-        }
-      }
-    },
-    "liveness_check_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "In this step, you will record a short video of yourself to confirm your identity. Make sure to:"
-          }
-        }
-      }
-    },
-    "liveness_check_error_no_match" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Face does not match reference image. Please try again."
-          }
-        }
-      }
-    },
-    "liveness_check_error_not_live" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Liveness check failed. Please try again in good lighting."
-          }
-        }
-      }
-    },
-    "liveness_check_error_reference_image" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unable to extract face from reference image. Please try again."
-          }
-        }
-      }
-    },
-    "liveness_check_footer" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "This step ensures that you are the rightful owner of the passport / ID card."
-          }
-        }
-      }
-    },
-    "liveness_check_header" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Record a quick video of yourself"
-          }
-        }
-      }
-    },
-    "liveness_check_instruction_point1" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Face the camera directly in good lighting."
-          }
-        }
-      }
-    },
-    "liveness_check_instruction_point2" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Avoid filters, masks, or obstructions."
-          }
-        }
-      }
-    },
-    "liveness_check_start_button" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start live video"
           }
         }
       }
@@ -3044,41 +3055,6 @@
         }
       }
     },
-    "mrz_place_document_in_frame" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Placer dokumentet inden for rammen"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Platzieren Sie das Dokument im Rahmen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Place document within the frame"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Placez le document dans le cadre"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Posiziona il documento all'interno della cornice"
-          }
-        }
-      }
-    },
     "mrz_scanning" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3160,9 +3136,85 @@
         }
       }
     },
+    "nfc_body_initial" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placer dit pas/ID-kort direkte på bagsiden af smartphonen, normalt øverst."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placez votre passeport/carte d\\'identité directement au dos du smartphone, généralement en haut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Place your Passport / ID Card directly on the back of the smartphone, usually at the top."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placez votre passeport/carte d\\'identité directement au dos du smartphone, généralement en haut."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posiziona il tuo passaporto/carta d\\'identità direttamente sul retro dello smartphone, di solito in alto."
+          }
+        }
+      }
+    },
+    "nfc_body_reading" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas / ID-kort læses"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le passeport/la carte d\\'identité est en cours de lecture"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passport / ID Card is being read"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le passeport/la carte d\\'identité est en cours de lecture"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lettura del passaporto/carta d\\'identità in corso"
+          }
+        }
+      }
+    },
     "nfc_error_connection" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verbindungsfehler. Bitte versuchen Sie es erneut."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3174,7 +3226,25 @@
     "nfc_error_invalid_mrz_key" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid passport data. Please scan MRZ again."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ungültige Passdaten. Bitte scannen Sie MRZ erneut."
+          }
+        },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid passport data. Please scan MRZ again."
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Invalid passport data. Please scan MRZ again."
@@ -3185,7 +3255,19 @@
     "nfc_error_missing_data" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die erforderlichen Passdaten fehlen"
+          }
+        },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Required passport data is missing"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Required passport data is missing"
@@ -3196,7 +3278,19 @@
     "nfc_error_more_than_one_tag" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mehrere NFC-Tags erkannt"
+          }
+        },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "More than one NFC tag detected"
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "More than one NFC tag detected"
@@ -3207,7 +3301,19 @@
     "nfc_error_reading_failed" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Reisepass konnte nicht gelesen werden. Bitte versuchen Sie es erneut."
+          }
+        },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Failed to read passport. Please try again."
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Failed to read passport. Please try again."
@@ -3218,6 +3324,12 @@
     "nfc_error_tag_not_valid" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NFC-Tag nicht gültig"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3229,6 +3341,12 @@
     "nfc_error_unexpected" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es ist ein unerwarteter Fehler aufgetreten"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3240,6 +3358,12 @@
     "nfc_error_user_canceled" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan abgebrochen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3248,112 +3372,171 @@
         }
       }
     },
-    "nfc_hold_steady" : {
+    "nfc_help_link" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "<u>Har du brug for hjælp?</u>"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "<u>Avez-vous besoin d\\'aide?</u>"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hold your device steady against the passport"
+            "value" : "<u>Do you need Help?</u>"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "<u>Avez-vous besoin d\\'aide?"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "<u>Hai bisogno di aiuto?</u>"
           }
         }
       }
     },
-    "nfc_initializing" : {
+    "nfc_title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placer din telefon over dit pas/ID-kort og flyt den ikke"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placez votre téléphone sur votre passeport/carte d\\'identité et ne le déplacez pas"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Initializing NFC..."
+            "value" : "Put your phone over your Passport / ID Card and don't move it"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placez votre téléphone sur votre passeport/carte d\\'identité et ne le déplacez pas"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Metti il telefono sopra il passaporto/carta d\\'identità e non spostarlo"
           }
         }
       }
     },
-    "nfc_reading_com" : {
+    "nfc_title_initial" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Læs i dit pas / ID-kort"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lisez votre passeport/carte d\\'identité"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reading document information..."
+            "value" : "Read in your Passport / ID Card"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lisez votre passeport/carte d\\'identité"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leggi il tuo passaporto/carta d\\'identità"
           }
         }
       }
     },
-    "nfc_reading_dg1" : {
+    "nfc_title_reading" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Læs i dit pas / ID-kort via NFC-interface"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lisez votre passeport/carte d\\'identité via l\\'interface NFC"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reading passport data..."
+            "value" : "Read in your Passport / ID Card via NFC interface"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lisez votre passeport/carte d\\'identité via l\\'interface NFC"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Leggi il tuo passaporto/carta d\\'identità tramite l\\'interfaccia NFC"
           }
         }
       }
     },
-    "nfc_reading_dg2" : {
+    "no" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
+        "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reading biometric photo..."
+            "value" : "Ingen"
           }
-        }
-      }
-    },
-    "nfc_reading_progress" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
+        },
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reading passport..."
+            "value" : "NEIN"
           }
-        }
-      }
-    },
-    "nfc_reading_sod" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Verifying security..."
+            "value" : "no"
           }
-        }
-      }
-    },
-    "nfc_reading_success" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Passport read successfully!"
-          }
-        }
-      }
-    },
-    "nfc_ready_to_scan" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ready to Scan Passport"
-          }
-        }
-      }
-    },
-    "nfc_start_reading" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scan Passport"
+            "value" : "Non"
           }
         }
       }
@@ -3672,28 +3855,6 @@
         }
       }
     },
-    "onboarding_verification_passport_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Short Description"
-          }
-        }
-      }
-    },
-    "onboarding_verification_passport_id" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Passport or ID Card"
-          }
-        }
-      }
-    },
     "onboarding_verification_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3781,37 +3942,212 @@
         }
       }
     },
+    "passport_biometrics" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Biometri"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Biometrie"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Biometrics"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Biométrie"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Biometria"
+          }
+        }
+      }
+    },
+    "passport_biometrics_back" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tilbage"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurück"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retour"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indietro"
+          }
+        }
+      }
+    },
+    "passport_biometrics_content_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indholdsbeskrivelse"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inhaltsbeschreibung"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Content description"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Description du contenu"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descrizione del contenuto"
+          }
+        }
+      }
+    },
+    "passport_biometrics_dob" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fødselsdato"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geburtsdatum"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date of birth"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date de naissance"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data di nascita"
+          }
+        }
+      }
+    },
+    "passport_biometrics_doe" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Udløbsdato"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ablaufdatum"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Expiry date"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date de expiration"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data di scadenza"
+          }
+        }
+      }
+    },
     "passport_biometrics_first_description" : {
       "extractionState" : "manual",
       "localizations" : {
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Placer dit pas direkte på bagsiden af smartphonen, normalt øverst."
+            "value" : "Placér dit pas / ID-kort direkte på bagsiden af smartphonen, som regel øverst."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Legen Sie Ihren Reisepass direkt auf die Rückseite des Smartphones, normalerweise oben."
+            "value" : "Lege deinen Reisepass / Personalausweis direkt auf die Rückseite des Smartphones, normalerweise oben."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Place your Passport directly on the back of the smartphone, usually at the top."
+            "value" : "Place your passport / ID card directly on the back of the smartphone, usually at the top."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Placez votre passeport directement sur le dos du smartphone, généralement en haut."
+            "value" : "Placez votre passeport / carte d\\'identité directement à larrière du smartphone, généralement en haut."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Posiziona il passaporto direttamente sul retro dello smartphone, di solito nella parte superiore."
+            "value" : "Posiziona il passaporto / carta d\\'identità direttamente sul retro dello smartphone, di solito nella parte superiore."
           }
         }
       }
@@ -3822,31 +4158,31 @@
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Læs dit pas ind"
+            "value" : "Scan dit pas / ID-kort"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lesen Sie Ihren Reisepass ein"
+            "value" : "Scanne deinen Reisepass / Personalausweis"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Read in your Passport"
+            "value" : "Scan your passport / ID card"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lisez votre passeport"
+            "value" : "Scannez votre passeport / carte d\\'identité"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Leggi il tuo passaporto"
+            "value" : "Scansiona il tuo passaporto / carta d\\'identità"
           }
         }
       }
@@ -3863,19 +4199,19 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Benötigen Sie Hilfe?"
+            "value" : "Brauchst du Hilfe?"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Do you need Help?"
+            "value" : "Need help?"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Avez-vous besoin d'aide ?"
+            "value" : "Besoin d\\'aide ?"
           }
         },
         "it" : {
@@ -3921,57 +4257,387 @@
         }
       }
     },
-    "passport_birth_date" : {
+    "passport_biometrics_no_availability" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ikke tilgængelig"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nicht verfügbar"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Date of birth"
+            "value" : "Not available"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non disponible"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non disponibile"
           }
         }
       }
     },
-    "passport_capture_description" : {
+    "passport_biometrics_no_passport_data" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingen dokumentdata modtaget"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Dokumentdaten empfangen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Align the Passport or ID Card in the frame"
+            "value" : "No document data received"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucune donnée de document reçue"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessun dato del documento ricevuto"
           }
         }
       }
     },
-    "passport_data_review_description" : {
+    "passport_biometrics_passport" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas / ID-kort"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reisepass / Personalausweis"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Please review the information extracted from your passport."
+            "value" : "Passport / ID card"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passeport / Carte d\\'identité"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passaporto / Carta d\\'identità"
           }
         }
       }
     },
-    "passport_data_review_header" : {
+    "passport_biometrics_scan_cancelled" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dokumentscanning blev annulleret"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dokument-Scan wurde abgebrochen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Please verify your data"
+            "value" : "Document scanning was cancelled"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Analyse du document annulée"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scansione del documento annullata"
           }
         }
       }
     },
-    "passport_document_number" : {
+    "passport_biometrics_try_again" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prøv igen"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erneut versuchen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Document Number"
+            "value" : "Try again"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réessayer"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Riprova"
+          }
+        }
+      }
+    },
+    "passport_biometrics_unknown_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ukendt fejl opstod under dokumentscanning"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unbekannter Fehler beim Dokument-Scan aufgetreten"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An unknown error occurred during document scanning"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur inconnue lors de l\\'analyse du document"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Errore sconosciuto durante la scansione del documento"
+          }
+        }
+      }
+    },
+    "passport_biometrics_verify_data" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bekræft venligst dine oplysninger"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte überprüfen Sie Ihre Daten"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please confirm your details"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez vérifier vos données"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si prega di verificare i dati"
+          }
+        }
+      }
+    },
+    "passport_capture_subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placer fotosiden af dit pas / ID-kort inden for rammen"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Richten Sie die Fotoseite Ihres Reisepasses / Personalausweises im Rahmen aus"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Place the photo page of your passport / ID card within the frame"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alignez la page avec photo de votre passeport / carte d\\'identité dans le cadre"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allinea la pagina con la foto del passaporto / carta d\\'identità all\\'interno della cornice"
+          }
+        }
+      }
+    },
+    "passport_capture_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan dit pas / ID-kort"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scannen Sie Ihren Reisepass / Personalausweis"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan your passport / ID card"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scannez votre passeport / carte d\\'identité"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scansiona il tuo passaporto / carta d\\'identità"
+          }
+        }
+      }
+    },
+    "passport_credential_issuance_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We are now issuing your proof of age. This might take up to 30 seconds"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wir stellen Ihnen nun Ihren Altersnachweis aus. Dies kann bis zu 30 Sekunden dauern."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We are now issuing your proof of age. This might take up to 30 seconds"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We are now issuing your proof of age. This might take up to 30 seconds"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "We are now issuing your proof of age. This might take up to 30 seconds"
+          }
+        }
+      }
+    },
+    "passport_credential_issuance_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verification Complete"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verifizierung abgeschlossen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verification Complete"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verification Complete"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verification Complete"
           }
         }
       }
@@ -3979,7 +4645,25 @@
     "passport_enrollment_description" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Passport-Methode ist schnell und sicher! Scannen Sie Ihren Ausweis, machen Sie ein Foto und nehmen Sie ein kurzes Video auf – drei Schritte für maximale Sicherheit und Schutz vor Betrug."
+          }
+        },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Passport method is quick and secure! Scan your ID, take a photo, and record a short video—three steps for maximum safety and fraud protection."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The Passport method is quick and secure! Scan your ID, take a photo, and record a short video—three steps for maximum safety and fraud protection."
+          }
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "The Passport method is quick and secure! Scan your ID, take a photo, and record a short video—three steps for maximum safety and fraud protection."
@@ -3987,244 +4671,1332 @@
         }
       }
     },
-    "passport_enrollment_instruction_body1" : {
+    "passport_identification" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
+        "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "For this step, simply capture a clear photo of your passport. Make sure:"
+            "value" : "Identifikation"
           }
-        }
-      }
-    },
-    "passport_enrollment_instruction_body2" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
+        },
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "We take an identification code from this passport to get access to the machine readable part of the passport."
+            "value" : "Identifikation"
           }
-        }
-      }
-    },
-    "passport_enrollment_instruction_header" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Take a Photo of your Passport"
-          }
-        }
-      }
-    },
-    "passport_enrollment_instruction_point1" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The entire passport is visible and well-lit."
-          }
-        }
-      }
-    },
-    "passport_enrollment_instruction_point2" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No reflections or blurriness obscure the details."
-          }
-        }
-      }
-    },
-    "passport_enrollment_intro_step1_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Capture a clear image of your Passport."
-          }
-        }
-      }
-    },
-    "passport_enrollment_intro_step1_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Take a Photo of the Passport"
-          }
-        }
-      }
-    },
-    "passport_enrollment_intro_step2_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Place your Passport on your smartphone to read the data"
-          }
-        }
-      }
-    },
-    "passport_enrollment_intro_step2_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Read in your Passport"
-          }
-        }
-      }
-    },
-    "passport_enrollment_intro_step3_description" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Film yourself for identity verification."
-          }
-        }
-      }
-    },
-    "passport_enrollment_intro_step3_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Record a video of yourself"
-          }
-        }
-      }
-    },
-    "passport_enrollment_intro_step4_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Consent"
-          }
-        }
-      }
-    },
-    "passport_enrollment_intro_step5_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Issuing of the Proof of Age Attestation"
-          }
-        }
-      }
-    },
-    "passport_enrollment_step1_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Identification"
           }
-        }
-      }
-    },
-    "passport_enrollment_step2_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
+        },
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Biometrics"
+            "value" : "Identification"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identificazione"
           }
         }
       }
     },
-    "passport_enrollment_step3_title" : {
+    "passport_identification_back" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tilbage"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurück"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Live Video"
+            "value" : "Back"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retour"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indietro"
           }
         }
       }
     },
-    "passport_expiry_date" : {
+    "passport_identification_capture" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scannen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Date of expiry"
+            "value" : "Scan"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scanner"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scansiona"
           }
         }
       }
     },
-    "passport_id_card_title" : {
+    "passport_identification_description" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For dette trin skal du tage MRZ-området (maskinlæsbar zone) nederst på fotosiden af dit pas / ID-kort. Sørg for:"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Für diesen Schritt erfassen Sie den MRZ-Bereich (maschinenlesbare Zone) am unteren Rand der Fotoseite Ihres Reisepasses / Personalausweises. Stellen Sie sicher:"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Passport / ID card"
+            "value" : "For this step, you need to capture the MRZ area (machine-readable zone) at the bottom of the photo page of your passport / ID card. Make sure to:"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour cette étape, capturez la zone MRZ (zone de lecture automatique) en bas de la page photo de votre passeport / carte d\\'identité. Assurez-vous :"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per questo passaggio, cattura l\\'area MRZ (zona leggibile dalla macchina) nella parte inferiore della pagina foto del tuo passaporto / carta d\\'identità. Assicurati che:"
           }
         }
       }
     },
-    "passport_photo" : {
+    "passport_identification_footer" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vi tager en identifikationskode fra dette pas / ID-kort for at få adgang til den maskinlæsbare del af dokumentet."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wir nehmen einen Identifikationscode von diesem Reisepass / Personalausweis, um Zugang zum maschinenlesbaren Teil des Dokuments zu erhalten."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Photo"
+            "value" : "We take an identification code from this passport / ID card to access the machine-readable part of the document."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nous prenons un code d\\'identification de ce passeport / carte d\\'identité pour accéder à la partie lisible par machine du document."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prendiamo un codice identificativo da questo passaporto / carta d\\'identità per accedere alla parte leggibile dalla macchina del documento."
           }
         }
       }
     },
-    "passpost_enrollment_description" : {
+    "passport_identification_step_first" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "At hele fotosiden af passet / ID-kortet er synlig og godt oplyst."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die gesamte Fotoseite des Reisepasses / Personalausweises ist sichtbar und gut beleuchtet."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The Passport method is quick and secure! Scan your ID, take a photo, and record a short video—three steps for maximum safety and fraud protection."
+            "value" : "That the entire photo page of the passport / ID card is visible and well-lit."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Que la page photo du passeport / carte d\\'identité entière soit visible et bien éclairée."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L\\'intera pagina foto del passaporto / carta d\\'identità sia visibile e ben illuminata."
           }
         }
       }
     },
-    "passpost_enrollment_header" : {
+    "passport_identification_step_second" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingen refleksioner eller sløring skjuler detaljerne."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Reflexionen oder Unschärfen verdecken die Details."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Age Verification Enrollment Method"
+            "value" : "No reflections or blurriness obscure the details."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Qu\\'aucun reflet ou flou ne masque les détails."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessun riflesso o sfocatura oscuri i dettagli."
           }
         }
       }
     },
-    "passpost_enrollment_title" : {
+    "passport_identification_title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan dit pas / ID-kort"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scannen Sie Ihren Reisepass / Personalausweis"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Passport or ID Card"
+            "value" : "Scan this passport / ID card"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scannez votre passeport / carte d\\'identité"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scansiona il tuo passaporto / carta d\\'identità"
+          }
+        }
+      }
+    },
+    "passport_live_video" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Live-video"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Live-video"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Live video"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vidéo en direct"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Video in diretta"
+          }
+        }
+      }
+    },
+    "passport_live_video_back" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tilbage"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurück"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retour"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indietro"
+          }
+        }
+      }
+    },
+    "passport_live_video_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I dette trin skal du optage en kort video af dig selv for at bekræfte din identitet. Sørg for at:"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In diesem Schritt nehmen Sie ein kurzes Video von sich auf, um Ihre Identität zu bestätigen. Achten Sie darauf:"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In this step, you must record a short video of yourself to confirm your identity. Make sure to:"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À cette étape, vous allez enregistrer une courte vidéo de vous pour confirmer votre identité. Veuillez :"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In questo passaggio, registrerai un breve video di te stesso per confermare la tua identità. Assicurati di:"
+          }
+        }
+      }
+    },
+    "passport_live_video_downloading_progress" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Downloader verifikationsdata… %d%%"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verifizierungsdaten werden heruntergeladen… %d%%"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Downloading verification data… %d%%"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Téléchargement des ressources de vérification… %d%%"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download risorse di verifica… %d%%"
+          }
+        }
+      }
+    },
+    "passport_live_video_error_not_live" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liveness-tjek mislykkedes. Sørg venligst for, at du optager en live-video."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lebensechtheitsüberprüfung fehlgeschlagen. Bitte stellen Sie sicher, dass Sie ein Live-Video aufnehmen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liveness check failed. Please ensure you are recording a live video."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La vérification de vivacité a échoué. Assurez-vous que vous enregistrez une vidéo en direct."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verifica della vitalità fallita. Assicurati di registrare un video dal vivo."
+          }
+        }
+      }
+    },
+    "passport_live_video_error_not_matching" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ansigtet matcher ikke pas / ID-kort fotet. Prøv venligst igen."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Gesicht stimmt nicht mit dem Reisepass / Personalausweis Foto überein. Bitte versuchen Sie es erneut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The face does not match the passport / ID card photo. Please try again."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le visage ne correspond pas à la photo du passeport / carte d\\'identité. Veuillez réessayer."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il volto non corrisponde alla foto del passaporto / carta d\\'identità. Riprova."
+          }
+        }
+      }
+    },
+    "passport_live_video_error_not_processed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Videooptagelsen blev ikke behandlet korrekt. Prøv venligst igen."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Videoaufnahme wurde nicht erfolgreich verarbeitet. Bitte versuchen Sie es erneut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The video recording was not processed correctly. Please try again."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La capture vidéo n\\'a pas été traitée avec succès. Veuillez réessayer."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La cattura video non è stata elaborata correttamente. Riprova."
+          }
+        }
+      }
+    },
+    "passport_live_video_footer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dette trin sikrer, at du er den rette ejer af pas / ID-kort."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dieser Schritt stellt sicher, dass Sie der rechtmäßige Eigentümer des Reisepasses / Personalausweises sind."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This step ensures that you are the rightful owner of the passport / ID card."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cette étape garantit que vous êtes le propriétaire légitime du passeport / carte d\\'identité."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questo passaggio garantisce che tu sia il legittimo proprietario del passaporto / carta d\\'identità."
+          }
+        }
+      }
+    },
+    "passport_live_video_header" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optag en hurtig video af dig selv"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nehmen Sie ein kurzes Video von sich auf"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Record a quick video of yourself"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrez une courte vidéo de vous-même"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registra un breve video di te stesso"
+          }
+        }
+      }
+    },
+    "passport_live_video_live_capture" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start live-video"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Live-video starten"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start live video"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Démarrer la vidéo en direct"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avvia video live"
+          }
+        }
+      }
+    },
+    "passport_live_video_step_first" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vend ansigtet direkte mod kameraet i godt lys."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Richten Sie Ihr Gesicht bei guter Beleuchtung direkt zur Kamera."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Face the camera directly in good lighting."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Faire face à la caméra directement avec un bon éclairage."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardare direttamente la fotocamera con una buona illuminazione."
+          }
+        }
+      }
+    },
+    "passport_live_video_step_second" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Følg instruktionerne på skærmen (f.eks. blink eller drej dit hoved)."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Folgen Sie den Anweisungen auf dem Bildschirm (z.B. blinzeln oder den Kopf drehen)."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Follow the instructions on the screen (e.g., blink or turn your head)."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suivre les instructions à lécran (par exemple, cligner des yeux ou tourner la tête)."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seguire le istruzioni sullo schermo (ad esempio, battere le palpebre o girare la testa)."
+          }
+        }
+      }
+    },
+    "passport_live_video_step_third" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Undgå filtre, masker eller forhindringer."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vermeiden Sie Filter, Masken oder Hindernisse."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avoid filters, masks, or obstructions."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Éviter les filtres, masques ou obstacles."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Evitare filtri, maschere o ostacoli."
+          }
+        }
+      }
+    },
+    "passport_scan_intro_back_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tilbage"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurück"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Retour"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indietro"
+          }
+        }
+      }
+    },
+    "passport_scan_intro_data_download_notice" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verifikation kræver yderligere data. Når du trykker på Start, downloades ca. 250MB til ansigtsmatching."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verifizierung erfordert zusätzliche Daten. Wenn Sie auf Starten tippen, werden ca. 250MB an Dateien für den Gesichtsabgleich heruntergeladen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verification requires additional data. When you press Start, about 250MB will be downloaded for face matching."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La vérification nécessite des données supplémentaires. Lorsque vous appuyez sur Commencer, environ 250MB d\\'éléments seront téléchargés pour la reconnaissance faciale."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La verifica richiede dati aggiuntivi. Quando tocchi Inizia, verranno scaricati circa 250MB di risorse per il riconoscimento facciale."
+          }
+        }
+      }
+    },
+    "passport_scan_intro_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas / ID-kort metoden er hurtig og sikker! Tag et billede af dit pas / ID-kort, scan dit pas / ID-kort og optag en video af dig selv—tre trin for sikker onboarding."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Reisepass / Personalausweis Methode ist schnell und sicher! Foto Ihres Reisepasses / Personalausweises aufnehmen, Reisepass / Personalausweis scannen und Video von sich selbst aufnehmen—drei Schritte für sicheres Onboarding."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The passport / ID card method is quick and secure! Take a photo of your passport / ID card, scan your passport / ID card, and record a video of yourself—three steps for secure onboarding."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La méthode passeport / carte d\\'identité est rapide et sécurisée ! Prendre une photo de votre passeport / carte d\\'identité, scannez votre passeport / carte d\\'identité et enregistrer une vidéo de vous-même—trois étapes pour un onboarding sécurisé."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il metodo passaporto / carta d\\'identità è veloce e sicuro! Scatta una foto del tuo passaporto / carta d\\'identità, scansiona il tuo passaporto / carta d\\'identità e registra un video di te stesso—tre passaggi per un onboarding sicuro."
+          }
+        }
+      }
+    },
+    "passport_scan_intro_enrollment_method" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aldersverifikationsmetode"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Altersverifizierungsmethode"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Age verification method"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Méthode de vérification d\\'âge"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Metodo di verifica dell\\'età"
+          }
+        }
+      }
+    },
+    "passport_scan_intro_start_button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Starten"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Commencer"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inizia"
+          }
+        }
+      }
+    },
+    "passport_scan_intro_step_1_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tag et klart foto af din identitetsdokumentside med personlige oplysninger."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erstellen Sie ein klares Foto der Seite Ihres Identitätsdokuments mit persönlichen Daten."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Take a clear photo of the identity document page with your personal information."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capturez une photo claire de la page de votre document d\\'identité avec les détails personnels."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posiziona il tuo documento d\\'identità sullo smartphone per leggere i dati"
+          }
+        }
+      }
+    },
+    "passport_scan_intro_step_1_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tag et billede af dit identitetsdokument"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Foto Ihres Identitätsdokuments aufnehmen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Take a photo of your identity document"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prendre une photo de votre document d\\'identité"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scansiona il tuo documento d\\'identità"
+          }
+        }
+      }
+    },
+    "passport_scan_intro_step_2_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placer dit identitetsdokument på din smartphone for at læse dataene."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Legen Sie Ihr Identitätsdokument auf Ihr Smartphone, um die Daten zu lesen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Place your identity document on your smartphone to read the data."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placez votre document d\\'identité sur votre smartphone pour lire les données."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posiziona il tuo documento d\\'identità sullo smartphone per leggere i dati."
+          }
+        }
+      }
+    },
+    "passport_scan_intro_step_2_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan dit identitetsdokument"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identitätsdokument scannen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan your identity document"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scannez votre document d\\'identité"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scansiona il tuo documento d\\'identità"
+          }
+        }
+      }
+    },
+    "passport_scan_intro_step_3_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Film dig selv til identitetsverifikation."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filmen Sie sich selbst zur Identitätsprüfung."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Film yourself for identity verification."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filmez-vous pour la vérification d\\'identité."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filmati per la verifica dell\\'identità."
+          }
+        }
+      }
+    },
+    "passport_scan_intro_step_3_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Optag en video af dig selv"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Video von sich selbst aufnehmen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Record a video of yourself"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer une vidéo de vous-même"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registra un video di te stesso"
+          }
+        }
+      }
+    },
+    "passport_scan_intro_step_4_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Samtykke"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einverständnis"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consent"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consentement"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consenso"
+          }
+        }
+      }
+    },
+    "passport_scan_intro_step_5_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modtag dit aldersbevis"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erhalten Sie Ihren Altersnachweis"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Receive your age certificate"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recevez votre preuve d\\'âge"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ricevi la tua prova d\\'età"
+          }
+        }
+      }
+    },
+    "passport_scan_intro_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas eller ID-kort"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reisepass oder Personalausweis"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passport or ID card"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passeport ou Carte d\\'identité"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passaporto o Carta d\\'identità"
+          }
+        }
+      }
+    },
+    "passport_validation_error_expired" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dit pas / ID-kort er udløbet. Brug venligst et gyldigt dokument."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ihr Reisepass / Personalausweis ist abgelaufen. Bitte verwenden Sie ein gültiges Dokument."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your passport / ID card has expired. Please use a valid document."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votre passeport / carte d\\'identité a expiré. Veuillez utiliser un document valide."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il tuo passaporto / carta d\\'identità è scaduto. Utilizza un documento valido."
+          }
+        }
+      }
+    },
+    "passport_validation_error_incomplete_data" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas / ID-kort data er ufuldstændige. Scan venligst dit dokument igen."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Reisepass / Personalausweis Daten sind unvollständig. Bitte scannen Sie Ihr Dokument erneut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passport / ID card data is incomplete. Please scan your document again."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les données du passeport / carte d\\'identité sont incomplètes. Veuillez scanner à nouveau votre document."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I dati del passaporto / carta d\\'identità sono incompleti. Scansiona nuovamente il tuo documento."
+          }
+        }
+      }
+    },
+    "passport_validation_error_underage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du skal være mindst 18 år gammel for at fortsætte."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sie müssen mindestens 18 Jahre alt sein, um fortzufahren."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You must be at least 18 years old to continue."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous devez avoir au moins 18 ans pour continuer."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Devi avere almeno 18 anni per continuare."
           }
         }
       }
@@ -4301,17 +6073,6 @@
         }
       }
     },
-    "processing_document" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Processing document..."
-          }
-        }
-      }
-    },
     "proof_of_age_title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -4324,8 +6085,15 @@
       }
     },
     "proxmity_connectivity_caption" : {
-      "comment" : "Show this QR code to access the necessary information for sharing",
-      "extractionState" : "manual"
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show this QR code to access the necessary information for sharing"
+          }
+        }
+      }
     },
     "qr_scan_informative_text" : {
       "extractionState" : "manual",
@@ -5402,6 +7170,58 @@
         }
       }
     },
+    "required_nfc_not_supported" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fejl: NFC understøttes ikke på denne enhed."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur: NFC n\\'est pas pris en charge sur cet appareil."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error: NFC is not supported in this device."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur: NFC n\\'est pas pris en charge sur cet appareil."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Errore: NFC non è supportato su questo dispositivo."
+          }
+        }
+      }
+    },
+    "required_perms_not_given" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehler: Zugriff verweigert."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error: Permissions denied."
+          }
+        }
+      }
+    },
     "retrieve_logs" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5675,6 +7495,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ricerca"
+          }
+        }
+      }
+    },
+    "settings" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
           }
         }
       }
@@ -6207,6 +8044,12 @@
     "start_button_title" : {
       "extractionState" : "manual",
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6281,17 +8124,6 @@
           "stringUnit" : {
             "state" : "needs_review",
             "value" : "Hai condiviso correttamente le seguenti informazioni con"
-          }
-        }
-      }
-    },
-    "take_a_photo_button_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Take a Photo"
           }
         }
       }
@@ -6574,6 +8406,93 @@
         }
       }
     },
+    "warning_authentication_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authentifizierung fehlgeschlagen! Bitte versuchen Sie, das Dokument erneut zu scannen oder die Daten manuell einzugeben."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authentication has failed! Please try to scan the document again or introduce the data manually."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L\\'authentification a échoué! Veuillez essayer de scanner à nouveau le document ou saisir les données manuellement."
+          }
+        }
+      }
+    },
+    "warning_cla_not_supported" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Umuligt at læse dokumentet. Pas understøtter ikke CLA ."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Dokument kann nicht gelesen werden. Der Reisepass unterstützt CLA nicht."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible to read the document. Passport doesn't support CLA."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de lire le document. Le passeport ne prend pas en charge CLA."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile leggere il documento. Il passaporto non supporta il CLA."
+          }
+        }
+      }
+    },
+    "warning_enable_nfc" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du skal aktivere NFC"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sie müssen NFC aktivieren"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You need to enable NFC"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous devez activer le NFC"
+          }
+        }
+      }
+    },
     "welcome_back" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -6832,6 +8751,35 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Protezione della privacy"
+          }
+        }
+      }
+    },
+    "yes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ja"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ja"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yes"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oui"
           }
         }
       }
