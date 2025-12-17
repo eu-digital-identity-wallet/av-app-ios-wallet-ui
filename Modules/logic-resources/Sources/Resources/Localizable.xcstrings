@@ -7252,13 +7252,13 @@
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "We are now issuing your proof of age. This might take up to 30 seconds"
+            "value" : "Vi udsteder nu dit aldersbevis. Dette kan tage op til 30 sekunder."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "We are now issuing your proof of age. This might take up to 30 seconds"
+            "value" : "Wir stellen Ihnen nun Ihren Altersnachweis aus. Dies kann bis zu 30 Sekunden dauern."
           }
         },
         "en" : {
@@ -7270,13 +7270,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "We are now issuing your proof of age. This might take up to 30 seconds"
+            "value" : "Nous procédons actuellement à la délivrance de votre justificatif d'âge. Cela peut prendre jusqu'à 30 secondes."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "We are now issuing your proof of age. This might take up to 30 seconds"
+            "value" : "Stiamo inviando la tua prova di età. L'operazione potrebbe richiedere fino a 30 secondi."
           }
         }
       }
@@ -7287,13 +7287,13 @@
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Verification Complete"
+            "value" : "Verifikation fuldført"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Verification Complete"
+            "value" : "Verifizierung abgeschlossen"
           }
         },
         "en" : {
@@ -7305,13 +7305,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Verification Complete"
+            "value" : "Vérification terminée"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Verification Complete"
+            "value" : "Verifica completata"
           }
         }
       }
