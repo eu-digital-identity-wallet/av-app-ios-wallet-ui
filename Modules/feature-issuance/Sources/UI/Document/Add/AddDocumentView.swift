@@ -35,7 +35,7 @@ struct AddDocumentView<Router: RouterHost>: View {
       padding: .zero,
       canScroll: true,
       errorConfig: viewModel.viewState.error,
-      navigationTitle: .issuanceAddDocumentSubtitle,
+      navigationTitle: .issuanceAddDocumentTitle,
       isLoading: viewModel.viewState.isLoading,
       toolbarContent: viewModel.toolbarContent()
     ) {

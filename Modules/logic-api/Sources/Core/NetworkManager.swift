@@ -15,6 +15,7 @@
  */
 import Foundation
 import logic_business
+import logic_resources
 
 protocol NetworkManager: Sendable {
 
@@ -108,16 +109,21 @@ actor NetworkManagerImpl: NetworkManager {
   }
 
   nonisolated func log(request: URLRequest, responseData: Data? = nil) {
-    print("1️⃣ Request: " + (request.url?.absoluteString ?? "") )
-    print("2️⃣ Request Http Method: " + (request.httpMethod ?? "") )
-    print("3️⃣ Request HttpBody: " + ((try? request.httpBody?.toJSONString(prettyPrinted: true)).orEmpty) )
-    print("4️⃣ Request Headers: ")
+    var logMessage = """
+    Request: \(request.url?.absoluteString ?? "")
+    Request Http Method: \(request.httpMethod ?? "")
+    Request HttpBody: \((try? request.httpBody?.toJSONString(prettyPrinted: true)).orEmpty)
+    Request Headers:
+    """
+
     request.allHTTPHeaderFields?.forEach({ key, value in
-      print("\(key): \(value)")
+      logMessage += "\n    \(key): \(value)"
     })
 
     if let responseData {
-      print("✅ Response Body: " + ((try? responseData.toJSONString(prettyPrinted: true)).orEmpty) )
+      logMessage += "\n Response Body: \((try? responseData.toJSONString(prettyPrinted: true)).orEmpty)"
     }
+
+    logic_resources.log(logMessage, level: .debug)
   }
 }

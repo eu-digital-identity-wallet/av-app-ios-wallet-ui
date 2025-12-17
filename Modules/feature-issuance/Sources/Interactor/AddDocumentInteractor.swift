@@ -81,6 +81,17 @@ final actor AddDocumentInteractorImpl: AddDocumentInteractor {
                        configId: doc.configId,
                        issuerId: doc.issuer,
                        docTypeIdentifier: doc.docTypeIdentifier)
+        } else if case .other(let formatType) = doc.docTypeIdentifier, formatType == "passport" {
+          return .init(
+            listItem: .init(
+              mainContent: .text(LocalizableStringKey.onboardingVerificationPassportIdCard),
+              trailingContent: .icon(Theme.shared.image.plus)
+            ),
+            isEnabled: true,
+            configId: doc.configId,
+            issuerId: doc.issuer,
+            docTypeIdentifier: doc.docTypeIdentifier
+          )
         } else {
           return .init(
             listItem: .init(

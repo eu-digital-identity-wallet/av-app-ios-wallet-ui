@@ -18,6 +18,7 @@ import SwiftUI
 import logic_storage
 import IdentityDocumentServices
 import logic_api
+import logic_resources
 
 private enum KeyIdentifier: String, KeyChainWrapper {
   public var value: String {
@@ -248,7 +249,7 @@ final actor WalletKitControllerImpl: WalletKitController {
             // Fallback on earlier versions
           }
         } catch let error {
-          print("Add failed:", error.localizedDescription)
+          log("Add failed: \(error.localizedDescription)", level: .error)
         }
       }
     }
@@ -630,7 +631,7 @@ extension WalletKitController {
       do {
         try await DocumentRegistrationManager.shared.removeRegistration(documentIdentifiers: ids)
       } catch {
-        print("Remove failed:", error)
+        log("Remove failed: \(error)", level: .error)
       }
     } else {
       // Fallback on earlier versions
