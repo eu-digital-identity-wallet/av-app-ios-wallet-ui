@@ -82,9 +82,7 @@ public extension Bundle {
       }
     }
 
-    // Fallback: return the main app bundle ID as the access group
-    // This will work if the entitlements use the bundle ID directly
-    // or if the keychain library can resolve it from entitlements
-    return mainAppBundleID
+    // Fallback: return the team ID and main app bundle ID as the access group
+    return "\("Team ID".valueFromBundle).\(mainAppBundleID)"
   }
 }
