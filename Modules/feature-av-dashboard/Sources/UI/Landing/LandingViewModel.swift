@@ -87,6 +87,7 @@ final class LandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingSt
   }
 
   func onCreate() async {
+    await refreshCredentials()
     await handleDeepLink()
   }
   private func handleDeepLink() async {
