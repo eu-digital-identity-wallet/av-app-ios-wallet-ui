@@ -78,13 +78,16 @@ struct WalletKitConfigImpl: WalletKitConfig {
 
   let configLogic: ConfigLogic
   let transactionLoggerImpl: TransactionLogger
+  let walletKitAttestationProvider: WalletKitAttestationProvider
 
   init(
     configLogic: ConfigLogic,
-    transactionLogger: TransactionLogger
+    transactionLogger: TransactionLogger,
+    walletKitAttestationProvider: WalletKitAttestationProvider
   ) {
     self.configLogic = configLogic
     self.transactionLoggerImpl = transactionLogger
+    self.walletKitAttestationProvider = walletKitAttestationProvider
   }
 
   var userAuthenticationRequired: Bool {
@@ -104,7 +107,8 @@ struct WalletKitConfigImpl: WalletKitConfig {
         return [
           .init(
             credentialIssuerURL: "https://issuer.ageverification.dev",
-            client: .public(id: "wallet-dev"),
+            clientId: "wallet-dev",
+            keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
             authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
             usePAR: true,
             useDpopIfSupported: true,
@@ -112,10 +116,11 @@ struct WalletKitConfigImpl: WalletKitConfig {
           ),
           .init(
             credentialIssuerURL: "https://issuer.dev.ageverification.dev",
-            client: .public(id: "wallet-dev"),
+            clientId: "wallet-dev",
+            keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
             authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
-            usePAR: false,
-            useDpopIfSupported: false,
+            usePAR: true,
+            useDpopIfSupported: true,
             cacheIssuerMetadata: true
           )
         ]
@@ -123,7 +128,8 @@ struct WalletKitConfigImpl: WalletKitConfig {
         return [
           .init(
             credentialIssuerURL: "https://issuer.ageverification.dev",
-            client: .public(id: "wallet-dev"),
+            clientId: "wallet-dev",
+            keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
             authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
             usePAR: true,
             useDpopIfSupported: true,
@@ -131,10 +137,11 @@ struct WalletKitConfigImpl: WalletKitConfig {
           ),
           .init(
             credentialIssuerURL: "https://issuer.dev.ageverification.dev",
-            client: .public(id: "wallet-dev"),
+            clientId: "wallet-dev",
+            keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
             authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
-            usePAR: false,
-            useDpopIfSupported: false,
+            usePAR: true,
+            useDpopIfSupported: true,
             cacheIssuerMetadata: true
           )
         ]
@@ -171,7 +178,8 @@ struct WalletKitConfigImpl: WalletKitConfig {
       "pidissuerca02_lu",
       "pidissuerca02_nl",
       "pidissuerca02_pt",
-      "pidissuerca02_ut"
+      "pidissuerca02_ut",
+      "r45_staging"
     ]
     let certsData: [Data] = certificates.compactMap {
       Data(name: $0, ext: "der")

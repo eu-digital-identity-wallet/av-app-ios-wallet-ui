@@ -1,5 +1,5 @@
 {
-  "originHash" : "a3113fb327703fb1cc49e5364c37d568060c968ea01fe39060d7fc3a07596027",
+  "originHash" : "42c16fd1cacd00111a0b10db91e996d1f3b8f0b71a6069be5d034875e799faab",
   "pins" : [
     {
       "identity" : "activityindicatorview",
@@ -17,15 +17,6 @@
       "state" : {
         "revision" : "db806756c989760b35108146381535aec231092b",
         "version" : "4.7.0"
-      }
-    },
-    {
-      "identity" : "alamofire",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Alamofire/Alamofire.git",
-      "state" : {
-        "revision" : "513364f870f6bfc468f9d2ff0a95caccc10044c5",
-        "version" : "5.10.2"
       }
     },
     {
@@ -51,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/av-lib-ios-w3c-dc-api.git",
       "state" : {
-        "revision" : "52f8f0e2f351a3150654948bbfef921b9166c6de",
-        "version" : "0.2.0"
+        "revision" : "a1f15922bcb3bf03492c9ba3251e6ef4e0d877fd",
+        "version" : "0.3.0"
       }
     },
     {
@@ -132,8 +123,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-iso18013-data-model.git",
       "state" : {
-        "revision" : "395cca652e2c9884b60aae4e9b6f6a5015dc4ec7",
-        "version" : "0.9.0"
+        "revision" : "a3e8f8991aaf5e51690cf30a3728c534174329c6",
+        "version" : "0.9.2"
       }
     },
     {
@@ -141,8 +132,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-iso18013-data-transfer.git",
       "state" : {
-        "revision" : "7b27c74921ab2d569174c71e97cc775a27441163",
-        "version" : "0.8.3"
+        "revision" : "1edd207667a3a6e0df59868fed059647c089332d",
+        "version" : "0.8.5"
       }
     },
     {
@@ -150,8 +141,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-iso18013-security.git",
       "state" : {
-        "revision" : "90a088a258e83c54b7c4f676600a7a740e8abebc",
-        "version" : "0.8.0"
+        "revision" : "865049862c8154e6f350f722e185db9ae65c6301",
+        "version" : "0.8.2"
       }
     },
     {
@@ -159,8 +150,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-openid4vci-swift.git",
       "state" : {
-        "revision" : "bba221262df18c0f4be8006e02a1475b152a2567",
-        "version" : "0.16.2"
+        "revision" : "d38e3e81c16609cbe6dd65cd44b9203e0ed7f495",
+        "version" : "0.19.2"
+      }
+    },
+    {
+      "identity" : "eudi-lib-ios-openid4vp-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-openid4vp-swift.git",
+      "state" : {
+        "revision" : "f4bbea4288043b71d054432f17a36faaed74072e",
+        "version" : "0.19.0"
       }
     },
     {
@@ -191,15 +191,6 @@
       }
     },
     {
-      "identity" : "eudi-lib-ios-siop-openid4vp-swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-siop-openid4vp-swift.git",
-      "state" : {
-        "revision" : "b4ed7acda1091a923ef1245644d84ec878396cb1",
-        "version" : "0.18.0"
-      }
-    },
-    {
       "identity" : "eudi-lib-ios-statium-swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-statium-swift.git",
@@ -213,8 +204,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-kit.git",
       "state" : {
-        "revision" : "8c80c13e47b091f88863b9c433d06dbe37c2c56e",
-        "version" : "0.18.3"
+        "revision" : "29f0c42787635dbf79c4cede12bfe719cb68a38e",
+        "version" : "0.19.2"
       }
     },
     {
@@ -240,8 +231,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-sdjwt-swift.git",
       "state" : {
-        "revision" : "20d5ac66896988a0ed655c694f6562b081353626",
-        "version" : "0.9.2"
+        "revision" : "99a017068518a33fc6011056f27361391875c434",
+        "version" : "0.10.1"
       }
     },
     {
@@ -258,8 +249,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/beatt83/jose-swift.git",
       "state" : {
-        "revision" : "8d087c7d8333310449aff4c9eb2431fbb4f1eb9f",
-        "version" : "6.0.0"
+        "revision" : "f25da1bf75b9a2b803bb7c40bdd6ace85f4df3ce",
+        "version" : "6.0.1"
       }
     },
     {
@@ -278,15 +269,6 @@
       "state" : {
         "revision" : "84e546727d66f1adc5439debad16270d0fdd04e7",
         "version" : "4.2.2"
-      }
-    },
-    {
-      "identity" : "libphonenumber-ios",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/iziz/libPhoneNumber-iOS.git",
-      "state" : {
-        "branch" : "master",
-        "revision" : "768c6eccd24bbf0d2a73596cac7a03174f4f5c3d"
       }
     },
     {
@@ -323,6 +305,15 @@
       "state" : {
         "revision" : "9e3db637fbf8041c23a1b7f71e4ef16ac54f833f",
         "version" : "1.2.0"
+      }
+    },
+    {
+      "identity" : "phonenumberkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/marmelroy/PhoneNumberKit",
+      "state" : {
+        "revision" : "f158939f66f4ef94512b7e6cd1e56057070a05e4",
+        "version" : "4.2.1"
       }
     },
     {
@@ -402,8 +393,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-asn1.git",
       "state" : {
-        "revision" : "40d25bbb2fc5b557a9aa8512210bded327c0f60d",
-        "version" : "1.5.0"
+        "revision" : "810496cf121e525d660cd0ea89a758740476b85f",
+        "version" : "1.5.1"
       }
     },
     {
@@ -411,8 +402,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-certificates.git",
       "state" : {
-        "revision" : "c399f90e7bbe8874f6cbfda1d5f9023d1f5ce122",
-        "version" : "1.15.1"
+        "revision" : "133a347911b6ad0fc8fe3bf46ca90c66cff97130",
+        "version" : "1.17.0"
       }
     },
     {
@@ -447,8 +438,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-log.git",
       "state" : {
-        "revision" : "ce592ae52f982c847a4efc0dd881cc9eb32d29f2",
-        "version" : "1.6.4"
+        "revision" : "bc386b95f2a16ccd0150a8235e7c69eab2b866ca",
+        "version" : "1.8.0"
       }
     },
     {
