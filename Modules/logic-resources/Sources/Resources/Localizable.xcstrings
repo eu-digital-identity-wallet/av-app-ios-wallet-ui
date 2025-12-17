@@ -2979,6 +2979,12 @@
     "generic_accept" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acceptere"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "needs_review",
@@ -2989,6 +2995,53 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Accept"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accepter"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accettare"
+          }
+        }
+      }
+    },
+    "generic_back" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tilbage"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurück"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dos"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indietro"
           }
         }
       }
@@ -3413,6 +3466,41 @@
         }
       }
     },
+    "generic_no" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingen"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NEIN"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NO"
+          }
+        }
+      }
+    },
     "generic_ok" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3556,10 +3644,34 @@
     "generic_unknown" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ukendt"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unbekannt"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unknown"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inconnu"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sconosciuto"
           }
         }
       }
@@ -3595,6 +3707,41 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Credenziali"
+          }
+        }
+      }
+    },
+    "generic_yes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ja"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ja"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yes"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oui"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SÌ"
           }
         }
       }
@@ -4267,10 +4414,34 @@
     "issuance_document_offer_error_unable_to_fetch_transaction_log" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Transaktionsloggen kunne ikke hentes"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Transaktionsprotokoll konnte nicht abgerufen werden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unable to fetch transaction log"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de récupérer le journal des transactions"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile recuperare il registro delle transazioni"
           }
         }
       }
@@ -4278,10 +4449,34 @@
     "issuance_document_offer_error_unable_to_present_and_share" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kan ikke præsentere og dele dine dokumenter."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ihre Dokumente können nicht angezeigt und geteilt werden."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unable to present and share your documents."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de présenter et de partager vos documents."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile presentare e condividere i documenti."
           }
         }
       }
@@ -4639,16 +4834,34 @@
     "item_not_found_in_storage" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Varen blev ikke fundet på lageret"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Artikel nicht im Lager gefunden"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Item not found in storage"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Article introuvable dans le stockage"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Element im Speicher nicht gefunden"
+            "value" : "Articolo non trovato in magazzino"
           }
         }
       }
@@ -4656,16 +4869,34 @@
     "items_not_found_in_storage" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Genstande ikke fundet på lager"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elemente im Speicher nicht gefunden"
+            "value" : "Gegenstände nicht im Lager gefunden"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Items not found in storage"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Objets non trouvés dans le stockage"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Articoli non trovati in magazzino"
           }
         }
       }
@@ -5583,10 +5814,34 @@
     "nfc_error_connection" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Forbindelsesfejl. Prøv igen."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verbindungsfehler. Bitte versuchen Sie es erneut."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Connection error. Please try again."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur de connexion. Veuillez réessayer."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Errore di connessione. Riprova."
           }
         }
       }
@@ -5597,7 +5852,13 @@
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Invalid passport data. Please scan MRZ again."
+            "value" : "Ugyldige pasoplysninger. Scan venligst MRZ igen."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ungültige Passdaten. Bitte scannen Sie MRZ erneut."
           }
         },
         "en" : {
@@ -5606,10 +5867,16 @@
             "value" : "Invalid passport data. Please scan MRZ again."
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Données du passeport invalides. Veuillez scanner à nouveau la zone MRZ."
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Invalid passport data. Please scan MRZ again."
+            "value" : "Dati del passaporto non validi. Si prega di scansionare nuovamente MRZ."
           }
         }
       }
@@ -5617,16 +5884,34 @@
     "nfc_error_missing_data" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der mangler nødvendige pasoplysninger"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die erforderlichen Passdaten fehlen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Required passport data is missing"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les données requises du passeport sont manquantes."
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Required passport data is missing"
+            "value" : "Mancano i dati richiesti del passaporto"
           }
         }
       }
@@ -5634,16 +5919,34 @@
     "nfc_error_more_than_one_tag" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mere end ét NFC-tag registreret"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mehrere NFC-Tags erkannt"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "More than one NFC tag detected"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plusieurs étiquettes NFC détectées"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "More than one NFC tag detected"
+            "value" : "Rilevato più di un tag NFC"
           }
         }
       }
@@ -5651,16 +5954,34 @@
     "nfc_error_reading_failed" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kunne ikke læse passet. Prøv igen."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Reisepass konnte nicht gelesen werden. Bitte versuchen Sie es erneut."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Failed to read passport. Please try again."
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de lire le passeport. Veuillez réessayer."
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Failed to read passport. Please try again."
+            "value" : "Impossibile leggere il passaporto. Riprova."
           }
         }
       }
@@ -5668,10 +5989,34 @@
     "nfc_error_tag_not_valid" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NFC-tag er ikke gyldigt"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "NFC-Tag nicht gültig"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "NFC tag not valid"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Balise NFC non valide"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tag NFC non valido"
           }
         }
       }
@@ -5679,10 +6024,34 @@
     "nfc_error_unexpected" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der opstod en uventet fejl"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es ist ein unerwarteter Fehler aufgetreten."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Unexpected error occurred"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une erreur inattendue s'est produite."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si è verificato un errore imprevisto"
           }
         }
       }
@@ -5690,10 +6059,34 @@
     "nfc_error_user_canceled" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scanningen blev annulleret"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan abgebrochen"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scan canceled"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Analyse annulée"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scansione annullata"
           }
         }
       }
@@ -5709,8 +6102,8 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Do you need help?"
+            "state" : "translated",
+            "value" : "Benötigen Sie Hilfe?"
           }
         },
         "en" : {
@@ -5728,7 +6121,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Do you need help?"
+            "value" : "Hai bisogno di aiuto?"
           }
         }
       }
@@ -8326,10 +8719,34 @@
     "proximity_connection_ble_description" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vis denne QR-kode for at få adgang til de nødvendige oplysninger til deling"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeigen Sie diesen QR-Code vor, um die notwendigen Informationen zum Teilen zu erhalten."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Show this QR code to access the necessary information for sharing"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Présentez ce code QR pour accéder aux informations nécessaires au partage"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra questo codice QR per accedere alle informazioni necessarie per la condivisione"
           }
         }
       }
@@ -9614,6 +10031,12 @@
     "request_data_verified_entity_message" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En afhængig part anses for at være betroet, når den opfylder foruddefinerede kriterier for sikkerhed, databeskyttelse, compliance og ansvarlig datahåndtering. Tillid styrkes gennem vurderinger, revisioner og certificeringer."
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",

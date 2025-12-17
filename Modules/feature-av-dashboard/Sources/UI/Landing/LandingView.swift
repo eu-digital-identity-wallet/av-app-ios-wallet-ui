@@ -11,6 +11,7 @@ import logic_core
 
 struct LandingView<Router: RouterHost>: View {
     @State var viewModel: LandingViewModel<Router>
+    @Environment(\.scenePhase) private var scenePhase
 
     init(with viewModel: LandingViewModel<Router>) {
       self._viewModel = State(wrappedValue: viewModel)
@@ -29,6 +30,13 @@ struct LandingView<Router: RouterHost>: View {
         .task {
             await viewModel.getCredentialDetails()
             await viewModel.onCreate()
+        }
+        .onChange(of: scenePhase) { _, newPhase in
+            if newPhase == .active {
+                Task {
+                    await viewModel.refreshCredentials()
+                }
+            }
         }
     }
 }

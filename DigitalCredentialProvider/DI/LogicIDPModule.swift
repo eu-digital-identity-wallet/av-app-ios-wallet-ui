@@ -20,10 +20,7 @@ public final class LogicIDPModule: Assembly {
     .inObjectScope(ObjectScope.container)
 
     container.register(RouterHost.self) { _ in
-      print("✅ Registering DocumentProviderRouter")
-      let router = DocumentProviderRouter()
-      print("✅ DocumentProviderRouter created successfully")
-      return router
+      return DigitalCredentialProviderRouter()
     }
     .inObjectScope(ObjectScope.container)
 

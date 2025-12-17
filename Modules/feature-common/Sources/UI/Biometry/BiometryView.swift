@@ -119,10 +119,6 @@ private func pinView(
   disabled: Bool
 ) -> some View {
 VStack(alignment: .leading, spacing: .zero) {
-    Text(LocalizableStringKey.quickPinCreateTitle.toString)
-    .typography(Theme.shared.font.bodySmall)
-    .fontWeight(.bold)
-
     VSpacer.extraSmall()
 
     Text(subtitleText)

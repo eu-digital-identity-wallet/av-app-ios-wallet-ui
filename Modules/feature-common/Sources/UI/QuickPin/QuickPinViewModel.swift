@@ -133,26 +133,13 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
   }
 
   func toolbarContent() -> ToolBarContent? {
-    var leadingActions: [ToolBarContent.Action] = []
-    if viewState.isCancellable {
-      leadingActions.append(
-        .init(
-          image: Theme.shared.image.chevronLeft
-        ) {
-          self.onShowCancellationModal()
-        })
-    }
-
-    return .init(
-      trailingActions: [
-        .init(
-          title: viewState.button,
-          disabled: !viewState.isButtonActive
-        ) {
-          self.onButtonClick()
+    .init(
+      trailingActions: [],
+      leadingActions: [
+        .init(image: Theme.shared.image.chevronLeft) { [weak self] in
+          self?.handleBackButton()
         }
-      ],
-      leadingActions: leadingActions
+      ]
     )
   }
 
@@ -258,5 +245,19 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
       return false
     }
     return true
+  }
+
+  private func handleBackButton() {
+    setState {
+      $0
+        .copy(
+          navigationTitle: .quickPinCreateTitle,
+          caption: .quickPinCreateEnterSubtitle,
+          button: .quickPinNextButton,
+          step: .firstInput
+        )
+        .copy(pinError: nil)
+    }
+    uiPinInputField = ""
   }
 }
