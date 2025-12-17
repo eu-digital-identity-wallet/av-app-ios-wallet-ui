@@ -101,7 +101,7 @@ final class DeepLinkControllerImpl: DeepLinkController {
     removeCachedDeepLinkURL()
 
     switch deepLinkExecutable.action {
-    case .openid4vp:
+    case .openid4vp, .haip_vp:
       guard let remoteSessionCoordinator else {
         fatalError("DeepLink Action OpenId4VP Requires Remote Session Coordinator")
       }
@@ -130,7 +130,7 @@ final class DeepLinkControllerImpl: DeepLinkController {
       }
     case .external:
       deepLinkExecutable.plainUrl.open()
-    case .credential_offer:
+    case .credential_offer, .haip_vci:
       let config = UIConfig.Generic(
         arguments: ["uri": deepLinkExecutable.plainUrl.absoluteString],
         navigationSuccessType: routerHost.userIsLoggedInWithDocuments()
@@ -215,6 +215,8 @@ public extension DeepLink {
 
     case openid4vp
     case credential_offer
+    case haip_vci
+    case haip_vp
     case rqes
     case external
     case av
@@ -234,9 +236,11 @@ public extension DeepLink {
       and urlSchemaController: UrlSchemaController
     ) -> Action? {
       switch scheme {
-      case _ where openid4vp.getSchemas(with: urlSchemaController).contains(scheme):
+      case _ where openid4vp.getSchemas(with: urlSchemaController).contains(scheme),
+        _ where haip_vp.getSchemas(with: urlSchemaController).contains(scheme):
         return .openid4vp
-      case _ where credential_offer.getSchemas(with: urlSchemaController).contains(scheme):
+      case _ where credential_offer.getSchemas(with: urlSchemaController).contains(scheme),
+        _ where haip_vci.getSchemas(with: urlSchemaController).contains(scheme):
         return .credential_offer
       case _ where av.getSchemas(with: urlSchemaController).contains(scheme):
         return .openid4vp
