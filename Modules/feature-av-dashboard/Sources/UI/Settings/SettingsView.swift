@@ -148,7 +148,6 @@ struct SettingsItemCellView: View {
         .typography(Theme.shared.font.headlineSmall)
         .fontWeight(.regular)
       Spacer()
-        .frame(width: 4)
       Theme.shared.image.chevronRight
         .frame(maxWidth: .infinity, alignment: .topTrailing)
         .foregroundColor(Theme.shared.color.onSurface)
