@@ -188,6 +188,7 @@ struct SettingsItemCellView: View {
         .frame(maxWidth: .infinity, alignment: .topTrailing)
         .foregroundColor(Theme.shared.color.onSurface)
       }
+      .contentShape(Rectangle())
       .onTapGesture {
         onTap()
       }
