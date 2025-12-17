@@ -54,7 +54,7 @@ private func content<RequestItem: Sendable>(
             appIcon: ThemeManager.shared.image.logoEuDigitalIndentityWallet,
             appText: ThemeManager.shared.image.euditext
           ),
-          description: .successfullySharedFollowingInformation,
+          description: .issuanceSuccessHeaderDescription,
           relyingPartyData: viewState.relyingParty
         )
       )
@@ -86,7 +86,7 @@ private func documents<RequestItem: Sendable>(
         WrapExpandableListView(
           header: .init(
             mainContent: .text(.custom(section.title)),
-            supportingText: .viewDetails
+            supportingText: .documentSuccessCollapsedSupportingText
           ),
           items: section.listItems,
           backgroundColor: backgroundColor,

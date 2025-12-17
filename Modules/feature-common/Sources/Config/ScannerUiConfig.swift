@@ -41,23 +41,23 @@ public extension ScannerUiConfig {
     var title: LocalizableStringKey {
       return switch self {
       case .presentation:
-          .scannerQrTitlePresentation
+          .presentationQrScanTitle
       case .issuing:
-          .scannerQrTitleIssuing
+          .issuanceQrScanTitle
       }
     }
 
     var caption: LocalizableStringKey {
       return switch self {
       case .presentation:
-          .scannerQrCaptionPresentation
+          .presentationQrScanSubtitle
       case .issuing:
-          .scannerQrCaptionIssuing
+          .issuanceQrScanSubtitle
       }
     }
 
     var informativeText: LocalizableStringKey {
-      return .qrScanInformativeText
+      return .qrScanInformativeTextPresentationFlow
     }
 
     var rawValue: String {

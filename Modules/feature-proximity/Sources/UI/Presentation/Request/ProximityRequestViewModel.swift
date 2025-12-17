@@ -44,7 +44,7 @@ final class ProximityRequestViewModel<Router: RouterHost>: BaseRequestViewModel<
     case .success(let items, let relyingParty, _, let isTrusted):
       self.onReceivedItems(
         with: items,
-        title: .requestDataTitle([relyingParty]),
+        title: .requestRelyingPartyDescription([relyingParty]),
         relyingParty: .custom(relyingParty),
         isTrusted: isTrusted
       )
@@ -55,7 +55,7 @@ final class ProximityRequestViewModel<Router: RouterHost>: BaseRequestViewModel<
               appIcon: ThemeManager.shared.image.logoEuDigitalIndentityWallet,
               appText: ThemeManager.shared.image.euditext
             ),
-            description: .dataSharingTitle,
+            description: .issuanceDocumentOfferDescription,
             mainText: getTitle(),
             relyingPartyData: RelyingPartyData(
               isVerified: viewState.isTrusted,
@@ -96,9 +96,9 @@ final class ProximityRequestViewModel<Router: RouterHost>: BaseRequestViewModel<
     return .featureCommonModule(
       .biometry(
         config: UIConfig.Biometry(
-          navigationTitle: .biometryConfirmRequest,
-          caption: .requestDataShareBiometryCaption,
-          quickPinOnlyCaption: .requestDataShareQuickPinCaption,
+          navigationTitle: .biometricConfirmRequest,
+          caption: .loadingBiometryBiometricsEnabledDescription,
+          quickPinOnlyCaption: .loadingBiometryBiometricsNotEnabledDescription,
           navigationSuccessType: .push(
             .featureProximityModule(
               .proximityLoader(
@@ -124,11 +124,11 @@ final class ProximityRequestViewModel<Router: RouterHost>: BaseRequestViewModel<
   }
 
   override func getTitle() -> LocalizableStringKey {
-    .dataSharingRequest
+    .requestHeaderMainText
   }
 
   override func getCaption() -> LocalizableStringKey {
-    .requestsTheFollowing
+    .requestRelyingPartyDescription([""])
   }
 
   override func getDataRequestInfo() -> LocalizableStringKey {
@@ -140,11 +140,11 @@ final class ProximityRequestViewModel<Router: RouterHost>: BaseRequestViewModel<
   }
 
   override func getTitleCaption() -> LocalizableStringKey {
-    .requestDataTitle([""])
+    .requestRelyingPartyDescription([""])
   }
 
   override func getTrustedRelyingParty() -> LocalizableStringKey {
-    .requestDataVerifiedEntity
+    .genericDefaultRelyingPartyName
   }
 
   override func getTrustedRelyingPartyInfo() -> LocalizableStringKey {

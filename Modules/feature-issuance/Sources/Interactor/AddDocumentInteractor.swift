@@ -73,8 +73,8 @@ final actor AddDocumentInteractorImpl: AddDocumentInteractor {
 
       let documents: [AddDocumentUIModel] = allDocuments.compactMap { doc in
         if doc.isAgeVerification {
-          return .init(listItem: .init(mainContent: MainContent.text(LocalizableStringKey.verificationNationalId),
-                                       supportingText: LocalizableStringKey.verificationNationalIdDescription,
+          return .init(listItem: .init(mainContent: MainContent.text(LocalizableStringKey.onboardingVerificationNationalId),
+                                       supportingText: LocalizableStringKey.onboardingVerificationNationalIdDescription,
                                        leadingIcon: LeadingIcon(image: Theme.shared.image.pidIcon),
                                        trailingContent: nil),
                        isEnabled: true,

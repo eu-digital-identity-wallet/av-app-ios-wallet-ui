@@ -48,7 +48,7 @@ public struct ContentUnavailableView: View {
 
 #Preview {
   ContentUnavailableView(
-    title: .noResults,
-    description: .noResultsDocumentsDescription
+    title: .custom(".noResults"),
+    description: .custom(".noResultsDocumentsDescription")
   )
 }

@@ -39,13 +39,13 @@ public enum Onboardingsteps: Steps, Equatable, CaseIterable {
   public var localizedKey: LocalizableStringKey {
         switch self {
         case .welcome:
-            return .onboardingStepWelcome
+            return .onboardingStep1Title
         case .consent:
-            return .onboardingStepConsent
+            return .onboardingStep2Title
         case .pin:
-            return .onboardoingStepPin
+            return .onboardingStep3Title
         case .enrollment:
-            return .onboardingStepEnrollment
+            return .onboardingStep4Title
         }
     }
 }

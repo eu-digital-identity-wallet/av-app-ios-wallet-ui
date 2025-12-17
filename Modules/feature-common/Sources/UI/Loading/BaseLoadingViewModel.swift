@@ -49,7 +49,7 @@ open class BaseLoadingViewModel<Router: RouterHost, RequestItem: Sendable>: View
             appIcon: ThemeManager.shared.image.logoEuDigitalIndentityWallet,
             appText: ThemeManager.shared.image.euditext
           ),
-          description: .pleaseWait
+          description: .loadingHeaderDescription
         ),
         requestItems: requestItems,
         relyingParty: relyingParty,

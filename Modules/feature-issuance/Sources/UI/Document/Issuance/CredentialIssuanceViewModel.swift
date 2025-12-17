@@ -120,13 +120,13 @@ final class CredentialIssuanceViewModel<Router: RouterHost>: ViewModel<Router, C
             .genericSuccess(
               config: UIConfig.Success(
                 title: .init(
-                  value: .inProgress,
+                  value: .genericDeferredSuccessText,
                   color: Theme.shared.color.pending
                 ),
-                subtitle: .issuanceSuccessDeferredCaption([config.configId ?? "credential"]),
+                subtitle: .issuanceDocumentOfferDeferredSuccessDescription([config.configId ?? "credential"]),
                 buttons: [
                   .init(
-                    title: .okButton,
+                    title: .genericOk,
                     style: .primary,
                     navigationType: .push(screen: .featureAVDashboardModule(.appLanding))
                   )

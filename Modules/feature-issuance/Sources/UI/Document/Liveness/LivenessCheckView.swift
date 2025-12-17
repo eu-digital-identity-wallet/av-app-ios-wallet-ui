@@ -118,8 +118,7 @@ private func content(
   HStack {
     WrapButtonView(
       style: .secondary,
-      title: LocalizableStringKey.back,
-      gravity: .none,
+      title: LocalizableStringKey.genericBack,
       isLoading: false,
       onAction: onBackButtonTapped()
     )

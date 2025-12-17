@@ -144,7 +144,7 @@ public extension WrapButtonView {
   VStack {
     WrapButtonView(
       style: .primary,
-      title: LocalizableStringKey.addDoc,
+      title: LocalizableStringKey.issuanceAddDocumentTitle,
       icon: Image(systemName: "calendar"),
       gravity: .center,
       cornerRadius: 10,
@@ -152,7 +152,7 @@ public extension WrapButtonView {
     )
     WrapButtonView(
       style: .primary,
-      title: LocalizableStringKey.addDoc,
+      title: LocalizableStringKey.issuanceAddDocumentTitle,
       icon: Image(systemName: "calendar"),
       gravity: .start,
       cornerRadius: 10,
@@ -160,7 +160,7 @@ public extension WrapButtonView {
     )
     WrapButtonView(
       style: .secondary,
-      title: LocalizableStringKey.addDoc,
+      title: LocalizableStringKey.issuanceAddDocumentTitle,
       icon: Image(systemName: "calendar"),
       gravity: .end,
       cornerRadius: 10,
@@ -168,7 +168,7 @@ public extension WrapButtonView {
     )
     WrapButtonView(
       style: .primary,
-      title: LocalizableStringKey.addDoc,
+      title: LocalizableStringKey.issuanceAddDocumentTitle,
       icon: Image(systemName: "calendar"),
       gravity: .center,
       isLoading: true,
@@ -177,7 +177,7 @@ public extension WrapButtonView {
     )
     WrapButtonView(
       style: .primary,
-      title: LocalizableStringKey.addDoc,
+      title: LocalizableStringKey.issuanceAddDocumentTitle,
       icon: Image(systemName: "calendar"),
       gravity: .center,
       isEnabled: false,
@@ -186,14 +186,14 @@ public extension WrapButtonView {
     )
     WrapButtonView(
       style: .error,
-      title: LocalizableStringKey.addDoc,
+      title: LocalizableStringKey.issuanceAddDocumentTitle,
       gravity: .center,
       onAction: {}()
     )
 
     WrapButtonView(
       style: .success,
-      title: LocalizableStringKey.addDoc,
+      title: LocalizableStringKey.issuanceAddDocumentTitle,
       icon: Image(systemName: "checkmark"),
       gravity: .center,
       onAction: {}()

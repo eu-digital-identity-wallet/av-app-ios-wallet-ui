@@ -27,7 +27,7 @@ private func content(
   onOkButtonTap: @escaping () -> Void
 ) -> some View {
   VStack {
-      Text(.changePinSuccessText)
+      Text(.quickPinChangeSuccessText)
       .typography(Theme.shared.font.titleMedium)
       .fontWeight(.bold)
     Spacer()

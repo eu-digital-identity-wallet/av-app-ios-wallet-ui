@@ -59,7 +59,7 @@ open class BaseRequestViewModel<Router: RouterHost>: ViewModel<Router, RequestVi
             appIcon: ThemeManager.shared.image.logoEuDigitalIndentityWallet,
             appText: ThemeManager.shared.image.euditext
           ),
-          description: .dataSharingTitle
+          description: .issuanceDocumentOfferDescription
         )
       )
     )
@@ -186,7 +186,7 @@ open class BaseRequestViewModel<Router: RouterHost>: ViewModel<Router, RequestVi
     .init(
       trailingActions: [
         .init(
-          title: .shareButton,
+          title: .requestStickyButtonText,
           disabled: !viewState.allowShare
         ) {
           self.onShare()
@@ -249,7 +249,7 @@ open class BaseRequestViewModel<Router: RouterHost>: ViewModel<Router, RequestVi
         appIcon: ThemeManager.shared.image.logoEuDigitalIndentityWallet,
         appText: ThemeManager.shared.image.euditext
       ),
-      description: .dataSharingTitle
+      description: .issuanceDocumentOfferDescription
     )
   }
 

@@ -107,11 +107,11 @@ private func getCenteredIcon(
 #Preview {
   let viewState = GenericSuccessState(
     config: UIConfig.Success(
-      title: .init(value: .success),
-      subtitle: .issuanceSuccessDeferredCaption(["Name"]),
+      title: .init(value: .genericSuccess),
+      subtitle: .issuanceDocumentOfferDeferredSuccessDescription(["Name"]),
       buttons: [
         .init(
-          title: LocalizableStringKey.okButton,
+          title: LocalizableStringKey.genericOk,
           style: .primary,
           navigationType: UIConfig.DeepLinkNavigationType.push(screen: .featureAVDashboardModule(.appLanding))
         )

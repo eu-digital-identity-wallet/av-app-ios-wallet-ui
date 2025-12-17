@@ -81,11 +81,11 @@ private func content(
     }
     VSpacer.largeMedium()
 
-    Text(LocalizableStringKey.changePinDescription.toString)
+    Text(LocalizableStringKey.quickPinChangeEnterNewSubtitle.toString)
       .typography(Theme.shared.font.bodyLarge)
 
     VSpacer.largeMedium()
-    Text(LocalizableStringKey.changePinFirstPinDescription.toString)
+    Text(LocalizableStringKey.quickPinChangeEnterNewSubtitle.toString)
       .typography(Theme.shared.font.bodyMedium)
       .foregroundStyle(Theme.shared.color.lightText)
     PinView(pin: uiPinInputField,
@@ -109,7 +109,7 @@ private func content(
     }
 
     VSpacer.largeMedium()
-    Text(LocalizableStringKey.changePinSecondPinDescription.toString)
+    Text(LocalizableStringKey.quickPinChangeReenterNewSubtitle.toString)
       .typography(Theme.shared.font.bodyMedium)
       .foregroundStyle(Theme.shared.color.lightText)
     PinView(pin: uiPinInputFieldConfirm,
@@ -135,7 +135,7 @@ private func content(
     }
 
     VSpacer.largeMedium()
-    Text(LocalizableStringKey.changePinHelpText.toString)
+    Text(LocalizableStringKey.quickPinChangeHelpText.toString)
       .typography(Theme.shared.font.bodyLarge)
     Spacer()
   }
@@ -246,12 +246,12 @@ struct PinView: View {
 
   let viewState = ChangePinState(
     config: QuickPinUiConfig(flow: .update),
-    navigationTitle: .quickPinConfirmPin,
-    title: .changeQuickPinOption,
+    navigationTitle: .quickPinChangeTitle,
+    title: .quickPinChangeEnterNewSubtitle,
     caption: .custom(""),
     button: .quickPinNextButton,
-    success: .quickPinSetSuccess,
-    successButton: .quickPinSetSuccessButton,
+    success: .quickPinChangeSuccessText,
+    successButton: .quickPinChangeSuccessBtn,
     successNavigationType: .push(screen: .featureAVDashboardModule(.appLanding)),
     isCancellable: true,
     isButtonActive: true,

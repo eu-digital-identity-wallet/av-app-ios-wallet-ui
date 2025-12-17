@@ -50,7 +50,7 @@ public struct WrapListItemView: View {
       guard let isBool = Bool(content.toString) else {
         return content
       }
-      return isBool ? .yes : .no
+      return isBool ? .genericYes : .genericNo
     default:
       return .custom("")
     }

@@ -87,19 +87,15 @@ final class SettingsViewModel<Router: RouterHost>: ViewModel<Router, SettingsSta
       }
   }
 
-  func onSupportItemTap(item: SupportMenuItem) {
-
-  }
-
   func onPinChange() {
       router.push(with: .featureCommonModule(
         .biometry(
           config: UIConfig.Biometry(
             navigationTitle: .custom(""),
             displayLogo: false,
-            title: .changeQuickPinOption,
+            title: .quickPinChangeTitle,
             caption: .custom(""),
-            quickPinOnlyCaption: .changeQuickPinCaption,
+            quickPinOnlyCaption: .quickPinChangeEnterNewSubtitle,
             navigationSuccessType: .push(.featureCommonModule(.changePin(config: QuickPinUiConfig(flow: .update)))),
             navigationBackType: .pop,
             isPreAuthorization: true,

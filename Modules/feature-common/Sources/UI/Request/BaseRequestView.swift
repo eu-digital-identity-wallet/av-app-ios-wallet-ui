@@ -47,18 +47,18 @@ public struct BaseRequestView<Router: RouterHost>: View {
       .requestDataInfoNotice,
       isPresented: $viewModel.isRequestInfoModalShowing,
       actions: {
-        Button(.okButton) {
+        Button(.genericOk) {
           viewModel.onShowRequestInfoModal()
         }
       }, message: {
-        Text(.requestDataSheetCaption)
+        Text(.requestWarningText)
       }
     )
     .confirmationDialog(
       viewModel.getTrustedRelyingParty(),
       isPresented: $viewModel.isVerifiedEntityModalShowing,
       actions: {
-        Button(.okButton) {
+        Button(.genericOk) {
           viewModel.onVerifiedEntityModal()
         }
       }, message: {
@@ -73,7 +73,7 @@ public struct BaseRequestView<Router: RouterHost>: View {
     .alertView(
       isPresented: $viewModel.itemsChanged,
       title: .custom(""),
-      message: .incompleteRequestDataSelection
+      message: .requestBottomSheetWarningSubtitle
     )
   }
 }
@@ -115,7 +115,7 @@ private func scrollableContent(
             WrapExpandableListView(
               header: .init(
                 mainContent: .text(.custom(section.section.title)),
-                supportingText: .viewDetails
+                supportingText: .documentSuccessCollapsedSupportingText
               ),
               items: section.section.listItems,
               hideSensitiveContent: false,
@@ -124,7 +124,7 @@ private func scrollableContent(
             )
           }
 
-          Text(.shareDataReview)
+          Text(.requestWarningText)
             .typography(Theme.shared.font.bodyMedium)
             .foregroundColor(Theme.shared.color.onSurface)
             .multilineTextAlignment(.leading)
@@ -139,6 +139,7 @@ private func scrollableContent(
   }
 }
 
+// TODO: - Translation fix
 @MainActor
 @ViewBuilder
 private func noDocumentsFound(
@@ -151,7 +152,7 @@ private func noDocumentsFound(
     VStack(spacing: .zero) {
       Spacer()
       ContentEmptyView(
-        title: .requestDataNoDocument
+        title: .custom(".requestDataNoDocument")
       )
       Spacer()
     }

@@ -63,13 +63,13 @@ public struct ContentEmptyView: View {
 #Preview {
   Group {
     ContentEmptyView(
-      title: LocalizableStringKey.tryAgain,
+      title: LocalizableStringKey.genericErrorRetry,
       image: Theme.shared.image.checkmarkCircleFill
     )
     .lightModePreview()
 
     ContentEmptyView(
-      title: LocalizableStringKey.tryAgain,
+      title: LocalizableStringKey.genericErrorRetry,
       image: Theme.shared.image.checkmarkCircleFill
     )
     .darkModePreview()

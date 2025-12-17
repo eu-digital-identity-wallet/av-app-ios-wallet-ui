@@ -49,12 +49,12 @@ public struct ContentCaptionView: View {
 #Preview {
   Group {
     ContentCaptionView(
-      caption: LocalizableStringKey.tryAgain
+      caption: LocalizableStringKey.genericErrorRetry
     )
     .lightModePreview()
 
     ContentCaptionView(
-      caption: LocalizableStringKey.tryAgain
+      caption: LocalizableStringKey.genericErrorRetry
     )
     .darkModePreview()
   }

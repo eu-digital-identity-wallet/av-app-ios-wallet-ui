@@ -96,17 +96,17 @@ public struct HomeCardView: View {
   ScrollView {
     VStack {
       HomeCardView(
-        text: LocalizableStringKey.authenticateAuthoriseTransactions,
-        buttonText: LocalizableStringKey.addDocumentTitle,
+        text: .custom("LocalizableStringKey.authenticateAuthoriseTransactions"),
+        buttonText: LocalizableStringKey.issuanceAddDocumentTitle,
         illustration: Image(systemName: "person.fill"),
-        learnMoreText: LocalizableStringKey.learnMore,
+        learnMoreText: .custom("LocalizableStringKey.learnMore"),
         learnMoreAction: {},
         action: {}()
       )
 
       HomeCardView(
-        text: LocalizableStringKey.authenticateAuthoriseTransactions,
-        buttonText: LocalizableStringKey.addDocumentTitle,
+        text: .custom("LocalizableStringKey.authenticateAuthoriseTransactions"),
+        buttonText: LocalizableStringKey.issuanceAddDocumentTitle,
         illustration: Image(systemName: "person.fill"),
         buttonViewStyle: .secondary,
         learnMoreAction: {},
@@ -114,15 +114,15 @@ public struct HomeCardView: View {
       )
 
       HomeCardView(
-        text: LocalizableStringKey.authenticateAuthoriseTransactions,
-        buttonText: LocalizableStringKey.addDocumentTitle,
+        text: .custom("LocalizableStringKey.authenticateAuthoriseTransactions"),
+        buttonText: LocalizableStringKey.issuanceAddDocumentTitle,
         illustration: Image(systemName: "person.fill"),
         action: {}()
       )
 
       HomeCardView(
-        text: LocalizableStringKey.authenticateAuthoriseTransactions,
-        buttonText: LocalizableStringKey.addDocumentTitle,
+        text: .custom("LocalizableStringKey.authenticateAuthoriseTransactions"),
+        buttonText: LocalizableStringKey.issuanceAddDocumentTitle,
         action: {}()
       )
     }

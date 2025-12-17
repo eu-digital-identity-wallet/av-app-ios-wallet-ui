@@ -20,24 +20,8 @@ enum SettingsMenuItem: String, CaseIterable, Identifiable {
 
   var title: String {
     switch self {
-    case .changePin: return LocalizableStringKey.changeQuickPinOption.toString
-//    case .unlockWithBiometrics: return LocalizableStringKey.settingsUnlockWithBiometrics.toString
-//    case .language: return LocalizableStringKey.settingsLanguage.toString
-    case .deleteAgeAttestationProof: return LocalizableStringKey.settingsDeleteAllProofsOfAttestation.toString
-    }
-  }
-}
-
-enum SupportMenuItem: String, CaseIterable, Identifiable {
-  case termsOfSevice
-  case aboutApp
-
-  var id: String { rawValue }
-
-  var title: String {
-    switch self {
-    case .termsOfSevice: return LocalizableStringKey.settingsTermsOfService.toString
-    case .aboutApp: return LocalizableStringKey.settingsAboutThisApp.toString
+    case .changePin: return LocalizableStringKey.settingsScreenChangePin.toString
+    case .deleteAgeAttestationProof: return LocalizableStringKey.settingsScreenDeleteProofs.toString
     }
   }
 }
@@ -60,23 +44,22 @@ struct SettingsView<Router: RouterHost>: View {
       content(
         viewState: viewModel.viewState,
         onNavigateBack: viewModel.navigateBack,
-        onSettingItemTap: viewModel.onSettingItemTap(item:),
-        onSupportItemTap: viewModel.onSupportItemTap(item:)
+        onSettingItemTap: viewModel.onSettingItemTap(item:)
       )
     }
     .dialogCompat(
-      .custom(""),
+      .custom(LocalizableStringKey.confirmDocRemovalDialogText.toString),
       isPresented: $viewModel.isDeletionModalShowing,
       actions: {
-        Button(.deleteDocument, role: .destructive) {
+        Button(.confirmDocRemovalDialogDelete, role: .destructive) {
           viewModel.onDeleteCredentials()
         }
-        Button(.quickPinUpdateCancellationContinue, role: .cancel) {
+        Button(.genericCancel, role: .cancel) {
           viewModel.onShowDeleteModal()
         }
       },
       message: {
-        Text(.deleteDocumentConfirmDialog)
+        Text(.confirmDocRemovalDialogText)
       }
     )
   }
@@ -87,8 +70,7 @@ struct SettingsView<Router: RouterHost>: View {
 private func content(
   viewState: SettingsState,
   onNavigateBack: @escaping () -> Void,
-  onSettingItemTap: @escaping (SettingsMenuItem) -> Void,
-  onSupportItemTap: @escaping (SupportMenuItem) -> Void
+  onSettingItemTap: @escaping (SettingsMenuItem) -> Void
 ) -> some View {
   ScrollView {
       VStack(alignment: .leading, spacing: .zero) {
@@ -128,24 +110,6 @@ private func content(
             .cornerRadius(12)
             .shadow(color: Color.black.opacity(0.1), radius: 6, x: 0, y: 4)
             .padding(.bottom, SPACING_LARGE)
-
-//             Text(LocalizableStringKey.settingsSupport.toString)
-//               .typography(Theme.shared.font.bodyLarge)
-//               .foregroundStyle(Theme.shared.color.lightText)
-//               .padding(.bottom, SPACING_SMALL)
-//
-//             VStack(alignment: .center, spacing: 20) {
-//               ForEach(SupportMenuItem.allCases) { item in
-//                   SettingsItemCellView(title: item.title, onTap: {
-//                     onSupportItemTap(item)
-//                   })
-//               }
-//             }
-//             .padding()
-//             .background(Theme.shared.color.white)
-//             .cornerRadius(12)
-//             .shadow(color: Color.black.opacity(0.1), radius: 6, x: 0, y: 4)
-//             .padding(.bottom, SPACING_LARGE)
           }
           .padding(.top, SPACING_MEDIUM)
           .padding(.horizontal)
@@ -153,7 +117,7 @@ private func content(
           Spacer()
 
           HStack {
-            Text(LocalizableStringKey.settingsAppVersion.toString)
+            Text(LocalizableStringKey.settingsScreenVersion.toString)
             .typography(Theme.shared.font.bodyLarge)
             .foregroundStyle(Theme.shared.color.onSurface)
 
@@ -203,7 +167,6 @@ struct SettingsItemCellView: View {
       isDeletingCredentials: false
     ),
     onNavigateBack: {},
-    onSettingItemTap: {_ in },
-    onSupportItemTap: {_ in }
+    onSettingItemTap: {_ in }
   )
 }

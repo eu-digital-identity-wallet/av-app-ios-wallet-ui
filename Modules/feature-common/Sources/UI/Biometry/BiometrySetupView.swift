@@ -30,9 +30,9 @@ struct BiometrySetupView<Router: RouterHost>: View {
     }
     .alert(item: $viewModel.biometryError) { error in
       Alert(
-        title: Text(.genericErrorTitle),
+        title: Text(.genericErrorMessage),
         message: Text(error.errorDescription.orEmpty),
-        primaryButton: .default(Text(.biometryOpenSettings)) {
+        primaryButton: .default(Text(.openSystemSettings)) {
           Task {
             await self.viewModel.onSettings()
           }

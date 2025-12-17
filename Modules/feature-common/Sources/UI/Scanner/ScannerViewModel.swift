@@ -105,7 +105,7 @@ final class ScannerViewModel<Router: RouterHost>: ViewModel<Router, ScannerState
 
   func onError() {
     setState {
-      $0.copy(error: .cameraError)
+      $0.copy(error: .genericErrorMessage)
     }
   }
 

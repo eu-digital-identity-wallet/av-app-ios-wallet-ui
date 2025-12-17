@@ -76,11 +76,11 @@ struct RequestAuthorizationView: View {
           VStack(alignment: .leading, spacing: 12) {
             ForEach(requestSet.requests, id: \.documentType) { rs in
               VStack(alignment: .leading, spacing: 4) {
-                Text(.proofOfAgeTitle)
+                Text(.passportScanIntroStep5Title)
                   .font(.headline)
                   .foregroundColor(.primary)
 
-                Text(.splashTitle)
+                Text(.splashScreenTitle)
                   .font(.subheadline)
                   .foregroundColor(.secondary)
               }
@@ -129,7 +129,7 @@ struct RequestAuthorizationView: View {
 
   @ViewBuilder
   private func acceptButton() -> some View {
-    Button(.acceptButton) {
+    Button(.genericAccept) {
       let config = viewModel.createBiometryConfig(routerHost: routerHost)
       routerHost.push(with: .featureIDPModule(.biometry(config: config)))
     }
@@ -140,7 +140,7 @@ struct RequestAuthorizationView: View {
 
   @ViewBuilder
   private func cancelButton() -> some View {
-    Button(.cancelButton) {
+    Button(.genericClose) {
       viewModel.cancelRequest()
     }
     .buttonStyle(.bordered)
