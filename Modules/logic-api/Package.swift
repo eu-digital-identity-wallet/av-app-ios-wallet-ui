@@ -20,6 +20,10 @@ let package = Package(
       name: "logic-analytics",
       path: "./logic-analytics"
     ),
+    .package(
+      name: "logic-resources",
+      path: "./logic-resources"
+    ),
     .package(name: "logic-test", path: "./logic-test")
   ],
   targets: [
@@ -27,7 +31,8 @@ let package = Package(
       name: "logic-api",
       dependencies: [
         "logic-business",
-        "logic-analytics"
+        "logic-analytics",
+        "logic-resources"
       ],
       path: "./Sources"
     ),

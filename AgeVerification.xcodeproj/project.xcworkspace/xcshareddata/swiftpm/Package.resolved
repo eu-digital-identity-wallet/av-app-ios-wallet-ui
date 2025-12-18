@@ -1,5 +1,5 @@
 {
-  "originHash" : "42c16fd1cacd00111a0b10db91e996d1f3b8f0b71a6069be5d034875e799faab",
+  "originHash" : "983ef4fbeff4bf854063fedaf74f7896ef9b51c9576e7c55bb59bfa36d8223d9",
   "pins" : [
     {
       "identity" : "activityindicatorview",
@@ -276,16 +276,16 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AndyQ/NFCPassportReader",
       "state" : {
-        "revision" : "4a29a9b954c8ea0d4d35b96af6fe1849258b31e1",
-        "version" : "2.2.0"
+        "revision" : "deec44982fa9bf2704a5f2138eb01dab7dcf9299",
+        "version" : "2.3.0"
       }
     },
     {
-      "identity" : "openssl",
+      "identity" : "openssl-package",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/krzyzanowskim/OpenSSL.git",
+      "location" : "https://github.com/krzyzanowskim/OpenSSL-Package.git",
       "state" : {
-        "revision" : "623c84da314e85363236507ca38a4bde65df21c3",
+        "revision" : "71dbe0b4514cdaad95961470db72e8231f5943a6",
         "version" : "3.3.3001"
       }
     },

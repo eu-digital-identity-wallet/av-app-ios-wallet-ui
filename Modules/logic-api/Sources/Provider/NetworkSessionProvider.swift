@@ -22,8 +22,19 @@ public protocol NetworkSessionProvider: Sendable {
 final class NetworkSessionProviderImpl: NetworkSessionProvider {
 
   let urlSession: URLSession
+  private let pinningDelegate: CertificatePinningDelegate
 
   init() {
-    self.urlSession = URLSession.shared
+    self.pinningDelegate = CertificatePinningDelegate()
+
+    let configuration = URLSessionConfiguration.default
+    configuration.timeoutIntervalForRequest = 30
+    configuration.timeoutIntervalForResource = 300
+
+    self.urlSession = URLSession(
+      configuration: configuration,
+      delegate: pinningDelegate,
+      delegateQueue: nil
+    )
   }
 }
