@@ -76,7 +76,7 @@ private struct PreviewView: View {
       message: .custom("trustedRelyingPartyDescription"),
       buttonText: .cdCloseButton,
       onDismiss: {
-        print("Alert dismissed")
+        log("Alert dismissed", level: .debug)
       }
     )
   }

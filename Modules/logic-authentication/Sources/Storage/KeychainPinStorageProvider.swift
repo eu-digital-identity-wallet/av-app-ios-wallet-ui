@@ -15,6 +15,7 @@
  */
 import Foundation
 import logic_business
+import logic_resources
 
 public final class KeychainPinStorageProvider: PinStorageProvider {
 
@@ -33,8 +34,9 @@ public final class KeychainPinStorageProvider: PinStorageProvider {
   }
 
   public func isPinValid(with pin: String) -> Bool {
-    print("\(keyChainController.getValue(key: KeyIdentifier.devicePin) == pin)")
-    return keyChainController.getValue(key: KeyIdentifier.devicePin) == pin
+    let isValid = keyChainController.getValue(key: KeyIdentifier.devicePin) == pin
+    log("Pin validation result: \(isValid)", level: .debug)
+    return isValid
   }
 
   // MARK: - Brute Force Attack Helper Methods

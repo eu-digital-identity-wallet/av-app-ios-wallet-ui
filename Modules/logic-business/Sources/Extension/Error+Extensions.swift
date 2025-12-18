@@ -14,11 +14,10 @@
  * governing permissions and limitations under the Licence.
  */
 import Foundation
+import logic_resources
 
 public extension Error {
   func log() {
-    #if DEBUG
-    print(self)
-    #endif
+    logic_resources.log("\(self)", level: .error)
   }
 }
