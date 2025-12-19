@@ -128,9 +128,10 @@ public struct ContentTitleView: View {
         }
       )
 
-      VSpacer.large()
+        if let caption = self.caption, caption.toString != "" {
 
-      if let caption = self.caption {
+        VSpacer.large()
+
         HStack {
           Text(caption)
             .typography(Theme.shared.font.bodyLarge)

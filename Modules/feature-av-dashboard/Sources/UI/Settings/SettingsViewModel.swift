@@ -82,7 +82,7 @@ final class SettingsViewModel<Router: RouterHost>: ViewModel<Router, SettingsSta
       switch item {
       case .changePin:
           onPinChange()
-      case .deleteAgeAttestationProof:
+      case .credentials:
           onShowDeleteModal()
       }
   }
@@ -99,7 +99,9 @@ final class SettingsViewModel<Router: RouterHost>: ViewModel<Router, SettingsSta
             navigationSuccessType: .push(.featureCommonModule(.changePin(config: QuickPinUiConfig(flow: .update)))),
             navigationBackType: .pop,
             isPreAuthorization: true,
-            shouldInitializeBiometricOnCreate: false)
+            shouldInitializeBiometricOnCreate: false,
+            alignment: .leading
+          )
         )
       )
       )

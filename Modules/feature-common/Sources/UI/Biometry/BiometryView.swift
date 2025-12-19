@@ -33,7 +33,7 @@ public struct BiometryView<Router: RouterHost>: View {
     ) {
       content(
         viewState: viewModel.viewState,
-        subtitleText: LocalizableStringKey.quickPinCreateEnterSubtitle.toString,
+        subtitleText: LocalizableStringKey.quickPinChangeValidateCurrentSubtitle.toString,
         uiPinInputField: $viewModel.uiPinInputField,
         onBiometry: viewModel.onBiometry
       )
@@ -79,7 +79,7 @@ private func content(
     ? viewState.config.caption
     : viewState.config.quickPinOnlyCaption,
     titleColor: Theme.shared.color.onSurface,
-    textAlignment: .center,
+    textAlignment: viewState.config.alignment,
     topSpacing: viewState.isCancellable ? .withToolbar : .withoutToolbar
   )
 
@@ -118,12 +118,12 @@ private func pinView(
   pinError: String?,
   disabled: Bool
 ) -> some View {
-VStack(alignment: .leading, spacing: .zero) {
+    VStack(alignment: .leading, spacing: .zero) {
     VSpacer.extraSmall()
 
     Text(subtitleText)
-        .typography(Theme.shared.font.bodySmall)
-        .foregroundColor(Theme.shared.color.grey)
+        .typography(Theme.shared.font.bodyLarge)
+        .foregroundColor(Theme.shared.color.lightText)
         .padding(.bottom, SPACING_EXTRA_SMALL)
 
     PinTextFieldView(
