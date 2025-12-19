@@ -17,6 +17,8 @@ import logic_business
 import SwiftUI
 import logic_storage
 import IdentityDocumentServices
+import logic_api
+import logic_resources
 
 private enum KeyIdentifier: String, KeyChainWrapper {
   public var value: String {
@@ -105,7 +107,8 @@ final actor WalletKitControllerImpl: WalletKitController {
     sessionCoordinatorHolder: SessionCoordinatorHolder,
     bookmarkStorageController: any BookmarkStorageController,
     transactionLogStorageController: any TransactionLogStorageController,
-    revokedDocumentStorageController: any RevokedDocumentStorageController
+    revokedDocumentStorageController: any RevokedDocumentStorageController,
+    networkSessionProvider: NetworkSessionProvider
   ) {
     self.configLogic = configLogic
     self.keyChainController = keyChainController
@@ -121,6 +124,7 @@ final actor WalletKitControllerImpl: WalletKitController {
       userAuthenticationRequired: configLogic.userAuthenticationRequired,
       openID4VpConfig: configLogic.vpConfig,
       openID4VciConfigurations: configLogic.vciConfig,
+      networking: networkSessionProvider.urlSession,
       logFileName: configLogic.logFileName,
       transactionLogger: configLogic.transactionLogger
     ) else {
@@ -245,7 +249,7 @@ final actor WalletKitControllerImpl: WalletKitController {
             // Fallback on earlier versions
           }
         } catch let error {
-          print("Add failed:", error.localizedDescription)
+          log("Add failed: \(error.localizedDescription)", level: .error)
         }
       }
     }
@@ -523,28 +527,63 @@ extension WalletKitController {
     parser: (String) -> String
   ) -> [DocumentElementClaim] {
 
+    func shouldGroup(_ title: String, _ children: [DocClaim]) -> Bool {
+      children.count > 1 && !title.isEmpty && children.allSatisfy { $0.children != nil }
+    }
+
     if let children = docClaim.children, !children.isEmpty {
 
       let title = docClaim.displayName.ifNilOrEmpty { docClaim.name }
-      var childClaims: [DocumentElementClaim] = []
 
-      parseChildren(
-        docId: docId,
-        groupId: groupId,
-        docClaims: children,
-        type: type,
-        parser: parser,
-        claims: &childClaims
-      )
+      if shouldGroup(title, children) {
 
-      return if title.isEmpty {
-        childClaims.sortByName()
-      } else {
-        [
+        let grouped = children.enumerated().flatMap { index, entry in
+          let inner = entry.children ?? []
+
+          return [
+            DocumentElementClaim.group(
+              id: UUID().uuidString,
+              title: "\(title) \(index + 1)",
+              items: inner.flatMap {
+                parseDocClaim(
+                  docId: docId,
+                  groupId: groupId,
+                  docClaim: $0,
+                  type: type,
+                  parser: parser
+                )
+              }.sortByName()
+            )
+          ]
+        }
+
+        return [
           .group(
             id: UUID().uuidString,
-            title: docClaim.displayName.ifNilOrEmpty { docClaim.name },
-            items: childClaims.sortByName()
+            title: title,
+            items: grouped
+          )
+        ]
+
+      } else {
+
+        let childClaims = children.flatMap {
+          parseDocClaim(
+            docId: docId,
+            groupId: groupId,
+            docClaim: $0,
+            type: type,
+            parser: parser
+          )
+        }.sortByName()
+
+        return title.isEmpty
+        ? childClaims
+        : [
+          .group(
+            id: UUID().uuidString,
+            title: title,
+            items: childClaims
           )
         ]
       }
@@ -554,27 +593,21 @@ extension WalletKitController {
       if let image = docClaim.dataValue.image {
         return .image(Image(uiImage: image))
       } else {
-
         let claim = docClaim
           .parseDate(parser: parser)
           .parseUserPseudonym()
-
         return .string(claim.stringValue)
       }
     }
 
-    var groupIdentifier: String {
+    let groupIdentifier: String = {
       return switch type {
       case .mdoc:
         groupId
       case .sdjwt:
-        if docClaim.path.last?.isEmpty == true {
-          groupId
-        } else {
-          UUID().uuidString
-        }
+        UUID().uuidString
       }
-    }
+    }()
 
     return [
       .primitive(
@@ -598,7 +631,7 @@ extension WalletKitController {
       do {
         try await DocumentRegistrationManager.shared.removeRegistration(documentIdentifiers: ids)
       } catch {
-        print("Remove failed:", error)
+        log("Remove failed: \(error)", level: .error)
       }
     } else {
       // Fallback on earlier versions

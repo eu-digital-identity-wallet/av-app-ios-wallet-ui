@@ -57,9 +57,9 @@ public extension ContentErrorView {
     let action: (() -> Void)?
 
     public init(
-      title: LocalizableStringKey = .genericErrorTitle,
-      description: LocalizableStringKey = .genericErrorDesc,
-      button: LocalizableStringKey = .tryAgain,
+      title: LocalizableStringKey = .genericErrorMessage,
+      description: LocalizableStringKey = .genericErrorDescription,
+      button: LocalizableStringKey = .genericErrorRetry,
       cancelAction: @escaping @autoclosure () -> Void,
       action: (() -> Void)? = nil
     ) {

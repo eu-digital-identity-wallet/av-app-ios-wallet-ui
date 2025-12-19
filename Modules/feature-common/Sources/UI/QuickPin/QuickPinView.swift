@@ -29,7 +29,7 @@ struct QuickPinView<Router: RouterHost>: View {
     ContentScreenView(
       padding: .zero,
       navigationTitle: nil,
-      toolbarContent: nil
+      toolbarContent: viewModel.viewState.step == .firstInput ? nil : viewModel.toolbarContent()
     ) {
       content(
         viewState: viewModel.viewState,
@@ -39,18 +39,18 @@ struct QuickPinView<Router: RouterHost>: View {
       )
     }
     .dialogCompat(
-      .quickPinUpdateCancellationTitle,
+      .quickPinBottomSheetCancelTitle,
       isPresented: $viewModel.isCancelModalShowing,
       actions: {
-        Button(.cancelButton, role: .destructive) {
+        Button(.quickPinBottomSheetCancelSecondaryButtonText, role: .destructive) {
           viewModel.onPop()
         }
-        Button(.quickPinUpdateCancellationContinue, role: .cancel) {
+        Button(.quickPinBottomSheetCancelPrimaryButtonText, role: .cancel) {
           viewModel.onShowCancellationModal()
         }
       },
       message: {
-        Text(.quickPinUpdateCancellationCaption)
+        Text(.quickPinBottomSheetCancelSubtitle)
       }
     )
   }
@@ -69,11 +69,11 @@ private func content(
                            selectedIndex: 2)
         VStack(alignment: .leading, spacing: .zero) {
             VSpacer.small()
-            Text(viewState.step == QuickPinStep.firstInput ? LocalizableStringKey.quickPinCreateTitle.toString : LocalizableStringKey.quickPinReEnterTitle.toString)
+            Text(viewState.step == QuickPinStep.firstInput ? LocalizableStringKey.quickPinCreateTitle.toString : LocalizableStringKey.quickPinCreateReenterTitle.toString)
                 .typography(Theme.shared.font.titleMedium)
             VSpacer.small()
             pinView(
-                subtitleText: viewState.step == .firstInput ? LocalizableStringKey.quickPinCreateSubtitle.toString : LocalizableStringKey.quickPinReEnterSubtitle.toString,
+                subtitleText: viewState.step == .firstInput ? LocalizableStringKey.quickPinCreateEnterSubtitle.toString : LocalizableStringKey.quickPinCreateReenterSubtitle.toString,
                 uiPinInputField: uiPinInputField,
                 quickPinSize: viewState.quickPinSize,
                 pinError: viewState.pinError
@@ -123,12 +123,12 @@ private func pinView(
 #Preview {
   let viewState = QuickPinState(
     config: QuickPinUiConfig(flow: .set),
-    navigationTitle: .quickPinEnterPin,
-    title: .quickPinSetTitle,
-    caption: .quickPinSetCaptionOne,
+    navigationTitle: .quickPinCreateTitle,
+    title: .quickPinCreateTitle,
+    caption: .quickPinCreateEnterSubtitle,
     button: .quickPinNextButton,
-    success: .success,
-    successButton: .quickPinSetSuccessButton,
+    success: .genericSuccess,
+    successButton: .quickPinChangeSuccessBtn,
     successNavigationType: .push(screen: .featureAVDashboardModule(.appLanding)),
     isCancellable: false,
     pinError: nil,

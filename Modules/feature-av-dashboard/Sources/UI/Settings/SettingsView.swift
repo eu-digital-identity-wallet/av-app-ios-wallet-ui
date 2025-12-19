@@ -11,33 +11,23 @@ import logic_resources
 import logic_core
 
 enum SettingsMenuItem: String, CaseIterable, Identifiable {
-  case changePin
+  case credentials
 //  case unlockWithBiometrics
 //  case language
-  case deleteAgeAttestationProof
+  case changePin
 
   var id: String { rawValue }
 
   var title: String {
     switch self {
-    case .changePin: return LocalizableStringKey.changeQuickPinOption.toString
-//    case .unlockWithBiometrics: return LocalizableStringKey.settingsUnlockWithBiometrics.toString
-//    case .language: return LocalizableStringKey.settingsLanguage.toString
-    case .deleteAgeAttestationProof: return LocalizableStringKey.settingsDeleteAllProofsOfAttestation.toString
+    case .credentials: return LocalizableStringKey.settingsScreenCredentials.toString
+    case .changePin: return LocalizableStringKey.settingsScreenSecurity.toString
     }
   }
-}
-
-enum SupportMenuItem: String, CaseIterable, Identifiable {
-  case termsOfSevice
-  case aboutApp
-
-  var id: String { rawValue }
-
-  var title: String {
+  var description: String {
     switch self {
-    case .termsOfSevice: return LocalizableStringKey.settingsTermsOfService.toString
-    case .aboutApp: return LocalizableStringKey.settingsAboutThisApp.toString
+    case .credentials: return LocalizableStringKey.settingsScreenDeleteProofs.toString
+    case .changePin: return LocalizableStringKey.settingsScreenChangePin.toString
     }
   }
 }
@@ -60,23 +50,22 @@ struct SettingsView<Router: RouterHost>: View {
       content(
         viewState: viewModel.viewState,
         onNavigateBack: viewModel.navigateBack,
-        onSettingItemTap: viewModel.onSettingItemTap(item:),
-        onSupportItemTap: viewModel.onSupportItemTap(item:)
+        onSettingItemTap: viewModel.onSettingItemTap(item:)
       )
     }
     .dialogCompat(
-      .custom(""),
+      .custom(LocalizableStringKey.confirmDocRemovalDialogText.toString),
       isPresented: $viewModel.isDeletionModalShowing,
       actions: {
-        Button(.deleteDocument, role: .destructive) {
+        Button(.confirmDocRemovalDialogDelete, role: .destructive) {
           viewModel.onDeleteCredentials()
         }
-        Button(.quickPinUpdateCancellationContinue, role: .cancel) {
+        Button(.genericCancel, role: .cancel) {
           viewModel.onShowDeleteModal()
         }
       },
       message: {
-        Text(.deleteDocumentConfirmDialog)
+        Text(.confirmDocRemovalDialogText)
       }
     )
   }
@@ -87,12 +76,12 @@ struct SettingsView<Router: RouterHost>: View {
 private func content(
   viewState: SettingsState,
   onNavigateBack: @escaping () -> Void,
-  onSettingItemTap: @escaping (SettingsMenuItem) -> Void,
-  onSupportItemTap: @escaping (SupportMenuItem) -> Void
+  onSettingItemTap: @escaping (SettingsMenuItem) -> Void
 ) -> some View {
   ScrollView {
       VStack(alignment: .leading, spacing: .zero) {
-        HStack(alignment: .center, spacing: .zero) {
+        HStack(alignment: .center, spacing: SPACING_EXTRA_SMALL) {
+          Theme.shared.image.settingsIcon
           Text(LocalizableStringKey.settings.toString)
             .typography(Theme.shared.font.titleLarge)
             .fontWeight(.medium)
@@ -110,84 +99,56 @@ private func content(
           Spacer()
         } else {
           // Settings content
-          VStack(alignment: .leading, spacing: .zero) {
-            Text(LocalizableStringKey.settings.toString)
-              .typography(Theme.shared.font.bodyLarge)
-              .foregroundStyle(Theme.shared.color.lightText)
-              .padding(.bottom, SPACING_SMALL)
+            VStack(alignment: .leading, spacing: SPACING_LARGE) {
+                VStack(alignment: .leading, spacing: SPACING_EXTRA_SMALL) {
+                    Text(LocalizableStringKey.settingsScreenAppInfo.toString)
+                      .typography(Theme.shared.font.headlineMedium)
+                      .fontWeight(.semibold)
+                    HStack {
+                        Text(LocalizableStringKey.settingsScreenVersion.toString)
+                          .typography(Theme.shared.font.bodyLarge)
+                        Spacer()
+                        Text(viewState.appVersion)
+                        .typography(Theme.shared.font.bodyLarge)
+                        .foregroundStyle(Theme.shared.color.lightText)
+                    }
+                }
 
-            VStack(alignment: .center, spacing: 25) {
-              ForEach(SettingsMenuItem.allCases) { item in
-                SettingsItemCellView(title: item.title, onTap: {
-                  onSettingItemTap(item)
-                })
-              }
+                VStack(alignment: .leading, spacing: SPACING_LARGE) {
+                  ForEach(SettingsMenuItem.allCases) { item in
+                      SettingsItemCellView(item: item, onTap: {
+                      onSettingItemTap(item)
+                    })
+                  }
+                }
+                .padding(.bottom, SPACING_LARGE)
             }
             .padding()
-            .background(Theme.shared.color.white)
-            .cornerRadius(12)
-            .shadow(color: Color.black.opacity(0.1), radius: 6, x: 0, y: 4)
-            .padding(.bottom, SPACING_LARGE)
-
-//             Text(LocalizableStringKey.settingsSupport.toString)
-//               .typography(Theme.shared.font.bodyLarge)
-//               .foregroundStyle(Theme.shared.color.lightText)
-//               .padding(.bottom, SPACING_SMALL)
-//
-//             VStack(alignment: .center, spacing: 20) {
-//               ForEach(SupportMenuItem.allCases) { item in
-//                   SettingsItemCellView(title: item.title, onTap: {
-//                     onSupportItemTap(item)
-//                   })
-//               }
-//             }
-//             .padding()
-//             .background(Theme.shared.color.white)
-//             .cornerRadius(12)
-//             .shadow(color: Color.black.opacity(0.1), radius: 6, x: 0, y: 4)
-//             .padding(.bottom, SPACING_LARGE)
-          }
-          .padding(.top, SPACING_MEDIUM)
-          .padding(.horizontal)
 
           Spacer()
-
-          HStack {
-            Text(LocalizableStringKey.settingsAppVersion.toString)
-            .typography(Theme.shared.font.bodyLarge)
-            .foregroundStyle(Theme.shared.color.onSurface)
-
-            Text(viewState.appVersion)
-            .typography(Theme.shared.font.bodyLarge)
-            .foregroundStyle(Theme.shared.color.lightText)
-
-            Spacer()
-          }
-          .padding(.horizontal)
-          .padding(.vertical, SPACING_SMALL)
-          .background(Theme.shared.color.surface)
         }
       }
+      .padding(.horizontal, 10)
   }
   .frame(maxWidth: .infinity, maxHeight: .infinity)
   .background(Theme.shared.color.surface)
 }
 
 struct SettingsItemCellView: View {
-
-  let title: String
+  let item: SettingsMenuItem
   let onTap: () -> Void
 
   var body: some View {
-    HStack {
-      Text(title)
-        .typography(Theme.shared.font.headlineSmall)
-        .fontWeight(.regular)
-      Spacer()
-      Theme.shared.image.chevronRight
-        .frame(maxWidth: .infinity, alignment: .topTrailing)
-        .foregroundColor(Theme.shared.color.onSurface)
+      VStack(alignment: .leading) {
+          Text(item.title)
+            .typography(Theme.shared.font.headlineMedium)
+            .fontWeight(.semibold)
+          Text(item.description)
+              .typography(Theme.shared.font.headlineSmall)
+            .fontWeight(.regular)
+            .foregroundStyle(item == .credentials ? Theme.shared.color.error : .black)
       }
+      .contentShape(Rectangle())
       .onTapGesture {
         onTap()
       }
@@ -203,7 +164,6 @@ struct SettingsItemCellView: View {
       isDeletingCredentials: false
     ),
     onNavigateBack: {},
-    onSettingItemTap: {_ in },
-    onSupportItemTap: {_ in }
+    onSettingItemTap: {_ in }
   )
 }

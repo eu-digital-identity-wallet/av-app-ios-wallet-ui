@@ -35,7 +35,7 @@ struct AddDocumentView<Router: RouterHost>: View {
       padding: .zero,
       canScroll: true,
       errorConfig: viewModel.viewState.error,
-      navigationTitle: .chooseFromList,
+      navigationTitle: .custom(""),
       isLoading: viewModel.viewState.isLoading,
       toolbarContent: viewModel.toolbarContent()
     ) {
@@ -54,14 +54,7 @@ struct AddDocumentView<Router: RouterHost>: View {
       }
 
       if viewModel.viewState.showFooterScanner {
-
         VSpacer.extraSmall()
-
-        scanFooter(
-          viewState: viewModel.viewState,
-          contentSize: contentSize,
-          action: viewModel.onScanClick()
-        )
       }
     }
     .task {
@@ -77,46 +70,57 @@ private func content(
   action: @escaping (String, String, DocumentTypeIdentifier) -> Void
 ) -> some View {
 
-  ScrollView {
-    LazyVStack(spacing: SPACING_MEDIUM_SMALL) {
+  VStack(spacing: SPACING_MEDIUM_LARGE) {
+    OnboardingTabsView(steps: Onboardingsteps.allCases,
+                       selectedIndex: 3)
+    .padding(.horizontal, 4)
+    ScrollView {
+      LazyVStack(spacing: SPACING_MEDIUM_SMALL) {
 
-      Text(.chooseFromListTitle)
-        .typography(Theme.shared.font.bodyLarge)
-        .foregroundStyle(Theme.shared.color.onSurface)
-
-      ForEach(viewState.addDocumentCellModels.elements, id: \.key) { pair in
-
-        let issuer = pair.key
-        let models = pair.value
-
-        Section(
-          header: WrapTextView(
-            text: .custom(issuer),
-            textConfig: TextConfig(
-              font: Theme.shared.font.bodySmall.font,
-              color: Theme.shared.color.onSurface,
-              textAlign: .leading,
-              fontWeight: .semibold
-            )
-          )
+        Text(.onboardingVerificationTitle)
+          .typography(Theme.shared.font.titleMedium)
+          .fontWeight(.medium)
           .frame(maxWidth: .infinity, alignment: .leading)
-          .shimmer(isLoading: viewState.isLoading)
-          .padding(.top, SPACING_MEDIUM_SMALL)
-        ) {
-          ForEach(models, id: \.id) { cell in
-            WrapCardView {
-              WrapListItemView(
-                listItem: cell.listItem,
-                isLoading: cell.isLoading,
-                action: { action(cell.issuerId, cell.configId, cell.docTypeIdentifier) }
+          .foregroundStyle(Theme.shared.color.onSurface)
+
+        Text(.onboardingVerificationDescription)
+          .typography(Theme.shared.font.bodyLarge)
+          .foregroundStyle(Theme.shared.color.onSurface)
+
+        ForEach(viewState.addDocumentCellModels.elements, id: \.key) { pair in
+
+          let issuer = pair.key
+          let models = pair.value
+
+          Section(
+            header: WrapTextView(
+              text: .custom(issuer),
+              textConfig: TextConfig(
+                font: Theme.shared.font.bodySmall.font,
+                color: Theme.shared.color.onSurface,
+                textAlign: .leading,
+                fontWeight: .semibold
               )
+            )
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .shimmer(isLoading: viewState.isLoading)
+            .padding(.top, SPACING_MEDIUM_SMALL)
+          ) {
+            ForEach(models, id: \.id) { cell in
+              WrapCardView {
+                WrapListItemView(
+                  listItem: cell.listItem,
+                  isLoading: cell.isLoading,
+                  action: { action(cell.issuerId, cell.configId, cell.docTypeIdentifier) }
+                )
+              }
             }
           }
         }
       }
+      .padding(.horizontal, Theme.shared.dimension.padding)
+      .padding(.bottom)
     }
-    .padding(.horizontal, Theme.shared.dimension.padding)
-    .padding(.bottom)
   }
   .disabled(viewState.addDocumentCellModels.allSatisfy { $0.value.isEmpty })
 }
@@ -125,7 +129,7 @@ private func content(
 @ViewBuilder
 private func noDocumentsFound() -> some View {
   VStack(spacing: .zero) {
-    Text(.chooseFromListTitle)
+    Text(.issuanceAddDocumentSubtitle)
       .typography(Theme.shared.font.bodyLarge)
       .foregroundStyle(Theme.shared.color.onSurface)
 
@@ -136,54 +140,6 @@ private func noDocumentsFound() -> some View {
     Spacer()
   }
   .padding(.horizontal, Theme.shared.dimension.padding)
-}
-
-@MainActor
-@ViewBuilder
-private func scanFooter(
-  viewState: AddDocumentViewState,
-  contentSize: CGFloat,
-  action: @escaping @autoclosure () -> Void
-) -> some View {
-  VStack(spacing: SPACING_MEDIUM) {
-
-    Spacer()
-
-    HStack {
-
-      Spacer()
-
-      VStack(alignment: .center, spacing: SPACING_MEDIUM) {
-
-        Text(.or)
-          .typography(Theme.shared.font.bodyMedium)
-          .foregroundColor(Theme.shared.color.onSurfaceVariant)
-
-        Theme.shared.image.scanDocumentImage
-      }
-
-      Spacer()
-    }
-
-    WrapButtonView(
-      style: .custom(
-        textColor: Theme.shared.color.primary,
-        backgroundColor: Theme.shared.color.surfaceContainerLowest,
-        borderColor: Theme.shared.color.primary,
-        useBorder: true
-      ),
-      title: .scanQrCode,
-      isLoading: viewState.isLoading,
-      onAction: action()
-    )
-
-    Spacer()
-
-  }
-  .frame(maxWidth: .infinity, maxHeight: contentSize)
-  .padding([.horizontal, .bottom])
-  .background(Theme.shared.color.surfaceContainer)
-  .roundedCorner(SPACING_MEDIUM, corners: [.topLeft, .topRight])
 }
 
 #Preview {
@@ -205,10 +161,5 @@ private func scanFooter(
     error: nil,
     config: IssuanceFlowUiConfig(flow: .noDocument),
     showFooterScanner: true
-  )
-  scanFooter(
-    viewState: viewState,
-    contentSize: 500,
-    action: {}()
   )
 }

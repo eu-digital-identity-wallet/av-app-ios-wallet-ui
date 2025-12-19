@@ -43,11 +43,6 @@ struct QuickPinState: ViewState {
 @Observable
 final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinState> {
 
-//  @Published var uiPinInputField: String = ""
-//  @Published var isCancelModalShowing: Bool = false
-//  private let interactor: QuickPinInteractor
-//  private var lockoutTimer: LockoutTimer
-
   var uiPinInputField: String = "" {
     didSet {
       debouncedPinInputField.send(uiPinInputField)
@@ -71,16 +66,17 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
     }
     self.interactor = interactor
     self.lockoutTimer = LockoutTimer()
+    // TODO: -
     super.init(
       router: router,
       initialState: .init(
         config: config,
-        navigationTitle: config.isSetFlow ? .quickPinEnterPin : .quickPinConfirmPin,
-        title: config.isSetFlow ? .quickPinSetTitle : .quickPinUpdateTitle,
-        caption: config.isSetFlow ? .quickPinSetCaptionOne : .quickPinUpdateCaptionOne,
+        navigationTitle: config.isSetFlow ? .quickPinCreateTitle : .quickPinChangeTitle,
+        title: config.isSetFlow ? .quickPinCreateTitle : .quickPinChangeTitle,
+        caption: config.isSetFlow ? .quickPinCreateEnterSubtitle : .quickPinChangeEnterNewSubtitle,
         button: .quickPinNextButton,
-        success: config.isSetFlow ? .quickPinSetSuccess : .quickPinUpdateSuccess,
-        successButton: config.isSetFlow ? .quickPinSetSuccessButton : .quickPinUpdateSuccessButton,
+        success: config.isSetFlow ? .custom(".quickPinCreateSuccessText") : .quickPinChangeSuccessText,
+        successButton: config.isSetFlow ? .quickPinNextButton : .quickPinNextButton,
         successNavigationType: config.isSetFlow
         ? .push(screen: .featureIssuanceModule(.issuanceAddDocument(config: IssuanceFlowUiConfig(flow: .noDocument))))
         : .pop(screen: .featureAVDashboardModule(.appLanding)),
@@ -101,11 +97,14 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
       case .validate:
         await onValidate()
       case .firstInput:
+        if !validateFirstPinSecurity(uiPinInputField) {
+          break
+        }
         setState {
           $0
             .copy(
-              navigationTitle: .quickPinConfirmPin,
-              caption: viewState.config.isSetFlow ? .quickPinSetCaptionTwo : .quickPinUpdateCaptionThree,
+              navigationTitle: .quickPinChangeTitle,
+              caption: viewState.config.isSetFlow ? .quickPinCreateReenterSubtitle : .quickPinChangeReenterNewSubtitle,
               button: .quickPinConfirmButton,
               step: .retryInput(uiPinInputField)
             )
@@ -115,7 +114,7 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
       case .retryInput(let previousPin):
         guard previousPin == uiPinInputField else {
           setState {
-            $0.copy(pinError: .quickPinDoNotMatch)
+            $0.copy(pinError: .quickPinNonMatch)
           }
           return
         }
@@ -134,26 +133,13 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
   }
 
   func toolbarContent() -> ToolBarContent? {
-    var leadingActions: [ToolBarContent.Action] = []
-    if viewState.isCancellable {
-      leadingActions.append(
-        .init(
-          image: Theme.shared.image.chevronLeft
-        ) {
-          self.onShowCancellationModal()
-        })
-    }
-
-    return .init(
-      trailingActions: [
-        .init(
-          title: viewState.button,
-          disabled: !viewState.isButtonActive
-        ) {
-          self.onButtonClick()
+    .init(
+      trailingActions: [],
+      leadingActions: [
+        .init(image: Theme.shared.image.chevronLeft) { [weak self] in
+          self?.handleBackButton()
         }
-      ],
-      leadingActions: leadingActions
+      ]
     )
   }
 
@@ -163,7 +149,7 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
       setState {
         $0
           .copy(
-            caption: .quickPinUpdateCaptionTwo,
+            caption: .quickPinChangeReenterNewSubtitle,
             button: .quickPinNextButton,
             step: .firstInput
           )
@@ -181,13 +167,13 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
 
   private func onSuccess() async {
     await interactor.setPin(newPin: uiPinInputField)
-
+    let appName = LocalizableStringKey.landingScreenTitle.toString
     if viewState.config.isSetFlow {
       let biometrySetupConfig = UIConfig.BiometricSetupUiConfig(
         title: .biometricSetupTitle,
-        caption: .biometricSetupDescription(LocalizableStringKey.splashTitle.toString),
-        button: .biometricSetupButton,
-        skipButton: .biometricSetupSkipButton,
+        caption: .biometricSetupDescription(appName),
+        button: .biometricSetupEnable,
+        skipButton: .biometricSetupSkip,
         navigationSuccessType: viewState.successNavigationType)
       router.push(with: .featureCommonModule(.biometrySetup(config: biometrySetupConfig)))
       return
@@ -259,5 +245,19 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
       return false
     }
     return true
+  }
+
+  private func handleBackButton() {
+    setState {
+      $0
+        .copy(
+          navigationTitle: .quickPinCreateTitle,
+          caption: .quickPinCreateEnterSubtitle,
+          button: .quickPinNextButton,
+          step: .firstInput
+        )
+        .copy(pinError: nil)
+    }
+    uiPinInputField = ""
   }
 }

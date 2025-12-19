@@ -36,7 +36,24 @@ public struct WrapListItemView: View {
     else {
       return nil
     }
-    return text
+    // Strings containing "_" are treated as localization keys and fetched from .xcstrings
+    if text.toString.contains("_") {
+      return .dynamic(key: text.toString)
+    } else {
+      return text
+    }
+  }
+
+  private var mainText: LocalizableStringKey {
+    switch listItem.mainContent {
+    case.text(let content):
+      guard let isBool = Bool(content.toString) else {
+        return content
+      }
+      return isBool ? .genericYes : .genericNo
+    default:
+      return .custom("")
+    }
   }
 
   public init(
@@ -90,8 +107,8 @@ public struct WrapListItemView: View {
 
         HStack(spacing: SPACING_SMALL) {
           switch listItem.mainContent {
-          case .text(let mainText):
-            Text(mainText)
+          case .text:
+            Text(mainText.toString)
               .typography(Theme.shared.font.headlineMedium)
               .foregroundStyle(Theme.shared.color.onSurface)
               .fontWeight(listItem.mainStyle == .plain ? .medium : .bold)

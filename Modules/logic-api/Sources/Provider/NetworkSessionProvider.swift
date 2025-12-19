@@ -15,19 +15,26 @@
  */
 import Foundation
 
-public protocol SampleRepository {
-  func sampleCall() async throws -> SampleResponseDTO
+public protocol NetworkSessionProvider: Sendable {
+  var urlSession: URLSession { get }
 }
 
-final class SampleRepositoryImpl: SampleRepository {
+final class NetworkSessionProviderImpl: NetworkSessionProvider {
 
-  private let networkManager: NetworkManager
+  let urlSession: URLSession
+  private let pinningDelegate: CertificatePinningDelegate
 
-  init(networkManager: NetworkManager) {
-    self.networkManager = networkManager
-  }
+  init() {
+    self.pinningDelegate = CertificatePinningDelegate()
 
-  public func sampleCall() async throws -> SampleResponseDTO {
-    return try await networkManager.execute(with: SampleRequest(request: .init()), parameters: nil)
+    let configuration = URLSessionConfiguration.default
+    configuration.timeoutIntervalForRequest = 30
+    configuration.timeoutIntervalForResource = 300
+
+    self.urlSession = URLSession(
+      configuration: configuration,
+      delegate: pinningDelegate,
+      delegateQueue: nil
+    )
   }
 }

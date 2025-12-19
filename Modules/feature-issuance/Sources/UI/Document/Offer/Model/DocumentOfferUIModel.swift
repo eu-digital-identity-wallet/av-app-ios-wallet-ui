@@ -78,7 +78,7 @@ public extension DocumentOfferUIModel {
 public extension DocumentOfferUIModel {
   static func mock() -> DocumentOfferUIModel {
     return .init(
-      issuerName: LocalizableStringKey.unknownIssuer.toString,
+      issuerName: LocalizableStringKey.genericDefaultIssuerName.toString,
       issuerLogo: nil,
       txCode: nil,
       uiOffers: [

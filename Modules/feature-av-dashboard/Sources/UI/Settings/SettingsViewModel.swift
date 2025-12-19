@@ -82,13 +82,9 @@ final class SettingsViewModel<Router: RouterHost>: ViewModel<Router, SettingsSta
       switch item {
       case .changePin:
           onPinChange()
-      case .deleteAgeAttestationProof:
+      case .credentials:
           onShowDeleteModal()
       }
-  }
-
-  func onSupportItemTap(item: SupportMenuItem) {
-
   }
 
   func onPinChange() {
@@ -97,13 +93,15 @@ final class SettingsViewModel<Router: RouterHost>: ViewModel<Router, SettingsSta
           config: UIConfig.Biometry(
             navigationTitle: .custom(""),
             displayLogo: false,
-            title: .changeQuickPinOption,
+            title: .quickPinChangeTitle,
             caption: .custom(""),
-            quickPinOnlyCaption: .changeQuickPinCaption,
+            quickPinOnlyCaption: .quickPinChangeEnterNewSubtitle,
             navigationSuccessType: .push(.featureCommonModule(.changePin(config: QuickPinUiConfig(flow: .update)))),
             navigationBackType: .pop,
             isPreAuthorization: true,
-            shouldInitializeBiometricOnCreate: false)
+            shouldInitializeBiometricOnCreate: false,
+            alignment: .leading
+          )
         )
       )
       )

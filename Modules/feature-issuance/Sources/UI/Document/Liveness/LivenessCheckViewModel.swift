@@ -40,8 +40,8 @@ final class LivenessCheckViewModel<Router: RouterHost>: ViewModel<Router, Livene
       router: router,
       initialState: .init(
         instructionPoints: [
-          LocalizableStringKey.livenessCheckInstructionPoint1.toString,
-          LocalizableStringKey.livenessCheckInstructionPoint2.toString
+          LocalizableStringKey.passportLiveVideoStepFirst.toString,
+          LocalizableStringKey.passportLiveVideoStepSecond.toString
         ],
         showSuccess: false,
         errorConfig: nil,
@@ -59,9 +59,9 @@ final class LivenessCheckViewModel<Router: RouterHost>: ViewModel<Router, Livene
     setState {
       $0.copy(
         errorConfig: ContentErrorView.Config(
-          title: .genericErrorTitle,
+          title: .genericErrorMessage,
           description: description,
-          button: .tryAgain,
+          button: .genericErrorRetry,
           cancelAction: self.router.pop(),
           action: { [weak self] in
             self?.dismissError()
@@ -87,7 +87,7 @@ final class LivenessCheckViewModel<Router: RouterHost>: ViewModel<Router, Livene
   private func performVerification() async {
     guard let photoData = viewState.config.documentData?.photo else {
       log("No reference image available", level: .error)
-      showError(description: .livenessCheckErrorReferenceImage)
+      showError(description: .passportLiveVideoErrorNotProcessed)
       return
     }
 
@@ -118,15 +118,15 @@ final class LivenessCheckViewModel<Router: RouterHost>: ViewModel<Router, Livene
     case .failure(let error):
       switch error {
       case .invalidReferenceImage:
-        showError(description: .livenessCheckErrorReferenceImage)
+        showError(description: .passportLiveVideoErrorNotProcessed)
       case .notLive:
-        showError(description: .livenessCheckErrorNotLive)
+        showError(description: .passportLiveVideoErrorNotLive)
       case .noMatch:
-        showError(description: .livenessCheckErrorNoMatch)
+        showError(description: .passportLiveVideoErrorNotMatching)
       case .unableToWriteTempFile:
-        showError(description: .livenessCheckErrorReferenceImage)
+        showError(description: .passportLiveVideoErrorNotProcessed)
       case .unknown:
-        showError(description: .genericErrorDesc)
+        showError(description: .genericErrorDescription)
       }
 
     case .simulatorNotSupported:

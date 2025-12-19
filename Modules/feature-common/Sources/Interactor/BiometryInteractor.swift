@@ -103,7 +103,7 @@ public final actor BiometryInteractorImpl: BiometryInteractor {
   }
 
   public func getLockoutStatus() async -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?) {
-    quickPinInteractor.getLockoutStatus()
+    await quickPinInteractor.getLockoutStatus()
   }
 
   public func openSettingsURL(action: @escaping @Sendable () -> Void) async {

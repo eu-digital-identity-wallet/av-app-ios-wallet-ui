@@ -29,6 +29,7 @@ protocol NetworkRequest: Sendable {
 
   var method: NetworkMethod { get }
   var path: String { get }
+  var host: String { get }
   var additionalHeaders: [String: String] { get }
   var body: Data? { get }
 }

@@ -77,7 +77,7 @@ public struct TappableCellView: View {
 
 #Preview {
   TappableCellView(
-    title: .addDocumentTitle,
+    title: .issuanceAddDocumentSubtitle,
     showDivider: true,
     useOverlay: true,
     action: {}()

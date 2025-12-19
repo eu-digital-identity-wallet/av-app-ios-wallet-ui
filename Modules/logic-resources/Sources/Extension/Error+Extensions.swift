@@ -18,6 +18,6 @@ import Foundation
 public extension Error {
 
   var errorMessage: String {
-    localizedDescription.isEmpty ? LocalizableStringKey.genericErrorTitle.toString : localizedDescription
+    localizedDescription.isEmpty ? LocalizableStringKey.genericErrorMessage.toString : localizedDescription
   }
 }

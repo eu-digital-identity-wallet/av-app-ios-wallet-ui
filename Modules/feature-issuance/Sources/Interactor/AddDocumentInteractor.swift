@@ -73,14 +73,28 @@ final actor AddDocumentInteractorImpl: AddDocumentInteractor {
 
       let documents: [AddDocumentUIModel] = allDocuments.compactMap { doc in
         if doc.isAgeVerification {
-          return .init(listItem: .init(mainContent: MainContent.text(LocalizableStringKey.verificationNationalId),
-                                       supportingText: LocalizableStringKey.verificationNationalIdDescription,
+          return .init(listItem: .init(mainContent: MainContent.text(LocalizableStringKey.onboardingVerificationNationalId),
+                                       supportingText: LocalizableStringKey.onboardingVerificationNationalIdDescription,
                                        leadingIcon: LeadingIcon(image: Theme.shared.image.pidIcon),
                                        trailingContent: nil),
                        isEnabled: true,
                        configId: doc.configId,
                        issuerId: doc.issuer,
                        docTypeIdentifier: doc.docTypeIdentifier)
+        } else if case .other(let formatType) = doc.docTypeIdentifier,
+                  formatType == "passport" {
+          return .init(
+            listItem: .init(
+              mainContent: .text(LocalizableStringKey.onboardingVerificationPassportIdCard),
+              supportingText: .onboardingVerificationPassportIdCardDescription,
+              leadingIcon: LeadingIcon(image: Theme.shared.image.passportCard),
+              trailingContent: .icon(Theme.shared.image.plus)
+            ),
+            isEnabled: true,
+            configId: doc.configId,
+            issuerId: doc.issuer,
+            docTypeIdentifier: doc.docTypeIdentifier
+          )
         } else {
           return .init(
             listItem: .init(

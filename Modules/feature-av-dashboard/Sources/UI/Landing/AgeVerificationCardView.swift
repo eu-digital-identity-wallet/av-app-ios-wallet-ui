@@ -39,7 +39,7 @@ struct AgeVerificationCardView: View {
                 .resizable()
                 .frame(width: 38, height: 26)
                 .padding(.trailing, SPACING_SMALL)
-              Text(LocalizableStringKey.europeanUnionLabel1.toString)
+              Text(LocalizableStringKey.landingScreenCardEuTitle.toString)
                 .typography(Theme.shared.font.labelSmall)
                 .foregroundStyle(Theme.shared.color.lightText)
             }
@@ -47,7 +47,7 @@ struct AgeVerificationCardView: View {
             if let credentialsCount = credentialsCount {
               WrapCardView(cornerRadius: SPACING_MEDIUM_SMALL,
                            backgroundColor: credentialsCount > 0 ? Theme.shared.color.primary : Theme.shared.color.error) {
-                WrapTextView(text: credentialsCount > 0 ? .landingCredentialsLeft(credentialsCount) : .addMoreCredentials,
+                WrapTextView(text: credentialsCount > 0 ? .landingScreenCredentialsLeft(credentialsCount) : .landingScreenAddCredentials,
                              textConfig: TextConfig(font: Theme.shared.font.labelSmall.font,
                                                     color: credentialsCount > 0 ? Theme.shared.color.onPrimary : Theme.shared.color.onError,
                                                     textAlign: .center,
@@ -65,7 +65,7 @@ struct AgeVerificationCardView: View {
             Theme.shared.image._18PlusLogo
               .resizable()
               .frame(width: 64, height: 61)
-            Text(LocalizableStringKey.splashTitle.toString)
+            Text(LocalizableStringKey.splashScreenTitle.toString)
               .typography(Theme.shared.font.titleMedium)
               .foregroundStyle(Theme.shared.color.primary)
           }

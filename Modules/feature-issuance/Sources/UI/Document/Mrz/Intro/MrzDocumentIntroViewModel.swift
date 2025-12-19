@@ -17,11 +17,11 @@ final class MrzDocumentIntroViewModel<Router: RouterHost>: ViewModel<Router, Mrz
   ) {
     super.init(router: router,
                initialState: .init(
-                steps: [(LocalizableStringKey.passportEnrollmentIntroStep1Title, LocalizableStringKey.passportEnrollmentIntroStep1Description),
-                                   (LocalizableStringKey.passportEnrollmentIntroStep2Title, LocalizableStringKey.passportEnrollmentIntroStep2Description),
-                                   (LocalizableStringKey.passportEnrollmentIntroStep3Title, LocalizableStringKey.passportEnrollmentIntroStep3Description),
-                                   (LocalizableStringKey.passportEnrollmentIntroStep4Title, nil),
-                                   (LocalizableStringKey.passportEnrollmentIntroStep5Title, nil)],
+                steps: [(LocalizableStringKey.passportScanIntroStep1Title, LocalizableStringKey.passportScanIntroStep1Description),
+                                   (LocalizableStringKey.passportScanIntroStep2Title, LocalizableStringKey.passportScanIntroStep2Description),
+                                   (LocalizableStringKey.passportScanIntroStep3Title, LocalizableStringKey.passportScanIntroStep3Description),
+                                   (LocalizableStringKey.passportScanIntroStep4Title, nil),
+                                   (LocalizableStringKey.passportScanIntroStep5Title, nil)],
                 config: config
                                   )
     )
@@ -32,6 +32,8 @@ final class MrzDocumentIntroViewModel<Router: RouterHost>: ViewModel<Router, Mrz
   }
 
   func startProcedureButtonTapped() {
+    // Clean up any existing passport photo from a previous flow
+    LivenessCheckInteractorImpl.cleanupPassportPhoto()
     router.push(with: .featureIssuanceModule(.documentMRZInstruction(config: viewState.config)))
   }
 }

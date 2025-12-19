@@ -43,16 +43,16 @@ private func content(
       }
 
       VSpacer.largeMedium()
-      Text(LocalizableStringKey.passpostEnrollmentHeader.toString)
+      Text(LocalizableStringKey.passportScanIntroEnrollmentMethod.toString)
         .typography(Theme.shared.font.bodyLarge)
         .foregroundStyle(Theme.shared.color.lightText)
 
       VSpacer.extraSmall()
-      Text(LocalizableStringKey.passpostEnrollmentTitle.toString)
+      Text(LocalizableStringKey.passportScanIntroTitle.toString)
         .typography(Theme.shared.font.labelLarge)
 
       VSpacer.largeMedium()
-      Text(LocalizableStringKey.passpostEnrollmentDescription.toString)
+      Text(LocalizableStringKey.passportScanIntroDescription.toString)
         .typography(Theme.shared.font.bodyLarge)
 
       VSpacer.largeMedium()
@@ -64,13 +64,13 @@ private func content(
   HStack {
     WrapButtonView(
       style: .secondary,
-      title: LocalizableStringKey.back,
+      title: LocalizableStringKey.genericClose,
       isLoading: false,
       onAction: onBackButtonTapped()
     )
     WrapButtonView(
       style: .primary,
-      title: LocalizableStringKey.start,
+      title: LocalizableStringKey.passportScanIntroStartButton,
       isLoading: false,
       onAction: onStartProcedureTapped()
     )
@@ -104,11 +104,11 @@ private func passportEnrollmentStepsView(viewState: MrzDocumentIntroViewState) -
 #Preview {
   let viewState = MrzDocumentIntroViewState(
     steps: [
-      (LocalizableStringKey.passportEnrollmentIntroStep1Title, LocalizableStringKey.passportEnrollmentIntroStep1Description),
-      (LocalizableStringKey.passportEnrollmentIntroStep2Title, LocalizableStringKey.passportEnrollmentIntroStep2Description),
-      (LocalizableStringKey.passportEnrollmentIntroStep3Title, LocalizableStringKey.passportEnrollmentIntroStep3Description),
-      (LocalizableStringKey.passportEnrollmentIntroStep4Title, nil),
-      (LocalizableStringKey.passportEnrollmentIntroStep5Title, nil)
+      (LocalizableStringKey.passportScanIntroStep1Title, LocalizableStringKey.passportScanIntroStep1Description),
+      (LocalizableStringKey.passportScanIntroStep2Title, LocalizableStringKey.passportScanIntroStep2Description),
+      (LocalizableStringKey.passportScanIntroStep3Title, LocalizableStringKey.passportScanIntroStep3Description),
+      (LocalizableStringKey.passportScanIntroStep4Title, nil),
+      (LocalizableStringKey.passportScanIntroStep5Title, nil)
     ],
     config: DocumentEnrollmentUiConfig()
   )

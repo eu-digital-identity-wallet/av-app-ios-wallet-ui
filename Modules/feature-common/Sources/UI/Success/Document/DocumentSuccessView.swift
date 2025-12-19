@@ -30,7 +30,7 @@ public struct DocumentSuccessView<Router: RouterHost, RequestItem: Sendable>: Vi
     ContentScreenView(
       padding: .zero,
       canScroll: true,
-      navigationTitle: .dataShared,
+      navigationTitle: .custom(""),
       toolbarContent: viewModel.toolbarContent()
     ) {
       content(
@@ -54,7 +54,7 @@ private func content<RequestItem: Sendable>(
             appIcon: ThemeManager.shared.image.logoEuDigitalIndentityWallet,
             appText: ThemeManager.shared.image.euditext
           ),
-          description: .successfullySharedFollowingInformation,
+          description: .documentSuccessHeaderDescription,
           relyingPartyData: viewState.relyingParty
         )
       )
@@ -85,8 +85,8 @@ private func documents<RequestItem: Sendable>(
       ForEach(viewState.items, id: \.id) { section in
         WrapExpandableListView(
           header: .init(
-            mainContent: .text(.custom(section.title)),
-            supportingText: .viewDetails
+            mainContent: .text(.documentSuccessCardTitle),
+            supportingText: .documentSuccessCollapsedSupportingText
           ),
           items: section.listItems,
           backgroundColor: backgroundColor,

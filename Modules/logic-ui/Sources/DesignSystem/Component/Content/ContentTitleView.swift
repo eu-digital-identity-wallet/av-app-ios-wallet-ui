@@ -128,9 +128,10 @@ public struct ContentTitleView: View {
         }
       )
 
-      VSpacer.large()
+        if let caption = self.caption, caption.toString != "" {
 
-      if let caption = self.caption {
+        VSpacer.large()
+
         HStack {
           Text(caption)
             .typography(Theme.shared.font.bodyLarge)
@@ -156,14 +157,14 @@ public extension ContentTitleView {
 #Preview {
   Group {
     ContentTitleView(
-      title: LocalizableStringKey.tryAgain,
-      caption: LocalizableStringKey.tryAgain
+      title: .genericErrorRetry,
+      caption: .genericErrorRetry
     )
     .lightModePreview()
 
     ContentTitleView(
-      title: LocalizableStringKey.tryAgain,
-      caption: LocalizableStringKey.tryAgain
+      title: LocalizableStringKey.genericErrorRetry,
+      caption: LocalizableStringKey.genericErrorRetry
     )
     .darkModePreview()
   }

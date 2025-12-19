@@ -325,8 +325,8 @@ final class TestDocumentOfferInteractor: EudiTest {
     let config = UIConfig.TwoWayNavigationType.push(
       .featureCommonModule(
         .genericSuccess(config: UIConfig.Success(
-          title: .init(value: .addDocumentTitle),
-          subtitle: .addDocumentTitle,
+          title: .init(value: .issuanceAddDocumentTitle),
+          subtitle: .issuanceAddDocumentTitle,
           buttons: [],
           visualKind: UIConfig.Success.VisualKind.defaultIcon)
         )
@@ -370,8 +370,8 @@ final class TestDocumentOfferInteractor: EudiTest {
     let config = UIConfig.TwoWayNavigationType.push(
       .featureCommonModule(
         .genericSuccess(config: UIConfig.Success(
-          title: .init(value: .addDocumentTitle),
-          subtitle: .addDocumentTitle,
+          title: .init(value: .issuanceAddDocumentTitle),
+          subtitle: .issuanceAddDocumentTitle,
           buttons: [],
           visualKind: UIConfig.Success.VisualKind.defaultIcon)
         )
@@ -425,8 +425,8 @@ final class TestDocumentOfferInteractor: EudiTest {
     let config = UIConfig.TwoWayNavigationType.push(
       .featureCommonModule(
         .genericSuccess(config: UIConfig.Success(
-          title: .init(value: .addDocumentTitle),
-          subtitle: .addDocumentTitle,
+          title: .init(value: .issuanceAddDocumentTitle),
+          subtitle: .issuanceAddDocumentTitle,
           buttons: [],
           visualKind: UIConfig.Success.VisualKind.defaultIcon)
         )
@@ -480,8 +480,8 @@ final class TestDocumentOfferInteractor: EudiTest {
     let config = UIConfig.TwoWayNavigationType.push(
       .featureCommonModule(
         .genericSuccess(config: UIConfig.Success(
-          title: .init(value: .addDocumentTitle),
-          subtitle: .addDocumentTitle,
+          title: .init(value: .issuanceAddDocumentTitle),
+          subtitle: .issuanceAddDocumentTitle,
           buttons: [],
           visualKind: UIConfig.Success.VisualKind.defaultIcon)
         )
@@ -553,8 +553,8 @@ final class TestDocumentOfferInteractor: EudiTest {
     let config = UIConfig.TwoWayNavigationType.push(
       .featureCommonModule(
         .genericSuccess(config: UIConfig.Success(
-          title: .init(value: .addDocumentTitle),
-          subtitle: .addDocumentTitle,
+          title: .init(value: .issuanceAddDocumentTitle),
+          subtitle: .issuanceAddDocumentTitle,
           buttons: [],
           visualKind: UIConfig.Success.VisualKind.defaultIcon)
         )
@@ -654,7 +654,7 @@ final class TestDocumentOfferInteractor: EudiTest {
     let mock = DocumentOfferUIModel.mock()
     
     // When / Then
-    XCTAssertEqual(mock.issuerName, LocalizableStringKey.unknownIssuer.toString)
+    XCTAssertEqual(mock.issuerName, LocalizableStringKey.genericDefaultIssuerName.toString)
     XCTAssertNil(mock.issuerLogo)
     XCTAssertNil(mock.txCode)
     XCTAssertEqual(mock.uiOffers.count, 5)

@@ -12,7 +12,6 @@ let package = Package(
       targets: ["logic-api"])
   ],
   dependencies: [
-    .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.6.4"),
     .package(
       name: "logic-business",
       path: "./logic-business"
@@ -22,8 +21,8 @@ let package = Package(
       path: "./logic-analytics"
     ),
     .package(
-      name: "logic-core",
-      path: "./logic-core"
+      name: "logic-resources",
+      path: "./logic-resources"
     ),
     .package(name: "logic-test", path: "./logic-test")
   ],
@@ -32,12 +31,8 @@ let package = Package(
       name: "logic-api",
       dependencies: [
         "logic-business",
-        "logic-core",
         "logic-analytics",
-        .product(
-          name: "Alamofire",
-          package: "Alamofire"
-        )
+        "logic-resources"
       ],
       path: "./Sources"
     ),
@@ -47,7 +42,6 @@ let package = Package(
         "logic-api",
         "logic-analytics",
         "logic-business",
-        "logic-core",
         "logic-test"
       ],
       path: "./Tests"

@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2025 European Commission
+ *
+ * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
+ * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
+ * except in compliance with the Licence.
+ *
+ * You may obtain a copy of the Licence at:
+ * https://joinup.ec.europa.eu/software/page/eupl
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the Licence is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF
+ * ANY KIND, either express or implied. See the Licence for the specific language
+ * governing permissions and limitations under the Licence.
+ */
+
 import feature_common
 import IdentityDocumentServicesUI
 import logic_authentication
@@ -10,15 +26,12 @@ import feature_proximity
 private typealias QueueItem = () -> Void
 
 @Observable
-final class DocumentProviderRouter: RouterHost {
+final class DigitalCredentialProviderRouter: RouterHost {
 
   private var pathElements: [logic_ui.AppRoute] = []
 
   @ObservationIgnored
   private var rootRoute: logic_ui.AppRoute = .featureIDPModule(.requestAuthorization)
-
-//  @ObservationIgnored
-//  private let uiConfigLogic: ConfigUiLogic
 
   @ObservationIgnored
   private let lockInterval: Int = 1000
@@ -114,7 +127,7 @@ final class DocumentProviderRouter: RouterHost {
   }
 }
 
-private extension DocumentProviderRouter {
+private extension DigitalCredentialProviderRouter {
 
   @MainActor func isForegroundOrBackStack(with route: logic_ui.AppRoute) -> Bool {
     return isScreenForeground(with: route) || isScreenOnBackStack(with: route)
@@ -174,7 +187,7 @@ private extension DocumentProviderRouter {
   }
 }
 
-extension DocumentProviderRouter {
+extension DigitalCredentialProviderRouter {
 
   func configureAuthorization(
     context: ISO18013MobileDocumentRequestContext,
@@ -196,11 +209,11 @@ extension DocumentProviderRouter {
   }
 }
 
-private extension DocumentProviderRouter {
+private extension DigitalCredentialProviderRouter {
 
   struct RouterContainerView: View {
 
-    @State var host: DocumentProviderRouter
+    @State var host: DigitalCredentialProviderRouter
 
     var body: some View {
       NavigationStack(path: $host.pathElements) {
@@ -237,7 +250,7 @@ public final class IDPRouter {
     switch module {
     case .requestAuthorization:
       if
-        let documentRouter = host as? DocumentProviderRouter,
+        let documentRouter = host as? DigitalCredentialProviderRouter,
         let dependencies = documentRouter.authorizationDependencies() {
         RequestAuthorizationView(
           context: dependencies.context,

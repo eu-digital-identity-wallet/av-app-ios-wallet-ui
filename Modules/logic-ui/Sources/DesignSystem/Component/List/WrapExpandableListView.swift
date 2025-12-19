@@ -51,7 +51,8 @@ public struct WrapExpandableListView<T: Sendable>: View {
           ExpandableCardView(
             backgroundColor: backgroundColor,
             header: header,
-            isLoading: isLoading
+            isLoading: isLoading,
+            isExpanded: true
           ) {
             contentList()
           }

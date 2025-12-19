@@ -41,7 +41,7 @@ final class PresentationRequestViewModel<Router: RouterHost>: BaseRequestViewMod
     case .success(let authenticationRequest):
       self.onReceivedItems(
         with: authenticationRequest.requestDataCells,
-        title: .requestDataTitle(
+        title: .requestRelyingPartyDescription(
           [authenticationRequest.relyingParty]
         ),
         relyingParty: .custom(authenticationRequest.relyingParty),
@@ -54,7 +54,7 @@ final class PresentationRequestViewModel<Router: RouterHost>: BaseRequestViewMod
               appIcon: ThemeManager.shared.image.logoEuDigitalIndentityWallet,
               appText: ThemeManager.shared.image.euditext
             ),
-            description: .dataSharingTitle,
+            description: .issuanceDocumentOfferDescription,
             mainText: getTitle(),
             relyingPartyData: RelyingPartyData(
               isVerified: viewState.isTrusted,
@@ -96,9 +96,9 @@ final class PresentationRequestViewModel<Router: RouterHost>: BaseRequestViewMod
     return .featureCommonModule(
       .biometry(
         config: UIConfig.Biometry(
-          navigationTitle: .biometryConfirmRequest,
-          caption: .requestDataShareBiometryCaption,
-          quickPinOnlyCaption: .requestDataShareQuickPinCaption,
+          navigationTitle: .loadingHeaderDescription,
+          caption: .loadingBiometryBiometricsEnabledDescription,
+          quickPinOnlyCaption: .loadingBiometryBiometricsNotEnabledDescription,
           navigationSuccessType: .push(
             .featurePresentationModule(
               .presentationLoader(
@@ -123,11 +123,11 @@ final class PresentationRequestViewModel<Router: RouterHost>: BaseRequestViewMod
   }
 
   override func getTitle() -> LocalizableStringKey {
-    .dataSharingRequest
+    .requestHeaderMainText
   }
 
   override func getCaption() -> LocalizableStringKey {
-    .requestsTheFollowing
+    .requestRelyingPartyDescription([""])
   }
 
   override func getDataRequestInfo() -> LocalizableStringKey {
@@ -143,11 +143,11 @@ final class PresentationRequestViewModel<Router: RouterHost>: BaseRequestViewMod
   }
 
   override func getTitleCaption() -> LocalizableStringKey {
-    .requestDataTitle([""])
+    .requestRelyingPartyDescription([""])
   }
 
   override func getTrustedRelyingParty() -> LocalizableStringKey {
-    .requestDataVerifiedEntity
+    .genericDefaultRelyingPartyName
   }
 
   override func getTrustedRelyingPartyInfo() -> LocalizableStringKey {
