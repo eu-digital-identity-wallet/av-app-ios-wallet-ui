@@ -349,6 +349,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case genericYes
   case genericNo
   case genericBack
+  case documentSuccessCardTitle
 
 }
 

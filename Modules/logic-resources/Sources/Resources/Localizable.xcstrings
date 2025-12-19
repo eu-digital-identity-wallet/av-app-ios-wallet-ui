@@ -2837,6 +2837,41 @@
         }
       }
     },
+    "document_success_card_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aldersbevis"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Altersnachweis"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Proof of Age"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preuve d’âge"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prova di età"
+          }
+        }
+      }
+    },
     "document_success_collapsed_supporting_text" : {
       "extractionState" : "manual",
       "localizations" : {

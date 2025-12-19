@@ -35,7 +35,7 @@ struct AddDocumentView<Router: RouterHost>: View {
       padding: .zero,
       canScroll: true,
       errorConfig: viewModel.viewState.error,
-      navigationTitle: .issuanceAddDocumentTitle,
+      navigationTitle: .custom(""),
       isLoading: viewModel.viewState.isLoading,
       toolbarContent: viewModel.toolbarContent()
     ) {
@@ -70,46 +70,57 @@ private func content(
   action: @escaping (String, String, DocumentTypeIdentifier) -> Void
 ) -> some View {
 
-  ScrollView {
-    LazyVStack(spacing: SPACING_MEDIUM_SMALL) {
+  VStack(spacing: SPACING_MEDIUM_LARGE) {
+    OnboardingTabsView(steps: Onboardingsteps.allCases,
+                       selectedIndex: 3)
+    .padding(.horizontal, 4)
+    ScrollView {
+      LazyVStack(spacing: SPACING_MEDIUM_SMALL) {
 
-      Text(.issuanceAddDocumentSubtitle)
-        .typography(Theme.shared.font.bodyLarge)
-        .foregroundStyle(Theme.shared.color.onSurface)
-
-      ForEach(viewState.addDocumentCellModels.elements, id: \.key) { pair in
-
-        let issuer = pair.key
-        let models = pair.value
-
-        Section(
-          header: WrapTextView(
-            text: .custom(issuer),
-            textConfig: TextConfig(
-              font: Theme.shared.font.bodySmall.font,
-              color: Theme.shared.color.onSurface,
-              textAlign: .leading,
-              fontWeight: .semibold
-            )
-          )
+        Text(.onboardingVerificationTitle)
+          .typography(Theme.shared.font.titleMedium)
+          .fontWeight(.medium)
           .frame(maxWidth: .infinity, alignment: .leading)
-          .shimmer(isLoading: viewState.isLoading)
-          .padding(.top, SPACING_MEDIUM_SMALL)
-        ) {
-          ForEach(models, id: \.id) { cell in
-            WrapCardView {
-              WrapListItemView(
-                listItem: cell.listItem,
-                isLoading: cell.isLoading,
-                action: { action(cell.issuerId, cell.configId, cell.docTypeIdentifier) }
+          .foregroundStyle(Theme.shared.color.onSurface)
+
+        Text(.onboardingVerificationDescription)
+          .typography(Theme.shared.font.bodyLarge)
+          .foregroundStyle(Theme.shared.color.onSurface)
+
+        ForEach(viewState.addDocumentCellModels.elements, id: \.key) { pair in
+
+          let issuer = pair.key
+          let models = pair.value
+
+          Section(
+            header: WrapTextView(
+              text: .custom(issuer),
+              textConfig: TextConfig(
+                font: Theme.shared.font.bodySmall.font,
+                color: Theme.shared.color.onSurface,
+                textAlign: .leading,
+                fontWeight: .semibold
               )
+            )
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .shimmer(isLoading: viewState.isLoading)
+            .padding(.top, SPACING_MEDIUM_SMALL)
+          ) {
+            ForEach(models, id: \.id) { cell in
+              WrapCardView {
+                WrapListItemView(
+                  listItem: cell.listItem,
+                  isLoading: cell.isLoading,
+                  action: { action(cell.issuerId, cell.configId, cell.docTypeIdentifier) }
+                )
+              }
             }
           }
         }
       }
+      .padding(.horizontal, Theme.shared.dimension.padding)
+      .padding(.bottom)
     }
-    .padding(.horizontal, Theme.shared.dimension.padding)
-    .padding(.bottom)
   }
   .disabled(viewState.addDocumentCellModels.allSatisfy { $0.value.isEmpty })
 }

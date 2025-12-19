@@ -81,10 +81,13 @@ final actor AddDocumentInteractorImpl: AddDocumentInteractor {
                        configId: doc.configId,
                        issuerId: doc.issuer,
                        docTypeIdentifier: doc.docTypeIdentifier)
-        } else if case .other(let formatType) = doc.docTypeIdentifier, formatType == "passport" {
+        } else if case .other(let formatType) = doc.docTypeIdentifier,
+                  formatType == "passport" {
           return .init(
             listItem: .init(
               mainContent: .text(LocalizableStringKey.onboardingVerificationPassportIdCard),
+              supportingText: .onboardingVerificationPassportIdCardDescription,
+              leadingIcon: LeadingIcon(image: Theme.shared.image.passportCard),
               trailingContent: .icon(Theme.shared.image.plus)
             ),
             isEnabled: true,
