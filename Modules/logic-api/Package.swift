@@ -24,7 +24,8 @@ let package = Package(
       name: "logic-resources",
       path: "./logic-resources"
     ),
-    .package(name: "logic-test", path: "./logic-test")
+    .package(name: "logic-test", path: "./logic-test"),
+    .package(url: "https://github.com/datatheorem/TrustKit", from: "3.0.4")
   ],
   targets: [
     .target(
@@ -32,7 +33,8 @@ let package = Package(
       dependencies: [
         "logic-business",
         "logic-analytics",
-        "logic-resources"
+        "logic-resources",
+        .product(name: "TrustKit", package: "TrustKit")
       ],
       path: "./Sources"
     ),

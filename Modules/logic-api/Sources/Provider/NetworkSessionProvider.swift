@@ -14,18 +14,56 @@
  * governing permissions and limitations under the Licence.
  */
 import Foundation
+import TrustKit
+import logic_resources
 
 public protocol NetworkSessionProvider: Sendable {
   var urlSession: URLSession { get }
 }
 
+private enum TrustKitInitializer {
+  static let shared: Bool = {
+    let config = CertificatePinningConfig.trustKitConfiguration()
+    if !config.isEmpty {
+      TrustKit.initSharedInstance(withConfiguration: config)
+
+      TrustKit.sharedInstance().pinningValidatorCallback = { result, hostname, _ in
+        switch result.finalTrustDecision {
+        case .shouldAllowConnection:
+          log("Certificate pinning succeeded for \(hostname)", level: .debug)
+        case .shouldBlockConnection:
+          log("Certificate pinning FAILED for \(hostname): \(result.evaluationResult)", level: .error)
+        case .domainNotPinned:
+          log("Domain not pinned: \(hostname)", level: .debug)
+        @unknown default:
+          break
+        }
+      }
+    }
+    return true
+  }()
+}
+
+private final class PinningDelegate: NSObject, URLSessionDelegate, @unchecked Sendable {
+  func urlSession(
+    _ session: URLSession,
+    didReceive challenge: URLAuthenticationChallenge,
+    completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void
+  ) {
+    if TrustKit.sharedInstance().pinningValidator.handle(challenge, completionHandler: completionHandler) == false {
+      completionHandler(.performDefaultHandling, nil)
+    }
+  }
+}
+
 final class NetworkSessionProviderImpl: NetworkSessionProvider {
 
   let urlSession: URLSession
-  private let pinningDelegate: CertificatePinningDelegate
+  private let delegate = PinningDelegate()
 
   init() {
-    self.pinningDelegate = CertificatePinningDelegate()
+    // Initialize TrustKit once per app lifecycle (Swift guarantees thread-safe static let initialization)
+    _ = TrustKitInitializer.shared
 
     let configuration = URLSessionConfiguration.default
     configuration.timeoutIntervalForRequest = 30
@@ -33,7 +71,7 @@ final class NetworkSessionProviderImpl: NetworkSessionProvider {
 
     self.urlSession = URLSession(
       configuration: configuration,
-      delegate: pinningDelegate,
+      delegate: delegate,
       delegateQueue: nil
     )
   }

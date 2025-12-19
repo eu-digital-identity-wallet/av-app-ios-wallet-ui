@@ -14,40 +14,49 @@
  * governing permissions and limitations under the Licence.
  */
 import Foundation
+import TrustKit
 
 struct CertificatePinningConfig {
 
-  static let pinnedHosts: Set<String> = [
-    "issuer.ageverification.dev",
-    "issuer.dev.ageverification.dev",
-    "verifier.ageverification.dev",
-    "verifier.dev.ageverification.dev"
-  ]
+  static let isEnabled = true
 
-  // SHA-256 public key hashes
+  // SHA-256 public key hashes in SPKI (SubjectPublicKeyInfo) format
   // Generate: openssl s_client -servername HOST -connect HOST:443 2>/dev/null </dev/null | \
-  //   openssl x509 -pubkey -noout | openssl pkey -pubin -outform der | \
-  //   openssl dgst -sha256 -binary | openssl enc -base64
-  static let publicKeyHashes: [String: Set<String>] = [
+  //           openssl x509 -pubkey -noout | openssl pkey -pubin -outform der | \
+  //           openssl dgst -sha256 -binary | openssl enc -base64
+  private static let pinnedDomains: [String: [String]] = [
     "issuer.ageverification.dev": [
-      "1uIbbTksbRP9/hyYImLrEMyz7dYRAOgHRZUAIU6Gp90="
+      "1uIbbTksbRP9/hyYImLrEMyz7dYRAOgHRZUAIU6Gp90=", // Leaf
+      "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="  // Let's Encrypt R12
     ],
     "issuer.dev.ageverification.dev": [
-      "abOODQ5cP9y7lVM2tQHa1nMMnon7BuGP9D7s8rbAx+Q="
+      "abOODQ5cP9y7lVM2tQHa1nMMnon7BuGP9D7s8rbAx+Q=", // Leaf
+      "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="  // Let's Encrypt R12
     ],
     "verifier.ageverification.dev": [
-      "+t2gC4lN7q4t3jt0NYbxnDktaCs9YdQ21icWr01aN7c="
+      "+t2gC4lN7q4t3jt0NYbxnDktaCs9YdQ21icWr01aN7c=", // Leaf
+      "aZeR2aS2g2bguhPzWzTQqUq9OCf4tXk7VWrF6R/zJkM="  // GeoTrust CA
     ],
     "verifier.dev.ageverification.dev": [
-      "sJoCJcqyUdz6RX/qxkDo2mXPhNTwb2TLyQJLEkf02iQ="
+      "sJoCJcqyUdz6RX/qxkDo2mXPhNTwb2TLyQJLEkf02iQ=", // Leaf
+      "aZeR2aS2g2bguhPzWzTQqUq9OCf4tXk7VWrF6R/zJkM="  // GeoTrust CA
     ]
   ]
 
-  static var isEnabled: Bool {
-    #if DEBUG
-    return false
-    #else
-    return true
-    #endif
+  static func trustKitConfiguration() -> [String: Any] {
+    guard isEnabled else { return [:] }
+
+    let domains = pinnedDomains.mapValues { hashes in
+      [
+        kTSKPublicKeyHashes: hashes,
+        kTSKEnforcePinning: true,
+        kTSKIncludeSubdomains: false
+      ] as [String: Any]
+    }
+
+    return [
+      kTSKSwizzleNetworkDelegates: false,
+      kTSKPinnedDomains: domains
+    ]
   }
 }
