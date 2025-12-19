@@ -11,17 +11,23 @@ import logic_resources
 import logic_core
 
 enum SettingsMenuItem: String, CaseIterable, Identifiable {
-  case changePin
+  case credentials
 //  case unlockWithBiometrics
 //  case language
-  case deleteAgeAttestationProof
+  case changePin
 
   var id: String { rawValue }
 
   var title: String {
     switch self {
+    case .credentials: return LocalizableStringKey.settingsScreenCredentials.toString
+    case .changePin: return LocalizableStringKey.settingsScreenSecurity.toString
+    }
+  }
+  var description: String {
+    switch self {
+    case .credentials: return LocalizableStringKey.settingsScreenDeleteProofs.toString
     case .changePin: return LocalizableStringKey.settingsScreenChangePin.toString
-    case .deleteAgeAttestationProof: return LocalizableStringKey.settingsScreenDeleteProofs.toString
     }
   }
 }
@@ -74,7 +80,8 @@ private func content(
 ) -> some View {
   ScrollView {
       VStack(alignment: .leading, spacing: .zero) {
-        HStack(alignment: .center, spacing: .zero) {
+        HStack(alignment: .center, spacing: SPACING_EXTRA_SMALL) {
+          Theme.shared.image.settingsIcon
           Text(LocalizableStringKey.settings.toString)
             .typography(Theme.shared.font.titleLarge)
             .fontWeight(.medium)
@@ -92,65 +99,54 @@ private func content(
           Spacer()
         } else {
           // Settings content
-          VStack(alignment: .leading, spacing: .zero) {
-            Text(LocalizableStringKey.settings.toString)
-              .typography(Theme.shared.font.bodyLarge)
-              .foregroundStyle(Theme.shared.color.lightText)
-              .padding(.bottom, SPACING_SMALL)
+            VStack(alignment: .leading, spacing: SPACING_LARGE) {
+                VStack(alignment: .leading, spacing: SPACING_EXTRA_SMALL) {
+                    Text(LocalizableStringKey.settingsScreenAppInfo.toString)
+                      .typography(Theme.shared.font.headlineMedium)
+                      .fontWeight(.semibold)
+                    HStack {
+                        Text(LocalizableStringKey.settingsScreenVersion.toString)
+                          .typography(Theme.shared.font.bodyLarge)
+                        Spacer()
+                        Text(viewState.appVersion)
+                        .typography(Theme.shared.font.bodyLarge)
+                        .foregroundStyle(Theme.shared.color.lightText)
+                    }
+                }
 
-            VStack(alignment: .center, spacing: 25) {
-              ForEach(SettingsMenuItem.allCases) { item in
-                SettingsItemCellView(title: item.title, onTap: {
-                  onSettingItemTap(item)
-                })
-              }
+                VStack(alignment: .leading, spacing: SPACING_LARGE) {
+                  ForEach(SettingsMenuItem.allCases) { item in
+                      SettingsItemCellView(item: item, onTap: {
+                      onSettingItemTap(item)
+                    })
+                  }
+                }
+                .padding(.bottom, SPACING_LARGE)
             }
             .padding()
-            .background(Theme.shared.color.white)
-            .cornerRadius(12)
-            .shadow(color: Color.black.opacity(0.1), radius: 6, x: 0, y: 4)
-            .padding(.bottom, SPACING_LARGE)
-          }
-          .padding(.top, SPACING_MEDIUM)
-          .padding(.horizontal)
 
           Spacer()
-
-          HStack {
-            Text(LocalizableStringKey.settingsScreenVersion.toString)
-            .typography(Theme.shared.font.bodyLarge)
-            .foregroundStyle(Theme.shared.color.onSurface)
-
-            Text(viewState.appVersion)
-            .typography(Theme.shared.font.bodyLarge)
-            .foregroundStyle(Theme.shared.color.lightText)
-
-            Spacer()
-          }
-          .padding(.horizontal)
-          .padding(.vertical, SPACING_SMALL)
-          .background(Theme.shared.color.surface)
         }
       }
+      .padding(.horizontal, 10)
   }
   .frame(maxWidth: .infinity, maxHeight: .infinity)
   .background(Theme.shared.color.surface)
 }
 
 struct SettingsItemCellView: View {
-
-  let title: String
+  let item: SettingsMenuItem
   let onTap: () -> Void
 
   var body: some View {
-    HStack {
-      Text(title)
-        .typography(Theme.shared.font.headlineSmall)
-        .fontWeight(.regular)
-      Spacer()
-      Theme.shared.image.chevronRight
-        .frame(maxWidth: .infinity, alignment: .topTrailing)
-        .foregroundColor(Theme.shared.color.onSurface)
+      VStack(alignment: .leading) {
+          Text(item.title)
+            .typography(Theme.shared.font.headlineMedium)
+            .fontWeight(.semibold)
+          Text(item.description)
+              .typography(Theme.shared.font.headlineSmall)
+            .fontWeight(.regular)
+            .foregroundStyle(item == .credentials ? Theme.shared.color.error : .black)
       }
       .contentShape(Rectangle())
       .onTapGesture {
