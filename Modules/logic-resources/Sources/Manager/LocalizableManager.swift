@@ -688,6 +688,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "generic_yes")
       case .genericNo:
         bundle.localizedString(forKey: "generic_no")
+      case .documentSuccessCardTitle:
+        bundle.localizedString(forKey: "document_success_card_title")
     }
   }
 }

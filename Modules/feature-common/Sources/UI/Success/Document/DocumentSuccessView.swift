@@ -85,7 +85,7 @@ private func documents<RequestItem: Sendable>(
       ForEach(viewState.items, id: \.id) { section in
         WrapExpandableListView(
           header: .init(
-            mainContent: .text(.custom("Proof of Age")),
+            mainContent: .text(.documentSuccessCardTitle),
             supportingText: .documentSuccessCollapsedSupportingText
           ),
           items: section.listItems,
