@@ -85,7 +85,7 @@ open class DocumentSuccessViewModel<Router: RouterHost, RequestItem: Sendable>: 
     .init(
       trailingActions: [
         .init(
-          title: .cdCloseButton
+          title: .genericClose
         ) {
           self.onDone()
         }

@@ -54,7 +54,7 @@ private func content<RequestItem: Sendable>(
             appIcon: ThemeManager.shared.image.logoEuDigitalIndentityWallet,
             appText: ThemeManager.shared.image.euditext
           ),
-          description: .issuanceSuccessHeaderDescription,
+          description: .documentSuccessHeaderDescription,
           relyingPartyData: viewState.relyingParty
         )
       )
@@ -85,7 +85,7 @@ private func documents<RequestItem: Sendable>(
       ForEach(viewState.items, id: \.id) { section in
         WrapExpandableListView(
           header: .init(
-            mainContent: .text(.custom(section.title)),
+            mainContent: .text(.custom("Proof of Age")),
             supportingText: .documentSuccessCollapsedSupportingText
           ),
           items: section.listItems,
