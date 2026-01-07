@@ -29,7 +29,7 @@ struct QuickPinView<Router: RouterHost>: View {
     ContentScreenView(
       padding: .zero,
       navigationTitle: nil,
-      toolbarContent: viewModel.viewState.step == .firstInput ? nil : viewModel.toolbarContent()
+      toolbarContent: (viewModel.viewState.step == .firstInput && !viewModel.viewState.config.isUpdateFlow) ? nil : viewModel.toolbarContent()
     ) {
       content(
         viewState: viewModel.viewState,
@@ -65,15 +65,35 @@ private func content(
   onButtonClick: @escaping () -> Void
 ) -> some View {
     ScrollView {
-      OnboardingTabsView(steps: Onboardingsteps.allCases,
-                           selectedIndex: 2)
+        if !viewState.config.isUpdateFlow {
+            OnboardingTabsView(steps: Onboardingsteps.allCases,
+                                 selectedIndex: 2)
+        }
+
         VStack(alignment: .leading, spacing: .zero) {
             VSpacer.small()
-            Text(viewState.step == QuickPinStep.firstInput ? LocalizableStringKey.quickPinCreateTitle.toString : LocalizableStringKey.quickPinCreateReenterTitle.toString)
-                .typography(Theme.shared.font.titleMedium)
-            VSpacer.small()
+
+            Text(viewState.config.flow == .set
+                 ? (viewState.step == .firstInput
+                    ? LocalizableStringKey.quickPinCreateTitle.toString
+                    : LocalizableStringKey.quickPinCreateReenterTitle.toString)
+                 : (viewState.step == .firstInput)
+                    ? LocalizableStringKey.quickPinChangeTitle.toString
+                    : LocalizableStringKey.quickPinCreateReenterTitle.toString)
+            .typography(Theme.shared.font.titleLarge)
+            .fontWeight(.semibold)
+
+            VSpacer.large()
+
             pinView(
-                subtitleText: viewState.step == .firstInput ? LocalizableStringKey.quickPinCreateEnterSubtitle.toString : LocalizableStringKey.quickPinCreateReenterSubtitle.toString,
+                subtitleText: (viewState.config.flow == .set
+                               ? (viewState.step == .firstInput
+                                  ? LocalizableStringKey.quickPinCreateEnterSubtitle.toString
+                                  : LocalizableStringKey.quickPinCreateReenterSubtitle.toString)
+                               : (viewState.step == .firstInput)
+                                  ? LocalizableStringKey.quickPinChangeEnterNewSubtitle.toString
+                                  : LocalizableStringKey.quickPinChangeReenterNewSubtitle.toString),
+
                 uiPinInputField: uiPinInputField,
                 quickPinSize: viewState.quickPinSize,
                 pinError: viewState.pinError
@@ -94,8 +114,8 @@ private func pinView(
 ) -> some View {
     Group {
     Text(subtitleText)
-        .typography(Theme.shared.font.bodySmall)
-        .foregroundColor(Theme.shared.color.grey)
+        .typography(Theme.shared.font.bodyMedium)
+        .foregroundColor(Theme.shared.color.lightText)
         .padding(.bottom, SPACING_EXTRA_SMALL)
 
     PinTextFieldView(

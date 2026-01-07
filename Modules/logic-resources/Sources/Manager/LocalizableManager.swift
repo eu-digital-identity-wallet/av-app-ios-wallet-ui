@@ -530,6 +530,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "quick_pin_next_button")
       case .quickPinNonMatch:
         bundle.localizedString(forKey: "quick_pin_non_match")
+      case .quickPinCantUseLastUsedPin:
+        bundle.localizedString(forKey: "cant_use_previous_pin")
       case .quickPinNumericalRuleInvalidErrorMessage:
         bundle.localizedString(forKey: "quick_pin_numerical_rule_invalid_error_message")
       case .requestBottomSheetWarningSubtitle:

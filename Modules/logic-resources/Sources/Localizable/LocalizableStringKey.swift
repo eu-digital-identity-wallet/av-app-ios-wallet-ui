@@ -267,6 +267,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case quickPinLockoutCountdownSeconds(Int)
   case quickPinNextButton
   case quickPinNonMatch
+  case quickPinCantUseLastUsedPin
   case quickPinNumericalRuleInvalidErrorMessage
   case requestBottomSheetWarningSubtitle
   case requestBottomSheetWarningTitle

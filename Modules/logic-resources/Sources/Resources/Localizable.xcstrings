@@ -527,6 +527,41 @@
         }
       }
     },
+    "cant_use_previous_pin" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kan ikke bruge pinkoden fra de sidst brugte 3 pinkoder"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die zuletzt verwendeten 3 Pins können nicht wiederverwendet werden."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cant use pin from last used 3 pins"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d'utiliser la broche des 3 dernières broches utilisées"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non è possibile utilizzare il pin degli ultimi 3 pin utilizzati"
+          }
+        }
+      }
+    },
     "cd_close_button" : {
       "extractionState" : "manual",
       "localizations" : {
