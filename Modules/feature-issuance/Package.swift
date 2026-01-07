@@ -15,7 +15,7 @@ let package = Package(
     .package(name: "feature-common", path: "./feature-common"),
     .package(name: "feature-test", path: "./feature-test"),
     .package(name: "mrz-reader", path: "./mrz-reader"),
-    .package(url: "https://github.com/AndyQ/NFCPassportReader", from: "2.2.0")
+    .package(url: "https://github.com/AndyQ/NFCPassportReader", from: "2.3.0")
   ],
   targets: [
     .target(
