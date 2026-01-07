@@ -33,13 +33,24 @@ private func content(
         .frame(width: 60, height: 60)
     }
     .frame(maxWidth: .infinity)
-    Text(.quickPinChangeSuccessText)
-      .typography(Theme.shared.font.titleMedium)
-      .fontWeight(.bold)
+    Spacer()
+
+    VStack {
+      Image(systemName: "checkmark.circle")
+          .resizable()
+          .frame(width: 180, height: 180)
+          .foregroundColor(Theme.shared.color.success.opacity(0.5))
+      Text(.quickPinChangeSuccessText)
+        .typography(Theme.shared.font.displayLarge)
+        .foregroundColor(Theme.shared.color.success.opacity(0.7))
+      Text(.quickPinChangeSuccessDescription)
+        .typography(Theme.shared.font.bodyMedium)
+    }
+
     Spacer()
     WrapButtonView(
       style: .primary,
-      title: .genericOk,
+      title: .quickPinChangeSuccessBtn,
       onAction: onOkButtonTap()
     )
   }

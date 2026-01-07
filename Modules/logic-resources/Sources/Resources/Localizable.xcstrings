@@ -9358,14 +9358,14 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Erfolgreich"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Succes!"
+            "value" : "Success!"
           }
         },
         "fr" : {
@@ -9376,7 +9376,7 @@
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Successo!"
           }
         }
