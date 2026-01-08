@@ -36,6 +36,12 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: key)
       case .custom(let literal):
         literal
+      case .space:
+        " "
+      case .ageOver18:
+        bundle.localizedString(forKey: "age_over_18")
+      case .biometricConfirmRequest:
+        bundle.localizedString(forKey: "biometric_confirm_request")
       case .biometricDefaultModeTextAbovePinField:
         bundle.localizedString(forKey: "biometric_default_mode_text_above_pin_field")
       case .biometricLoginBiometricsEnabledSubtitle:
@@ -52,8 +58,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "biometric_prompt_subtitle")
       case .biometricPromptTitle:
         bundle.localizedString(forKey: "biometric_prompt_title")
-      case .biometricSetupDescription(let arg):
-        bundle.localizedStringWithArguments(forKey: "biometric_setup_description", arguments: [arg])
+      case .biometricSetupDescription(let arg1):
+        bundle.localizedStringWithArguments(forKey: "biometric_setup_description", arguments: [arg1])
       case .biometricSetupEnable:
         bundle.localizedString(forKey: "biometric_setup_enable")
       case .biometricSetupSkip:
@@ -192,6 +198,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "document_details_boolean_item_false_readable_value")
       case .documentDetailsBooleanItemTrueReadableValue:
         bundle.localizedString(forKey: "document_details_boolean_item_true_readable_value")
+      case .documentProviderSectionHeader:
+        bundle.localizedString(forKey: "document_provider_section_header")
       case .documentSuccessCollapsedSupportingText:
         bundle.localizedString(forKey: "document_success_collapsed_supporting_text")
       case .documentSuccessHeaderDescription:
@@ -202,6 +210,10 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "document_success_relying_party_default_name")
       case .documentSuccessStickyButtonText:
         bundle.localizedString(forKey: "document_success_sticky_button_text")
+      case .genericAccept:
+        bundle.localizedString(forKey: "generic_accept")
+      case .genericBack:
+        bundle.localizedString(forKey: "generic_back")
       case .genericCancel:
         bundle.localizedString(forKey: "generic_cancel")
       case .genericCancelCapitalized:
@@ -226,6 +238,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "generic_error_retry")
       case .genericNetworkErrorMessage:
         bundle.localizedString(forKey: "generic_network_error_message")
+      case .genericNo:
+        bundle.localizedString(forKey: "generic_no")
       case .genericOk:
         bundle.localizedString(forKey: "generic_ok")
       case .genericOr:
@@ -234,8 +248,12 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "generic_scan_qr")
       case .genericSuccess:
         bundle.localizedString(forKey: "generic_success")
+      case .genericUnknown:
+        bundle.localizedString(forKey: "generic_unknown")
       case .genericViewDetails:
         bundle.localizedString(forKey: "generic_view_details")
+      case .genericYes:
+        bundle.localizedString(forKey: "generic_yes")
       case .issuanceAddDocumentDeferredSuccessDescription:
         bundle.localizedString(forKey: "issuance_add_document_deferred_success_description")
       case .issuanceAddDocumentDeferredSuccessPrimaryButtonText:
@@ -252,32 +270,40 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "issuance_add_document_subtitle")
       case .issuanceAddDocumentTitle:
         bundle.localizedString(forKey: "issuance_add_document_title")
-      case .issuanceCodeCaption(let args):
-        bundle.localizedStringWithArguments(forKey: "issuance_code_caption", arguments: args)
-      case .issuanceCodeTitle(let args):
-        bundle.localizedStringWithArguments(forKey: "issuance_code_title", arguments: args)
-      case .issuanceDocumentOfferDeferredSuccessDescription(let args):
-        bundle.localizedStringWithArguments(forKey: "issuance_document_offer_deferred_success_description", arguments: args)
+      case .issuanceCodeCaption(let arg1):
+        bundle.localizedStringWithArguments(forKey: "issuance_code_caption", arguments: [arg1])
+      case .issuanceCodeTitle(let arg1):
+        bundle.localizedStringWithArguments(forKey: "issuance_code_title", arguments: [arg1])
+      case .issuanceDocumentOfferDeferredSuccessDescription(let arg1):
+        bundle.localizedStringWithArguments(forKey: "issuance_document_offer_deferred_success_description", arguments: [arg1])
+      case .issuanceDocumentOfferDeferredSuccessDescriptionWithDoc(let arg1):
+        bundle.localizedStringWithArguments(forKey: "issuance_document_offer_deferred_success_description_with_doc", arguments: [arg1])
+      case .issuanceDocumentOfferDeferredSuccessDescriptionWithDocAndIssuer(let arg1, let arg2):
+        bundle.localizedStringWithArguments(forKey: "issuance_document_offer_deferred_success_description_with_doc_and_issuer", arguments: [arg1, arg2])
       case .issuanceDocumentOfferDeferredSuccessPrimaryButtonText:
         bundle.localizedString(forKey: "issuance_document_offer_deferred_success_primary_button_text")
       case .issuanceDocumentOfferDeferredSuccessText:
         bundle.localizedString(forKey: "issuance_document_offer_deferred_success_text")
       case .issuanceDocumentOfferDescription:
         bundle.localizedString(forKey: "issuance_document_offer_description")
-      case .issuanceDocumentOfferErrorInvalidTxcodeFormat(let args):
-        bundle.localizedStringWithArguments(forKey: "issuance_document_offer_error_invalid_txcode_format", arguments: args)
+      case .issuanceDocumentOfferErrorInvalidTxcodeFormat(let arg1, let arg2):
+        bundle.localizedStringWithArguments(forKey: "issuance_document_offer_error_invalid_txcode_format", arguments: [arg1, arg2])
       case .issuanceDocumentOfferErrorMissingPidText:
         bundle.localizedString(forKey: "issuance_document_offer_error_missing_pid_text")
       case .issuanceDocumentOfferErrorNoDocument:
         bundle.localizedString(forKey: "issuance_document_offer_error_no_document")
+      case .issuanceDocumentOfferErrorUnableToFetchTransactionLog:
+        bundle.localizedString(forKey: "issuance_document_offer_error_unable_to_fetch_transaction_log")
+      case .issuanceDocumentOfferErrorUnableToPresentAndShare:
+        bundle.localizedString(forKey: "issuance_document_offer_error_unable_to_present_and_share")
       case .issuanceDocumentOfferHeaderMainText:
         bundle.localizedString(forKey: "issuance_document_offer_header_main_text")
       case .issuanceDocumentOfferPrimaryButtonTextAdd:
         bundle.localizedString(forKey: "issuance_document_offer_primary_button_text_add")
       case .issuanceDocumentOfferRelyingPartyDefaultName:
         bundle.localizedString(forKey: "issuance_document_offer_relying_party_default_name")
-      case .issuanceDocumentOfferRelyingPartyDescription(let args):
-        bundle.localizedStringWithArguments(forKey: "issuance_document_offer_relying_party_description", arguments: args)
+      case .issuanceDocumentOfferRelyingPartyDescription:
+        bundle.localizedString(forKey: "issuance_document_offer_relying_party_description")
       case .issuanceGenericError:
         bundle.localizedString(forKey: "issuance_generic_error")
       case .issuanceQrScanSubtitle:
@@ -290,6 +316,10 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "issuance_success_header_description_when_error")
       case .issuanceSuccessHeaderIssuerDefaultName:
         bundle.localizedString(forKey: "issuance_success_header_issuer_default_name")
+      case .itemNotFoundInStorage:
+        bundle.localizedString(forKey: "item_not_found_in_storage")
+      case .itemsNotFoundInStorage:
+        bundle.localizedString(forKey: "items_not_found_in_storage")
       case .labelClose:
         bundle.localizedString(forKey: "label_close")
       case .labelTurnOn:
@@ -302,8 +332,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "landing_screen_card_eu_title")
       case .landingScreenCredentialDetails:
         bundle.localizedString(forKey: "landing_screen_credential_details")
-      case .landingScreenCredentialsLeft(let count):
-        bundle.localizedStringWithArguments(forKey: "landing_screen_credentials_left", arguments: [count])
+      case .landingScreenCredentialsLeft(let arg1):
+        bundle.localizedStringWithArguments(forKey: "landing_screen_credentials_left", arguments: [arg1])
       case .landingScreenNoAgeCredentialFound:
         bundle.localizedString(forKey: "landing_screen_no_age_credential_found")
       case .landingScreenPrimaryButtonLabelScan:
@@ -318,10 +348,48 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "loading_biometry_biometrics_not_enabled_description")
       case .loadingHeaderDescription:
         bundle.localizedString(forKey: "loading_header_description")
+      case .mrzCameraError:
+        bundle.localizedString(forKey: "mrz_camera_error")
+      case .mrzCameraPermissionDenied:
+        bundle.localizedString(forKey: "mrz_camera_permission_denied")
+      case .mrzCameraSetupFailed:
+        bundle.localizedString(forKey: "mrz_camera_setup_failed")
+      case .mrzDocumentReady:
+        bundle.localizedString(forKey: "mrz_document_ready")
+      case .mrzErrorDocumentExpired:
+        bundle.localizedString(forKey: "mrz_error_document_expired")
+      case .mrzErrorInvalidData:
+        bundle.localizedString(forKey: "mrz_error_invalid_data")
+      case .mrzErrorProcessingFailed:
+        bundle.localizedString(forKey: "mrz_error_processing_failed")
+      case .mrzInitializingCamera:
+        bundle.localizedString(forKey: "mrz_initializing_camera")
+      case .mrzScanning:
+        bundle.localizedString(forKey: "mrz_scanning")
+      case .mrzUnknownError:
+        bundle.localizedString(forKey: "mrz_unknown_error")
       case .nfcBodyInitial:
         bundle.localizedString(forKey: "nfc_body_initial")
       case .nfcBodyReading:
         bundle.localizedString(forKey: "nfc_body_reading")
+      case .nfcErrorConnection:
+        bundle.localizedString(forKey: "nfc_error_connection")
+      case .nfcErrorInvalidMrzKey:
+        bundle.localizedString(forKey: "nfc_error_invalid_mrz_key")
+      case .nfcErrorMissingData:
+        bundle.localizedString(forKey: "nfc_error_missing_data")
+      case .nfcErrorMoreThanOneTag:
+        bundle.localizedString(forKey: "nfc_error_more_than_one_tag")
+      case .nfcErrorReadingFailed:
+        bundle.localizedString(forKey: "nfc_error_reading_failed")
+      case .nfcErrorReadingTag:
+        bundle.localizedString(forKey: "nfc_error_reading_tag")
+      case .nfcErrorTagNotValid:
+        bundle.localizedString(forKey: "nfc_error_tag_not_valid")
+      case .nfcErrorUnexpected:
+        bundle.localizedString(forKey: "nfc_error_unexpected")
+      case .nfcErrorUserCanceled:
+        bundle.localizedString(forKey: "nfc_error_user_canceled")
       case .nfcHelpLink:
         bundle.localizedString(forKey: "nfc_help_link")
       case .nfcTitle:
@@ -350,6 +418,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "onboarding_verification_passport_id_card_description")
       case .onboardingVerificationTitle:
         bundle.localizedString(forKey: "onboarding_verification_title")
+      case .openSystemSettings:
+        bundle.localizedString(forKey: "open_system_settings")
       case .passportBiometrics:
         bundle.localizedString(forKey: "passport_biometrics")
       case .passportBiometricsBack:
@@ -412,8 +482,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "passport_live_video_back")
       case .passportLiveVideoDescription:
         bundle.localizedString(forKey: "passport_live_video_description")
-      case .passportLiveVideoDownloadingProgress:
-        bundle.localizedString(forKey: "passport_live_video_downloading_progress")
+      case .passportLiveVideoDownloadingProgress(let arg1, let arg2):
+        bundle.localizedStringWithArguments(forKey: "passport_live_video_downloading_progress", arguments: [arg1, arg2])
       case .passportLiveVideoErrorNotLive:
         bundle.localizedString(forKey: "passport_live_video_error_not_live")
       case .passportLiveVideoErrorNotMatching:
@@ -470,6 +540,10 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "presentation_qr_scan_subtitle")
       case .presentationQrScanTitle:
         bundle.localizedString(forKey: "presentation_qr_scan_title")
+      case .proximityConnectionBleDescription:
+        bundle.localizedString(forKey: "proximity_connection_ble_description")
+      case .proximityConnectivityCaption:
+        bundle.localizedString(forKey: "proximity_connectivity_caption")
       case .qrScanInformativeTextIssuanceFlow:
         bundle.localizedString(forKey: "qr_scan_informative_text_issuance_flow")
       case .qrScanInformativeTextPresentationFlow:
@@ -486,10 +560,12 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "quick_pin_bottom_sheet_cancel_title")
       case .quickPinChangeEnterNewSubtitle:
         bundle.localizedString(forKey: "quick_pin_change_enter_new_subtitle")
-      case .quickPinChangeLockoutCountdownMinutes(let minutes, let seconds):
-        bundle.localizedStringWithArguments(forKey: "quick_pin_change_lockout_countdown_minutes", arguments: [minutes, seconds])
-      case .quickPinChangeLockoutCountdownSeconds(let seconds):
-        bundle.localizedStringWithArguments(forKey: "quick_pin_change_lockout_countdown_seconds", arguments: [seconds])
+      case .quickPinChangeHelpText:
+        bundle.localizedString(forKey: "quick_pin_change_help_text")
+      case .quickPinChangeLockoutCountdownMinutes(let arg1, let arg2):
+        bundle.localizedStringWithArguments(forKey: "quick_pin_change_lockout_countdown_minutes", arguments: [arg1, arg2])
+      case .quickPinChangeLockoutCountdownSeconds(let arg1):
+        bundle.localizedStringWithArguments(forKey: "quick_pin_change_lockout_countdown_seconds", arguments: [arg1])
       case .quickPinChangeReenterNewSubtitle:
         bundle.localizedString(forKey: "quick_pin_change_reenter_new_subtitle")
       case .quickPinChangeSuccessBtn:
@@ -518,14 +594,14 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "quick_pin_invalid_generic_error")
       case .quickPinInvalidLastAttempt:
         bundle.localizedString(forKey: "quick_pin_invalid_last_attempt")
-      case .quickPinInvalidWithAttempts(let arg):
-        bundle.localizedStringWithArguments(forKey: "quick_pin_invalid_with_attempts", arguments: [arg])
+      case .quickPinInvalidWithAttempts(let arg1):
+        bundle.localizedStringWithArguments(forKey: "quick_pin_invalid_with_attempts", arguments: [arg1])
       case .quickPinLockedOut:
         bundle.localizedString(forKey: "quick_pin_locked_out")
-      case .quickPinLockoutCountdownMinutes(let minute, let seconds):
-        bundle.localizedStringWithArguments(forKey: "quick_pin_lockout_countdown_minutes", arguments: [minute, seconds])
-      case .quickPinLockoutCountdownSeconds(let seconds):
-        bundle.localizedStringWithArguments(forKey: "quick_pin_lockout_countdown_seconds", arguments: [seconds])
+      case .quickPinLockoutCountdownMinutes(let arg1, let arg2):
+        bundle.localizedStringWithArguments(forKey: "quick_pin_lockout_countdown_minutes", arguments: [arg1, arg2])
+      case .quickPinLockoutCountdownSeconds(let arg1):
+        bundle.localizedStringWithArguments(forKey: "quick_pin_lockout_countdown_seconds", arguments: [arg1])
       case .quickPinNextButton:
         bundle.localizedString(forKey: "quick_pin_next_button")
       case .quickPinNonMatch:
@@ -540,6 +616,10 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "request_bottom_sheet_warning_title")
       case .requestCollapsedSupportingText:
         bundle.localizedString(forKey: "request_collapsed_supporting_text")
+      case .requestDataInfoNotice:
+        bundle.localizedString(forKey: "request_data_info_notice")
+      case .requestDataVerifiedEntityMessage:
+        bundle.localizedString(forKey: "request_data_verified_entity_message")
       case .requestGenderFemale:
         bundle.localizedString(forKey: "request_gender_female")
       case .requestGenderMale:
@@ -556,8 +636,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "request_no_data")
       case .requestRelyingPartyDefaultName:
         bundle.localizedString(forKey: "request_relying_party_default_name")
-      case .requestRelyingPartyDescription(let arg):
-        bundle.localizedStringWithArguments(forKey: "request_relying_party_description", arguments: arg)
+      case .requestRelyingPartyDescription:
+        bundle.localizedString(forKey: "request_relying_party_description")
       case .requestStickyButtonText:
         bundle.localizedString(forKey: "request_sticky_button_text")
       case .requestWarningText:
@@ -586,6 +666,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "splash_screen_sponsors")
       case .splashScreenTitle:
         bundle.localizedString(forKey: "splash_screen_title")
+      case .unknownVerifier:
+        bundle.localizedString(forKey: "unknown_verifier")
       case .warningAuthenticationFailed:
         bundle.localizedString(forKey: "warning_authentication_failed")
       case .warningClaNotSupported:
@@ -608,90 +690,6 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "welcome_title_2")
       case .welcomeTitle3:
         bundle.localizedString(forKey: "welcome_title_3")
-
-        // Additional ones in iOS
-      case .mrzErrorInvalidData:
-        bundle.localizedString(forKey: "mrz_error_invalid_data")
-      case .mrzErrorDocumentExpired:
-        bundle.localizedString(forKey: "mrz_error_document_expired")
-      case .mrzErrorProcessingFailed:
-        bundle.localizedString(forKey: "mrz_error_processing_failed")
-      case .mrzCameraPermissionDenied:
-        bundle.localizedString(forKey: "mrz_camera_permission_denied")
-      case .mrzInitializingCamera:
-        bundle.localizedString(forKey: "mrz_initializing_camera")
-      case .mrzCameraSetupFailed:
-        bundle.localizedString(forKey: "mrz_camera_setup_failed")
-      case .mrzUnknownError:
-        bundle.localizedString(forKey: "mrz_unknown_error")
-      case .mrzDocumentReady:
-        bundle.localizedString(forKey: "mrz_document_ready")
-      case .mrzScanning:
-        bundle.localizedString(forKey: "mrz_scanning")
-      case .mrzCameraError:
-        bundle.localizedString(forKey: "mrz_camera_error")
-
-      case .nfcErrorTagNotValid:
-        bundle.localizedString(forKey: "nfc_error_tag_not_valid")
-      case .nfcErrorMoreThanOneTag:
-        bundle.localizedString(forKey: "nfc_error_more_than_one_tag")
-      case .nfcErrorConnection:
-        bundle.localizedString(forKey: "nfc_error_connection")
-      case .nfcErrorUserCanceled:
-        bundle.localizedString(forKey: "nfc_error_user_canceled")
-      case .nfcErrorInvalidMRZKey:
-        bundle.localizedString(forKey: "nfc_error_invalid_mrz_key")
-      case .nfcErrorUnexpected:
-        bundle.localizedString(forKey: "nfc_error_unexpected")
-      case .nfcErrorReadingFailed:
-        bundle.localizedString(forKey: "nfc_error_reading_failed")
-      case .nfcErrorMissingData:
-        bundle.localizedString(forKey: "nfc_error_missing_data")
-
-        // Extra after merge
-
-      case .itemNotFoundInStorage:
-        bundle.localizedString(forKey: "item_not_found_in_storage")
-      case .itemsNotFoundInStorage:
-        bundle.localizedString(forKey: "items_not_found_in_storage")
-      case .unknownVerifier:
-        bundle.localizedString(forKey: "unknown_verifier")
-      case .requestDataInfoNotice:
-        bundle.localizedString(forKey: "request_data_info_notice")
-      case .issuanceDocumentOfferErrorUnableToPresentAndShare:
-        bundle.localizedString(forKey: "issuance_document_offer_error_unable_to_present_and_share")
-      case .issuanceDocumentOfferErrorUnableToFetchTransactionLog:
-        bundle.localizedString(forKey: "issuance_document_offer_error_unable_to_fetch_transaction_log")
-      case .genericUnknown:
-        bundle.localizedString(forKey: "generic_unknown")
-      case .requestDataVerifiedEntityMessage:
-        bundle.localizedString(forKey: "request_data_verified_entity_message")
-      case .openSystemSettings:
-        bundle.localizedString(forKey: "open_system_settings")
-      case .quickPinChangeHelpText:
-        bundle.localizedString(forKey: "quick_pin_change_help_text")
-      case .biometricConfirmRequest:
-        bundle.localizedString(forKey: "biometric_confirm_request")
-      case .proximityConnectivityCaption:
-        bundle.localizedString(forKey: "proximity_connectivity_caption")
-      case .proximityConnectionBleDescription:
-        bundle.localizedString(forKey: "proximity_connection_ble_description")
-      case .issuanceDocumentOfferDeferredSuccessDescriptionWithDocAndIssuer(let args):
-        bundle.localizedStringWithArguments(forKey: "issuance_document_offer_deferred_success_description_with_doc_and_issuer", arguments: args)
-      case .issuanceDocumentOfferDeferredSuccessDescriptionWithDoc(let args):
-        bundle.localizedStringWithArguments(forKey: "issuance_document_offer_deferred_success_description_with_doc", arguments: args)
-      case .documentProviderSectionHeader:
-        bundle.localizedString(forKey: "document_provider_section_header")
-      case .genericAccept:
-        bundle.localizedString(forKey: "generic_accept")
-      case .genericBack:
-        bundle.localizedString(forKey: "generic_back")
-      case .genericYes:
-        bundle.localizedString(forKey: "generic_yes")
-      case .genericNo:
-        bundle.localizedString(forKey: "generic_no")
-      case .documentSuccessCardTitle:
-        bundle.localizedString(forKey: "document_success_card_title")
     }
   }
 }

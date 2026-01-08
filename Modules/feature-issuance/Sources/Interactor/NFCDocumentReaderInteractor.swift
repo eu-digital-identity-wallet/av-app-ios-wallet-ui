@@ -151,7 +151,7 @@ public enum NFCError: Error, LocalizedError, Sendable {
     case .userCanceled:
       return LocalizableStringKey.nfcErrorUserCanceled.toString
     case .invalidMRZKey:
-      return LocalizableStringKey.nfcErrorInvalidMRZKey.toString
+      return LocalizableStringKey.nfcErrorInvalidMrzKey.toString
     case .unexpectedError:
       return LocalizableStringKey.nfcErrorUnexpected.toString
     case .readingFailed:

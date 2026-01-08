@@ -31,10 +31,11 @@ public struct DocumentSuccessView<Router: RouterHost, RequestItem: Sendable>: Vi
       padding: .zero,
       canScroll: true,
       navigationTitle: .custom(""),
-      toolbarContent: viewModel.toolbarContent()
+      toolbarContent: nil
     ) {
       content(
-        viewState: viewModel.viewState
+        viewState: viewModel.viewState,
+        onDone: viewModel.onDone
       )
     }
   }
@@ -43,33 +44,36 @@ public struct DocumentSuccessView<Router: RouterHost, RequestItem: Sendable>: Vi
 @MainActor
 @ViewBuilder
 private func content<RequestItem: Sendable>(
-  viewState: DocumentSuccessState<RequestItem>
+  viewState: DocumentSuccessState<RequestItem>,
+  onDone: @escaping () -> Void
 ) -> some View {
-  ScrollView {
-
-    VStack(spacing: .zero) {
-      ContentHeaderView(
-        config: ContentHeaderConfig(
-          appIconAndTextData: AppIconAndTextData(
-            appIcon: ThemeManager.shared.image.logoEuDigitalIndentityWallet,
-            appText: ThemeManager.shared.image.euditext
-          ),
-          description: .documentSuccessHeaderDescription,
-          relyingPartyData: viewState.relyingParty
+  VStack {
+    ScrollView {
+      VStack(spacing: .zero) {
+        ContentHeaderView(
+          config: ContentHeaderConfig(
+            appIconAndTextData: AppIconAndTextData(
+              appIcon: ThemeManager.shared.image.logoEuDigitalIndentityWallet,
+              appText: ThemeManager.shared.image.euditext
+            ),
+            description: .issuanceSuccessHeaderDescription,
+            relyingPartyData: viewState.relyingParty
+          )
         )
-      )
 
-      VSpacer.large()
+        VSpacer.large()
 
-      documents(
-        viewState: viewState,
-        onSelectionChanged: { _ in }
-      )
-
-      VSpacer.large()
+        documents(
+          viewState: viewState,
+          onSelectionChanged: { _ in }
+        )
+      }
     }
-    .padding(.horizontal, Theme.shared.dimension.padding)
+    VSpacer.large()
+    WrapButtonView(style: .secondary, title: .genericClose, onAction: onDone())
   }
+  .padding(.horizontal, Theme.shared.dimension.padding)
+  .padding(.bottom, Theme.shared.dimension.padding)
 }
 
 @MainActor
@@ -85,7 +89,7 @@ private func documents<RequestItem: Sendable>(
       ForEach(viewState.items, id: \.id) { section in
         WrapExpandableListView(
           header: .init(
-            mainContent: .text(.documentSuccessCardTitle),
+            mainContent: .text(.custom(section.title)),
             supportingText: .documentSuccessCollapsedSupportingText
           ),
           items: section.listItems,

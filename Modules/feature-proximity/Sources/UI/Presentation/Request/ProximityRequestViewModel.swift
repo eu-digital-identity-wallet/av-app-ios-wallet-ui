@@ -44,7 +44,7 @@ final class ProximityRequestViewModel<Router: RouterHost>: BaseRequestViewModel<
     case .success(let items, let relyingParty, _, let isTrusted):
       self.onReceivedItems(
         with: items,
-        title: .requestRelyingPartyDescription([relyingParty]),
+        title: .requestRelyingPartyDescription,
         relyingParty: .custom(relyingParty),
         isTrusted: isTrusted
       )
@@ -128,7 +128,7 @@ final class ProximityRequestViewModel<Router: RouterHost>: BaseRequestViewModel<
   }
 
   override func getCaption() -> LocalizableStringKey {
-    .requestRelyingPartyDescription([""])
+    .requestRelyingPartyDescription
   }
 
   override func getDataRequestInfo() -> LocalizableStringKey {
@@ -140,7 +140,7 @@ final class ProximityRequestViewModel<Router: RouterHost>: BaseRequestViewModel<
   }
 
   override func getTitleCaption() -> LocalizableStringKey {
-    .requestRelyingPartyDescription([""])
+    .requestRelyingPartyDescription
   }
 
   override func getTrustedRelyingParty() -> LocalizableStringKey {

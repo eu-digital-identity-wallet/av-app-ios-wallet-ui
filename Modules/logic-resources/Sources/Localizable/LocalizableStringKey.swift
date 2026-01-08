@@ -18,6 +18,9 @@ import SwiftUI
 public enum LocalizableStringKey: Equatable, Sendable {
   case dynamic(key: String)
   case custom(String)
+  case space
+  case ageOver18
+  case biometricConfirmRequest
   case biometricDefaultModeTextAbovePinField
   case biometricLoginBiometricsEnabledSubtitle
   case biometricLoginBiometricsNotEnabledSubtitle
@@ -96,11 +99,14 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case documentCategoryTravel
   case documentDetailsBooleanItemFalseReadableValue
   case documentDetailsBooleanItemTrueReadableValue
+  case documentProviderSectionHeader
   case documentSuccessCollapsedSupportingText
   case documentSuccessHeaderDescription
   case documentSuccessHeaderDescriptionWhenError
   case documentSuccessRelyingPartyDefaultName
   case documentSuccessStickyButtonText
+  case genericAccept
+  case genericBack
   case genericCancel
   case genericCancelCapitalized
   case genericClose
@@ -113,11 +119,14 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case genericErrorMessage
   case genericErrorRetry
   case genericNetworkErrorMessage
+  case genericNo
   case genericOk
   case genericOr
   case genericScanQr
   case genericSuccess
+  case genericUnknown
   case genericViewDetails
+  case genericYes
   case issuanceAddDocumentDeferredSuccessDescription
   case issuanceAddDocumentDeferredSuccessPrimaryButtonText
   case issuanceAddDocumentDeferredSuccessText
@@ -126,27 +135,31 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case issuanceAddDocumentScanQrFooterText
   case issuanceAddDocumentSubtitle
   case issuanceAddDocumentTitle
-  case issuanceCodeCaption([String])
-  case issuanceCodeTitle([String])
-  case issuanceDocumentOfferDeferredSuccessDescription([String])
-  case issuanceDocumentOfferDeferredSuccessDescriptionWithDoc([String])
-  case issuanceDocumentOfferDeferredSuccessDescriptionWithDocAndIssuer([String])
+  case issuanceCodeCaption(Int)
+  case issuanceCodeTitle(String)
+  case issuanceDocumentOfferDeferredSuccessDescription(String)
+  case issuanceDocumentOfferDeferredSuccessDescriptionWithDoc(String)
+  case issuanceDocumentOfferDeferredSuccessDescriptionWithDocAndIssuer(String, String)
   case issuanceDocumentOfferDeferredSuccessPrimaryButtonText
   case issuanceDocumentOfferDeferredSuccessText
   case issuanceDocumentOfferDescription
-  case issuanceDocumentOfferErrorInvalidTxcodeFormat([String])
+  case issuanceDocumentOfferErrorInvalidTxcodeFormat(Int, Int)
   case issuanceDocumentOfferErrorMissingPidText
   case issuanceDocumentOfferErrorNoDocument
+  case issuanceDocumentOfferErrorUnableToFetchTransactionLog
+  case issuanceDocumentOfferErrorUnableToPresentAndShare
   case issuanceDocumentOfferHeaderMainText
   case issuanceDocumentOfferPrimaryButtonTextAdd
   case issuanceDocumentOfferRelyingPartyDefaultName
-  case issuanceDocumentOfferRelyingPartyDescription([String])
+  case issuanceDocumentOfferRelyingPartyDescription
   case issuanceGenericError
   case issuanceQrScanSubtitle
   case issuanceQrScanTitle
   case issuanceSuccessHeaderDescription
   case issuanceSuccessHeaderDescriptionWhenError
   case issuanceSuccessHeaderIssuerDefaultName
+  case itemNotFoundInStorage
+  case itemsNotFoundInStorage
   case labelClose
   case labelTurnOn
   case landingScreenAddCredentials
@@ -161,8 +174,27 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case loadingBiometryBiometricsEnabledDescription
   case loadingBiometryBiometricsNotEnabledDescription
   case loadingHeaderDescription
+  case mrzCameraError
+  case mrzCameraPermissionDenied
+  case mrzCameraSetupFailed
+  case mrzDocumentReady
+  case mrzErrorDocumentExpired
+  case mrzErrorInvalidData
+  case mrzErrorProcessingFailed
+  case mrzInitializingCamera
+  case mrzScanning
+  case mrzUnknownError
   case nfcBodyInitial
   case nfcBodyReading
+  case nfcErrorConnection
+  case nfcErrorInvalidMrzKey
+  case nfcErrorMissingData
+  case nfcErrorMoreThanOneTag
+  case nfcErrorReadingFailed
+  case nfcErrorReadingTag
+  case nfcErrorTagNotValid
+  case nfcErrorUnexpected
+  case nfcErrorUserCanceled
   case nfcHelpLink
   case nfcTitle
   case nfcTitleInitial
@@ -177,6 +209,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case onboardingVerificationPassportIdCard
   case onboardingVerificationPassportIdCardDescription
   case onboardingVerificationTitle
+  case openSystemSettings
   case passportBiometrics
   case passportBiometricsBack
   case passportBiometricsContentDescription
@@ -208,7 +241,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case passportLiveVideo
   case passportLiveVideoBack
   case passportLiveVideoDescription
-  case passportLiveVideoDownloadingProgress
+  case passportLiveVideoDownloadingProgress(Int, String)
   case passportLiveVideoErrorNotLive
   case passportLiveVideoErrorNotMatching
   case passportLiveVideoErrorNotProcessed
@@ -237,6 +270,8 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case passportValidationErrorUnderage
   case presentationQrScanSubtitle
   case presentationQrScanTitle
+  case proximityConnectionBleDescription
+  case proximityConnectivityCaption
   case qrScanInformativeTextIssuanceFlow
   case qrScanInformativeTextPresentationFlow
   case qrScanPermissionNotGranted
@@ -245,6 +280,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case quickPinBottomSheetCancelSubtitle
   case quickPinBottomSheetCancelTitle
   case quickPinChangeEnterNewSubtitle
+  case quickPinChangeHelpText
   case quickPinChangeLockoutCountdownMinutes(Int, Int)
   case quickPinChangeLockoutCountdownSeconds(Int)
   case quickPinChangeReenterNewSubtitle
@@ -272,6 +308,8 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case requestBottomSheetWarningSubtitle
   case requestBottomSheetWarningTitle
   case requestCollapsedSupportingText
+  case requestDataInfoNotice
+  case requestDataVerifiedEntityMessage
   case requestGenderFemale
   case requestGenderMale
   case requestGenderNotApplicable
@@ -280,7 +318,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case requestHeaderMainText
   case requestNoData
   case requestRelyingPartyDefaultName
-  case requestRelyingPartyDescription([String])
+  case requestRelyingPartyDescription
   case requestStickyButtonText
   case requestWarningText
   case requiredNfcNotSupported
@@ -295,6 +333,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case settingsScreenVersion
   case splashScreenSponsors
   case splashScreenTitle
+  case unknownVerifier
   case warningAuthenticationFailed
   case warningClaNotSupported
   case warningEnableNfc
@@ -306,52 +345,6 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case welcomeTitle1
   case welcomeTitle2
   case welcomeTitle3
-
-  // Additional Keys apart from Android
-  case mrzErrorInvalidData
-  case mrzErrorDocumentExpired
-  case mrzErrorProcessingFailed
-
-  case mrzInitializingCamera
-  case mrzCameraPermissionDenied
-  case mrzCameraSetupFailed
-  case mrzUnknownError
-
-  case mrzDocumentReady
-  case mrzScanning
-  case mrzCameraError
-
-  // NFC Errors
-  case nfcErrorTagNotValid
-  case nfcErrorMoreThanOneTag
-  case nfcErrorConnection
-  case nfcErrorUserCanceled
-  case nfcErrorInvalidMRZKey
-  case nfcErrorUnexpected
-  case nfcErrorReadingFailed
-  case nfcErrorMissingData
-
-  // Extra after merge
-  case itemNotFoundInStorage
-  case itemsNotFoundInStorage
-  case unknownVerifier
-  case requestDataInfoNotice
-  case issuanceDocumentOfferErrorUnableToPresentAndShare
-  case issuanceDocumentOfferErrorUnableToFetchTransactionLog
-  case genericUnknown
-  case requestDataVerifiedEntityMessage
-  case openSystemSettings
-  case quickPinChangeHelpText
-  case biometricConfirmRequest
-  case proximityConnectivityCaption
-  case proximityConnectionBleDescription
-  case documentProviderSectionHeader
-  case genericAccept
-  case genericYes
-  case genericNo
-  case genericBack
-  case documentSuccessCardTitle
-
 }
 
 public extension LocalizableStringKey {

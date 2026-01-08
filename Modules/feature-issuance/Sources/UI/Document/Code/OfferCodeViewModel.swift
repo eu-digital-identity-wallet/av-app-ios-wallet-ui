@@ -64,8 +64,8 @@ final class OfferCodeViewModel<Router: RouterHost>: ViewModel<Router, OfferCodeV
         isLoading: false,
         error: nil,
         config: config,
-        title: .issuanceCodeTitle([config.issuerName]),
-        caption: .issuanceCodeCaption([config.txCodeLength.string]),
+        title: .issuanceCodeTitle(config.issuerName),
+        caption: .issuanceCodeCaption(config.txCodeLength),
         contentHeaderConfig: .init(
           appIconAndTextData: AppIconAndTextData(
             appIcon: ThemeManager.shared.image.logoEuDigitalIndentityWallet,
