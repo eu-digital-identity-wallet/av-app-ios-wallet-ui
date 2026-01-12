@@ -33,15 +33,15 @@ public struct BiometryView<Router: RouterHost>: View {
     ) {
       content(
         viewState: viewModel.viewState,
-        subtitleText: LocalizableStringKey.quickPinCreateSubtitle.toString,
+        subtitleText: LocalizableStringKey.quickPinChangeValidateCurrentSubtitle.toString,
         uiPinInputField: $viewModel.uiPinInputField,
         onBiometry: viewModel.onBiometry
       )
       .alert(item: $viewModel.biometryError) { error in
         Alert(
-          title: Text(.genericErrorTitle),
+          title: Text(.genericErrorMessage),
           message: Text(error.errorDescription.orEmpty),
-          primaryButton: .default(Text(.biometryOpenSettings)) {
+          primaryButton: .default(Text(.openSystemSettings)) {
             self.viewModel.onSettings()
           },
           secondaryButton: .cancel {}
@@ -79,7 +79,7 @@ private func content(
     ? viewState.config.caption
     : viewState.config.quickPinOnlyCaption,
     titleColor: Theme.shared.color.onSurface,
-    textAlignment: .center,
+    textAlignment: viewState.config.alignment,
     topSpacing: viewState.isCancellable ? .withToolbar : .withoutToolbar
   )
 
@@ -118,16 +118,12 @@ private func pinView(
   pinError: String?,
   disabled: Bool
 ) -> some View {
-VStack(alignment: .leading, spacing: .zero) {
-    Text(LocalizableStringKey.quickPinTitle.toString)
-    .typography(Theme.shared.font.bodySmall)
-    .fontWeight(.bold)
-
+    VStack(alignment: .leading, spacing: .zero) {
     VSpacer.extraSmall()
 
     Text(subtitleText)
-        .typography(Theme.shared.font.bodySmall)
-        .foregroundColor(Theme.shared.color.grey)
+        .typography(Theme.shared.font.bodyLarge)
+        .foregroundColor(Theme.shared.color.lightText)
         .padding(.bottom, SPACING_EXTRA_SMALL)
 
     PinTextFieldView(
@@ -157,9 +153,9 @@ VStack(alignment: .leading, spacing: .zero) {
   let viewState = BiometryState(
     config: UIConfig.Biometry(
       navigationTitle: .custom("Navigation Title"),
-      title: .quickPinSetTitle,
-      caption: .loginCaptionQuickPinOnly,
-      quickPinOnlyCaption: .requestDataShareQuickPinCaption,
+      title: .biometricDefaultModeTextAbovePinField,
+      caption: .biometricLoginBiometricsNotEnabledSubtitle,
+      quickPinOnlyCaption: .quickPinCreateEnterSubtitle,
       navigationSuccessType: .pop,
       navigationBackType: nil,
       isPreAuthorization: true,

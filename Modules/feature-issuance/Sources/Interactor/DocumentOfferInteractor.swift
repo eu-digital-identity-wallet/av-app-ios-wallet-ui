@@ -102,13 +102,13 @@ final actor DocumentOfferInteractorImpl: DocumentOfferInteractor {
       } else if issuedDocuments.first(where: { $0.isDeferred }) != nil {
         return .deferredSuccess(
           retrieveDeferredRoute(
-            caption: .issuanceSuccessDeferredCaption([issuerName]),
+            caption: .issuanceDocumentOfferDeferredSuccessDescription([issuerName]),
             successNavigation: successNavigation,
             title: .init(
-              value: .inProgress,
+              value: .genericDeferredSuccessText,
               color: Theme.shared.color.pending
             ),
-            buttonTitle: .okButton,
+            buttonTitle: .genericOk,
             visualKind: .customIcon(
               Theme.shared.image.documentSuccessPending,
               Color.clear
@@ -175,13 +175,13 @@ final actor DocumentOfferInteractorImpl: DocumentOfferInteractor {
       } else if doc.status == .deferred {
         return .success(
           retrieveDeferredRoute(
-            caption: .issuanceSuccessDeferredCaption([issuerName]),
+            caption: .issuanceDocumentOfferDeferredSuccessDescription([issuerName]),
             successNavigation: successNavigation,
             title: .init(
-              value: .inProgress,
+              value: .genericDeferredSuccessText,
               color: Theme.shared.color.pending
             ),
-            buttonTitle: .okButton,
+            buttonTitle: .genericOk,
             visualKind: .customIcon(
               Theme.shared.image.documentSuccessPending,
               Color.clear

@@ -27,40 +27,67 @@ public protocol PrefsController: Sendable {
   func getUserLocale() -> String
 }
 
-public final class PrefsControllerImpl: PrefsController {
+public final class PrefsControllerImpl: PrefsController, @unchecked Sendable {
 
-  public init() { }
+  private let sharedDefaults: UserDefaults
+
+  public init() {
+    self.sharedDefaults = UserDefaults(suiteName: "group.\(Bundle.getMainAppBundleID())") ?? .standard
+    migrateIfNeeded()
+  }
+
+  // MARK: - Migration
+
+  private func migrateIfNeeded() {
+    let key = "did_migrate_to_app_group"
+
+    guard sharedDefaults.bool(forKey: key) == false else {
+      return // migration already done
+    }
+    migrateStandardDefaultsToAppGroup()
+    sharedDefaults.set(true, forKey: key)
+  }
+
+  private func migrateStandardDefaultsToAppGroup() {
+    let standard = UserDefaults.standard
+    // Only migrate known keys
+    Prefs.Key.allCases.forEach { key in
+      if let value = standard.value(forKey: key.rawValue) {
+        sharedDefaults.setValue(value, forKey: key.rawValue)
+      }
+    }
+  }
 
   public func setValue(_ value: Any?, forKey: Prefs.Key) {
-    UserDefaults.standard.setValue(value, forKey: forKey.rawValue)
+    sharedDefaults.setValue(value, forKey: forKey.rawValue)
   }
 
   public func getString(forKey: Prefs.Key) -> String? {
-    return UserDefaults.standard.string(forKey: forKey.rawValue)
+    return sharedDefaults.string(forKey: forKey.rawValue)
   }
 
   public func getOptionalString(forKey: Prefs.Key) -> String {
-    return UserDefaults.standard.string(forKey: forKey.rawValue) ?? ""
+    return sharedDefaults.string(forKey: forKey.rawValue) ?? ""
   }
 
   public func getFloat(forKey: Prefs.Key) -> Float {
-    return UserDefaults.standard.float(forKey: forKey.rawValue)
+    return sharedDefaults.float(forKey: forKey.rawValue)
   }
 
   public func getBool(forKey: Prefs.Key) -> Bool {
-    return UserDefaults.standard.bool(forKey: forKey.rawValue)
+    return sharedDefaults.bool(forKey: forKey.rawValue)
   }
 
   public func remove(forKey: Prefs.Key) {
-    UserDefaults.standard.removeObject(forKey: forKey.rawValue)
+    sharedDefaults.removeObject(forKey: forKey.rawValue)
   }
 
   public func getValue(forKey: Prefs.Key) -> Any? {
-    return UserDefaults.standard.value(forKey: forKey.rawValue)
+    return sharedDefaults.value(forKey: forKey.rawValue)
   }
 
   public func getInt(forKey: Prefs.Key) -> Int {
-    return UserDefaults.standard.integer(forKey: forKey.rawValue)
+    return sharedDefaults.integer(forKey: forKey.rawValue)
   }
 
   public func getUserLocale() -> String {
@@ -72,7 +99,7 @@ public final class PrefsControllerImpl: PrefsController {
 public struct Prefs {}
 
 public extension Prefs {
-  enum Key: String {
+  enum Key: String, CaseIterable {
     case biometryEnabled
     case cachedDeepLink
     case runAtLeastOnce

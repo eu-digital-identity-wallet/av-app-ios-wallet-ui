@@ -69,6 +69,11 @@ final class LandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingSt
         }
     }
 
+    func refreshCredentials() async {
+        await interactor.reloadDocuments()
+        await getCredentialDetails()
+    }
+
   func getMoreCredentials() {
     if viewState.credRemainingCount ?? -1 < 1 {
         router.push(
@@ -82,6 +87,7 @@ final class LandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingSt
   }
 
   func onCreate() async {
+    await refreshCredentials()
     await handleDeepLink()
   }
   private func handleDeepLink() async {

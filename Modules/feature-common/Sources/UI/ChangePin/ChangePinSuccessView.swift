@@ -27,14 +27,20 @@ private func content(
   onOkButtonTap: @escaping () -> Void
 ) -> some View {
   VStack {
-      Text(.changePinSuccessText)
+    HStack {
+      ThemeManager.shared.image.logoEuDigitalIndentityWallet
+        .resizable()
+        .frame(width: 60, height: 60)
+    }
+    .frame(maxWidth: .infinity)
+    Text(.quickPinChangeSuccessText)
       .typography(Theme.shared.font.titleMedium)
       .fontWeight(.bold)
     Spacer()
     WrapButtonView(
-        style: .primary,
-        title: .custom("Ok"),
-        onAction: onOkButtonTap()
+      style: .primary,
+      title: .genericOk,
+      onAction: onOkButtonTap()
     )
   }
   .padding()

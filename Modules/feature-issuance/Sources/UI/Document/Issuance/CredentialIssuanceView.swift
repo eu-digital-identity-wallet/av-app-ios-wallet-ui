@@ -50,13 +50,13 @@ private func content(
     VSpacer.large()
 
     VStack(alignment: .leading, spacing: 24) {
-      Text(LocalizableStringKey.credentialIssuanceTitle.toString)
+      Text(LocalizableStringKey.passportCredentialIssuanceTitle.toString)
         .typography(Theme.shared.font.headlineLarge)
         .fontWeight(.bold)
         .multilineTextAlignment(.leading)
         .frame(maxWidth: .infinity, alignment: .leading)
 
-      Text(LocalizableStringKey.credentialIssuanceDescription.toString)
+      Text(LocalizableStringKey.passportCredentialIssuanceDescription.toString)
         .typography(Theme.shared.font.bodyMedium)
         .foregroundColor(Color(.secondaryLabel))
         .multilineTextAlignment(.leading)

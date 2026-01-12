@@ -113,7 +113,7 @@ public extension ContentHeaderErrorView {
 #Preview {
   Group {
     ContentHeaderErrorView(
-      title: LocalizableStringKey.loginTitle,
+      title: LocalizableStringKey.biometricLoginTitle,
       actions: [
         ContentHeaderErrorView.Action(
           image: Image(systemName: "person"),
@@ -125,7 +125,7 @@ public extension ContentHeaderErrorView {
     .lightModePreview()
 
     ContentHeaderErrorView(
-      title: LocalizableStringKey.loginTitle,
+      title: LocalizableStringKey.biometricLoginTitle,
       actions: [
         ContentHeaderErrorView.Action(
           image: Image(systemName: "person"),

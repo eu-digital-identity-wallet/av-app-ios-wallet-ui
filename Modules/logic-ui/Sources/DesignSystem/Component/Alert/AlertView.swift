@@ -21,7 +21,7 @@ public extension View {
     isPresented: Binding<Bool>,
     title: LocalizableStringKey,
     message: LocalizableStringKey,
-    buttonText: LocalizableStringKey = .close,
+    buttonText: LocalizableStringKey = .cdCloseButton,
     onDismiss: (() -> Void)? = nil
   ) -> some View {
     self.modifier(
@@ -72,11 +72,11 @@ private struct PreviewView: View {
     }
     .alertView(
       isPresented: $showAlert,
-      title: .trustedRelyingParty,
-      message: .trustedRelyingPartyDescription,
-      buttonText: .close,
+      title: .custom("trustedRelyingParty"),
+      message: .custom("trustedRelyingPartyDescription"),
+      buttonText: .cdCloseButton,
       onDismiss: {
-        print("Alert dismissed")
+        log("Alert dismissed", level: .debug)
       }
     )
   }

@@ -29,7 +29,7 @@ public extension UIConfig {
     public let isPreAuthorization: Bool
     public let shouldInitializeBiometricOnCreate: Bool
     public let onAuthResult: (@Sendable (UIConfig.AuthorizeAction.AuthorizeActionResult) -> Void)?
-
+    public let alignment: Alignment
     public var log: String {
       return ""
     }
@@ -44,7 +44,8 @@ public extension UIConfig {
       navigationBackType: ThreeWayNavigationType?,
       isPreAuthorization: Bool,
       shouldInitializeBiometricOnCreate: Bool,
-      onAuthResult: (@Sendable (UIConfig.AuthorizeAction.AuthorizeActionResult) -> Void)? = nil
+      onAuthResult: (@Sendable (UIConfig.AuthorizeAction.AuthorizeActionResult) -> Void)? = nil,
+      alignment: Alignment = .center
     ) {
       self.navigationTitle = navigationTitle
       self.displayLogo = displayLogo
@@ -56,6 +57,7 @@ public extension UIConfig {
       self.isPreAuthorization = isPreAuthorization
       self.shouldInitializeBiometricOnCreate = shouldInitializeBiometricOnCreate
       self.onAuthResult = onAuthResult
+      self.alignment = alignment
     }
 
     public static func == (lhs: logic_ui.UIConfig.Biometry, rhs: logic_ui.UIConfig.Biometry) -> Bool {

@@ -12,7 +12,6 @@ let package = Package(
       targets: ["logic-api"])
   ],
   dependencies: [
-    .package(url: "https://github.com/Alamofire/Alamofire.git", from: "5.6.4"),
     .package(
       name: "logic-business",
       path: "./logic-business"
@@ -22,22 +21,20 @@ let package = Package(
       path: "./logic-analytics"
     ),
     .package(
-      name: "logic-core",
-      path: "./logic-core"
+      name: "logic-resources",
+      path: "./logic-resources"
     ),
-    .package(name: "logic-test", path: "./logic-test")
+    .package(name: "logic-test", path: "./logic-test"),
+    .package(url: "https://github.com/datatheorem/TrustKit", from: "3.0.4")
   ],
   targets: [
     .target(
       name: "logic-api",
       dependencies: [
         "logic-business",
-        "logic-core",
         "logic-analytics",
-        .product(
-          name: "Alamofire",
-          package: "Alamofire"
-        )
+        "logic-resources",
+        .product(name: "TrustKit", package: "TrustKit")
       ],
       path: "./Sources"
     ),
@@ -47,7 +44,6 @@ let package = Package(
         "logic-api",
         "logic-analytics",
         "logic-business",
-        "logic-core",
         "logic-test"
       ],
       path: "./Tests"

@@ -30,7 +30,7 @@ struct DocumentOfferViewState: ViewState {
   let contentHeaderConfig: ContentHeaderConfig
 
   var title: LocalizableStringKey {
-    return .requestCredentialOfferTitle([documentOfferUiModel.issuerName])
+    return .issuanceDocumentOfferRelyingPartyDescription([documentOfferUiModel.issuerName])
   }
 
   var successNavigation: UIConfig.TwoWayNavigationType {
@@ -103,13 +103,13 @@ final class DocumentOfferViewModel<Router: RouterHost>: ViewModel<Router, Docume
               appIcon: ThemeManager.shared.image.logoEuDigitalIndentityWallet,
               appText: ThemeManager.shared.image.euditext
             ),
-            description: .dataSharingTitle,
-            mainText: .issuanceRequest,
+            description: .issuanceDocumentOfferDescription,
+            mainText: .issuanceDocumentOfferHeaderMainText,
             icon: .remoteImage(uiModel.issuerLogo, nil),
             relyingPartyData: RelyingPartyData(
               isVerified: false,
               name: .custom(uiModel.issuerName),
-              description: .issuerWantWalletAddition
+              description: .issuanceDocumentOfferRelyingPartyDescription([""])
             )
           )
         ).copy(error: nil)
@@ -271,14 +271,14 @@ final class DocumentOfferViewModel<Router: RouterHost>: ViewModel<Router, Docume
     .init(
       trailingActions: [
         .init(
-          title: .issueButton
+          title: .issuanceDocumentOfferPrimaryButtonTextAdd
         ) {
           self.onIssueDocuments()
         }
       ],
       leadingActions: [
         .init(
-          title: .cancelButton
+          title: .genericCancel
         ) {
           self.onPop()
         }

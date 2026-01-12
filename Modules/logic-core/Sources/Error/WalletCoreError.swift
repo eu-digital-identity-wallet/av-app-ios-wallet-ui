@@ -29,21 +29,21 @@ public enum WalletCoreError: LocalizedError, Equatable {
   public var errorDescription: String? {
     return switch self {
     case .unableFetchDocuments:
-      LocalizableStringKey.errorUnableFetchDocuments.toString
+      LocalizableStringKey.issuanceDocumentOfferErrorNoDocument.toString
     case .unableFetchDocument:
-      LocalizableStringKey.errorUnableFetchDocument.toString
+      LocalizableStringKey.issuanceDocumentOfferErrorNoDocument.toString
     case .missingPid:
-      LocalizableStringKey.missingPid.toString
+      LocalizableStringKey.issuanceDocumentOfferErrorMissingPidText.toString
     case .unableToIssueAndStore:
-      LocalizableStringKey.unableToIssueAndStore.toString
+      LocalizableStringKey.issuanceGenericError.toString
     case .missingMetadata:
-      LocalizableStringKey.missingMetadata.toString
+      LocalizableStringKey.issuanceGenericError.toString
     case .transactionCodeFormat(let args):
-      LocalizableStringKey.transactionCodeFormatError(args).toString
+      LocalizableStringKey.issuanceDocumentOfferErrorInvalidTxcodeFormat(args).toString
     case .unableToPresentAndShare:
-      LocalizableStringKey.unableToPresentAndShare.toString
+      LocalizableStringKey.issuanceDocumentOfferErrorUnableToPresentAndShare.toString
     case .unableToFetchTransactionLog:
-      LocalizableStringKey.errorFetchTransactionLog.toString
+      LocalizableStringKey.issuanceGenericError.toString
     }
   }
 }

@@ -69,7 +69,7 @@ final class LockoutTimer {
     } else {
       let minutes = totalSeconds / 60
       let seconds = totalSeconds % 60
-      return LocalizableStringKey.quickPinLockoutCountdownMinutes([minutes, seconds]).toString
+      return LocalizableStringKey.quickPinLockoutCountdownMinutes(minutes, seconds).toString
     }
   }
 }

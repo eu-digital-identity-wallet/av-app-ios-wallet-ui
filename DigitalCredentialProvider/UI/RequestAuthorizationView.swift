@@ -1,3 +1,19 @@
+/*
+ * Copyright (c) 2025 European Commission
+ *
+ * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
+ * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
+ * except in compliance with the Licence.
+ *
+ * You may obtain a copy of the Licence at:
+ * https://joinup.ec.europa.eu/software/page/eupl
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under
+ * the Licence is distributed on an "AS IS" basis, WITHOUT WARRANTIES OR CONDITIONS OF
+ * ANY KIND, either express or implied. See the Licence for the specific language
+ * governing permissions and limitations under the Licence.
+ */
+
 import SwiftUI
 import IdentityDocumentServices
 import IdentityDocumentServicesUI
@@ -48,15 +64,23 @@ struct RequestAuthorizationView: View {
       if let requestSet = viewModel.requestSet,
          let websiteName = viewModel.websiteName {
         Text(websiteName).font(.headline).padding(.bottom, 6)
+
         List {
+          HStack(alignment: .center) {
+            ThemeManager.shared.image.logoEuDigitalIndentityWallet
+              .resizable()
+              .scaledToFit()
+              .frame(width: 60, height: 60)
+          }
+          .frame(maxWidth: .infinity, alignment: .center)
           VStack(alignment: .leading, spacing: 12) {
             ForEach(requestSet.requests, id: \.documentType) { rs in
               VStack(alignment: .leading, spacing: 4) {
-                Text(.proofOfAgeTitle)
+                Text(.passportScanIntroStep5Title)
                   .font(.headline)
                   .foregroundColor(.primary)
 
-                Text(.splashTitle)
+                Text(.splashScreenTitle)
                   .font(.subheadline)
                   .foregroundColor(.secondary)
               }
@@ -105,7 +129,7 @@ struct RequestAuthorizationView: View {
 
   @ViewBuilder
   private func acceptButton() -> some View {
-    Button(.acceptButton) {
+    Button(.genericAccept) {
       let config = viewModel.createBiometryConfig(routerHost: routerHost)
       routerHost.push(with: .featureIDPModule(.biometry(config: config)))
     }
@@ -116,7 +140,7 @@ struct RequestAuthorizationView: View {
 
   @ViewBuilder
   private func cancelButton() -> some View {
-    Button(.cancelButton) {
+    Button(.genericClose) {
       viewModel.cancelRequest()
     }
     .buttonStyle(.bordered)

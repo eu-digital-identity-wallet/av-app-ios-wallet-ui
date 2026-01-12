@@ -144,34 +144,6 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
     }
   }
 
-  func onScanClick() {
-    var successNavigation: UIConfig.TwoWayNavigationType {
-      switch viewState.config.flow {
-      case .noDocument:
-          .push(.featureAVDashboardModule(.appLanding))
-      case .extraDocument:
-          .popTo(.featureAVDashboardModule(.appLanding))
-      }
-    }
-
-    router.push(
-      with: .featureCommonModule(
-        .qrScanner(
-          config: ScannerUiConfig(
-            flow: .issuing(
-              successNavigation: successNavigation,
-              cancelNavigation: .popTo(
-                .featureIssuanceModule(
-                  .issuanceAddDocument(config: viewState.config)
-                )
-              )
-            )
-          )
-        )
-      )
-    )
-  }
-
   func pop() {
     router.pop()
   }
@@ -304,11 +276,11 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
 
     var subTitle: LocalizableStringKey {
       if documentName.isEmpty {
-        return .scopedIssuanceSuccessDeferredCaptionDocName([documentName])
+        return .issuanceDocumentOfferDeferredSuccessDescriptionWithDoc([issuerName])
       } else if !documentName.isEmpty, !issuerName.isEmpty {
-        return .scopedIssuanceSuccessDeferredCaptionDocNameAndIssuer([documentName, issuerName])
+        return .issuanceDocumentOfferDeferredSuccessDescriptionWithDocAndIssuer([documentName, issuerName])
       } else {
-        return .scopedIssuanceSuccessDeferredCaption
+        return .issuanceDocumentOfferDeferredSuccessDescription([""])
       }
     }
 
@@ -316,13 +288,13 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
       .genericSuccess(
         config: UIConfig.Success(
           title: .init(
-            value: .inProgress,
+            value: .genericDeferredSuccessText,
             color: Theme.shared.color.pending
           ),
           subtitle: subTitle,
           buttons: [
             .init(
-              title: .okButton,
+              title: .genericOk,
               style: .primary,
               navigationType: navigationType
             )

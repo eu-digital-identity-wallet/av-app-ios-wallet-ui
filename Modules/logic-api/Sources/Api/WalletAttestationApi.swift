@@ -15,19 +15,30 @@
  */
 import Foundation
 
-public protocol SampleRepository {
-  func sampleCall() async throws -> SampleResponseDTO
+struct WalletInstanceAttestationApi: NetworkRequest {
+  typealias Response = WalletInstanceAttestation
+
+  var method: NetworkMethod { .POST }
+  var additionalHeaders: [String: String] {[:]}
+  var path: String { "wallet-instance-attestation/jwk" }
+
+  var body: Data? {
+    return request
+  }
+  let request: Data
+  let host: String
 }
 
-final class SampleRepositoryImpl: SampleRepository {
+struct WalletUnitAttestationApi: NetworkRequest {
+  typealias Response = WalletUnitAttestation
 
-  private let networkManager: NetworkManager
+  var method: NetworkMethod { .POST }
+  var additionalHeaders: [String: String] {[:]}
+  var path: String { "wallet-unit-attestation/jwk-set" }
 
-  init(networkManager: NetworkManager) {
-    self.networkManager = networkManager
+  var body: Data? {
+    return request
   }
-
-  public func sampleCall() async throws -> SampleResponseDTO {
-    return try await networkManager.execute(with: SampleRequest(request: .init()), parameters: nil)
-  }
+  let request: Data
+  let host: String
 }

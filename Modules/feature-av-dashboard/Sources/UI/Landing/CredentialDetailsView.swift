@@ -20,7 +20,7 @@ struct CredentialDetailsView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: .zero) {
-            Text(LocalizableStringKey.credentialDetailsTitle.toString)
+          Text(LocalizableStringKey.landingScreenCredentialDetails.toString)
                 .typography(Theme.shared.font.labelLarge)
                 .foregroundStyle(Theme.shared.color.primary)
                 .padding(.bottom, SPACING_EXTRA_SMALL)

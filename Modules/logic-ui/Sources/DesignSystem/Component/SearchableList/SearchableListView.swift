@@ -19,7 +19,7 @@ import logic_resources
 public extension View {
   func searchable(
     searchText: Binding<String>,
-    placeholder: LocalizableStringKey = .search,
+    placeholder: LocalizableStringKey = .contentDescriptionSearchIcon,
     backgroundColor: Color? = nil,
     onSearchTextChange: ((String) -> Void)? = nil
   ) -> some View {
@@ -112,7 +112,7 @@ private struct CustomSearchBar: UIViewRepresentable {
     toolbar.sizeToFit()
 
     let doneButton = UIBarButtonItem(
-      title: LocalizableStringKey.doneButton.toString,
+      title: LocalizableStringKey.cdCloseButton.toString,
       style: .done,
       target: context.coordinator,
       action: #selector(context.coordinator.dismissKeyboard)
@@ -145,7 +145,7 @@ private struct CustomSearchBar: UIViewRepresentable {
     )
     .searchable(
       searchText: .constant(""),
-      placeholder: .search
+      placeholder: .contentDescriptionSearchIcon
     )
   }
 }

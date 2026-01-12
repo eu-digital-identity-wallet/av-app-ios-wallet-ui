@@ -25,11 +25,11 @@ struct ChangePinState: ViewState {
     return ChangePinState(
       config: QuickPinUiConfig(flow: .set),
       navigationTitle: .custom(""),
-      title: .changeQuickPinOption,
+      title: .quickPinChangeTitle,
       caption: .custom(""),
       button: .quickPinNextButton,
-      success: .success,
-      successButton: .quickPinSetSuccessButton,
+      success: .genericSuccess,
+      successButton: .quickPinChangeSuccessBtn,
       successNavigationType: .push(screen: .featureAVDashboardModule(.appLanding)),
       isCancellable: false,
       isButtonActive: true,
@@ -53,12 +53,12 @@ final class ChangePinViewModel<Router: RouterHost>: ViewModel<Router, ChangePinS
     super.init(router: router,
                initialState: .init(
                 config: config,
-                navigationTitle: config.isSetFlow ? .quickPinConfirmPin : .quickPinConfirmPin,
-                title: config.isSetFlow ? .changeQuickPinOption : .changeQuickPinOption,
+                navigationTitle: config.isSetFlow ? .quickPinChangeTitle : .quickPinChangeTitle,
+                title: config.isSetFlow ? .quickPinChangeTitle : .quickPinChangeTitle,
                 caption: config.isSetFlow ? .custom("") : .custom(""),
                 button: .quickPinNextButton,
-                success: config.isSetFlow ? .quickPinSetSuccess : .quickPinSetSuccess,
-                successButton: .quickPinSetSuccessButton,
+                success: config.isSetFlow ? .quickPinChangeSuccessText : .quickPinChangeSuccessText,
+                successButton: .quickPinChangeSuccessBtn,
                 successNavigationType: config.isSetFlow
                 ? .push(screen: .featureAVDashboardModule(.appLanding))
                 : .pop(screen: .featureAVDashboardModule(.appLanding)),
@@ -85,11 +85,11 @@ final class ChangePinViewModel<Router: RouterHost>: ViewModel<Router, ChangePinS
   func validatePinsMatch() {
     if viewState.pin1.isEmpty || viewState.pin2.isEmpty {
       setState {
-        $0.copy(uiPinInputFieldConfirmError: .quickPinDoNotMatch)
+        $0.copy(uiPinInputFieldConfirmError: .quickPinNonMatch)
       }
     } else if viewState.pin1 != viewState.pin2 {
       setState {
-          $0.copy(uiPinInputFieldConfirmError: .quickPinDoNotMatch)
+          $0.copy(uiPinInputFieldConfirmError: .quickPinNonMatch)
       }
     } else if interactor.isCurrentPinExistInLastUsedPins(pin: viewState.pin1) {
         setState {

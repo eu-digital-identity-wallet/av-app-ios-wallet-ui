@@ -15,16 +15,8 @@
  */
 import Foundation
 
-struct SampleRequest: NetworkRequest {
-  typealias Response = SampleResponseDTO
-
-  var method: NetworkMethod { .POST }
-  var additionalHeaders: [String: String] {[:]}
-  var path: String { "test/test" }
-
-  var body: Data? {
-    let encoded = try? JSONEncoder().encode(request)
-    return encoded
-  }
-  let request: SampleRequestDTO
+enum NetworkError: Error {
+  case invalidResponse
+  case httpStatus(code: Int, data: Data?)
+  case decoding(Error)
 }

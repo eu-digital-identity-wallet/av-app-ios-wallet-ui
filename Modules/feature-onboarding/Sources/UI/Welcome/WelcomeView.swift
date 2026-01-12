@@ -46,7 +46,7 @@ private func content(state: WelcomeViewState,
         Spacer()
         WrapButtonView(
             style: .primary,
-            title: .welcomeSkipButton,
+            title: .welcomeScreenSkip,
             isLoading: false,
             isEnabled: true,
             onAction: onNext()
