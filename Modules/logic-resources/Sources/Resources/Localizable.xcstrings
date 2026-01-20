@@ -9101,6 +9101,41 @@
         }
       }
     },
+    "quick_pin_cant_use_previous_pin": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New PIN needs to be different than previous PINs"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die neue PIN muss sich von den vorherigen PINs unterscheiden."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il nuovo PIN deve essere diverso dai PIN precedenti"
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Den nye pinkode skal være anderledes end de tidligere pinkoder"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le nouveau code PIN doit être différent des codes PIN précédents."
+          }
+        }
+      }
+    },
     "quick_pin_change_enter_new_subtitle": {
       "extractionState": "manual",
       "localizations": {
@@ -9148,25 +9183,25 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Please avoid using consecutive numbers or birthdays if possible."
+            "value": "Bitte vermeiden Sie nach Möglichkeit die Verwendung von aufeinanderfolgenden Zahlen oder Geburtstagen."
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Please avoid using consecutive numbers or birthdays if possible."
+            "value": "Se possibile, evita di usare numeri consecutivi o date di nascita."
           }
         },
         "da": {
           "stringUnit": {
             "state": "translated",
-            "value": "Please avoid using consecutive numbers or birthdays if possible."
+            "value": "Undgå venligst at bruge fortløbende tal eller fødselsdage, hvis det er muligt."
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Please avoid using consecutive numbers or birthdays if possible."
+            "value": "Veuillez éviter, si possible, d'utiliser des chiffres consécutifs ou des dates d'anniversaire."
           }
         }
       }
@@ -10095,6 +10130,24 @@
             "state": "translated",
             "value": "Warum benötigen wir Ihre Daten?"
           }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perché abbiamo bisogno dei tuoi dati?"
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hvorfor har vi brug for dine data?"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pourquoi avons-nous besoin de vos données ?"
+          }
         }
       }
     },
@@ -10113,10 +10166,22 @@
             "value": "Eine vertrauende Partei gilt als vertrauenswürdig, wenn sie vordefinierte Kriterien für Sicherheit, Datenschutz, Compliance und verantwortlichen Datenumgang erfüllt. Das Vertrauen wird durch Bewertungen, Audits und Zertifizierungen gestärkt."
           }
         },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Una parte affidante è considerata affidabile quando soddisfa criteri predefiniti di sicurezza, protezione dei dati, conformità e gestione responsabile dei dati. La fiducia viene rafforzata attraverso valutazioni, audit e certificazioni."
+          }
+        },
         "da": {
           "stringUnit": {
             "state": "translated",
             "value": "En afhængig part anses for at være betroet, når den opfylder foruddefinerede kriterier for sikkerhed, databeskyttelse, compliance og ansvarlig datahåndtering. Tillid styrkes gennem vurderinger, revisioner og certificeringer."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Une partie de confiance est considérée comme digne de confiance lorsqu&#39;elle répond à des critères prédéfinis en matière de sécurité, de protection des données, de conformité et de gestion responsable des données. La confiance est renforcée par des évaluations, des audits et des certifications."
           }
         }
       }
