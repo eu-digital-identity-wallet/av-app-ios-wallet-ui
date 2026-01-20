@@ -279,6 +279,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case quickPinBottomSheetCancelSecondaryButtonText
   case quickPinBottomSheetCancelSubtitle
   case quickPinBottomSheetCancelTitle
+  case quickPinCantUsePreviousPin
   case quickPinChangeEnterNewSubtitle
   case quickPinChangeHelpText
   case quickPinChangeLockoutCountdownMinutes(Int, Int)
@@ -303,7 +304,6 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case quickPinLockoutCountdownSeconds(Int)
   case quickPinNextButton
   case quickPinNonMatch
-  case quickPinCantUseLastUsedPin
   case quickPinNumericalRuleInvalidErrorMessage
   case requestBottomSheetWarningSubtitle
   case requestBottomSheetWarningTitle

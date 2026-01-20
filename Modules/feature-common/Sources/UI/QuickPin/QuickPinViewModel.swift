@@ -102,7 +102,7 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
         }
         if interactor.isCurrentPinExistInLastUsedPins(pin: uiPinInputField) {
             setState {
-                $0.copy(pinError: .quickPinCantUseLastUsedPin)
+                $0.copy(pinError: .quickPinCantUsePreviousPin)
             }
             return
         }

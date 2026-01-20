@@ -558,6 +558,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "quick_pin_bottom_sheet_cancel_subtitle")
       case .quickPinBottomSheetCancelTitle:
         bundle.localizedString(forKey: "quick_pin_bottom_sheet_cancel_title")
+      case .quickPinCantUsePreviousPin:
+        bundle.localizedString(forKey: "quick_pin_cant_use_previous_pin")
       case .quickPinChangeEnterNewSubtitle:
         bundle.localizedString(forKey: "quick_pin_change_enter_new_subtitle")
       case .quickPinChangeHelpText:
@@ -606,8 +608,6 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "quick_pin_next_button")
       case .quickPinNonMatch:
         bundle.localizedString(forKey: "quick_pin_non_match")
-      case .quickPinCantUseLastUsedPin:
-        bundle.localizedString(forKey: "cant_use_previous_pin")
       case .quickPinNumericalRuleInvalidErrorMessage:
         bundle.localizedString(forKey: "quick_pin_numerical_rule_invalid_error_message")
       case .requestBottomSheetWarningSubtitle:
@@ -697,31 +697,24 @@ final class LocalizableManager: LocalizableManagerType {
 fileprivate extension Bundle {
   func localizedString(forKey key: String) -> String {
     let localizedBundle = self.localizedBundle()
-    let value = localizedBundle.localizedString(forKey: key, value: nil, table: nil)
-    if value == key {
-      return defaultBundle().localizedString(forKey: key, value: nil, table: nil)
-    } else {
-      return value
-    }
+    return localizedBundle.localizedString(forKey: key, value: nil, table: nil)
   }
+
   func localizedStringWithArguments(forKey key: String, arguments: [CVarArg]) -> String {
-    String(format: self.localizedString(forKey: key), locale: nil, arguments: arguments)
+    String(format: self.localizedString(forKey: key), locale: Locale.current, arguments: arguments)
   }
 
   private func localizedBundle() -> Bundle {
-    guard let languageCode = Locale.preferredLanguages.first?.components(separatedBy: "-").first,
-          let path = self.path(forResource: languageCode, ofType: "lproj"),
-          let bundle = Bundle(path: path) else {
-      return self
-    }
-    return bundle
-  }
+    let preferredLanguages = Locale.preferredLanguages
+    let availableLocalizations = self.localizations
 
-  private func defaultBundle() -> Bundle {
-    guard let path = self.path(forResource: "en", ofType: "lproj"),
-          let bundle = Bundle(path: path) else {
-      return self
+    let matchedLocalizations = Bundle.preferredLocalizations(from: availableLocalizations, forPreferences: preferredLanguages)
+
+    if let preferredLanguage = matchedLocalizations.first,
+       let path = self.path(forResource: preferredLanguage, ofType: "lproj"),
+       let localizedBundle = Bundle(path: path) {
+      return localizedBundle
     }
-    return bundle
+    return self
   }
 }
