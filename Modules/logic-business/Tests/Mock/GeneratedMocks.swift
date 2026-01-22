@@ -9,7 +9,6 @@ import Cuckoo
 
 import Cuckoo
 import Foundation
-import EudiRQESUi
 @testable import logic_business
 
 public class MockConfigLogic: ConfigLogic, Cuckoo.ProtocolMock, @unchecked Sendable {
@@ -58,16 +57,6 @@ public class MockConfigLogic: ConfigLogic, Cuckoo.ProtocolMock, @unchecked Senda
         }
     }
     
-    public var rqesConfig: EudiRQESUiConfig {
-        get {
-            return cuckoo_manager.getter(
-                "rqesConfig",
-                superclassCall: Cuckoo.MockManager.crashOnProtocolSuperclassCall(),
-                defaultCall: __defaultImplStub!.rqesConfig
-            )
-        }
-    }
-    
     public var changelogUrl: URL? {
         get {
             return cuckoo_manager.getter(
@@ -98,10 +87,6 @@ public class MockConfigLogic: ConfigLogic, Cuckoo.ProtocolMock, @unchecked Senda
             return .init(manager: cuckoo_manager, name: "appVersion")
         }
         
-        var rqesConfig: Cuckoo.ProtocolToBeStubbedReadOnlyProperty<MockConfigLogic,EudiRQESUiConfig> {
-            return .init(manager: cuckoo_manager, name: "rqesConfig")
-        }
-        
         var changelogUrl: Cuckoo.ProtocolToBeStubbedReadOnlyProperty<MockConfigLogic,URL?> {
             return .init(manager: cuckoo_manager, name: "changelogUrl")
         }
@@ -130,10 +115,6 @@ public class MockConfigLogic: ConfigLogic, Cuckoo.ProtocolMock, @unchecked Senda
             return .init(manager: cuckoo_manager, name: "appVersion", callMatcher: callMatcher, sourceLocation: sourceLocation)
         }
         
-        var rqesConfig: Cuckoo.VerifyReadOnlyProperty<EudiRQESUiConfig> {
-            return .init(manager: cuckoo_manager, name: "rqesConfig", callMatcher: callMatcher, sourceLocation: sourceLocation)
-        }
-        
         var changelogUrl: Cuckoo.VerifyReadOnlyProperty<URL?> {
             return .init(manager: cuckoo_manager, name: "changelogUrl", callMatcher: callMatcher, sourceLocation: sourceLocation)
         }
@@ -157,12 +138,6 @@ public class ConfigLogicStub:ConfigLogic, @unchecked Sendable {
     public var appVersion: String {
         get {
             return DefaultValueRegistry.defaultValue(for: (String).self)
-        }
-    }
-    
-    public var rqesConfig: EudiRQESUiConfig {
-        get {
-            return DefaultValueRegistry.defaultValue(for: (EudiRQESUiConfig).self)
         }
     }
     
@@ -1237,6 +1212,14 @@ import Cuckoo
 
 
 
+// MARK: - Mocks generated from file: '../Modules/logic-business/Sources/Extension/Bundle+Extensions.swift'
+
+import Cuckoo
+import Foundation
+@testable import logic_business
+
+
+
 // MARK: - Mocks generated from file: '../Modules/logic-business/Sources/Extension/ConfigLogic+Extensions.swift'
 
 import Cuckoo
@@ -1274,6 +1257,7 @@ import Foundation
 
 import Cuckoo
 import Foundation
+import logic_resources
 @testable import logic_business
 
 

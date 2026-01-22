@@ -402,7 +402,6 @@ import Cuckoo
 
 import Cuckoo
 import Foundation
-import EudiRQESUi
 @testable import logic_core
 @testable import logic_business
 @testable import logic_analytics
@@ -454,16 +453,6 @@ public class MockConfigLogic: ConfigLogic, Cuckoo.ProtocolMock, @unchecked Senda
         }
     }
     
-    public var rqesConfig: EudiRQESUiConfig {
-        get {
-            return cuckoo_manager.getter(
-                "rqesConfig",
-                superclassCall: Cuckoo.MockManager.crashOnProtocolSuperclassCall(),
-                defaultCall: __defaultImplStub!.rqesConfig
-            )
-        }
-    }
-    
     public var changelogUrl: URL? {
         get {
             return cuckoo_manager.getter(
@@ -494,10 +483,6 @@ public class MockConfigLogic: ConfigLogic, Cuckoo.ProtocolMock, @unchecked Senda
             return .init(manager: cuckoo_manager, name: "appVersion")
         }
         
-        var rqesConfig: Cuckoo.ProtocolToBeStubbedReadOnlyProperty<MockConfigLogic,EudiRQESUiConfig> {
-            return .init(manager: cuckoo_manager, name: "rqesConfig")
-        }
-        
         var changelogUrl: Cuckoo.ProtocolToBeStubbedReadOnlyProperty<MockConfigLogic,URL?> {
             return .init(manager: cuckoo_manager, name: "changelogUrl")
         }
@@ -526,10 +511,6 @@ public class MockConfigLogic: ConfigLogic, Cuckoo.ProtocolMock, @unchecked Senda
             return .init(manager: cuckoo_manager, name: "appVersion", callMatcher: callMatcher, sourceLocation: sourceLocation)
         }
         
-        var rqesConfig: Cuckoo.VerifyReadOnlyProperty<EudiRQESUiConfig> {
-            return .init(manager: cuckoo_manager, name: "rqesConfig", callMatcher: callMatcher, sourceLocation: sourceLocation)
-        }
-        
         var changelogUrl: Cuckoo.VerifyReadOnlyProperty<URL?> {
             return .init(manager: cuckoo_manager, name: "changelogUrl", callMatcher: callMatcher, sourceLocation: sourceLocation)
         }
@@ -553,12 +534,6 @@ public class ConfigLogicStub:ConfigLogic, @unchecked Sendable {
     public var appVersion: String {
         get {
             return DefaultValueRegistry.defaultValue(for: (String).self)
-        }
-    }
-    
-    public var rqesConfig: EudiRQESUiConfig {
-        get {
-            return DefaultValueRegistry.defaultValue(for: (EudiRQESUiConfig).self)
         }
     }
     
@@ -1651,6 +1626,17 @@ import Cuckoo
 
 
 
+// MARK: - Mocks generated from file: '../Modules/logic-business/Sources/Extension/Bundle+Extensions.swift'
+
+import Cuckoo
+import Foundation
+@testable import logic_core
+@testable import logic_business
+@testable import logic_analytics
+@testable import logic_ui
+
+
+
 // MARK: - Mocks generated from file: '../Modules/logic-business/Sources/Extension/ConfigLogic+Extensions.swift'
 
 import Cuckoo
@@ -1700,6 +1686,7 @@ import Foundation
 
 import Cuckoo
 import Foundation
+import logic_resources
 @testable import logic_core
 @testable import logic_business
 @testable import logic_analytics
@@ -3296,7 +3283,9 @@ class WalletProviderAttestationConfigStub:WalletProviderAttestationConfig, @unch
 import Cuckoo
 import SwiftUI
 import logic_storage
+import IdentityDocumentServices
 import logic_api
+import logic_resources
 @testable import logic_core
 @testable import logic_business
 @testable import logic_analytics
@@ -3449,12 +3438,12 @@ public class MockWalletKitController: WalletKitController, Cuckoo.ProtocolMock, 
         )
     }
     
-    public func clearAllDocuments() async {
-        return await cuckoo_manager.call(
-            "clearAllDocuments() async",
+    public func clearAllDocuments() async throws {
+        return try await cuckoo_manager.callThrows(
+            "clearAllDocuments() async throws",
             parameters: (),
             escapingParameters: (),
-            superclassCall: Cuckoo.MockManager.crashOnProtocolSuperclassCall(),
+errorType: Error.self,            superclassCall: Cuckoo.MockManager.crashOnProtocolSuperclassCall(),
             defaultCall: await __defaultImplStub!.clearAllDocuments()
         )
     }
@@ -3810,10 +3799,10 @@ errorType: Error.self,            superclassCall: Cuckoo.MockManager.crashOnProt
             ))
         }
         
-        func clearAllDocuments() -> Cuckoo.ProtocolStubNoReturnFunction<()> {
+        func clearAllDocuments() -> Cuckoo.ProtocolStubNoReturnThrowingFunction<(),Error> {
             let matchers: [Cuckoo.ParameterMatcher<Void>] = []
             return .init(stub: cuckoo_manager.createStub(for: MockWalletKitController.self,
-                method: "clearAllDocuments() async",
+                method: "clearAllDocuments() async throws",
                 parameterMatchers: matchers
             ))
         }
@@ -4175,7 +4164,7 @@ errorType: Error.self,            superclassCall: Cuckoo.MockManager.crashOnProt
         func clearAllDocuments() -> Cuckoo.__DoNotUse<(), Void> {
             let matchers: [Cuckoo.ParameterMatcher<Void>] = []
             return cuckoo_manager.verify(
-                "clearAllDocuments() async",
+                "clearAllDocuments() async throws",
                 callMatcher: callMatcher,
                 parameterMatchers: matchers,
                 sourceLocation: sourceLocation
@@ -4530,7 +4519,7 @@ public class WalletKitControllerStub:WalletKitController, @unchecked Sendable {
         return DefaultValueRegistry.defaultValue(for: ([DocClaimsDecodable]).self)
     }
     
-    public func clearAllDocuments() async {
+    public func clearAllDocuments() async throws {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
     
@@ -5565,6 +5554,18 @@ public class SessionCoordinatorHolderStub:SessionCoordinatorHolder, @unchecked S
 
 
 
+// MARK: - Mocks generated from file: '../Modules/logic-core/Sources/DocumentRegistrationManager/DocumentRegistrationManager.swift'
+
+import Cuckoo
+import Foundation
+import IdentityDocumentServices
+@testable import logic_core
+@testable import logic_business
+@testable import logic_analytics
+@testable import logic_ui
+
+
+
 // MARK: - Mocks generated from file: '../Modules/logic-core/Sources/Error/WalletCoreError.swift'
 
 import Cuckoo
@@ -6161,6 +6162,7 @@ import SwiftUI
 import Combine
 import Copyable
 import Observation
+import logic_resources
 @testable import logic_core
 @testable import logic_business
 @testable import logic_analytics
@@ -6426,7 +6428,6 @@ public class UIConfigTypeStub:UIConfigType, @unchecked Sendable {
 
 import Cuckoo
 import Foundation
-import EudiRQESUi
 @testable import logic_core
 @testable import logic_business
 @testable import logic_analytics
@@ -6927,6 +6928,18 @@ import logic_resources
 
 
 
+// MARK: - Mocks generated from file: '../Modules/logic-ui/Sources/DesignSystem/Component/HyperLinkView/HyperLinkView.swift'
+
+import Cuckoo
+import SwiftUI
+import logic_resources
+@testable import logic_core
+@testable import logic_business
+@testable import logic_analytics
+@testable import logic_ui
+
+
+
 // MARK: - Mocks generated from file: '../Modules/logic-ui/Sources/DesignSystem/Component/Image/LeftImageModifier.swift'
 
 import Cuckoo
@@ -7119,6 +7132,18 @@ import logic_resources
 
 
 // MARK: - Mocks generated from file: '../Modules/logic-ui/Sources/DesignSystem/Component/Sheet/SheetContainerView.swift'
+
+import Cuckoo
+import SwiftUI
+import logic_resources
+@testable import logic_core
+@testable import logic_business
+@testable import logic_analytics
+@testable import logic_ui
+
+
+
+// MARK: - Mocks generated from file: '../Modules/logic-ui/Sources/DesignSystem/Component/Splash/SplashBackgroundView.swift'
 
 import Cuckoo
 import SwiftUI

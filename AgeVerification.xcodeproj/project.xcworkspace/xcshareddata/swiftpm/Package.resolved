@@ -1,5 +1,5 @@
 {
-  "originHash" : "87e457daaa102553fe42fdbbe30fa9a142124a90cda76e0a40d0d8140b7882d5",
+  "originHash" : "a4ca1900825dcb820d5cd0fbbb0f70c714f515af3a56fc180fa58b5ca0c4af0c",
   "pins" : [
     {
       "identity" : "activityindicatorview",
@@ -164,33 +164,6 @@
       }
     },
     {
-      "identity" : "eudi-lib-ios-rqes-csc-swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-rqes-csc-swift.git",
-      "state" : {
-        "revision" : "64581853e64b604676a00a122f104d63968fa2ca",
-        "version" : "0.6.3"
-      }
-    },
-    {
-      "identity" : "eudi-lib-ios-rqes-kit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-rqes-kit.git",
-      "state" : {
-        "revision" : "7eb84df1fe85067e509afe29de0ddf66b3d195ec",
-        "version" : "0.6.4"
-      }
-    },
-    {
-      "identity" : "eudi-lib-ios-rqes-ui",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-rqes-ui.git",
-      "state" : {
-        "revision" : "2db61dbb482bc0bb6bb7c50338748e4b7702e280",
-        "version" : "0.3.8"
-      }
-    },
-    {
       "identity" : "eudi-lib-ios-statium-swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-statium-swift.git",
@@ -215,15 +188,6 @@
       "state" : {
         "revision" : "62c4dc5c5a0bb28d92fb23f8b4d03a8fa9cc12a7",
         "version" : "0.8.0"
-      }
-    },
-    {
-      "identity" : "eudi-lib-podofo",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-podofo",
-      "state" : {
-        "revision" : "726147530e544a8ca57b5f633a1aa8568f2bb93b",
-        "version" : "0.3.8"
       }
     },
     {
