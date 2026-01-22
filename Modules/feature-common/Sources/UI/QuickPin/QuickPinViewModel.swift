@@ -149,6 +149,8 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
     )
   }
 
+    // TODO enhance security: Sequential or easily guessable patterns (such as "135246" or "147258") should not be permitted.
+    // TODO enhance security: The validation should check the most pwned PINs
   private func onValidate() async {
     switch await interactor.isPinValid(pin: uiPinInputField) {
     case .success:
