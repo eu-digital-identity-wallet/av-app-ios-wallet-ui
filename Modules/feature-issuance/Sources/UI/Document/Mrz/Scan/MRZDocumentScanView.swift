@@ -34,63 +34,56 @@ struct MRZDocumentScanView<Router: RouterHost>: View {
 
   var body: some View {
     ZStack {
-      DocumentScannerView(
-        configuration: MRZReaderConfiguration(
-          loggingEnabled: loggingEnabled,
-          strings: .init(
-            documentReady: LocalizableStringKey.mrzDocumentReady.toString,
-            scanning: LocalizableStringKey.mrzScanning.toString,
-            placeDocumentInFrame: LocalizableStringKey.passportCaptureSubtitle.toString,
-            cameraError: LocalizableStringKey.mrzCameraError.toString,
-            cameraPermissionDenied: LocalizableStringKey.mrzCameraPermissionDenied.toString,
-            cameraSetupFailed: LocalizableStringKey.mrzCameraSetupFailed.toString,
-            unknownError: LocalizableStringKey.mrzUnknownError.toString,
-            initializingCamera: LocalizableStringKey.mrzInitializingCamera.toString
+      if let errorConfig = viewModel.viewState.error {
+        ContentErrorView(config: errorConfig)
+      } else {
+        ZStack {
+          DocumentScannerView(
+            configuration: MRZReaderConfiguration(
+              loggingEnabled: loggingEnabled,
+              strings: .init(
+                documentReady: LocalizableStringKey.mrzDocumentReady.toString,
+                scanning: LocalizableStringKey.mrzScanning.toString,
+                placeDocumentInFrame: LocalizableStringKey.passportCaptureSubtitle.toString,
+                cameraError: LocalizableStringKey.mrzCameraError.toString,
+                cameraPermissionDenied: LocalizableStringKey.mrzCameraPermissionDenied.toString,
+                cameraSetupFailed: LocalizableStringKey.mrzCameraSetupFailed.toString,
+                unknownError: LocalizableStringKey.mrzUnknownError.toString,
+                initializingCamera: LocalizableStringKey.mrzInitializingCamera.toString
+              )
+            ),
+            onMRZCaptured: { mrzData in
+              viewModel.onMRZScanned(mrzData: mrzData)
+            }
           )
-        ),
-        onMRZCaptured: { mrzData in
-          viewModel.onMRZScanned(mrzData: mrzData)
-        }
-      )
-      .ignoresSafeArea()
-
-      // Processing overlay
-      if viewModel.viewState.isProcessing {
-        Color.black.opacity(0.5)
           .ignoresSafeArea()
-        VStack(spacing: 16) {
-          ProgressView()
-            .progressViewStyle(CircularProgressViewStyle(tint: .white))
-            .scaleEffect(1.5)
-          Text(LocalizableStringKey.nfcBodyReading.toString)
-            .foregroundColor(.white)
-            .font(.headline)
+
+          // Processing overlay
+          if viewModel.viewState.isProcessing {
+            Color.black.opacity(0.5)
+              .ignoresSafeArea()
+            VStack(spacing: 16) {
+              ProgressView()
+                .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                .scaleEffect(1.5)
+              Text(LocalizableStringKey.nfcBodyReading.toString)
+                .foregroundColor(.white)
+                .font(.headline)
+            }
+          }
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+          ToolbarItem(placement: .navigationBarLeading) {
+            Button(action: {
+              viewModel.backButtonTapped()
+            }) {
+              Image(systemName: "chevron.left")
+                .foregroundColor(.white)
+            }
+          }
         }
       }
     }
-    .navigationBarBackButtonHidden(true)
-    .toolbar {
-      ToolbarItem(placement: .navigationBarLeading) {
-        Button(action: {
-          viewModel.backButtonTapped()
-        }) {
-          Image(systemName: "chevron.left")
-            .foregroundColor(.white)
-        }
-      }
-    }
-    .alert(
-      "Error",
-      isPresented: Binding(
-        get: { viewModel.viewState.error != nil },
-        set: { if !$0 { viewModel.onErrorDismissed() } }
-      ),
-      actions: {
-        Button("OK") { }
-      },
-      message: {
-        Text("ID cards are currently not supported. Please use a biometric passport.")
-      }
-    )
   }
 }
