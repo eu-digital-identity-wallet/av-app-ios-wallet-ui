@@ -41,9 +41,7 @@ final class PresentationRequestViewModel<Router: RouterHost>: BaseRequestViewMod
     case .success(let authenticationRequest):
       self.onReceivedItems(
         with: authenticationRequest.requestDataCells,
-        title: .requestRelyingPartyDescription(
-          [authenticationRequest.relyingParty]
-        ),
+        title: .requestRelyingPartyDescription,
         relyingParty: .custom(authenticationRequest.relyingParty),
         isTrusted: authenticationRequest.isTrusted
       )
@@ -127,7 +125,7 @@ final class PresentationRequestViewModel<Router: RouterHost>: BaseRequestViewMod
   }
 
   override func getCaption() -> LocalizableStringKey {
-    .requestRelyingPartyDescription([""])
+    .requestRelyingPartyDescription
   }
 
   override func getDataRequestInfo() -> LocalizableStringKey {
@@ -143,7 +141,7 @@ final class PresentationRequestViewModel<Router: RouterHost>: BaseRequestViewMod
   }
 
   override func getTitleCaption() -> LocalizableStringKey {
-    .requestRelyingPartyDescription([""])
+    .requestRelyingPartyDescription
   }
 
   override func getTrustedRelyingParty() -> LocalizableStringKey {

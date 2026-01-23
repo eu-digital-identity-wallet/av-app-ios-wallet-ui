@@ -56,7 +56,7 @@ final actor DocumentOfferInteractorImpl: DocumentOfferInteractor {
       if let spec = offer.txCodeSpec,
          let codeLength = spec.length,
          !(codeMinLength...codeMaxLength).contains(codeLength) || spec.inputMode == .text {
-        return .failure(WalletCoreError.transactionCodeFormat(["\(codeMinLength)", "\(codeMaxLength)"]))
+        return .failure(WalletCoreError.transactionCodeFormat(codeMinLength, codeMaxLength))
       }
 
       let hasPidInOffer = offer.docModels.first(
@@ -102,7 +102,7 @@ final actor DocumentOfferInteractorImpl: DocumentOfferInteractor {
       } else if issuedDocuments.first(where: { $0.isDeferred }) != nil {
         return .deferredSuccess(
           retrieveDeferredRoute(
-            caption: .issuanceDocumentOfferDeferredSuccessDescription([issuerName]),
+            caption: .issuanceDocumentOfferDeferredSuccessDescription(issuerName),
             successNavigation: successNavigation,
             title: .init(
               value: .genericDeferredSuccessText,
@@ -175,7 +175,7 @@ final actor DocumentOfferInteractorImpl: DocumentOfferInteractor {
       } else if doc.status == .deferred {
         return .success(
           retrieveDeferredRoute(
-            caption: .issuanceDocumentOfferDeferredSuccessDescription([issuerName]),
+            caption: .issuanceDocumentOfferDeferredSuccessDescription(issuerName),
             successNavigation: successNavigation,
             title: .init(
               value: .genericDeferredSuccessText,

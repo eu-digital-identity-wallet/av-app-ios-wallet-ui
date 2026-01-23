@@ -17,7 +17,6 @@
 import Foundation
 import logic_business
 import logic_core
-import EudiRQESUi
 
 public struct DeepLink {}
 
@@ -73,14 +72,8 @@ final class DeepLinkControllerImpl: DeepLinkController {
       deepLinkExecutable.action == .credential_offer && routerHost.userIsLoggedInWithNoDocuments()
     }
 
-    var isRqesPendingAction: Bool {
-      deepLinkExecutable.action == .rqes
-      && !routerHost.isScreenForeground(with: .featureAVDashboardModule(.appLanding))
-    }
-
     var shouldPopToDashboardFirst: Bool {
       routerHost.userIsLoggedInWithDocuments()
-      && isRqesPendingAction
     }
 
     guard
@@ -147,27 +140,6 @@ final class DeepLinkControllerImpl: DeepLinkController {
           userInfo: ["uri": deepLinkExecutable.plainUrl.absoluteString]
         )
       }
-    case .rqes:
-
-      guard let code = deepLinkExecutable.link.queryItems?.first(where: { $0.name == "code" })?.value else {
-        return
-      }
-
-      Task { @MainActor in
-
-        while UIApplication.shared.topViewController() == nil {
-          try? await Task.sleep(for: .milliseconds(100))
-        }
-
-        guard let controller = UIApplication.shared.topViewController() else {
-          return
-        }
-
-        try? await EudiRQESUi.instance().resume(
-          on: controller,
-          authorizationCode: code
-        )
-      }
     case .av:
         let config = UIConfig.Generic(
         arguments: ["uri": deepLinkExecutable.plainUrl.absoluteString],
@@ -217,7 +189,6 @@ public extension DeepLink {
     case credential_offer
     case haip_vci
     case haip_vp
-    case rqes
     case external
     case av
 
@@ -244,8 +215,6 @@ public extension DeepLink {
         return .credential_offer
       case _ where av.getSchemas(with: urlSchemaController).contains(scheme):
         return .openid4vp
-      case _ where rqes.getSchemas(with: urlSchemaController).contains(scheme):
-        return .rqes
       default:
         return .external
       }

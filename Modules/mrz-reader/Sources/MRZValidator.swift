@@ -8,6 +8,44 @@ class MRZValidator {
   // Valid sex indicators
   private static let validSexValues: Set<String> = ["M", "F", "X", "<"]
 
+  // Common OCR character confusions: number -> letter
+  // Used for text-only fields like nationality, country codes, names
+  private static let ocrNumberToLetterMap: [Character: Character] = [
+    "0": "O",
+    "1": "I",
+    "2": "Z",
+    "5": "S",
+    "8": "B"
+  ]
+
+  /// Corrects common OCR errors in text-only fields by replacing numbers with visually similar letters
+  private static func correctOCRTextErrors(_ text: String) -> String {
+    var corrected = text
+    for (number, letter) in ocrNumberToLetterMap {
+      corrected = corrected.replacingOccurrences(of: String(number), with: String(letter))
+    }
+    return corrected
+  }
+
+  /// Validates a country code, trying OCR correction if the raw value is invalid
+  private static func validateAndCorrectCountryCode(_ rawCode: String) -> String? {
+    let code = rawCode.replacingOccurrences(of: "<", with: "").trimmingCharacters(in: .whitespaces)
+
+    // First try the raw code
+    if code.isEmpty || MRZCountryCodes.validCodes.contains(code) {
+      return code
+    }
+
+    // Try OCR-corrected version
+    let corrected = correctOCRTextErrors(code)
+    if MRZCountryCodes.validCodes.contains(corrected) {
+      log("OCR correction applied: '\(code)' -> '\(corrected)'")
+      return corrected
+    }
+
+    return nil // Invalid even after correction
+  }
+
   private static func log(_ message: String) {
     MRZLogger.log(message)
   }
@@ -30,12 +68,6 @@ class MRZValidator {
     guard day <= daysInMonth[month - 1] else { return false }
 
     return true
-  }
-
-  // Validate country code
-  private static func isValidCountryCode(_ code: String) -> Bool {
-    if code.isEmpty { return true }
-    return MRZCountryCodes.validCodes.contains(code)
   }
 
   // Detect MRZ type based on format
@@ -178,10 +210,9 @@ class MRZValidator {
     log("✅ Document type: \(docType)")
 
     // Validate issuing country code (positions 2-4 of line 1)
-    let issuingCountry = String(line1.dropFirst(2).prefix(3))
-      .replacingOccurrences(of: "<", with: "").trimmingCharacters(in: .whitespaces)
-    guard isValidCountryCode(issuingCountry) else {
-      log("❌ Failed: Invalid issuing country code '\(issuingCountry)'")
+    let rawIssuingCountry = String(line1.dropFirst(2).prefix(3))
+    guard let issuingCountry = validateAndCorrectCountryCode(rawIssuingCountry) else {
+      log("❌ Failed: Invalid issuing country code '\(rawIssuingCountry)'")
       return false
     }
     log("✅ Issuing country: \(issuingCountry)")
@@ -204,10 +235,9 @@ class MRZValidator {
     log("✅ Document number check digit valid")
 
     // Validate nationality (positions 10-12 of line 2)
-    let nationality = String(line2.dropFirst(10).prefix(3))
-      .replacingOccurrences(of: "<", with: "").trimmingCharacters(in: .whitespaces)
-    guard isValidCountryCode(nationality) else {
-      log("❌ Failed: Invalid nationality code '\(nationality)'")
+    let rawNationality = String(line2.dropFirst(10).prefix(3))
+    guard let nationality = validateAndCorrectCountryCode(rawNationality) else {
+      log("❌ Failed: Invalid nationality code '\(rawNationality)'")
       return false
     }
     log("✅ Nationality: \(nationality)")
@@ -282,9 +312,8 @@ class MRZValidator {
     guard line1.count == 36, line2.count == 36 else { return false }
 
     // Validate issuing country code (positions 2-4 of line 1)
-    let issuingCountry = String(line1.dropFirst(2).prefix(3))
-      .replacingOccurrences(of: "<", with: "").trimmingCharacters(in: .whitespaces)
-    guard isValidCountryCode(issuingCountry) else { return false }
+    let rawIssuingCountry = String(line1.dropFirst(2).prefix(3))
+    guard validateAndCorrectCountryCode(rawIssuingCountry) != nil else { return false }
 
     // Check that line 1 contains the name separator "<<"
     guard line1.contains("<<") else { return false }
@@ -295,8 +324,8 @@ class MRZValidator {
     guard calculateCheckDigit(docNumber) == docCheckDigit else { return false }
 
     // Validate nationality (positions 10-12 of line 2)
-    let nationality = String(line2.dropFirst(10).prefix(3))
-    guard isValidCountryCode(nationality) else { return false }
+    let rawNationality = String(line2.dropFirst(10).prefix(3))
+    guard validateAndCorrectCountryCode(rawNationality) != nil else { return false }
 
     // Validate date of birth (positions 13-18 of line 2)
     let dob = String(line2.dropFirst(13).prefix(6))
@@ -342,10 +371,9 @@ class MRZValidator {
     log("📄 Document type: \(docType)")
 
     // Validate issuing country code (positions 2-4 of line 1)
-    let issuingCountry = String(line1.dropFirst(2).prefix(3))
-      .replacingOccurrences(of: "<", with: "").trimmingCharacters(in: .whitespaces)
-    guard isValidCountryCode(issuingCountry) else {
-      log("❌ Failed: Invalid issuing country code '\(issuingCountry)'")
+    let rawIssuingCountry = String(line1.dropFirst(2).prefix(3))
+    guard let issuingCountry = validateAndCorrectCountryCode(rawIssuingCountry) else {
+      log("❌ Failed: Invalid issuing country code '\(rawIssuingCountry)'")
       return false
     }
     log("✅ Issuing country: \(issuingCountry)")
@@ -397,11 +425,9 @@ class MRZValidator {
     log("✅ Expiration date check digit valid")
 
     // Validate nationality (positions 15-17 of line 2)
-    let nationality = String(line2.dropFirst(15).prefix(3))
-      .replacingOccurrences(of: "<", with: "").trimmingCharacters(in: .whitespaces)
-
-    guard isValidCountryCode(nationality) else {
-      log("❌ Failed: Invalid nationality code '\(nationality)'")
+    let rawNationality = String(line2.dropFirst(15).prefix(3))
+    guard let nationality = validateAndCorrectCountryCode(rawNationality) else {
+      log("❌ Failed: Invalid nationality code '\(rawNationality)'")
       return false
     }
     log("✅ Nationality: \(nationality)")

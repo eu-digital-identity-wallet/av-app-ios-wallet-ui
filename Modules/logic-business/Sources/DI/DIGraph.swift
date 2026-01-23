@@ -21,7 +21,7 @@ public protocol DIGraphType: Sendable {
   func lazyLoad(with assemblies: [Assembly])
 }
 
-public final class DIGraph: DIGraphType {
+public final class DIGraph: @unchecked DIGraphType {
 
   public let assembler: Assembler
 

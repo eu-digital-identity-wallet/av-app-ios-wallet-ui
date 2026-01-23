@@ -123,7 +123,7 @@ final class CredentialIssuanceViewModel<Router: RouterHost>: ViewModel<Router, C
                   value: .genericDeferredSuccessText,
                   color: Theme.shared.color.pending
                 ),
-                subtitle: .issuanceDocumentOfferDeferredSuccessDescription([config.configId ?? "credential"]),
+                subtitle: .issuanceDocumentOfferDeferredSuccessDescription(config.configId ?? "credential"),
                 buttons: [
                   .init(
                     title: .genericOk,

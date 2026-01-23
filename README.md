@@ -55,6 +55,7 @@ The main purpose of the reference implementation is to showcase the ecosystem an
 If you're planning to use this application in production, we recommend reviewing the following steps:
 - Configure the application properly by following the guide [here](wiki/configuration.md)
 - The Pin storage configuration matches your security requirements, or provide your own by following this guide [Pin Storage Configuration](wiki/configuration.md#pin-storage-configuration)
+- To enhance security, it is strongly recommended that the allowed PINs raise the overall security level. Sequential or easily guessable patterns (such as "135246 or "147258") should not be permitted. Additionally, it is advisable to check against a list of the most commonly used or "pwned" PINs to prevent users from choosing weak credentials.
 - The application meets the OWASP MASVS industry standard. Please refer to the following links for further information on the controls you must implement to ensure maximum compliance:
     - [OWASP MASVS](https://mas.owasp.org/MASVS/)
 
@@ -62,7 +63,7 @@ If you're planning to use this application in production, we recommend reviewing
 
 Minimum device requirements
 
-- Any device that supports iOS 17.0
+- Any device that supports iOS 26.2
 
 ### Prerequisites
 
@@ -111,6 +112,14 @@ To delete a document, navigate to the 'Documents' tab within the 'Dashboard' scr
 11. A browser will open, confirming that the Verifier has accepted your request.
 12. Return to the app. The flow is now complete.
 
+## Digital Credentails API flow
+
+1. Open the browser application on your device and navigate to "https://verifier.dev.ageverification.dev"
+2. Tap on the "DC API" button to initiate the credential sharing flow
+3. The system will display the verifier's details and the credential information that will be shared, along with two action buttons: "Accept" and "Close"
+4. Tap "Accept" to consent to sharing your credentials, then tap "Authorize" to confirm the transaction
+5. The browser will display the verification result with verification checks.
+
 ## How to build - Quick start guide
 
 [This document](wiki/how_to_build.md) describes how you can build the application and deploy the issuing and verification services locally.
@@ -146,6 +155,8 @@ You can find instructions on how to configure the application [here](wiki/config
 *feature-issuance*: Document issuance feature.
 
 *logic-assembly*: This module has access to all the above modules and assembles navigation and DI graphs.
+
+*DigitalCredentialProvider*: This module shares a verified information to the requested verifier. 
 
 ```mermaid
 graph TD;

@@ -41,7 +41,7 @@ final class LivenessCheckViewModel<Router: RouterHost>: ViewModel<Router, Livene
       initialState: .init(
         instructionPoints: [
           LocalizableStringKey.passportLiveVideoStepFirst.toString,
-          LocalizableStringKey.passportLiveVideoStepSecond.toString
+          LocalizableStringKey.passportLiveVideoStepThird.toString
         ],
         showSuccess: false,
         errorConfig: nil,

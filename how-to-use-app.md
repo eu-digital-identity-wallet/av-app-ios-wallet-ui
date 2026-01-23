@@ -2,7 +2,7 @@
 
 Minimum device requirements
 
-- Any device that supports iOS 17.0
+- Any device that supports iOS 26.2
 
 ## Prerequisites
 
@@ -66,3 +66,10 @@ If you want to re-issue a document you must delete it first by tapping on the do
 8. A browser will open showing that the Verifier has accepted your request.
 9. Return to the app. You are back to the "Dashboard" screen and the flow is complete.
 
+## Digital Credentails API flow
+
+1. Open the browser application on your device and navigate to "https://verifier.dev.ageverification.dev"
+2. Tap on the "DC API" button to initiate the credential sharing flow
+3. The system will display the verifier's details and the credential information that will be shared, along with two action buttons: "Accept" and "Close"
+4. Tap "Accept" to consent to sharing your credentials, then tap "Authorize" to confirm the transaction
+5. The browser will display the verification result with verification checks.

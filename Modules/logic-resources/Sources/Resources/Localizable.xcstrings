@@ -2,18 +2,17 @@
   "sourceLanguage" : "en",
   "strings" : {
     "age_over_18" : {
-      "comment" : "Proof of Age attestation",
       "extractionState" : "manual",
       "localizations" : {
         "da" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Alder over 18"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Alter über 18"
           }
         },
@@ -25,13 +24,13 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Âge supérieur à 18 ans"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Età superiore a 18 anni"
           }
         }
@@ -131,13 +130,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Utilisez votre biométrie pour accéder au portefeuille de vérification d\\'âge."
+            "value" : "Utilisez votre biométrie pour accéder au portefeuille de vérification d'âge."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Usa i tuoi dati biometrici per accedere all\\'applicazione di verifica dell\\'età."
+            "value" : "Usa i tuoi dati biometrici per accedere all'applicazione di verifica dell'età."
           }
         }
       }
@@ -166,13 +165,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pour accéder au portefeuille de vérification d\\'âge, veuillez saisir votre code PIN."
+            "value" : "Pour accéder au portefeuille de vérification d'âge, veuillez saisir votre code PIN."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Per accedere all\\'applicazione di verifica dell\\'età, inserisci il tuo PIN."
+            "value" : "Per accedere all'applicazione di verifica dell'età, inserisci il tuo PIN."
           }
         }
       }
@@ -271,13 +270,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Votre appareil ne prend pas en charge l\\'authentification biométrique"
+            "value" : "Votre appareil ne prend pas en charge l'authentification biométrique"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Il tuo dispositivo non supporta l\\'autenticazione biometrica"
+            "value" : "Il tuo dispositivo non supporta l'autenticazione biometrica"
           }
         }
       }
@@ -306,7 +305,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Authentifiez-vouz avec l\\'utilisation de votre biométrie"
+            "value" : "Authentifiez-vouz avec l'utilisation de votre biométrie"
           }
         },
         "it" : {
@@ -358,31 +357,31 @@
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Brug dit fingeraftryk eller ansigtsgenkendelse til at logge ind på appen “%@”"
+            "value" : "Brug dit fingeraftryk eller ansigtsgenkendelse til at logge ind på appen \"%@\""
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Melden Sie sich mit Ihrem Fingerabdruck oder Ihrer Gesichtserkennung bei der App „%@“ an."
+            "value" : "Melden Sie sich mit Ihrem Fingerabdruck oder Ihrer Gesichtserkennung bei der App \"%@\" an."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Use your fingerprint or face recognition to log in to the “%@“app."
+            "value" : "Use your fingerprint or face recognition to log in to the \"%@\" app."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Utilisez votre empreinte digitale ou votre reconnaissance faciale pour vous connecter au “%@” App."
+            "value" : "Utilisez votre empreinte digitale ou votre reconnaissance faciale pour vous connecter au \"%@\" App."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Usa la tua impronta digitale o il riconoscimento facciale per accedere all\\'app “%@“."
+            "value" : "Usa la tua impronta digitale o il riconoscimento facciale per accedere all'app \"%@\"."
           }
         }
       }
@@ -697,7 +696,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Conferma l\\'eliminazione dei documenti"
+            "value" : "Conferma l'eliminazione dei documenti"
           }
         }
       }
@@ -802,7 +801,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ho letto l\\'informativa sulla protezione dei dati"
+            "value" : "Ho letto l'informativa sulla protezione dei dati"
           }
         }
       }
@@ -837,7 +836,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Acconsento al trattamento dei miei dati personali da parte [del fornitore dell\\'applicazione] al fine di ottenere un\\'attestazione di verifica dell\\'età. Questo processo richiede la scansione del mio documento d\\'identità o passaporto e un video di me stesso per confermare la mia identità. Questi dati verranno elaborati solo sul mio dispositivo e non saranno accessibili [al fornitore dell\\'applicazione] o a terze parti. Consultare l\\'informativa sulla protezione dei dati per ulteriori informazioni"
+            "value" : "Acconsento al trattamento dei miei dati personali da parte [del fornitore dell'applicazione] al fine di ottenere un'attestazione di verifica dell'età. Questo processo richiede la scansione del mio documento d'identità o passaporto e un video di me stesso per confermare la mia identità. Questi dati verranno elaborati solo sul mio dispositivo e non saranno accessibili [al fornitore dell'applicazione] o a terze parti. Consultare l'informativa sulla protezione dei dati per ulteriori informazioni"
           }
         }
       }
@@ -1105,7 +1104,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Højrepil"
+            "value" : "Arrow right"
           }
         },
         "fr" : {
@@ -1140,7 +1139,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pil op"
+            "value" : "Arrow up<"
           }
         },
         "fr" : {
@@ -1175,7 +1174,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kontrollér"
+            "value" : "Check"
           }
         },
         "fr" : {
@@ -1210,7 +1209,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Stopur"
+            "value" : "Clock timer"
           }
         },
         "fr" : {
@@ -1280,7 +1279,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vælg interval for filtrering af datoer"
+            "value" : "Select filter date range"
           }
         },
         "fr" : {
@@ -1292,7 +1291,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Seleziona l\\'intervallo di date del filtro"
+            "value" : "Seleziona l'intervallo di date del filtro"
           }
         }
       }
@@ -1315,7 +1314,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dokumenter"
+            "value" : "Documents"
           }
         },
         "fr" : {
@@ -1350,7 +1349,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rediger"
+            "value" : "Edit"
           }
         },
         "fr" : {
@@ -1385,7 +1384,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fejl"
+            "value" : "Error"
           }
         },
         "fr" : {
@@ -1420,7 +1419,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "EU-flag"
+            "value" : "EU Flag"
           }
         },
         "fr" : {
@@ -1455,7 +1454,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "EU-kort"
+            "value" : "EU Map"
           }
         },
         "fr" : {
@@ -1490,7 +1489,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Filtre"
+            "value" : "Filter"
           }
         },
         "fr" : {
@@ -1525,7 +1524,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Håndtagsbjælke"
+            "value" : "Handle bar"
           }
         },
         "fr" : {
@@ -1595,7 +1594,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ikon eller pladsholderikon"
+            "value" : "Image or placeholder icon"
           }
         },
         "fr" : {
@@ -1630,7 +1629,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "I gang"
+            "value" : "In progress"
           }
         },
         "fr" : {
@@ -1700,7 +1699,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Udstederlogo"
+            "value" : "Issuer logo"
           }
         },
         "fr" : {
@@ -1735,7 +1734,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Almindeligt logoikon"
+            "value" : "Plain Logo icon"
           }
         },
         "fr" : {
@@ -1770,7 +1769,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tekstlogoikon"
+            "value" : "Text Logo icon"
           }
         },
         "fr" : {
@@ -1805,7 +1804,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Besked"
+            "value" : "Message"
           }
         },
         "fr" : {
@@ -1840,7 +1839,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Flere emner"
+            "value" : "More Items"
           }
         },
         "fr" : {
@@ -1875,7 +1874,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nationalt eID"
+            "value" : "National eID"
           }
         },
         "fr" : {
@@ -1910,7 +1909,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Åbn nyt"
+            "value" : "Open new"
           }
         },
         "fr" : {
@@ -1980,7 +1979,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fremvis dokument ved personligt fremmøde"
+            "value" : "Present document in person"
           }
         },
         "fr" : {
@@ -2015,7 +2014,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QR-kode"
+            "value" : "QR"
           }
         },
         "fr" : {
@@ -2050,7 +2049,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QR-scanner"
+            "value" : "QR Scanner"
           }
         },
         "fr" : {
@@ -2085,7 +2084,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scytales-logo"
+            "value" : "Scytales Logo"
           }
         },
         "fr" : {
@@ -2120,7 +2119,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Søg"
+            "value" : "Search"
           }
         },
         "fr" : {
@@ -2155,7 +2154,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Indstillinger"
+            "value" : "Settings"
           }
         },
         "fr" : {
@@ -2190,7 +2189,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Udført"
+            "value" : "Success"
           }
         },
         "fr" : {
@@ -2225,7 +2224,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Telekom-logo"
+            "value" : "Telekom Logo"
           }
         },
         "fr" : {
@@ -2295,7 +2294,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bruger"
+            "value" : "User"
           }
         },
         "fr" : {
@@ -2330,7 +2329,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Verificeret"
+            "value" : "Verified"
           }
         },
         "fr" : {
@@ -2365,7 +2364,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Applikation aktiveret"
+            "value" : "Application activated"
           }
         },
         "fr" : {
@@ -2400,7 +2399,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Applikation sikret"
+            "value" : "Application secured"
           }
         },
         "fr" : {
@@ -2435,7 +2434,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Advarsel"
+            "value" : "Warning"
           }
         },
         "fr" : {
@@ -2837,41 +2836,6 @@
         }
       }
     },
-    "document_success_card_title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aldersbevis"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Altersnachweis"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Proof of Age"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Preuve d’âge"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prova di età"
-          }
-        }
-      }
-    },
     "document_success_collapsed_supporting_text" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3058,7 +3022,7 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Accept"
           }
         },
@@ -3402,13 +3366,13 @@
       "localizations" : {
         "da" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Hvis problemet fortsætter, bedes du kontakte kundesupport"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Wenn das Problem weiterhin besteht, wenden Sie sich bitte an den Kundendienst."
           }
         },
@@ -3420,13 +3384,13 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Si le problème persiste, veuillez contacter l\\'assistance client"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Se il problema persiste, contatta l\\'assistenza clienti"
           }
         }
@@ -3437,13 +3401,13 @@
       "localizations" : {
         "da" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Ups! Noget gik galt"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Ups! Ein Fehler ist aufgetreten."
           }
         },
@@ -3455,13 +3419,13 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "OUPS! Un défaut s\\'est produit."
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Ops! Qualcosa è andato storto"
           }
         }
@@ -4138,31 +4102,31 @@
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$s kræver verifikation"
+            "value" : "%1$@ kræver verifikation"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$s erfordert Verifizierung"
+            "value" : "%1$@ erfordert Verifizierung"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$s requires verification"
+            "value" : "%1$@ requires verification"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$s nécessite une vérification"
+            "value" : "%1$@ nécessite une vérification"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$s richiede la verifica"
+            "value" : "%1$@ richiede la verifica"
           }
         }
       }
@@ -4173,31 +4137,31 @@
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dine dokumenter fra %1$s er blevet anmodet. Du får besked, når de er blevet udstedt til din applikation."
+            "value" : "Dine dokumenter fra %1$@ er blevet anmodet. Du får besked, når de er blevet udstedt til din applikation."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ihre Dokumente von %1$s wurden angefordert. Sie werden benachrichtigt, sobald die Gutschriften an Ihr Wallet übermittelt wurden."
+            "value" : "Ihre Dokumente von %1$@ wurden angefordert. Sie werden benachrichtigt, sobald die Gutschriften an Ihr Wallet übermittelt wurden."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Your documents from %1$s have been requested. You will be notified when they have been issued to your application."
+            "value" : "Your documents from %1$@ have been requested. You will be notified when they have been issued to your application."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vos documents de %1$s ont été demandés. Vous serez informé lorsqu\\'ils auront été délivrés dans votre portefeuille."
+            "value" : "Vos documents de %1$@ ont été demandés. Vous serez informé lorsqu\\'ils auront été délivrés dans votre portefeuille."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "I tuoi documenti da %1$s sono stati richiesti. Ti avviseremo quando saranno disponibile sulla tua applicazione."
+            "value" : "I tuoi documenti da %1$@ sono stati richiesti. Ti avviseremo quando saranno disponibile sulla tua applicazione."
           }
         }
       }
@@ -4213,7 +4177,7 @@
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Your document %@ has been requested. You will be notified when it has been issued to your application."
           }
         },
@@ -4802,13 +4766,13 @@
       "localizations" : {
         "da" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Du har føjet følgende til din applikation"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Sie haben Folgendes erfolgreich zu Ihrem Wallet hinzugefügt"
           }
         },
@@ -4820,13 +4784,13 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Vous avez réussi à ajouter ce qui suit à votre portefeuille"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Hai aggiunto correttamente quanto segue alla tua applicazione"
           }
         }
@@ -4850,7 +4814,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ou have successfully added the document(s) to your application"
+            "value" : "You have successfully added the document(s) to your application"
           }
         },
         "fr" : {
@@ -5101,7 +5065,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vérification de l\\'âge"
+            "value" : "Vérification de l'âge"
           }
         },
         "it" : {
@@ -5124,7 +5088,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Europäische\\nUnion"
+            "value" : "Europäische\nUnion"
           }
         },
         "en" : {
@@ -5171,7 +5135,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Détails d\\'identification"
+            "value" : "Détails d'identification"
           }
         },
         "it" : {
@@ -5241,7 +5205,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aucune attestation d\\'âge disponible"
+            "value" : "Aucune attestation d'âge disponible"
           }
         },
         "it" : {
@@ -5311,13 +5275,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vous pouvez communiquer votre preuve d\\'âge aux services limités aux adultes. Cette preuve confirme que vous avez plus de 18 ans sans révéler aucune autre information personnelle."
+            "value" : "Vous pouvez communiquer votre preuve d'âge aux services limités aux adultes. Cette preuve confirme que vous avez plus de 18 ans sans révéler aucune autre information personnelle."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Puoi condividere la tua attestazione dell\\'età con i servizi riservati agli adulti. Questo documento conferma che hai almeno 18 anni senza rivelare altre informazioni personali."
+            "value" : "Puoi condividere la tua attestazione dell'età con i servizi riservati agli adulti. Questo documento conferma che hai almeno 18 anni senza rivelare altre informazioni personali."
           }
         }
       }
@@ -5346,13 +5310,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vérification de l\\'âge"
+            "value" : "Vérification de l'âge"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Verifica dell\\'età"
+            "value" : "Verifica dell'età"
           }
         }
       }
@@ -6057,6 +6021,41 @@
         }
       }
     },
+    "nfc_error_reading_tag" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fejl under NFC-læsning. Prøv igen."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehler beim NFC-Lesen. Bitte versuchen Sie es erneut."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error while NFC reading. Try again."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erreur lors de la lecture NFC. Veuillez réessayer."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Errore durante la lettura NFC. Riprova."
+          }
+        }
+      }
+    },
     "nfc_error_tag_not_valid" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -6215,7 +6214,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Put your phone over your Passport / ID Card and don\\'t move it"
+            "value" : "Put your phone over your Passport / ID Card and don't move it"
           }
         },
         "fr" : {
@@ -6256,13 +6255,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lisez votre passeport/carte d\\'identité"
+            "value" : "Lisez votre passeport/carte d'identité"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Leggi il tuo passaporto/carta d\\'identità"
+            "value" : "Leggi il tuo passaporto/carta d'identità"
           }
         }
       }
@@ -6763,31 +6762,31 @@
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Indholdsbeskrivelse"
+            "value" : "Illustration af passcanning"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Inhaltsbeschreibung"
+            "value" : "Illustration zum Scannen von Reisepässen"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Content description"
+            "value" : "Passport scanning illustration"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Description du contenu"
+            "value" : "Illustration de numérisation de passeport"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Descrizione del contenuto"
+            "value" : "Illustrazione di scansione del passaporto"
           }
         }
       }
@@ -6902,32 +6901,32 @@
       "localizations" : {
         "da" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scan dit pas / ID-kort"
+            "state" : "needs_review",
+            "value" : "Læs i dit pas/ID-kort"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scanne deinen Reisepass / Personalausweis"
+            "state" : "needs_review",
+            "value" : "Lesen Sie in Ihrem Reisepass / Personalausweis nach."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scan your passport / ID card"
+            "value" : "Read in your Passport / ID Card"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scannez votre passeport / carte d\\'identité"
+            "state" : "needs_review",
+            "value" : "Lisez votre passeport / carte d'identité"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scansiona il tuo passaporto / carta d\\'identità"
+            "state" : "needs_review",
+            "value" : "Leggi sul tuo passaporto/carta d'identità"
           }
         }
       }
@@ -7253,31 +7252,31 @@
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Placer fotosiden af dit pas / ID-kort inden for rammen"
+            "value" : "Placer dokumentet inden for rammen"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Richten Sie die Fotoseite Ihres Reisepasses / Personalausweises im Rahmen aus"
+            "value" : "Legen Sie das Dokument in den Rahmen."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Align photo page of your passport / ID card within the frame"
+            "value" : "Place document within the frame"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Alignez la page avec photo de votre passeport / carte d\\'identité dans le cadre"
+            "value" : "Placez le document dans le cadre."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Allinea la pagina con la foto del passaporto / carta d\\'identità all\\'interno della cornice"
+            "value" : "Posiziona il documento all'interno della cornice"
           }
         }
       }
@@ -8461,13 +8460,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Filmez-vous pour la vérification d\\'identité."
+            "value" : "Filmez-vous pour la vérification d'identité."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Filmati per la verifica dell\\'identità."
+            "value" : "Filmati per la verifica dell'identità."
           }
         }
       }
@@ -8601,13 +8600,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Passeport ou Carte d\\'identité"
+            "value" : "Passeport ou Carte d'identité"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Passaporto o Carta d\\'identità"
+            "value" : "Passaporto o Carta d'identità"
           }
         }
       }
@@ -8636,13 +8635,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Votre passeport / carte d\\'identité a expiré. Veuillez utiliser un document valide."
+            "value" : "Votre passeport / carte d'identité a expiré. Veuillez utiliser un document valide."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Il tuo passaporto / carta d\\'identità è scaduto. Utilizza un documento valido."
+            "value" : "Il tuo passaporto / carta d'identità è scaduto. Utilizza un documento valido."
           }
         }
       }
@@ -8671,13 +8670,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Les données du passeport / carte d\\'identité sont incomplètes. Veuillez scanner à nouveau votre document."
+            "value" : "Les données du passeport / carte d'identité sont incomplètes. Veuillez scanner à nouveau votre document."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "I dati del passaporto / carta d\\'identità sono incompleti. Scansiona nuovamente il tuo documento."
+            "value" : "I dati del passaporto / carta d'identità sono incompleti. Scansiona nuovamente il tuo documento."
           }
         }
       }
@@ -8741,13 +8740,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lisez un code QR fourni par le service en ligne pour présenter la preuve de l\\'âge."
+            "value" : "Lisez un code QR fourni par le service en ligne pour présenter la preuve de l'âge."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scansiona il codice QR fornito dal servizio online per presentare l\\'attestazione dell\\'età."
+            "value" : "Scansiona il codice QR fornito dal servizio online per presentare l'attestazione dell'età."
           }
         }
       }
@@ -8869,7 +8868,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Probleme beim Scannen des QR-Codes?\\nBitte versuchen Sie es mit einer anderen Methode"
+            "value" : "Probleme beim Scannen des QR-Codes?\nBitte versuchen Sie es mit einer anderen Methode"
           }
         },
         "en" : {
@@ -8904,7 +8903,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Probleme beim Scannen des QR-Codes?\\nBitte versuchen Sie es mit einer anderen Methode"
+            "value" : "Probleme beim Scannen des QR-Codes?\nBitte versuchen Sie es mit einer anderen Methode"
           }
         },
         "en" : {
@@ -8939,7 +8938,7 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kameraberechtigung nicht erteilt\\nApp öffnen Einstellungen"
+            "value" : "Kameraberechtigung nicht erteilt\nApp öffnen Einstellungen"
           }
         },
         "en" : {
@@ -8951,13 +8950,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Autorisation d\\'accès à la caméra non donnée\nOuvrir les paramètres de l\\'application"
+            "value" : "Autorisation d'accès à la caméra non donnée\nOuvrir les paramètres de l'application"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Autorizzazione della fotocamera non fornita\nApri le impostazioni dell\\'app"
+            "value" : "Autorizzazione della fotocamera non fornita\nApri le impostazioni dell'app"
           }
         }
       }
@@ -9102,6 +9101,41 @@
         }
       }
     },
+    "quick_pin_cant_use_previous_pin" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Den nye pinkode skal være anderledes end de tidligere pinkoder"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die neue PIN muss sich von den vorherigen PINs unterscheiden."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New PIN needs to be different than previous PINs"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le nouveau code PIN doit être différent des codes PIN précédents."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il nuovo PIN deve essere diverso dai PIN precedenti"
+          }
+        }
+      }
+    },
     "quick_pin_change_enter_new_subtitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -9143,13 +9177,13 @@
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Please avoid using consecutive numbers or birthdays if possible."
+            "value" : "Undgå venligst at bruge fortløbende tal eller fødselsdage, hvis det er muligt."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Please avoid using consecutive numbers or birthdays if possible."
+            "value" : "Bitte vermeiden Sie nach Möglichkeit die Verwendung von aufeinanderfolgenden Zahlen oder Geburtstagen."
           }
         },
         "en" : {
@@ -9161,13 +9195,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Please avoid using consecutive numbers or birthdays if possible."
+            "value" : "Veuillez éviter, si possible, d'utiliser des chiffres consécutifs ou des dates d'anniversaire."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Please avoid using consecutive numbers or birthdays if possible."
+            "value" : "Se possibile, evita di usare numeri consecutivi o date di nascita."
           }
         }
       }
@@ -9301,7 +9335,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "D\\'accord"
+            "value" : "D'accord"
           }
         },
         "it" : {
@@ -9365,7 +9399,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Succes!"
+            "value" : "Success!"
           }
         },
         "fr" : {
@@ -9616,13 +9650,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Choisissez un code PIN pour accéder à l\\'application"
+            "value" : "Choisissez un code PIN pour accéder à l'application"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Scegli un PIN per accedere all\\'app"
+            "value" : "Scegli un PIN per accedere all'app"
           }
         }
       }
@@ -9692,7 +9726,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "\"Questo PIN è troppo comune, per favore scegline uno più sicuro.  \""
+            "value" : "Questo PIN è troppo comune, per favore scegline uno più sicuro."
           }
         }
       }
@@ -10007,7 +10041,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Se scegli di non condividere determinati dati, potresti impedire l\\'emissione del documento richiesto."
+            "value" : "Se scegli di non condividere determinati dati, potresti impedire l'emissione del documento richiesto."
           }
         }
       }
@@ -10071,7 +10105,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Détails d\\'identification"
+            "value" : "Détails d'identification"
           }
         },
         "it" : {
@@ -10085,6 +10119,12 @@
     "request_data_info_notice" : {
       "extractionState" : "manual",
       "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hvorfor har vi brug for dine data?"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10095,6 +10135,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Why we need your data?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pourquoi avons-nous besoin de vos données ?"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perché abbiamo bisogno dei tuoi dati?"
           }
         }
       }
@@ -10118,6 +10170,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "A relying party is considered trusted when it meets predefined criteria for security, data protection, compliance, and responsible data handling. Trust is reinforced through assessments, audits, and certifications."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Une partie de confiance est considérée comme digne de confiance lorsqu&#39;elle répond à des critères prédéfinis en matière de sécurité, de protection des données, de conformité et de gestion responsable des données. La confiance est renforcée par des évaluations, des audits et des certifications."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Una parte affidante è considerata affidabile quando soddisfa criteri predefiniti di sicurezza, protezione dei dati, conformità e gestione responsabile dei dati. La fiducia viene rafforzata attraverso valutazioni, audit e certificazioni."
           }
         }
       }
@@ -10267,13 +10331,13 @@
       "localizations" : {
         "da" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Følgende transaktion kræver din tilladelse og godkendelse."
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Die folgende Transaktion erfordert Ihre Zustimmung und Authentifizierung."
           }
         },
@@ -10285,13 +10349,13 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "La transaction suivante nécessite votre autorisation et votre authentification."
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "La seguente transazione richiede la tua autorizzazione e autenticazione"
           }
         }
@@ -10356,13 +10420,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Le document demandé n\\'est pas disponible dans votre portefeuille de vérification d\\'âge.\n        Veuillez contacter l\\'émetteur autorisé pour plus d\\'informations."
+            "value" : "Le document demandé n'est pas disponible dans votre portefeuille de vérification d'âge.\n        Veuillez contacter l'émetteur autorisé pour plus d'informations."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Il documento richiesto non è disponibile nella tua applicazione di verifica dell\\'età. Contatta l\\'emittente autorizzato per ulteriori informazioni."
+            "value" : "Il documento richiesto non è disponibile nella tua applicazione di verifica dell'età. Contatta l'emittente autorizzato per ulteriori informazioni."
           }
         }
       }
@@ -10531,7 +10595,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Erreur: NFC n\\'est pas pris en charge sur cet appareil."
+            "value" : "Erreur: NFC n'est pas pris en charge sur cet appareil."
           }
         },
         "it" : {
@@ -10630,7 +10694,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "App-information"
+            "value" : "App Information"
           }
         },
         "fr" : {
@@ -10642,7 +10706,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Informazioni sull\\'app"
+            "value" : "Informazioni sull'app"
           }
         }
       }
@@ -10706,7 +10770,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "\"Attestation d\\\\'âge \""
+            "value" : "Attestation d'âge"
           }
         },
         "it" : {
@@ -10741,13 +10805,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Supprimer toutes les preuves d\\'attestation d\\'âge"
+            "value" : "Supprimer toutes les preuves d'attestation d'âge"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elimina tutte le attestazioni dell\\'età"
+            "value" : "Elimina tutte le attestazioni dell'età"
           }
         }
       }
@@ -10869,13 +10933,13 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Powered by"
+            "value" : "Angetrieben von"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Drevet af"
+            "value" : "Powered by"
           }
         },
         "fr" : {
@@ -10916,13 +10980,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vérification de l\\'âge"
+            "value" : "Vérification de l'âge"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Verifica dell\\'età"
+            "value" : "Verifica dell'età"
           }
         }
       }
@@ -10986,7 +11050,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L\\'authentification a échoué! Veuillez essayer de scanner à nouveau le document ou saisir les données manuellement."
+            "value" : "L'authentification a échoué! Veuillez essayer de scanner à nouveau le document ou saisir les données manuellement."
           }
         },
         "it" : {
@@ -11015,7 +11079,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Impossible to read the document. Passport doesn\\'t support CLA ."
+            "value" : "Impossible to read the document. Passport doesn't support CLA ."
           }
         },
         "fr" : {
@@ -11062,7 +11126,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Devi abilitare l\\'NFC"
+            "value" : "Devi abilitare l'NFC"
           }
         }
       }
@@ -11091,13 +11155,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L\\'utilisation de cette application vous permet de prouver en toute securité que vous avez plus de 18 ans lors d\\'accès aux services limités aux adultes."
+            "value" : "L'utilisation de cette application vous permet de prouver en toute securité que vous avez plus de 18 ans lors d'accès aux services limités aux adultes."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Utilizzando quest\\'app, puoi dimostrare in modo sicuro di avere almeno 18 anni quando accedi ai servizi riservati agli adulti."
+            "value" : "Utilizzando quest'app, puoi dimostrare in modo sicuro di avere almeno 18 anni quando accedi ai servizi riservati agli adulti."
           }
         }
       }
@@ -11161,13 +11225,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vous gardez le contrôle de vos données : seulement la preuve que vous avez plus de 18 ans est communiquée. Aucun autre détail personnel n\\'est enregistré ou communiqué à des services en ligne."
+            "value" : "Vous gardez le contrôle de vos données : seulement la preuve que vous avez plus de 18 ans est communiquée. Aucun autre détail personnel n'est enregistré ou communiqué à des services en ligne."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mantieni il controllo dei tuoi dati: solo l\\'attestazione della tua maggiore età verrà condivisa. Nessun altro dettaglio personale sarà archiviato o condiviso con i servizi online."
+            "value" : "Mantieni il controllo dei tuoi dati: solo l'attestazione della tua maggiore età verrà condivisa. Nessun altro dettaglio personale sarà archiviato o condiviso con i servizi online."
           }
         }
       }
@@ -11301,13 +11365,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vérification simple de l\\'âge"
+            "value" : "Vérification simple de l'âge"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Verifica dell\\'età semplice"
+            "value" : "Verifica dell'età semplice"
           }
         }
       }

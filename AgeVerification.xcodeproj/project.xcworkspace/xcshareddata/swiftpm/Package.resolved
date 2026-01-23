@@ -1,5 +1,5 @@
 {
-  "originHash" : "87e457daaa102553fe42fdbbe30fa9a142124a90cda76e0a40d0d8140b7882d5",
+  "originHash" : "2d470f7f1c150c2627335704325da667e7d50fca77ac67d13c4a4d9186edd591",
   "pins" : [
     {
       "identity" : "activityindicatorview",
@@ -164,33 +164,6 @@
       }
     },
     {
-      "identity" : "eudi-lib-ios-rqes-csc-swift",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-rqes-csc-swift.git",
-      "state" : {
-        "revision" : "64581853e64b604676a00a122f104d63968fa2ca",
-        "version" : "0.6.3"
-      }
-    },
-    {
-      "identity" : "eudi-lib-ios-rqes-kit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-rqes-kit.git",
-      "state" : {
-        "revision" : "7eb84df1fe85067e509afe29de0ddf66b3d195ec",
-        "version" : "0.6.4"
-      }
-    },
-    {
-      "identity" : "eudi-lib-ios-rqes-ui",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-rqes-ui.git",
-      "state" : {
-        "revision" : "2db61dbb482bc0bb6bb7c50338748e4b7702e280",
-        "version" : "0.3.8"
-      }
-    },
-    {
       "identity" : "eudi-lib-ios-statium-swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-statium-swift.git",
@@ -218,15 +191,6 @@
       }
     },
     {
-      "identity" : "eudi-lib-podofo",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-podofo",
-      "state" : {
-        "revision" : "726147530e544a8ca57b5f633a1aa8568f2bb93b",
-        "version" : "0.3.8"
-      }
-    },
-    {
       "identity" : "eudi-lib-sdjwt-swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-sdjwt-swift.git",
@@ -249,8 +213,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/beatt83/jose-swift.git",
       "state" : {
-        "revision" : "f25da1bf75b9a2b803bb7c40bdd6ace85f4df3ce",
-        "version" : "6.0.1"
+        "revision" : "13e5ae6f23ef1487b0dad72540eff414272bd7ca",
+        "version" : "6.0.2"
       }
     },
     {
@@ -312,8 +276,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/marmelroy/PhoneNumberKit",
       "state" : {
-        "revision" : "f158939f66f4ef94512b7e6cd1e56057070a05e4",
-        "version" : "4.2.1"
+        "revision" : "8c369005948985d1c6fb396716a3f883d30639ab",
+        "version" : "4.2.3"
       }
     },
     {
@@ -321,8 +285,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/onevcat/Rainbow",
       "state" : {
-        "revision" : "16da5c62dd737258c6df2e8c430f8a3202f655a7",
-        "version" : "4.2.0"
+        "revision" : "cdf146ae671b2624917648b61c908d1244b98ca1",
+        "version" : "4.2.1"
       }
     },
     {
@@ -384,8 +348,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-argument-parser",
       "state" : {
-        "revision" : "cdd0ef3755280949551dc26dee5de9ddeda89f54",
-        "version" : "1.6.2"
+        "revision" : "c5d11a805e765f52ba34ec7284bd4fcd6ba68615",
+        "version" : "1.7.0"
       }
     },
     {
@@ -402,8 +366,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-certificates.git",
       "state" : {
-        "revision" : "133a347911b6ad0fc8fe3bf46ca90c66cff97130",
-        "version" : "1.17.0"
+        "revision" : "7d5f6124c91a2d06fb63a811695a3400d15a100e",
+        "version" : "1.17.1"
       }
     },
     {
@@ -438,8 +402,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-log.git",
       "state" : {
-        "revision" : "bc386b95f2a16ccd0150a8235e7c69eab2b866ca",
-        "version" : "1.8.0"
+        "revision" : "2778fd4e5a12a8aaa30a3ee8285f4ce54c5f3181",
+        "version" : "1.9.1"
       }
     },
     {
@@ -465,8 +429,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/niscy-eudiw/SwiftCBOR.git",
       "state" : {
-        "revision" : "7d6271345212f3864309666b6eb9f9941be6873d",
-        "version" : "0.6.3"
+        "revision" : "a663e7a6bd50d2224223ed60622b531b18499dd0",
+        "version" : "0.6.4"
       }
     },
     {

@@ -43,11 +43,11 @@ final class ProximityLoadingViewModel<Router: RouterHost, RequestItem: Sendable>
   }
 
   override func getTitle() -> LocalizableStringKey {
-    .requestRelyingPartyDescription([getRelyingParty()])
+    .requestRelyingPartyDescription
   }
 
   override func getCaption() -> LocalizableStringKey {
-    .requestRelyingPartyDescription([""])
+    .requestRelyingPartyDescription
   }
 
   private func getOnSuccessRoute() -> AppRoute {

@@ -41,10 +41,6 @@ let package = Package(
       url: "https://github.com/eu-digital-identity-wallet/SwiftCopyableMacro.git",
       from: "0.0.4"
     ),
-    .package(
-      url: "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-rqes-ui.git",
-      exact: "0.3.8"
-    ),
     .package(name: "logic-test", path: "./logic-test")
   ],
   targets: [
@@ -63,10 +59,6 @@ let package = Package(
         .product(
           name: "Copyable",
           package: "SwiftCopyableMacro"
-        ),
-        .product(
-          name: "EudiRQESUi",
-          package: "eudi-lib-ios-rqes-ui"
         )
       ],
       path: "./Sources"

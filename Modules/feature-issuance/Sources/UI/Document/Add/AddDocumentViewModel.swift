@@ -276,11 +276,11 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
 
     var subTitle: LocalizableStringKey {
       if documentName.isEmpty {
-        return .issuanceDocumentOfferDeferredSuccessDescriptionWithDoc([issuerName])
+        return .issuanceDocumentOfferDeferredSuccessDescriptionWithDoc(issuerName)
       } else if !documentName.isEmpty, !issuerName.isEmpty {
-        return .issuanceDocumentOfferDeferredSuccessDescriptionWithDocAndIssuer([documentName, issuerName])
+        return .issuanceDocumentOfferDeferredSuccessDescriptionWithDocAndIssuer(documentName, issuerName)
       } else {
-        return .issuanceDocumentOfferDeferredSuccessDescription([""])
+        return .issuanceDocumentOfferDeferredSuccessDescription("")
       }
     }
 

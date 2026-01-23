@@ -52,22 +52,20 @@ private func content(
   ScrollView {
     VStack(alignment: .leading, spacing: .zero) {
       VSpacer.largeMedium()
-      OnboardingTabsView(steps: PassportEnrollmentSteps.allCases,
-                         selectedIndex: 2)
-
+        
       VStack(alignment: .leading, spacing: .zero) {
         VSpacer.large()
 
         Text(LocalizableStringKey.passportBiometricsVerifyData.toString)
           .typography(Theme.shared.font.displaySmall)
-          .fontWeight(.bold)
+          .fontWeight(.semibold)
         VSpacer.large()
 
         // Card Container
         VStack(alignment: .leading, spacing: 16) {
           // Card Title
           Text(LocalizableStringKey.passportBiometricsPassport.toString)
-            .typography(Theme.shared.font.titleLarge)
+            .typography(Theme.shared.font.displaySmall)
             .fontWeight(.semibold)
 
           // Passport Photo
@@ -104,8 +102,8 @@ private func content(
                   .typography(Theme.shared.font.bodyMedium)
                   .foregroundColor(viewState.isUnderAge ? .red : Color(.secondaryLabel))
                 Text(formattedBirthDate)
-                  .typography(Theme.shared.font.titleMedium)
-                  .fontWeight(.regular)
+                  .typography(Theme.shared.font.headlineMedium)
+                  .fontWeight(.semibold)
                   .foregroundColor(viewState.isUnderAge ? .red : .primary)
               }
             }
@@ -116,8 +114,8 @@ private func content(
                   .typography(Theme.shared.font.bodyMedium)
                   .foregroundColor(viewState.isPassportExpired ? .red : Color(.secondaryLabel))
                 Text(formattedExpiryDate)
-                  .typography(Theme.shared.font.titleMedium)
-                  .fontWeight(.regular)
+                  .typography(Theme.shared.font.headlineMedium)
+                  .fontWeight(.semibold)
                   .foregroundColor(viewState.isPassportExpired ? .red : .primary)
               }
             }
@@ -126,10 +124,11 @@ private func content(
         .padding(20)
         .background(Color(UIColor.systemGray6))
         .cornerRadius(16)
+        .shadow(color: .black.opacity(0.15), radius: 5, x: 0, y: 4)
 
         VSpacer.large()
       }
-      .padding(.horizontal, 16)
+      .padding(.horizontal, 25)
     }
   }
 

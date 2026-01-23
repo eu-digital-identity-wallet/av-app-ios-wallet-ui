@@ -23,14 +23,11 @@ final class NFCPassportReaderInteractorImpl: NFCDocumentReaderInteractor {
 
       let passportReader = PassportReader()
 
-      // Read passport using NFC with async/await
-      // Skip PACE as Integrated Mapping (IM) is not yet implemented in NFCPassportReader 2.2.0
-      // This ensures we use BAC directly, which is fully supported and more reliable
       let nfcModel = try await passportReader.readPassport(
         mrzKey: mrzKey,
         tags: [.COM, .DG1, .DG2, .SOD],
         skipSecureElements: true,
-        skipPACE: true
+        skipPACE: false
       )
 
       let duration = Date().timeIntervalSince(startTime)
@@ -154,7 +151,7 @@ public enum NFCError: Error, LocalizedError, Sendable {
     case .userCanceled:
       return LocalizableStringKey.nfcErrorUserCanceled.toString
     case .invalidMRZKey:
-      return LocalizableStringKey.nfcErrorInvalidMRZKey.toString
+      return LocalizableStringKey.nfcErrorInvalidMrzKey.toString
     case .unexpectedError:
       return LocalizableStringKey.nfcErrorUnexpected.toString
     case .readingFailed:

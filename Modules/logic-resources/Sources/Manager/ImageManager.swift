@@ -81,6 +81,7 @@ public protocol ImageManagerProtocol: Sendable {
   var scanButton: Image { get }
   var passportCard: Image { get }
   var nfcReadingGuide: Image { get }
+  var succesIcon: Image { get }
 }
 
 final class ImageManager: ImageManagerProtocol {
@@ -150,7 +151,7 @@ final class ImageManager: ImageManagerProtocol {
     case scanButton = "scanButton"
     case passportCard = "passport"
     case nfcReadingGuide = "nfc-reading-guide"
-
+    case succesIcon = "succes"
   }
 
   // MARK: - Properties
@@ -356,5 +357,8 @@ final class ImageManager: ImageManagerProtocol {
   }
   var nfcReadingGuide: Image {
     Image(ImageEnum.nfcReadingGuide.rawValue, bundle: bundle)
+  }
+  var succesIcon: Image {
+    Image(ImageEnum.succesIcon.rawValue, bundle: bundle)
   }
 }

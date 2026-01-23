@@ -107,7 +107,6 @@ final class DocumentNFCViewModel<Router: RouterHost>: ViewModel<Router, Document
                 ),
                 configId: config.configId,
                 docTypeIdentifier: config.docTypeIdentifier,
-                flowType: config.flowType,
                 issuerId: config.issuerId
               )
             )
