@@ -112,7 +112,7 @@ final class MRZKeyExtractorTests: XCTestCase {
     XCTAssertEqual(result.count, 24)
   }
 
-  func testExtractMRZKey_NonTD3Format_UsesFallback() {
+  func testExtractMRZKey_TD1Format_ValidIDCard() {
     let mrzData = MRZData(
       documentType: "I",
       documentNumber: "CD789012",
@@ -129,6 +129,29 @@ final class MRZKeyExtractorTests: XCTestCase {
     )
 
     let result = MRZKeyExtractor.extractMRZKey(from: mrzData)
+    // TD1 extraction: doc+check from L1[5-14], dob+check from L2[0-6], expiry+check from L2[8-14]
+    XCTAssertEqual(result, "CD789012<<88091283210159")
+    XCTAssertEqual(result.count, 24)
+  }
+
+  func testExtractMRZKey_TD1Format_MalformedInput_UsesFallback() {
+    let mrzData = MRZData(
+      documentType: "I",
+      documentNumber: "CD789012",
+      issuingCountry: "CAN",
+      surname: "BROWN",
+      givenNames: "DAVID",
+      nationality: "CAN",
+      dateOfBirth: "880912",
+      sex: "M",
+      expirationDate: "321015",
+      personalNumber: "",
+      rawMRZ: "SHORT",  // Malformed - too short, should trigger fallback
+      mrzType: .td1
+    )
+
+    let result = MRZKeyExtractor.extractMRZKey(from: mrzData)
+    // Fallback uses parsed fields: docNumber padded to 9 + check + dob + check + expiry + check
     XCTAssertTrue(result.hasPrefix("CD789012<"))
     XCTAssertEqual(result.count, 24)
   }

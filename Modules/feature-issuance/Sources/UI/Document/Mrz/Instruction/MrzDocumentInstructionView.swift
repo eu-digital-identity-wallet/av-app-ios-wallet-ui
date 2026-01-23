@@ -50,14 +50,13 @@ private func content(
     VStack(alignment: .leading, spacing: .zero) {
 
       VSpacer.largeMedium()
-      OnboardingTabsView(steps: PassportEnrollmentSteps.allCases,
-                         selectedIndex: 0)
 
       VStack(alignment: .leading, spacing: .zero) {
         VSpacer.large()
 
         Text(LocalizableStringKey.passportIdentificationTitle.toString)
-          .typography(Theme.shared.font.labelLarge)
+              .typography(Theme.shared.font.displaySmall)
+              .fontWeight(.semibold)
         VSpacer.large()
 
         Text(LocalizableStringKey.passportIdentificationDescription.toString)
@@ -129,5 +128,4 @@ private func pointsSection(viewState: MrzDocumentInstructionViewState) -> some V
       VSpacer.small()
     }
   }
-  .padding(.horizontal)
 }

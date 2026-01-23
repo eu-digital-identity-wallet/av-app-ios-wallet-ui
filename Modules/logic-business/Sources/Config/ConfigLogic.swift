@@ -14,7 +14,6 @@
  * governing permissions and limitations under the Licence.
  */
 import Foundation
-import EudiRQESUi
 
 public enum AppBuildType: String, Sendable {
   case RELEASE, DEBUG
@@ -42,11 +41,6 @@ public protocol ConfigLogic: Sendable {
   var appVersion: String { get }
 
   /**
-   * RQES Config
-   */
-  var rqesConfig: EudiRQESUiConfig { get }
-
-  /**
    * Changelog URL
    */
   var changelogUrl: URL? { get }
@@ -64,10 +58,6 @@ struct ConfigLogicImpl: ConfigLogic {
 
   public var appBuildVariant: AppBuildVariant {
     getBuildVariant()
-  }
-
-  public var rqesConfig: EudiRQESUiConfig {
-    RQESConfig(buildVariant: appBuildVariant, buildType: appBuildType)
   }
 
   public var changelogUrl: URL? {

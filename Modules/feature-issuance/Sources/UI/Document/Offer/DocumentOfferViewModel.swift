@@ -30,7 +30,7 @@ struct DocumentOfferViewState: ViewState {
   let contentHeaderConfig: ContentHeaderConfig
 
   var title: LocalizableStringKey {
-    return .issuanceDocumentOfferRelyingPartyDescription([documentOfferUiModel.issuerName])
+    return .issuanceDocumentOfferRelyingPartyDescription
   }
 
   var successNavigation: UIConfig.TwoWayNavigationType {
@@ -109,7 +109,7 @@ final class DocumentOfferViewModel<Router: RouterHost>: ViewModel<Router, Docume
             relyingPartyData: RelyingPartyData(
               isVerified: false,
               name: .custom(uiModel.issuerName),
-              description: .issuanceDocumentOfferRelyingPartyDescription([""])
+              description: .issuanceDocumentOfferRelyingPartyDescription
             )
           )
         ).copy(error: nil)

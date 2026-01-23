@@ -31,6 +31,14 @@ Each scheme has two configurations: Debug and Release.
 
 This setup results in a total of four configurations. All four configurations are defined in the xcconfig files located under the Config folder in the project.
 
+Configure Team Identifer
+
+- open project's build settings in xcode
+- select the main app target and locate `APP_TEAM_ID` under user-defined section
+- Update the value with your Apple Developer Account Team ID
+- Repeat the same process for the DigitalCredentialProvider extension target
+- Ensure both target uses same Team ID for proper code signing and entitlement configuration
+
 To run the app on the simulator, select your app schema and press Run.
 
 To run the app on a device, follow similar steps to running it on the simulator. Additionally, you need to supply your own provisioning profile and signing certificate in the Signing & Capabilities tab of your app target.

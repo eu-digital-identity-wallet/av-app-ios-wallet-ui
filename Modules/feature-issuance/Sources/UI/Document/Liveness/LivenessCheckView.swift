@@ -69,15 +69,12 @@ private func content(
   ScrollView {
     VStack(alignment: .leading, spacing: .zero) {
       VSpacer.largeMedium()
-      OnboardingTabsView(steps: PassportEnrollmentSteps.allCases,
-                         selectedIndex: 2)
-
       VStack(alignment: .leading, spacing: .zero) {
         VSpacer.large()
 
         Text(LocalizableStringKey.passportLiveVideoHeader.toString)
           .typography(Theme.shared.font.displaySmall)
-          .fontWeight(.bold)
+          .fontWeight(.semibold)
 
         VSpacer.large()
 
@@ -91,10 +88,9 @@ private func content(
         VStack(alignment: .leading, spacing: 16) {
           ForEach(Array(viewState.instructionPoints.enumerated()), id: \.offset) { _, point in
             HStack(alignment: .top, spacing: 12) {
-              Circle()
-                .fill(Theme.shared.color.primary)
-                .frame(width: 8, height: 8)
-                .padding(.top, 8)
+                Text("•")
+                  .typography(Theme.shared.font.bodyLarge)
+                  .multilineTextAlignment(.leading)
 
               Text(point)
                 .typography(Theme.shared.font.bodyMedium)

@@ -68,57 +68,24 @@ final class MRZDocumentScanViewModel<Router: RouterHost>: ViewModel<Router, MRZD
           $0.copy(isProcessing: false, error: nil)
         }
 
-        // Check if this is an ID card (TD1 format) to skip NFC
-        let isIDCard = mrzData.mrzType == .td1
+        // Extract MRZ key and continue with NFC flow
+        let mrzKey = MRZKeyExtractor.extractMRZKey(from: mrzData)
 
-        if isIDCard {
-//          // For ID cards, skip NFC and go directly to data display with partial data
-//          let documentData = DocumentEnrollmentUiConfig.DocumentData(
-//            photo: nil,  // No photo without NFC
-//            birthDate: mrzData.dateOfBirth,
-//            expiryDate: mrzData.expirationDate
-//          )
-//
-//          router.push(with: AppRoute.featureIssuanceModule(
-//            .documentDataDisplay(
-//              config: DocumentEnrollmentUiConfig(
-//                mrzKey: nil,
-//                documentData: documentData,
-//                configId: viewState.config.configId,
-//                docTypeIdentifier: viewState.config.docTypeIdentifier,
-//                flowType: .idCard
-//              )
-//            )
-//          ))
+        let documentTypeName = mrzData.mrzType == .td1 ? "ID Card" : "Passport"
+        log("Document type: \(documentTypeName) (\(mrzData.mrzType))", level: .info)
+        log("MRZ Key extracted: \(mrzKey) (length: \(mrzKey.count))", level: .info)
 
-          // Show error for ID cards
-          setState {
-            $0.copy(
-              isProcessing: false,
-              error: .init(
-                description: .custom(""), cancelAction: ()
-              )
+        router.push(with: AppRoute.featureIssuanceModule(
+          .documentNFC(
+            config: DocumentEnrollmentUiConfig(
+              mrzKey: mrzKey,
+              documentData: nil,
+              configId: viewState.config.configId,
+              docTypeIdentifier: viewState.config.docTypeIdentifier,
+              issuerId: viewState.config.issuerId
             )
-          }
-        } else {
-          // For passports (TD3), continue with NFC flow
-          let mrzKey = MRZKeyExtractor.extractMRZKey(from: mrzData)
-
-          log("MRZ Key extracted: \(mrzKey) (length: \(mrzKey.count))", level: .info)
-
-          router.push(with: AppRoute.featureIssuanceModule(
-            .documentNFC(
-              config: DocumentEnrollmentUiConfig(
-                mrzKey: mrzKey,
-                documentData: nil,
-                configId: viewState.config.configId,
-                docTypeIdentifier: viewState.config.docTypeIdentifier,
-                flowType: .passport,
-                issuerId: viewState.config.issuerId
-              )
-            )
-          ))
-        }
+          )
+        ))
 
       case .failure(let error):
         setState {

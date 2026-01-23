@@ -108,7 +108,7 @@ private func getCenteredIcon(
   let viewState = GenericSuccessState(
     config: UIConfig.Success(
       title: .init(value: .genericSuccess),
-      subtitle: .issuanceDocumentOfferDeferredSuccessDescription(["Name"]),
+      subtitle: .issuanceDocumentOfferDeferredSuccessDescription("Name"),
       buttons: [
         .init(
           title: LocalizableStringKey.genericOk,

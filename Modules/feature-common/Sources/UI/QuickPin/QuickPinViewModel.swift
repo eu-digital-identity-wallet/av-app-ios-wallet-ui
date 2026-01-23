@@ -83,7 +83,7 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
         isCancellable: config.isUpdateFlow,
         pinError: nil,
         isButtonActive: false,
-        step: config.isSetFlow ? .firstInput : .validate,
+        step: config.isSetFlow || config.isUpdateFlow ? .firstInput : .validate,
         quickPinSize: 6
       )
     )
@@ -99,6 +99,12 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
       case .firstInput:
         if !validateFirstPinSecurity(uiPinInputField) {
           break
+        }
+        if interactor.isCurrentPinExistInLastUsedPins(pin: uiPinInputField) {
+            setState {
+                $0.copy(pinError: .quickPinCantUsePreviousPin)
+            }
+            return
         }
         setState {
           $0
@@ -143,6 +149,8 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
     )
   }
 
+    // TODO enhance security: Sequential or easily guessable patterns (such as "135246" or "147258") should not be permitted.
+    // TODO enhance security: The validation should check the most pwned PINs
   private func onValidate() async {
     switch await interactor.isPinValid(pin: uiPinInputField) {
     case .success:
@@ -177,6 +185,8 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
         navigationSuccessType: viewState.successNavigationType)
       router.push(with: .featureCommonModule(.biometrySetup(config: biometrySetupConfig)))
       return
+    } else if viewState.config.isUpdateFlow {
+        return router.push(with: .featureCommonModule(.changePinSuccess))
     }
 
     switch viewState.successNavigationType {
@@ -248,16 +258,20 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
   }
 
   private func handleBackButton() {
-    setState {
-      $0
-        .copy(
-          navigationTitle: .quickPinCreateTitle,
-          caption: .quickPinCreateEnterSubtitle,
-          button: .quickPinNextButton,
-          step: .firstInput
-        )
-        .copy(pinError: nil)
-    }
-    uiPinInputField = ""
-  }
+      if viewState.config.flow == .update && viewState.step == .firstInput {
+          self.router.pop()
+      } else {
+          setState {
+            $0
+              .copy(
+                navigationTitle: .quickPinCreateTitle,
+                caption: .quickPinCreateEnterSubtitle,
+                button: .quickPinNextButton,
+                step: .firstInput
+              )
+              .copy(pinError: nil)
+          }
+          uiPinInputField = ""
+        }
+      }
 }

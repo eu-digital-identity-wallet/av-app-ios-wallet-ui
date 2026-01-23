@@ -74,7 +74,7 @@ private func content(
 
   ContentTitleView(
     title: viewState.config.title,
-    titleWeight: .bold,
+    titleWeight: .semibold,
     caption: viewState.areBiometricsEnabled
     ? viewState.config.caption
     : viewState.config.quickPinOnlyCaption,
@@ -122,7 +122,7 @@ private func pinView(
     VSpacer.extraSmall()
 
     Text(subtitleText)
-        .typography(Theme.shared.font.bodyLarge)
+        .typography(Theme.shared.font.bodyMedium)
         .foregroundColor(Theme.shared.color.lightText)
         .padding(.bottom, SPACING_EXTRA_SMALL)
 

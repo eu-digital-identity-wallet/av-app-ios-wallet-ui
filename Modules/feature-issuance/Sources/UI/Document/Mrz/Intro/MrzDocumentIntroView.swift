@@ -68,12 +68,15 @@ private func content(
       isLoading: false,
       onAction: onBackButtonTapped()
     )
+    .padding(.horizontal, 4)
+
     WrapButtonView(
       style: .primary,
       title: LocalizableStringKey.passportScanIntroStartButton,
       isLoading: false,
       onAction: onStartProcedureTapped()
     )
+    .padding(.horizontal, 4)
   }
   .frame(maxWidth: .infinity)
   .padding(.horizontal, Theme.shared.dimension.padding)

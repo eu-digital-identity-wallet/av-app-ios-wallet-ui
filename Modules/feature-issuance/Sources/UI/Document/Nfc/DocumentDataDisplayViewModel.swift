@@ -61,12 +61,6 @@ final class DocumentDataDisplayViewModel<Router: RouterHost>: ViewModel<Router, 
 
   func continueButtonTapped() {
     guard viewState.isValid else { return }
-
-    // Skip liveness check for ID card flow (no photo available for face matching)
-    if viewState.config.flowType == .idCard {
-      router.push(with: .featureIssuanceModule(.credentialIssuance(config: viewState.config)))
-    } else {
-      router.push(with: .featureIssuanceModule(.livenessCheck(config: viewState.config)))
-    }
+    router.push(with: .featureIssuanceModule(.livenessCheck(config: viewState.config)))
   }
 }

@@ -55,22 +55,21 @@ private func instructionContent(
   ScrollView {
     VStack(alignment: .leading, spacing: .zero) {
       VSpacer.largeMedium()
-      OnboardingTabsView(steps: PassportEnrollmentSteps.allCases,
-                         selectedIndex: 1)
 
       VStack(alignment: .leading, spacing: .zero) {
         VSpacer.large()
 
         Text(LocalizableStringKey.passportBiometricsFirstHeader.toString)
           .typography(Theme.shared.font.displaySmall)
-          .fontWeight(.bold)
+          .fontWeight(.semibold)
         VSpacer.large()
 
         HStack {
           Spacer()
           Theme.shared.image.nfcReadingGuide
               .resizable()
-              .frame(width: 260, height: 138)
+              .aspectRatio(contentMode: .fit)
+              .padding(.horizontal, 15)
           Spacer()
         }
         VSpacer.medium()
@@ -85,7 +84,7 @@ private func instructionContent(
         })
       }
     }
-    .padding(.horizontal, 16)
+    .padding(.horizontal, Theme.shared.dimension.padding)
   }
   HStack {
     WrapButtonView(
