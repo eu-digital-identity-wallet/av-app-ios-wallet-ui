@@ -18,7 +18,7 @@ public struct HyperLinkView: View {
       HStack {
         Text(label)
           .underline()
-          .font(Theme.shared.font.headlineSmall.font)
+          .font(Theme.shared.font.headlineMedium.font)
       }
       .foregroundStyle(Theme.shared.color.primary)
     })

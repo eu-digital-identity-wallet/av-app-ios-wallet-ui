@@ -60,6 +60,7 @@ private func content<RequestItem: Sendable>(
             relyingPartyData: viewState.relyingParty
           )
         )
+        .padding(.horizontal, SPACING_LARGE)
 
         VSpacer.large()
 
@@ -71,6 +72,7 @@ private func content<RequestItem: Sendable>(
     }
     VSpacer.large()
     WrapButtonView(style: .secondary, title: .genericClose, onAction: onDone())
+    .padding(.bottom, SPACING_LARGE)
   }
   .padding(.horizontal, Theme.shared.dimension.padding)
   .padding(.bottom, Theme.shared.dimension.padding)
