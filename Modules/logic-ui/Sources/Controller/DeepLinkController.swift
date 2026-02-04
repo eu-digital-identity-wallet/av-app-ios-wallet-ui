@@ -76,8 +76,15 @@ final class DeepLinkControllerImpl: DeepLinkController {
       routerHost.userIsLoggedInWithDocuments()
     }
 
+      var isOpenid4vp: Bool {
+          (deepLinkExecutable.action == .openid4vp ||
+           deepLinkExecutable.action == .haip_vp) &&
+          remoteSessionCoordinator != nil
+      }
+
     guard
-      !shouldPopToDashboardFirst && (routerHost.userIsLoggedInWithDocuments() || isVciExecutable)
+      (!shouldPopToDashboardFirst && (routerHost.userIsLoggedInWithDocuments() || isVciExecutable)) ||
+        (routerHost.userIsLoggedInWithDocuments() || isOpenid4vp)
     else {
       if let url = deepLinkExecutable.link.url {
         cacheDeepLinkURL(url: url)
