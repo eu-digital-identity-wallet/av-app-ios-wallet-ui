@@ -73,7 +73,7 @@ public struct WrapListItemView: View {
   }
 
   public var body: some View {
-    HStack(alignment: .center, spacing: SPACING_MEDIUM) {
+    HStack(alignment: .top, spacing: SPACING_MEDIUM_SMALL) {
 
       if let url = listItem.leadingIcon?.imageUrl {
         RemoteImageView(
@@ -89,7 +89,7 @@ public struct WrapListItemView: View {
         icon
           .resizable()
           .aspectRatio(contentMode: .fit)
-          .frame(height: Theme.shared.dimension.remoteImageIconSize)
+          .frame(height: Theme.shared.dimension.remoteImageSmallIconSize)
           .if(listItem.isBlur) {
             $0.blur(radius: 4, opaque: false)
           }

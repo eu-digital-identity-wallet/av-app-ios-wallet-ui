@@ -20,6 +20,7 @@ public protocol DimensionManagerProtocol: Sendable {
   var smallImageHeight: CGFloat { get }
   var verifiedBadgeSpacing: CGFloat { get }
   var remoteImageIconSize: CGFloat { get }
+  var remoteImageSmallIconSize: CGFloat { get }
 }
 
 final class DimensionManager: DimensionManagerProtocol {
@@ -27,4 +28,5 @@ final class DimensionManager: DimensionManagerProtocol {
   let smallImageHeight: CGFloat = 50.0
   let verifiedBadgeSpacing: CGFloat = 5.0
   let remoteImageIconSize: CGFloat = 50.0
+  let remoteImageSmallIconSize: CGFloat = 30.0
 }
