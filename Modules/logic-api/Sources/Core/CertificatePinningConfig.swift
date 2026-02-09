@@ -29,9 +29,17 @@ struct CertificatePinningConfig {
       "1uIbbTksbRP9/hyYImLrEMyz7dYRAOgHRZUAIU6Gp90=", // Leaf
       "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="  // Let's Encrypt R12
     ],
+    "test.issuer.dev.ageverification.dev": [
+      "qc/qaU1kTHPQFWB/V2cBh4H8aHU+Y8WCx4sS3Nq8G5U=", // Leaf
+      "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="  // Let's Encrypt R12
+    ],
     "issuer.dev.ageverification.dev": [
       "abOODQ5cP9y7lVM2tQHa1nMMnon7BuGP9D7s8rbAx+Q=", // Leaf
       "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="  // Let's Encrypt R12
+    ],
+    "passport.issuer.dev.ageverification.dev": [
+      "AhvqwIxTV/4TTJcBsn8B6+PlD+jXzFZPd4w8/dbmrrk=", // Leaf
+      "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="  // Let's Encrypt R13
     ],
     "verifier.ageverification.dev": [
       "+t2gC4lN7q4t3jt0NYbxnDktaCs9YdQ21icWr01aN7c=", // Leaf

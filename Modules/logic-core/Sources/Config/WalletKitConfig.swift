@@ -98,7 +98,7 @@ struct WalletKitConfigImpl: WalletKitConfig {
 
     // Note that the following configuration is confusing, but correct.
     // National IDP -> issuer.ageverification.dev
-    // Passport/ID Document -> issuer.dev.ageverification.dev
+    // Passport/ID Document -> passport.issuer.dev.ageverification.dev
     // for both environments.
 
     let openId4VciConfigurations: [OpenId4VciConfiguration] = {
@@ -106,7 +106,7 @@ struct WalletKitConfigImpl: WalletKitConfig {
       case .DEMO:
         return [
           .init(
-            credentialIssuerURL: "https://issuer.ageverification.dev",
+            credentialIssuerURL: "https://test.issuer.dev.ageverification.dev",
             clientId: "wallet-dev",
             keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
             authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
@@ -115,7 +115,7 @@ struct WalletKitConfigImpl: WalletKitConfig {
             cacheIssuerMetadata: true
           ),
           .init(
-            credentialIssuerURL: "https://issuer.dev.ageverification.dev",
+            credentialIssuerURL: "https://passport.issuer.dev.ageverification.dev",
             clientId: "wallet-dev",
             keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
             authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
@@ -127,7 +127,7 @@ struct WalletKitConfigImpl: WalletKitConfig {
       case .DEV:
         return [
           .init(
-            credentialIssuerURL: "https://issuer.ageverification.dev",
+            credentialIssuerURL: "https://test.issuer.dev.ageverification.dev",
             clientId: "wallet-dev",
             keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
             authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
@@ -136,7 +136,7 @@ struct WalletKitConfigImpl: WalletKitConfig {
             cacheIssuerMetadata: true
           ),
           .init(
-            credentialIssuerURL: "https://issuer.dev.ageverification.dev",
+            credentialIssuerURL: "https://passport.issuer.dev.ageverification.dev",
             clientId: "wallet-dev",
             keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
             authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
