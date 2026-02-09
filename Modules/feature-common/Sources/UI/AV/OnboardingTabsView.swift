@@ -64,20 +64,18 @@ public struct OnboardingTabsView: View {
         HStack {
             ForEach(steps.indices, id: \.self) { index in
                 Text(steps[index].localizedKey.toString)
-                    .font(Theme.shared.font.headlineSmall.font)
-                    .foregroundColor(selectedIndex == index ? Theme.shared.color.blue : Theme.shared.color.darkGrey)
-                    .padding(.all, SPACING_SMALL)
+                    .font(Theme.shared.font.bodySmall.font)
+                    .fontWeight(.semibold)
+                    .foregroundColor(selectedIndex == index ? Theme.shared.color.blue : Theme.shared.color.grey)
+                    .padding(.vertical, SPACING_SMALL)
+                    .padding(.horizontal, SPACING_EXTRA_SMALL)
             }
         }
         .frame(maxWidth: .infinity)
         .background(content: {
             RoundedRectangle(cornerRadius: SPACING_MEDIUM_SMALL)
-                .fill(Color.gray.opacity(0.1))
-                .overlay(
-                    RoundedRectangle(cornerRadius: SPACING_MEDIUM_SMALL)
-                        .stroke(Color.gray, lineWidth: 1)
-                )
-                .shadow(color: Color.black.opacity(0.5), radius: SPACING_MEDIUM_SMALL, x: 0, y: SPACING_MEDIUM_SMALL)
+                .fill(Color.white)
+                .shadow(color: Color.black.opacity(0.2), radius: SPACING_EXTRA_SMALL, x: 0, y: SPACING_EXTRA_SMALL)
         })
         .padding()
     }
