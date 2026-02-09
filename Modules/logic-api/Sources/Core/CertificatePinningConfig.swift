@@ -26,8 +26,8 @@ struct CertificatePinningConfig {
   //           openssl dgst -sha256 -binary | openssl enc -base64
   private static let pinnedDomains: [String: [String]] = [
     "issuer.ageverification.dev": [
-      "1uIbbTksbRP9/hyYImLrEMyz7dYRAOgHRZUAIU6Gp90=", // Leaf
-      "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="  // Let's Encrypt R12
+      "LlemL1RFChyU/tYsjtLmw3phMJ/d2xQes7XVqkZirU8=", // Leaf
+      "AlSQhgtJirc8ahLyekmtX+Iw+v46yPYRLJt9Cq1GlB0="  // Let's Encrypt R13
     ],
     "test.issuer.dev.ageverification.dev": [
       "qc/qaU1kTHPQFWB/V2cBh4H8aHU+Y8WCx4sS3Nq8G5U=", // Leaf
@@ -39,7 +39,7 @@ struct CertificatePinningConfig {
     ],
     "passport.issuer.dev.ageverification.dev": [
       "AhvqwIxTV/4TTJcBsn8B6+PlD+jXzFZPd4w8/dbmrrk=", // Leaf
-      "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="  // Let's Encrypt R13
+      "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="  // Let's Encrypt R12
     ],
     "verifier.ageverification.dev": [
       "+t2gC4lN7q4t3jt0NYbxnDktaCs9YdQ21icWr01aN7c=", // Leaf
