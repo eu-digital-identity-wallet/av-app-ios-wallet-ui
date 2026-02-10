@@ -33,9 +33,9 @@ final class WalletProviderAttestationConfigImpl: WalletProviderAttestationConfig
   var walletProviderAttestationUrl: String {
     switch configLogic.appBuildVariant {
     case .DEMO:
-      "https://wallet-provider.eudiw.dev"
+      "https://wallet-provider.ageverification.dev"
     case .DEV:
-      "https://dev.wallet-provider.eudiw.dev"
+      "https://wallet-provider.ageverification.dev"
     }
   }
 }
