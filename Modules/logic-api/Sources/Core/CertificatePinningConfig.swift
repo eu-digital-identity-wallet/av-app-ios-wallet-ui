@@ -27,7 +27,7 @@ struct CertificatePinningConfig {
   private static let pinnedDomains: [String: [String]] = [
     "issuer.ageverification.dev": [
       "1uIbbTksbRP9/hyYImLrEMyz7dYRAOgHRZUAIU6Gp90=", // Leaf
-      "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="  // Let's Encrypt R12
+      "LlemL1RFChyU/tYsjtLmw3phMJ/d2xQes7XVqkZirU8="  // Let's Encrypt R12
     ],
     "issuer.dev.ageverification.dev": [
       "abOODQ5cP9y7lVM2tQHa1nMMnon7BuGP9D7s8rbAx+Q=", // Leaf
