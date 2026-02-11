@@ -52,7 +52,7 @@ private func content(
   ScrollView {
     VStack(alignment: .leading, spacing: .zero) {
       VSpacer.largeMedium()
-
+        
       VStack(alignment: .leading, spacing: .zero) {
         VSpacer.large()
 
