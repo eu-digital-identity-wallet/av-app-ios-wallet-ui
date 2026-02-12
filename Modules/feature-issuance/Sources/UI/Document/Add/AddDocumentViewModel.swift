@@ -359,7 +359,7 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
             config: DocumentSuccessUIConfig(
               successNavigation: onSuccesNavigation,
               relyingParty: documents.first?.issuer?.name,
-              issuerLogoUrl: documents.first?.issuer?.logoUrl,
+              issuerLogoUrl: nil,
               relyingPartyIsTrusted: false
             ),
             requestItems: documents.map { item in

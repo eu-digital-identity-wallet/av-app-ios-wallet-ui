@@ -1,5 +1,5 @@
 {
-  "originHash" : "2d470f7f1c150c2627335704325da667e7d50fca77ac67d13c4a4d9186edd591",
+  "originHash" : "4b70689ac909b9b60d07e10611314e20bf6353d188c35aaecc96ef856bd03727",
   "pins" : [
     {
       "identity" : "activityindicatorview",
@@ -150,8 +150,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-openid4vci-swift.git",
       "state" : {
-        "revision" : "d38e3e81c16609cbe6dd65cd44b9203e0ed7f495",
-        "version" : "0.19.2"
+        "revision" : "f08783f37364bb300ee32182fd0b7dfc9c29dfd4",
+        "version" : "0.20.0"
       }
     },
     {
@@ -159,8 +159,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-openid4vp-swift.git",
       "state" : {
-        "revision" : "f4bbea4288043b71d054432f17a36faaed74072e",
-        "version" : "0.19.0"
+        "revision" : "e616e07b0d9fd11ca5da09e66b26e09d71096a02",
+        "version" : "0.20.0"
       }
     },
     {
@@ -168,8 +168,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-statium-swift.git",
       "state" : {
-        "revision" : "25427865918ea07119264c8e1f4caab3d97e3e70",
-        "version" : "0.2.0"
+        "revision" : "822d0dd96255a226ce52ab3ce79bad2eb1f1a251",
+        "version" : "0.3.1"
       }
     },
     {
@@ -177,8 +177,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-kit.git",
       "state" : {
-        "revision" : "29f0c42787635dbf79c4cede12bfe719cb68a38e",
-        "version" : "0.19.2"
+        "revision" : "c33962d224a5b5fbd1dec5f0a8fbd8996a5aa1da",
+        "version" : "0.20.0"
       }
     },
     {
@@ -195,8 +195,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-sdjwt-swift.git",
       "state" : {
-        "revision" : "99a017068518a33fc6011056f27361391875c434",
-        "version" : "0.10.1"
+        "revision" : "a55fbaa6417881e9409306d0d9405ca20bf64147",
+        "version" : "0.13.0"
       }
     },
     {
@@ -276,8 +276,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/marmelroy/PhoneNumberKit",
       "state" : {
-        "revision" : "8c369005948985d1c6fb396716a3f883d30639ab",
-        "version" : "4.2.3"
+        "revision" : "7b0a5e858b328736d9b7e175b1620f452af6b699",
+        "version" : "4.2.4"
       }
     },
     {
@@ -294,8 +294,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage.git",
       "state" : {
-        "revision" : "36e79ba485e9bb4d3cd4e3318908866dac5e7b51",
-        "version" : "5.21.5"
+        "revision" : "449e8f8f10377f620db8ad22ea81208eecf6325f",
+        "version" : "5.21.6"
       }
     },
     {
@@ -386,15 +386,6 @@
       "state" : {
         "revision" : "95ba0316a9b733e92bb6b071255ff46263bbe7dc",
         "version" : "3.15.1"
-      }
-    },
-    {
-      "identity" : "swift-json-schema",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/niscy-eudiw/swift-json-schema",
-      "state" : {
-        "revision" : "105cfcd41cf83f264f23ed36dc11191dea45b65f",
-        "version" : "0.0.4"
       }
     },
     {

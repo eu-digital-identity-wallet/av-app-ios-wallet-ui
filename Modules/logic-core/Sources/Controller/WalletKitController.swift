@@ -118,20 +118,21 @@ final actor WalletKitControllerImpl: WalletKitController {
     self.revokedDocumentStorageController = revokedDocumentStorageController
 
     guard let walletKit = try? EudiWallet(
-      serviceName: configLogic.documentStorageServiceName,
-      accessGroup: WalletKitControllerImpl.getKeychainAccessGroup(),
-      trustedReaderCertificates: configLogic.readerConfig.trustedCerts,
-      userAuthenticationRequired: configLogic.userAuthenticationRequired,
+      eudiWalletConfig: EudiWalletConfiguration(
+        serviceName: configLogic.documentStorageServiceName,
+        accessGroup: WalletKitControllerImpl.getKeychainAccessGroup(),
+        userAuthenticationRequired: configLogic.userAuthenticationRequired,
+        trustedReaderCertificates: configLogic.readerConfig.trustedCerts,
+        uiCulture: Locale.current.systemLanguageCode,
+        logFileName: configLogic.logFileName
+      ),
       openID4VpConfig: configLogic.vpConfig,
       openID4VciConfigurations: configLogic.vciConfig,
       networking: networkSessionProvider.urlSession,
-      logFileName: configLogic.logFileName,
       transactionLogger: configLogic.transactionLogger
     ) else {
       fatalError("Unable to Initialize WalletKit")
     }
-
-    walletKit.uiCulture = Locale.current.systemLanguageCode
 
     wallet = walletKit
   }
@@ -258,14 +259,18 @@ final actor WalletKitControllerImpl: WalletKitController {
 
   func issueDocument(issuerId: String, identifier: String, docTypeIdentifier: DocumentTypeIdentifier) async throws -> WalletStorage.Document {
     let rule = configLogic.documentIssuanceConfig.rule(for: docTypeIdentifier)
-    return try await wallet.issueDocument(
+    let documents = try await wallet.issueDocuments(
       issuerName: issuerId,
-      docTypeIdentifier: .identifier(identifier),
+      docTypeIdentifiers: [.identifier(identifier)],
       credentialOptions: .init(
         credentialPolicy: rule.policy,
         batchSize: rule.numberOfCredentials
       )
     )
+    guard let document = documents.first else {
+      throw WalletCoreError.unableFetchDocument
+    }
+    return document
   }
 
   func requestDeferredIssuance(with doc: WalletStorage.Document) async throws -> DocClaimsDecodable {

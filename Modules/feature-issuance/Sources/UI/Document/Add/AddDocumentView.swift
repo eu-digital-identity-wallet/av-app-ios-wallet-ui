@@ -73,9 +73,8 @@ private func content(
   VStack(spacing: SPACING_MEDIUM_LARGE) {
     OnboardingTabsView(steps: Onboardingsteps.allCases,
                        selectedIndex: 3)
-    .padding(.horizontal, 4)
     ScrollView {
-      LazyVStack(spacing: SPACING_MEDIUM_SMALL) {
+        LazyVStack(alignment: .leading, spacing: SPACING_MEDIUM_SMALL) {
 
         Text(.onboardingVerificationTitle)
           .typography(Theme.shared.font.titleMedium)
@@ -86,34 +85,24 @@ private func content(
         Text(.onboardingVerificationDescription)
           .typography(Theme.shared.font.bodyLarge)
           .foregroundStyle(Theme.shared.color.onSurface)
+          .padding(.bottom, SPACING_MEDIUM_SMALL)
 
         ForEach(viewState.addDocumentCellModels.elements, id: \.key) { pair in
 
-          let issuer = pair.key
           let models = pair.value
+          let trailingRemovedModels = models.map { model in
+            var copy = model
+            copy.listItem.trailingContent = nil
+            return copy
+          }
 
-          Section(
-            header: WrapTextView(
-              text: .custom(issuer),
-              textConfig: TextConfig(
-                font: Theme.shared.font.bodySmall.font,
-                color: Theme.shared.color.onSurface,
-                textAlign: .leading,
-                fontWeight: .semibold
+          ForEach(trailingRemovedModels, id: \.id) { cell in
+            WrapCardView {
+              WrapListItemView(
+                listItem: cell.listItem,
+                isLoading: cell.isLoading,
+                action: { action(cell.issuerId, cell.configId, cell.docTypeIdentifier) }
               )
-            )
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .shimmer(isLoading: viewState.isLoading)
-            .padding(.top, SPACING_MEDIUM_SMALL)
-          ) {
-            ForEach(models, id: \.id) { cell in
-              WrapCardView {
-                WrapListItemView(
-                  listItem: cell.listItem,
-                  isLoading: cell.isLoading,
-                  action: { action(cell.issuerId, cell.configId, cell.docTypeIdentifier) }
-                )
-              }
             }
           }
         }
