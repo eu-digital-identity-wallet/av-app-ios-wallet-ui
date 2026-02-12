@@ -24,30 +24,23 @@ struct CertificatePinningConfig {
   // Generate: openssl s_client -servername HOST -connect HOST:443 2>/dev/null </dev/null | \
   //           openssl x509 -pubkey -noout | openssl pkey -pubin -outform der | \
   //           openssl dgst -sha256 -binary | openssl enc -base64
+  // Verify:   Run scripts/verify-certificate-pinning.sh to verify all hashes
   private static let pinnedDomains: [String: [String]] = [
     "issuer.ageverification.dev": [
-      "LlemL1RFChyU/tYsjtLmw3phMJ/d2xQes7XVqkZirU8=", // Leaf
-      "AlSQhgtJirc8ahLyekmtX+Iw+v46yPYRLJt9Cq1GlB0="  // Let's Encrypt R13
+      "LlemL1RFChyU/tYsjtLmw3phMJ/d2xQes7XVqkZirU8=", // Leaf - Expires: 2026-05-04
+      "AlSQhgtJirc8ahLyekmtX+Iw+v46yPYRLJt9Cq1GlB0="  // Let's Encrypt R13 - Expires: 2027-03-12
     ],
     "test.issuer.dev.ageverification.dev": [
-      "Os9ReyzMfa0X09LeXRyFP2lDpRllwYIzQiDlkf/ikSw=", // Leaf
-      "AlSQhgtJirc8ahLyekmtX+Iw+v46yPYRLJt9Cq1GlB0="  // Let's Encrypt R13
+      "Os9ReyzMfa0X09LeXRyFP2lDpRllwYIzQiDlkf/ikSw=", // Leaf - Expires: 2026-05-10
+      "AlSQhgtJirc8ahLyekmtX+Iw+v46yPYRLJt9Cq1GlB0="  // Let's Encrypt R13 - Expires: 2027-03-12
     ],
     "issuer.dev.ageverification.dev": [
-      "abOODQ5cP9y7lVM2tQHa1nMMnon7BuGP9D7s8rbAx+Q=", // Leaf
-      "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="  // Let's Encrypt R12
+      "abOODQ5cP9y7lVM2tQHa1nMMnon7BuGP9D7s8rbAx+Q=", // Leaf - Expires: 2026-03-17 ⚠️ RENEW SOON
+      "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="  // Let's Encrypt R12 - Expires: 2027-03-12
     ],
     "passport.issuer.dev.ageverification.dev": [
-      "keE5bu9tNclaKTlyp83txr+Gv+7wSetiElUUWT9+fW8=", // Leaf
-      "AlSQhgtJirc8ahLyekmtX+Iw+v46yPYRLJt9Cq1GlB0="  // Let's Encrypt R13
-    ],
-    "verifier.ageverification.dev": [
-      "+t2gC4lN7q4t3jt0NYbxnDktaCs9YdQ21icWr01aN7c=", // Leaf
-      "aZeR2aS2g2bguhPzWzTQqUq9OCf4tXk7VWrF6R/zJkM="  // GeoTrust CA
-    ],
-    "verifier.dev.ageverification.dev": [
-      "sJoCJcqyUdz6RX/qxkDo2mXPhNTwb2TLyQJLEkf02iQ=", // Leaf
-      "aZeR2aS2g2bguhPzWzTQqUq9OCf4tXk7VWrF6R/zJkM="  // GeoTrust CA
+      "keE5bu9tNclaKTlyp83txr+Gv+7wSetiElUUWT9+fW8=", // Leaf - Expires: 2026-05-10
+      "AlSQhgtJirc8ahLyekmtX+Iw+v46yPYRLJt9Cq1GlB0="  // Let's Encrypt R13 - Expires: 2027-03-12
     ]
   ]
 
