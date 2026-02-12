@@ -44,14 +44,14 @@ final actor AddDocumentInteractorImpl: AddDocumentInteractor {
     do {
       let scopedDocuments = try await walletController.getScopedDocuments()
 
-      // Find the document with doctype "eu.europa.ec.av.1" from issuer.dev.ageverification.dev
+      // Find the document with doctype "eu.europa.ec.av.1" from passport.issuer.dev.ageverification.dev
       // This is the specific credential type needed for age verification QR code scans
       let passportIssuerDoc = scopedDocuments.first {
-        $0.issuer == "issuer.dev.ageverification.dev" && $0.docTypeIdentifier == .avAgeOver18
+        $0.issuer == "passport.issuer.dev.ageverification.dev" && $0.docTypeIdentifier == .avAgeOver18
       }
 
       // Filter out documents from issuer.dev.ageverification.dev since we only want to show the passport entry
-      let filteredDocuments = scopedDocuments.filter { $0.issuer != "issuer.dev.ageverification.dev" }
+      let filteredDocuments = scopedDocuments.filter { $0.issuer != "passport.issuer.dev.ageverification.dev" }
 
       // Create passport entry that uses issuer.dev.ageverification.dev with doctype "eu.europa.ec.av.1"
       // with a special docTypeIdentifier to trigger the passport enrollment flow

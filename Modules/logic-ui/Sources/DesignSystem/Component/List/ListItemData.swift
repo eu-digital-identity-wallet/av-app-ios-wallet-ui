@@ -40,7 +40,7 @@ public struct ListItemData: Identifiable, Sendable, Equatable {
   public let leadingIcon: LeadingIcon?
   public let isBlur: Bool
   public let isEnable: Bool
-  public let trailingContent: TrailingContent?
+  public var trailingContent: TrailingContent?
 
   public init(
     id: String = UUID().uuidString,

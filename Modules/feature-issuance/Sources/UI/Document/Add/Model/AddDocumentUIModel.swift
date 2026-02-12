@@ -20,7 +20,7 @@ import OrderedCollections
 public struct AddDocumentUIModel: Identifiable, Sendable, Equatable {
 
   public let id: String
-  public let listItem: ListItemData
+  public var listItem: ListItemData
   public let configId: String
   public let issuerId: String
   public let docTypeIdentifier: DocumentTypeIdentifier
