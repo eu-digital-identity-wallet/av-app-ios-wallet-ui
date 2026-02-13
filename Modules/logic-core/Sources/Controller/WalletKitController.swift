@@ -138,7 +138,10 @@ final actor WalletKitControllerImpl: WalletKitController {
   }
 
   func resolveOfferUrlDocTypes(offerUri: String) async throws -> OfferedIssuanceModel {
-    return try await wallet.resolveOfferUrlDocTypes(offerUri: offerUri)
+    return try await wallet.resolveOfferUrlDocTypes(
+      offerUri: offerUri,
+      authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")
+    )
   }
 
   func issueDocumentsByOfferUrl(
