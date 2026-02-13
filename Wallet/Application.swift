@@ -15,7 +15,6 @@
  */
 import SwiftUI
 import logic_assembly
-import Logging
 
 @main
 struct Application: App {
@@ -35,9 +34,6 @@ struct Application: App {
 #if !DEBUG
     disableUnifiedLogging()
     disableURLCache()
-    LoggingSystem.bootstrap { _ in
-      SwiftLogNoOpLogHandler()
-    }
 #endif
 
     // Depedency Injection
