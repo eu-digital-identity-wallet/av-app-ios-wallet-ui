@@ -20,6 +20,7 @@ public extension ToolBarContent {
   struct Action: Identifiable {
     public let id = UUID()
     public let title: LocalizableStringKey?
+    public let accessibilityLocator: LocatorType
     public let image: Image?
     public let hasIndicator: Bool?
     public let disabled: Bool
@@ -28,11 +29,13 @@ public extension ToolBarContent {
     public init(
       title: LocalizableStringKey? = nil,
       image: Image? = nil,
+      accessibilityLocator: LocatorType,
       hasIndicator: Bool? = nil,
       disabled: Bool = false,
       callback: (() -> Void)? = nil
     ) {
       self.title = title
+      self.accessibilityLocator = accessibilityLocator
       self.image = image
       self.hasIndicator = hasIndicator
       self.disabled = disabled
@@ -94,6 +97,10 @@ private struct ActionView: View {
           content
         }
         .disabled(disabled)
+        .accessibilityElement()
+        .accessibilityLocator(
+          action.accessibilityLocator
+        )
         .overlay(alignment: .topTrailing) {
           if let hasIndicator = action.hasIndicator, hasIndicator {
             Circle()
@@ -104,6 +111,10 @@ private struct ActionView: View {
         }
       } else {
         content
+          .accessibilityElement()
+          .accessibilityLocator(
+            action.accessibilityLocator
+          )
       }
     }
   }
@@ -127,11 +138,13 @@ private struct ActionView: View {
           trailingActions: [
             .init(
               title: .custom("State"),
+              accessibilityLocator: ToolbarLocators.chevronLeft,
               disabled: false,
               callback: {}
             ),
             .init(
               title: .custom("Proceed"),
+              accessibilityLocator: ToolbarLocators.chevronLeft,
               disabled: false,
               callback: {}
             )
@@ -139,6 +152,7 @@ private struct ActionView: View {
           leadingActions: [
             .init(
               image: Image(systemName: "plus"),
+              accessibilityLocator: ToolbarLocators.chevronLeft,
               disabled: false,
               callback: {}
             )

@@ -85,6 +85,7 @@ private func content(
         Text(.onboardingVerificationDescription)
           .typography(Theme.shared.font.bodyLarge)
           .foregroundStyle(Theme.shared.color.onSurface)
+          .accessibilityLocator(AddDocumentLocators.subtitle)
           .padding(.bottom, SPACING_MEDIUM_SMALL)
 
         ForEach(viewState.addDocumentCellModels.elements, id: \.key) { pair in
@@ -100,6 +101,9 @@ private func content(
             WrapCardView {
               WrapListItemView(
                 listItem: cell.listItem,
+                locator: AddDocumentLocators.attestation(
+                  "\(cell.issuerId)_\(cell.docTypeIdentifier)"
+                ),
                 isLoading: cell.isLoading,
                 action: { action(cell.issuerId, cell.configId, cell.docTypeIdentifier) }
               )
