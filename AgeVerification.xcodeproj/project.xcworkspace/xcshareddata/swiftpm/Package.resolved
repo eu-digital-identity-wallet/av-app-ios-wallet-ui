@@ -1,5 +1,5 @@
 {
-  "originHash" : "b69d29621db171e3647fac159f4fcc0b44929c69ea641707b5b96b7029206d49",
+  "originHash" : "5df5e2ffce842059edfb2e1997b2d828623f167d76b09cd98bc26bc9d3ddd35c",
   "pins" : [
     {
       "identity" : "activityindicatorview",
@@ -312,8 +312,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/marmelroy/PhoneNumberKit",
       "state" : {
-        "revision" : "7b0a5e858b328736d9b7e175b1620f452af6b699",
-        "version" : "4.2.4"
+        "revision" : "e0f91a22bbc96a67430e1cff502f943a67a97ed3",
+        "version" : "4.2.5"
       }
     },
     {
@@ -429,8 +429,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-log.git",
       "state" : {
-        "revision" : "2778fd4e5a12a8aaa30a3ee8285f4ce54c5f3181",
-        "version" : "1.9.1"
+        "revision" : "bbd81b6725ae874c69e9b8c8804d462356b55523",
+        "version" : "1.10.1"
       }
     },
     {

@@ -86,7 +86,7 @@ final class CredentialIssuanceViewModel<Router: RouterHost>: ViewModel<Router, C
                     config: DocumentSuccessUIConfig(
                       successNavigation: .push(screen: .featureAVDashboardModule(.appLanding)),
                       relyingParty: documents.first?.issuer?.name,
-                      issuerLogoUrl: documents.first?.issuer?.logoUrl,
+                      issuerLogoUrl: nil, // documents.first?.issuer?.logoUrl,
                       relyingPartyIsTrusted: false
                     ),
                     requestItems: documents.map { item in
