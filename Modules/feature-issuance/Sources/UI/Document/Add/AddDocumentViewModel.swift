@@ -156,7 +156,10 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
         .init(
           trailingActions: [],
           leadingActions: [
-            .init(image: Theme.shared.image.chevronLeft) {
+            .init(
+              image: Theme.shared.image.chevronLeft,
+              accessibilityLocator: ToolbarLocators.chevronLeft
+            ) {
               self.pop()
             }
           ]
