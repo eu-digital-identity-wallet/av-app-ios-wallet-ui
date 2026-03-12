@@ -23,7 +23,9 @@ final class CredentialIssuanceInteractorImpl: CredentialIssuanceInteractor {
     docTypeIdentifier: DocumentTypeIdentifier
   ) async -> IssueResultPartialState {
     do {
-      let doc = try await walletController.issueDocument(issuerId: issuerId, identifier: configId, docTypeIdentifier: docTypeIdentifier)
+      guard let doc = try await walletController.issueDocuments(issuerId: issuerId, identifiers: [configId], docTypeIdentifier: docTypeIdentifier).first else {
+        return .failure(WalletCoreError.unableToIssueAndStore)
+      }
       if doc.isDeferred {
         return .deferredSuccess
       } else if let authorizePresentationUrl = doc.authorizePresentationUrl {

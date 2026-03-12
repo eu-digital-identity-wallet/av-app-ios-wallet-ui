@@ -47,6 +47,7 @@ public extension ViewModel {
   func backActionToolbar(action: (() -> Void)? = nil) -> ToolBarContent {
       ToolBarContent(leadingActions: [ToolBarContent.Action(title: nil,
                                                           image: Theme.shared.image.chevronLeft,
+                                                          accessibilityLocator: ToolbarLocators.chevronLeft,
                                                           disabled: false,
                                                           callback: {
       if let action {

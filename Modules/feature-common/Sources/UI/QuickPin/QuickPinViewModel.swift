@@ -142,7 +142,10 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
     .init(
       trailingActions: [],
       leadingActions: [
-        .init(image: Theme.shared.image.chevronLeft) { [weak self] in
+        .init(
+          image: Theme.shared.image.chevronLeft,
+          accessibilityLocator: ToolbarLocators.chevronLeft
+        ) { [weak self] in
           self?.handleBackButton()
         }
       ]
