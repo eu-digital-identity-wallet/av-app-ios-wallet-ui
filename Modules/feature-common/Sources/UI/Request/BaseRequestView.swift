@@ -85,8 +85,15 @@ private func content(
   onShare: @escaping () -> Void,
   onSelectionChanged: @escaping (String) -> Void
 ) -> some View {
-  if viewState.items.isEmpty {
-    noDocumentsFound(viewState: viewState)
+  let errorTitle =
+    viewState.errorTitle
+    ?? (viewState.items.isEmpty ? .dynamic(key: "request_data_no_document") : nil)
+
+  if let errorTitle {
+    noDocumentsFound(
+        contentHeaderConfig: viewState.contentHeaderConfig,
+        errorTitle: errorTitle
+    )
   } else {
     scrollableContent(
       viewState: viewState,
@@ -106,12 +113,14 @@ private func scrollableContent(
   ScrollView {
     VStack(spacing: .zero) {
       ContentHeaderView(
-        config: viewState.contentHeaderConfig
+        config: viewState.contentHeaderConfig,
+        accessibilityDescription: BaseRequestLocators.description
       )
       ZStack {
         VStack(alignment: .leading, spacing: SPACING_MEDIUM) {
 
-          ForEach(viewState.items, id: \.id) { section in
+          ForEach(viewState.items.indices, id: \.self) { index in
+            let section = viewState.items[index]
             WrapExpandableListView(
               header: .init(
                 mainContent: .text(.custom(section.section.title)),
@@ -121,6 +130,10 @@ private func scrollableContent(
               hideSensitiveContent: false,
               isLoading: viewState.isLoading,
               onItemClick: { onSelectionChanged($0.groupId) }
+            )
+            .accessibilityElement()
+            .combineChilrenAccessibility(
+              locator: BaseRequestLocators.requestedDocument(index.string)
             )
           }
 
@@ -143,16 +156,18 @@ private func scrollableContent(
 @MainActor
 @ViewBuilder
 private func noDocumentsFound(
-  viewState: RequestViewState
+  contentHeaderConfig: ContentHeaderConfig,
+  errorTitle: LocalizableStringKey
 ) -> some View {
   VStack(spacing: .zero) {
     ContentHeaderView(
-      config: viewState.contentHeaderConfig
+      config: contentHeaderConfig,
+      accessibilityDescription: BaseRequestLocators.description
     )
     VStack(spacing: .zero) {
       Spacer()
       ContentEmptyView(
-        title: .custom(".requestDataNoDocument")
+        title: errorTitle
       )
       Spacer()
     }
@@ -164,6 +179,7 @@ private func noDocumentsFound(
   let viewState = RequestViewState(
     isLoading: false,
     error: nil,
+    errorTitle: nil,
     showMissingCredentials: false,
     items: RequestDataUiModel.mockData(),
     trustedRelyingPartyInfo: .requestDataVerifiedEntityMessage,

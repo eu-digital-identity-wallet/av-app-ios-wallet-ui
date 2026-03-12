@@ -285,7 +285,7 @@ final actor DocumentOfferInteractorImpl: DocumentOfferInteractor {
         config: DocumentSuccessUIConfig(
           successNavigation: navigationType,
           relyingParty: documents.first?.issuer?.name,
-          issuerLogoUrl: documents.first?.issuer?.logoUrl,
+          issuerLogoUrl: nil, // documents.first?.issuer?.logoUrl,
           relyingPartyIsTrusted: false
         ),
         requestItems: documents.map { item in

@@ -271,14 +271,16 @@ final class DocumentOfferViewModel<Router: RouterHost>: ViewModel<Router, Docume
     .init(
       trailingActions: [
         .init(
-          title: .issuanceDocumentOfferPrimaryButtonTextAdd
+          title: .issuanceDocumentOfferPrimaryButtonTextAdd,
+          accessibilityLocator: DocumentOfferLocators.issueButton
         ) {
           self.onIssueDocuments()
         }
       ],
       leadingActions: [
         .init(
-          title: .genericCancel
+          title: .genericCancel,
+          accessibilityLocator: DocumentOfferLocators.cancelButton
         ) {
           self.onPop()
         }
