@@ -203,8 +203,14 @@ class MRZValidator {
 
     // Check document type starts with 'P' for passport
     let docType = String(line1.prefix(2))
-    guard line1.hasPrefix("P<") || line1.hasPrefix("P0") else {
-      log("❌ Failed: Document type prefix '\(docType)' is not 'P<' or 'P0'")
+    guard line1.hasPrefix("P") else {
+      log("❌ Failed: Document type '\(docType)' must start with 'P' for passport")
+      return false
+    }
+    // Validate second character is also valid (letter, number, or '<')
+    let secondChar = line1[line1.index(line1.startIndex, offsetBy: 1)]
+    guard let scalar = String(secondChar).unicodeScalars.first, validCharacters.contains(scalar) else {
+      log("❌ Failed: Invalid second character in document type '\(docType)'")
       return false
     }
     log("✅ Document type: \(docType)")
