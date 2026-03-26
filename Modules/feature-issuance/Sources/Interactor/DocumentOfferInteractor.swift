@@ -72,9 +72,10 @@ final actor DocumentOfferInteractorImpl: DocumentOfferInteractor {
         }
       ) != nil
 
-      if !hasPidStored && !hasPidInOffer {
-        return .failure(WalletCoreError.missingPid)
-      }
+/// remvoed as it was blocking the QR code/ token enrollment/ issuance flow
+//      if !hasPidStored && !hasPidInOffer {
+//        return .failure(WalletCoreError.missingPid)
+//      }
 
       return .success(offer.transformToDocumentOfferUi())
     } catch {
