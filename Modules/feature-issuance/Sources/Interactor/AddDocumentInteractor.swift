@@ -69,7 +69,7 @@ final actor AddDocumentInteractorImpl: AddDocumentInteractor {
       // Token QR Code Enrollment Document
       let tokenQRCodeDocument = ScopedDocument(
         name: "Token / QR Code",
-        issuer: "zzz",
+        issuer: "tokenqr.issuer.dev.ageverification.dev",
         configId: "",
         isPid: false,
         docTypeIdentifier: DocumentTypeIdentifier(rawValue: "token_qr_code"),
