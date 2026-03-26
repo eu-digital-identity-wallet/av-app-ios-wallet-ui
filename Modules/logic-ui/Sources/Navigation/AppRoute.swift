@@ -215,6 +215,7 @@ public enum FeatureIssuanceRouteModule: AppRouteModule {
 public enum FeatureOnboardingRouteModule: AppRouteModule {
     case welcome
     case consent
+    case tokenQrIntro
 
     public var info: (key: String, arguments: [String: String]) {
         return switch self {
@@ -222,6 +223,8 @@ public enum FeatureOnboardingRouteModule: AppRouteModule {
             (key: "Welcome", arguments: [:])
         case .consent
             : (key: "Consent", arguments: [:])
+        case .tokenQrIntro
+            : (key: "tokenQRIntro", arguments: [:])
         }
     }
 }

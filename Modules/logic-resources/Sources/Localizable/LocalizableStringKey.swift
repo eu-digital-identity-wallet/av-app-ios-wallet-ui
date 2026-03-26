@@ -203,6 +203,10 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case onboardingStep2Title
   case onboardingStep3Title
   case onboardingStep4Title
+  case onboardingTokenQrIntroTitle
+  case onboardingTokenQrIntroDescription
+  case onboardingVerificationTokenQr
+  case onboardingVerificationTokenQrDescription
   case onboardingVerificationDescription
   case onboardingVerificationNationalId
   case onboardingVerificationNationalIdDescription
