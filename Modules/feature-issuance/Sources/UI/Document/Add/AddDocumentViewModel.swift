@@ -134,6 +134,8 @@ final class AddDocumentViewModel<Router: RouterHost>: ViewModel<Router, AddDocum
             )
           )
         )
+      } else if format == "token_qr_code" {
+        router.push(with: AppRoute.featureOnboardingModule(.tokenQrIntro))
       }
     default:
       issueDocument(

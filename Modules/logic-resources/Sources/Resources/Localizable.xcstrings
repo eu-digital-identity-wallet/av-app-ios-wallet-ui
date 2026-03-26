@@ -6441,6 +6441,40 @@
         }
       }
     },
+    "onboarding_token_qr_intro_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wenn Sie Ihre Identität vor Ort verifiziert haben, erhalten Sie möglicherweise ein Token oder einen QR-Code. Tippen Sie auf „Scannen“ und scannen Sie den QR-Code, um die Registrierung zu starten."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you verified your identity on-site, you may receive a token or QR code. Tap Scan and scan the QR code to start the enrollment."
+          }
+        }
+      }
+    },
+    "onboarding_token_qr_intro_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Token / QR Code"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Token / QR Code"
+          }
+        }
+      }
+    },
     "onboarding_verification_description" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -6647,6 +6681,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scegli il tuo metodo di verifica dell\\'età"
+          }
+        }
+      }
+    },
+    "onboarding_verification_token_qr" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Token / QR Code"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Token / QR Code"
+          }
+        }
+      }
+    },
+    "onboarding_verification_token_qr_description" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verwenden Sie einen Token oder QR-Code, den Sie bei einer Identitätsprüfung vor Ort erhalten haben, um die Registrierung zu starten."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Use a token or QR code you received during an on-site identity check to start enrollment."
           }
         }
       }

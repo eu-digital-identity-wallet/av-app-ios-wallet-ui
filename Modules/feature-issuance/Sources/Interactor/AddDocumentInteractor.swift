@@ -66,10 +66,22 @@ final actor AddDocumentInteractorImpl: AddDocumentInteractor {
         )
       }
 
+      // Token QR Code Enrollment Document
+      let tokenQRCodeDocument = ScopedDocument(
+        name: "Token / QR Code",
+        issuer: "tokenqr.issuer.dev.ageverification.dev",
+        configId: "",
+        isPid: false,
+        docTypeIdentifier: DocumentTypeIdentifier(rawValue: "token_qr_code"),
+        isAgeVerification: false)
+
       var allDocuments = filteredDocuments
       if let passport = passport {
         allDocuments.append(passport)
       }
+
+      // Adding Token QR Code Enrollment Document
+      allDocuments.append(tokenQRCodeDocument)
 
       let documents: [AddDocumentUIModel] = allDocuments.compactMap { doc in
         if doc.isAgeVerification {
@@ -88,6 +100,20 @@ final actor AddDocumentInteractorImpl: AddDocumentInteractor {
               mainContent: .text(LocalizableStringKey.onboardingVerificationPassportIdCard),
               supportingText: .onboardingVerificationPassportIdCardDescription,
               leadingIcon: LeadingIcon(image: Theme.shared.image.passportCard),
+              trailingContent: .icon(Theme.shared.image.plus)
+            ),
+            isEnabled: true,
+            configId: doc.configId,
+            issuerId: doc.issuer,
+            docTypeIdentifier: doc.docTypeIdentifier
+          )
+        } else if case .other(let formatType) = doc.docTypeIdentifier,
+                  formatType == "token_qr_code" {
+          return .init(
+            listItem: .init(
+              mainContent: .text(LocalizableStringKey.onboardingVerificationTokenQr),
+              supportingText: LocalizableStringKey.onboardingVerificationTokenQrDescription,
+              leadingIcon: LeadingIcon(image: Theme.shared.image.scanIcon),
               trailingContent: .icon(Theme.shared.image.plus)
             ),
             isEnabled: true,
