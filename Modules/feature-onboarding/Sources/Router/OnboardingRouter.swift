@@ -18,6 +18,8 @@ public final class OnboardingRouter {
             WelcomeView(with: .init(router: host))
         case .consent:
             ConsentView(with: .init(router: host))
+        case .tokenQrIntro:
+            TokenQrIntroView(with: .init(router: host))
         }
     }
 }

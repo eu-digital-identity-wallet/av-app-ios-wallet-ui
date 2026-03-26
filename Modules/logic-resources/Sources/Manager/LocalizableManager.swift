@@ -406,6 +406,14 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "onboarding_step_3_title")
       case .onboardingStep4Title:
         bundle.localizedString(forKey: "onboarding_step_4_title")
+      case .onboardingTokenQrIntroTitle:
+        bundle.localizedString(forKey: "onboarding_token_qr_intro_title")
+      case .onboardingTokenQrIntroDescription:
+        bundle.localizedString(forKey: "onboarding_token_qr_intro_description")
+      case .onboardingVerificationTokenQr:
+        bundle.localizedString(forKey: "onboarding_verification_token_qr")
+      case .onboardingVerificationTokenQrDescription:
+        bundle.localizedString(forKey: "onboarding_verification_token_qr_description")
       case .onboardingVerificationDescription:
         bundle.localizedString(forKey: "onboarding_verification_description")
       case .onboardingVerificationNationalId:
