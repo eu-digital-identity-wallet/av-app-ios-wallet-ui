@@ -1,5 +1,5 @@
 {
-  "originHash" : "5df5e2ffce842059edfb2e1997b2d828623f167d76b09cd98bc26bc9d3ddd35c",
+  "originHash" : "cce4dbee8e1fa2a320dd6d9ea40eec41d92299f1121c02ead67a420968c5e73b",
   "pins" : [
     {
       "identity" : "activityindicatorview",
@@ -51,8 +51,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/leif-ibsen/BigInt",
       "state" : {
-        "revision" : "8c6f93aa37504b7b1ba3954335b5548a19fbbd82",
-        "version" : "1.22.0"
+        "revision" : "c2f49bee454760e433bafff17bfdc5b96f75d7c8",
+        "version" : "1.23.0"
       }
     },
     {
@@ -168,8 +168,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-rqes-csc-swift.git",
       "state" : {
-        "revision" : "5625c8327f46b26b3463add0b6a4d2a8908c1b1f",
-        "version" : "0.7.1"
+        "revision" : "fd4e7ddd91fbe397392914ddb4106fc840557a80",
+        "version" : "0.8.0"
       }
     },
     {
@@ -177,8 +177,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-rqes-kit.git",
       "state" : {
-        "revision" : "d08df403631ef385b00d01b250c069a3497d7a81",
-        "version" : "0.7.0"
+        "revision" : "647c9208de4518860d48cdff1a994368a2c6d894",
+        "version" : "0.8.0"
       }
     },
     {
@@ -186,8 +186,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/eudi-lib-ios-rqes-ui.git",
       "state" : {
-        "revision" : "aa5591bab35569ff280498ead99c5c1af58f734e",
-        "version" : "0.4.0"
+        "revision" : "adebf615069f304eea9c47fe5406590a31725189",
+        "version" : "0.3.9"
       }
     },
     {
@@ -249,8 +249,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/beatt83/jose-swift.git",
       "state" : {
-        "revision" : "13e5ae6f23ef1487b0dad72540eff414272bd7ca",
-        "version" : "6.0.2"
+        "revision" : "4a99bf40b4026778c0df4888b69eaa9df1f7eff7",
+        "version" : "6.0.3"
       }
     },
     {
@@ -312,8 +312,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/marmelroy/PhoneNumberKit",
       "state" : {
-        "revision" : "e0f91a22bbc96a67430e1cff502f943a67a97ed3",
-        "version" : "4.2.5"
+        "revision" : "f6b612507fd23de7f21866000fc79ec8000358be",
+        "version" : "4.2.9"
       }
     },
     {
@@ -330,8 +330,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage.git",
       "state" : {
-        "revision" : "449e8f8f10377f620db8ad22ea81208eecf6325f",
-        "version" : "5.21.6"
+        "revision" : "2de3a496eaf6df9a1312862adcfd54acd73c39c0",
+        "version" : "5.21.7"
       }
     },
     {
@@ -384,8 +384,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-argument-parser",
       "state" : {
-        "revision" : "c5d11a805e765f52ba34ec7284bd4fcd6ba68615",
-        "version" : "1.7.0"
+        "revision" : "626b5b7b2f45e1b0b1c6f4a309296d1d21d7311b",
+        "version" : "1.7.1"
       }
     },
     {
@@ -393,8 +393,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-asn1.git",
       "state" : {
-        "revision" : "810496cf121e525d660cd0ea89a758740476b85f",
-        "version" : "1.5.1"
+        "revision" : "9f542610331815e29cc3821d3b6f488db8715517",
+        "version" : "1.6.0"
       }
     },
     {
@@ -429,8 +429,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-log.git",
       "state" : {
-        "revision" : "bbd81b6725ae874c69e9b8c8804d462356b55523",
-        "version" : "1.10.1"
+        "revision" : "8c0f217f01000dd30f60d6e536569ad4e74291f9",
+        "version" : "1.11.0"
       }
     },
     {

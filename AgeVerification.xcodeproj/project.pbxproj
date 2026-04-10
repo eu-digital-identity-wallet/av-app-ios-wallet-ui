@@ -296,7 +296,6 @@
 				F14907B42ABAF54B00DDFE56 /* Sources */,
 				F14907B52ABAF54B00DDFE56 /* Frameworks */,
 				F14907B62ABAF54B00DDFE56 /* Resources */,
-				F09E1EA52AC3468300779C25 /* Swift Lint */,
 				2EA768A22EC9A6F0007F5DED /* Embed ExtensionKit Extensions */,
 			);
 			buildRules = (
@@ -403,28 +402,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		F09E1EA52AC3468300779C25 /* Swift Lint */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Swift Lint";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\nswiftlint --fix && swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		2EA768962EC9A6F0007F5DED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -524,7 +501,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 2026.3.2;
+				MARKETING_VERSION = 2026.4.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -615,7 +592,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 2026.3.2;
+				MARKETING_VERSION = 2026.4.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -700,7 +677,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 2026.3.2;
+				MARKETING_VERSION = 2026.4.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = tsi.com.scytales.av.dev.digitalcredentialprovider;
@@ -784,7 +761,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 2026.3.2;
+				MARKETING_VERSION = 2026.4.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.scytales.av.digitalcredentialprovider;
@@ -904,7 +881,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 2026.3.2;
+				MARKETING_VERSION = 2026.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = tsi.com.scytales.av;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1014,7 +991,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 2026.3.2;
+				MARKETING_VERSION = 2026.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.scytales.av;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1189,7 +1166,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 2026.3.2;
+				MARKETING_VERSION = 2026.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = tsi.com.scytales.av.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1243,7 +1220,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 2026.3.2;
+				MARKETING_VERSION = 2026.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = tsi.com.scytales.av.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
