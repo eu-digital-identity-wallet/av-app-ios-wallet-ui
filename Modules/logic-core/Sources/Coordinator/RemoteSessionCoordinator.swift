@@ -77,7 +77,7 @@ final class RemoteSessionCoordinatorImpl: RemoteSessionCoordinator {
   }
 
   public func sendResponse(response: RequestItemConvertible) async {
-    await session.sendResponse(userAccepted: true, itemsToSend: response.items, onCancel: nil) { url in
+    try? await session.sendResponse(userAccepted: true, itemsToSend: response.items, onCancel: nil) { url in
       self.sendableCurrentValueSubject.setValue(.responseSent(url))
     }
   }
