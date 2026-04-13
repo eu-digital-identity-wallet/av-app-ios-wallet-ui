@@ -96,7 +96,7 @@ struct RequestAuthorizationView: View {
                 ForEach(elements, id: \.self) { el in
                   HStack(alignment: .top, spacing: 8) {
                     Text("•")
-                    Text(el).fontWeight(
+                    Text(.dynamic(key: el)).fontWeight(
                       rs.namespaces[ns]![el]!.isRetaining ? .bold : .thin)
                   }
                 }
