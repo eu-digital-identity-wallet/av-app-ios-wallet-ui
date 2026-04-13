@@ -96,7 +96,7 @@ final class ProximitySessionCoordinatorImpl: ProximitySessionCoordinator {
   }
 
   public func sendResponse(response: RequestItemConvertible) async {
-    await session.sendResponse(userAccepted: true, itemsToSend: response.items)
+    try? await session.sendResponse(userAccepted: true, itemsToSend: response.items)
   }
 
   public func getState() async -> PresentationState {

@@ -122,7 +122,10 @@ final actor WalletKitControllerImpl: WalletKitController {
         serviceName: configLogic.documentStorageServiceName,
         accessGroup: WalletKitControllerImpl.getKeychainAccessGroup(),
         userAuthenticationRequired: configLogic.userAuthenticationRequired,
-        trustedReaderCertificates: configLogic.readerConfig.trustedCerts,
+        trustedReaderRootCertificates: configLogic.readerConfig.trustedCerts.compactMap { data in
+          guard let cert = SecCertificateCreateWithData(nil, data as CFData) else { return nil }
+          return [cert]
+        },
         deviceAuthMethod: .deviceSignature,
         uiCulture: Locale.current.systemLanguageCode,
         logFileName: configLogic.logFileName
@@ -231,7 +234,7 @@ final actor WalletKitControllerImpl: WalletKitController {
 
   func fetchIssuedDocuments(excluded: [DocumentTypeIdentifier]) -> [DocClaimsDecodable] {
     let excludedRawValues = excluded.map { $0.rawValue }
-    return fetchIssuedDocuments().filter { !excludedRawValues.contains($0.docType.orEmpty) }
+    return fetchIssuedDocuments().filter { !excludedRawValues.contains($0.docType) }
   }
 
   func fetchDocument(with id: String) -> DocClaimsDecodable? {
@@ -241,7 +244,8 @@ final actor WalletKitControllerImpl: WalletKitController {
   func fetchDocuments(with ids: [String]) async -> [DocClaimsDecodable] {
     let documents = fetchIssuedDocuments().filter { ids.contains($0.id) }
     for document in documents {
-      if let docType = document.docType {
+      let docType = document.docType
+      if !docType.isEmpty {
         do {
           if #available(iOS 26.0, *) {
             try await DocumentRegistrationManager.shared.addRegistration(

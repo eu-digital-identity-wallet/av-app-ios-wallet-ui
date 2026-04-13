@@ -110,8 +110,8 @@ struct WalletKitConfigImpl: WalletKitConfig {
             clientId: "wallet-dev",
             keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
             authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
-            usePAR: true,
-            useDpopIfSupported: true,
+            requirePAR: false,
+            requireDpop: false,
             cacheIssuerMetadata: true
           ),
           .init(
@@ -119,8 +119,8 @@ struct WalletKitConfigImpl: WalletKitConfig {
             clientId: "wallet-dev",
             keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
             authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
-            usePAR: true,
-            useDpopIfSupported: true,
+            requirePAR: false,
+            requireDpop: false,
             cacheIssuerMetadata: true
           )
         ]
@@ -131,8 +131,8 @@ struct WalletKitConfigImpl: WalletKitConfig {
             clientId: "wallet-dev",
             keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
             authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
-            usePAR: true,
-            useDpopIfSupported: true,
+            requirePAR: false,
+            requireDpop: false,
             cacheIssuerMetadata: true
           ),
           .init(
@@ -140,8 +140,8 @@ struct WalletKitConfigImpl: WalletKitConfig {
             clientId: "wallet-dev",
             keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
             authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
-            usePAR: true,
-            useDpopIfSupported: true,
+            requirePAR: false,
+            requireDpop: false,
             cacheIssuerMetadata: true
           )
         ]

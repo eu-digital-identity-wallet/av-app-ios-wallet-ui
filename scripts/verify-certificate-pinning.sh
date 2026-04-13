@@ -178,22 +178,22 @@ echo ""
 
 # issuer.ageverification.dev
 verify_domain "issuer.ageverification.dev" \
-    "LlemL1RFChyU/tYsjtLmw3phMJ/d2xQes7XVqkZirU8=" \
-    "AlSQhgtJirc8ahLyekmtX+Iw+v46yPYRLJt9Cq1GlB0="
+    "7KPIkNheFWUhDJI8vYGPnuxh6GBb6pVhUVlF8XzNrdM=" \
+    "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="
 
 # test.issuer.dev.ageverification.dev
 verify_domain "test.issuer.dev.ageverification.dev" \
-    "Os9ReyzMfa0X09LeXRyFP2lDpRllwYIzQiDlkf/ikSw=" \
-    "AlSQhgtJirc8ahLyekmtX+Iw+v46yPYRLJt9Cq1GlB0="
+    "obEJm4ZE7IHepIv+IC5iIE1c9H0hjg2qriuPtGV/S7g=" \
+    "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="
 
 # issuer.dev.ageverification.dev
 verify_domain "issuer.dev.ageverification.dev" \
-    "abOODQ5cP9y7lVM2tQHa1nMMnon7BuGP9D7s8rbAx+Q=" \
+    "kbsfS3RUyWqKhYZd6cxbW6uEOcTLom5oJma58UCk+Yc=" \
     "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="
 
 # passport.issuer.dev.ageverification.dev
 verify_domain "passport.issuer.dev.ageverification.dev" \
-    "keE5bu9tNclaKTlyp83txr+Gv+7wSetiElUUWT9+fW8=" \
+    "1D3OMb2zD16wZqoE91OnwYX7Z3yV2x4fwdKmXu6f210=" \
     "AlSQhgtJirc8ahLyekmtX+Iw+v46yPYRLJt9Cq1GlB0="
 
 # Summary
