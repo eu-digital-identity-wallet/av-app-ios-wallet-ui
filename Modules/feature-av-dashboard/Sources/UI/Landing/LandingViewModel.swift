@@ -15,6 +15,7 @@ struct AppLandingState: ViewState {
     let isLoading: Bool
     let error: ContentErrorView.Config?
     let credRemainingCount: Int?
+    let verifiedAge: Int?
 }
 
 final class LandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingState> {
@@ -28,7 +29,8 @@ final class LandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingSt
                    initialState: .init(document: DocumentUIModel.mock(),
                                        isLoading: true,
                                        error: nil,
-                                       credRemainingCount: nil
+                                       credRemainingCount: nil,
+                                       verifiedAge: nil
                                       )
         )
     }
@@ -49,12 +51,13 @@ final class LandingViewModel<Router: RouterHost>: ViewModel<Router, AppLandingSt
         }.value
 
         switch state {
-        case .success(let document, let credRemainingCount):
+        case .success(let document, let credRemainingCount, let verifiedAge):
           self.setState {
             $0.copy(
               document: document,
               isLoading: false,
               credRemainingCount: credRemainingCount,
+              verifiedAge: verifiedAge
             ).copy(error: nil)
           }
         case .failure(let error):

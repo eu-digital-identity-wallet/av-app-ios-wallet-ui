@@ -13,6 +13,7 @@ import logic_core
 struct AgeVerificationCardView: View {
   let cardHeight: CGFloat = 129
   let credentialsCount: Int?
+  let verifiedAge: Int?
   var onTap: (() -> Void)?
 
   var body: some View {
@@ -62,9 +63,18 @@ struct AgeVerificationCardView: View {
 
           Spacer()
           HStack {
-            Theme.shared.image._18PlusLogo
-              .resizable()
-              .frame(width: 64, height: 61)
+            ZStack {
+              Theme.shared.image._18PlusLogo
+                .resizable()
+                .frame(width: 64, height: 61)
+              if let verifiedAge {
+                Text("\(verifiedAge)+")
+                  .font(.system(size: 16, weight: .bold))
+                  .foregroundStyle(Color(red: 0, green: 0.2, blue: 0.6))
+                  .offset(x: -6, y: 4)
+              }
+            }
+            .frame(width: 64, height: 61)
             Text(LocalizableStringKey.splashScreenTitle.toString)
               .typography(Theme.shared.font.titleMedium)
               .foregroundStyle(Theme.shared.color.primary)

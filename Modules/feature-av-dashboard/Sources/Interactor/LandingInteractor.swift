@@ -32,7 +32,20 @@ final class LandingPageInteractorImpl: LandingInteractor {
         }
         let documentDetails = document.transformToDocumentUi(isSensitive: false)
         let credentialCount = document.credentialsUsageCounts?.remaining
-        return .success(documentDetails, credentialCount)
+        let verifiedAge = Self.extractVerifiedAge(from: document)
+        return .success(documentDetails, credentialCount, verifiedAge)
+    }
+
+    private static func extractVerifiedAge(from document: DocClaimsDecodable) -> Int? {
+        let fromDict = document.ageOverXX.filter({ $0.value }).keys
+
+        let ageOverPrefix = "age_over_"
+        let fromClaims = document.docClaims
+            .filter { $0.name.hasPrefix(ageOverPrefix) && $0.stringValue.lowercased() == "true" }
+            .compactMap { Int($0.name.dropFirst(ageOverPrefix.count)) }
+
+        let allAges = Array(fromDict) + fromClaims
+        return allAges.max()
     }
 
     func getWalletKitController() -> WalletKitController {
@@ -45,6 +58,6 @@ final class LandingPageInteractorImpl: LandingInteractor {
 }
 
 public enum AgeCredentialPartialState: Sendable {
-  case success(DocumentUIModel, Int?)
+  case success(DocumentUIModel, Int?, Int?)
   case failure(Error)
 }
