@@ -74,7 +74,7 @@ private func content(viewState: AppLandingState, onScan: @escaping () -> Void, o
                         .fixedSize(horizontal: false, vertical: true)
                 }
 
-                AgeVerificationCardView(credentialsCount: viewState.credRemainingCount, onTap: onGetMoreCredentials)
+                AgeVerificationCardView(credentialsCount: viewState.credRemainingCount, verifiedAge: viewState.verifiedAge, onTap: onGetMoreCredentials)
                 CredentialDetailsView(documentFields: viewState.document.documentFields)
                 Spacer()
                     .frame(height: 130)
