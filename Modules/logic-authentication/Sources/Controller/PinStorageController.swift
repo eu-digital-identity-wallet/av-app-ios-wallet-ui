@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 European Commission
+ * Copyright (c) 2026 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -22,7 +22,7 @@ public enum PinValidationResult {
 }
 
 public protocol PinStorageController: Sendable {
-  func retrievePin() -> String?
+  func hasPin() -> Bool
   func setPin(with pin: String)
   func isPinValid(with pin: String) -> PinValidationResult
   func getLockoutStatus() -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?)
@@ -38,8 +38,8 @@ public final class PinStorageControllerImpl: PinStorageController {
     self.provider = provider
   }
 
-  public func retrievePin() -> String? {
-    provider.retrievePin()
+  public func hasPin() -> Bool {
+    provider.hasPin()
   }
 
   public func setPin(with pin: String) {

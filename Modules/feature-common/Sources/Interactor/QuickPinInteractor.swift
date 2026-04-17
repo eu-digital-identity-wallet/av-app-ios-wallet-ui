@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 European Commission
+ * Copyright (c) 2026 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -44,23 +44,26 @@ public final actor QuickPinInteractorImpl: @preconcurrency QuickPinInteractor {
 
   public func setPin(newPin: String) {
     pinStorageController.setPin(with: newPin)
-    saveUsedPins(pin: newPin)
+    saveUsedPinHashes(pinHash: newPin)
   }
 
-  public func saveUsedPins(pin: String) {
-    var lastUsedPins = (prefsController.getValue(forKey: .lastUsedPins) as? [String]) ?? []
-    if lastUsedPins.count == 3 {
-      lastUsedPins.removeFirst()
+  public func saveUsedPinHashes(pinHash: String) {
+    var lastUsedPinHashes = (prefsController.getValue(forKey: .lastUsedPinHashes) as? [String]) ?? []
+    if lastUsedPinHashes.count >= 3 {
+      lastUsedPinHashes.removeFirst()
     }
-    lastUsedPins.append(pin)
-    prefsController.setValue(lastUsedPins, forKey: .lastUsedPins)
+    let hashedPin = PinHasher.hash(pin: pinHash)
+    lastUsedPinHashes.append(hashedPin)
+    prefsController.setValue(lastUsedPinHashes, forKey: .lastUsedPinHashes)
   }
 
   nonisolated public func isCurrentPinExistInLastUsedPins(pin: String) -> Bool {
-    guard let usedPins = prefsController.getValue(forKey: .lastUsedPins) as? [String] else {
+    guard let usedPins = prefsController.getValue(forKey: .lastUsedPinHashes) as? [String] else {
         return false
     }
-    return usedPins.contains(pin)
+    return usedPins.contains { entry in
+      PinHasher.verify(pin: pin, againstStored: entry)
+    }
   }
 
   public func isPinValid(pin: String) -> QuickPinPartialState {
@@ -82,7 +85,7 @@ public final actor QuickPinInteractorImpl: @preconcurrency QuickPinInteractor {
   }
 
   public func hasPin() -> Bool {
-    pinStorageController.retrievePin()?.isEmpty == false
+    pinStorageController.hasPin()
   }
 
   private func isCurrentPinValid(pin: String) -> QuickPinPartialState {

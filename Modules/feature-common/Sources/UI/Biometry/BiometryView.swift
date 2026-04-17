@@ -132,11 +132,10 @@ private func pinView(
       numericText: uiPinInputField,
       maxDigits: quickPinSize,
       isSecureEntry: true,
-      canFocus: .constant(!areBiometricsEnabled),
+      canFocus: .constant(!areBiometricsEnabled && !disabled),
       shouldUseFullScreen: true,
       hasError: pinError != nil
     )
-    .disabled(disabled)
 
     VSpacer.mediumSmall()
 
@@ -178,7 +177,8 @@ private func pinView(
         appIcon: ThemeManager.shared.image.logoEuDigitalIndentityWallet,
         appText: ThemeManager.shared.image.euditext
       )
-    )
+    ),
+    isLockoutStatusChecked: true
   )
 
   ContentScreenView {

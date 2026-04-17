@@ -31,8 +31,9 @@ public struct BiometryState: ViewState {
   let quickPinSize: Int
   let lockoutEndTime: TimeInterval
   let contentHeaderConfig: ContentHeaderConfig
+  let isLockoutStatusChecked: Bool
   var isLockedOut: Bool {
-    lockoutEndTime > 0
+    !isLockoutStatusChecked || lockoutEndTime > 0
   }
 }
 
@@ -89,7 +90,8 @@ final public class BiometryViewModel<Router: RouterHost>: ViewModel<Router, Biom
             appIcon: ThemeManager.shared.image.logoEuDigitalIndentityWallet,
             appText: ThemeManager.shared.image.euditext
           )
-        )
+        ),
+        isLockoutStatusChecked: false
       )
     )
 
@@ -109,6 +111,7 @@ final public class BiometryViewModel<Router: RouterHost>: ViewModel<Router, Biom
     }
 
     await checkCurrentLockoutStatus()
+    setState { $0.copy(isLockoutStatusChecked: true) }
     guard !viewState.isLockedOut else {
       return
     }
@@ -202,6 +205,7 @@ final public class BiometryViewModel<Router: RouterHost>: ViewModel<Router, Biom
   }
 
   private func startLockoutTimer(lockoutEndTime: TimeInterval) {
+    setState { $0.copy(lockoutEndTime: lockoutEndTime) }
     lockoutTimer.start(until: lockoutEndTime) { message in
       _Concurrency.Task {
         await MainActor.run {

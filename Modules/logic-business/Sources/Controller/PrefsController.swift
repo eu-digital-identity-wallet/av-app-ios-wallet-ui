@@ -105,6 +105,6 @@ public extension Prefs {
     case runAtLeastOnce
     case language
     case batchCounter
-    case lastUsedPins
+    case lastUsedPinHashes
   }
 }

@@ -96,7 +96,8 @@ private func content(
 
                 uiPinInputField: uiPinInputField,
                 quickPinSize: viewState.quickPinSize,
-                pinError: viewState.pinError
+                pinError: viewState.pinError,
+                isLockedOut: viewState.isLockedOut
             )
             Spacer()
         }
@@ -110,7 +111,8 @@ private func pinView(
   subtitleText: String,
   uiPinInputField: Binding<String>,
   quickPinSize: Int,
-  pinError: LocalizableStringKey?
+  pinError: LocalizableStringKey?,
+  isLockedOut: Bool
 ) -> some View {
     Group {
     Text(subtitleText)
@@ -122,7 +124,7 @@ private func pinView(
       numericText: uiPinInputField,
       maxDigits: quickPinSize,
       isSecureEntry: true,
-      canFocus: .constant(true),
+      canFocus: .constant(!isLockedOut),
       shouldUseFullScreen: true,
       hasError: pinError != nil
     )
@@ -152,6 +154,7 @@ private func pinView(
     successNavigationType: .push(screen: .featureAVDashboardModule(.appLanding)),
     isCancellable: false,
     pinError: nil,
+    isLockedOut: false,
     isButtonActive: true,
     step: .firstInput,
     quickPinSize: 6

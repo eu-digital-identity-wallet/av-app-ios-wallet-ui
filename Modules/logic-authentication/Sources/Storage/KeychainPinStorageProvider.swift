@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 European Commission
+ * Copyright (c) 2026 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -25,16 +25,20 @@ public final class KeychainPinStorageProvider: PinStorageProvider {
     self.keyChainController = keyChainController
   }
 
-  public func retrievePin() -> String? {
-    keyChainController.getValue(key: KeyIdentifier.devicePin)
+  public func hasPin() -> Bool {
+    keyChainController.getValue(key: KeyIdentifier.appPinHash) != nil
   }
 
   public func setPin(with pin: String) {
-    keyChainController.storeValue(key: KeyIdentifier.devicePin, value: pin)
+    let hashed = PinHasher.hash(pin: pin)
+    keyChainController.storeValue(key: KeyIdentifier.appPinHash, value: hashed)
   }
 
   public func isPinValid(with pin: String) -> Bool {
-    let isValid = keyChainController.getValue(key: KeyIdentifier.devicePin) == pin
+    guard let storedValue = keyChainController.getValue(key: KeyIdentifier.appPinHash) else {
+      return false
+    }
+    let isValid = PinHasher.verify(pin: pin, againstStored: storedValue)
     log("Pin validation result: \(isValid)", level: .debug)
     return isValid
   }
@@ -76,7 +80,7 @@ private enum KeyIdentifier: String, KeyChainWrapper {
     self.rawValue
   }
 
-  case devicePin
+  case appPinHash
   case pinFailedAttempts
   case lockoutUntil
 }

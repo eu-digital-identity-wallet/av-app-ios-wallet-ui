@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 European Commission
+ * Copyright (c) 2026 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -47,6 +47,7 @@ final actor StartupInteractorImpl: StartupInteractor {
 
   public func initialize(with splashAnimationDuration: TimeInterval) async -> AppRoute {
     await manageStorageForFirstRun()
+    await clearStorageIfPinRemoved()
     try? await walletKitController.loadDocuments()
     let hasDocuments = await !walletKitController.fetchAllDocuments().isEmpty
     try? await Task.sleep(nanoseconds: splashAnimationDuration.nanoseconds)
@@ -84,5 +85,21 @@ final actor StartupInteractorImpl: StartupInteractor {
       keyChainController.clear()
       prefsController.setValue(true, forKey: .runAtLeastOnce)
     }
+  }
+
+  private func clearStorageIfPinRemoved() async {
+    let hasPin = await quickPinInteractor.hasPin()
+    guard !hasPin else { return }
+
+    try? await walletKitController.loadDocuments()
+    let hasDocuments = await !walletKitController.fetchAllDocuments().isEmpty
+    guard hasDocuments else { return }
+
+    try? await walletKitController.clearAllDocuments()
+    keyChainController.clear()
+    prefsController.remove(forKey: .lastUsedPinHashes)
+    prefsController.remove(forKey: .cachedDeepLink)
+    prefsController.remove(forKey: .biometryEnabled)
+    prefsController.remove(forKey: .batchCounter)
   }
 }

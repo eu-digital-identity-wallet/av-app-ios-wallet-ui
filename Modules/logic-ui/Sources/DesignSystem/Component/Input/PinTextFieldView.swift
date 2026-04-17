@@ -175,6 +175,10 @@ public struct PinTextFieldView: View {
     .textContentType(.oneTimeCode)
     .frame(width: self.isInEditMode ? 0 : nil, height: nil)
     .focused($focused)
+    .disabled(!canFocus)
+    .onChange(of: canFocus) { _, newValue in
+      if !newValue { focused = false }
+    }
     .if(canFocus) { view in
       view
         .onAppearDelayed {

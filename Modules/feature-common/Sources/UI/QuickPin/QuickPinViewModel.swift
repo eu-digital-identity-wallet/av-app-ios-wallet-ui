@@ -35,6 +35,7 @@ struct QuickPinState: ViewState {
   let successNavigationType: UIConfig.DeepLinkNavigationType
   let isCancellable: Bool
   let pinError: LocalizableStringKey?
+  let isLockedOut: Bool
   let isButtonActive: Bool
   let step: QuickPinStep
   let quickPinSize: Int
@@ -82,6 +83,7 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
         : .pop(screen: .featureAVDashboardModule(.appLanding)),
         isCancellable: config.isUpdateFlow,
         pinError: nil,
+        isLockedOut: false,
         isButtonActive: false,
         step: config.isSetFlow || config.isUpdateFlow ? .firstInput : .validate,
         quickPinSize: 6
@@ -230,6 +232,7 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
   }
 
   private func startLockoutTimer(lockoutEndTime: TimeInterval) {
+    setState { $0.copy(isLockedOut: true) }
     lockoutTimer.start(until: lockoutEndTime) { message in
       Task {
         await MainActor.run {
@@ -242,7 +245,7 @@ final class QuickPinViewModel<Router: RouterHost>: ViewModel<Router, QuickPinSta
       Task {
         await MainActor.run {
           self.setState {
-            $0.copy(pinError: nil)
+            $0.copy(pinError: nil, isLockedOut: false)
           }
         }
       }
