@@ -96,8 +96,10 @@ struct RequestAuthorizationView: View {
                 ForEach(elements, id: \.self) { el in
                   HStack(alignment: .top, spacing: 8) {
                     Text("•")
-                    Text(.dynamic(key: el)).fontWeight(
-                      rs.namespaces[ns]![el]!.isRetaining ? .bold : .thin)
+                    if let age = viewModel.extractAge(from: el) {
+                        Text(LocalizableStringKey.ageOver(age).toString)
+                      .fontWeight(rs.namespaces[ns]![el]!.isRetaining ? .bold : .thin)
+                    }
                   }
                 }
               }

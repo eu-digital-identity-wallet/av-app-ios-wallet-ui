@@ -79,6 +79,10 @@ class RequestAuthorizationViewModel: ObservableObject {
   func cancelRequest() {
     context?.cancel()
   }
+  
+  func extractAge(from key: String) -> Int? {
+      key.split(separator: "_").last.flatMap { Int($0) }
+  }
 
   // MARK: - Helper Methods
   func createBiometryConfig(routerHost: RouterHost) -> UIConfig.Biometry {

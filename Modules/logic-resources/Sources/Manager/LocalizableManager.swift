@@ -40,6 +40,8 @@ final class LocalizableManager: LocalizableManagerType {
         " "
       case .ageOver18:
         bundle.localizedString(forKey: "age_over_18")
+      case .ageOver(let arg1):
+      bundle.localizedStringWithArguments(forKey: "age_over", arguments: [arg1])
       case .biometricConfirmRequest:
         bundle.localizedString(forKey: "biometric_confirm_request")
       case .biometricDefaultModeTextAbovePinField:

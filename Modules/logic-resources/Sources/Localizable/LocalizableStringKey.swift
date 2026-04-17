@@ -20,6 +20,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case custom(String)
   case space
   case ageOver18
+  case ageOver(Int)
   case biometricConfirmRequest
   case biometricDefaultModeTextAbovePinField
   case biometricLoginBiometricsEnabledSubtitle

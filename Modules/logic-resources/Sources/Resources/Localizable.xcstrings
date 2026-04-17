@@ -1,6 +1,41 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "age_over" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alder over %d"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alter über %d Jahre"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Age over %d"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Âgé de plus de %d ans"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Maggiore di %d anni"
+          }
+        }
+      }
+    },
     "age_over_18" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2807,13 +2842,13 @@
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This information will be shared:"
+            "value" : "Disse oplysninger vil blive delt."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This information will be shared:"
+            "value" : "Diese Informationen werden weitergegeben."
           }
         },
         "en" : {
@@ -2825,13 +2860,13 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This information will be shared:"
+            "value" : "Ces informations seront partagées"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This information will be shared:"
+            "value" : "Queste informazioni saranno condivise."
           }
         }
       }
