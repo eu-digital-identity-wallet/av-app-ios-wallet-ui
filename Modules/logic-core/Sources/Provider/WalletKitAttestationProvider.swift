@@ -16,11 +16,12 @@
 import logic_api
 import JOSESwift
 import Foundation
+import OpenID4VCI
 
 protocol WalletKitAttestationProvider: WalletAttestationsProvider {
   var baseUrl: String { get }
-  func getWalletAttestation(key: any JOSESwift.JWK) async throws -> String
-  func getKeysAttestation(keys: [any JOSESwift.JWK], nonce: String?) async throws -> String
+  func getWalletAttestation(signingKey: SigningKeyProxy) async throws -> String
+  func getKeysAttestation(keys: [any JWK], nonce: String?) async throws -> String
 }
 
 final class WalletKitAttestationProviderImpl: WalletKitAttestationProvider {
@@ -29,38 +30,38 @@ final class WalletKitAttestationProviderImpl: WalletKitAttestationProvider {
   let baseUrl: String
 
   init(with repository: WalletAttestationRepository, and configLogic: WalletProviderAttestationConfig) {
-    self.repository = repository
-    self.baseUrl = configLogic.walletProviderAttestationUrl
+	self.repository = repository
+	self.baseUrl = configLogic.walletProviderAttestationUrl
   }
 
-  func getWalletAttestation(key: any JOSESwift.JWK) async throws -> String {
+  func getWalletAttestation(signingKey: SigningKeyProxy) async throws -> String {
 
-    let jwkDict = try key.toDictionary()
-    let payload = ["jwk": jwkDict]
+	let jwkDict = try signingKey.getPublicJWK().toDictionary()
+	let payload = ["jwk": jwkDict]
 
-    let encodedPayload = try JSONSerialization.data(withJSONObject: payload, options: [])
+	let encodedPayload = try JSONSerialization.data(withJSONObject: payload, options: [])
 
-    let response = try await repository.issueWalletInstanceAttestation(host: self.baseUrl, payload: encodedPayload)
-    return response.walletInstanceAttestation
+	let response = try await repository.issueWalletInstanceAttestation(host: self.baseUrl, payload: encodedPayload)
+	return response.walletInstanceAttestation
   }
 
-  func getKeysAttestation(keys: [any JOSESwift.JWK], nonce: String?) async throws -> String {
+  func getKeysAttestation(keys: [any JWK], nonce: String?) async throws -> String {
 
-    let jwkDict = try keys.map { try $0.toDictionary() }
+	let jwkDict = try keys.map { try $0.toDictionary() }
 
-    var payload: [String: Any] = [
-      "jwkSet": [
-        "keys": jwkDict
-      ]
-    ]
+	var payload: [String: Any] = [
+	  "jwkSet": [
+		"keys": jwkDict
+	  ]
+	]
 
-    if let nonce {
-      payload["nonce"] = nonce
-    }
+	if let nonce {
+	  payload["nonce"] = nonce
+	}
 
-    let encodedPayload = try JSONSerialization.data(withJSONObject: payload, options: [])
+	let encodedPayload = try JSONSerialization.data(withJSONObject: payload, options: [])
 
-    let response = try await repository.issueWalletUnitAttestation(host: self.baseUrl, payload: encodedPayload)
-    return response.walletUnitAttestation
+	let response = try await repository.issueWalletUnitAttestation(host: self.baseUrl, payload: encodedPayload)
+	return response.walletUnitAttestation
   }
 }

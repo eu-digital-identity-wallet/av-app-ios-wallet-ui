@@ -36,7 +36,7 @@ protocol WalletKitConfig: Sendable {
   /**
    * Reader Configuration
    */
-  var readerConfig: ReaderConfig { get }
+  var readerConfig: [x5chain] { get }
 
   /**
    * User authentication required accessing core's secure storage
@@ -72,6 +72,11 @@ protocol WalletKitConfig: Sendable {
    * Configuration for document issuance, including default rules and specific overrides.
    */
   var documentIssuanceConfig: DocumentIssuanceConfig { get }
+	
+	/**
+	 * KeyOptions for creating & accessing attestation keys
+	 */
+	var keyOptions: KeyOptions? { get }
 }
 
 struct WalletKitConfigImpl: WalletKitConfig {
@@ -93,6 +98,14 @@ struct WalletKitConfigImpl: WalletKitConfig {
   var userAuthenticationRequired: Bool {
     false
   }
+	
+	var keyOptions: KeyOptions? {
+	  KeyOptions(
+		curve: .P256,
+		secureAreaName: SecureEnclaveSecureArea.name,
+		accessControl: []
+	  )
+	}
 
   var vciConfig: [String: OpenId4VciConfiguration] {
 
@@ -169,7 +182,7 @@ struct WalletKitConfigImpl: WalletKitConfig {
     .init(clientIdSchemes: [.redirectUri])
   }
 
-  var readerConfig: ReaderConfig {
+  var readerConfig: [x5chain] {
     let certificates = [
       "av_cert",
       "pidissuerca02_cz",
@@ -181,10 +194,9 @@ struct WalletKitConfigImpl: WalletKitConfig {
       "pidissuerca02_ut",
       "r45_staging"
     ]
-    let certsData: [Data] = certificates.compactMap {
-      Data(name: $0, ext: "der")
-    }
-    return .init(trustedCerts: certsData)
+	  return certificates
+		.compactMap { loadCertificate($0) }
+		.map { [$0] }
   }
 
   var documentStorageServiceName: String {
@@ -257,5 +269,15 @@ struct WalletKitConfigImpl: WalletKitConfig {
       ),
       documentSpecificRules: [:]
     )
+  }
+}
+
+private extension WalletKitConfigImpl {
+  func loadCertificate(_ name: String) -> SecCertificate? {
+	guard
+	  let url = Bundle.main.url(forResource: name, withExtension: "der"),
+	  let data = try? Data(contentsOf: url)
+	else { return nil }
+	return SecCertificateCreateWithData(nil, data as CFData)
   }
 }
