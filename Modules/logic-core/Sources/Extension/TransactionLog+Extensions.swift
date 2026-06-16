@@ -19,15 +19,15 @@ import Foundation
 
 extension logic_storage.TransactionLog {
   func toTransactionLogItem(
-    id: String,
-    parse: (EudiWalletKit.TransactionLog) -> (TransactionLogData)
+	id: String,
+	parse: (MdocDataModel18013.TransactionLog) -> (TransactionLogData)
   ) throws -> TransactionLogItem {
-    guard
-      let value = self.value.data(using: .utf8),
-      let coreLog = try? JSONDecoder().decode(EudiWalletKit.TransactionLog.self, from: value)
-    else {
-      throw WalletCoreError.unableToFetchTransactionLog
-    }
-    return .init(id: id, transactionLogData: parse(coreLog))
+	guard
+	  let value = self.value.data(using: .utf8),
+	  let coreLog = try? JSONDecoder().decode(MdocDataModel18013.TransactionLog.self, from: value)
+	else {
+	  throw WalletCoreError.unableToFetchTransactionLog
+	}
+	return .init(id: id, transactionLogData: parse(coreLog))
   }
 }

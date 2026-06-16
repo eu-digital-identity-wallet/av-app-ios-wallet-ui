@@ -34,7 +34,8 @@ public final class LogicCoreAssembly: Assembly {
 
     container.register(WalletKitController.self) { r in
       WalletKitControllerImpl(
-        configLogic: r.force(WalletKitConfig.self),
+		walletKitConfig: r.force(WalletKitConfig.self),
+		configLogic: r.force(ConfigLogic.self),
         keyChainController: r.force(KeyChainController.self),
         sessionCoordinatorHolder: r.force(SessionCoordinatorHolder.self),
         bookmarkStorageController: r.force((any BookmarkStorageController).self),

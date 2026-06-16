@@ -47,7 +47,7 @@ class RequestAuthorizationViewModel: ObservableObject {
         return
       }
 
-      let (set, _, rn) = try await dcApiHandler.validateRequest(context.request)
+      let (_, set, _, rn) = try await dcApiHandler.validateRequest(context.request)
       requestSet = set
       websiteName = context.requestingWebsiteOrigin?.absoluteString ?? rn ?? "Website name not available"
 
@@ -65,7 +65,6 @@ class RequestAuthorizationViewModel: ObservableObject {
 
     try await context.sendResponse { rawRequest in
       try await self.dcApiHandler.validateConsistency(request: context.request, rawRequest: rawRequest)
-      try await self.dcApiHandler.validateRawRequest(rawRequest: rawRequest)
 
       let responseData = try await self.dcApiHandler.buildAndEncryptResponse(
         rawRequest: rawRequest,

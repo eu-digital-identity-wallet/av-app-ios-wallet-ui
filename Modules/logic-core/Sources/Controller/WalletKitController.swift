@@ -36,14 +36,14 @@ public protocol WalletKitController: Sendable {
   func startCrossDevicePresentation(urlString: String) async -> RemoteSessionCoordinator
   func stopPresentation() async
 
-  func fetchAllDocuments() async -> [DocClaimsDecodable]
+  func fetchAllDocuments() async -> [any DocClaimsDecodable]
   func fetchDeferredDocuments() async -> [WalletStorage.Document]
-  func fetchIssuedDocuments() async -> [DocClaimsDecodable]
-  func fetchIssuedDocuments(with types: [DocumentTypeIdentifier]) async -> [DocClaimsDecodable]
-  func fetchIssuedDocuments(excluded: [DocumentTypeIdentifier]) async -> [DocClaimsDecodable]
-  func fetchMainPidDocument() async -> DocClaimsDecodable?
-  func fetchDocument(with id: String) async -> DocClaimsDecodable?
-  func fetchDocuments(with ids: [String]) async -> [DocClaimsDecodable]
+  func fetchIssuedDocuments() async -> [any DocClaimsDecodable]
+  func fetchIssuedDocuments(with types: [DocumentTypeIdentifier]) async -> [any DocClaimsDecodable]
+  func fetchIssuedDocuments(excluded: [DocumentTypeIdentifier]) async -> [any DocClaimsDecodable]
+  func fetchMainPidDocument() async -> (any DocClaimsDecodable)?
+  func fetchDocument(with id: String) async -> (any DocClaimsDecodable)?
+  func fetchDocuments(with ids: [String]) async -> [any DocClaimsDecodable]
   func clearAllDocuments() async throws
 
   func deleteDocument(with id: String, status: DocumentStatus) async throws
@@ -53,7 +53,7 @@ public protocol WalletKitController: Sendable {
     identifiers: [String],
     docTypeIdentifier: DocumentTypeIdentifier
   ) async throws -> [WalletStorage.Document]
-  func requestDeferredIssuance(with doc: WalletStorage.Document) async throws -> DocClaimsDecodable
+  func requestDeferredIssuance(with doc: WalletStorage.Document) async throws -> any DocClaimsDecodable
   func resolveOfferUrlDocTypes(offerUri: String) async throws -> OfferedIssuanceModel
   func issueDocumentsByOfferUrl(
     offerUri: String,
@@ -87,7 +87,7 @@ public protocol WalletKitController: Sendable {
   func removeRevokedDocument(with id: String) async throws
 
   func getDocumentStatus(for statusIdentifier: StatusIdentifier) async throws -> CredentialStatus
-  func isDocumentLowOnCredentials(document: DocClaimsDecodable?) async -> Bool
+  func isDocumentLowOnCredentials(document: (any DocClaimsDecodable)?) async -> Bool
 }
 
 final actor WalletKitControllerImpl: WalletKitController {
@@ -95,14 +95,16 @@ final actor WalletKitControllerImpl: WalletKitController {
   let wallet: EudiWallet
   private let sessionCoordinatorHolder: SessionCoordinatorHolder
 
-  private let configLogic: WalletKitConfig
+  private let walletKitConfig: WalletKitConfig
+  private let configLogic: ConfigLogic
   private let keyChainController: KeyChainController
   private let bookmarkStorageController: any BookmarkStorageController
   private let transactionLogStorageController: any TransactionLogStorageController
   private let revokedDocumentStorageController: any RevokedDocumentStorageController
 
   init(
-    configLogic: WalletKitConfig,
+    walletKitConfig: WalletKitConfig,
+    configLogic: ConfigLogic,
     keyChainController: KeyChainController,
     sessionCoordinatorHolder: SessionCoordinatorHolder,
     bookmarkStorageController: any BookmarkStorageController,
@@ -110,7 +112,8 @@ final actor WalletKitControllerImpl: WalletKitController {
     revokedDocumentStorageController: any RevokedDocumentStorageController,
     networkSessionProvider: NetworkSessionProvider
   ) {
-    self.configLogic = configLogic
+	  self.walletKitConfig = walletKitConfig
+	  self.configLogic = configLogic
     self.keyChainController = keyChainController
     self.sessionCoordinatorHolder = sessionCoordinatorHolder
     self.bookmarkStorageController = bookmarkStorageController
@@ -119,21 +122,18 @@ final actor WalletKitControllerImpl: WalletKitController {
 
     guard let walletKit = try? EudiWallet(
       eudiWalletConfig: EudiWalletConfiguration(
-        serviceName: configLogic.documentStorageServiceName,
-        accessGroup: WalletKitControllerImpl.getKeychainAccessGroup(),
-        userAuthenticationRequired: configLogic.userAuthenticationRequired,
-        trustedReaderRootCertificates: configLogic.readerConfig.trustedCerts.compactMap { data in
-          guard let cert = SecCertificateCreateWithData(nil, data as CFData) else { return nil }
-          return [cert]
-        },
+		serviceName: configLogic.keyChainConfig.documentStorageServiceName,
+		accessGroup: configLogic.keyChainConfig.keychainAccessGroup,
+        userAuthenticationRequired: walletKitConfig.userAuthenticationRequired,
+		trustedReaderRootCertificates: walletKitConfig.readerConfig,
         deviceAuthMethod: .deviceSignature,
         uiCulture: Locale.current.systemLanguageCode,
-        logFileName: configLogic.logFileName
+        logFileName: walletKitConfig.logFileName
       ),
-      openID4VpConfig: configLogic.vpConfig,
-      openID4VciConfigurations: configLogic.vciConfig,
+      openID4VpConfig: walletKitConfig.vpConfig,
+      openID4VciConfigurations: walletKitConfig.vciConfig,
       networking: networkSessionProvider.urlSession,
-      transactionLogger: configLogic.transactionLogger
+      transactionLogger: walletKitConfig.transactionLogger
     ) else {
       fatalError("Unable to Initialize WalletKit")
     }
@@ -154,12 +154,15 @@ final actor WalletKitControllerImpl: WalletKitController {
     txCodeValue: String?
   ) async throws -> [WalletStorage.Document] {
     let docTypes = docTypes.map { docType in
-      let rule = configLogic.documentIssuanceConfig.rule(for: docType.documentTypeIdentifier)
+      let rule = walletKitConfig.documentIssuanceConfig.rule(for: docType.documentTypeIdentifier)
       let credentialOptions: CredentialOptions = .init(
         credentialPolicy: rule.policy,
         batchSize: rule.numberOfCredentials
       )
-      return docType.copy(credentialOptions: credentialOptions)
+      return docType.copy(
+				credentialOptions: credentialOptions,
+				keyOptions: walletKitConfig.keyOptions
+			)
     }
 
     return try await wallet.issueDocumentsByOfferUrl(
@@ -210,7 +213,7 @@ final actor WalletKitControllerImpl: WalletKitController {
     await self.sessionCoordinatorHolder.clear()
   }
 
-  func fetchAllDocuments() -> [DocClaimsDecodable] {
+  func fetchAllDocuments() -> [any DocClaimsDecodable] {
     return fetchIssuedDocuments() + fetchDeferredDocuments().transformToDeferredDecodables()
   }
 
@@ -218,30 +221,30 @@ final actor WalletKitControllerImpl: WalletKitController {
     return wallet.storage.deferredDocuments
   }
 
-  func fetchIssuedDocuments() -> [DocClaimsDecodable] {
+  func fetchIssuedDocuments() -> [any DocClaimsDecodable] {
     return wallet.storage.docModels
   }
 
-  func fetchIssuedDocuments(with types: [DocumentTypeIdentifier]) -> [DocClaimsDecodable] {
+  func fetchIssuedDocuments(with types: [DocumentTypeIdentifier]) -> [any DocClaimsDecodable] {
     return wallet.storage.docModels
       .filter({ types.map { $0.rawValue }.contains($0.docType) })
   }
 
-  func fetchMainPidDocument() -> DocClaimsDecodable? {
+  func fetchMainPidDocument() -> (any DocClaimsDecodable)? {
     return fetchIssuedDocuments(with: [DocumentTypeIdentifier.mDocPid, DocumentTypeIdentifier.sdJwtPid])
       .sorted { $0.createdAt > $1.createdAt }.last
   }
 
-  func fetchIssuedDocuments(excluded: [DocumentTypeIdentifier]) -> [DocClaimsDecodable] {
+  func fetchIssuedDocuments(excluded: [DocumentTypeIdentifier]) -> [any DocClaimsDecodable] {
     let excludedRawValues = excluded.map { $0.rawValue }
     return fetchIssuedDocuments().filter { !excludedRawValues.contains($0.docType) }
   }
 
-  func fetchDocument(with id: String) -> DocClaimsDecodable? {
+  func fetchDocument(with id: String) -> (any DocClaimsDecodable)? {
     wallet.storage.getDocumentModel(id: id)
   }
 
-  func fetchDocuments(with ids: [String]) async -> [DocClaimsDecodable] {
+  func fetchDocuments(with ids: [String]) async -> [any DocClaimsDecodable] {
     let documents = fetchIssuedDocuments().filter { ids.contains($0.id) }
     for document in documents {
       let docType = document.docType
@@ -270,7 +273,7 @@ final actor WalletKitControllerImpl: WalletKitController {
     identifiers: [String],
     docTypeIdentifier: DocumentTypeIdentifier
   ) async throws -> [WalletStorage.Document] {
-    let rule = configLogic.documentIssuanceConfig.rule(for: docTypeIdentifier)
+    let rule = walletKitConfig.documentIssuanceConfig.rule(for: docTypeIdentifier)
 
     let documents = try await wallet.issueDocuments(
       issuerName: issuerId,
@@ -278,25 +281,27 @@ final actor WalletKitControllerImpl: WalletKitController {
       credentialOptions: .init(
         credentialPolicy: rule.policy,
         batchSize: rule.numberOfCredentials
-      )
+      ),
+      keyOptions: walletKitConfig.keyOptions
     )
     return documents
   }
 
-  func requestDeferredIssuance(with doc: WalletStorage.Document) async throws -> DocClaimsDecodable {
+	func requestDeferredIssuance(with doc: WalletStorage.Document) async throws -> any DocClaimsDecodable {
     guard
       let metadata = DocMetadata(from: doc.metadata)
     else {
       throw WalletCoreError.missingMetadata
     }
-    let rule = configLogic.documentIssuanceConfig.rule(for: doc.documentTypeIdentifier)
+    let rule = walletKitConfig.documentIssuanceConfig.rule(for: doc.documentTypeIdentifier)
     let result = try await wallet.requestDeferredIssuance(
       issuerName: metadata.credentialIssuerIdentifier,
       deferredDoc: doc,
       credentialOptions: .init(
         credentialPolicy: rule.policy,
         batchSize: rule.numberOfCredentials
-      )
+      ),
+      keyOptions: walletKitConfig.keyOptions
     )
     if result.isDeferred {
       return result.transformToDeferredDecodable()
@@ -309,7 +314,7 @@ final actor WalletKitControllerImpl: WalletKitController {
 
   func retrieveLogFileUrl() -> URL? {
     guard
-      let url = try? EudiWallet.getLogFileURL(configLogic.logFileName)
+      let url = try? EudiWallet.getLogFileURL(walletKitConfig.logFileName)
     else {
       return nil
     }
@@ -334,7 +339,7 @@ final actor WalletKitControllerImpl: WalletKitController {
     else {
       throw WalletCoreError.missingMetadata
     }
-    let rule = configLogic.documentIssuanceConfig.rule(for: pendingDoc.documentTypeIdentifier)
+    let rule = walletKitConfig.documentIssuanceConfig.rule(for: pendingDoc.documentTypeIdentifier)
     return try await wallet.resumePendingIssuance(
       issuerName: metadata.credentialIssuerIdentifier,
       pendingDoc: pendingDoc,
@@ -342,7 +347,8 @@ final actor WalletKitControllerImpl: WalletKitController {
       credentialOptions: .init(
         credentialPolicy: rule.policy,
         batchSize: rule.numberOfCredentials
-      )
+      ),
+      keyOptions: walletKitConfig.keyOptions
     )
   }
 
@@ -375,7 +381,7 @@ final actor WalletKitControllerImpl: WalletKitController {
   func getScopedDocuments() async throws -> [ScopedDocument] {
 
     try await withThrowingTaskGroup(of: [ScopedDocument].self) { group in
-      for issuerName in configLogic.vciConfig.keys {
+      for issuerName in walletKitConfig.vciConfig.keys {
         group.addTask {
           let metadata = try await self.wallet.getIssuerMetadata(issuerName: issuerName)
           return metadata.credentialsSupported.compactMap { credential in
@@ -423,7 +429,7 @@ final actor WalletKitControllerImpl: WalletKitController {
     }
   }
 
-  func isDocumentLowOnCredentials(document: DocClaimsDecodable?) -> Bool {
+  func isDocumentLowOnCredentials(document: (any DocClaimsDecodable)?) -> Bool {
     if let document, let documentRemainingCredentials = document.credentialsUsageCounts?.remaining {
       return document.credentialPolicy == CredentialPolicy.oneTimeUse && documentRemainingCredentials <= 1
     } else {
@@ -432,7 +438,7 @@ final actor WalletKitControllerImpl: WalletKitController {
   }
 
   func getDocumentCategories() -> DocumentCategories {
-    let sorted = configLogic.documentsCategories.sorted { $0.key.order < $1.key.order }
+    let sorted = walletKitConfig.documentsCategories.sorted { $0.key.order < $1.key.order }
     return DocumentCategories(uniqueKeysWithValues: sorted)
   }
 
