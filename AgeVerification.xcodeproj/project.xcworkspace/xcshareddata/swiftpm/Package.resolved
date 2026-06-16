@@ -1,5 +1,5 @@
 {
-  "originHash" : "b42ab55e78c21c21c456a2c47eb692b3e58ceab8478192b44cfd5106a1a8d351",
+  "originHash" : "69ee962b8879c5f0886345eea3d9b3bddd425c7dcc0c35db3ca5f8934c2dd132",
   "pins" : [
     {
       "identity" : "activityindicatorview",
@@ -96,8 +96,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Brightify/Cuckoo.git",
       "state" : {
-        "revision" : "856aa829a5717220326368589a3d1390e7ec1785",
-        "version" : "2.1.0"
+        "revision" : "8db209b9a5ba58ac6be7d542b07bb72b49baa587",
+        "version" : "2.3.0"
       }
     },
     {
@@ -240,8 +240,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/beatt83/jose-swift.git",
       "state" : {
-        "revision" : "4a99bf40b4026778c0df4888b69eaa9df1f7eff7",
-        "version" : "6.0.3"
+        "revision" : "b7d3ef55660fefd045641293bc95d4cdc07a15d8",
+        "version" : "6.0.4"
       }
     },
     {
@@ -267,8 +267,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AndyQ/NFCPassportReader",
       "state" : {
-        "revision" : "deec44982fa9bf2704a5f2138eb01dab7dcf9299",
-        "version" : "2.3.0"
+        "revision" : "7dfc19c358697d4b083adc3c6fbc55a2385d9fa9",
+        "version" : "2.3.1"
       }
     },
     {
@@ -303,8 +303,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/marmelroy/PhoneNumberKit",
       "state" : {
-        "revision" : "f6b612507fd23de7f21866000fc79ec8000358be",
-        "version" : "4.2.9"
+        "revision" : "169ab10234347fb19b37441f2867ace896a284b0",
+        "version" : "4.3.0"
       }
     },
     {
@@ -375,8 +375,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-argument-parser",
       "state" : {
-        "revision" : "626b5b7b2f45e1b0b1c6f4a309296d1d21d7311b",
-        "version" : "1.7.1"
+        "revision" : "c5d11a805e765f52ba34ec7284bd4fcd6ba68615",
+        "version" : "1.7.0"
       }
     },
     {
@@ -384,8 +384,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-asn1.git",
       "state" : {
-        "revision" : "9f542610331815e29cc3821d3b6f488db8715517",
-        "version" : "1.6.0"
+        "revision" : "a9a5efd40eaf558a2bcd48d64b1d1646be686008",
+        "version" : "1.7.1"
       }
     },
     {
@@ -393,8 +393,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-certificates.git",
       "state" : {
-        "revision" : "24ccdeeeed4dfaae7955fcac9dbf5489ed4f1a25",
-        "version" : "1.18.0"
+        "revision" : "bde8ca32a096825dfce37467137c903418c1893d",
+        "version" : "1.19.1"
       }
     },
     {
@@ -420,8 +420,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-log.git",
       "state" : {
-        "revision" : "2aed77ae5ec9a86d8fe42c12275e4c2653a286ee",
-        "version" : "1.13.1"
+        "revision" : "92448c359f00ebe36ae97d3bd9086f13c7692b5a",
+        "version" : "1.13.2"
       }
     },
     {
@@ -431,6 +431,15 @@
       "state" : {
         "revision" : "4799286537280063c85a32f09884cfbca301b1a1",
         "version" : "602.0.0"
+      }
+    },
+    {
+      "identity" : "swift-zlib",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/beatt83/swift-zlib.git",
+      "state" : {
+        "revision" : "8cf51bfdf81c46702dac496d16397d92ac392532",
+        "version" : "1.0.2"
       }
     },
     {
@@ -508,19 +517,10 @@
     {
       "identity" : "xcodeproj",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/tuist/XcodeProj.git",
+      "location" : "https://github.com/tuist/XcodeProj",
       "state" : {
-        "revision" : "b1caa062d4aaab3e3d2bed5fe0ac5f8ce9bf84f4",
-        "version" : "8.27.7"
-      }
-    },
-    {
-      "identity" : "zlib",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/DLTAStudio/zlib.git",
-      "state" : {
-        "revision" : "ad7db0fdde74b88b3ac9b20d412c3129e7eade34",
-        "version" : "1.0.1"
+        "revision" : "77ee0721798186f71b7ee8f7e29be8495d28360f",
+        "version" : "9.9.0"
       }
     }
   ],
