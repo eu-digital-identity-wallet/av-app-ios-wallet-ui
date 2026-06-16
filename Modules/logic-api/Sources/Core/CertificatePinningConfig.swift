@@ -27,20 +27,20 @@ struct CertificatePinningConfig {
   // Verify:   Run scripts/verify-certificate-pinning.sh to verify all hashes
   private static let pinnedDomains: [String: [String]] = [
     "issuer.ageverification.dev": [
-      "7KPIkNheFWUhDJI8vYGPnuxh6GBb6pVhUVlF8XzNrdM=", // Leaf - Expires: 2026-07-03
-      "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="  // Let's Encrypt R12 - Expires: 2027-03-12
+      "kYirK0neGc3RSMFJHqxvZwVox0pg7KwThB8nOjSrsec=", // Leaf - Expires: 2026-09-02
+      "LoMHBotttiDko50Gi13uXW71eIy7LAttI+rYT8wXF4w="  // Let's Encrypt R12 - Expires: 2027-09-02
     ],
     "test.issuer.dev.ageverification.dev": [
-      "obEJm4ZE7IHepIv+IC5iIE1c9H0hjg2qriuPtGV/S7g=", // Leaf - Expires: 2026-07-09
-      "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="  // Let's Encrypt R12 - Expires: 2027-03-12
+      "fSmGMVbBf12HnesWiAAVaQEkcpelMBrxdmrJAGpk/ew=", // Leaf - Expires: 2026-09-07
+      "LoMHBotttiDko50Gi13uXW71eIy7LAttI+rYT8wXF4w="  // Let's Encrypt R12 - Expires: 2027-09-02
     ],
     "issuer.dev.ageverification.dev": [
-      "kbsfS3RUyWqKhYZd6cxbW6uEOcTLom5oJma58UCk+Yc=", // Leaf - Expires: 2026-05-16
+      "kLSOVQB5XnJ7RxpZluD7dinfCApcGomiQMbmuTVLAbc=", // Leaf - Expires: 2026-07-16
       "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="  // Let's Encrypt R12 - Expires: 2027-03-12
     ],
     "passport.issuer.dev.ageverification.dev": [
-      "1D3OMb2zD16wZqoE91OnwYX7Z3yV2x4fwdKmXu6f210=", // Leaf - Expires: 2026-07-09
-      "AlSQhgtJirc8ahLyekmtX+Iw+v46yPYRLJt9Cq1GlB0="  // Let's Encrypt R13 - Expires: 2027-03-12
+      "pRm//hr2npxXsIkhvYKMtyDg7dadwDgcuQOHODQvaHs=", // Leaf - Expires: 2026-07-09
+      "nWN7PSep5XDQdge5zK24CnCRXHr3KvzhKEGxsdqCX9E="  // Let's Encrypt R13 - Expires: 2027-03-12
     ]
   ]
 

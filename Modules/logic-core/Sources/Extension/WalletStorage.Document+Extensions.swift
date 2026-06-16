@@ -16,7 +16,7 @@
 import Foundation
 
 extension Array where Element == WalletStorage.Document {
-  func transformToDeferredDecodables() -> [DocClaimsDecodable] {
+  func transformToDeferredDecodables() -> [any DocClaimsDecodable] {
     return self.compactMap { document in
       return document.transformToDeferredDecodable()
     }
@@ -31,7 +31,7 @@ extension WalletStorage.Document {
       statusIdentifier: nil,
       createdAt: self.createdAt,
       displayName: metadata?.getDisplayName(Locale.current.systemLanguageCode),
-      docType: self.docType ?? "",
+      docType: self.docType,
       docClaims: [],
       docDataFormat: self.docDataFormat,
       ageOverXX: [:],
@@ -49,6 +49,6 @@ extension WalletStorage.Document {
 
 extension WalletStorage.Document {
   var documentTypeIdentifier: DocumentTypeIdentifier {
-    DocumentTypeIdentifier(rawValue: docType ?? "")
+    DocumentTypeIdentifier(rawValue: docType)
   }
 }
