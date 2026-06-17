@@ -44,6 +44,16 @@ public protocol ConfigLogic: Sendable {
    * Changelog URL
    */
   var changelogUrl: URL? { get }
+	
+	/**
+	 * Wallet requires PID Activation
+	 */
+	var forcePidActivation: Bool { get }
+
+	/**
+	 * Keychain Configuration
+	 */
+	var keyChainConfig: KeyChainConfig { get }
 }
 
 struct ConfigLogicImpl: ConfigLogic {
@@ -69,4 +79,20 @@ struct ConfigLogicImpl: ConfigLogic {
     }
     return url
   }
+	
+	var forcePidActivation: Bool {
+	  false
+	}
+
+	var keyChainConfig: KeyChainConfig {
+	  KeyChainConfig(
+		documentStorageServiceName: Bundle.getDocumentStorageServiceName(),
+		keychainAccessGroup: Bundle.getKeychainAccessGroup()
+	  )
+	}
+}
+
+public struct KeyChainConfig {
+  public let documentStorageServiceName: String
+  public let keychainAccessGroup: String
 }
