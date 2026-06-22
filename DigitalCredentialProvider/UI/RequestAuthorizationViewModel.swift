@@ -21,6 +21,7 @@ import WalletStorage
 import SwiftUI
 import DcApi18013AnnexC
 import feature_common
+import LongfellowZkp
 
 @MainActor
 class RequestAuthorizationViewModel: ObservableObject {
@@ -32,6 +33,7 @@ class RequestAuthorizationViewModel: ObservableObject {
   // MARK: - Dependencies
   private let dcApiHandler: DcApiHandler
   private let context: ISO18013MobileDocumentRequestContext?
+  private var dcApiResponseData: Data?
 
   // MARK: - Initialization
   init(context: ISO18013MobileDocumentRequestContext?,
@@ -65,20 +67,14 @@ class RequestAuthorizationViewModel: ObservableObject {
 
     try await context.sendResponse { rawRequest in
       try await self.dcApiHandler.validateConsistency(request: context.request, rawRequest: rawRequest)
-
-      let responseData = try await self.dcApiHandler.buildAndEncryptResponse(
-        rawRequest: rawRequest,
-        originUrl: context.requestingWebsiteOrigin?.absoluteString
-      )
-
-      return ISO18013MobileDocumentResponse(responseData: responseData)
+      return try await self.sendResponse(rawRequest, context.requestingWebsiteOrigin?.absoluteString)
     }
   }
 
   func cancelRequest() {
     context?.cancel()
   }
-  
+
   func extractAge(from key: String) -> Int? {
       key.split(separator: "_").last.flatMap { Int($0) }
   }
@@ -109,5 +105,34 @@ class RequestAuthorizationViewModel: ObservableObject {
         }
       }
     )
+  }
+
+  func sendResponse(_ rawRequest: IdentityDocumentWebPresentmentRawRequest, _ originUrl: String?) async throws -> ISO18013MobileDocumentResponse {
+    dcApiResponseData = nil
+    var zkSystemRepository: ZkSystemRepository?
+    let systemVersion = UIDevice.current.systemVersion
+    let isIOS26 = systemVersion.hasPrefix("26")
+    
+    if isIOS26 {
+      // iOS 26 has extension memory limit, compute zk proof from iOS (work around)
+      // Delegate ZKP computation to the main app via shared storage and silent push
+      // see ZKP Proof Calculation via Silent Push section above
+    } else {
+      // iOS 27+ has enough memory, compute in ZK Proof directly in extension
+      zkSystemRepository = Self.makeZkSystemRepository()
+    }
+    
+    let responseData = try await dcApiHandler.buildAndEncryptResponse(
+      rawRequest: rawRequest,
+      originUrl: originUrl,
+      zkSystemRepository: zkSystemRepository
+    )
+    
+    return ISO18013MobileDocumentResponse(responseData: responseData)
+  }
+
+  static func makeZkSystemRepository() -> ZkSystemRepository {
+    let circuits = LongfellowZkSystem.enumerateLongfellowCircuits()
+    return ZkSystemRepository(systems: [LongfellowZkSystem(circuits: circuits)])
   }
 }

@@ -34,9 +34,9 @@ public struct ExpandableCardView<Content: View>: View {
     self.header = header
     self.backgroundColor = backgroundColor
     self.mainTextVerticalPadding = mainTextVerticalPadding
+    self.content = content
     self.isLoading = isLoading
     self.isExpanded = isExpanded
-    self.content = content
   }
 
   @State private var isExpanded: Bool = false
