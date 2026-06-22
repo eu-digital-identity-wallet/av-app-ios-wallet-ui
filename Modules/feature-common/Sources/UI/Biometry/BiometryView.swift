@@ -132,7 +132,7 @@ private func pinView(
       numericText: uiPinInputField,
       maxDigits: quickPinSize,
       isSecureEntry: true,
-      canFocus: .constant(!areBiometricsEnabled && !disabled),
+      canFocus: .constant(true), // temp change, keyboard is not getting focus in iOS 27
       shouldUseFullScreen: true,
       hasError: pinError != nil
     )
