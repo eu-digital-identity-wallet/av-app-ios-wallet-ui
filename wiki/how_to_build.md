@@ -16,7 +16,7 @@ This guide aims to assist developers in building the application.
 
 You need [xcode](https://xcodereleases.com/) and its associated tools installed on your machine. We recommend the latest non-beta version. 
 
-Clone the [iOS repository](https://github.com/eu-digital-identity-wallet/av-app-ios-wallet-ui)
+Clone the [iOS repository](https://github.com/T-Scy/av-app-ios-wallet-ui)
 
 Open the project file in Xcode. The application has two schemes: "Age Verification Dev" and "Age Verification Demo".
 
