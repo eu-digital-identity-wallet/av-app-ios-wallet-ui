@@ -19,6 +19,7 @@ import logic_storage
 import IdentityDocumentServices
 import logic_api
 import logic_resources
+import LongfellowZkp
 
 private enum KeyIdentifier: String, KeyChainWrapper {
   public var value: String {
@@ -138,6 +139,10 @@ final actor WalletKitControllerImpl: WalletKitController {
       fatalError("Unable to Initialize WalletKit")
     }
 
+    let circuits = LongfellowZkSystem.enumerateLongfellowCircuits(bundle: Bundle.main)
+    if !circuits.isEmpty {
+      walletKit.zkSystemRepository = ZkSystemRepository(systems: [LongfellowZkSystem(circuits: circuits)])
+    }
     wallet = walletKit
   }
 
