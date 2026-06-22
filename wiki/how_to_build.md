@@ -16,7 +16,7 @@ This guide aims to assist developers in building the application.
 
 You need [xcode](https://xcodereleases.com/) and its associated tools installed on your machine. We recommend the latest non-beta version. 
 
-Clone the [iOS repository](https://github.com/T-Scy/av-app-ios-wallet-ui)
+Clone the [iOS repository](https://github.com/eu-digital-identity-wallet/av-app-ios-wallet-ui)
 
 Open the project file in Xcode. The application has two schemes: "Age Verification Dev" and "Age Verification Demo".
 
@@ -111,9 +111,10 @@ In this example, the `vciConfig` property dynamically assigns configurations, su
 ### Running with local services
 
 The first step is to run all three services locally on your machine. You can follow these Repositories for further instructions:
-* [Issuer](https://github.com/eu-digital-identity-wallet/eudi-srv-web-issuing-eudiw-py)
-* [Web Verifier UI](https://github.com/eu-digital-identity-wallet/eudi-web-verifier)
-* [Web Verifier Endpoint](https://github.com/eu-digital-identity-wallet/eudi-srv-web-verifier-endpoint-23220-4-kt)
+
+- [Issuer](https://github.com/eu-digital-identity-wallet/eudi-srv-web-issuing-eudiw-py)
+- [Web Verifier UI](https://github.com/eu-digital-identity-wallet/eudi-web-verifier)
+- [Web Verifier Endpoint](https://github.com/eu-digital-identity-wallet/eudi-srv-web-verifier-endpoint-23220-4-kt)
 
 ### How to work with self-signed certificates on iOS
 
