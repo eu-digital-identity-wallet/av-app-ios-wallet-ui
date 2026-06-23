@@ -1,5 +1,5 @@
 {
-  "originHash" : "0ecbd8d503eca0f06ab7c4150d657ce37a195ed3e052660963a14ceaeeeb004c",
+  "originHash" : "07d25b6b87410dc22f00822f8387ed00ed7fc622b1b42828e866758716c2a77d",
   "pins" : [
     {
       "identity" : "activityindicatorview",
@@ -40,7 +40,7 @@
     {
       "identity" : "av-lib-ios-longfellow-zkp",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/eu-digital-identity-wallet/av-lib-ios-longfellow-zkp.git",
+      "location" : "https://github.com/BhaskarNS-iOS/av-lib-ios-longfellow-zkp.git",
       "state" : {
         "branch" : "fix/Mdoc-header",
         "revision" : "c475a8a58811d5d07bd8cd2f24afa8b6c62d887b"
@@ -105,8 +105,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Brightify/Cuckoo.git",
       "state" : {
-        "revision" : "856aa829a5717220326368589a3d1390e7ec1785",
-        "version" : "2.1.0"
+        "revision" : "8db209b9a5ba58ac6be7d542b07bb72b49baa587",
+        "version" : "2.3.0"
       }
     },
     {
@@ -238,7 +238,7 @@
     {
       "identity" : "filekit",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/nvzqz/FileKit.git",
+      "location" : "https://github.com/nvzqz/FileKit",
       "state" : {
         "revision" : "9006d2888025fbe893c3c396327b2fe45a8c177b",
         "version" : "6.1.0"
@@ -249,8 +249,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/beatt83/jose-swift.git",
       "state" : {
-        "revision" : "4a99bf40b4026778c0df4888b69eaa9df1f7eff7",
-        "version" : "6.0.3"
+        "revision" : "b7d3ef55660fefd045641293bc95d4cdc07a15d8",
+        "version" : "6.0.4"
       }
     },
     {
@@ -276,8 +276,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AndyQ/NFCPassportReader",
       "state" : {
-        "revision" : "deec44982fa9bf2704a5f2138eb01dab7dcf9299",
-        "version" : "2.3.0"
+        "revision" : "7dfc19c358697d4b083adc3c6fbc55a2385d9fa9",
+        "version" : "2.3.1"
       }
     },
     {
@@ -312,8 +312,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/marmelroy/PhoneNumberKit",
       "state" : {
-        "revision" : "f6b612507fd23de7f21866000fc79ec8000358be",
-        "version" : "4.2.9"
+        "revision" : "169ab10234347fb19b37441f2867ace896a284b0",
+        "version" : "4.3.0"
       }
     },
     {
@@ -373,7 +373,7 @@
     {
       "identity" : "stencil",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/kylef/Stencil.git",
+      "location" : "https://github.com/kylef/Stencil",
       "state" : {
         "revision" : "4f222ac85d673f35df29962fc4c36ccfdaf9da5b",
         "version" : "0.15.1"
@@ -384,8 +384,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-argument-parser",
       "state" : {
-        "revision" : "626b5b7b2f45e1b0b1c6f4a309296d1d21d7311b",
-        "version" : "1.7.1"
+        "revision" : "c5d11a805e765f52ba34ec7284bd4fcd6ba68615",
+        "version" : "1.7.0"
       }
     },
     {
@@ -393,8 +393,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-asn1.git",
       "state" : {
-        "revision" : "9f542610331815e29cc3821d3b6f488db8715517",
-        "version" : "1.6.0"
+        "revision" : "a9a5efd40eaf558a2bcd48d64b1d1646be686008",
+        "version" : "1.7.1"
       }
     },
     {
@@ -440,6 +440,15 @@
       "state" : {
         "revision" : "4799286537280063c85a32f09884cfbca301b1a1",
         "version" : "602.0.0"
+      }
+    },
+    {
+      "identity" : "swift-zlib",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/beatt83/swift-zlib.git",
+      "state" : {
+        "revision" : "8cf51bfdf81c46702dac496d16397d92ac392532",
+        "version" : "1.0.2"
       }
     },
     {
@@ -499,7 +508,7 @@
     {
       "identity" : "tomlkit",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/LebJe/TOMLKit.git",
+      "location" : "https://github.com/LebJe/TOMLKit",
       "state" : {
         "revision" : "ec6198d37d495efc6acd4dffbd262cdca7ff9b3f",
         "version" : "0.6.0"
@@ -517,19 +526,10 @@
     {
       "identity" : "xcodeproj",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/tuist/XcodeProj.git",
+      "location" : "https://github.com/tuist/XcodeProj",
       "state" : {
-        "revision" : "b1caa062d4aaab3e3d2bed5fe0ac5f8ce9bf84f4",
-        "version" : "8.27.7"
-      }
-    },
-    {
-      "identity" : "zlib",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/DLTAStudio/zlib.git",
-      "state" : {
-        "revision" : "ad7db0fdde74b88b3ac9b20d412c3129e7eade34",
-        "version" : "1.0.1"
+        "revision" : "77ee0721798186f71b7ee8f7e29be8495d28360f",
+        "version" : "9.9.0"
       }
     }
   ],

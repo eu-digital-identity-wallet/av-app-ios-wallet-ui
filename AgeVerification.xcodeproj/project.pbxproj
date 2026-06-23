@@ -23,7 +23,7 @@
 		76268FAB2FE911CD0008901D /* 6_4_4283_2945_c70b5f44a1365c53847eb8948ad5b4fdc224251a2bc02d958c84c862823c49d6 in Resources */ = {isa = PBXBuildFile; fileRef = 76268FA52FE911CD0008901D /* 6_4_4283_2945_c70b5f44a1365c53847eb8948ad5b4fdc224251a2bc02d958c84c862823c49d6 */; };
 		76268FAC2FE911CD0008901D /* 6_3_4121_2945_b2211223b954b34a1081e3fbf71b8ea2de28efc888b4be510f532d6ba76c2010 in Resources */ = {isa = PBXBuildFile; fileRef = 76268FA42FE911CD0008901D /* 6_3_4121_2945_b2211223b954b34a1081e3fbf71b8ea2de28efc888b4be510f532d6ba76c2010 */; };
 		76268FAD2FE911CD0008901D /* 6_1_4096_2945_137e5a75ce72735a37c8a72da1a8a0a5df8d13365c2ae3d2c2bd6a0e7197c7c6 in Resources */ = {isa = PBXBuildFile; fileRef = 76268FA22FE911CD0008901D /* 6_1_4096_2945_137e5a75ce72735a37c8a72da1a8a0a5df8d13365c2ae3d2c2bd6a0e7197c7c6 */; };
-		76F775832FE19128008FE820 /* LongfellowZkp in Frameworks */ = {isa = PBXBuildFile; productRef = 76F775822FE19128008FE820 /* LongfellowZkp */; };
+		7653F1DB2FE9A0370086994F /* LongfellowZkp in Frameworks */ = {isa = PBXBuildFile; productRef = 7653F1DA2FE9A0370086994F /* LongfellowZkp */; };
 		EE3062342E586862007BDAF6 /* SecurityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3062332E58685C007BDAF6 /* SecurityExtensions.swift */; };
 		EE4ECF952DED964500C82928 /* av_cert.der in Resources */ = {isa = PBXBuildFile; fileRef = EE4ECF942DED964500C82928 /* av_cert.der */; };
 		F02921632B8E07870076A58B /* WalletDemoRelease.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F02921612B8E07870076A58B /* WalletDemoRelease.xcconfig */; };
@@ -163,7 +163,7 @@
 			files = (
 				76268F7E2FE9090B0008901D /* DcApi18013AnnexC in Frameworks */,
 				F02AE3912BA6E59600C25C59 /* logic-assembly in Frameworks */,
-				76F775832FE19128008FE820 /* LongfellowZkp in Frameworks */,
+				7653F1DB2FE9A0370086994F /* LongfellowZkp in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,8 +334,8 @@
 			name = AgeVerification;
 			packageProductDependencies = (
 				F02AE3902BA6E59600C25C59 /* logic-assembly */,
-				76F775822FE19128008FE820 /* LongfellowZkp */,
 				76268F7D2FE9090B0008901D /* DcApi18013AnnexC */,
+				7653F1DA2FE9A0370086994F /* LongfellowZkp */,
 			);
 			productName = "EUDI Reference App";
 			productReference = F14907B82ABAF54B00DDFE56 /* AgeVerification.app */;
@@ -377,7 +377,7 @@
 				2E54D11D2ED7019500AA7346 /* XCLocalSwiftPackageReference "Modules/logic-assembly" */,
 				2E54D1202ED723CE00AA7346 /* XCLocalSwiftPackageReference "Modules/logic-core" */,
 				2EFE16782ED9918100D45861 /* XCRemoteSwiftPackageReference "av-lib-ios-w3c-dc-api" */,
-				76F775812FE19128008FE820 /* XCRemoteSwiftPackageReference "av-lib-ios-longfellow-zkp" */,
+				7653F1D92FE9A0370086994F /* XCRemoteSwiftPackageReference "av-lib-ios-longfellow-zkp" */,
 			);
 			productRefGroup = F14907B92ABAF54B00DDFE56 /* Products */;
 			projectDirPath = "";
@@ -1347,12 +1347,12 @@
 				version = 0.20.1;
 			};
 		};
-		76F775812FE19128008FE820 /* XCRemoteSwiftPackageReference "av-lib-ios-longfellow-zkp" */ = {
+		7653F1D92FE9A0370086994F /* XCRemoteSwiftPackageReference "av-lib-ios-longfellow-zkp" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/eu-digital-identity-wallet/av-lib-ios-longfellow-zkp.git";
+			repositoryURL = "https://github.com/BhaskarNS-iOS/av-lib-ios-longfellow-zkp";
 			requirement = {
-				kind = exactVersion;
-				version = 0.1.0;
+				branch = "fix/Mdoc-header";
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1388,9 +1388,9 @@
 			package = 2EFE16782ED9918100D45861 /* XCRemoteSwiftPackageReference "av-lib-ios-w3c-dc-api" */;
 			productName = DcApi18013AnnexC;
 		};
-		76F775822FE19128008FE820 /* LongfellowZkp */ = {
+		7653F1DA2FE9A0370086994F /* LongfellowZkp */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 76F775812FE19128008FE820 /* XCRemoteSwiftPackageReference "av-lib-ios-longfellow-zkp" */;
+			package = 7653F1D92FE9A0370086994F /* XCRemoteSwiftPackageReference "av-lib-ios-longfellow-zkp" */;
 			productName = LongfellowZkp;
 		};
 		F02AE3902BA6E59600C25C59 /* logic-assembly */ = {
