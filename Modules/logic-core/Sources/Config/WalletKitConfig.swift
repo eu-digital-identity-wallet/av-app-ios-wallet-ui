@@ -72,7 +72,7 @@ protocol WalletKitConfig: Sendable {
    * Configuration for document issuance, including default rules and specific overrides.
    */
   var documentIssuanceConfig: DocumentIssuanceConfig { get }
-	
+
 	/**
 	 * KeyOptions for creating & accessing attestation keys
 	 */
@@ -98,7 +98,7 @@ struct WalletKitConfigImpl: WalletKitConfig {
   var userAuthenticationRequired: Bool {
     false
   }
-	
+
 	var keyOptions: KeyOptions? {
 	  KeyOptions(
 		curve: .P256,
