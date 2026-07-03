@@ -15,8 +15,14 @@
  */
 import Foundation
 
-public protocol PinStorageProvider: Sendable {
-  func hasPin() -> Bool
-  func setPin(with pin: String)
-  func isPinValid(with pin: String) -> Bool
+public enum PinLockoutState: Sendable, Equatable {
+  case idle
+  case active(remaining: TimeInterval, total: TimeInterval)
+}
+
+protocol PinThrottleProvider: Sendable {
+  func getState() -> PinLockoutState
+  func getFailedAttempts() -> Int
+  func recordFailure() -> PinLockoutState
+  func recordSuccess()
 }
