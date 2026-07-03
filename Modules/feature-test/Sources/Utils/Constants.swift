@@ -27,7 +27,7 @@ private extension Constants {
   
   static let pkb64 = "pQECIAEhWCBoHIiBQnDRMLUT4yOLqJ1l8mrfNIgrjNnFq4RyZgxSmiJYIGD/Sabu6GejaR4eTiym1JkyjnBNcJ+f59pN+lCEyhVyI1ggC6EPCKyGci++LGWUX3fXpPFW6pYO8pyyKLMKs1qF0jo="
   static let kcSks = KeyChainSecureKeyStorage(serviceName: "name", accessGroup: "Group")
-  static let pk = CoseKeyPrivate(privateKeyId: pkb64, index: 0, secureArea: SoftwareSecureArea.create(storage: kcSks))
+  static let pk = CoseKeyPrivate(privateKeyId: pkb64, index: 0, secureArea: SoftwareSecureArea.create(storage: kcSks), curve: .P256)
   static let dr = try! DeviceResponse(data: Constants.sampleCborData.bytes)
 }
 
@@ -43,8 +43,8 @@ extension Constants {
   static let documentCreatedAt = Date()
   static let claimExpiredAt = Date()
   
-  static func createEuPidModel(credentialsUsageCounts: CredentialsUsageCounts? = nil) -> DocClaimsDecodable {
-    return GenericMdocModel(
+  static func createEuPidModel(credentialsUsageCounts: CredentialsUsageCounts? = nil) -> any DocClaimsDecodable {
+    return DocClaimsModel(configuration: .init(
       id: euPidModelId,
       createdAt: documentCreatedAt,
       docType: dr.documents!.last!.issuerSigned.issuerAuth.mso.docType,
@@ -79,11 +79,11 @@ extension Constants {
       ],
       docDataFormat: .cbor,
       hashingAlg: nil
-    )
+    ))
   }
   
-  static func createIsoMdlModel(credentialsUsageCounts: CredentialsUsageCounts? = nil) -> DocClaimsDecodable {
-    return GenericMdocModel(
+  static func createIsoMdlModel(credentialsUsageCounts: CredentialsUsageCounts? = nil) -> any DocClaimsDecodable {
+    return DocClaimsModel(configuration: .init(
       id: isoMdlModelId,
       createdAt: documentCreatedAt,
       docType: dr.documents!.first!.issuerSigned.issuerAuth.mso.docType,
@@ -118,7 +118,7 @@ extension Constants {
       ],
       docDataFormat: .cbor,
       hashingAlg: nil
-    )
+    ))
   }
   
   static let scopedDocument = ScopedDocument(
@@ -181,26 +181,26 @@ extension Constants {
 extension Constants {
   struct MockPresentationService: PresentationService {
     
-    var transactionLog: EudiWalletKit.TransactionLog
+    var transactionLog: TransactionLog
+    var flow: FlowType
+    var zkpDocumentIds: [String]?
     
-    func startQrEngagement(secureAreaName: String?, crv: MdocDataModel18013.CoseEcCurve) async throws -> String {
+    func startQrEngagement(secureAreaName: String?, keyOptions: KeyOptions) async throws -> String {
       ""
     }
     
-    func receiveRequest() async throws -> MdocDataTransfer18013.UserRequestInfo {
-      .init(
-        docDataFormats: [DocumentTypeIdentifier.mDocPid.rawValue : .cbor],
-        itemsRequested: RequestItems()
-      )
+    func receiveRequest() async throws -> [UserRequestInfo] {
+      [
+        .init(
+          docDataFormats: [DocumentTypeIdentifier.mDocPid.rawValue : .cbor],
+          itemsRequested: RequestItems()
+        )
+      ]
     }
-    
-    var flow: EudiWalletKit.FlowType
-    
-    func startQrEngagement() async throws -> String? { nil }
-    
-    func receiveRequest() async throws -> [String : Any] { [:] }
-    
-    func sendResponse(userAccepted: Bool, itemsToSend: EudiWalletKit.RequestItems, onSuccess: ((URL?) -> Void)?) async throws {}
+
+    func sendResponse(userAccepted: Bool, itemsToSend: RequestItems, deviceNameSpacesToSend: RequestDeviceNameSpaces?, onSuccess: (@Sendable (URL?) -> Void)?) async throws {}
+
+    func waitForDisconnect() async throws {}
   }
   
   static let mockTransactionLog: TransactionLog = .init(
@@ -270,7 +270,7 @@ extension Constants {
   static let mockPresentationSession = PresentationSession(
     presentationService: MockPresentationService(
       transactionLog: mockTransactionLog,
-      flow: .other
+      flow: FlowType.other
     ),
     storageManager: .init(storageService: mockStorageService),
     docIdToPresentInfo: [:],
@@ -281,28 +281,30 @@ extension Constants {
 
 extension Constants {
   static let mockPresentationRequest = PresentationRequest(
-    items: [
-      .msoMdoc(
-        .init(
-          docId: isoMdlModelId,
-          docType: isoMdlDocType,
-          displayName: isoMdlName,
-          nameSpacedElements: [
-            .init(
-              nameSpace: "nameSpace",
-              elements: [
-                .init(
-                  elementIdentifier: "elementIdentifier",
-                  isOptional: false,
-                  stringValue: "value",
-                  docClaim: .init(name: "elementIdentifier", dataValue: .string("value"), stringValue: "value"),
-                  isValid: true
-                )
-              ]
-            )
-          ]
+    itemSets: [
+      [
+        .msoMdoc(
+          .init(
+            docId: isoMdlModelId,
+            docType: isoMdlDocType,
+            displayName: isoMdlName,
+            nameSpacedElements: [
+              .init(
+                nameSpace: "nameSpace",
+                elements: [
+                  .init(
+                    elementIdentifier: "elementIdentifier",
+                    isOptional: false,
+                    stringValue: "value",
+                    docClaim: .init(name: "elementIdentifier", dataValue: .string("value"), stringValue: "value"),
+                    isValid: true
+                  )
+                ]
+              )
+            ]
+          )
         )
-      )
+      ]
     ],
     relyingParty: "Relying Party",
     dataRequestInfo: "Data Request Info",

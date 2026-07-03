@@ -30,7 +30,7 @@ public struct ScopedDocument: Equatable, Sendable {
     configId: String,
     isPid: Bool,
     docTypeIdentifier: DocumentTypeIdentifier,
-    isAgeVerification: Bool
+    isAgeVerification: Bool = false
   ) {
     self.name = name
     self.issuer = issuer
