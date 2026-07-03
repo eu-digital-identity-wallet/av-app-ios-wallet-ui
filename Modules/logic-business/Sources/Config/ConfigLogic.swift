@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 European Commission
+ * Copyright (c) 2026 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -14,6 +14,7 @@
  * governing permissions and limitations under the Licence.
  */
 import Foundation
+import EudiRQESUi
 
 public enum AppBuildType: String, Sendable {
   case RELEASE, DEBUG
@@ -41,19 +42,24 @@ public protocol ConfigLogic: Sendable {
   var appVersion: String { get }
 
   /**
+   * RQES Config
+   */
+  var rqesConfig: EudiRQESUiConfig { get }
+
+  /**
    * Changelog URL
    */
   var changelogUrl: URL? { get }
-	
-	/**
-	 * Wallet requires PID Activation
-	 */
-	var forcePidActivation: Bool { get }
 
-	/**
-	 * Keychain Configuration
-	 */
-	var keyChainConfig: KeyChainConfig { get }
+  /**
+   * Wallet requires PID Activation
+   */
+  var forcePidActivation: Bool { get }
+
+  /**
+   * Keychain Configuration
+   */
+  var keyChainConfig: KeyChainConfig { get }
 }
 
 struct ConfigLogicImpl: ConfigLogic {
@@ -70,6 +76,10 @@ struct ConfigLogicImpl: ConfigLogic {
     getBuildVariant()
   }
 
+  public var rqesConfig: EudiRQESUiConfig {
+    RQESConfig(buildVariant: appBuildVariant, buildType: appBuildType)
+  }
+
   public var changelogUrl: URL? {
     guard
       let value = getBundleNullableValue(key: "Changelog Url"),
@@ -79,20 +89,15 @@ struct ConfigLogicImpl: ConfigLogic {
     }
     return url
   }
-	
-	var forcePidActivation: Bool {
-	  false
-	}
 
-	var keyChainConfig: KeyChainConfig {
-	  KeyChainConfig(
-		documentStorageServiceName: Bundle.getDocumentStorageServiceName(),
-		keychainAccessGroup: Bundle.getKeychainAccessGroup()
-	  )
-	}
-}
+  var forcePidActivation: Bool {
+    false
+  }
 
-public struct KeyChainConfig {
-  public let documentStorageServiceName: String
-  public let keychainAccessGroup: String
+  var keyChainConfig: KeyChainConfig {
+    KeyChainConfig(
+      documentStorageServiceName: Bundle.getDocumentStorageServiceName(),
+      keychainAccessGroup: Bundle.getKeychainAccessGroup()
+    )
+  }
 }

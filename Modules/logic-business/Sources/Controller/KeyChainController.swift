@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 European Commission
+ * Copyright (c) 2026 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -31,17 +31,18 @@ public protocol KeyChainController: Sendable {
   func clear()
 }
 
-public final class KeyChainControllerImpl: KeyChainController {
-  private let keyChain: Keychain
-
-  public init() {
-    let accessGroup = KeyChainControllerImpl.getKeychainAccessGroup()
-    keyChain = Keychain(service: Bundle.getDocumentStorageServiceName(),
-                        accessGroup: accessGroup)
-      .accessibility(.whenUnlocked)
-  }
+final class KeyChainControllerImpl: KeyChainController {
 
   private let biometryKey = "eu.europa.ec.euidi.biometric.access"
+  private let keyChain: Keychain
+
+  init(configLogic: ConfigLogic) {
+    keyChain = Keychain(
+      service: configLogic.keyChainConfig.documentStorageServiceName,
+      accessGroup: configLogic.keyChainConfig.keychainAccessGroup
+    )
+    .accessibility(.whenUnlocked)
+  }
 
   public func storeValue(key: KeyChainWrapper, value: String) {
     keyChain[key.value] = value
@@ -95,11 +96,5 @@ private extension KeyChainControllerImpl {
     if item != nil {
       clearKeyChainBiometry()
     }
-  }
-}
-
-extension KeyChainController {
-  static func getKeychainAccessGroup() -> String {
-    return Bundle.getKeychainAccessGroup()
   }
 }
