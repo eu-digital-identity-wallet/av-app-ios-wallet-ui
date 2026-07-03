@@ -14,6 +14,7 @@
  * governing permissions and limitations under the Licence.
  */
 import Foundation
+import logic_business
 
 public protocol ReIssuanceWorkManager: Sendable {
   func start() async
@@ -153,10 +154,4 @@ final actor ReIssuanceWorkManagerImpl: ReIssuanceWorkManager {
 public extension NSNotification {
   static let DocumentTabRefresh = Notification.Name("DocumentTabRefresh")
   static let ReIssuanceDetailsRefresh = Notification.Name("ReIssuanceDetailsRefresh")
-}
-
-private extension Date {
-  func isWithinNextSeconds(_ seconds: Int) -> Bool {
-    timeIntervalSinceNow <= TimeInterval(seconds)
-  }
 }
