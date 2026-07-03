@@ -402,56 +402,48 @@ final actor WalletKitControllerImpl: WalletKitController {
     return .init(pendingDoc: pendingDoc, url: url)
   }
   func getScopedDocuments() async throws -> [ScopedDocument] {
+    var documents: [ScopedDocument] = []
+    for (issuerName, issuerConfig) in walletKitConfig.issuersConfig {
+      let metadata = try await wallet.getIssuerMetadata(issuerName: issuerName)
+      let scopedDocuments = metadata.credentialsSupported.compactMap { credential in
+        switch credential.value {
+        case .msoMdoc(let config):
+          let id = DocumentTypeIdentifier(rawValue: config.docType)
+          let isAgeVerification = id == .avAgeOver18 || id == .mdocEUDIAgeOver18
+          return ScopedDocument(
+            name: config.credentialMetadata?.display.getName(fallback: credential.key.value) ?? credential.key.value,
+            issuer: metadata.credentialIssuerIdentifier.url.host.ifNilOrEmpty { issuerName },
+            order: issuerConfig.order,
+            configId: credential.key.value,
+            isPid: id == .mDocPid,
+            docTypeIdentifier: id,
+            isAgeVerification: isAgeVerification,
+          )
 
-    try await withThrowingTaskGroup(of: [ScopedDocument].self) { group in
-      for (issuerName, issuerConfig) in walletKitConfig.issuersConfig {
-        group.addTask {
-          let metadata = try await self.wallet.getIssuerMetadata(issuerName: issuerName)
-          return metadata.credentialsSupported.compactMap { credential in
-            switch credential.value {
-            case .msoMdoc(let config):
-              let id = DocumentTypeIdentifier(rawValue: config.docType)
-              let isAgeVerification = id == .avAgeOver18 || id == .mdocEUDIAgeOver18
-              return ScopedDocument(
-                name: config.credentialMetadata?.display.getName(fallback: credential.key.value) ?? credential.key.value,
-                issuer: metadata.credentialIssuerIdentifier.url.host.ifNilOrEmpty { issuerName },
-                order: issuerConfig.order,
-                configId: credential.key.value,
-                isPid: id == .mDocPid,
-                docTypeIdentifier: id,
-                isAgeVerification: isAgeVerification,
-              )
-
-            case .sdJwtVc(let config):
-              guard let vct = config.vct else {
-                return nil
-              }
-              let id = DocumentTypeIdentifier(rawValue: vct)
-              let isAgeVerification = id == .avAgeOver18 || id == .mdocEUDIAgeOver18
-
-              return ScopedDocument(
-                name: config.credentialMetadata?.display.getName(fallback: credential.key.value) ?? credential.key.value,
-                issuer: metadata.credentialIssuerIdentifier.url.host.ifNilOrEmpty { "issuer.ageverification.dev" },
-                order: issuerConfig.order,
-                configId: credential.key.value,
-                isPid: id == .sdJwtPid,
-                docTypeIdentifier: id,
-                isAgeVerification: isAgeVerification
-              )
-
-            default:
-              return nil
-            }
+        case .sdJwtVc(let config):
+          guard let vct = config.vct else {
+            return nil
           }
+          let id = DocumentTypeIdentifier(rawValue: vct)
+          let isAgeVerification = id == .avAgeOver18 || id == .mdocEUDIAgeOver18
+
+          return ScopedDocument(
+            name: config.credentialMetadata?.display.getName(fallback: credential.key.value) ?? credential.key.value,
+            issuer: metadata.credentialIssuerIdentifier.url.host.ifNilOrEmpty { "issuer.ageverification.dev" },
+            order: issuerConfig.order,
+            configId: credential.key.value,
+            isPid: id == .sdJwtPid,
+            docTypeIdentifier: id,
+            isAgeVerification: isAgeVerification
+          )
+
+        default:
+          return nil
         }
       }
-
-      var documents: [ScopedDocument] = []
-      for try await docs in group {
-        documents.append(contentsOf: docs)
-      }
-      return documents
+      documents.append(contentsOf: scopedDocuments)
     }
+    return documents
   }
 
   func isDocumentLowOnCredentials(document: (any DocClaimsDecodable)?) -> Bool {
