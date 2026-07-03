@@ -123,7 +123,6 @@ struct WalletKitConfigImpl: WalletKitConfig {
             clientId: "wallet-dev",
             keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
             authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
-            requirePAR: false,
             requireDpop: false,
             cacheIssuerMetadata: true
           ),
@@ -132,7 +131,6 @@ struct WalletKitConfigImpl: WalletKitConfig {
             clientId: "wallet-dev",
             keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
             authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
-            requirePAR: false,
             requireDpop: false,
             cacheIssuerMetadata: true
           )
@@ -144,7 +142,6 @@ struct WalletKitConfigImpl: WalletKitConfig {
             clientId: "wallet-dev",
             keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
             authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
-            requirePAR: false,
             requireDpop: false,
             cacheIssuerMetadata: true
           ),
@@ -153,7 +150,6 @@ struct WalletKitConfigImpl: WalletKitConfig {
             clientId: "wallet-dev",
             keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
             authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
-            requirePAR: false,
             requireDpop: false,
             cacheIssuerMetadata: true
           )
