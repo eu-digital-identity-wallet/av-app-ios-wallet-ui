@@ -13,22 +13,20 @@
  * ANY KIND, either express or implied. See the Licence for the specific language
  * governing permissions and limitations under the Licence.
  */
-import EudiWalletKit
 import Foundation
 
-struct DocumentIssuanceConfig {
-  let defaultCredentialOptions: CredentialOptions
-  let documentSpecificCredentialOptions: [DocumentTypeIdentifier: CredentialOptions]
-  let reIssuanceBackgroundRule: ReIssuanceBackgroundRule
+final class DocumentRegistrationManagerNoOp: DocumentRegistrationManager, Sendable {
 
-  func credentialOptions(for documentIdentifier: DocumentTypeIdentifier?) -> CredentialOptions {
-    guard let documentIdentifier, let options = documentSpecificCredentialOptions[documentIdentifier] else {
-      return defaultCredentialOptions
-    }
-    return options
-  }
-}
+  init() {}
 
-struct ReIssuanceBackgroundRule {
-  let backgroundIntervalSeconds: TimeInterval
+  func addRegistration(
+    mobileDocumentType: String,
+    supportedAuthorityKeyIdentifiers: [Data],
+    documentIdentifier: String,
+    invalidationDate: Date?
+  ) async throws {}
+
+  func removeRegistration(
+    documentIdentifiers: [String]
+  ) async throws {}
 }
