@@ -404,7 +404,7 @@ final actor WalletKitControllerImpl: WalletKitController {
   func getScopedDocuments() async throws -> [ScopedDocument] {
 
     try await withThrowingTaskGroup(of: [ScopedDocument].self) { group in
-      for issuerName in walletKitConfig.vciConfig.keys {
+      for (issuerName, issuerConfig) in walletKitConfig.issuersConfig {
         group.addTask {
           let metadata = try await self.wallet.getIssuerMetadata(issuerName: issuerName)
           return metadata.credentialsSupported.compactMap { credential in
@@ -415,6 +415,7 @@ final actor WalletKitControllerImpl: WalletKitController {
               return ScopedDocument(
                 name: config.credentialMetadata?.display.getName(fallback: credential.key.value) ?? credential.key.value,
                 issuer: metadata.credentialIssuerIdentifier.url.host.ifNilOrEmpty { issuerName },
+                order: issuerConfig.order,
                 configId: credential.key.value,
                 isPid: id == .mDocPid,
                 docTypeIdentifier: id,
@@ -431,6 +432,7 @@ final actor WalletKitControllerImpl: WalletKitController {
               return ScopedDocument(
                 name: config.credentialMetadata?.display.getName(fallback: credential.key.value) ?? credential.key.value,
                 issuer: metadata.credentialIssuerIdentifier.url.host.ifNilOrEmpty { "issuer.ageverification.dev" },
+                order: issuerConfig.order,
                 configId: credential.key.value,
                 isPid: id == .sdJwtPid,
                 docTypeIdentifier: id,
