@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 European Commission
+ * Copyright (c) 2026 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -14,20 +14,21 @@
  * governing permissions and limitations under the Licence.
  */
 import EudiWalletKit
+import Foundation
 
 struct DocumentIssuanceConfig {
-  let defaultRule: DocumentIssuanceRule
-  let documentSpecificRules: [DocumentTypeIdentifier: DocumentIssuanceRule]
+  let defaultCredentialOptions: CredentialOptions
+  let documentSpecificCredentialOptions: [DocumentTypeIdentifier: CredentialOptions]
+  let reIssuanceBackgroundRule: ReIssuanceBackgroundRule
 
-  func rule(for documentIdentifier: DocumentTypeIdentifier?) -> DocumentIssuanceRule {
-    guard let documentIdentifier, let rule = documentSpecificRules[documentIdentifier] else {
-      return defaultRule
+  func credentialOptions(for documentIdentifier: DocumentTypeIdentifier?) -> CredentialOptions {
+    guard let documentIdentifier, let options = documentSpecificCredentialOptions[documentIdentifier] else {
+      return defaultCredentialOptions
     }
-    return rule
+    return options
   }
 }
 
-struct DocumentIssuanceRule {
-  let policy: CredentialPolicy
-  let numberOfCredentials: Int
+struct ReIssuanceBackgroundRule {
+  let backgroundIntervalSeconds: TimeInterval
 }

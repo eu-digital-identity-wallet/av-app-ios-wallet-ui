@@ -13,7 +13,10 @@
  * ANY KIND, either express or implied. See the Licence for the specific language
  * governing permissions and limitations under the Licence.
  */
+import Foundation
 import logic_authentication
+import logic_business
+import logic_resources
 
 public enum QuickPinPartialState: Sendable {
   case success
@@ -22,6 +25,8 @@ public enum QuickPinPartialState: Sendable {
 }
 
 public protocol QuickPinInteractor: Sendable {
+  var maxFailedPinAttempts: Int { get }
+
   func setPin(newPin: String) async
   func isPinValid(pin: String) async -> QuickPinPartialState
   func changePin(currentPin: String, newPin: String) async -> QuickPinPartialState
@@ -29,21 +34,34 @@ public protocol QuickPinInteractor: Sendable {
   nonisolated func isFirstPinIncomplete(_ pin: String, quickPinSize: Int) -> Bool
   nonisolated func validatePinSecurity(_ pin: String) -> LocalizableStringKey?
   func getLockoutStatus() async -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?)
+  func getPinLockoutState() async -> PinLockoutState
+  func recordPinFailure() async -> PinLockoutState
+  func resetPinThrottle() async
   nonisolated func isCurrentPinExistInLastUsedPins(pin: String) -> Bool
 }
 
 public final actor QuickPinInteractorImpl: @preconcurrency QuickPinInteractor {
 
   private let pinStorageController: PinStorageController
+  private let pinThrottleController: PinThrottleController
   private let prefsController: PrefsController
 
-    public init(pinStorageController: PinStorageController, prefsController: PrefsController) {
+  public let maxFailedPinAttempts: Int
+
+  public init(
+    pinStorageController: PinStorageController,
+    pinThrottleController: PinThrottleController,
+    prefsController: PrefsController
+  ) {
     self.pinStorageController = pinStorageController
+    self.pinThrottleController = pinThrottleController
     self.prefsController = prefsController
+    self.maxFailedPinAttempts = pinThrottleController.maxFailedPinAttempts
   }
 
   public func setPin(newPin: String) {
     pinStorageController.setPin(with: newPin)
+    pinThrottleController.recordSuccess()
     saveUsedPinHashes(pinHash: newPin)
   }
 
@@ -74,13 +92,13 @@ public final actor QuickPinInteractorImpl: @preconcurrency QuickPinInteractor {
 
     let pinValidationStatus = isCurrentPinValid(pin: currentPin)
     switch pinValidationStatus {
-      case .success:
-        setPin(newPin: newPin)
-        return pinValidationStatus
-      case .failure:
-        return pinValidationStatus
-      case .lockedOut:
-        return pinValidationStatus
+    case .success:
+      setPin(newPin: newPin)
+      return pinValidationStatus
+    case .failure:
+      return pinValidationStatus
+    case .lockedOut:
+      return pinValidationStatus
     }
   }
 
@@ -89,15 +107,24 @@ public final actor QuickPinInteractorImpl: @preconcurrency QuickPinInteractor {
   }
 
   private func isCurrentPinValid(pin: String) -> QuickPinPartialState {
-    let pinValidStatus = pinStorageController.isPinValid(with: pin)
-    switch pinValidStatus {
-        case .success:
-        return .success
-      case .failed(let attemptsRemaining):
-        let errorMessage = attemptsRemaining > 1 ? LocalizableStringKey.quickPinInvalidWithAttempts(attemptsRemaining).toString :  LocalizableStringKey.quickPinInvalidLastAttempt.toString
-        return .failure(errorMessage: errorMessage, attemptsRemaining: attemptsRemaining)
-      case .lockedOut(let lockoutEndTimeInterval, _):
-        return .lockedOut(lockoutEndTime: lockoutEndTimeInterval)
+    if case .active(let remaining, _) = pinThrottleController.getState() {
+      return .lockedOut(lockoutEndTime: Date().timeIntervalSince1970 + remaining)
+    }
+
+    if pinStorageController.isPinValid(with: pin) {
+      pinThrottleController.recordSuccess()
+      return .success
+    }
+
+    switch pinThrottleController.recordFailure() {
+    case .active(let remaining, _):
+      return .lockedOut(lockoutEndTime: Date().timeIntervalSince1970 + remaining)
+    case .idle:
+      let attemptsRemaining = pinThrottleController.getAttemptsRemaining()
+      let errorMessage = attemptsRemaining > 1
+      ? LocalizableStringKey.quickPinInvalidWithAttempts(attemptsRemaining).toString
+      : LocalizableStringKey.quickPinInvalidLastAttempt.toString
+      return .failure(errorMessage: errorMessage, attemptsRemaining: attemptsRemaining)
     }
   }
 
@@ -108,17 +135,31 @@ public final actor QuickPinInteractorImpl: @preconcurrency QuickPinInteractor {
   nonisolated private func isSequential(digits: [Int]) -> Bool {
     guard digits.count > 1 else { return false }
 
-    // Check ascending (e.g. 1,2,3,4...)
     let isAscending = zip(digits, digits.dropFirst()).allSatisfy { $1 == $0 + 1 }
-
-    // Check descending (e.g. 6,5,4,3...)
     let isDescending = zip(digits, digits.dropFirst()).allSatisfy { $1 == $0 - 1 }
 
     return isAscending || isDescending
   }
 
   public func getLockoutStatus() async -> (isLockedOut: Bool, lockoutEndTimeInterval: TimeInterval?) {
-    pinStorageController.getLockoutStatus()
+    switch pinThrottleController.getState() {
+    case .active(let remaining, _):
+      return (true, Date().timeIntervalSince1970 + remaining)
+    case .idle:
+      return (false, nil)
+    }
+  }
+
+  public func getPinLockoutState() -> PinLockoutState {
+    pinThrottleController.getState()
+  }
+
+  public func recordPinFailure() -> PinLockoutState {
+    pinThrottleController.recordFailure()
+  }
+
+  public func resetPinThrottle() {
+    pinThrottleController.recordSuccess()
   }
 
   nonisolated public func validatePinSecurity(_ pin: String) -> LocalizableStringKey? {

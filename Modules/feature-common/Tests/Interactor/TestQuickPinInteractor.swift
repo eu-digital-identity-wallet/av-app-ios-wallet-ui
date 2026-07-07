@@ -24,27 +24,42 @@ final class TestQuickPinInteractor: EudiTest {
   
   var interactor: QuickPinInteractor!
   var pinStorageController: MockPinStorageController!
+  var pinThrottleController: MockPinThrottleController!
   var prefsController: MockPrefsController!
   
   override func setUp() {
     self.pinStorageController = MockPinStorageController()
+    self.pinThrottleController = MockPinThrottleController()
     self.prefsController = MockPrefsController()
-    self.interactor = QuickPinInteractorImpl(pinStorageController: pinStorageController, prefsController: prefsController)
+    stub(pinThrottleController!) { mock in
+      when(mock.maxFailedPinAttempts.get).thenReturn(3)
+      when(mock.getState()).thenReturn(.idle)
+      when(mock.getAttemptsRemaining()).thenReturn(3)
+      when(mock.recordFailure()).thenReturn(.idle)
+      when(mock.recordSuccess()).thenDoNothing()
+    }
+    self.interactor = QuickPinInteractorImpl(
+      pinStorageController: pinStorageController,
+      pinThrottleController: pinThrottleController,
+      prefsController: prefsController
+    )
   }
   
   override func tearDown() {
     self.interactor = nil
     self.pinStorageController = nil
+    self.pinThrottleController = nil
+    self.prefsController = nil
   }
   
   func testSetPin_WhenNewPinIsSet_ThenVerifyAtLeastOnce() async {
     
     // Given
     let pin = "1234"
-    stub(pinStorageController) { mock in
+    stub(pinStorageController!) { mock in
       when(mock.setPin(with: any())).thenDoNothing()
     }
-    stub(prefsController) { mock in
+    stub(prefsController!) { mock in
       when(mock.getValue(forKey: any())).thenReturn(nil)
       when(mock.setValue(any(), forKey: any())).thenDoNothing()
     }
@@ -53,7 +68,7 @@ final class TestQuickPinInteractor: EudiTest {
     await interactor.setPin(newPin: pin)
     
     // Then
-    verify(pinStorageController).setPin(with: pin)
+    verify(pinStorageController!).setPin(with: pin)
     
   }
   
@@ -61,8 +76,8 @@ final class TestQuickPinInteractor: EudiTest {
     
     // Given
     let pin = "1234"
-    stub(pinStorageController) { mock in
-      when(mock.isPinValid(with: any())).thenReturn(.success)
+    stub(pinStorageController!) { mock in
+      when(mock.isPinValid(with: any())).thenReturn(true)
     }
     
     // When
@@ -81,8 +96,8 @@ final class TestQuickPinInteractor: EudiTest {
     
     // Given
     let pin = "1234"
-    stub(pinStorageController) { mock in
-      when(mock.isPinValid(with: any())).thenReturn(.failed(attemptsRemaining: 3))
+    stub(pinStorageController!) { mock in
+      when(mock.isPinValid(with: any())).thenReturn(false)
     }
     
     // When
@@ -100,9 +115,8 @@ final class TestQuickPinInteractor: EudiTest {
   func testHasPin_WhenThereIsAStoredPin_ThenReturnTrue() async {
     
     // Given
-    let pin = "1234"
-    stub(pinStorageController) { mock in
-      when(mock.retrievePin()).thenReturn(pin)
+    stub(pinStorageController!) { mock in
+      when(mock.hasPin()).thenReturn(true)
     }
     
     // When
@@ -115,8 +129,8 @@ final class TestQuickPinInteractor: EudiTest {
   func testHasPin_WhenThereIsNoStoredPin_ThenReturnFalse() async {
     
     // Given
-    stub(pinStorageController) { mock in
-      when(mock.retrievePin()).thenReturn(nil)
+    stub(pinStorageController!) { mock in
+      when(mock.hasPin()).thenReturn(false)
     }
     
     // When
@@ -131,13 +145,13 @@ final class TestQuickPinInteractor: EudiTest {
     // Given
     let newPin = "4321"
     let currentPin = "1234"
-    stub(pinStorageController) { mock in
-      when(mock.isPinValid(with: any())).thenReturn(.success)
+    stub(pinStorageController!) { mock in
+      when(mock.isPinValid(with: any())).thenReturn(true)
     }
-    stub(pinStorageController) { mock in
+    stub(pinStorageController!) { mock in
       when(mock.setPin(with: any())).thenDoNothing()
     }
-    stub(prefsController) { mock in
+    stub(prefsController!) { mock in
       when(mock.getValue(forKey: any())).thenReturn(nil)
       when(mock.setValue(any(), forKey: any())).thenDoNothing()
     }
@@ -146,7 +160,7 @@ final class TestQuickPinInteractor: EudiTest {
     let state = await interactor.changePin(currentPin: currentPin, newPin: newPin)
     
     // Then
-    verify(pinStorageController).setPin(with: newPin)
+    verify(pinStorageController!).setPin(with: newPin)
     
     switch state {
     case .success:
@@ -160,10 +174,10 @@ final class TestQuickPinInteractor: EudiTest {
     
     // Given
     let newPin = "4321"
-    stub(pinStorageController) { mock in
-      when(mock.isPinValid(with: any())).thenReturn(.failed(attemptsRemaining: 3))
+    stub(pinStorageController!) { mock in
+      when(mock.isPinValid(with: any())).thenReturn(false)
     }
-    stub(pinStorageController) { mock in
+    stub(pinStorageController!) { mock in
       when(mock.setPin(with: any())).thenDoNothing()
     }
     
@@ -171,7 +185,7 @@ final class TestQuickPinInteractor: EudiTest {
     let state = await interactor.changePin(currentPin: newPin, newPin: newPin)
     
     // Then
-    verify(pinStorageController, times(0)).setPin(with: any())
+    verify(pinStorageController!, times(0)).setPin(with: any())
     
     switch state {
       case .failure(let errorMessage, _):

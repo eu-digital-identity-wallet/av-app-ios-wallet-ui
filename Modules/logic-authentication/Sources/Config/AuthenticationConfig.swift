@@ -15,8 +15,20 @@
  */
 import Foundation
 
-public protocol PinStorageProvider: Sendable {
-  func hasPin() -> Bool
-  func setPin(with pin: String)
-  func isPinValid(with pin: String) -> Bool
+public protocol AuthenticationConfig: Sendable {
+  var maxFailedPinAttempts: Int { get }
+  var pinLockoutDurations: [TimeInterval] { get }
+}
+
+struct AuthenticationConfigImpl: AuthenticationConfig {
+
+  let maxFailedPinAttempts: Int = 4
+  let pinLockoutDurations: [TimeInterval] = [
+    60,
+    5 * 60,
+    15 * 60,
+    60 * 60,
+    3 * 60 * 60,
+    8 * 60 * 60
+  ]
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 European Commission
+ * Copyright (c) 2026 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -32,16 +32,27 @@ public final class LogicCoreAssembly: Assembly {
     }
     .inObjectScope(ObjectScope.container)
 
+    container.register(DocumentRegistrationManager.self) { _ in
+      if #available(iOS 26.0, *) {
+        return DocumentRegistrationManagerImpl()
+      } else {
+        return DocumentRegistrationManagerNoOp()
+      }
+    }
+    .inObjectScope(ObjectScope.container)
+
     container.register(WalletKitController.self) { r in
       WalletKitControllerImpl(
-		walletKitConfig: r.force(WalletKitConfig.self),
-		configLogic: r.force(ConfigLogic.self),
+        walletKitConfig: r.force(WalletKitConfig.self),
+        configLogic: r.force(ConfigLogic.self),
         keyChainController: r.force(KeyChainController.self),
         sessionCoordinatorHolder: r.force(SessionCoordinatorHolder.self),
         bookmarkStorageController: r.force((any BookmarkStorageController).self),
         transactionLogStorageController: r.force((any TransactionLogStorageController).self),
         revokedDocumentStorageController: r.force((any RevokedDocumentStorageController).self),
-        networkSessionProvider: r.force((any NetworkSessionProvider).self)
+        failedReIssuedDocStorageController: r.force((any FailedReIssuedDocStorageController).self),
+        networkSessionProvider: r.force((any NetworkSessionProvider).self),
+        documentRegistrationManager: r.force((any DocumentRegistrationManager).self)
       )
     }
     .inObjectScope(ObjectScope.container)
@@ -62,6 +73,14 @@ public final class LogicCoreAssembly: Assembly {
 
     container.register(RevocationWorkManager.self) { r in
       RevocationWorkManagerImpl(
+        configLogic: r.force(WalletKitConfig.self),
+        walletKitController: r.force(WalletKitController.self)
+      )
+    }
+    .inObjectScope(ObjectScope.graph)
+
+    container.register(ReIssuanceWorkManager.self) { r in
+      ReIssuanceWorkManagerImpl(
         configLogic: r.force(WalletKitConfig.self),
         walletKitController: r.force(WalletKitController.self)
       )

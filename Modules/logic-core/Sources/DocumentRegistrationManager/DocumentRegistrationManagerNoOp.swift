@@ -15,8 +15,18 @@
  */
 import Foundation
 
-public protocol PinStorageProvider: Sendable {
-  func hasPin() -> Bool
-  func setPin(with pin: String)
-  func isPinValid(with pin: String) -> Bool
+final class DocumentRegistrationManagerNoOp: DocumentRegistrationManager, Sendable {
+
+  init() {}
+
+  func addRegistration(
+    mobileDocumentType: String,
+    supportedAuthorityKeyIdentifiers: [Data],
+    documentIdentifier: String,
+    invalidationDate: Date?
+  ) async throws {}
+
+  func removeRegistration(
+    documentIdentifiers: [String]
+  ) async throws {}
 }

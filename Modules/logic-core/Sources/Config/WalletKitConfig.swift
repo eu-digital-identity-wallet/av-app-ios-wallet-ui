@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 European Commission
+ * Copyright (c) 2026 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -26,6 +26,7 @@ protocol WalletKitConfig: Sendable {
   /**
    * VCI Configuration
    */
+  var issuersConfig: [String: VciConfig] { get }
   var vciConfig: [String: OpenId4VciConfiguration] { get }
 
   /**
@@ -108,64 +109,76 @@ struct WalletKitConfigImpl: WalletKitConfig {
 	}
 
   var vciConfig: [String: OpenId4VciConfiguration] {
+    issuersConfig.mapValues(\.config)
+  }
+
+  var issuersConfig: [String: VciConfig] {
 
     // Note that the following configuration is confusing, but correct.
     // National IDP -> issuer.ageverification.dev
     // Passport/ID Document -> passport.issuer.dev.ageverification.dev
     // for both environments.
 
-    let openId4VciConfigurations: [OpenId4VciConfiguration] = {
+    let openId4VciConfigurations: [VciConfig] = {
       switch configLogic.appBuildVariant {
       case .DEMO:
         return [
           .init(
-            credentialIssuerURL: "https://test.issuer.dev.ageverification.dev",
-            clientId: "wallet-dev",
-            keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
-            authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
-            requirePAR: false,
-            requireDpop: false,
-            cacheIssuerMetadata: true
+            config: .init(
+              credentialIssuerURL: "https://test.issuer.dev.ageverification.dev",
+              clientId: "wallet-dev",
+              keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
+              authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
+              requireDpop: false,
+              cacheIssuerMetadata: true
+            ),
+            order: 0
           ),
           .init(
-            credentialIssuerURL: "https://passport.issuer.dev.ageverification.dev",
-            clientId: "wallet-dev",
-            keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
-            authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
-            requirePAR: false,
-            requireDpop: false,
-            cacheIssuerMetadata: true
+            config: .init(
+              credentialIssuerURL: "https://passport.issuer.dev.ageverification.dev",
+              clientId: "wallet-dev",
+              keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
+              authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
+              requireDpop: false,
+              cacheIssuerMetadata: true
+            ),
+            order: 1
           )
         ]
       case .DEV:
         return [
           .init(
-            credentialIssuerURL: "https://test.issuer.dev.ageverification.dev",
-            clientId: "wallet-dev",
-            keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
-            authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
-            requirePAR: false,
-            requireDpop: false,
-            cacheIssuerMetadata: true
+            config: .init(
+              credentialIssuerURL: "https://test.issuer.dev.ageverification.dev",
+              clientId: "wallet-dev",
+              keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
+              authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
+              requireDpop: false,
+              cacheIssuerMetadata: true
+            ),
+            order: 0
           ),
           .init(
-            credentialIssuerURL: "https://passport.issuer.dev.ageverification.dev",
-            clientId: "wallet-dev",
-            keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
-            authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
-            requirePAR: false,
-            requireDpop: false,
-            cacheIssuerMetadata: true
+            config: .init(
+              credentialIssuerURL: "https://passport.issuer.dev.ageverification.dev",
+              clientId: "wallet-dev",
+              keyAttestationsConfig: .init(walletAttestationsProvider: walletKitAttestationProvider),
+              authFlowRedirectionURI: URL(string: "\(Bundle.main.bundleIdentifier!)://authorization")!,
+              requireDpop: false,
+              cacheIssuerMetadata: true
+            ),
+            order: 1
           )
         ]
       }
     }()
 
     return openId4VciConfigurations.reduce(
-      into: [String: OpenId4VciConfiguration]()
+      into: [String: VciConfig]()
     ) { dict, config in
       guard
-        let issuer = config.credentialIssuerURL,
+        let issuer = config.config.credentialIssuerURL,
         let url = URL(string: issuer),
         let host = url.host
       else {
@@ -263,11 +276,14 @@ struct WalletKitConfigImpl: WalletKitConfig {
 
   var documentIssuanceConfig: DocumentIssuanceConfig {
     DocumentIssuanceConfig(
-      defaultRule: DocumentIssuanceRule(
-        policy: .oneTimeUse,
-        numberOfCredentials: 30
+      defaultCredentialOptions: CredentialOptions(
+        credentialPolicy: .oneTimeUse,
+        batchSize: 30
       ),
-      documentSpecificRules: [:]
+      documentSpecificCredentialOptions: [:],
+      reIssuanceBackgroundRule: ReIssuanceBackgroundRule(
+        backgroundIntervalSeconds: 300
+      )
     )
   }
 }

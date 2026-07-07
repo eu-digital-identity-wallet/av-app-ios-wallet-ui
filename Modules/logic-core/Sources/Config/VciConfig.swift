@@ -13,10 +13,10 @@
  * ANY KIND, either express or implied. See the Licence for the specific language
  * governing permissions and limitations under the Licence.
  */
+import EudiWalletKit
 import Foundation
 
-public protocol PinStorageProvider: Sendable {
-  func hasPin() -> Bool
-  func setPin(with pin: String)
-  func isPinValid(with pin: String) -> Bool
+public struct VciConfig: Sendable {
+  public let config: OpenId4VciConfiguration
+  public let order: Int
 }

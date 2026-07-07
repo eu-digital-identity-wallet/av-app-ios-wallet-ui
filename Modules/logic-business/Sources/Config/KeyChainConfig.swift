@@ -13,10 +13,7 @@
  * ANY KIND, either express or implied. See the Licence for the specific language
  * governing permissions and limitations under the Licence.
  */
-import Foundation
-
-public protocol PinStorageProvider: Sendable {
-  func hasPin() -> Bool
-  func setPin(with pin: String)
-  func isPinValid(with pin: String) -> Bool
+public struct KeyChainConfig {
+  public let documentStorageServiceName: String
+  public let keychainAccessGroup: String
 }
