@@ -19,12 +19,4 @@ public protocol PinStorageProvider: Sendable {
   func hasPin() -> Bool
   func setPin(with pin: String)
   func isPinValid(with pin: String) -> Bool
-
-  func getFailedAttempts() -> Int
-  func incrementFailedAttempts() -> Int
-  func resetFailedAttempts()
-
-  func setLockoutUntil(timestamp: TimeInterval)
-  func getLockoutUntil() -> TimeInterval
-  func isCurrentlyLockedOut() -> Bool
 }

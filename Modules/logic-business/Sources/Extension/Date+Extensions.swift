@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 European Commission
+ * Copyright (c) 2026 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -22,6 +22,26 @@ public extension Date {
     let calendar = Calendar.current
 
     guard let futureDate = calendar.date(byAdding: .day, value: days, to: Date()) else {
+      return false
+    }
+
+    return self >= Date() && self <= futureDate
+  }
+
+  func isWithinNextHours(_ hours: Int) -> Bool {
+    let calendar = Calendar.current
+
+    guard let futureDate = calendar.date(byAdding: .hour, value: hours, to: Date()) else {
+      return false
+    }
+
+    return self >= Date() && self <= futureDate
+  }
+
+  func isWithinNextSeconds(_ seconds: Int) -> Bool {
+    let calendar = Calendar.current
+
+    guard let futureDate = calendar.date(byAdding: .second, value: seconds, to: Date()) else {
       return false
     }
 

@@ -42,36 +42,6 @@ public final class KeychainPinStorageProvider: PinStorageProvider {
     log("Pin validation result: \(isValid)", level: .debug)
     return isValid
   }
-
-  // MARK: - Brute Force Attack Helper Methods
-
-  public func getFailedAttempts() -> Int {
-    Int(keyChainController.getValue(key: KeyIdentifier.pinFailedAttempts) ?? "0") ?? 0
-  }
-
-  public func incrementFailedAttempts() -> Int {
-    let currentAttempts = getFailedAttempts() + 1
-    keyChainController.storeValue(key: KeyIdentifier.pinFailedAttempts, value: String(currentAttempts))
-    return currentAttempts
-  }
-
-  public func resetFailedAttempts() {
-    keyChainController.storeValue(key: KeyIdentifier.pinFailedAttempts, value: "0")
-    keyChainController.storeValue(key: KeyIdentifier.lockoutUntil, value: "0")
-  }
-
-  public func setLockoutUntil(timestamp: TimeInterval) {
-    keyChainController.storeValue(key: KeyIdentifier.lockoutUntil, value: String(timestamp))
-  }
-
-  public func getLockoutUntil() -> TimeInterval {
-    TimeInterval(keyChainController.getValue(key: KeyIdentifier.lockoutUntil) ?? "0") ?? 0
-  }
-
-  public func isCurrentlyLockedOut() -> Bool {
-    let lockoutUntil = getLockoutUntil()
-    return lockoutUntil > 0 && Date.now.timeIntervalSince1970 < lockoutUntil
-  }
 }
 
 private enum KeyIdentifier: String, KeyChainWrapper {
@@ -81,6 +51,4 @@ private enum KeyIdentifier: String, KeyChainWrapper {
   }
 
   case appPinHash
-  case pinFailedAttempts
-  case lockoutUntil
 }

@@ -58,6 +58,7 @@ If you're planning to use this application in production, we recommend reviewing
 - To enhance security, it is strongly recommended that the allowed PINs raise the overall security level. Sequential or easily guessable patterns (such as "135246 or "147258") should not be permitted. Additionally, it is advisable to check against a list of the most commonly used or "pwned" PINs to prevent users from choosing weak credentials.
 - The application meets the OWASP MASVS industry standard. Please refer to the following links for further information on the controls you must implement to ensure maximum compliance:
     - [OWASP MASVS](https://mas.owasp.org/MASVS/)
+- Review the [Production Hardening Guide](./docs/production-hardening-guide-v3.8.md) — mobile security considerations for taking the reference app toward production distribution: app integrity, secure storage, certificate pinning, release signing and runtime protection.
 
 ## How to use the application
 

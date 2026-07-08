@@ -324,23 +324,21 @@ private extension TestDeepLinkController {
 private extension TestDeepLinkController {
   struct MockPresentationService: PresentationService {
     
-    var transactionLog: EudiWalletKit.TransactionLog
+    var transactionLog: TransactionLog
+    var flow: FlowType
+    var zkpDocumentIds: [String]?
     
-    func startQrEngagement(secureAreaName: String?, crv: MdocDataModel18013.CoseEcCurve) async throws -> String {
+    func startQrEngagement(secureAreaName: String?, keyOptions: KeyOptions) async throws -> String {
       ""
     }
     
-    func receiveRequest() async throws -> MdocDataTransfer18013.UserRequestInfo {
-      .init(docDataFormats: [DocumentTypeIdentifier.mDocPid.rawValue : .cbor], itemsRequested: RequestItems())
+    func receiveRequest() async throws -> [UserRequestInfo] {
+      [.init(docDataFormats: [DocumentTypeIdentifier.mDocPid.rawValue : .cbor], itemsRequested: RequestItems())]
     }
-    
-    var flow: EudiWalletKit.FlowType
-    
-    func startQrEngagement() async throws -> String? { nil }
-    
-    func receiveRequest() async throws -> [String : Any] { [:] }
-    
-    func sendResponse(userAccepted: Bool, itemsToSend: EudiWalletKit.RequestItems, onSuccess: ((URL?) -> Void)?) async throws {}
+
+    func sendResponse(userAccepted: Bool, itemsToSend: RequestItems, deviceNameSpacesToSend: RequestDeviceNameSpaces?, onSuccess: (@Sendable (URL?) -> Void)?) async throws {}
+
+    func waitForDisconnect() async throws {}
   }
   
   static let mockTransactionLog: TransactionLog = .init(
@@ -358,7 +356,7 @@ private extension TestDeepLinkController {
   static let mockPresentationSession = PresentationSession(
     presentationService: MockPresentationService(
       transactionLog: mockTransactionLog,
-      flow: .other
+      flow: FlowType.other
     ),
     storageManager: .init(storageService: mockStorageService),
     docIdToPresentInfo: [:],

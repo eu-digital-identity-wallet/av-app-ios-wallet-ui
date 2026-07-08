@@ -36,7 +36,7 @@ final class LandingPageInteractorImpl: LandingInteractor {
         return .success(documentDetails, credentialCount, verifiedAge)
     }
 
-    private static func extractVerifiedAge(from document: DocClaimsDecodable) -> Int? {
+	private static func extractVerifiedAge(from document: any DocClaimsDecodable) -> Int? {
         let fromDict = document.ageOverXX.filter({ $0.value }).keys
 
         let ageOverPrefix = "age_over_"

@@ -14,6 +14,16 @@
 		2E54D1222ED723CE00AA7346 /* logic-core in Frameworks */ = {isa = PBXBuildFile; productRef = 2E54D1212ED723CE00AA7346 /* logic-core */; };
 		2EA768A12EC9A6F0007F5DED /* DigitalCredentialProvider.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = 2EA7689A2EC9A6F0007F5DED /* DigitalCredentialProvider.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2EFE167A2ED9918100D45861 /* DcApi18013AnnexC in Frameworks */ = {isa = PBXBuildFile; productRef = 2EFE16792ED9918100D45861 /* DcApi18013AnnexC */; };
+		76268F7E2FE9090B0008901D /* DcApi18013AnnexC in Frameworks */ = {isa = PBXBuildFile; productRef = 76268F7D2FE9090B0008901D /* DcApi18013AnnexC */; };
+		76268FA62FE911CD0008901D /* 6_2_4025_2945_b4bb6f01b7043f4f51d8302a30b36e3d4d2d0efc3c24557ab9212ad524a9764e in Resources */ = {isa = PBXBuildFile; fileRef = 76268FA32FE911CD0008901D /* 6_2_4025_2945_b4bb6f01b7043f4f51d8302a30b36e3d4d2d0efc3c24557ab9212ad524a9764e */; };
+		76268FA72FE911CD0008901D /* 6_4_4283_2945_c70b5f44a1365c53847eb8948ad5b4fdc224251a2bc02d958c84c862823c49d6 in Resources */ = {isa = PBXBuildFile; fileRef = 76268FA52FE911CD0008901D /* 6_4_4283_2945_c70b5f44a1365c53847eb8948ad5b4fdc224251a2bc02d958c84c862823c49d6 */; };
+		76268FA82FE911CD0008901D /* 6_3_4121_2945_b2211223b954b34a1081e3fbf71b8ea2de28efc888b4be510f532d6ba76c2010 in Resources */ = {isa = PBXBuildFile; fileRef = 76268FA42FE911CD0008901D /* 6_3_4121_2945_b2211223b954b34a1081e3fbf71b8ea2de28efc888b4be510f532d6ba76c2010 */; };
+		76268FA92FE911CD0008901D /* 6_1_4096_2945_137e5a75ce72735a37c8a72da1a8a0a5df8d13365c2ae3d2c2bd6a0e7197c7c6 in Resources */ = {isa = PBXBuildFile; fileRef = 76268FA22FE911CD0008901D /* 6_1_4096_2945_137e5a75ce72735a37c8a72da1a8a0a5df8d13365c2ae3d2c2bd6a0e7197c7c6 */; };
+		76268FAA2FE911CD0008901D /* 6_2_4025_2945_b4bb6f01b7043f4f51d8302a30b36e3d4d2d0efc3c24557ab9212ad524a9764e in Resources */ = {isa = PBXBuildFile; fileRef = 76268FA32FE911CD0008901D /* 6_2_4025_2945_b4bb6f01b7043f4f51d8302a30b36e3d4d2d0efc3c24557ab9212ad524a9764e */; };
+		76268FAB2FE911CD0008901D /* 6_4_4283_2945_c70b5f44a1365c53847eb8948ad5b4fdc224251a2bc02d958c84c862823c49d6 in Resources */ = {isa = PBXBuildFile; fileRef = 76268FA52FE911CD0008901D /* 6_4_4283_2945_c70b5f44a1365c53847eb8948ad5b4fdc224251a2bc02d958c84c862823c49d6 */; };
+		76268FAC2FE911CD0008901D /* 6_3_4121_2945_b2211223b954b34a1081e3fbf71b8ea2de28efc888b4be510f532d6ba76c2010 in Resources */ = {isa = PBXBuildFile; fileRef = 76268FA42FE911CD0008901D /* 6_3_4121_2945_b2211223b954b34a1081e3fbf71b8ea2de28efc888b4be510f532d6ba76c2010 */; };
+		76268FAD2FE911CD0008901D /* 6_1_4096_2945_137e5a75ce72735a37c8a72da1a8a0a5df8d13365c2ae3d2c2bd6a0e7197c7c6 in Resources */ = {isa = PBXBuildFile; fileRef = 76268FA22FE911CD0008901D /* 6_1_4096_2945_137e5a75ce72735a37c8a72da1a8a0a5df8d13365c2ae3d2c2bd6a0e7197c7c6 */; };
+		7653F1DB2FE9A0370086994F /* LongfellowZkp in Frameworks */ = {isa = PBXBuildFile; productRef = 7653F1DA2FE9A0370086994F /* LongfellowZkp */; };
 		EE3062342E586862007BDAF6 /* SecurityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3062332E58685C007BDAF6 /* SecurityExtensions.swift */; };
 		EE4ECF952DED964500C82928 /* av_cert.der in Resources */ = {isa = PBXBuildFile; fileRef = EE4ECF942DED964500C82928 /* av_cert.der */; };
 		F02921632B8E07870076A58B /* WalletDemoRelease.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F02921612B8E07870076A58B /* WalletDemoRelease.xcconfig */; };
@@ -75,6 +85,10 @@
 		1198ECD72AC453F200F4E71A /* logic-resources */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "logic-resources"; path = "Modules/logic-resources"; sourceTree = "<group>"; };
 		2EA7689A2EC9A6F0007F5DED /* DigitalCredentialProvider.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = DigitalCredentialProvider.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EEA0D152ED5EAD50025B324 /* AgeVerification.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AgeVerification.entitlements; sourceTree = "<group>"; };
+		76268FA22FE911CD0008901D /* 6_1_4096_2945_137e5a75ce72735a37c8a72da1a8a0a5df8d13365c2ae3d2c2bd6a0e7197c7c6 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 6_1_4096_2945_137e5a75ce72735a37c8a72da1a8a0a5df8d13365c2ae3d2c2bd6a0e7197c7c6; sourceTree = "<group>"; };
+		76268FA32FE911CD0008901D /* 6_2_4025_2945_b4bb6f01b7043f4f51d8302a30b36e3d4d2d0efc3c24557ab9212ad524a9764e */ = {isa = PBXFileReference; lastKnownFileType = file; path = 6_2_4025_2945_b4bb6f01b7043f4f51d8302a30b36e3d4d2d0efc3c24557ab9212ad524a9764e; sourceTree = "<group>"; };
+		76268FA42FE911CD0008901D /* 6_3_4121_2945_b2211223b954b34a1081e3fbf71b8ea2de28efc888b4be510f532d6ba76c2010 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 6_3_4121_2945_b2211223b954b34a1081e3fbf71b8ea2de28efc888b4be510f532d6ba76c2010; sourceTree = "<group>"; };
+		76268FA52FE911CD0008901D /* 6_4_4283_2945_c70b5f44a1365c53847eb8948ad5b4fdc224251a2bc02d958c84c862823c49d6 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 6_4_4283_2945_c70b5f44a1365c53847eb8948ad5b4fdc224251a2bc02d958c84c862823c49d6; sourceTree = "<group>"; };
 		EA887C042DE9D1C70087CB2F /* feature-av-dashboard */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "feature-av-dashboard"; path = "Modules/feature-av-dashboard"; sourceTree = "<group>"; };
 		EE3062332E58685C007BDAF6 /* SecurityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityExtensions.swift; sourceTree = "<group>"; };
 		EE4ECF942DED964500C82928 /* av_cert.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = av_cert.der; sourceTree = "<group>"; };
@@ -147,13 +161,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76268F7E2FE9090B0008901D /* DcApi18013AnnexC in Frameworks */,
 				F02AE3912BA6E59600C25C59 /* logic-assembly in Frameworks */,
+				7653F1DB2FE9A0370086994F /* LongfellowZkp in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		76268FA12FE911B30008901D /* longfellow-libzk-v1 */ = {
+			isa = PBXGroup;
+			children = (
+				76268FA22FE911CD0008901D /* 6_1_4096_2945_137e5a75ce72735a37c8a72da1a8a0a5df8d13365c2ae3d2c2bd6a0e7197c7c6 */,
+				76268FA32FE911CD0008901D /* 6_2_4025_2945_b4bb6f01b7043f4f51d8302a30b36e3d4d2d0efc3c24557ab9212ad524a9764e */,
+				76268FA42FE911CD0008901D /* 6_3_4121_2945_b2211223b954b34a1081e3fbf71b8ea2de28efc888b4be510f532d6ba76c2010 */,
+				76268FA52FE911CD0008901D /* 6_4_4283_2945_c70b5f44a1365c53847eb8948ad5b4fdc224251a2bc02d958c84c862823c49d6 */,
+			);
+			path = "longfellow-libzk-v1";
+			sourceTree = "<group>";
+		};
 		F09E1EA02AC33A6800779C25 /* Config */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +211,7 @@
 		F14907AF2ABAF54B00DDFE56 = {
 			isa = PBXGroup;
 			children = (
+				76268FA12FE911B30008901D /* longfellow-libzk-v1 */,
 				2EEA0D152ED5EAD50025B324 /* AgeVerification.entitlements */,
 				F0A0BE922AC35925002BE0F5 /* EudiWallet.xctestplan */,
 				F14907BA2ABAF54B00DDFE56 /* Wallet */,
@@ -306,6 +334,8 @@
 			name = AgeVerification;
 			packageProductDependencies = (
 				F02AE3902BA6E59600C25C59 /* logic-assembly */,
+				76268F7D2FE9090B0008901D /* DcApi18013AnnexC */,
+				7653F1DA2FE9A0370086994F /* LongfellowZkp */,
 			);
 			productName = "EUDI Reference App";
 			productReference = F14907B82ABAF54B00DDFE56 /* AgeVerification.app */;
@@ -347,6 +377,7 @@
 				2E54D11D2ED7019500AA7346 /* XCLocalSwiftPackageReference "Modules/logic-assembly" */,
 				2E54D1202ED723CE00AA7346 /* XCLocalSwiftPackageReference "Modules/logic-core" */,
 				2EFE16782ED9918100D45861 /* XCRemoteSwiftPackageReference "av-lib-ios-w3c-dc-api" */,
+				7653F1D92FE9A0370086994F /* XCRemoteSwiftPackageReference "av-lib-ios-longfellow-zkp" */,
 			);
 			productRefGroup = F14907B92ABAF54B00DDFE56 /* Products */;
 			projectDirPath = "";
@@ -363,6 +394,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76268FAA2FE911CD0008901D /* 6_2_4025_2945_b4bb6f01b7043f4f51d8302a30b36e3d4d2d0efc3c24557ab9212ad524a9764e in Resources */,
+				76268FAB2FE911CD0008901D /* 6_4_4283_2945_c70b5f44a1365c53847eb8948ad5b4fdc224251a2bc02d958c84c862823c49d6 in Resources */,
+				76268FAC2FE911CD0008901D /* 6_3_4121_2945_b2211223b954b34a1081e3fbf71b8ea2de28efc888b4be510f532d6ba76c2010 in Resources */,
+				76268FAD2FE911CD0008901D /* 6_1_4096_2945_137e5a75ce72735a37c8a72da1a8a0a5df8d13365c2ae3d2c2bd6a0e7197c7c6 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +425,10 @@
 				F0A984762DA917130051A4DB /* pidissuerca02_ut.der in Resources */,
 				F0A984772DA917130051A4DB /* pidissuerca02_nl.der in Resources */,
 				F0A984782DA917130051A4DB /* pidissuerca02_cz.der in Resources */,
+				76268FA62FE911CD0008901D /* 6_2_4025_2945_b4bb6f01b7043f4f51d8302a30b36e3d4d2d0efc3c24557ab9212ad524a9764e in Resources */,
+				76268FA72FE911CD0008901D /* 6_4_4283_2945_c70b5f44a1365c53847eb8948ad5b4fdc224251a2bc02d958c84c862823c49d6 in Resources */,
+				76268FA82FE911CD0008901D /* 6_3_4121_2945_b2211223b954b34a1081e3fbf71b8ea2de28efc888b4be510f532d6ba76c2010 in Resources */,
+				76268FA92FE911CD0008901D /* 6_1_4096_2945_137e5a75ce72735a37c8a72da1a8a0a5df8d13365c2ae3d2c2bd6a0e7197c7c6 in Resources */,
 				F0A984792DA917130051A4DB /* pidissuerca02_pt.der in Resources */,
 				F0A9847A2DA917130051A4DB /* pidissuerca02_ee.der in Resources */,
 				F0A9847B2DA917130051A4DB /* pidissuerca02_lu.der in Resources */,
@@ -501,7 +540,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 2026.4.2;
+				MARKETING_VERSION = 2026.6.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -592,7 +631,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 2026.4.2;
+				MARKETING_VERSION = 2026.6.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -677,7 +716,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 2026.4.2;
+				MARKETING_VERSION = 2026.6.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = tsi.com.scytales.av.dev.digitalcredentialprovider;
@@ -761,7 +800,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 2026.4.2;
+				MARKETING_VERSION = 2026.6.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.scytales.av.digitalcredentialprovider;
@@ -881,7 +920,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 2026.4.2;
+				MARKETING_VERSION = 2026.6.1;
 				PRODUCT_BUNDLE_IDENTIFIER = tsi.com.scytales.av;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -991,7 +1030,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 2026.4.2;
+				MARKETING_VERSION = 2026.6.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.scytales.av;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1166,7 +1205,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 2026.4.2;
+				MARKETING_VERSION = 2026.6.1;
 				PRODUCT_BUNDLE_IDENTIFIER = tsi.com.scytales.av.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1220,7 +1259,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
-				MARKETING_VERSION = 2026.4.2;
+				MARKETING_VERSION = 2026.6.1;
 				PRODUCT_BUNDLE_IDENTIFIER = tsi.com.scytales.av.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1304,8 +1343,16 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/eu-digital-identity-wallet/av-lib-ios-w3c-dc-api.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.0;
+				kind = exactVersion;
+				version = 0.20.1;
+			};
+		};
+		7653F1D92FE9A0370086994F /* XCRemoteSwiftPackageReference "av-lib-ios-longfellow-zkp" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/BhaskarNS-iOS/av-lib-ios-longfellow-zkp";
+			requirement = {
+				branch = "fix/Mdoc-header";
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1335,6 +1382,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2EFE16782ED9918100D45861 /* XCRemoteSwiftPackageReference "av-lib-ios-w3c-dc-api" */;
 			productName = DcApi18013AnnexC;
+		};
+		76268F7D2FE9090B0008901D /* DcApi18013AnnexC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2EFE16782ED9918100D45861 /* XCRemoteSwiftPackageReference "av-lib-ios-w3c-dc-api" */;
+			productName = DcApi18013AnnexC;
+		};
+		7653F1DA2FE9A0370086994F /* LongfellowZkp */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7653F1D92FE9A0370086994F /* XCRemoteSwiftPackageReference "av-lib-ios-longfellow-zkp" */;
+			productName = LongfellowZkp;
 		};
 		F02AE3902BA6E59600C25C59 /* logic-assembly */ = {
 			isa = XCSwiftPackageProductDependency;
