@@ -178,23 +178,23 @@ echo ""
 
 # issuer.ageverification.dev
 verify_domain "issuer.ageverification.dev" \
-    "7KPIkNheFWUhDJI8vYGPnuxh6GBb6pVhUVlF8XzNrdM=" \
-    "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="
+    "kYirK0neGc3RSMFJHqxvZwVox0pg7KwThB8nOjSrsec=" \
+    "LoMHBotttiDko50Gi13uXW71eIy7LAttI+rYT8wXF4w="
 
 # test.issuer.dev.ageverification.dev
 verify_domain "test.issuer.dev.ageverification.dev" \
-    "obEJm4ZE7IHepIv+IC5iIE1c9H0hjg2qriuPtGV/S7g=" \
-    "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="
+    "fSmGMVbBf12HnesWiAAVaQEkcpelMBrxdmrJAGpk/ew=" \
+    "LoMHBotttiDko50Gi13uXW71eIy7LAttI+rYT8wXF4w="
 
 # issuer.dev.ageverification.dev
 verify_domain "issuer.dev.ageverification.dev" \
-    "kbsfS3RUyWqKhYZd6cxbW6uEOcTLom5oJma58UCk+Yc=" \
-    "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="
+    "VGRAkVMJFm2H3Vv2WeVEuJj5HWQafE0cJxiDB0/rHEQ=" \
+    "nWN7PSep5XDQdge5zK24CnCRXHr3KvzhKEGxsdqCX9E="
 
 # passport.issuer.dev.ageverification.dev
 verify_domain "passport.issuer.dev.ageverification.dev" \
-    "1D3OMb2zD16wZqoE91OnwYX7Z3yV2x4fwdKmXu6f210=" \
-    "AlSQhgtJirc8ahLyekmtX+Iw+v46yPYRLJt9Cq1GlB0="
+    "pRm//hr2npxXsIkhvYKMtyDg7dadwDgcuQOHODQvaHs=" \
+    "nWN7PSep5XDQdge5zK24CnCRXHr3KvzhKEGxsdqCX9E="
 
 # Summary
 echo "========================================="

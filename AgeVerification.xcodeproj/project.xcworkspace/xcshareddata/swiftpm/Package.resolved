@@ -1,5 +1,5 @@
 {
-  "originHash" : "03ba90ff0c139d3065723af0cf632017cf86a24c6b767e5370f4e2f09b4f4ea0",
+  "originHash" : "f24c152d6ee826b41295e4473f151b616bc7b7bbc20b1a9dfd884e5863ee6fa2",
   "pins" : [
     {
       "identity" : "activityindicatorview",
@@ -303,8 +303,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/marmelroy/PhoneNumberKit",
       "state" : {
-        "revision" : "f6b612507fd23de7f21866000fc79ec8000358be",
-        "version" : "4.2.9"
+        "revision" : "169ab10234347fb19b37441f2867ace896a284b0",
+        "version" : "4.3.0"
       }
     },
     {
