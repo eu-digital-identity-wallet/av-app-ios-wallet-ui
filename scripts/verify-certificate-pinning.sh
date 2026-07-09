@@ -188,8 +188,8 @@ verify_domain "test.issuer.dev.ageverification.dev" \
 
 # issuer.dev.ageverification.dev
 verify_domain "issuer.dev.ageverification.dev" \
-    "kLSOVQB5XnJ7RxpZluD7dinfCApcGomiQMbmuTVLAbc=" \
-    "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="
+    "VGRAkVMJFm2H3Vv2WeVEuJj5HWQafE0cJxiDB0/rHEQ=" \
+    "nWN7PSep5XDQdge5zK24CnCRXHr3KvzhKEGxsdqCX9E="
 
 # passport.issuer.dev.ageverification.dev
 verify_domain "passport.issuer.dev.ageverification.dev" \

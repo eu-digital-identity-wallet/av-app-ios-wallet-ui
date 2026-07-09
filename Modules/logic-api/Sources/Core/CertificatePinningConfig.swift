@@ -28,19 +28,19 @@ struct CertificatePinningConfig {
   private static let pinnedDomains: [String: [String]] = [
     "issuer.ageverification.dev": [
       "kYirK0neGc3RSMFJHqxvZwVox0pg7KwThB8nOjSrsec=", // Leaf - Expires: 2026-09-02
-      "LoMHBotttiDko50Gi13uXW71eIy7LAttI+rYT8wXF4w="  // Let's Encrypt YR1 - Expires: 2027-03-12
+      "LoMHBotttiDko50Gi13uXW71eIy7LAttI+rYT8wXF4w="  // Let's Encrypt YR1 - Expires: 2028-09-02
     ],
     "test.issuer.dev.ageverification.dev": [
       "fSmGMVbBf12HnesWiAAVaQEkcpelMBrxdmrJAGpk/ew=", // Leaf - Expires: 2026-09-07
-      "LoMHBotttiDko50Gi13uXW71eIy7LAttI+rYT8wXF4w="  // Let's Encrypt YR1 - Expires: 2027-03-12
+      "LoMHBotttiDko50Gi13uXW71eIy7LAttI+rYT8wXF4w="  // Let's Encrypt YR1 - Expires: 2028-09-02
     ],
     "issuer.dev.ageverification.dev": [
-      "kLSOVQB5XnJ7RxpZluD7dinfCApcGomiQMbmuTVLAbc=", // Leaf - Expires: 2026-07-16
-      "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="  // Let's Encrypt R12 - Expires: 2027-03-12
+      "VGRAkVMJFm2H3Vv2WeVEuJj5HWQafE0cJxiDB0/rHEQ=", // Leaf - Expires: 2026-09-14
+      "nWN7PSep5XDQdge5zK24CnCRXHr3KvzhKEGxsdqCX9E="  // Let's Encrypt YR2 - Expires: 2028-09-02
     ],
     "passport.issuer.dev.ageverification.dev": [
       "pRm//hr2npxXsIkhvYKMtyDg7dadwDgcuQOHODQvaHs=", // Leaf - Expires: 2026-09-07
-      "nWN7PSep5XDQdge5zK24CnCRXHr3KvzhKEGxsdqCX9E="  // Let's Encrypt YR2 - Expires: 2027-03-12
+      "nWN7PSep5XDQdge5zK24CnCRXHr3KvzhKEGxsdqCX9E="  // Let's Encrypt YR2 - Expires: 2028-09-02
     ]
   ]
 
