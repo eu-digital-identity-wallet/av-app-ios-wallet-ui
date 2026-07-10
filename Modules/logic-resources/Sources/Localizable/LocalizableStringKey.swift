@@ -159,6 +159,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case issuanceSuccessHeaderDescription
   case issuanceSuccessHeaderDescriptionWhenError
   case issuanceSuccessHeaderIssuerDefaultName
+  case issueDocumentPrompt
   case itemNotFoundInStorage
   case itemsNotFoundInStorage
   case labelClose
@@ -339,6 +340,8 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case splashScreenSponsors
   case splashScreenTitle
   case unknownVerifier
+  case unsupportedDeviceMessage
+  case unsupportedDeviceTitle
   case warningAuthenticationFailed
   case warningClaNotSupported
   case warningEnableNfc

@@ -55,6 +55,17 @@ let package = Package(
         )
       ],
       path: "./Sources"
+    ),
+    .testTarget(
+      name: "logic-core-tests",
+      dependencies: [
+        "logic-core",
+        .product(
+          name: "EudiWalletKit",
+          package: "eudi-lib-ios-wallet-kit"
+        )
+      ],
+      path: "./Tests"
     )
   ]
 )

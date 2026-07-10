@@ -17,6 +17,7 @@ import Foundation
 import feature_common
 import logic_core
 import logic_business
+import LocalAuthentication
 
 public protocol StartupInteractor: Sendable {
   func initialize(with splashAnimationDuration: TimeInterval) async -> AppRoute
@@ -30,22 +31,28 @@ final actor StartupInteractorImpl: StartupInteractor {
   private let keyChainController: KeyChainController
   private let prefsController: PrefsController
   private let configLogic: ConfigLogic
+  private let deviceAuthenticationAvailable: @Sendable () -> Bool
 
   init(
     walletKitController: WalletKitController,
     quickPinInteractor: QuickPinInteractor,
     keyChainController: KeyChainController,
     prefsController: PrefsController,
-    configLogic: ConfigLogic
+    configLogic: ConfigLogic,
+    deviceAuthenticationAvailable: @Sendable @escaping () -> Bool
   ) {
     self.walletKitController = walletKitController
     self.quickPinInteractor = quickPinInteractor
     self.keyChainController = keyChainController
     self.prefsController = prefsController
     self.configLogic = configLogic
+    self.deviceAuthenticationAvailable = deviceAuthenticationAvailable
   }
 
   public func initialize(with splashAnimationDuration: TimeInterval) async -> AppRoute {
+    guard deviceAuthenticationAvailable() else {
+      return .featureStartupModule(.unsupportedDevice)
+    }
     await manageStorageForFirstRun()
     await clearStorageIfPinRemoved()
     try? await walletKitController.loadDocuments()
@@ -101,5 +108,12 @@ final actor StartupInteractorImpl: StartupInteractor {
     prefsController.remove(forKey: .cachedDeepLink)
     prefsController.remove(forKey: .biometryEnabled)
     prefsController.remove(forKey: .batchCounter)
+  }
+}
+
+extension StartupInteractorImpl {
+  static let defaultDeviceAuthenticationAvailable: @Sendable () -> Bool = {
+    var error: NSError?
+    return LAContext().canEvaluatePolicy(.deviceOwnerAuthentication, error: &error)
   }
 }

@@ -41,7 +41,7 @@ final class KeyChainControllerImpl: KeyChainController {
       service: configLogic.keyChainConfig.documentStorageServiceName,
       accessGroup: configLogic.keyChainConfig.keychainAccessGroup
     )
-    .accessibility(.whenUnlocked)
+    .accessibility(.whenPasscodeSetThisDeviceOnly)
   }
 
   public func storeValue(key: KeyChainWrapper, value: String) {
@@ -83,7 +83,7 @@ private extension KeyChainControllerImpl {
     try self.keyChain
       .accessibility(
         .whenPasscodeSetThisDeviceOnly,
-        authenticationPolicy: [.biometryAny]
+        authenticationPolicy: [.biometryCurrentSet]
       )
       .set(UUID().uuidString, key: self.biometryKey)
   }

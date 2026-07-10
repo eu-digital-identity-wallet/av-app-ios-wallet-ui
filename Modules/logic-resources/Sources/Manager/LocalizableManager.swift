@@ -318,6 +318,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "issuance_success_header_description_when_error")
       case .issuanceSuccessHeaderIssuerDefaultName:
         bundle.localizedString(forKey: "issuance_success_header_issuer_default_name")
+      case .issueDocumentPrompt:
+        bundle.localizedString(forKey: "issue_document_prompt")
       case .itemNotFoundInStorage:
         bundle.localizedString(forKey: "item_not_found_in_storage")
       case .itemsNotFoundInStorage:
@@ -678,6 +680,10 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "splash_screen_title")
       case .unknownVerifier:
         bundle.localizedString(forKey: "unknown_verifier")
+      case .unsupportedDeviceMessage:
+        bundle.localizedString(forKey: "unsupported_device_message")
+      case .unsupportedDeviceTitle:
+        bundle.localizedString(forKey: "unsupported_device_title")
       case .warningAuthenticationFailed:
         bundle.localizedString(forKey: "warning_authentication_failed")
       case .warningClaNotSupported:

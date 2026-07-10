@@ -97,15 +97,11 @@ struct WalletKitConfigImpl: WalletKitConfig {
   }
 
   var userAuthenticationRequired: Bool {
-    false
+    Self.credentialKeyUserAuthenticationRequired
   }
 
 	var keyOptions: KeyOptions? {
-	  KeyOptions(
-		curve: .P256,
-		secureAreaName: SecureEnclaveSecureArea.name,
-		accessControl: []
-	  )
+	  Self.credentialKeyOptions
 	}
 
   var vciConfig: [String: OpenId4VciConfiguration] {
@@ -296,4 +292,16 @@ private extension WalletKitConfigImpl {
 	else { return nil }
 	return SecCertificateCreateWithData(nil, data as CFData)
   }
+}
+
+extension WalletKitConfigImpl {
+
+  static let credentialKeyUserAuthenticationRequired: Bool = true
+
+  static let credentialKeyOptions: KeyOptions = KeyOptions(
+    curve: .P256,
+    secureAreaName: SecureEnclaveSecureArea.name,
+    accessProtection: .whenPasscodeSetThisDeviceOnly,
+    accessControl: [.requireUserPresence]
+  )
 }

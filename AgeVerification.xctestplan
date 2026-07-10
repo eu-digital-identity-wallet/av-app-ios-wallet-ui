@@ -64,6 +64,13 @@
     },
     {
       "target" : {
+        "containerPath" : "container:Modules\/logic-core",
+        "identifier" : "logic-core-tests",
+        "name" : "logic-core-tests"
+      }
+    },
+    {
+      "target" : {
         "containerPath" : "container:Modules\/logic-ui",
         "identifier" : "logic-ui-tests",
         "name" : "logic-ui-tests"

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 European Commission
+ * Copyright (c) 2026 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -13,26 +13,24 @@
  * ANY KIND, either express or implied. See the Licence for the specific language
  * governing permissions and limitations under the Licence.
  */
-import logic_ui
-import logic_business
+import XCTest
+import EudiWalletKit
+@testable import logic_core
 
-@MainActor
-public final class StartupRouter {
+final class TestWalletKitConfigCredentialKeySecurity: XCTestCase {
 
-  @ViewBuilder
-  public static func resolve(module: FeatureStartupRouteModule, host: some RouterHost) -> some View {
-    switch module {
-    case .startup:
-      StartupView(
-        with: .init(
-          router: host,
-          interactor: DIGraph.shared.resolver.force(
-            StartupInteractor.self
-          )
-        )
-      ).eraseToAnyView()
-    case .unsupportedDevice:
-      UnsupportedDeviceView().eraseToAnyView()
-    }
+  func testCredentialSigningKeyRequiresUserPresenceAndDeviceOnlyAccessibility() throws {
+    XCTAssertTrue(WalletKitConfigImpl.credentialKeyUserAuthenticationRequired)
+
+    let keyOptions = WalletKitConfigImpl.credentialKeyOptions
+
+    XCTAssertEqual(
+      try XCTUnwrap(keyOptions.accessControl),
+      [.requireUserPresence]
+    )
+    XCTAssertEqual(
+      try XCTUnwrap(keyOptions.accessProtection),
+      .whenPasscodeSetThisDeviceOnly
+    )
   }
 }
