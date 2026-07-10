@@ -35,6 +35,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case biometricSetupSkip
   case biometricSetupTitle
   case biometricUnknownError
+  case biometryUnlockReason
   case cdCloseButton
   case cdFlashButton
   case confirmDocRemovalDialogDelete

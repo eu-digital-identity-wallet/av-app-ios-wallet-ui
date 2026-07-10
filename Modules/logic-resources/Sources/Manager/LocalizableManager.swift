@@ -70,6 +70,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "biometric_setup_title")
       case .biometricUnknownError:
         bundle.localizedString(forKey: "biometric_unknown_error")
+      case .biometryUnlockReason:
+        bundle.localizedString(forKey: "biometry_unlock_reason")
       case .cdCloseButton:
         bundle.localizedString(forKey: "cd_close_button")
       case .cdFlashButton:

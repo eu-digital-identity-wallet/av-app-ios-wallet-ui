@@ -701,6 +701,41 @@
         }
       }
     },
+    "biometry_unlock_reason" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Godkend for at låse Age Verification op"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authentifizieren Sie sich, um Age Verification zu entsperren"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authenticate to unlock Age Verification"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authentifiez-vous pour déverrouiller Age Verification"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autenticati per sbloccare Age Verification"
+          }
+        }
+      }
+    },
     "cd_close_button" : {
       "extractionState" : "manual",
       "localizations" : {
