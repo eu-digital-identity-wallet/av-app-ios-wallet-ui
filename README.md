@@ -5,7 +5,7 @@
 * [Overview](#overview)
 * [Important things to know](#important-things-to-know)
 * [How to use the application](#how-to-use-the-application)
-* [How to build - Quick start guide](#how-to-build---quick-start-guide)
+* [Quick start guide](#quick-start-guide)
 * [Application configuration](#application-configuration)
 * [Demo videos](#demo-videos)
 * [Disclaimer](#disclaimer)
@@ -121,7 +121,7 @@ To delete a document, navigate to the 'Documents' tab within the 'Dashboard' scr
 4. Tap "Accept" to consent to sharing your credentials, then tap "Authorize" to confirm the transaction
 5. The browser will display the verification result with verification checks.
 
-## How to build - Quick start guide
+## Quick start guide
 
 [This document](wiki/how_to_build.md) describes how you can build the application and deploy the issuing and verification services locally.
 
