@@ -3,56 +3,57 @@
 ## Table of contents
 
 * [Overview](#overview)
-* [Important things to know](#important-things-to-know)
+* [Specifications Employed](#-specifications-employed)
+* [Important note](#important-note)
 * [How to use the application](#how-to-use-the-application)
 * [How to build - Quick start guide](#how-to-build---quick-start-guide)
 * [Application configuration](#application-configuration)
-* [Demo videos](#demo-videos)
-* [Disclaimer](#disclaimer)
 * [How to contribute](#how-to-contribute)
 * [License](#license)
 
 ## Overview
 
-The Age Verification App is an iOS application built on top of the EUDI Wallet Reference Implementation. It provides age verification functionality using digital credentials based on the [Architecture Reference Framework](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/blob/main/docs/architecture-and-reference-framework-main.md).
+The Age Verification (AV) iOS app is part of the Age Verification Solution Toolbox and serves as a component that can be used by Member States, if necessary, to develop a national solution and build upon the building blocks of the toolbox.
 
-The Age Verification App allows users to:
+This iOS app is forked from the [EUDI iOS Wallet reference application](https://github.com/eu-digital-identity-wallet/eudi-app-ios-wallet-ui), which is built based on the [Architecture Reference Framework](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/blob/main/docs/architecture-and-reference-framework-main.md) and aims to showcase a robust and interoperable platform for digital identification, authentication, and electronic signatures based on common standards across the European Union.
 
-1. Obtain, store, and present age verification credentials.
-2. Verify presentations.
-3. Support age verification use cases.
+The AV iOS Implementation is based on a modular architecture composed of business-agnostic, reusable components that will evolve in incremental steps and can be re-used across multiple projects.
+
+The AV iOS app allows users to:
+
+1. Obtain, store, and present an age verification attestation.
+2. Share the proof of age attestation with online services to gain access.
+
+For a guided walkthrough of the demo — installation, issuing an age proof, and presenting it to a verifier — see the official [Age Verification Blueprint documentation](https://ageverification.dev/Getting%20started/app_installation/).
  
-# 💡 Specifications Employed
+## 💡 Specifications Employed
 
-The app consumes the SDK called EUDIW Wallet core [Wallet kit](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-kit) and a list of available libraries to facilitate remote presentation and issuing test/demo functionality following the specification of the [ARF](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework), including:
+The app consumes the SDK called EUDIW Wallet core [Wallet kit](https://github.com/eu-digital-identity-wallet/eudi-lib-ios-wallet-kit) and a list of available libraries to facilitate remote presentation and issuing test/demo functionality following partially the specification of the [ARF](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework), including:
 
 - OpenID4VP v1 (remote presentation), DCQL
 
 - OpenID4VCI v1 (issuing)
+
+- Digital Credentials API (DC API) for browser-based presentation
+
+- Zero-Knowledge Proofs (ZKP) for privacy-preserving age predicates
  
-- Issuer functionality, to support development and testing, one can access an OID4VCI test/demo service for issuing at:
+> [!IMPORTANT]
+> This application implements the **Age Verification (AV) profile**. The generic EUDI Wallet issuer (`issuer.eudiw.dev`) and verifier (`verifier.eudiw.dev`) do **not** support the AV profile and will not work with this app — do not use them for testing.
 
-  - [EUDI Issuer](https://ec.issuer.eudiw.dev/)
+For the Age Verification issuer and verifier services used to obtain and present age verification credentials, refer to the official [Age Verification Blueprint documentation](https://ageverification.dev/Getting%20started/app_installation/).
 
-  - [OpenID4VCI PID and mDL Issuer (python)](https://github.com/eu-digital-identity-wallet/eudi-srv-web-issuing-eudiw-py)
- 
-  - [OpenID4VCI PID and mDL Issuer (kotlin)](https://github.com/eu-digital-identity-wallet/eudi-srv-pid-issuer)
- 
-Relying Party functionality:
- 
-To support development and testing, one can access a test/demo service for remote presentation at:
+## Important note
 
-  - [EUDI Verifier](https://verifier.eudiw.dev) 
+This white-label application is a reference implementation of the Age Verification solution that should be customised before publishing it.
+The open-source blueprint gives you a working foundation, but it does not cover everything needed for a production deployment. Before going live, a number of technical tasks must be completed by the implementer — covering areas such as app hardening, secure storage, issuer setup, key management, issuance flow security, document-based enrolment, user authentication, and localisation.
 
-  - [Web verifier source](https://github.com/eu-digital-identity-wallet/eudi-web-verifier)
+A full description of each task is provided in the [Implementer Checklist](https://ageverification.dev/Getting%20started/app_implementers_tasks/).
+Note that this checklist covers technical tasks only. Legal compliance, governance agreements, issuer registration on the AV Trusted List, and enrolment method validation are equally important and must be addressed in parallel.
 
-  - [Verifier restful backend service source](https://github.com/eu-digital-identity-wallet/eudi-srv-web-verifier-endpoint-23220-4-kt)
+Please note that this application is still under active development. It is regularly updated and new features and improvements are continuously being added.
 
-## Important things to know
-
-The main purpose of the reference implementation is to showcase the ecosystem and act as a technical example of how to integrate and use all of the available components.
-
-If you're planning to use this application in production, we recommend reviewing the following steps:
+If you're planning to use this application in production, we also recommend reviewing the following steps:
 - Configure the application properly by following the guide [here](wiki/configuration.md)
 - The Pin storage configuration matches your security requirements, or provide your own by following this guide [Pin Storage Configuration](wiki/configuration.md#pin-storage-configuration)
 - To enhance security, it is strongly recommended that the allowed PINs raise the overall security level. Sequential or easily guessable patterns (such as "135246 or "147258") should not be permitted. Additionally, it is advisable to check against a list of the most commonly used or "pwned" PINs to prevent users from choosing weak credentials.
@@ -75,51 +76,11 @@ To complete the flows described below, you must build and run the application wi
 1. Launch the application
 2. You will be presented with a welcome screen where you will be asked to create a PIN for future logins.
 
-### Issuance flow (Scoped - Wallet initiated)
+### Issuance and presentation
 
-1. Navigate to the "Dashboard" screen, go to the "Documents" tab, and tap on the "+" icon (top-right of the screen). Select "From list". If it's your first time opening the app, you will be redirected here automatically after entering or setting up your PIN.
-2. Select "PID".
-3. In the web view that appears, choose "Country Selection", then "FormEU", and tap "Submit".
-4. Fill in the form. Any data will suffice, but selecting a birth date older than 18 years is recommended, as it is required for certain app functionalities (e.g., RQES).
-5. After submission, a success screen will appear. Tap "Close".
-6. You will be redirected to the "Dashboard" screen. If this was your first document added to the Wallet, you will land on the "Home" tab; otherwise, you will be on the "Documents" tab. The flow is now complete.
+To test the app, there is an issuer and verifier service available online. This allows you to perform the enrollment directly from within the app or via the online issuer in order to receive a proof of age attestation. With the verifier, you can then present this attestation.
 
-### Issuance flow (Credential Offer - Issuer-initiated)
-
-1. Go to the "Dashboard" screen, navigate to the "Documents" tab, and tap the "+" icon (top-right of the screen). Select "Scan a QR".
-2. Scan the QR code from the issuer's website [EUDI Issuer](https://issuer.eudiw.dev/credential_offer)
-3. Review the documents included in the credential offer and tap "Add".
-4. In the web view that appears, select "Country Selection", then "FormEU", and tap "Submit".
-5. Fill in the form. Any data will suffice, but selecting a birth date over 18 is recommended, as it is required for certain app functionalities (e.g., RQES).
-6. After submission, a success screen will appear. Tap "Close".
-7. You will be redirected back to the "Documents" tab within the "Dashboard" screen. The flow is now complete.
-
-To delete a document, navigate to the 'Documents' tab within the 'Dashboard' screen, tap on the document you wish to remove, and then tap the 'Delete Document' button in the 'Document Details' screen.
-
-### Presentation (Online authentication/Same device) flow.
-
-1. Go to the browser application on your device and enter "https://verifier.eudiw.dev"
-2. Expand the Person Identification Data (PID) card and select:
-    1. "Attributes by" → "Specific attributes".
-    2. "Format" → Choose the format of your choice.
-3. Tap "Next", then select "Select Attributes".
-4. Choose the fields you want to request from the Wallet (e.g., "Family Name" and "Given Name").
-5. Review your presentation request, tap "Next", and then select "Open with your Wallet".
-6. When prompted to open the wallet app, tap "Open".
-7. You will be redirected to the app’s "Request" screen, where you can select or deselect which attributes to share with the Verifier. You must select at least one attribute to proceed.
-8. Tap "Share".
-9. Enter the PIN you set up during the initial steps.
-10. Upon successful submission, tap "Close".
-11. A browser will open, confirming that the Verifier has accepted your request.
-12. Return to the app. The flow is now complete.
-
-## Digital Credentails API flow
-
-1. Open the browser application on your device and navigate to "https://verifier.dev.ageverification.dev"
-2. Tap on the "DC API" button to initiate the credential sharing flow
-3. The system will display the verifier's details and the credential information that will be shared, along with two action buttons: "Accept" and "Close"
-4. Tap "Accept" to consent to sharing your credentials, then tap "Authorize" to confirm the transaction
-5. The browser will display the verification result with verification checks.
+A step-by-step guide covering installation, issuing and presenting a proof of age attestation using the online test/demo services is available at [Getting started](https://ageverification.dev/Getting%20started/app_installation/).
 
 ## How to build - Quick start guide
 
@@ -209,30 +170,6 @@ graph TD;
   logic-core --> logic-ui
 
 ```
-
-## Demo videos
-
-Issuance
-
-[Issuance](https://github.com/user-attachments/assets/3c7d29fe-27b9-409c-b470-07bce1537e75)
-
-Presentation
-
-[Presentation](https://github.com/user-attachments/assets/e23fc563-5650-4a83-a05b-53a54f6dd209)
-
-## Disclaimer
-
-The released software is an initial development release version: 
--  The initial development release is an early endeavor reflecting the efforts of a short time-boxed period, and by no means can it be considered the final product.  
--  The initial development release may be changed substantially over time and might introduce new features, but also may change or remove existing ones, potentially breaking compatibility with your existing code.
--  The initial development release is limited in functional scope.
--  The initial development release may contain errors or design flaws and other problems that could cause system or other failures and data loss.
--  The initial development release has reduced security, privacy, availability, and reliability standards relative to future releases. This could make the software slower, less reliable, or more vulnerable to attacks than mature software.
--  The initial development release is not yet comprehensively documented. 
--  Users of the software must perform sufficient engineering and additional testing to properly evaluate their application and determine whether any of the open-sourced components are suitable for use in that application.
--  We strongly recommend not putting this version of the software into production use.
--  Only the latest version of the software will be supported.
--  This project is tested with BrowserStack.
 
 ## How to contribute
 
