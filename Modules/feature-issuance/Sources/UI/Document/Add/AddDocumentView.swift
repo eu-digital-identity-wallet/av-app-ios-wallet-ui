@@ -105,6 +105,9 @@ private func content(
                   "\(cell.issuerId)_\(cell.docTypeIdentifier)"
                 ),
                 isLoading: cell.isLoading,
+                accessibilityHint: cell.opensExternalContext
+                  ? .onboardingVerificationNationalIdHint
+                  : nil,
                 action: { action(cell.issuerId, cell.configId, cell.docTypeIdentifier) }
               )
             }
