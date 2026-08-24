@@ -426,6 +426,8 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "onboarding_verification_national_id")
       case .onboardingVerificationNationalIdDescription:
         bundle.localizedString(forKey: "onboarding_verification_national_id_description")
+      case .onboardingVerificationNationalIdHint:
+        bundle.localizedString(forKey: "onboarding_verification_national_id_hint")
       case .onboardingVerificationPassportIdCard:
         bundle.localizedString(forKey: "onboarding_verification_passport_id_card")
       case .onboardingVerificationPassportIdCardDescription:

@@ -26,6 +26,7 @@ public struct AddDocumentUIModel: Identifiable, Sendable, Equatable {
   public let docTypeIdentifier: DocumentTypeIdentifier
   public var isEnabled: Bool
   public var isLoading: Bool
+  public let opensExternalContext: Bool
 
   public init(
     listItem: ListItemData,
@@ -33,7 +34,8 @@ public struct AddDocumentUIModel: Identifiable, Sendable, Equatable {
     isLoading: Bool = false,
     configId: String,
     issuerId: String,
-    docTypeIdentifier: DocumentTypeIdentifier
+    docTypeIdentifier: DocumentTypeIdentifier,
+    opensExternalContext: Bool = false
   ) {
     self.id = UUID().uuidString
     self.isEnabled = isEnabled
@@ -42,6 +44,7 @@ public struct AddDocumentUIModel: Identifiable, Sendable, Equatable {
     self.configId = configId
     self.issuerId = issuerId
     self.docTypeIdentifier = docTypeIdentifier
+    self.opensExternalContext = opensExternalContext
   }
 }
 

@@ -213,6 +213,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case onboardingVerificationDescription
   case onboardingVerificationNationalId
   case onboardingVerificationNationalIdDescription
+  case onboardingVerificationNationalIdHint
   case onboardingVerificationPassportIdCard
   case onboardingVerificationPassportIdCardDescription
   case onboardingVerificationTitle
