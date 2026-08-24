@@ -166,6 +166,9 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case labelClose
   case labelTurnOn
   case landingScreenAddCredentials
+  case landingScreenCardA11yHint
+  case landingScreenCardA11yLabel(Int)
+  case landingScreenCardA11yLabelWithAge(Int, Int)
   case landingScreenCardAgeVerification
   case landingScreenCardEuTitle
   case landingScreenCredentialDetails
@@ -334,7 +337,9 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case settings
   case settingsScreenAppInfo
   case settingsScreenChangePin
+  case settingsScreenChangePinA11yHint
   case settingsScreenCredentials
+  case settingsScreenDeleteCredentialsA11yHint
   case settingsScreenDeleteProofs
   case settingsScreenSecurity
   case settingsScreenTitle
