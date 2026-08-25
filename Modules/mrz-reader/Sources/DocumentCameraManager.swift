@@ -37,6 +37,13 @@ class DocumentCameraManager: ObservableObject, CameraSessionDelegate {
     self.isSessionRunning = false
   }
 
+  /// Forward a device orientation change to the camera session so that the
+  /// video output connection and Vision request handler stay in sync with the
+  /// current screen orientation.
+  func updateOrientation(_ orientation: UIDeviceOrientation) async {
+    await sessionActor?.updateOrientation(orientation)
+  }
+
   func resetForNewScan() async {
     // Reset all state without stopping the camera
     await MainActor.run {

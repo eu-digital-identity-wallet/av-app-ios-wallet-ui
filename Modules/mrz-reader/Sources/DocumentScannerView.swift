@@ -3,6 +3,7 @@ import SwiftUI
 // MARK: - Document Scanner View
 public struct DocumentScannerView: View {
   @StateObject private var cameraManager = DocumentCameraManager()
+  @State private var deviceOrientation: UIDeviceOrientation = .portrait
   private let onMRZCaptured: ((MRZData) -> Void)?
   private let configuration: MRZReaderConfiguration
 
@@ -30,13 +31,16 @@ public struct DocumentScannerView: View {
   public var body: some View {
     ZStack {
       if let session = cameraManager.captureSession, cameraManager.isSessionRunning {
-        CameraPreviewView(session: session)
+        CameraPreviewView(session: session, deviceOrientation: deviceOrientation)
           .ignoresSafeArea()
 
         // Fixed alignment guides
         GeometryReader { geometry in
-          // Document outline guide (aspect ratio similar to passport/ID card: ~1.42:1)
-          let documentWidth = geometry.size.width * 0.68  // 80% of 0.85
+          // Size the document guide off the shorter screen dimension so it fits
+          // both portrait and landscape without overflowing the available space.
+          // Aspect ratio similar to passport/ID card: ~1.42:1 (ID-1).
+          let referenceSide = min(geometry.size.width, geometry.size.height)
+          let documentWidth = referenceSide * 0.68
           let documentHeight: CGFloat = documentWidth / 1.42  // Standard ID-1 aspect ratio
           let documentRect = CGRect(
             x: (geometry.size.width - documentWidth) / 2,
@@ -144,12 +148,27 @@ public struct DocumentScannerView: View {
         }
         try await cameraManager.setupCamera()
         MRZLogger.log("Camera setup successful")
+        // Push the current orientation once the session is up so an already-landscape
+        // launch is handled correctly (the change notification only fires on rotation).
+        let orientation = UIDevice.current.orientation
+        deviceOrientation = orientation
+        await cameraManager.updateOrientation(orientation)
       } catch {
         MRZLogger.log("Camera setup failed: \(error)")
         cameraManager.error = error
       }
     }
+    .onAppear {
+      UIDevice.current.beginGeneratingDeviceOrientationNotifications()
+    }
+    .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+      let orientation = UIDevice.current.orientation
+      guard orientation != deviceOrientation else { return }
+      deviceOrientation = orientation
+      Task { await cameraManager.updateOrientation(orientation) }
+    }
     .onDisappear {
+      UIDevice.current.endGeneratingDeviceOrientationNotifications()
       Task {
         await cameraManager.stopCamera()
       }
