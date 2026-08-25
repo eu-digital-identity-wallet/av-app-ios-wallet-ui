@@ -27,7 +27,7 @@ struct GenericSuccessView<Router: RouterHost>: View {
     }
 
   var body: some View {
-    ContentScreenView {
+    ContentScreenView(canScroll: true) {
       content(viewState: viewModel.viewState) { button in
         viewModel.onButtonClicked(with: button)
       }
@@ -41,48 +41,49 @@ private func content(
   viewState: GenericSuccessState,
   onButtonClicked: @escaping (UIConfig.Success.Button) -> Void
 ) -> some View {
-
-  ContentHeaderView(
-    config: ContentHeaderConfig(
-      appIconAndTextData: AppIconAndTextData(
-        appIcon: ThemeManager.shared.image.logoEuDigitalIndentityWallet,
-        appText: ThemeManager.shared.image.euditext
+  ScrollView {
+    ContentHeaderView(
+      config: ContentHeaderConfig(
+        appIconAndTextData: AppIconAndTextData(
+          appIcon: ThemeManager.shared.image.logoEuDigitalIndentityWallet,
+          appText: ThemeManager.shared.image.euditext
+        )
       )
     )
-  )
-
-  VSpacer.jumbo()
-
-  VStack {
-
-    ZStack(alignment: .center) {
-      getCenteredIcon(config: viewState.config)
-    }
-
-    VSpacer.large()
-
-    ContentTitleView(
-      title: viewState.config.title.value,
-      accessibilityTitle: GenericSuccessLocators.successTitle,
-      titleFont: Theme.shared.font.displayLarge,
-      caption: viewState.config.subtitle,
-      titleColor: viewState.config.title.color,
-      textAlignment: .center,
-      topSpacing: .withoutToolbar
-    )
-
-    Spacer()
-
+    
+    VSpacer.jumbo()
+    
     VStack {
-      ForEach(viewState.config.buttons, id: \.id) { button in
-        WrapButtonView(
-          style: button.style == .primary ? .primary : .secondary,
-          title: button.title,
-          onAction: onButtonClicked(button)
-        )
-        .ignoreChilrenAccessibility(
-          locator: GenericSuccessLocators.successPrimaryButton
-        )
+      
+      ZStack(alignment: .center) {
+        getCenteredIcon(config: viewState.config)
+      }
+      
+      VSpacer.large()
+      
+      ContentTitleView(
+        title: viewState.config.title.value,
+        accessibilityTitle: GenericSuccessLocators.successTitle,
+        titleFont: Theme.shared.font.displayLarge,
+        caption: viewState.config.subtitle,
+        titleColor: viewState.config.title.color,
+        textAlignment: .center,
+        topSpacing: .withoutToolbar
+      )
+      
+      Spacer()
+      
+      VStack {
+        ForEach(viewState.config.buttons, id: \.id) { button in
+          WrapButtonView(
+            style: button.style == .primary ? .primary : .secondary,
+            title: button.title,
+            onAction: onButtonClicked(button)
+          )
+          .ignoreChilrenAccessibility(
+            locator: GenericSuccessLocators.successPrimaryButton
+          )
+        }
       }
     }
   }

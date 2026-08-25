@@ -42,14 +42,7 @@ public struct PinTextFieldView: View {
   }
 
   private var computeDotsSize: (width: CGFloat, height: CGFloat) {
-    guard shouldUseFullScreen else {
-      return (
-        width: 45.0 / UIScreen.main.zoomFactor,
-        height: 55.0 / UIScreen.main.zoomFactor
-      )
-    }
-    let size = (getScreenRect().width - CGFloat((maxDigits + 1) * 10)) / CGFloat(maxDigits)
-    return (width: size, height: (size + 10))
+    return (width: 45, height: 55)
   }
 
   public init(
@@ -81,6 +74,7 @@ public struct PinTextFieldView: View {
 
   private var pinDots: some View {
     HStack(spacing: shouldUseFullScreen ? 0.0 : 10) {
+      Spacer()
       ForEach(0..<maxDigits, id: \.self) { index in
         createMainComponent(input: getEachDigit(at: index), index: index)
           .frame(width: computeDotsSize.width, height: computeDotsSize.height, alignment: .center)
@@ -94,12 +88,13 @@ public struct PinTextFieldView: View {
           )
           .accessibilityLocator(Locators.pinTextField, with: "_\(index)")
         if shouldUseFullScreen && index < (maxDigits - 1) {
-          Spacer()
+          HSpacer.custom(size: 10)
         }
       }
       if !shouldUseFullScreen {
-        Spacer()
+        HSpacer.custom(size: 10)
       }
+      Spacer()
     }
   }
 

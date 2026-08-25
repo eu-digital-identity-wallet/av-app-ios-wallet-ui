@@ -32,43 +32,45 @@ struct WelcomeInfoCarousel: View {
     ]
 
     var body: some View {
-        VStack(spacing: 0) {
-            TabView(selection: $selection) {
-                ForEach(pages.indices, id: \.self) { index in
-                    let pageItem = pages[index]
-                    VStack(spacing: SPACING_LARGE_MEDIUM) {
-                        pageItem.image
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 74)
-                        VStack(alignment: .leading, spacing: SPACING_LARGE_MEDIUM) {
-                            Text(pages[index].title)
-                                .font(Theme.shared.font.titleMedium.font)
-                                .fontWeight(.medium)
-                            Text(pages[index].body)
-                                .font(Theme.shared.font.bodyLarge.font)
-                        }
-                    }
-                    .tag(index)
-                    .padding()
-                }
+      VStack(spacing: 0) {
+        TabView(selection: $selection) {
+          ForEach(pages.indices, id: \.self) { index in
+            let pageItem = pages[index]
+            VStack(spacing: SPACING_MEDIUM) {
+              pageItem.image
+                .resizable()
+                .scaledToFit()
+                .frame(height: 64)
+              VStack(alignment: .leading, spacing: SPACING_MEDIUM) {
+                Text(pages[index].title)
+                  .font(Theme.shared.font.titleMedium.font)
+                  .fontWeight(.medium)
+                  .multilineTextAlignment(.leading)
+                Text(pages[index].body)
+                  .font(Theme.shared.font.bodyLarge.font)
+                  .multilineTextAlignment(.leading)
+              }
             }
-            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .frame(maxWidth: .infinity, maxHeight: 300)
-
-            HStack(spacing: SPACING_LARGE) {
-                ForEach(pages.indices, id: \.self) { index in
-                    Circle()
-                        .fill(index == selection ? Theme.shared.color.blue : Theme.shared.color.grey)
-                        .frame(width: SPACING_MEDIUM_SMALL, height: SPACING_MEDIUM_SMALL)
-                        .onTapGesture {
-                            withAnimation {
-                                selection = index
-                            }
-                        }
-                }
-            }
+            .tag(index)
+            .padding(.horizontal)
+          }
         }
-        .padding(.top, SPACING_LARGE)
+        .frame(minHeight: 200)
+        .tabViewStyle(.page(indexDisplayMode: .never))
+
+        HStack(spacing: SPACING_LARGE) {
+          ForEach(pages.indices, id: \.self) { index in
+            Circle()
+              .fill(index == selection ? Theme.shared.color.blue : Theme.shared.color.grey)
+              .frame(width: SPACING_MEDIUM_SMALL, height: SPACING_MEDIUM_SMALL)
+              .onTapGesture {
+                withAnimation {
+                  selection = index
+                }
+              }
+          }
+        }
+      }
+      .padding(.top, SPACING_SMALL)
     }
 }

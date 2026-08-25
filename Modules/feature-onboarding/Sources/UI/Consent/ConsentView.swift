@@ -46,7 +46,6 @@ private func content(state: ConsentViewState, onNext: @escaping () -> Void, onTe
                 Text(LocalizableStringKey.consentScreenTitle.toString)
                     .font(Theme.shared.font.titleMedium.font)
                     .fontWeight(.medium)
-                    .padding(.bottom, SPACING_EXTRA_LARGE)
 
                 CheckboxView(isChecked: state.termsOfServiceAccepted, label: LocalizableStringKey.consentScreenTosCheckbox.toString) { ischecked in
                     onTermsChanged(ischecked)

@@ -118,7 +118,7 @@ private func pinView(
     Text(subtitleText)
         .typography(Theme.shared.font.bodyMedium)
         .foregroundColor(Theme.shared.color.lightText)
-        .padding(.bottom, SPACING_EXTRA_SMALL)
+        .padding(.bottom, SPACING_SMALL)
 
     PinTextFieldView(
       numericText: uiPinInputField,

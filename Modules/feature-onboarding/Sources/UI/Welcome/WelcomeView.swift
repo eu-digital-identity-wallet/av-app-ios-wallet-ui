@@ -17,20 +17,16 @@ struct WelcomeView<Router: RouterHost>: View {
     }
 
     var body: some View {
-        ZStack {
-            Theme.shared.color.surface
-                .ignoresSafeArea(.all)
-            ContentScreenView(
-                padding: .zero,
-                canScroll: false,
-                errorConfig: viewModel.viewState.error,
-                background: Theme.shared.color.surface
-            ) {
-                content(state: viewModel.viewState) {
-                    viewModel.onNext()
-                }
-            }
+      ContentScreenView(
+        padding: .zero,
+        canScroll: true,
+        errorConfig: viewModel.viewState.error,
+        background: Theme.shared.color.surface
+      ) {
+        content(state: viewModel.viewState) {
+          viewModel.onNext()
         }
+      }
     }
 }
 
@@ -39,20 +35,22 @@ struct WelcomeView<Router: RouterHost>: View {
 private func content(state: WelcomeViewState,
                      onNext: @escaping () -> Void) -> some View {
 
-    VStack {
-      OnboardingTabsView(steps: Onboardingsteps.allCases,
-                         selectedIndex: 0)
+      VStack(spacing: SPACING_SMALL) {
+        ScrollView {
+        OnboardingTabsView(steps: Onboardingsteps.allCases,
+                           selectedIndex: 0)
         WelcomeInfoCarousel()
-        Spacer()
+      }
         WrapButtonView(
-            style: .primary,
-            title: .welcomeScreenSkip,
-            isLoading: false,
-            isEnabled: true,
-            onAction: onNext()
+          style: .primary,
+          title: .welcomeScreenSkip,
+          isLoading: false,
+          isEnabled: true,
+          onAction: onNext()
         )
-        .padding()
+        .padding(.horizontal)
+        .padding(.top, SPACING_SMALL)
+        .padding(.bottom, SPACING_LARGE_MEDIUM)
     }
-    .frame(maxWidth: .infinity, maxHeight: .infinity)
-
+  
 }

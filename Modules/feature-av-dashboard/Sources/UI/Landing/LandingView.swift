@@ -12,6 +12,10 @@ import logic_core
 struct LandingView<Router: RouterHost>: View {
     @State var viewModel: LandingViewModel<Router>
     @Environment(\.scenePhase) private var scenePhase
+    // Tracks portrait vs landscape on iPhone
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+    // Tracks width changes (useful for iPad multitasking)
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
 
     init(with viewModel: LandingViewModel<Router>) {
       self._viewModel = State(wrappedValue: viewModel)
@@ -45,7 +49,7 @@ struct LandingView<Router: RouterHost>: View {
 @ViewBuilder
 private func content(viewState: AppLandingState, onScan: @escaping () -> Void, onGetMoreCredentials: @escaping () -> Void, onSettings: @escaping () -> Void) -> some View {
     ZStack(alignment: .bottom) {
-        ScrollView {
+      ScrollView {
             VStack(spacing: .zero) {
                 HStack(alignment: .center, spacing: .zero) {
                     Spacer()
@@ -81,6 +85,7 @@ private func content(viewState: AppLandingState, onScan: @escaping () -> Void, o
             }
             .padding()
         }
+        .clipped()
 
         // Sticky scan button
         VStack(alignment: .center) {
