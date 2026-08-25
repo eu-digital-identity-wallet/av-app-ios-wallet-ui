@@ -6790,6 +6790,41 @@
         }
       }
     },
+    "onboarding_verification_national_id_hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åbner et nyt vindue for at bekræfte med din eID"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öffnet ein neues Fenster zur Verifizierung mit Ihrer eID"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opens a new window to verify with your eID"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvre une nouvelle fenêtre pour vérifier avec votre eID"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apre una nuova finestra per verificare con la tua eID"
+          }
+        }
+      }
+    },
     "onboarding_verification_passport_id_card" : {
       "extractionState" : "manual",
       "localizations" : {
