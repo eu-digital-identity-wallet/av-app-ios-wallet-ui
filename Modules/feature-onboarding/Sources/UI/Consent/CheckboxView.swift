@@ -8,6 +8,7 @@ import SwiftUI
 import feature_common
 import logic_resources
 import logic_core
+import logic_ui
 
 struct CheckboxView: View {
     @State var isChecked: Bool
@@ -28,5 +29,12 @@ struct CheckboxView: View {
         }
         .buttonStyle(.plain)
         .padding(.bottom, SPACING_MEDIUM)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel(label)
+        .accessibilityValue(
+            isChecked
+            ? LocalizableStringKey.accessibilityCheckboxChecked.toString
+            : LocalizableStringKey.accessibilityCheckboxUnchecked.toString
+        )
     }
 }

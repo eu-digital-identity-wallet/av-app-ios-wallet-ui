@@ -41,10 +41,12 @@ struct WelcomeInfoCarousel: View {
                             .resizable()
                             .scaledToFit()
                             .frame(height: 74)
+                            .accessibilityHidden(true)
                         VStack(alignment: .leading, spacing: SPACING_LARGE_MEDIUM) {
                             Text(pages[index].title)
                                 .font(Theme.shared.font.titleMedium.font)
                                 .fontWeight(.medium)
+                                .accessibilityAddTraits(.isHeader)
                             Text(pages[index].body)
                                 .font(Theme.shared.font.bodyLarge.font)
                         }

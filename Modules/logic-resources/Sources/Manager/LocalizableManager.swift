@@ -38,6 +38,19 @@ final class LocalizableManager: LocalizableManagerType {
         literal
       case .space:
         " "
+      case .accessibilityOboardingStepAnnouncement(let step, let total, let name):
+        bundle.localizedStringWithArguments(
+          forKey: "accessibility_onboarding_step_announcement",
+          arguments: [step, total, name]
+        )
+      case .accessibilityOboardingStepActive:
+        bundle.localizedString(forKey: "accessibility_onboarding_step_active")
+      case .accessibilityOboardingStepInactive:
+        bundle.localizedString(forKey: "accessibility_onboarding_step_inactive")
+    case .accessibilityCheckboxChecked:
+        bundle.localizedString(forKey: "accessibility_checkbox_checked")
+    case .accessibilityCheckboxUnchecked:
+        bundle.localizedString(forKey: "accessibility_checkbox_unchecked")
       case .ageOver18:
         bundle.localizedString(forKey: "age_over_18")
       case .ageOver(let arg1):

@@ -28,5 +28,6 @@ struct HyperLinkView: View {
             }
             .foregroundStyle(Theme.shared.color.primary)
         })
+        .accessibilityAddTraits(.isLink)
     }
 }

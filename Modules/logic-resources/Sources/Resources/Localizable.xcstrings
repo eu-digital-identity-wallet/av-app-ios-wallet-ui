@@ -1,6 +1,181 @@
 {
   "sourceLanguage": "en",
   "strings": {
+      "accessibility_checkbox_checked" : {
+            "extractionState" : "manual",
+            "localizations" : {
+              "da" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "afkrydsningsfeltet er markeret"
+                }
+              },
+              "de" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Kontrollkästchen aktiviert"
+                }
+              },
+              "en" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "checkbox checked"
+                }
+              },
+              "fr" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "case cochée"
+                }
+              },
+              "it" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "casella di controllo selezionata"
+                }
+              }
+            }
+          },
+          "accessibility_checkbox_unchecked" : {
+            "extractionState" : "manual",
+            "localizations" : {
+              "da" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "afkrydsningsfeltet er ikke markeret"
+                }
+              },
+              "de" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Kontrollkästchen nicht markiert"
+                }
+              },
+              "en" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "checkbox unchecked"
+                }
+              },
+              "fr" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "case à cocher non cochée"
+                }
+              },
+              "it" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "casella di controllo deselezionata"
+                }
+              }
+            }
+          },
+          "accessibility_onboarding_step_active" : {
+            "extractionState" : "manual",
+            "localizations" : {
+              "da" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Aktiv"
+                }
+              },
+              "de" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Aktiv"
+                }
+              },
+              "en" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Active"
+                }
+              },
+              "fr" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Actif"
+                }
+              },
+              "it" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Attivo"
+                }
+              }
+            }
+          },
+          "accessibility_onboarding_step_announcement" : {
+            "extractionState" : "manual",
+            "localizations" : {
+              "da" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Trin %1$d af %2$d: %3$@"
+                }
+              },
+              "de" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Schritt %1$d von %2$d: %3$@"
+                }
+              },
+              "en" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Step %1$d of %2$d: %3$@"
+                }
+              },
+              "fr" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Étape %1$d sur %2$d : %3$@"
+                }
+              },
+              "it" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Passaggio %1$d di %2$d: %3$@"
+                }
+              }
+            }
+          },
+          "accessibility_onboarding_step_inactive" : {
+            "extractionState" : "manual",
+            "localizations" : {
+              "da" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Inaktiv"
+                }
+              },
+              "de" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Inaktiv"
+                }
+              },
+              "en" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Inactive"
+                }
+              },
+              "fr" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Inactif"
+                }
+              },
+              "it" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Inattivo"
+                }
+              }
+            }
+          },
     "age_over": {
       "extractionState": "manual",
       "localizations": {
