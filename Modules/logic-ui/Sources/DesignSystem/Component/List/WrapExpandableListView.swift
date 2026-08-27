@@ -25,6 +25,7 @@ public struct WrapExpandableListView<T: Sendable>: View {
   private let hideSensitiveContent: Bool
   private let hasHeader: Bool
   private let isLoading: Bool
+  private let combineItemAccessibility: Bool
 
   public init(
     header: ListItemData? = nil,
@@ -33,6 +34,7 @@ public struct WrapExpandableListView<T: Sendable>: View {
     hideSensitiveContent: Bool,
     hasHeader: Bool = true,
     isLoading: Bool = false,
+    combineItemAccessibility: Bool = false,
     onItemClick: ((ListItemData) -> Void)? = nil
   ) {
     self.header = header
@@ -41,6 +43,7 @@ public struct WrapExpandableListView<T: Sendable>: View {
     self.hideSensitiveContent = hideSensitiveContent
     self.hasHeader = hasHeader
     self.isLoading = isLoading
+    self.combineItemAccessibility = combineItemAccessibility
     self.onItemClick = onItemClick
   }
 
@@ -79,7 +82,10 @@ public struct WrapExpandableListView<T: Sendable>: View {
   private func expandableItemView(_ item: ExpandableListItem<T>) -> some View {
     switch item {
     case .single(let singleData):
-      WrapListItemView(listItem: singleData.collapsed) {
+      WrapListItemView(
+        listItem: singleData.collapsed,
+        combineAccessibility: combineItemAccessibility
+      ) {
         onItemClick?(singleData.collapsed)
       }
     case .nested(let nestedData):
@@ -88,6 +94,7 @@ public struct WrapExpandableListView<T: Sendable>: View {
         items: nestedData.expanded,
         backgroundColor: backgroundColor,
         hideSensitiveContent: hideSensitiveContent,
+        combineItemAccessibility: combineItemAccessibility,
         onItemClick: onItemClick
       )
     }

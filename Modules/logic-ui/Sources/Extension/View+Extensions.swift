@@ -246,3 +246,53 @@ extension View {
       .previewDisplayName("Dark Mode")
   }
 }
+
+public extension View {
+  func accessibilityAnnouncement(
+    for value: (some Equatable)?,
+    message: String?,
+    delay: Duration = .milliseconds(500)
+  ) -> some View {
+    modifier(
+      AccessibilityAnnouncementModifier(
+        value: value,
+        message: message,
+        delay: delay
+      )
+    )
+  }
+
+  @ViewBuilder
+  func accessibilityIdentifier(_ identifier: String?) -> some View {
+    if let identifier {
+      accessibilityIdentifier(identifier)
+    } else {
+      self
+    }
+  }
+}
+
+struct AccessibilityAnnouncementModifier<T: Equatable>: ViewModifier {
+  let value: T?
+  let message: String?
+  let delay: Duration
+
+  func body(content: Content) -> some View {
+    content
+      .onAppear { announce() }
+      .onChange(of: value) { _, _ in announce() }
+  }
+
+  private func announce() {
+    guard value != nil, let message else { return }
+
+    Task { @MainActor in
+      try? await Task.sleep(for: delay)
+
+      UIAccessibility.post(
+        notification: .announcement,
+        argument: message
+      )
+    }
+  }
+}

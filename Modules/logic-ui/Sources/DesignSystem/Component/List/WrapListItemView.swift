@@ -30,6 +30,7 @@ public struct WrapListItemView: View {
   private let clickableArea: ClickableArea
   private let isLoading: Bool
   private let accessibilityHint: LocalizableStringKey?
+  private let combineAccessibility: Bool
 
   private var overlineText: LocalizableStringKey? {
     guard
@@ -66,6 +67,7 @@ public struct WrapListItemView: View {
     clickableArea: ClickableArea = .entireRow,
     isLoading: Bool = false,
     accessibilityHint: LocalizableStringKey? = nil,
+    combineAccessibility: Bool = false,
     action: (() -> Void)? = nil
   ) {
     self.listItem = listItem
@@ -75,6 +77,7 @@ public struct WrapListItemView: View {
     self.clickableArea = clickableArea
     self.isLoading = isLoading
     self.accessibilityHint = accessibilityHint
+    self.combineAccessibility = combineAccessibility
     self.action = action
   }
 
@@ -208,6 +211,9 @@ public struct WrapListItemView: View {
     }
     .ifLet(accessibilityHint) { view, hint in
       view.accessibilityHint(hint.toString)
+    }
+    .if(combineAccessibility && locator == nil) { view in
+      view.accessibilityElement(children: .combine)
     }
     .contentShape(Rectangle())
     .onTapGesture {

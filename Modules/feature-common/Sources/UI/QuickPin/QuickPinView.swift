@@ -72,17 +72,24 @@ private func content(
 
         VStack(alignment: .leading, spacing: .zero) {
             VSpacer.small()
+            let pinSetTitle = (viewState.step == .firstInput)
+            ? LocalizableStringKey.quickPinCreateTitle
+            : LocalizableStringKey.quickPinCreateReenterTitle
+            
+            let pinChangeTitle = (viewState.step == .firstInput)
+            ? LocalizableStringKey.quickPinChangeTitle
+            : LocalizableStringKey.quickPinCreateReenterTitle
 
-            Text(viewState.config.flow == .set
-                 ? (viewState.step == .firstInput
-                    ? LocalizableStringKey.quickPinCreateTitle.toString
-                    : LocalizableStringKey.quickPinCreateReenterTitle.toString)
-                 : (viewState.step == .firstInput)
-                    ? LocalizableStringKey.quickPinChangeTitle.toString
-                    : LocalizableStringKey.quickPinCreateReenterTitle.toString)
+            let title = (viewState.config.flow == .set)
+            ? pinSetTitle.toString
+            : pinChangeTitle.toString
+
+            Text(title)
             .typography(Theme.shared.font.titleLarge)
             .fontWeight(.semibold)
-
+            .accessibilityAddTraits(.isHeader)
+            .accessibilityAnnouncement(for: viewState.step, message: title, delay: .seconds(4))
+            
             VSpacer.large()
 
             pinView(
@@ -140,6 +147,10 @@ private func pinView(
       }
     }
   }
+  .accessibilityAnnouncement(
+    for: pinError,
+    message: pinError?.toString
+  )
 }
 
 #Preview {

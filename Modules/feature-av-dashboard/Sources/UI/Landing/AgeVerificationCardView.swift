@@ -16,6 +16,19 @@ struct AgeVerificationCardView: View {
   let verifiedAge: Int?
   var onTap: (() -> Void)?
 
+  private var isActionable: Bool {
+    (credentialsCount ?? 0) < 1
+  }
+
+  private var composedAccessibilityLabel: String {
+    let count = credentialsCount ?? 0
+    if let verifiedAge {
+      return LocalizableStringKey.landingScreenCardA11yLabelWithAge(verifiedAge, count).toString
+    } else {
+      return LocalizableStringKey.landingScreenCardA11yLabel(count).toString
+    }
+  }
+
   var body: some View {
     ZStack {
       RoundedRectangle(cornerRadius: 8)
@@ -29,10 +42,12 @@ struct AgeVerificationCardView: View {
           .fill(Theme.shared.color.primary)
           .frame(width: 9, height: cardHeight)
           .padding(.trailing, SPACING_EXTRA_SMALL)
+          .accessibilityHidden(true)
         Rectangle()
           .fill(Theme.shared.color.primary)
           .frame(width: 5, height: cardHeight)
           .padding(.trailing, SPACING_SMALL)
+          .accessibilityHidden(true)
         VStack(spacing: .zero) {
           HStack(alignment: .top) {
             HStack(alignment: .center, spacing: .zero) {
@@ -40,6 +55,7 @@ struct AgeVerificationCardView: View {
                 .resizable()
                 .frame(width: 38, height: 26)
                 .padding(.trailing, SPACING_SMALL)
+                .accessibilityHidden(true)
               Text(LocalizableStringKey.landingScreenCardEuTitle.toString)
                 .typography(Theme.shared.font.labelSmall)
                 .foregroundStyle(Theme.shared.color.lightText)
@@ -67,11 +83,13 @@ struct AgeVerificationCardView: View {
               Theme.shared.image._18PlusLogo
                 .resizable()
                 .frame(width: 64, height: 61)
+                .accessibilityHidden(true)
               if let verifiedAge {
                 Text("\(verifiedAge)+")
                   .font(.system(size: 16, weight: .bold))
                   .foregroundStyle(Color(red: 0, green: 0.2, blue: 0.6))
                   .offset(x: -6, y: 4)
+                  .accessibilityHidden(true)
               }
             }
             .frame(width: 64, height: 61)
@@ -90,5 +108,10 @@ struct AgeVerificationCardView: View {
     .onTapGesture {
       onTap?()
     }
+    .accessibilityElement(children: .ignore)
+    .accessibilityIdentifier(AVDashboardLocators.ageVerificationCard.id)
+    .accessibilityLabel(composedAccessibilityLabel)
+    .accessibilityAddTraits(isActionable ? .isButton : [])
+    .accessibilityHint(isActionable ? LocalizableStringKey.landingScreenCardA11yHint.toString : "")
   }
 }

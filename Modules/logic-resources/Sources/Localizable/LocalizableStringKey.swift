@@ -19,6 +19,11 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case dynamic(key: String)
   case custom(String)
   case space
+  case accessibilityOboardingStepAnnouncement(Int, Int, String)
+  case accessibilityOboardingStepActive
+  case accessibilityOboardingStepInactive
+  case accessibilityCheckboxChecked
+  case accessibilityCheckboxUnchecked
   case ageOver18
   case ageOver(Int)
   case biometricConfirmRequest
@@ -166,6 +171,9 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case labelClose
   case labelTurnOn
   case landingScreenAddCredentials
+  case landingScreenCardA11yHint
+  case landingScreenCardA11yLabel(Int)
+  case landingScreenCardA11yLabelWithAge(Int, Int)
   case landingScreenCardAgeVerification
   case landingScreenCardEuTitle
   case landingScreenCredentialDetails
@@ -334,7 +342,9 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case settings
   case settingsScreenAppInfo
   case settingsScreenChangePin
+  case settingsScreenChangePinA11yHint
   case settingsScreenCredentials
+  case settingsScreenDeleteCredentialsA11yHint
   case settingsScreenDeleteProofs
   case settingsScreenSecurity
   case settingsScreenTitle

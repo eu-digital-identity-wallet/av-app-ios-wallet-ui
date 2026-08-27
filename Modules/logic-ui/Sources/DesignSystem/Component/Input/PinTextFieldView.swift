@@ -118,6 +118,7 @@ public struct PinTextFieldView: View {
           ? Theme.shared.color.error
           : Theme.shared.color.onSurface
         )
+        .accessibilityHidden(true)
     } else {
       Text(input)
         .typography(Theme.shared.font.bodyLarge)

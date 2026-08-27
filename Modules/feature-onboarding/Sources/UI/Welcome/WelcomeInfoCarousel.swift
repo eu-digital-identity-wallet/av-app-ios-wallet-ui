@@ -32,45 +32,50 @@ struct WelcomeInfoCarousel: View {
     ]
 
     var body: some View {
-      VStack(spacing: 0) {
-        TabView(selection: $selection) {
-          ForEach(pages.indices, id: \.self) { index in
-            let pageItem = pages[index]
-            VStack(spacing: SPACING_MEDIUM) {
-              pageItem.image
-                .resizable()
-                .scaledToFit()
-                .frame(height: 64)
-              VStack(alignment: .leading, spacing: SPACING_MEDIUM) {
-                Text(pages[index].title)
-                  .font(Theme.shared.font.titleMedium.font)
-                  .fontWeight(.medium)
-                  .multilineTextAlignment(.leading)
-                Text(pages[index].body)
-                  .font(Theme.shared.font.bodyLarge.font)
-                  .multilineTextAlignment(.leading)
-              }
-            }
-            .tag(index)
-            .padding(.horizontal)
-          }
-        }
-        .frame(minHeight: 200)
-        .tabViewStyle(.page(indexDisplayMode: .never))
-
-        HStack(spacing: SPACING_LARGE) {
-          ForEach(pages.indices, id: \.self) { index in
-            Circle()
-              .fill(index == selection ? Theme.shared.color.blue : Theme.shared.color.grey)
-              .frame(width: SPACING_MEDIUM_SMALL, height: SPACING_MEDIUM_SMALL)
-              .onTapGesture {
-                withAnimation {
-                  selection = index
+        VStack(spacing: 0) {
+            TabView(selection: $selection) {
+                ForEach(pages.indices, id: \.self) { index in
+                    let pageItem = pages[index]
+                    VStack(spacing: SPACING_LARGE_MEDIUM) {
+                        pageItem.image
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 74)
+                            .accessibilityHidden(true)
+                        VStack(alignment: .leading, spacing: SPACING_LARGE_MEDIUM) {
+                            Text(pages[index].title)
+                                .multilineTextAlignment(.leading)
+                                .font(Theme.shared.font.titleMedium.font)
+                                .fontWeight(.medium)
+                                .accessibilityAddTraits(.isHeader)
+                            Text(pages[index].body)
+                                .multilineTextAlignment(.leading)
+                                .font(Theme.shared.font.bodyLarge.font)
+                        }
+                    }
+                    .tag(index)
+                    .padding(.horizontal)
                 }
-              }
-          }
+            }
+            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+//            .frame(maxWidth: .infinity, maxHeight: 300)
+            //.frame(maxHeight: 300)
+            .frame(idealHeight: 200)
+
+            HStack(spacing: SPACING_LARGE) {
+                ForEach(pages.indices, id: \.self) { index in
+                    Circle()
+                        .fill(index == selection ? Theme.shared.color.blue : Theme.shared.color.grey)
+                        .frame(width: SPACING_MEDIUM_SMALL, height: SPACING_MEDIUM_SMALL)
+                        .onTapGesture {
+                            withAnimation {
+                                selection = index
+                            }
+                        }
+                }
+            }
+            .padding(.top, SPACING_MEDIUM)
         }
-      }
-      .padding(.top, SPACING_SMALL)
+        .padding(.top, SPACING_LARGE)
     }
 }

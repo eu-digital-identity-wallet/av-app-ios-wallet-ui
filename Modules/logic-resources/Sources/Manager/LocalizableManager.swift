@@ -38,6 +38,19 @@ final class LocalizableManager: LocalizableManagerType {
         literal
       case .space:
         " "
+      case .accessibilityOboardingStepAnnouncement(let step, let total, let name):
+        bundle.localizedStringWithArguments(
+          forKey: "accessibility_onboarding_step_announcement",
+          arguments: [step, total, name]
+        )
+      case .accessibilityOboardingStepActive:
+        bundle.localizedString(forKey: "accessibility_onboarding_step_active")
+      case .accessibilityOboardingStepInactive:
+        bundle.localizedString(forKey: "accessibility_onboarding_step_inactive")
+    case .accessibilityCheckboxChecked:
+        bundle.localizedString(forKey: "accessibility_checkbox_checked")
+    case .accessibilityCheckboxUnchecked:
+        bundle.localizedString(forKey: "accessibility_checkbox_unchecked")
       case .ageOver18:
         bundle.localizedString(forKey: "age_over_18")
       case .ageOver(let arg1):
@@ -332,6 +345,12 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "label_turn_on")
       case .landingScreenAddCredentials:
         bundle.localizedString(forKey: "landing_screen_add_credentials")
+      case .landingScreenCardA11yHint:
+        bundle.localizedString(forKey: "landing_screen_card_a11y_hint")
+      case .landingScreenCardA11yLabel(let arg1):
+        bundle.localizedStringWithArguments(forKey: "landing_screen_card_a11y_label", arguments: [arg1])
+      case .landingScreenCardA11yLabelWithAge(let arg1, let arg2):
+        bundle.localizedStringWithArguments(forKey: "landing_screen_card_a11y_label_with_age", arguments: [arg1, arg2])
       case .landingScreenCardAgeVerification:
         bundle.localizedString(forKey: "landing_screen_card_age_verification")
       case .landingScreenCardEuTitle:
@@ -668,8 +687,12 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "settings_screen_app_info")
       case .settingsScreenChangePin:
         bundle.localizedString(forKey: "settings_screen_change_pin")
+      case .settingsScreenChangePinA11yHint:
+        bundle.localizedString(forKey: "settings_screen_change_pin_a11y_hint")
       case .settingsScreenCredentials:
         bundle.localizedString(forKey: "settings_screen_credentials")
+      case .settingsScreenDeleteCredentialsA11yHint:
+        bundle.localizedString(forKey: "settings_screen_delete_credentials_a11y_hint")
       case .settingsScreenDeleteProofs:
         bundle.localizedString(forKey: "settings_screen_delete_proofs")
       case .settingsScreenSecurity:
