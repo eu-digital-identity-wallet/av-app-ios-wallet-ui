@@ -13,6 +13,7 @@ struct LandingView<Router: RouterHost>: View {
     @State var viewModel: LandingViewModel<Router>
     @Environment(\.scenePhase) private var scenePhase
     // Tracks portrait vs landscape on iPhone
+    // Landing page breaks if we switch from landscape to portrait after coming from settings in landscape mode. These two environment variables somehow triggers the re-rendering of the layout in landscape.
     @Environment(\.verticalSizeClass) var verticalSizeClass
     // Tracks width changes (useful for iPad multitasking)
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
