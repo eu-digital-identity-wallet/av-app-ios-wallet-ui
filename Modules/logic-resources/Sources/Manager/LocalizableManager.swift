@@ -47,10 +47,12 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "accessibility_onboarding_step_active")
       case .accessibilityOboardingStepInactive:
         bundle.localizedString(forKey: "accessibility_onboarding_step_inactive")
-    case .accessibilityCheckboxChecked:
+      case .accessibilityCheckboxChecked:
         bundle.localizedString(forKey: "accessibility_checkbox_checked")
-    case .accessibilityCheckboxUnchecked:
+      case .accessibilityCheckboxUnchecked:
         bundle.localizedString(forKey: "accessibility_checkbox_unchecked")
+      case .accessibilityQrScanInstructions:
+        bundle.localizedString(forKey: "accessibility_qr_scan_instructions")
       case .ageOver18:
         bundle.localizedString(forKey: "age_over_18")
       case .ageOver(let arg1):
