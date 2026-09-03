@@ -92,7 +92,8 @@ final actor AddDocumentInteractorImpl: AddDocumentInteractor {
                        isEnabled: true,
                        configId: doc.configId,
                        issuerId: doc.issuer,
-                       docTypeIdentifier: doc.docTypeIdentifier)
+                       docTypeIdentifier: doc.docTypeIdentifier,
+                       opensExternalContext: true)
         } else if case .other(let formatType) = doc.docTypeIdentifier,
                   formatType == "passport" {
           return .init(

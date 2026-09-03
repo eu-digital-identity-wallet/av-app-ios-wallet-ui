@@ -41,7 +41,8 @@ final class TestStartupInteractor: EudiTest {
       quickPinInteractor: quickPinInteractor,
       keyChainController: keyChainController,
       prefsController: prefsController,
-      configLogic: configLogic
+      configLogic: configLogic,
+      deviceAuthenticationAvailable: { true }
     )
     
     stubPrefsControllerSetValue()
@@ -162,6 +163,26 @@ final class TestStartupInteractor: EudiTest {
     }
     
     verifyFirstBootStorageManipulation(count: 1)
+  }
+
+  func testInitialize_WhenDeviceAuthenticationIsUnavailable_ThenReturnUnsupportedDeviceRouteWithoutTouchingStorage() async throws {
+    let unsupportedInteractor = StartupInteractorImpl(
+      walletKitController: walletKitController,
+      quickPinInteractor: quickPinInteractor,
+      keyChainController: keyChainController,
+      prefsController: prefsController,
+      configLogic: configLogic,
+      deviceAuthenticationAvailable: { false }
+    )
+    let route = await unsupportedInteractor.initialize(with: .zero)
+    switch route {
+    case .featureStartupModule(.unsupportedDevice):
+      break
+    default:
+      XCTFail("Wrong route \(route)")
+    }
+
+    verifyFirstBootStorageManipulation(count: 0)
   }
 }
 

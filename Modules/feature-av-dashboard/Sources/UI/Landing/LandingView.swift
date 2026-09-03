@@ -12,6 +12,13 @@ import logic_core
 struct LandingView<Router: RouterHost>: View {
     @State var viewModel: LandingViewModel<Router>
     @Environment(\.scenePhase) private var scenePhase
+    // Tracks portrait vs landscape on iPhone
+    // Landing page breaks if we switch from landscape to portrait after coming from settings in landscape mode. These two environment variables somehow triggers the re-rendering of the layout in landscape.
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+    // Tracks width changes (useful for iPad multitasking)
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @AccessibilityFocusState private var isTopElementFocused: Bool
+    @State private var hasFocusedOnLoad = false
 
     init(with viewModel: LandingViewModel<Router>) {
       self._viewModel = State(wrappedValue: viewModel)
@@ -25,7 +32,7 @@ struct LandingView<Router: RouterHost>: View {
             background: Theme.shared.color.surface,
             navigationTitle: nil
         ) {
-            content(viewState: viewModel.viewState, onScan: viewModel.onScan, onGetMoreCredentials: viewModel.getMoreCredentials, onSettings: viewModel.onSettings )
+            content(viewState: viewModel.viewState, onScan: viewModel.onScan, onGetMoreCredentials: viewModel.getMoreCredentials, onSettings: viewModel.onSettings, isTopElementFocused: $isTopElementFocused )
         }
         .task {
             await viewModel.getCredentialDetails()
@@ -38,14 +45,22 @@ struct LandingView<Router: RouterHost>: View {
                 }
             }
         }
+        .onChange(of: viewModel.viewState.isLoading) { _, isLoading in
+            guard !isLoading, !hasFocusedOnLoad, UIAccessibility.isVoiceOverRunning else { return }
+            hasFocusedOnLoad = true
+            Task { @MainActor in
+                try? await Task.sleep(for: .milliseconds(500))
+                isTopElementFocused = true
+            }
+        }
     }
 }
 
 @MainActor
 @ViewBuilder
-private func content(viewState: AppLandingState, onScan: @escaping () -> Void, onGetMoreCredentials: @escaping () -> Void, onSettings: @escaping () -> Void) -> some View {
+private func content(viewState: AppLandingState, onScan: @escaping () -> Void, onGetMoreCredentials: @escaping () -> Void, onSettings: @escaping () -> Void, isTopElementFocused: AccessibilityFocusState<Bool>.Binding) -> some View {
     ZStack(alignment: .bottom) {
-        ScrollView {
+      ScrollView {
             VStack(spacing: .zero) {
                 HStack(alignment: .center, spacing: .zero) {
                     Spacer()
@@ -53,6 +68,7 @@ private func content(viewState: AppLandingState, onScan: @escaping () -> Void, o
                     Theme.shared.image.logo
                         .resizable()
                         .frame(width: 57, height: 48)
+                        .accessibilityFocused(isTopElementFocused)
                     Spacer()
                     Button(action: {
                         onSettings()
@@ -81,6 +97,7 @@ private func content(viewState: AppLandingState, onScan: @escaping () -> Void, o
             }
             .padding()
         }
+        .clipped()
 
         // Sticky scan button
         VStack(alignment: .center) {
@@ -98,6 +115,7 @@ private func content(viewState: AppLandingState, onScan: @escaping () -> Void, o
         }
         .padding(.bottom, 20)
         .frame(maxWidth: .infinity)
+        .accessibilityHidden(viewState.isLoading)
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)
     .background(Theme.shared.color.surface)

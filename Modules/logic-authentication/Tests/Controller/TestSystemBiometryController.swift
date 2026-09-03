@@ -54,23 +54,19 @@ final class TestSystemBiometryController: EudiTest {
   
   // MARK: - Properties
   var biometryController: SystemBiometryController!
-  var keyChainController: MockKeyChainController!
   var context: StubLAContext!
-  
+
   // MARK: - Lifecycle
   override func setUp() {
     super.setUp()
-    self.keyChainController = MockKeyChainController()
     self.context = StubLAContext()
     self.biometryController = SystemBiometryControllerImpl(
-      context: context,
-      keyChainController: keyChainController
+      context: context
     )
   }
-  
+
   override func tearDown() {
     self.biometryController = nil
-    self.keyChainController = nil
     self.context = nil
     super.tearDown()
   }
@@ -170,16 +166,13 @@ final class TestSystemBiometryController: EudiTest {
     }
   }
   
-  func testRequestBiometricUnlock_WhenKeychainValidates_ThenReturnSuccess() async {
-    // Given: canEvaluate is OK, biometryType is valid, keychain validation succeeds
+  func testRequestBiometricUnlock_WhenEvaluatePolicySucceeds_ThenReturnSuccess() async {
+    // Given: capability check OK and the real biometric evaluation succeeds
     context.canEvaluateReturn = true
     context.evaluateError = nil
     context.stubBiometryType = .touchID
-    
-    stub(keyChainController) { stub in
-      when(stub.validateKeyChainBiometry()).thenDoNothing()
-    }
-    
+    context.evaluatePolicyResult = (success: true, error: nil)
+
     // When / Then: no error thrown
     do {
       try await biometryController.requestBiometricUnlock()
@@ -187,20 +180,35 @@ final class TestSystemBiometryController: EudiTest {
       XCTFail("Expected success but got error: \(error)")
     }
   }
-  
-  func testRequestBiometricUnlock_WhenKeychainThrows_ThenReturnBiometricError() async {
-    // Given: canEvaluate is OK, but keychain validation throws
+
+  func testRequestBiometricUnlock_WhenEvaluatePolicyReturnsFalse_ThenBiometricError() async {
+    // Given: capability check OK but the evaluation reports failure without an error
     context.canEvaluateReturn = true
     context.evaluateError = nil
     context.stubBiometryType = .touchID
-    
-    stub(keyChainController) { stub in
-      when(stub.validateKeyChainBiometry())
-        .thenThrow(SystemBiometryError.biometricError)
-      when(stub.clearKeyChainBiometry())
-        .thenDoNothing()
+    context.evaluatePolicyResult = (success: false, error: nil)
+
+    // When / Then
+    do {
+      try await biometryController.requestBiometricUnlock()
+      XCTFail("Expected requestBiometricUnlock to throw")
+    } catch let error as SystemBiometryError {
+      XCTAssertEqual(error, .biometricError)
+    } catch {
+      XCTFail("Unexpected error: \(error)")
     }
-    
+  }
+
+  func testRequestBiometricUnlock_WhenEvaluatePolicyThrows_ThenBiometricError() async {
+    // Given: capability check OK but the evaluation itself errors (e.g. user cancel)
+    context.canEvaluateReturn = true
+    context.evaluateError = nil
+    context.stubBiometryType = .touchID
+    context.evaluatePolicyResult = (
+      success: false,
+      error: NSError(domain: LAErrorDomain, code: LAError.Code.userCancel.rawValue, userInfo: nil)
+    )
+
     // When / Then
     do {
       try await biometryController.requestBiometricUnlock()

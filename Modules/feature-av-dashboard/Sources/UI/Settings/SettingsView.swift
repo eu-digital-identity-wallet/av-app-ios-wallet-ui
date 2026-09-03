@@ -138,6 +138,20 @@ struct SettingsItemCellView: View {
   let item: SettingsMenuItem
   let onTap: () -> Void
 
+  private var locator: AVDashboardLocators {
+    switch item {
+    case .credentials: return .deleteCredentials
+    case .changePin: return .changePin
+    }
+  }
+
+  private var accessibilityHintKey: LocalizableStringKey {
+    switch item {
+    case .credentials: return .settingsScreenDeleteCredentialsA11yHint
+    case .changePin: return .settingsScreenChangePinA11yHint
+    }
+  }
+
   var body: some View {
       VStack(alignment: .leading) {
           Text(item.title)
@@ -152,6 +166,9 @@ struct SettingsItemCellView: View {
       .onTapGesture {
         onTap()
       }
+      .accessibilityElement(children: .combine)
+      .accessibilityLocator(locator)
+      .accessibilityHint(accessibilityHintKey.toString)
   }
 }
 

@@ -21,11 +21,14 @@ import logic_resources
 public enum FeatureStartupRouteModule: AppRouteModule {
 
   case startup
+  case unsupportedDevice
 
   public var info: (key: String, arguments: [String: String]) {
     return switch self {
     case .startup:
       (key: "Startup", arguments: [:])
+    case .unsupportedDevice:
+      (key: "UnsupportedDevice", arguments: [:])
     }
   }
 }

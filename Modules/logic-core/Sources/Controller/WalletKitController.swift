@@ -198,7 +198,8 @@ final actor WalletKitControllerImpl: WalletKitController {
     return try await wallet.issueDocumentsByOfferUrl(
       offerUri: offerUri,
       docTypes: docTypes,
-      txCodeValue: txCodeValue
+      txCodeValue: txCodeValue,
+      promptMessage: LocalizableStringKey.issueDocumentPrompt.toString
     )
   }
 
@@ -292,7 +293,8 @@ final actor WalletKitControllerImpl: WalletKitController {
       issuerName: issuerId,
       docTypeIdentifiers: identifiers.map { .identifier($0) },
       credentialOptions: credentialOptions,
-      keyOptions: walletKitConfig.keyOptions
+      keyOptions: walletKitConfig.keyOptions,
+      promptMessage: LocalizableStringKey.issueDocumentPrompt.toString
     )
     return documents
   }
@@ -306,6 +308,7 @@ final actor WalletKitControllerImpl: WalletKitController {
       documentId: identifier,
       credentialOptions: credentialOptions,
       keyOptions: walletKitConfig.keyOptions,
+      promptMessage: LocalizableStringKey.issueDocumentPrompt.toString,
       backgroundOnly: isBackgroundOperation
     )
   }

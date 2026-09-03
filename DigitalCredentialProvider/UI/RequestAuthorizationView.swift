@@ -132,8 +132,13 @@ struct RequestAuthorizationView: View {
   @ViewBuilder
   private func acceptButton() -> some View {
     Button(.genericAccept) {
-      let config = viewModel.createBiometryConfig(routerHost: routerHost)
-      routerHost.push(with: .featureIDPModule(.biometry(config: config)))
+      // The credential-signing key is hardware-bound with `.requireUserPresence`, so the OS
+      // enforces biometric/passcode authentication when the response is signed. An additional
+      // app-lock gate here would only add a redundant Face ID prompt, so we accept directly.
+      //
+      // We are on the root screen (no biometry screen was pushed), so there is nothing to pop:
+      // sending the response completes the request and the system dismisses the extension.
+      Task { await viewModel.acceptVerification() }
     }
     .buttonStyle(.borderedProminent)
     .controlSize(.large)

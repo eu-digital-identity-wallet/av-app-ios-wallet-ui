@@ -91,6 +91,8 @@ private func content(
     }
     .animation(.easeInOut, value: viewState.showInformativeText)
   }
+  .accessibilityAnnouncement(for: viewState.error, message: viewState.error?.toString)
+  .accessibilityAnnouncement(for: viewState.allowScanning, message: LocalizableStringKey.accessibilityQrScanInstructions.toString)
   .ignoresSafeArea(.all, edges: .bottom)
 }
 

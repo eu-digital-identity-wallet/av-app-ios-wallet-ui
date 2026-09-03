@@ -21,6 +21,7 @@ public struct BiometryView<Router: RouterHost>: View {
 
   @State private var viewModel: BiometryViewModel<Router>
   @Environment(\.scenePhase) var scenePhase
+  @State private var keyboardHeight: CGFloat = 0
 
   public init(with viewModel: BiometryViewModel<Router>) {
     self._viewModel = State(wrappedValue: viewModel)
@@ -28,6 +29,7 @@ public struct BiometryView<Router: RouterHost>: View {
 
   public var body: some View {
     ContentScreenView(
+      canScroll: true,
       navigationTitle: viewModel.viewState.config.navigationTitle,
       toolbarContent: viewModel.toolbarContent()
     ) {
@@ -35,7 +37,8 @@ public struct BiometryView<Router: RouterHost>: View {
         viewState: viewModel.viewState,
         subtitleText: LocalizableStringKey.quickPinChangeValidateCurrentSubtitle.toString,
         uiPinInputField: $viewModel.uiPinInputField,
-        onBiometry: viewModel.onBiometry
+        onBiometry: viewModel.onBiometry,
+        keyboardHeight: keyboardHeight
       )
       .alert(item: $viewModel.biometryError) { error in
         Alert(
@@ -54,6 +57,13 @@ public struct BiometryView<Router: RouterHost>: View {
     .task {
       await self.viewModel.onAppearBiometry()
     }
+    .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillChangeFrameNotification)) { notification in
+      guard let endFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+        return
+      }
+      let screenHeight = UIApplication.shared.currentUIWindow?.bounds.height ?? 0
+      keyboardHeight = (screenHeight > 0 && endFrame.minY >= screenHeight) ? 0 : max(0, endFrame.height)
+    }
   }
 }
 
@@ -63,50 +73,71 @@ private func content(
   viewState: BiometryState,
   subtitleText: String,
   uiPinInputField: Binding<String>,
-  onBiometry: @escaping () -> Void
+  onBiometry: @escaping () -> Void,
+  keyboardHeight: CGFloat
 ) -> some View {
 
-  if viewState.config.displayLogo {
-    ContentHeaderView(
-      config: viewState.contentHeaderConfig
-    )
-  }
-
-  ContentTitleView(
-    title: viewState.config.title,
-    accessibilityTitle: BiometryLocators.biometryScreenTitle,
-    titleWeight: .semibold,
-    caption: viewState.areBiometricsEnabled
-    ? viewState.config.caption
-    : viewState.config.quickPinOnlyCaption,
-    accessibilityCaption: BiometryLocators.biometryScreenPinText,
-    titleColor: Theme.shared.color.onSurface,
-    textAlignment: viewState.config.alignment,
-    topSpacing: viewState.isCancellable ? .withToolbar : .withoutToolbar
-  )
-
-  VSpacer.large()
-
-  pinView(
-    subtitleText: subtitleText,
-    uiPinInputField: uiPinInputField,
-    quickPinSize: viewState.quickPinSize,
-    areBiometricsEnabled: viewState.areBiometricsEnabled,
-    pinError: viewState.pinError,
-    disabled: viewState.isLockedOut
-  )
-
-  Spacer()
-
-  if viewState.areBiometricsEnabled, let image = viewState.biometryImage {
-    HStack {
-      Spacer()
-      image
-        .onTapGesture {
-          onBiometry()
+  VStack {
+    ScrollViewReader { proxy in
+      ScrollView {
+        if viewState.config.displayLogo {
+          ContentHeaderView(
+            config: viewState.contentHeaderConfig
+          )
         }
+
+        ContentTitleView(
+          title: viewState.config.title,
+          accessibilityTitle: BiometryLocators.biometryScreenTitle,
+          titleWeight: .semibold,
+          caption: viewState.areBiometricsEnabled
+          ? viewState.config.caption
+          : viewState.config.quickPinOnlyCaption,
+          accessibilityCaption: BiometryLocators.biometryScreenPinText,
+          titleColor: Theme.shared.color.onSurface,
+          textAlignment: viewState.config.alignment,
+          topSpacing: viewState.isCancellable ? .withToolbar : .withoutToolbar
+        )
+
+        VSpacer.large()
+
+        pinView(
+          subtitleText: subtitleText,
+          uiPinInputField: uiPinInputField,
+          quickPinSize: viewState.quickPinSize,
+          areBiometricsEnabled: viewState.areBiometricsEnabled,
+          pinError: viewState.pinError,
+          disabled: viewState.isLockedOut
+        )
+        .id("pinField")
+        .accessibilityAnnouncement(for: viewState.pinError, message: viewState.pinError)
+          
+        Spacer()
+
+        if viewState.areBiometricsEnabled, let image = viewState.biometryImage {
+          HStack {
+            Spacer()
+            image
+              .onTapGesture {
+                onBiometry()
+              }
+          }
+          .padding(.horizontal)
+        }
+        Spacer()
+      }
+      .scrollDismissesKeyboard(.interactively)
+      .safeAreaInset(edge: .bottom, spacing: 0) {
+        Color.clear.frame(height: keyboardHeight)
+      }
+      .onChange(of: keyboardHeight) { _, newValue in
+        guard newValue > 0 else { return }
+        withAnimation {
+          proxy.scrollTo("pinField", anchor: .center)
+        }
+      }
+      .frame(maxWidth: . infinity)
     }
-    .padding(.horizontal)
   }
 }
 
@@ -186,6 +217,7 @@ private func pinView(
       viewState: viewState,
       subtitleText: "",
       uiPinInputField: .constant("uiPinInputField"),
-      onBiometry: {})
+      onBiometry: {},
+      keyboardHeight: 0)
   }
 }

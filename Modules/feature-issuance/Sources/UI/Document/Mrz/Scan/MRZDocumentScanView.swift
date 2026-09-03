@@ -49,7 +49,8 @@ struct MRZDocumentScanView<Router: RouterHost>: View {
                 cameraPermissionDenied: LocalizableStringKey.mrzCameraPermissionDenied.toString,
                 cameraSetupFailed: LocalizableStringKey.mrzCameraSetupFailed.toString,
                 unknownError: LocalizableStringKey.mrzUnknownError.toString,
-                initializingCamera: LocalizableStringKey.mrzInitializingCamera.toString
+                initializingCamera: LocalizableStringKey.mrzInitializingCamera.toString,
+                flashButton: LocalizableStringKey.cdFlashButton.toString
               )
             ),
             onMRZCaptured: { mrzData in

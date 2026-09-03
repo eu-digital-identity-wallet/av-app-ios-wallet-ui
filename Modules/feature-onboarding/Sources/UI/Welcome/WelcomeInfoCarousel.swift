@@ -41,20 +41,26 @@ struct WelcomeInfoCarousel: View {
                             .resizable()
                             .scaledToFit()
                             .frame(height: 74)
+                            .accessibilityHidden(true)
                         VStack(alignment: .leading, spacing: SPACING_LARGE_MEDIUM) {
                             Text(pages[index].title)
+                                .multilineTextAlignment(.leading)
                                 .font(Theme.shared.font.titleMedium.font)
                                 .fontWeight(.medium)
+                                .accessibilityAddTraits(.isHeader)
                             Text(pages[index].body)
+                                .multilineTextAlignment(.leading)
                                 .font(Theme.shared.font.bodyLarge.font)
                         }
                     }
                     .tag(index)
-                    .padding()
+                    .padding(.horizontal)
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-            .frame(maxWidth: .infinity, maxHeight: 300)
+//            .frame(maxWidth: .infinity, maxHeight: 300)
+            //.frame(maxHeight: 300)
+            .frame(idealHeight: 300)
 
             HStack(spacing: SPACING_LARGE) {
                 ForEach(pages.indices, id: \.self) { index in
@@ -68,6 +74,7 @@ struct WelcomeInfoCarousel: View {
                         }
                 }
             }
+            .padding(.top, SPACING_MEDIUM)
         }
         .padding(.top, SPACING_LARGE)
     }

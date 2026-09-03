@@ -7,6 +7,8 @@ struct ChangePinView<Router: RouterHost>: View {
   @State private var viewModel: ChangePinViewModel<Router>
   @FocusState var uiPinInputFieldInFocus: Bool
   @FocusState var uiPinInputFieldConfirmInFocus: Bool
+  @State private var keyboardHeight: CGFloat = 0
+  @Environment(\.verticalSizeClass) private var verticalSizeClass: UserInterfaceSizeClass?
 
   init(with viewModel: ChangePinViewModel<Router>) {
     self._viewModel = State(wrappedValue: viewModel)
@@ -15,6 +17,7 @@ struct ChangePinView<Router: RouterHost>: View {
   var body: some View {
     ContentScreenView(
       padding: .zero,
+      canScroll: true,
       toolbarContent: viewModel.viewState.showBackButton ? viewModel.backActionToolbar() : nil
     ) {
       content(
@@ -47,7 +50,9 @@ struct ChangePinView<Router: RouterHost>: View {
         },
         onConfirmPinChange: {
           self.viewModel.clearConfirmError()
-        }
+        },
+        keyboardHeight: keyboardHeight,
+        isLandscape: verticalSizeClass == .compact
       )
     }
     .onAppear {
@@ -55,6 +60,13 @@ struct ChangePinView<Router: RouterHost>: View {
         uiPinInputFieldInFocus = true
         uiPinInputFieldConfirmInFocus = false
       }
+    }
+    .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillChangeFrameNotification)) { notification in
+      guard let endFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else {
+        return
+      }
+      let screenHeight = UIApplication.shared.currentUIWindow?.bounds.height ?? 0
+      keyboardHeight = (screenHeight > 0 && endFrame.minY >= screenHeight) ? 0 : max(0, endFrame.height)
     }
   }
 }
@@ -70,76 +82,104 @@ private func content(
   onValidate: @escaping () -> Void,
   onFirstPinCompletion: @escaping () -> Void,
   onFirstPinChange: @escaping () -> Void,
-  onConfirmPinChange: @escaping () -> Void
+  onConfirmPinChange: @escaping () -> Void,
+  keyboardHeight: CGFloat,
+  isLandscape: Bool
 ) -> some View {
-  VStack(alignment: .leading) {
-    HStack {
-      Text(viewState.title)
-        .typography(Theme.shared.font.titleLarge)
-        .fontWeight(.bold)
-      Spacer()
-    }
-    VSpacer.largeMedium()
+  let sectionSpacing: CGFloat = isLandscape ? SPACING_MEDIUM_SMALL : SPACING_LARGE_MEDIUM
 
-    Text(LocalizableStringKey.quickPinChangeEnterNewSubtitle.toString)
-      .typography(Theme.shared.font.bodyLarge)
+  ScrollViewReader { proxy in
+    ScrollView {
+      VStack(alignment: .leading) {
+        HStack {
+          Text(viewState.title)
+            .typography(Theme.shared.font.titleLarge)
+            .fontWeight(.bold)
+          Spacer()
+        }
+        Spacer().frame(height: sectionSpacing)
 
-    VSpacer.largeMedium()
-    Text(LocalizableStringKey.quickPinChangeEnterNewSubtitle.toString)
-      .typography(Theme.shared.font.bodyMedium)
-      .foregroundStyle(Theme.shared.color.lightText)
-    PinView(pin: uiPinInputField,
-     error: viewState.uiPinInputFieldError,
-     isFocused: uiPinInputFieldInfocus,
-     length: viewState.quickPinSize,
-        onChange: { _ in
-          onFirstPinChange()
-        },
-      onCompletion: {
-        onFirstPinCompletion()
-    })
+        Text(LocalizableStringKey.quickPinChangeEnterNewSubtitle.toString)
+          .typography(Theme.shared.font.bodyLarge)
 
-    if let error = viewState.uiPinInputFieldError {
-      HStack {
-        Text(error)
+        Spacer().frame(height: sectionSpacing)
+        Text(LocalizableStringKey.quickPinChangeEnterNewSubtitle.toString)
           .typography(Theme.shared.font.bodyMedium)
-          .foregroundColor(Theme.shared.color.error)
-        Spacer()
-      }
-    }
+          .foregroundStyle(Theme.shared.color.lightText)
+        PinView(pin: uiPinInputField,
+         error: viewState.uiPinInputFieldError,
+         isFocused: uiPinInputFieldInfocus,
+         length: viewState.quickPinSize,
+            onChange: { _ in
+              onFirstPinChange()
+            },
+          onCompletion: {
+            onFirstPinCompletion()
+        })
+        .id("pin1")
 
-    VSpacer.largeMedium()
-    Text(LocalizableStringKey.quickPinChangeReenterNewSubtitle.toString)
-      .typography(Theme.shared.font.bodyMedium)
-      .foregroundStyle(Theme.shared.color.lightText)
-    PinView(pin: uiPinInputFieldConfirm,
-        error: viewState.uiPinInputFieldConfirmError,
-        isFocused: uiPinInputFieldConfirmInfocus,
-        length: viewState.quickPinSize,
-        onChange: { pin in
-          if pin.isEmpty {
-            uiPinInputFieldConfirmInfocus.wrappedValue = false
-            uiPinInputFieldInfocus.wrappedValue = true
+        if let error = viewState.uiPinInputFieldError {
+          HStack {
+            Text(error)
+              .typography(Theme.shared.font.bodyMedium)
+              .foregroundColor(Theme.shared.color.error)
+            Spacer()
           }
-        onConfirmPinChange()
-        }, onCompletion: {
-          onValidate()
-    })
-    if let error = viewState.uiPinInputFieldConfirmError {
-      HStack {
-        Text(error)
+        }
+
+        Spacer().frame(height: sectionSpacing)
+        Text(LocalizableStringKey.quickPinChangeReenterNewSubtitle.toString)
           .typography(Theme.shared.font.bodyMedium)
-          .foregroundColor(Theme.shared.color.error)
+          .foregroundStyle(Theme.shared.color.lightText)
+        PinView(pin: uiPinInputFieldConfirm,
+            error: viewState.uiPinInputFieldConfirmError,
+            isFocused: uiPinInputFieldConfirmInfocus,
+            length: viewState.quickPinSize,
+            onChange: { pin in
+              if pin.isEmpty {
+                uiPinInputFieldConfirmInfocus.wrappedValue = false
+                uiPinInputFieldInfocus.wrappedValue = true
+              }
+          onConfirmPinChange()
+          }, onCompletion: {
+            onValidate()
+        })
+        .id("pin2")
+        if let error = viewState.uiPinInputFieldConfirmError {
+          HStack {
+            Text(error)
+              .typography(Theme.shared.font.bodyMedium)
+              .foregroundColor(Theme.shared.color.error)
+            Spacer()
+          }
+        }
+
+        Spacer().frame(height: sectionSpacing)
+        Text(LocalizableStringKey.quickPinChangeHelpText.toString)
+          .typography(Theme.shared.font.bodyLarge)
         Spacer()
       }
+      .padding()
     }
-
-    VSpacer.largeMedium()
-    Text(LocalizableStringKey.quickPinChangeHelpText.toString)
-      .typography(Theme.shared.font.bodyLarge)
-    Spacer()
+    .scrollDismissesKeyboard(.interactively)
+    .safeAreaInset(edge: .bottom, spacing: 0) {
+      Color.clear.frame(height: keyboardHeight)
+    }
+    .onChange(of: keyboardHeight) { _, newValue in
+      guard newValue > 0 else { return }
+      withAnimation {
+        proxy.scrollTo(uiPinInputFieldConfirmInfocus.wrappedValue ? "pin2" : "pin1", anchor: .center)
+      }
+    }
+    .onChange(of: uiPinInputFieldInfocus.wrappedValue) { _, focused in
+      guard focused else { return }
+      withAnimation { proxy.scrollTo("pin1", anchor: .center) }
+    }
+    .onChange(of: uiPinInputFieldConfirmInfocus.wrappedValue) { _, focused in
+      guard focused else { return }
+      withAnimation { proxy.scrollTo("pin2", anchor: .center) }
+    }
   }
-  .padding()
 }
 
 struct PinView: View {
@@ -269,7 +309,9 @@ struct PinView: View {
       onValidate: {},
       onFirstPinCompletion: {},
       onFirstPinChange: {},
-      onConfirmPinChange: {}
+      onConfirmPinChange: {},
+      keyboardHeight: 0,
+      isLandscape: false
     )
   }
   .onAppear {

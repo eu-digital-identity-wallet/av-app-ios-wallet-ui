@@ -83,6 +83,9 @@ public final class IssuanceRouter {
       return MrzDocumentIntroView(
         with: .init(
           router: host,
+          interactor: DIGraph.shared.resolver.force(
+            LivenessCheckInteractor.self
+          ),
           config: documentEnrollmentConfig
         )
       ).eraseToAnyView()

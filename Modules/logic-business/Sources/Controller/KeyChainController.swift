@@ -26,14 +26,11 @@ public protocol KeyChainController: Sendable {
   func getValue(key: KeyChainWrapper) -> String?
   func getData(key: KeyChainWrapper) -> Data?
   func removeObject(key: KeyChainWrapper)
-  func validateKeyChainBiometry() throws
-  func clearKeyChainBiometry()
   func clear()
 }
 
 final class KeyChainControllerImpl: KeyChainController {
 
-  private let biometryKey = "eu.europa.ec.euidi.biometric.access"
   private let keyChain: Keychain
 
   init(configLogic: ConfigLogic) {
@@ -41,7 +38,7 @@ final class KeyChainControllerImpl: KeyChainController {
       service: configLogic.keyChainConfig.documentStorageServiceName,
       accessGroup: configLogic.keyChainConfig.keychainAccessGroup
     )
-    .accessibility(.whenUnlocked)
+    .accessibility(.whenPasscodeSetThisDeviceOnly)
   }
 
   public func storeValue(key: KeyChainWrapper, value: String) {
@@ -64,37 +61,7 @@ final class KeyChainControllerImpl: KeyChainController {
     try? keyChain.remove(key.value)
   }
 
-  public func validateKeyChainBiometry() throws {
-    try setBiometricKey()
-    try isBiometricKeyValid()
-  }
-
-  public func clearKeyChainBiometry() {
-    try? self.keyChain.remove(self.biometryKey)
-  }
-
   public func clear() {
     try? keyChain.removeAll()
-  }
-}
-
-private extension KeyChainControllerImpl {
-  func setBiometricKey() throws {
-    try self.keyChain
-      .accessibility(
-        .whenPasscodeSetThisDeviceOnly,
-        authenticationPolicy: [.biometryAny]
-      )
-      .set(UUID().uuidString, key: self.biometryKey)
-  }
-
-  func isBiometricKeyValid() throws {
-
-    let item = try self.keyChain
-      .get(self.biometryKey)
-
-    if item != nil {
-      clearKeyChainBiometry()
-    }
   }
 }

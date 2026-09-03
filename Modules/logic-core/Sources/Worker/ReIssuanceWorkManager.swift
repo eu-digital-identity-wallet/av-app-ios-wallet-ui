@@ -14,6 +14,7 @@
  * governing permissions and limitations under the Licence.
  */
 import Foundation
+import UIKit
 import logic_business
 
 public protocol ReIssuanceWorkManager: Sendable {
@@ -62,6 +63,7 @@ final actor ReIssuanceWorkManagerImpl: ReIssuanceWorkManager {
   }
 
   private func checkReIssuance() async throws {
+    guard await isAppForeground() else { return }
     var issuedDocuments: [any DocClaimsDecodable] = []
     for document in await walletKitController.fetchIssuedDocuments() where await shouldReIssue(document) {
       issuedDocuments.append(document)
@@ -122,6 +124,10 @@ final actor ReIssuanceWorkManagerImpl: ReIssuanceWorkManager {
     @unknown default:
       return belowMinCount || expiresWithinThreshold
     }
+  }
+
+  private func isAppForeground() async -> Bool {
+    await MainActor.run { UIApplication.shared.applicationState == .active }
   }
 
   private func storeFailedDocuments(with ids: [String]) async throws {

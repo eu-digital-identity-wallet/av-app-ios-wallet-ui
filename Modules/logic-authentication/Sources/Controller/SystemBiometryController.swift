@@ -15,7 +15,7 @@
  */
 
 @preconcurrency import LocalAuthentication
-import logic_business
+import logic_resources
 import UIKit
 
 public enum SystemBiometryError: Error, LocalizedError, Identifiable, Sendable {
@@ -55,14 +55,11 @@ public protocol SystemBiometryController: Sendable {
 public final actor SystemBiometryControllerImpl: SystemBiometryController {
 
   private let context: LAContext
-  private let keyChainController: KeyChainController
 
   public init(
-    context: LAContext = LAContext(),
-    keyChainController: KeyChainController
+    context: LAContext = LAContext()
   ) {
     self.context = context
-    self.keyChainController = keyChainController
   }
 
   deinit {
@@ -73,15 +70,38 @@ public final actor SystemBiometryControllerImpl: SystemBiometryController {
     context.biometryType
   }
 
+  /// Presents a real, OS-enforced biometric/passcode prompt and returns only if it genuinely succeeds.
+  ///
+  /// This is the app-lock UX gate in front of the dashboard. It is **not** what protects the
+  /// credentials themselves — those keys are gated by their Secure-Enclave access-control policy.
   public func requestBiometricUnlock() async throws {
 
     try canEvaluateForBiometrics()
 
+    let success: Bool
     do {
-      try keyChainController.validateKeyChainBiometry()
+      success = try await evaluate(reason: LocalizableStringKey.biometryUnlockReason.toString)
     } catch {
-      keyChainController.clearKeyChainBiometry()
       throw SystemBiometryError.biometricError
+    }
+
+    guard success else {
+      throw SystemBiometryError.biometricError
+    }
+  }
+
+  private func evaluate(reason: String) async throws -> Bool {
+    try await withCheckedThrowingContinuation { continuation in
+      context.evaluatePolicy(
+        .deviceOwnerAuthentication,
+        localizedReason: reason
+      ) { success, error in
+        if let error {
+          continuation.resume(throwing: error)
+        } else {
+          continuation.resume(returning: success)
+        }
+      }
     }
   }
 

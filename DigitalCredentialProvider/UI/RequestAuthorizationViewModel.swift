@@ -20,8 +20,8 @@ import MdocDataModel18013
 import WalletStorage
 import SwiftUI
 import DcApi18013AnnexC
-import feature_common
 import LongfellowZkp
+import Combine
 
 @MainActor
 class RequestAuthorizationViewModel: ObservableObject {
@@ -58,16 +58,19 @@ class RequestAuthorizationViewModel: ObservableObject {
     }
   }
 
-  func acceptVerification() async throws {
+  func acceptVerification() async {
     guard let context else {
-      throw NSError(domain: "RequestAuthorizationViewModel",
-                    code: -1,
-                    userInfo: [NSLocalizedDescriptionKey: "Context is not available"])
+      errorMessage = "Context is not available"
+      return
     }
 
-    try await context.sendResponse { rawRequest in
-      try await self.dcApiHandler.validateConsistency(request: context.request, rawRequest: rawRequest)
-      return try await self.sendResponse(rawRequest, context.requestingWebsiteOrigin?.absoluteString)
+    do {
+      try await context.sendResponse { rawRequest in
+        try await self.dcApiHandler.validateConsistency(request: context.request, rawRequest: rawRequest)
+        return try await self.sendResponse(rawRequest, context.requestingWebsiteOrigin?.absoluteString)
+      }
+    } catch {
+      errorMessage = String(describing: error)
     }
   }
 
@@ -80,33 +83,6 @@ class RequestAuthorizationViewModel: ObservableObject {
   }
 
   // MARK: - Helper Methods
-  func createBiometryConfig(routerHost: RouterHost) -> UIConfig.Biometry {
-    UIConfig.Biometry(
-      navigationTitle: .custom(""),
-      displayLogo: false,
-      title: .custom(""),
-      caption: .issuanceDocumentOfferDescription,
-      quickPinOnlyCaption: .custom(""),
-      navigationSuccessType: nil,
-      navigationBackType: .pop,
-      isPreAuthorization: true,
-      shouldInitializeBiometricOnCreate: true,
-      onAuthResult: { [weak self] result in
-        guard let self = self else { return }
-
-        switch result {
-        case .success:
-          Task {
-            try await self.acceptVerification()
-            await routerHost.pop()
-          }
-        case .cancelled, .error:
-          break
-        }
-      }
-    )
-  }
-
   func sendResponse(_ rawRequest: IdentityDocumentWebPresentmentRawRequest, _ originUrl: String?) async throws -> ISO18013MobileDocumentResponse {
     dcApiResponseData = nil
     var zkSystemRepository: ZkSystemRepository?

@@ -98,6 +98,7 @@ private struct ActionView: View {
         }
         .disabled(disabled)
         .accessibilityElement()
+        .accessibilityLabel(action.title?.toString ?? "")
         .accessibilityLocator(
           action.accessibilityLocator
         )

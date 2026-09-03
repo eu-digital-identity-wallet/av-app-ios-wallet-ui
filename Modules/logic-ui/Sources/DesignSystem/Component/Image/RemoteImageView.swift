@@ -51,6 +51,7 @@ public struct RemoteImageView: View {
       image
         .resizable()
         .scaledToFit()
+        .accessibilityHidden(true)
     } placeholder: {
       if let icon {
         icon

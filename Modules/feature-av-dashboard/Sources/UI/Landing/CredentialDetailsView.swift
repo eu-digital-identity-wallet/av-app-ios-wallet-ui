@@ -24,7 +24,11 @@ struct CredentialDetailsView: View {
                 .typography(Theme.shared.font.labelLarge)
                 .foregroundStyle(Theme.shared.color.primary)
                 .padding(.bottom, SPACING_EXTRA_SMALL)
-            WrapExpandableListView(items: documentFields, hideSensitiveContent: false)
+            WrapExpandableListView(
+                items: documentFields,
+                hideSensitiveContent: false,
+                combineItemAccessibility: true
+            )
         }
         .padding(.bottom, SPACING_LARGE)
     }

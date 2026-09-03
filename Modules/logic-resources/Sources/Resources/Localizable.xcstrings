@@ -1,6 +1,216 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "accessibility_checkbox_checked" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "afkrydsningsfeltet er markeret"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontrollkästchen aktiviert"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "checkbox checked"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "case cochée"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "casella di controllo selezionata"
+          }
+        }
+      }
+    },
+    "accessibility_checkbox_unchecked" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "afkrydsningsfeltet er ikke markeret"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kontrollkästchen nicht markiert"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "checkbox unchecked"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "case à cocher non cochée"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "casella di controllo deselezionata"
+          }
+        }
+      }
+    },
+    "accessibility_onboarding_step_active" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktiv"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktiv"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Active"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actif"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Attivo"
+          }
+        }
+      }
+    },
+    "accessibility_onboarding_step_inactive" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inaktiv"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inaktiv"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inactive"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inactif"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inattivo"
+          }
+        }
+      }
+    },
+    "accessibility_qr_scan_instructions" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hold enheden stille ca. 20-30 centimeter over QR-koden. Centrer koden i kameraet. QR-koden registreres automatisk."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Halten Sie Ihr Gerät etwa 20 bis 30 Zentimeter über dem QR-Code ruhig. Zentrieren Sie den Code in der Kameraansicht. Der QR-Code wird automatisch erkannt."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hold your device steady about 20 to 30 centimeters above the QR code. Center the code in the camera view. The QR code will be detected automatically."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tenez votre appareil fermement à environ 20 à 30 centimètres au-dessus du code QR. Centrez le code dans la vue de la caméra. Le code QR sera détecté automatiquement."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tieni saldo il dispositivo a circa 20-30 centimetri dal codice QR. Centra il codice nell'inquadratura. Il codice QR verrà rilevato automaticamente."
+          }
+        }
+      }
+    },
+    "accessibility_step_announcement" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trin %1$d af %2$d: %3$@"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schritt %1$d von %2$d: %3$@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Step %1$d of %2$d: %3$@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Étape %1$d sur %2$d : %3$@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passaggio %1$d di %2$d: %3$@"
+          }
+        }
+      }
+    },
     "age_over" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -557,6 +767,41 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Si è verificato un errore durante l\\'inizializzazione dell\\'autenticazione biometrica. Riprova."
+          }
+        }
+      }
+    },
+    "biometry_unlock_reason" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Godkend for at låse Age Verification op"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authentifizieren Sie sich, um Age Verification zu entsperren"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authenticate to unlock Age Verification"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authentifiez-vous pour déverrouiller Age Verification"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autenticati per sbloccare Age Verification"
           }
         }
       }
@@ -4901,6 +5146,76 @@
         }
       }
     },
+    "issue_document" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Godkend for at tilføje dit {docType}"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authentifizieren Sie sich, um Ihr {docType} hinzuzufügen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authenticate to add your {docType}"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authentifiez-vous pour ajouter votre {docType}"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autenticati per aggiungere il tuo {docType}"
+          }
+        }
+      }
+    },
+    "issue_document_prompt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Godkend for at tilføje dit dokument"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authentifizieren Sie sich, um Ihr Dokument hinzuzufügen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authenticate to add your document"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Authentifiez-vous pour ajouter votre document"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autenticati per aggiungere il tuo documento"
+          }
+        }
+      }
+    },
     "item_not_found_in_storage" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5072,6 +5387,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Aggiungi altri"
+          }
+        }
+      }
+    },
+    "landing_screen_card_a11y_hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adds more age verification credentials"
+          }
+        }
+      }
+    },
+    "landing_screen_card_a11y_label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "European Union age verification. %1$d accesses remaining"
+          }
+        }
+      }
+    },
+    "landing_screen_card_a11y_label_with_age" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "European Union age verification. Age over %1$d. %2$d accesses remaining"
           }
         }
       }
@@ -6611,6 +6959,41 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Identificati online usando il tuo eID"
+          }
+        }
+      }
+    },
+    "onboarding_verification_national_id_hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Åbner et nyt vindue for at bekræfte med din eID"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Öffnet ein neues Fenster zur Verifizierung mit Ihrer eID"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opens a new window to verify with your eID"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvre une nouvelle fenêtre pour vérifier avec votre eID"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apre una nuova finestra per verificare con la tua eID"
           }
         }
       }
@@ -8224,6 +8607,41 @@
         }
       }
     },
+    "passport_scan_intro_assets_ready" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verifikationsmaterialer klar"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verifizierungsdateien bereit"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verification assets ready"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Éléments de vérification prêts"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Risorse di verifica pronte"
+          }
+        }
+      }
+    },
     "passport_scan_intro_back_button" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -8325,6 +8743,41 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Il metodo passaporto / carta d\\'identità è veloce e sicuro! Scatta una foto del tuo passaporto / carta d\\'identità, scansiona il tuo passaporto / carta d\\'identità e registra un video di te stesso—tre passaggi per un onboarding sicuro."
+          }
+        }
+      }
+    },
+    "passport_scan_intro_downloading_assets" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Downloader verifikationsdata…"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verifizierungsdaten werden heruntergeladen…"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Downloading verification assets…"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Téléchargement des ressources de vérification…"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download risorse di verifica…"
           }
         }
       }
@@ -10860,6 +11313,17 @@
         }
       }
     },
+    "settings_screen_change_pin_a11y_hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Changes your PIN"
+          }
+        }
+      }
+    },
     "settings_screen_credentials" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -10891,6 +11355,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Credenziali"
+          }
+        }
+      }
+    },
+    "settings_screen_delete_credentials_a11y_hint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deletes all stored proof of age attestations"
           }
         }
       }
@@ -11136,6 +11611,76 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Servizio online"
+          }
+        }
+      }
+    },
+    "unsupported_device_message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Din enhed opfylder ikke sikkerhedskravene til denne app: der er ikke indstillet en adgangskode. Aktivér venligst en adgangskode i Indstillinger."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ihr Gerät erfüllt nicht die Sicherheitsanforderungen dieser App: Es ist kein Passcode festgelegt. Bitte aktivieren Sie einen Passcode in den Einstellungen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your device doesn't meet the security requirements for this app: no passcode is set. Please enable a passcode in Settings."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votre appareil ne répond pas aux exigences de sécurité de cette application : aucun code n'est défini. Veuillez activer un code dans les réglages."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il tuo dispositivo non soddisfa i requisiti di sicurezza di questa app: non è impostato alcun codice. Abilita un codice in Impostazioni."
+          }
+        }
+      }
+    },
+    "unsupported_device_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enhed understøttes ikke"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerät wird nicht unterstützt"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Device not supported"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appareil non pris en charge"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dispositivo non supportato"
           }
         }
       }
