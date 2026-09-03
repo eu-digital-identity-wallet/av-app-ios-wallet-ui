@@ -38,9 +38,9 @@ final class LocalizableManager: LocalizableManagerType {
         literal
       case .space:
         " "
-      case .accessibilityOboardingStepAnnouncement(let step, let total, let name):
+      case .accessibilityStepAnnouncement(let step, let total, let name):
         bundle.localizedStringWithArguments(
-          forKey: "accessibility_onboarding_step_announcement",
+          forKey: "accessibility_step_announcement",
           arguments: [step, total, name]
         )
       case .accessibilityOboardingStepActive:

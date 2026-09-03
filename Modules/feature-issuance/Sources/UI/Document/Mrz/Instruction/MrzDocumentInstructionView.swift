@@ -48,30 +48,8 @@ private func content(
 ) -> some View {
   ScrollView {
     VStack(alignment: .leading, spacing: .zero) {
-
       VSpacer.largeMedium()
-
-      VStack(alignment: .leading, spacing: .zero) {
-        VSpacer.large()
-
-        Text(LocalizableStringKey.passportIdentificationTitle.toString)
-              .typography(Theme.shared.font.displaySmall)
-              .fontWeight(.semibold)
-        VSpacer.large()
-
-        Text(LocalizableStringKey.passportIdentificationDescription.toString)
-          .typography(Theme.shared.font.bodyLarge)
-        VSpacer.large()
-
-        pointsSection(viewState: viewState)
-
-        VSpacer.large()
-        Text(LocalizableStringKey.passportIdentificationFooter.toString)
-          .typography(Theme.shared.font.bodyLarge)
-          .multilineTextAlignment(.leading)
-        Spacer()
-      }
-      .padding(.horizontal, 16)
+      instructionContent(viewState: viewState)
     }
   }
   HStack {
@@ -94,6 +72,33 @@ private func content(
   .padding(.horizontal, Theme.shared.dimension.padding)
   .padding(.bottom, 64)
 
+}
+
+@MainActor
+@ViewBuilder
+private func instructionContent(viewState: MrzDocumentInstructionViewState) -> some View {
+  VStack(alignment: .leading, spacing: .zero) {
+    VSpacer.large()
+
+    Text(LocalizableStringKey.passportIdentificationTitle.toString)
+          .typography(Theme.shared.font.displaySmall)
+          .fontWeight(.semibold)
+          .accessibilityAddTraits(.isHeader)
+    VSpacer.large()
+
+    Text(LocalizableStringKey.passportIdentificationDescription.toString)
+      .typography(Theme.shared.font.bodyLarge)
+    VSpacer.large()
+
+    pointsSection(viewState: viewState)
+
+    VSpacer.large()
+    Text(LocalizableStringKey.passportIdentificationFooter.toString)
+      .typography(Theme.shared.font.bodyLarge)
+      .multilineTextAlignment(.leading)
+    Spacer()
+  }
+  .padding(.horizontal, 16)
 }
 
 #Preview {

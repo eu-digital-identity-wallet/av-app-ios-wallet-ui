@@ -49,6 +49,7 @@ public struct AppIconAndTextView: View {
         .resizable()
         .scaledToFit()
         .frame(width: appIconAndTextData.appIconSize, height: appIconAndTextData.appIconSize)
+        .accessibilityHidden(true)
     }
     .frame(maxWidth: .infinity, alignment: .center)
   }

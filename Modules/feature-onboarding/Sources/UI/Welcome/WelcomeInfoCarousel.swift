@@ -60,7 +60,7 @@ struct WelcomeInfoCarousel: View {
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
 //            .frame(maxWidth: .infinity, maxHeight: 300)
             //.frame(maxHeight: 300)
-            .frame(idealHeight: 200)
+            .frame(idealHeight: 300)
 
             HStack(spacing: SPACING_LARGE) {
                 ForEach(pages.indices, id: \.self) { index in

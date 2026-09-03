@@ -27,28 +27,38 @@ struct ChangePinSuccessView<Router: RouterHost>: View {
 private func content(
   onOkButtonTap: @escaping () -> Void
 ) -> some View {
-  ScrollView {
     VStack {
-      HStack {
-        ThemeManager.shared.image.logoEuDigitalIndentityWallet
-          .resizable()
-          .frame(width: 60, height: 60)
+      ScrollView {
+        VStack {
+          HStack {
+            ThemeManager.shared.image.logoEuDigitalIndentityWallet
+            .resizable()
+            .frame(width: 60, height: 60)
+            .accessibilityHidden(true)
+          }
+          .frame(maxWidth: .infinity)
+          Spacer()
+                
+          VStack {
+            Image(systemName: "checkmark.circle")
+            .resizable()
+            .frame(width: 180, height: 180)
+            .foregroundColor(Theme.shared.color.success.opacity(0.5))
+            .accessibilityHidden(true)
+              
+            Text(.quickPinChangeSuccessText)
+            .typography(Theme.shared.font.displayLarge)
+            .foregroundColor(Theme.shared.color.success.opacity(0.7))
+              
+            Text(.quickPinChangeSuccessDescription)
+            .typography(Theme.shared.font.bodyMedium)
+          }
+          .accessibilityAnnouncement(for: LocalizableStringKey.quickPinChangeSuccessDescription.toString, message: LocalizableStringKey.quickPinChangeSuccessDescription.toString)
+                
+          Spacer()
+        }
+        
       }
-      .frame(maxWidth: .infinity)
-      Spacer()
-
-      VStack {
-        Image(systemName: "checkmark.circle")
-          .resizable()
-          .frame(width: 180, height: 180)
-          .foregroundColor(Theme.shared.color.success.opacity(0.5))
-        Text(.quickPinChangeSuccessText)
-          .typography(Theme.shared.font.displayLarge)
-          .foregroundColor(Theme.shared.color.success.opacity(0.7))
-        Text(.quickPinChangeSuccessDescription)
-          .typography(Theme.shared.font.bodyMedium)
-      }
-
       Spacer()
       WrapButtonView(
         style: .primary,
@@ -57,9 +67,7 @@ private func content(
       )
     }
     .padding()
-  }
 }
-
 #Preview {
   ContentScreenView {
     content(

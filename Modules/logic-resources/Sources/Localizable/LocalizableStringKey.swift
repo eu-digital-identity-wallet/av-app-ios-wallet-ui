@@ -19,7 +19,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case dynamic(key: String)
   case custom(String)
   case space
-  case accessibilityOboardingStepAnnouncement(Int, Int, String)
+  case accessibilityStepAnnouncement(Int, Int, String)
   case accessibilityOboardingStepActive
   case accessibilityOboardingStepInactive
   case accessibilityCheckboxChecked
