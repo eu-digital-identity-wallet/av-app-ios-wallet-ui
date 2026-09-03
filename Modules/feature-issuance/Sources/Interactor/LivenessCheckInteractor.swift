@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import os
 import logic_core
 import logic_resources
 #if !targetEnvironment(simulator)
@@ -8,6 +9,9 @@ import FaceMatchSDK
 
 public protocol LivenessCheckInteractor: Sendable {
   func performLivenessCheck(referenceImageData: Data) async -> LivenessCheckPartialState
+  /// Prepares verification assets (initializes the FaceMatchSDK). Idempotent.
+  /// Returns `true` if the SDK is initialized and ready for liveness capture.
+  func prepareAssets() async -> Bool
 }
 
 final class LivenessCheckInteractorImpl: LivenessCheckInteractor {
@@ -15,6 +19,11 @@ final class LivenessCheckInteractorImpl: LivenessCheckInteractor {
   #if !targetEnvironment(simulator)
   private nonisolated(unsafe) let sdk: FaceMatchSDKProtocol = FaceMatchSDKImpl()
   #endif
+
+  // OSAllocatedUnfairLock is async-safe (unlike NSLock) and Sendable when its
+  // state is Sendable. The `initialized` flag is held inside the lock, so all
+  // access is serialised via `withLock { ... }`.
+  private let initLock = OSAllocatedUnfairLock(initialState: false)
 
   init() {
     initializeSDK()
@@ -100,22 +109,48 @@ final class LivenessCheckInteractorImpl: LivenessCheckInteractor {
   #endif
   // swiftlint:enable large_tuple
 
+  func prepareAssets() async -> Bool {
+    #if targetEnvironment(simulator)
+    // FaceMatchSDK is unavailable on simulator; report success so the UI flow proceeds.
+    return true
+    #else
+    // Run the (synchronous) SDK initialization on a background priority to avoid
+    // blocking the caller. The actual work is guarded by `initLock` inside
+    // `initializeSDK()` so repeated calls are no-ops.
+    await Task.detached(priority: .userInitiated) { [weak self] in
+      self?.initializeSDK()
+    }.value
+
+    // OSAllocatedUnfairLock.withLock is safe to call from async contexts.
+    return initLock.withLock { initialized in
+      initialized
+    }
+    #endif
+  }
+
   private func initializeSDK() {
     #if !targetEnvironment(simulator)
-    // Look for config.json in the feature-issuance module bundle
-    guard let configUrl = Bundle.module.url(forResource: "config", withExtension: "json"),
-          let configData = try? Data(contentsOf: configUrl),
-          let configString = String(data: configData, encoding: .utf8) else {
-      log("Failed to load config.json from bundle", level: .error)
-      // Try to initialize with empty config
-      let success = sdk.initSDK(configJson: "{}")
-      log(success ? "SDK initialized with empty config" : "SDK initialization failed", level: success ? .warning : .error)
-      return
-    }
+    initLock.withLock { (initialized: inout Bool) in
+      // Idempotency: only initialize once per instance lifetime.
+      guard !initialized else { return }
 
-    log("Loaded config.json: \(configString)", level: .debug)
-    let success = sdk.initSDK(configJson: configString)
-    log(success ? "FaceMatchSDK initialized" : "FaceMatchSDK initialization failed", level: success ? .info : .error)
+      // Look for config.json in the feature-issuance module bundle
+      guard let configUrl = Bundle.module.url(forResource: "config", withExtension: "json"),
+            let configData = try? Data(contentsOf: configUrl),
+            let configString = String(data: configData, encoding: .utf8) else {
+        log("Failed to load config.json from bundle", level: .error)
+        // Try to initialize with empty config
+        let success = sdk.initSDK(configJson: "{}")
+        log(success ? "SDK initialized with empty config" : "SDK initialization failed", level: success ? .warning : .error)
+        if success { initialized = true }
+        return
+      }
+
+      log("Loaded config.json: \(configString)", level: .debug)
+      let success = sdk.initSDK(configJson: configString)
+      log(success ? "FaceMatchSDK initialized" : "FaceMatchSDK initialization failed", level: success ? .info : .error)
+      if success { initialized = true }
+    }
     #else
     log("FaceMatchSDK not available on simulator", level: .info)
     #endif

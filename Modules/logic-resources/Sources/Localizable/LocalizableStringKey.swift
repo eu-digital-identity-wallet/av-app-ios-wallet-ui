@@ -270,6 +270,8 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case passportLiveVideoStepThird
   case passportScanIntroBackButton
   case passportScanIntroDataDownloadNotice
+  case passportScanIntroDownloadingAssets
+  case passportScanIntroAssetsReady
   case passportScanIntroDescription
   case passportScanIntroEnrollmentMethod
   case passportScanIntroStartButton

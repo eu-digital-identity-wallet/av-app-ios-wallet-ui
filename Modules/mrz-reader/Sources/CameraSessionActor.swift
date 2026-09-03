@@ -13,6 +13,7 @@ protocol CameraSessionDelegate: AnyObject, Sendable {
 actor CameraSessionActor: NSObject {
   private var captureSession: AVCaptureSession?
   private var videoOutput: AVCaptureVideoDataOutput?
+  private var videoDevice: AVCaptureDevice?
   private var isProcessing = false
   private var processingTask: Task<Void, Never>?
   private var deviceOrientation: UIDeviceOrientation = .portrait
@@ -61,6 +62,7 @@ actor CameraSessionActor: NSObject {
 
     self.captureSession = session
     self.videoOutput = output
+    self.videoDevice = videoDevice
 
     // Set delegate directly - the actor will handle thread safety
     output.setSampleBufferDelegate(self, queue: DispatchQueue.global(qos: .userInitiated))
@@ -75,6 +77,32 @@ actor CameraSessionActor: NSObject {
   func stop() async {
     processingTask?.cancel()
     captureSession?.stopRunning()
+  }
+
+  // MARK: - Torch / Flash
+
+  /// Returns whether the active camera device has a torch (flash) unit.
+  func isTorchAvailable() -> Bool {
+    videoDevice?.hasTorch ?? false
+  }
+
+  /// Returns the current torch mode of the active camera device.
+  func isTorchOn() -> Bool {
+    videoDevice?.torchMode == .on
+  }
+
+  /// Toggles the torch on or off. Returns `true` if the configuration change succeeded.
+  @discardableResult
+  func setTorch(_ on: Bool) async -> Bool {
+    guard let device = videoDevice, device.hasTorch else { return false }
+    do {
+      try device.lockForConfiguration()
+      device.torchMode = on ? .on : .off
+      device.unlockForConfiguration()
+      return true
+    } catch {
+      return false
+    }
   }
 
   /// Updates the orientation used for both the video output connection and the

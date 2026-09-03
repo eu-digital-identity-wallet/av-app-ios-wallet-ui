@@ -27,6 +27,8 @@ public struct MRZReaderConfiguration: Sendable {
     public let unknownError: String
     /// Loading text when initializing camera
     public let initializingCamera: String
+    /// Accessibility label for the camera flash/torch toggle button
+    public let flashButton: String
 
     /// Creates a new set of localizable strings
     public init(
@@ -37,7 +39,8 @@ public struct MRZReaderConfiguration: Sendable {
       cameraPermissionDenied: String,
       cameraSetupFailed: String,
       unknownError: String,
-      initializingCamera: String
+      initializingCamera: String,
+      flashButton: String = "Toggle camera flash"
     ) {
       self.documentReady = documentReady
       self.scanning = scanning
@@ -47,6 +50,7 @@ public struct MRZReaderConfiguration: Sendable {
       self.cameraSetupFailed = cameraSetupFailed
       self.unknownError = unknownError
       self.initializingCamera = initializingCamera
+      self.flashButton = flashButton
     }
   }
 
@@ -73,7 +77,8 @@ public struct MRZReaderConfiguration: Sendable {
       cameraPermissionDenied: "Camera access denied. Please enable camera permission in Settings.",
       cameraSetupFailed: "Failed to setup camera. Please try again.",
       unknownError: "An unknown error occurred",
-      initializingCamera: "Initializing camera..."
+      initializingCamera: "Initializing camera...",
+      flashButton: "Toggle camera flash"
     )
   )
 }

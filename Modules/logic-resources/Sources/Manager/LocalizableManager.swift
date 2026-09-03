@@ -543,6 +543,10 @@ final class LocalizableManager: LocalizableManagerType {
         bundle.localizedString(forKey: "passport_scan_intro_back_button")
       case .passportScanIntroDataDownloadNotice:
         bundle.localizedString(forKey: "passport_scan_intro_data_download_notice")
+      case .passportScanIntroDownloadingAssets:
+        bundle.localizedString(forKey: "passport_scan_intro_downloading_assets")
+      case .passportScanIntroAssetsReady:
+        bundle.localizedString(forKey: "passport_scan_intro_assets_ready")
       case .passportScanIntroDescription:
         bundle.localizedString(forKey: "passport_scan_intro_description")
       case .passportScanIntroEnrollmentMethod:

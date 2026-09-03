@@ -4100,26 +4100,6 @@ public class MockKeyChainController: KeyChainController, Cuckoo.ProtocolMock, @u
         )
     }
 
-    public func validateKeyChainBiometry() throws {
-        return try cuckoo_manager.callThrows(
-            "validateKeyChainBiometry() throws",
-            parameters: (),
-            escapingParameters: (),
-errorType: Error.self,            superclassCall: Cuckoo.MockManager.crashOnProtocolSuperclassCall(),
-            defaultCall: __defaultImplStub!.validateKeyChainBiometry()
-        )
-    }
-
-    public func clearKeyChainBiometry() {
-        return cuckoo_manager.call(
-            "clearKeyChainBiometry()",
-            parameters: (),
-            escapingParameters: (),
-            superclassCall: Cuckoo.MockManager.crashOnProtocolSuperclassCall(),
-            defaultCall: __defaultImplStub!.clearKeyChainBiometry()
-        )
-    }
-
     public func clear() {
         return cuckoo_manager.call(
             "clear()",
@@ -4173,22 +4153,6 @@ errorType: Error.self,            superclassCall: Cuckoo.MockManager.crashOnProt
             let matchers: [Cuckoo.ParameterMatcher<(KeyChainWrapper)>] = [wrap(matchable: p0) { $0 }]
             return .init(stub: cuckoo_manager.createStub(for: MockKeyChainController.self,
                 method: "removeObject(key p0: KeyChainWrapper)",
-                parameterMatchers: matchers
-            ))
-        }
-
-        func validateKeyChainBiometry() -> Cuckoo.ProtocolStubNoReturnThrowingFunction<(),Error> {
-            let matchers: [Cuckoo.ParameterMatcher<Void>] = []
-            return .init(stub: cuckoo_manager.createStub(for: MockKeyChainController.self,
-                method: "validateKeyChainBiometry() throws",
-                parameterMatchers: matchers
-            ))
-        }
-
-        func clearKeyChainBiometry() -> Cuckoo.ProtocolStubNoReturnFunction<()> {
-            let matchers: [Cuckoo.ParameterMatcher<Void>] = []
-            return .init(stub: cuckoo_manager.createStub(for: MockKeyChainController.self,
-                method: "clearKeyChainBiometry()",
                 parameterMatchers: matchers
             ))
         }
@@ -4274,28 +4238,6 @@ errorType: Error.self,            superclassCall: Cuckoo.MockManager.crashOnProt
         }
 
 
-        @discardableResult
-        func validateKeyChainBiometry() -> Cuckoo.__DoNotUse<(), Void> {
-            let matchers: [Cuckoo.ParameterMatcher<Void>] = []
-            return cuckoo_manager.verify(
-                "validateKeyChainBiometry() throws",
-                callMatcher: callMatcher,
-                parameterMatchers: matchers,
-                sourceLocation: sourceLocation
-            )
-        }
-
-
-        @discardableResult
-        func clearKeyChainBiometry() -> Cuckoo.__DoNotUse<(), Void> {
-            let matchers: [Cuckoo.ParameterMatcher<Void>] = []
-            return cuckoo_manager.verify(
-                "clearKeyChainBiometry()",
-                callMatcher: callMatcher,
-                parameterMatchers: matchers,
-                sourceLocation: sourceLocation
-            )
-        }
 
 
         @discardableResult
@@ -4332,14 +4274,6 @@ public class KeyChainControllerStub:KeyChainController, @unchecked Sendable {
     }
 
     public func removeObject(key p0: KeyChainWrapper) {
-        return DefaultValueRegistry.defaultValue(for: (Void).self)
-    }
-
-    public func validateKeyChainBiometry() throws {
-        return DefaultValueRegistry.defaultValue(for: (Void).self)
-    }
-
-    public func clearKeyChainBiometry() {
         return DefaultValueRegistry.defaultValue(for: (Void).self)
     }
 

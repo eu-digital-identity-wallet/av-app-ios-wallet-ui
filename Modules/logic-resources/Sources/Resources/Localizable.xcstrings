@@ -8602,6 +8602,41 @@
         }
       }
     },
+    "passport_scan_intro_assets_ready": {
+      "extractionState": "manual",
+      "localizations": {
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verifikationsmaterialer klar"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verifizierungsdateien bereit"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verification assets ready"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Éléments de vérification prêts"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Risorse di verifica pronte"
+          }
+        }
+      }
+    },
     "passport_scan_intro_back_button": {
       "extractionState": "manual",
       "localizations": {
@@ -8703,6 +8738,41 @@
           "stringUnit": {
             "state": "translated",
             "value": "Il metodo passaporto / carta d\\'identità è veloce e sicuro! Scatta una foto del tuo passaporto / carta d\\'identità, scansiona il tuo passaporto / carta d\\'identità e registra un video di te stesso—tre passaggi per un onboarding sicuro."
+          }
+        }
+      }
+    },
+    "passport_scan_intro_downloading_assets": {
+      "extractionState": "manual",
+      "localizations": {
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Downloader verifikationsdata…"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verifizierungsdaten werden heruntergeladen…"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Downloading verification assets…"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Téléchargement des ressources de vérification…"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Download risorse di verifica…"
           }
         }
       }

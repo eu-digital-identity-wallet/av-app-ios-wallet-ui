@@ -9,6 +9,8 @@ class DocumentCameraManager: ObservableObject, CameraSessionDelegate {
   @Published var error: Error?
   @Published var isSessionRunning = false
   @Published var capturedMRZ: MRZData?
+  @Published var isTorchAvailable: Bool = false
+  @Published var isTorchOn: Bool = false
 
   private var sessionActor: CameraSessionActor?
   private var previousMRZ: MRZData?
@@ -28,6 +30,10 @@ class DocumentCameraManager: ObservableObject, CameraSessionDelegate {
     self.captureSession = session
     self.sessionActor = actor
 
+    // Query torch availability and current state from the active device.
+    self.isTorchAvailable = await actor.isTorchAvailable()
+    self.isTorchOn = await actor.isTorchOn()
+
     await actor.start()
     self.isSessionRunning = true
   }
@@ -35,6 +41,15 @@ class DocumentCameraManager: ObservableObject, CameraSessionDelegate {
   func stopCamera() async {
     await sessionActor?.stop()
     self.isSessionRunning = false
+  }
+
+  /// Toggles the torch. Updates `isTorchOn` only if the configuration change succeeded.
+  func toggleTorch() async {
+    let next = !isTorchOn
+    let success = await sessionActor?.setTorch(next) ?? false
+    if success {
+      isTorchOn = next
+    }
   }
 
   /// Forward a device orientation change to the camera session so that the
