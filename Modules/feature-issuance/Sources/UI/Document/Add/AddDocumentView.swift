@@ -81,6 +81,7 @@ private func content(
           .fontWeight(.medium)
           .frame(maxWidth: .infinity, alignment: .leading)
           .foregroundStyle(Theme.shared.color.onSurface)
+          .accessibilityAddTraits(.isHeader)
 
         Text(.onboardingVerificationDescription)
           .typography(Theme.shared.font.bodyLarge)

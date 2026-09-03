@@ -53,6 +53,7 @@ private func content(
         Theme.shared.image.passportCard
             .resizable()
             .frame(width: 64, height: 64)
+            .accessibilityHidden(true)
         Spacer()
       }
 
@@ -64,6 +65,7 @@ private func content(
       VSpacer.extraSmall()
       Text(LocalizableStringKey.passportScanIntroTitle.toString)
         .typography(Theme.shared.font.labelLarge)
+        .accessibilityAddTraits(.isHeader)
 
       VSpacer.largeMedium()
       Text(LocalizableStringKey.passportScanIntroDescription.toString)
@@ -140,9 +142,14 @@ private func passportEnrollmentStepsView(viewState: MrzDocumentIntroViewState) -
   VStack(alignment: .leading, spacing: 20.0) {
     ForEach(Array(viewState.steps.enumerated()), id: \.offset) { index, step in
       VStack(alignment: .leading, spacing: 4) {
-        Text("\(index + 1). \(step.0.toString)")
-          .typography(Theme.shared.font.headlineMedium)
-
+          Text("\(index + 1). \(step.0.toString)")
+              .typography(Theme.shared.font.headlineMedium)
+              .accessibilityLabel(LocalizableStringKey.accessibilityStepAnnouncement(
+                index + 1,
+                viewState.steps.count,
+                step.0.toString
+              ).toString)
+          
         if let description = step.1 {
           Text(description.toString)
             .typography(Theme.shared.font.bodyLarge)

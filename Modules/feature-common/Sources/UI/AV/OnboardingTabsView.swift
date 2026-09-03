@@ -93,7 +93,7 @@ public struct OnboardingTabsView: View {
 
     private var activeStepMessage: String? {
         guard !steps.isEmpty, (0..<steps.count).contains(selectedIndex) else { return nil }
-        return LocalizableStringKey.accessibilityOboardingStepAnnouncement(
+        return LocalizableStringKey.accessibilityStepAnnouncement(
             selectedIndex + 1,
             steps.count,
             steps[selectedIndex].localizedKey.toString

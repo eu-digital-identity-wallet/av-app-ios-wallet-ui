@@ -110,7 +110,8 @@ private func content(
           disabled: viewState.isLockedOut
         )
         .id("pinField")
-
+        .accessibilityAnnouncement(for: viewState.pinError, message: viewState.pinError)
+          
         Spacer()
 
         if viewState.areBiometricsEnabled, let image = viewState.biometryImage {
