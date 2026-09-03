@@ -1,4 +1,5 @@
 import Vision
+import UIKit
 @preconcurrency import AVFoundation
 import CoreGraphics
 
@@ -14,6 +15,8 @@ actor CameraSessionActor: NSObject {
   private var videoOutput: AVCaptureVideoDataOutput?
   private var isProcessing = false
   private var processingTask: Task<Void, Never>?
+  private var deviceOrientation: UIDeviceOrientation = .portrait
+  private var visionOrientation: CGImagePropertyOrientation = .right
 
   weak var delegate: CameraSessionDelegate?
 
@@ -74,6 +77,24 @@ actor CameraSessionActor: NSObject {
     captureSession?.stopRunning()
   }
 
+  /// Updates the orientation used for both the video output connection and the
+  /// Vision request handler. Call this whenever the device orientation changes.
+  /// `faceUp`, `faceDown` and `unknown` are ignored to avoid jitter.
+  func updateOrientation(_ orientation: UIDeviceOrientation) async {
+    guard orientation != .faceUp,
+          orientation != .faceDown,
+          orientation != .unknown,
+          orientation != deviceOrientation else { return }
+    deviceOrientation = orientation
+
+    if let connection = videoOutput?.connection(with: .video),
+       connection.isVideoOrientationSupported {
+      connection.videoOrientation = AVCaptureVideoOrientation(uiDeviceOrientation: orientation)
+    }
+
+    visionOrientation = CGImagePropertyOrientation(uiDeviceOrientation: orientation)
+  }
+
   private func notifyDelegate(_ result: DetectionResult) async {
     if let delegate = self.delegate {
       await delegate.didUpdateDetection(result)
@@ -98,8 +119,8 @@ actor CameraSessionActor: NSObject {
     textRequest.recognitionLevel = .accurate
     textRequest.usesLanguageCorrection = false
 
-    // Set proper orientation for Vision requests
-    let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: .right, options: [:])
+    // Set proper orientation for Vision requests based on the current device orientation
+    let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: visionOrientation, options: [:])
 
     do {
       try handler.perform([documentRequest, textRequest])
@@ -335,5 +356,22 @@ extension CameraSessionActor: AVCaptureVideoDataOutputSampleBufferDelegate {
 extension CameraSessionActor {
   func setDelegate(_ delegate: CameraSessionDelegate) async {
     self.delegate = delegate
+  }
+}
+
+// MARK: - Vision Orientation Mapping
+extension CGImagePropertyOrientation {
+  /// Maps the device orientation to the `CGImagePropertyOrientation` that Vision
+  /// expects for the back camera's native sensor orientation (landscape, rotated
+  /// 90° CW from portrait-up). This tells Vision how to rotate the buffer so that
+  /// detection coordinates align with the current screen orientation.
+  init(uiDeviceOrientation orientation: UIDeviceOrientation) {
+    switch orientation {
+    case .portrait: self = .right
+    case .portraitUpsideDown: self = .left
+    case .landscapeLeft: self = .up
+    case .landscapeRight: self = .down
+    default: self = .right
+    }
   }
 }

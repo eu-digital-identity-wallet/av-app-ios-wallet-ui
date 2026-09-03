@@ -84,7 +84,7 @@ public struct OnboardingTabsView: View {
                 .fill(Color.white)
                 .shadow(color: Color.black.opacity(0.2), radius: SPACING_EXTRA_SMALL, x: 0, y: SPACING_EXTRA_SMALL)
         })
-        .padding()
+        .padding(.horizontal)
         .accessibilityAnnouncement(
             for: selectedIndex,
             message: activeStepMessage
