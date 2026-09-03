@@ -29,7 +29,8 @@ public final class FeatureStartupAssembly: Assembly {
         quickPinInteractor: r.force(QuickPinInteractor.self),
         keyChainController: r.force(KeyChainController.self),
         prefsController: r.force(PrefsController.self),
-        configLogic: r.force(ConfigLogic.self)
+        configLogic: r.force(ConfigLogic.self),
+        deviceAuthenticationAvailable: StartupInteractorImpl.defaultDeviceAuthenticationAvailable
       )
     }
     .inObjectScope(ObjectScope.transient)

@@ -19,6 +19,12 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case dynamic(key: String)
   case custom(String)
   case space
+  case accessibilityStepAnnouncement(Int, Int, String)
+  case accessibilityOboardingStepActive
+  case accessibilityOboardingStepInactive
+  case accessibilityCheckboxChecked
+  case accessibilityCheckboxUnchecked
+  case accessibilityQrScanInstructions
   case ageOver18
   case ageOver(Int)
   case biometricConfirmRequest
@@ -35,6 +41,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case biometricSetupSkip
   case biometricSetupTitle
   case biometricUnknownError
+  case biometryUnlockReason
   case cdCloseButton
   case cdFlashButton
   case confirmDocRemovalDialogDelete
@@ -159,11 +166,15 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case issuanceSuccessHeaderDescription
   case issuanceSuccessHeaderDescriptionWhenError
   case issuanceSuccessHeaderIssuerDefaultName
+  case issueDocumentPrompt
   case itemNotFoundInStorage
   case itemsNotFoundInStorage
   case labelClose
   case labelTurnOn
   case landingScreenAddCredentials
+  case landingScreenCardA11yHint
+  case landingScreenCardA11yLabel(Int)
+  case landingScreenCardA11yLabelWithAge(Int, Int)
   case landingScreenCardAgeVerification
   case landingScreenCardEuTitle
   case landingScreenCredentialDetails
@@ -211,6 +222,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case onboardingVerificationDescription
   case onboardingVerificationNationalId
   case onboardingVerificationNationalIdDescription
+  case onboardingVerificationNationalIdHint
   case onboardingVerificationPassportIdCard
   case onboardingVerificationPassportIdCardDescription
   case onboardingVerificationTitle
@@ -258,6 +270,8 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case passportLiveVideoStepThird
   case passportScanIntroBackButton
   case passportScanIntroDataDownloadNotice
+  case passportScanIntroDownloadingAssets
+  case passportScanIntroAssetsReady
   case passportScanIntroDescription
   case passportScanIntroEnrollmentMethod
   case passportScanIntroStartButton
@@ -331,7 +345,9 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case settings
   case settingsScreenAppInfo
   case settingsScreenChangePin
+  case settingsScreenChangePinA11yHint
   case settingsScreenCredentials
+  case settingsScreenDeleteCredentialsA11yHint
   case settingsScreenDeleteProofs
   case settingsScreenSecurity
   case settingsScreenTitle
@@ -339,6 +355,8 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case splashScreenSponsors
   case splashScreenTitle
   case unknownVerifier
+  case unsupportedDeviceMessage
+  case unsupportedDeviceTitle
   case warningAuthenticationFailed
   case warningClaNotSupported
   case warningEnableNfc

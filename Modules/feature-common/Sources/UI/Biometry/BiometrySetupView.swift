@@ -56,6 +56,7 @@ private func content(
     VSpacer.small()
     Text(viewState.title)
       .typography(Theme.shared.font.titleMedium)
+      .accessibilityAddTraits(.isHeader)
     VSpacer.small()
     Text(viewState.caption)
       .typography(Theme.shared.font.bodyMedium)

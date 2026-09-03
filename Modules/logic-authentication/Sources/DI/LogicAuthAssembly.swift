@@ -53,10 +53,8 @@ public final class LogicAuthAssembly: Assembly {
     }
     .inObjectScope(ObjectScope.graph)
 
-    container.register(SystemBiometryController.self) { r in
-      SystemBiometryControllerImpl(
-        keyChainController: r.force(KeyChainController.self)
-      )
+    container.register(SystemBiometryController.self) { _ in
+      SystemBiometryControllerImpl()
     }
     .inObjectScope(ObjectScope.transient)
   }

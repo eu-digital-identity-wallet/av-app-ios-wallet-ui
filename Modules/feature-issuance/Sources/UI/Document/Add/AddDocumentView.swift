@@ -81,6 +81,7 @@ private func content(
           .fontWeight(.medium)
           .frame(maxWidth: .infinity, alignment: .leading)
           .foregroundStyle(Theme.shared.color.onSurface)
+          .accessibilityAddTraits(.isHeader)
 
         Text(.onboardingVerificationDescription)
           .typography(Theme.shared.font.bodyLarge)
@@ -105,6 +106,9 @@ private func content(
                   "\(cell.issuerId)_\(cell.docTypeIdentifier)"
                 ),
                 isLoading: cell.isLoading,
+                accessibilityHint: cell.opensExternalContext
+                  ? .onboardingVerificationNationalIdHint
+                  : nil,
                 action: { action(cell.issuerId, cell.configId, cell.docTypeIdentifier) }
               )
             }
