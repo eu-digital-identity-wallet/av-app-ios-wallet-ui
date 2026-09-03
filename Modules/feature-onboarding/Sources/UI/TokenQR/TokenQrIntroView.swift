@@ -46,10 +46,12 @@ private func content(
       VSpacer.small()
       Theme.shared.image.scanIcon.resizable()
         .frame(width: 80, height: 80)
+        .accessibilityHidden(true)
       VSpacer.large()
       Text(.onboardingTokenQrIntroTitle)
         .typography(Theme.shared.font.titleMedium)
         .fontWeight(.medium)
+        .accessibilityAddTraits(.isHeader)
       VSpacer.large()
       Text(.onboardingTokenQrIntroDescription)
         .typography(Theme.shared.font.bodyMedium)
@@ -71,8 +73,7 @@ private func content(
         .padding(.horizontal, SPACING_SMALL)
       }
       .frame(maxWidth: .infinity)
+      .padding(.horizontal, Theme.shared.dimension.padding)
     }
-    .frame(maxWidth: .infinity)
-    .padding(.horizontal, Theme.shared.dimension.padding)
   }
 }

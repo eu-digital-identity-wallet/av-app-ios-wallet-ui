@@ -24,6 +24,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case accessibilityOboardingStepInactive
   case accessibilityCheckboxChecked
   case accessibilityCheckboxUnchecked
+  case accessibilityQrScanInstructions
   case ageOver18
   case ageOver(Int)
   case biometricConfirmRequest

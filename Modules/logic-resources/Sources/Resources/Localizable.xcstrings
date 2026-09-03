@@ -1,65 +1,65 @@
 {
   "sourceLanguage": "en",
   "strings": {
-      "accessibility_checkbox_checked" : {
-            "extractionState" : "manual",
-            "localizations" : {
-              "da" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "afkrydsningsfeltet er markeret"
-                }
-              },
-              "de" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Kontrollkästchen aktiviert"
-                }
-              },
-              "en" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "checkbox checked"
-                }
-              },
-              "fr" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "case cochée"
-                }
-              },
-              "it" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "casella di controllo selezionata"
-                }
-              }
+    "accessibility_checkbox_checked" : {
+      "extractionState" : "manual",
+        "localizations" : {
+          "da" : {
+            "stringUnit" : {
+              "state" : "translated",
+              "value" : "afkrydsningsfeltet er markeret"
             }
           },
-          "accessibility_checkbox_unchecked" : {
-            "extractionState" : "manual",
-            "localizations" : {
-              "da" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "afkrydsningsfeltet er ikke markeret"
-                }
-              },
-              "de" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Kontrollkästchen nicht markiert"
-                }
-              },
-              "en" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "checkbox unchecked"
-                }
-              },
-              "fr" : {
-                "stringUnit" : {
-                  "state" : "translated",
+          "de" : {
+            "stringUnit" : {
+              "state" : "translated",
+              "value" : "Kontrollkästchen aktiviert"
+            }
+          },
+          "en" : {
+            "stringUnit" : {
+              "state" : "translated",
+              "value" : "checkbox checked"
+            }
+          },
+          "fr" : {
+            "stringUnit" : {
+              "state" : "translated",
+              "value" : "case cochée"
+            }
+          },
+          "it" : {
+            "stringUnit" : {
+              "state" : "translated",
+              "value" : "casella di controllo selezionata"
+            }
+          }
+        }
+      },
+      "accessibility_checkbox_unchecked" : {
+        "extractionState" : "manual",
+          "localizations" : {
+            "da" : {
+              "stringUnit" : {
+                "state" : "translated",
+                "value" : "afkrydsningsfeltet er ikke markeret"
+              }
+            },
+            "de" : {
+              "stringUnit" : {
+                "state" : "translated",
+                "value" : "Kontrollkästchen nicht markiert"
+              }
+            },
+            "en" : {
+              "stringUnit" : {
+                "state" : "translated",
+                "value" : "checkbox unchecked"
+              }
+            },
+            "fr" : {
+              "stringUnit" : {
+                "state" : "translated",
                   "value" : "case à cocher non cochée"
                 }
               },
@@ -174,6 +174,36 @@
                   "value" : "Inattivo"
                 }
               }
+            }
+          },
+          "accessibility_qr_scan_instructions": {
+            "extractionState": "manual",
+            "localizations": {
+                "en": {
+                    "stringUnit": {
+                        "state": "translated", "value": "Hold your device steady about 20 to 30 centimeters above the QR code. Center the code in the camera view. The QR code will be detected automatically."
+                    }
+                },
+                "de": {
+                    "stringUnit": {
+                        "state": "translated", "value": "Halten Sie Ihr Gerät etwa 20 bis 30 Zentimeter über dem QR-Code ruhig. Zentrieren Sie den Code in der Kameraansicht. Der QR-Code wird automatisch erkannt."
+                    }
+                },
+                "fr": {
+                    "stringUnit": {
+                        "state": "translated", "value": "Tenez votre appareil fermement à environ 20 à 30 centimètres au-dessus du code QR. Centrez le code dans la vue de la caméra. Le code QR sera détecté automatiquement."
+                    }
+                },
+                "it": {
+                    "stringUnit": {
+                        "state": "translated", "value": "Tieni saldo il dispositivo a circa 20-30 centimetri dal codice QR. Centra il codice nell'inquadratura. Il codice QR verrà rilevato automaticamente."
+                    }
+                },
+                "da": {
+                    "stringUnit": {
+                        "state": "translated", "value": "Hold enheden stille ca. 20-30 centimeter over QR-koden. Centrer koden i kameraet. QR-koden registreres automatisk."
+                    }
+                }
             }
           },
     "age_over": {
