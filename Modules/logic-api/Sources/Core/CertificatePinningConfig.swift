@@ -27,19 +27,19 @@ struct CertificatePinningConfig {
   // Verify:   Run scripts/verify-certificate-pinning.sh to verify all hashes
   private static let pinnedDomains: [String: [String]] = [
     "issuer.ageverification.dev": [
-      "kYirK0neGc3RSMFJHqxvZwVox0pg7KwThB8nOjSrsec=", // Leaf - Expires: 2026-09-02
+      "sFgBVnT8BKa5i4T4urfAZHLTtmop/1ji7ztmJ9R1Xrc=", // Leaf - Expires: 2026-11-02
       "LoMHBotttiDko50Gi13uXW71eIy7LAttI+rYT8wXF4w="  // Let's Encrypt YR1 - Expires: 2028-09-02
     ],
     "test.issuer.dev.ageverification.dev": [
-      "fSmGMVbBf12HnesWiAAVaQEkcpelMBrxdmrJAGpk/ew=", // Leaf - Expires: 2026-09-07
+      "667G62IrYDxVZgIzaPGg8RoI3cUtv04l5yTN8AykQAg=", // Leaf - Expires: 2026-11-07
       "LoMHBotttiDko50Gi13uXW71eIy7LAttI+rYT8wXF4w="  // Let's Encrypt YR1 - Expires: 2028-09-02
     ],
     "issuer.dev.ageverification.dev": [
-      "VGRAkVMJFm2H3Vv2WeVEuJj5HWQafE0cJxiDB0/rHEQ=", // Leaf - Expires: 2026-09-14
+      "bxuSBX2j8ByZEqS+0SaHAOTB0+3FbbKdHa0e7MAE9PA=", // Leaf - Expires: 2026-11-14
       "nWN7PSep5XDQdge5zK24CnCRXHr3KvzhKEGxsdqCX9E="  // Let's Encrypt YR2 - Expires: 2028-09-02
     ],
     "passport.issuer.dev.ageverification.dev": [
-      "pRm//hr2npxXsIkhvYKMtyDg7dadwDgcuQOHODQvaHs=", // Leaf - Expires: 2026-09-07
+      "nXiBF9Mrr4gJnsfRm0F6STLWueKcH1LIRDeNAu/AijE=", // Leaf - Expires: 2026-11-07
       "nWN7PSep5XDQdge5zK24CnCRXHr3KvzhKEGxsdqCX9E="  // Let's Encrypt YR2 - Expires: 2028-09-02
     ]
   ]
