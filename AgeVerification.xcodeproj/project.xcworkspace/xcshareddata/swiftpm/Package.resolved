@@ -1,5 +1,5 @@
 {
-  "originHash" : "b1758acf5c49fdd906d75169b0035675d9caa7e99380ea26c91926fc360ccd80",
+  "originHash" : "487c71f344a6ef42ab7eea76b5334f19f32ae878b9e935c02031e3e461e2088e",
   "pins" : [
     {
       "identity" : "activityindicatorview",
@@ -42,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/eu-digital-identity-wallet/av-lib-ios-longfellow-zkp",
       "state" : {
-        "branch" : "fix/Mdoc-header",
-        "revision" : "c475a8a58811d5d07bd8cd2f24afa8b6c62d887b"
+        "revision" : "c51bdfd0bd69d33a7e581aff089022486929efab",
+        "version" : "0.15.0"
       }
     },
     {

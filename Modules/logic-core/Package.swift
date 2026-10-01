@@ -17,8 +17,8 @@ let package = Package(
       exact: "0.34.4"
     ),
     .package(
-      url: "https://github.com/BhaskarNS-iOS/av-lib-ios-longfellow-zkp.git",
-      branch: "fix/Mdoc-header"
+      url: "https://github.com/eu-digital-identity-wallet/av-lib-ios-longfellow-zkp.git",
+      exact: "0.15.0"
     ),
     .package(
       name: "logic-resources",
