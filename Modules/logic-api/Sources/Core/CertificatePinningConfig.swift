@@ -20,28 +20,35 @@ struct CertificatePinningConfig {
 
   static let isEnabled = true
 
-  // SHA-256 public key hashes in SPKI (SubjectPublicKeyInfo) format
-  // Generate: openssl s_client -servername HOST -connect HOST:443 2>/dev/null </dev/null | \
+  // SHA-256 public key hashes in SPKI (SubjectPublicKeyInfo) format.
+  //
+  // Strategy: pin intermediate CA and root SPKI hashes (NOT leaf certificates).
+  // Let's Encrypt rotates leaf certificates every ~60-90 days, which would require
+  // an app release on each rotation if leaf pins were used. Intermediates (YR1/YR2)
+  // are valid until 2028-09-02 and ISRG Root YR until 2032-09-02, so no updates are
+  // needed until then. Both YR1 and YR2 are pinned so the app works regardless of
+  // which intermediate signs the leaf.
+  //
+  // Generate: openssl s_client -servername HOST -connect HOST:443 -showcerts 2>/dev/null </dev/null | \
+  //           awk '/-----BEGIN CERTIFICATE-----/,/-----END CERTIFICATE-----/{print}' | \
   //           openssl x509 -pubkey -noout | openssl pkey -pubin -outform der | \
   //           openssl dgst -sha256 -binary | openssl enc -base64
   // Verify:   Run scripts/verify-certificate-pinning.sh to verify all hashes
+
+  // Common pin set for all Let's Encrypt-issued issuer domains.
+  // Aligned with Android's network_security_config.xml for cross-platform consistency.
+  private static let letsEncryptIntermediatePins: [String] = [
+    "LoMHBotttiDko50Gi13uXW71eIy7LAttI+rYT8wXF4w=", // Let's Encrypt YR1 (RSA)     - Expires: 2028-09-02
+    "nWN7PSep5XDQdge5zK24CnCRXHr3KvzhKEGxsdqCX9E=", // Let's Encrypt YR2 (ECDSA)  - Expires: 2028-09-02
+    "fk6IOKit1ild5647BH06ujSIq5XbCgqlbYl6ANhhi88=", // ISRG Root YR                - Expires: 2032-09-02
+    "kZwN96eHtZftBWrOZUsd6cA4es80n3NzSk/XtYz2EqQ="  // Let's Encrypt R12 (backup)  - Expires: 2028-09-02
+  ]
+
   private static let pinnedDomains: [String: [String]] = [
-    "issuer.ageverification.dev": [
-      "kYirK0neGc3RSMFJHqxvZwVox0pg7KwThB8nOjSrsec=", // Leaf - Expires: 2026-09-02
-      "LoMHBotttiDko50Gi13uXW71eIy7LAttI+rYT8wXF4w="  // Let's Encrypt YR1 - Expires: 2028-09-02
-    ],
-    "test.issuer.dev.ageverification.dev": [
-      "fSmGMVbBf12HnesWiAAVaQEkcpelMBrxdmrJAGpk/ew=", // Leaf - Expires: 2026-09-07
-      "LoMHBotttiDko50Gi13uXW71eIy7LAttI+rYT8wXF4w="  // Let's Encrypt YR1 - Expires: 2028-09-02
-    ],
-    "issuer.dev.ageverification.dev": [
-      "VGRAkVMJFm2H3Vv2WeVEuJj5HWQafE0cJxiDB0/rHEQ=", // Leaf - Expires: 2026-09-14
-      "nWN7PSep5XDQdge5zK24CnCRXHr3KvzhKEGxsdqCX9E="  // Let's Encrypt YR2 - Expires: 2028-09-02
-    ],
-    "passport.issuer.dev.ageverification.dev": [
-      "pRm//hr2npxXsIkhvYKMtyDg7dadwDgcuQOHODQvaHs=", // Leaf - Expires: 2026-09-07
-      "nWN7PSep5XDQdge5zK24CnCRXHr3KvzhKEGxsdqCX9E="  // Let's Encrypt YR2 - Expires: 2028-09-02
-    ]
+    "issuer.ageverification.dev": letsEncryptIntermediatePins,
+    "test.issuer.dev.ageverification.dev": letsEncryptIntermediatePins,
+    "issuer.dev.ageverification.dev": letsEncryptIntermediatePins,
+    "passport.issuer.dev.ageverification.dev": letsEncryptIntermediatePins
   ]
 
   static func trustKitConfiguration() -> [String: Any] {
