@@ -67,7 +67,7 @@ public struct OnboardingTabsView: View {
                 let stepName = step.localizedKey.toString
                 let labelKey: LocalizableStringKey = selectedIndex == index
                     ? .accessibilityOnboardingStepActive
-                    : .accessibilityOnboardingStepActive
+                    : .accessibilityOnboardingStepInactive
 
                 Text(stepName)
                     .font(Theme.shared.font.bodySmall.font)
