@@ -174,8 +174,8 @@ private struct PreviewWrapper: View {
         (LocalizableStringKey.passportScanIntroStep1Title, LocalizableStringKey.passportScanIntroStep1Description),
         (LocalizableStringKey.passportScanIntroStep2Title, LocalizableStringKey.passportScanIntroStep2Description),
         (LocalizableStringKey.passportScanIntroStep3Title, LocalizableStringKey.passportScanIntroStep3Description),
-        (LocalizableStringKey.passportScanIntroStep4Title, nil),
-        (LocalizableStringKey.passportScanIntroStep5Title, nil)
+        (LocalizableStringKey.passportScanIntroStep4Title, LocalizableStringKey.passportScanIntroStep4Description),
+        (LocalizableStringKey.passportScanIntroStep5Title, LocalizableStringKey.passportScanIntroStep5Description)
       ],
       config: DocumentEnrollmentUiConfig(),
       downloadProgress: 0,

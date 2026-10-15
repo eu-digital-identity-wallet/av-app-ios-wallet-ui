@@ -63,11 +63,11 @@ public struct OnboardingTabsView: View {
 
     public var body: some View {
         HStack {
-            ForEach(steps.indices, id: \.self) { index in
-                let stepName = steps[index].localizedKey.toString
+            ForEach(Array(steps.enumerated()), id: \.offset) { index, step in
+                let stepName = step.localizedKey.toString
                 let labelKey: LocalizableStringKey = selectedIndex == index
-                    ? .accessibilityOboardingStepActive
-                    : .accessibilityOboardingStepInactive
+                    ? .accessibilityOnboardingStepActive
+                    : .accessibilityOnboardingStepActive
 
                 Text(stepName)
                     .font(Theme.shared.font.bodySmall.font)

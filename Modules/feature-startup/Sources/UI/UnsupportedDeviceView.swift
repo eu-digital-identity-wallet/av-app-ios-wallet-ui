@@ -38,7 +38,7 @@ struct UnsupportedDeviceView: View {
         .scaledToFit()
         .frame(width: 80, height: 80)
       VSpacer.large()
-      Text(.unsupportedDeviceTitle)
+      Text(.hardwareKeystoreBlockTitle)
         .typography(Theme.shared.font.titleMedium)
         .fontWeight(.medium)
         .multilineTextAlignment(.center)

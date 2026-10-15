@@ -57,13 +57,16 @@ private func content(state: ConsentViewState, onNext: @escaping () -> Void, onTe
                     onDataProtectionChanged(isChecked)
                 })
 
-              CheckboxView(isChecked: state.personalDataAccepted, label: LocalizableStringKey.consentScreenPersonalDataCheckbox.toString, action: { isChecked in
+                CheckboxView(isChecked: state.personalDataAccepted, label: LocalizableStringKey.consentScreenPersonalDataCheckbox.toString, action: { isChecked in
                     onDataProcessingChanged(isChecked)
                 })
 
                 HyperLinkView(label: LocalizableStringKey.consentScreenTosButton.toString, urlString: "https://www.google.com")
 
                 HyperLinkView(label: LocalizableStringKey.consentScreenDataProtectionButton.toString, urlString: "https://www.google.com")
+                
+                Text(LocalizableStringKey.consentScreenAdditionalNote.toString)
+                    .font(Theme.shared.font.bodyLarge.font)
 
                 Spacer()
             }

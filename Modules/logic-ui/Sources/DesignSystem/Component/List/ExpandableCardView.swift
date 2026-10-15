@@ -39,7 +39,7 @@ public struct ExpandableCardView<Content: View>: View {
     self.isExpanded = isExpanded
   }
 
-  @State private var isExpanded: Bool = false
+  @State private var isExpanded: Bool
 
   public var body: some View {
     VStack(spacing: .zero) {

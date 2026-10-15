@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 European Commission
+ * Copyright (c) 2026 European Commission
  *
  * Licensed under the EUPL, Version 1.2 or - as soon they will be approved by the European
  * Commission - subsequent versions of the EUPL (the "Licence"); You may not use this work
@@ -19,16 +19,21 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case dynamic(key: String)
   case custom(String)
   case space
-  case accessibilityStepAnnouncement(Int, Int, String)
-  case accessibilityOboardingStepActive
-  case accessibilityOboardingStepInactive
   case accessibilityCheckboxChecked
   case accessibilityCheckboxUnchecked
+  case accessibilityOnboardingStepActive
+  case accessibilityOnboardingStepInactive
+  case accessibilityPageOfTotal(Int, Int)
+  case accessibilityPageOfTotalTitled(Int, Int, String)
   case accessibilityQrScanInstructions
-  case ageOver18
+  case accessibilityStepAnnouncement(Int, Int, String)
+  case accessibilityStepCurrent
+  case accessibilityStepOfTotal(Int, Int, String)
   case ageOver(Int)
+  case ageOver18
   case biometricConfirmRequest
   case biometricDefaultModeTextAbovePinField
+  case biometricKeyInvalidated
   case biometricLoginBiometricsEnabledSubtitle
   case biometricLoginBiometricsNotEnabledSubtitle
   case biometricLoginForgotPin
@@ -38,6 +43,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case biometricPromptTitle
   case biometricSetupDescription(String)
   case biometricSetupEnable
+  case biometricSetupRequiredError
   case biometricSetupSkip
   case biometricSetupTitle
   case biometricUnknownError
@@ -47,6 +53,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case confirmDocRemovalDialogDelete
   case confirmDocRemovalDialogText
   case confirmDocRemovalDialogTitle
+  case consentScreenAdditionalNote
   case consentScreenConfirmButton
   case consentScreenDataProtectionButton
   case consentScreenDataProtectionCheckbox
@@ -76,18 +83,32 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case contentDescriptionInProgressIcon
   case contentDescriptionInfoIcon
   case contentDescriptionIssuerLogoIcon
+  case contentDescriptionLandingScreenAddCredentials
+  case contentDescriptionLandingScreenCredentialCard(Int)
+  case contentDescriptionLandingScreenCredentialCardNoAge
+  case contentDescriptionLandingScreenCredentialsLeftOne(Int)
+  case contentDescriptionLandingScreenCredentialsLeftMany
+  case contentDescriptionLandingScreenCredentialsLeftOther(Int)
   case contentDescriptionLogoPlainIcon
   case contentDescriptionLogoTextIcon
   case contentDescriptionMessageIcon
   case contentDescriptionMoreVertIcon
   case contentDescriptionNationalEidIcon
+  case contentDescriptionNoConnectionIcon
   case contentDescriptionOpenNewIcon
   case contentDescriptionOver18Icon
+  case contentDescriptionPassportFaceImage
+  case contentDescriptionPassportFaceImagePlaceholder
+  case contentDescriptionPinDigitsEntered(Int, Int)
+  case contentDescriptionPinInputEmpty
+  case contentDescriptionPinInputPrefix
+  case contentDescriptionPinRepeatedInputPrefix
   case contentDescriptionPresentDocumentSameDeviceIcon
   case contentDescriptionQrIcon
   case contentDescriptionQrScannerIcon
   case contentDescriptionScytalesLogoIcon
   case contentDescriptionSearchIcon
+  case contentDescriptionSentencePair(String, String)
   case contentDescriptionSettingsIcon
   case contentDescriptionSuccessIcon
   case contentDescriptionTelekomLogoIcon
@@ -126,6 +147,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case genericErrorDescription
   case genericErrorMessage
   case genericErrorRetry
+  case genericNetworkErrorDescription
   case genericNetworkErrorMessage
   case genericNo
   case genericOk
@@ -135,6 +157,8 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case genericUnknown
   case genericViewDetails
   case genericYes
+  case hardwareKeystoreBlockDescription
+  case hardwareKeystoreBlockTitle
   case issuanceAddDocumentDeferredSuccessDescription
   case issuanceAddDocumentDeferredSuccessPrimaryButtonText
   case issuanceAddDocumentDeferredSuccessText
@@ -166,6 +190,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case issuanceSuccessHeaderDescription
   case issuanceSuccessHeaderDescriptionWhenError
   case issuanceSuccessHeaderIssuerDefaultName
+  case issueDocument
   case issueDocumentPrompt
   case itemNotFoundInStorage
   case itemsNotFoundInStorage
@@ -215,17 +240,18 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case onboardingStep2Title
   case onboardingStep3Title
   case onboardingStep4Title
-  case onboardingTokenQrIntroTitle
   case onboardingTokenQrIntroDescription
-  case onboardingVerificationTokenQr
-  case onboardingVerificationTokenQrDescription
+  case onboardingTokenQrIntroTitle
   case onboardingVerificationDescription
   case onboardingVerificationNationalId
   case onboardingVerificationNationalIdDescription
   case onboardingVerificationNationalIdHint
+  case onboardingVerificationOpensInBrowser
   case onboardingVerificationPassportIdCard
   case onboardingVerificationPassportIdCardDescription
   case onboardingVerificationTitle
+  case onboardingVerificationTokenQr
+  case onboardingVerificationTokenQrDescription
   case openSystemSettings
   case passportBiometrics
   case passportBiometricsBack
@@ -258,6 +284,8 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case passportLiveVideo
   case passportLiveVideoBack
   case passportLiveVideoDescription
+  case passportLiveVideoDownloadChannel
+  case passportLiveVideoDownloading
   case passportLiveVideoDownloadingProgress(Int, String)
   case passportLiveVideoErrorNotLive
   case passportLiveVideoErrorNotMatching
@@ -268,11 +296,15 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case passportLiveVideoStepFirst
   case passportLiveVideoStepSecond
   case passportLiveVideoStepThird
+  case passportScanIntroAssetsReady
   case passportScanIntroBackButton
   case passportScanIntroDataDownloadNotice
-  case passportScanIntroDownloadingAssets
-  case passportScanIntroAssetsReady
   case passportScanIntroDescription
+  case passportScanIntroDownloadButton
+  case passportScanIntroDownloadPreparingAnnouncement
+  case passportScanIntroDownloadProgressAnnouncement(Int, String)
+  case passportScanIntroDownloadingAssets
+  case passportScanIntroDownloadingButton(Int, String)
   case passportScanIntroEnrollmentMethod
   case passportScanIntroStartButton
   case passportScanIntroStep1Description
@@ -281,7 +313,9 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case passportScanIntroStep2Title
   case passportScanIntroStep3Description
   case passportScanIntroStep3Title
+  case passportScanIntroStep4Description
   case passportScanIntroStep4Title
+  case passportScanIntroStep5Description
   case passportScanIntroStep5Title
   case passportScanIntroTitle
   case passportValidationErrorExpired
@@ -294,6 +328,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case qrScanInformativeTextIssuanceFlow
   case qrScanInformativeTextPresentationFlow
   case qrScanPermissionNotGranted
+  case qrScanPositioningHint
   case quickPinBottomSheetCancelPrimaryButtonText
   case quickPinBottomSheetCancelSecondaryButtonText
   case quickPinBottomSheetCancelSubtitle
@@ -328,6 +363,7 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case requestBottomSheetWarningTitle
   case requestCollapsedSupportingText
   case requestDataInfoNotice
+  case requestDataNoDocument
   case requestDataVerifiedEntityMessage
   case requestGenderFemale
   case requestGenderMale
@@ -356,7 +392,6 @@ public enum LocalizableStringKey: Equatable, Sendable {
   case splashScreenTitle
   case unknownVerifier
   case unsupportedDeviceMessage
-  case unsupportedDeviceTitle
   case warningAuthenticationFailed
   case warningClaNotSupported
   case warningEnableNfc
