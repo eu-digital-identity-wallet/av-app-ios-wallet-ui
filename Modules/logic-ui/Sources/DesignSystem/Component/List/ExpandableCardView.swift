@@ -21,6 +21,7 @@ public struct ExpandableCardView<Content: View>: View {
   private let backgroundColor: Color
   private let mainTextVerticalPadding: CGFloat?
   private let isLoading: Bool
+  private let isAlwaysExpanded: Bool
   private let content: () -> Content
 
   public init(
@@ -29,6 +30,7 @@ public struct ExpandableCardView<Content: View>: View {
     mainTextVerticalPadding: CGFloat? = nil,
     isLoading: Bool = false,
     isExpanded: Bool = false,
+    isAlwaysExpanded: Bool = false,
     @ViewBuilder content: @escaping () -> Content
   ) {
     self.header = header
@@ -36,10 +38,11 @@ public struct ExpandableCardView<Content: View>: View {
     self.mainTextVerticalPadding = mainTextVerticalPadding
     self.content = content
     self.isLoading = isLoading
-    self.isExpanded = isExpanded
+    self.isAlwaysExpanded = isAlwaysExpanded
+    self._isExpanded = State(initialValue: isAlwaysExpanded ? true : isExpanded)
   }
 
-  @State private var isExpanded: Bool
+  @State private var isExpanded: Bool = false
 
   public var body: some View {
     VStack(spacing: .zero) {
@@ -52,18 +55,21 @@ public struct ExpandableCardView<Content: View>: View {
               mainContent: header.mainContent,
               mainStyle: .bold,
               supportingText: header.supportingText,
-              trailingContent: nil
+              trailingContent: isAlwaysExpanded
+                ? nil
+                : .icon(
+                  isExpanded ? Theme.shared.image.chevronUp : Theme.shared.image.chevronDown
+                )
             ),
             mainTextVerticalPadding: mainTextVerticalPadding
           ) {
-            if !isLoading {
-              withAnimation {
-                isExpanded.toggle()
-              }
+            guard !isAlwaysExpanded, !isLoading else { return }
+            withAnimation {
+              isExpanded.toggle()
             }
           }
 
-          if isExpanded {
+          if isAlwaysExpanded || isExpanded {
             content()
           }
         }

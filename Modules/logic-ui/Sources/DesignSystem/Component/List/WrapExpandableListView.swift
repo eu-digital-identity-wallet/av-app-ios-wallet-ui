@@ -26,6 +26,7 @@ public struct WrapExpandableListView<T: Sendable>: View {
   private let hasHeader: Bool
   private let isLoading: Bool
   private let combineItemAccessibility: Bool
+  private let isAlwaysExpanded: Bool
 
   public init(
     header: ListItemData? = nil,
@@ -35,6 +36,7 @@ public struct WrapExpandableListView<T: Sendable>: View {
     hasHeader: Bool = true,
     isLoading: Bool = false,
     combineItemAccessibility: Bool = false,
+    isAlwaysExpanded: Bool = false,
     onItemClick: ((ListItemData) -> Void)? = nil
   ) {
     self.header = header
@@ -44,6 +46,7 @@ public struct WrapExpandableListView<T: Sendable>: View {
     self.hasHeader = hasHeader
     self.isLoading = isLoading
     self.combineItemAccessibility = combineItemAccessibility
+    self.isAlwaysExpanded = isAlwaysExpanded
     self.onItemClick = onItemClick
   }
 
@@ -55,7 +58,8 @@ public struct WrapExpandableListView<T: Sendable>: View {
             backgroundColor: backgroundColor,
             header: header,
             isLoading: isLoading,
-            isExpanded: true
+            isExpanded: true,
+            isAlwaysExpanded: isAlwaysExpanded
           ) {
             contentList()
           }

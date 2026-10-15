@@ -100,6 +100,7 @@ private func documents<RequestItem: Sendable>(
           backgroundColor: backgroundColor,
           hideSensitiveContent: false,
           isLoading: viewState.isLoading,
+          isAlwaysExpanded: true,
           onItemClick: { onSelectionChanged($0.groupId) }
         )
         .accessibilityElement()
