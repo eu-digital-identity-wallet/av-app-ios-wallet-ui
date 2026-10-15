@@ -252,31 +252,31 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Step %1$d of %2$d: %3$s"
+            "value": "Step %1$d of %2$d: %3$@"
           }
         },
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Schritt %1$d von %2$d: %3$s"
+            "value": "Schritt %1$d von %2$d: %3$@"
           }
         },
         "it": {
           "stringUnit": {
             "state": "translated",
-            "value": "Passaggio %1$d di %2$d: %3$s"
+            "value": "Passaggio %1$d di %2$d: %3$@"
           }
         },
         "da": {
           "stringUnit": {
             "state": "translated",
-            "value": "Trin %1$d af %2$d: %3$s"
+            "value": "Trin %1$d af %2$d: %3$@"
           }
         },
         "fr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Étape %1$d sur %2$d : %3$s"
+            "value": "Étape %1$d sur %2$d : %3$@"
           }
         }
       }
